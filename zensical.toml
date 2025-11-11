@@ -11,30 +11,30 @@
 # The site_name is shown in the page header and the browser window title
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_name
-site_name = "Documentation"
+site_name = "OmnyDocs"
 
 # The site_description is included in the HTML head and should contain a
 # meaningful description of the site content for use by search engines.
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_description
-site_description = "A new project generated from the default template project."
+site_description = "Cette documentation a pour vocation d’explorer et de transmettre les concepts fondamentaux de l’informatique à travers une approche claire, structurée et progressive. Elle couvre un large spectre de domaines — du développement web à l’administration système, en passant par la cybersécurité et le DevSecOps — afin d’offrir à chacun les bases nécessaires pour comprendre, apprendre et construire des solutions numériques solides et sécurisées."
 
 # The site_author attribute. This is used in the HTML head element.
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_author
-site_author = "<your name here>"
+site_author = "Alain GUILLON"
 
 # The site_url is the canonical URL for your site. When building online
 # documentation you should set this.
 # Read more: https://zensical.org/docs/setup/basics/#site_url
-#site_url = "https://www.example.com/"
+site_url = "https://omnydocs.netlify.app/"
 
 # The copyright notice appears in the page footer and can contain an HTML
 # fragment.
 #
 # Read more: https://zensical.org/docs/setup/basics/#copyright
 copyright = """
-Copyright &copy; 2025 The authors
+Copyright &copy; 2025/26 - Alain GUILLON
 """
 
 # Zensical supports both implicit navigation and explicitly defined navigation.
@@ -42,6 +42,7 @@ Copyright &copy; 2025 The authors
 # derive the navigation structure from the directory structure of your
 # "docs_dir". The definition below demonstrates how a navigation structure
 # can be defined using TOML syntax.
+docs_dir = "docs"
 #
 # Read more: https://zensical.org/docs/setup/navigation/
 # nav = [
@@ -73,7 +74,7 @@ extra_javascript = ["assets/javascript/extra.js"]
 [project.theme]
 
 # change this to "classic" to use the traditional Material for MkDocs look.
-variant = "modern"
+variant = "classic"
 
 # Zensical allows you to override specific blocks, partials, or whole
 # templates as well as to define your own templates. To do this, uncomment
@@ -94,7 +95,7 @@ custom_dir = "custom"
 # - https://zensical.org/docs/setup/logo-and-icons/#favicon
 # - https://developer.mozilla.org/en-US/docs/Glossary/Favicon
 #
-#favicon = "assets/images/favicon.png"
+favicon = "assets/images/favicon.png"
 
 # Zensical supports more than 60 different languages. This means that the
 # labels and tooltips that Zensical's templates produce are translated.
@@ -109,7 +110,7 @@ custom_dir = "custom"
 # Read more:
 # - https://zensical.org/docs/setup/language/
 #
-language = "en"
+language = "fr"
 
 # Zensical provides a number of feature toggles that change the behavior
 # of the documentation site.
@@ -258,15 +259,21 @@ features = [
 # Read more:
 # - https://zensical.org/docs/setup/colors/
 # ----------------------------------------------------------------------------
-[[project.theme.palette]]
+[[project.theme.palette]] 
+media = "(prefers-color-scheme: light)"
 scheme = "default"
 toggle.icon = "lucide/sun"
-toggle.name = "Switch to dark mode"
+toggle.name = "Change pour le mode sombre"
+primary = "purple"
+accent = "cyan"
 
 [[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
 scheme = "slate"
 toggle.icon = "lucide/moon"
-toggle.name = "Switch to light mode"
+toggle.name = "Change pour le mode clair"
+primary = "purple"
+accent = "cyan"
 
 # ----------------------------------------------------------------------------
 # In the "font" subsection you can configure the fonts used. By default, fonts
@@ -303,5 +310,3 @@ toggle.name = "Switch to light mode"
 #[[project.extra.social]]
 #icon = "fontawesome/brands/github"
 #link = "https://github.com/user/repo"
-
-
