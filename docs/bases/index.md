@@ -4,8 +4,6 @@ icon: lucide/rocket
 
 # Get started
 
-## ZEINAB C'EST LA MEILLEURE !!!
-
 For full documentation visit [zensical.org](https://zensical.org/docs/).
 
 ## Commands

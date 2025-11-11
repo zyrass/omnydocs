@@ -45,10 +45,69 @@ Copyright &copy; 2025/26 - Alain GUILLON
 docs_dir = "docs"
 #
 # Read more: https://zensical.org/docs/setup/navigation/
-# nav = [
-#   { "Get started" = "index.md" },
-#   { "Markdown in 5min" = "markdown.md" },
-# ]
+
+
+
+# Navigation principale
+nav = [
+
+
+
+    # Introduction générale
+    {"Accueil" = [
+        "home/index.md",
+        {"Préambule" = "home/preambule.md"},
+        {"Introduction" = "home/introduction.md"},
+    ]},
+
+    # Bases Informatique
+    {"Bases Informatique" = [
+        "bases/index.md",
+
+        # Fondamentaux techniques
+        {"Fondamentaux techniques" = [
+            "bases/fondamentaux/index.md",
+            {"Types Primitifs"              = "bases/fondamentaux/types-primitifs.md"},
+            {"Heap, Stack et Références"    = "bases/fondamentaux/heap-stack-references.md"},
+            {"Logique Booléenne"            = "bases/fondamentaux/logique-booleenne.md"},
+            {"Logique Conditionnelle"       = "bases/fondamentaux/logique-conditionnelle.md"}
+        ]},
+
+        # Outils essentiels
+        {"Outils de Développement" = [
+            "bases/outils/index.md",
+            {"Git" = [
+                # "bases/outils/git/index.md",
+                {"Commandes de base"        = "bases/outils/git/bases.md"},
+                {"Workflow Git"             = "bases/outils/git/workflow.md"},
+                {"Bonnes pratiques"         = "bases/outils/git/bonnes-pratiques.md"}
+            ]},
+            {"Markdown" = [
+                # "outils/markdown/index.md",
+                {"Les bases"                = "bases/outils/markdown/bases.md"},
+                {"Markdown avancé"          = "bases/outils/markdown/intermediaire.md"}
+            ]}
+        ]},
+
+        # Gestionnaires de paquets
+        {"Gestionnaires de Paquets Unix" = [
+            "bases/paquets/index.md",
+            {"APK Alpine"                   = "bases/paquets/apk-alpine.md"},
+            {"APT Debian/Ubuntu"            = "bases/paquets/apt-debian.md"},
+            {"PACMAN Arch"                  = "bases/paquets/pacman-arch.md"},
+            {"YUM RHEL Legacy"              = "bases/paquets/yum-rhel.md"},
+            {"DNF RHEL Moderne"             = "bases/paquets/dnf-rhel.md"}
+        ]},
+
+        # Concepts avancés
+        {"Concepts de Programmation" = [
+            "bases/concepts/index.md",
+            {"Principes SOLID"              = "bases/concepts/solid.md"},
+            {"Paradigmes de Programmation"  = "bases/concepts/paradigmes.md"},
+            {"Design Patterns"              = "bases/concepts/design-patterns.md"}
+        ]},
+    ]}
+]
 
 # With the "extra_css" option you can add your own CSS styling to customize
 # your Zensical project according to your needs. You can add any number of
@@ -66,12 +125,14 @@ extra_css = ["assets/stylesheets/extra.css"]
 # The path provided should be relative to the "docs_dir".
 #
 # Read more: https://zensical.org/docs/customization/#additional-javascript
-extra_javascript = ["assets/javascript/extra.js"]
+extra_javascript = ["assets/javascript/extra.js"] #, "assets/javascript/mermaid.mjs"]
 
 # ----------------------------------------------------------------------------
 # Section for configuring theme options
 # ----------------------------------------------------------------------------
 [project.theme]
+
+logo = "assets/logo-dark.png"
 
 # change this to "classic" to use the traditional Material for MkDocs look.
 variant = "classic"
@@ -165,12 +226,12 @@ features = [
     # With this feature enabled, Zensical will automatically hide parts
     # of the header when the user scrolls past a certain point.
     # https://zensical.org/docs/setup/header/#automatic-hiding
-    # "header.autohide",
+    "header.autohide",
 
     # Turn on this feature to expand all collapsible sections in the
     # navigation sidebar by default.
     # https://zensical.org/docs/setup/navigation/#navigation-expansion
-    # "navigation.expand",
+    "navigation.expand",
 
     # This feature turns on navigation elements in the footer that allow the
     # user to navigate to a next or previous page.
@@ -196,7 +257,7 @@ features = [
     # In order to provide a better user experience on slow connections when
     # using instant navigation, a progress indicator can be enabled.
     # https://zensical.org/docs/setup/navigation/#progress-indicator
-    #"navigation.instant.progress"
+    # "navigation.instant.progress",
 
     # When navigation paths are activated, a breadcrumb navigation is rendered
     # above the title of each page
@@ -206,7 +267,7 @@ features = [
     # When pruning is enabled, only the visible navigation items are included
     # in the rendered HTML, reducing the size of the built site by 33% or more.
     # https://zensical.org/docs/setup/navigation/#navigation-pruning
-    #"navigation.prune",
+    "navigation.prune",
 
     # When sections are enabled, top-level sections are rendered as groups in
     # the sidebar for viewports above 1220px, but remain as-is on mobile.
@@ -216,12 +277,12 @@ features = [
     # When tabs are enabled, top-level sections are rendered in a menu layer
     # below the header for viewports above 1220px, but remain as-is on mobile.
     # https://zensical.org/docs/setup/navigation/#navigation-tabs
-    #"navigation.tabs",
+    "navigation.tabs",
 
     # When sticky tabs are enabled, navigation tabs will lock below the header
     # and always remain visible when scrolling down.
     # https://zensical.org/docs/setup/navigation/#sticky-navigation-tabs
-    #"navigation.tabs.sticky",
+    "navigation.tabs.sticky",
 
     # A back-to-top button can be shown when the user, after scrolling down,
     # starts to scroll up again.
@@ -242,7 +303,7 @@ features = [
     # When anchor following for the table of contents is enabled, the sidebar
     # is automatically scrolled so that the active anchor is always visible.
     # https://zensical.org/docs/setup/navigation/#anchor-following
-    # "toc.follow"
+    "toc.follow",
 
     # When navigation integration for the table of contents is enabled, it is
     # always rendered as part of the navigation sidebar on the left.
@@ -264,7 +325,7 @@ media = "(prefers-color-scheme: light)"
 scheme = "default"
 toggle.icon = "lucide/sun"
 toggle.name = "Change pour le mode sombre"
-primary = "purple"
+primary = "deep purple"
 accent = "cyan"
 
 [[project.theme.palette]]
@@ -272,7 +333,7 @@ media = "(prefers-color-scheme: dark)"
 scheme = "slate"
 toggle.icon = "lucide/moon"
 toggle.name = "Change pour le mode clair"
-primary = "purple"
+primary = "deep purple"
 accent = "cyan"
 
 # ----------------------------------------------------------------------------
@@ -281,9 +342,9 @@ accent = "cyan"
 # of suitably licensed fonts. There are options for a normal text font and for
 # a monospaced font used in code blocks.
 # ----------------------------------------------------------------------------
-#[project.theme.font]
-#text = "Inter"
-#code = "Jetbrains Mono"
+[project.theme.font]
+text = "Inter"
+code = "Jetbrains Mono"
 
 # ----------------------------------------------------------------------------
 # You can configure your own logo to be shown in the header using the "logo"
@@ -303,10 +364,82 @@ accent = "cyan"
 #[project.theme.icon]
 #logo = "lucide/smile"
 #repo = "lucide/smile"
-
 # ----------------------------------------------------------------------------
 # The "extra" section contains miscellaneous settings.
 # ----------------------------------------------------------------------------
-#[[project.extra.social]]
-#icon = "fontawesome/brands/github"
-#link = "https://github.com/user/repo"
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/zyrass/omnydocs"
+
+
+# GOOGLE ANALYTICS
+[project.theme.icon]
+previous    =   "lucide/square-arrow-left"
+next        =   "lucide/square-arrow-right"
+
+
+[project.extra.consent]
+title = "Consentement aux cookies"
+description = """
+    Nous utilisons des cookies afin de reconnaître vos visites récurrentes et vos préférences, d’évaluer l’efficacité de notre documentation et de mieux comprendre si vous trouvez les informations que vous recherchez. Avec votre accord, ces données nous aident à améliorer continuellement la qualité et la pertinence de notre contenu.
+"""
+actions = [
+    "accept",
+    "manage" 
+]
+
+[project.extra]
+generator = true # Permettre de faire connaître le projet
+
+# Configuration recommandé pour utiliser le Markdown
+[project.markdown_extensions.abbr]
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.def_list]
+[project.markdown_extensions.footnotes]
+[project.markdown_extensions.md_in_html]
+[project.markdown_extensions.toc]
+permalink = true
+[project.markdown_extensions.pymdownx.arithmatex]
+generic = true
+[project.markdown_extensions.pymdownx.betterem]
+smart_enable = "all"
+[project.markdown_extensions.pymdownx.caret]
+[project.markdown_extensions.pymdownx.details]
+[project.markdown_extensions.pymdownx.emoji]
+emoji_generator = "zensical.extensions.emoji.to_svg"
+emoji_index = "zensical.extensions.emoji.twemoji"
+
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+line_spans = "__span"
+pygments_lang_class = true
+
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.pymdownx.snippets]
+
+[project.markdown_extensions.pymdownx.keys]
+[project.markdown_extensions.pymdownx.mark]
+[project.markdown_extensions.pymdownx.smartsymbols]
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }
+]
+
+# [project.markdown_extensions.pymdownx.superfences.custom_fences]
+# name = "mermaid"
+# class = "mermaid"
+# format = "pymdownx.superfences.fence_code_format"
+
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
+[project.markdown_extensions.pymdownx.tasklist]
+custom_checkbox = true
+[project.markdown_extensions.pymdownx.tilde]
+
+
+# Création de différents types de status
+[project.extra.status]
+new             =   "Nouveautée"
+edit            =   "En cours de réécriture"
+deprecated      =   "Déprécié - Suppression à venir prochainement"
