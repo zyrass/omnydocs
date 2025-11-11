@@ -4,17 +4,19 @@ icon: lucide/rocket
 
 # Get started
 
+## ZEINAB C'EST LA MEILLEURE !!!
+
 For full documentation visit [zensical.org](https://zensical.org/docs/).
 
 ## Commands
 
-* [`zensical new`][new] - Create a new project
-* [`zensical serve`][serve] - Start local web server
-* [`zensical build`][build] - Build your site
+-   [`zensical new`][new] - Create a new project
+-   [`zensical serve`][serve] - Start local web server
+-   [`zensical build`][build] - Build your site
 
-  [new]: https://zensical.org/docs/usage/new/
-  [serve]: https://zensical.org/docs/usage/preview/
-  [build]: https://zensical.org/docs/usage/build/
+    [new]: https://zensical.org/docs/usage/new/
+    [serve]: https://zensical.org/docs/usage/preview/
+    [build]: https://zensical.org/docs/usage/build/
 
 ## Examples
 
@@ -35,7 +37,7 @@ For full documentation visit [zensical.org](https://zensical.org/docs/).
 > Go to [documentation](https://zensical.org/docs/authoring/admonitions/#collapsible-blocks)
 
 ??? info "Click to expand for more info"
-    
+
     This content is hidden until you click to expand it.
     Great for FAQs or long explanations.
 
@@ -43,7 +45,7 @@ For full documentation visit [zensical.org](https://zensical.org/docs/).
 
 > Go to [documentation](https://zensical.org/docs/authoring/code-blocks/)
 
-``` python hl_lines="2" title="Code blocks"
+```python hl_lines="2" title="Code blocks"
 def greet(name):
     print(f"Hello, {name}!") # (1)!
 
@@ -76,7 +78,7 @@ Code can also be highlighted inline: `#!python print("Hello, Python!")`.
 
 > Go to [documentation](https://zensical.org/docs/authoring/diagrams/)
 
-``` mermaid
+```mermaid
 graph LR
   A[Start] --> B{Error?};
   B -->|Yes| C[Hmm...];
@@ -95,27 +97,26 @@ Hover it, to see a tooltip.
 
 [^1]: This is the footnote.
 
-
 ## Formatting
 
 > Go to [documentation](https://zensical.org/docs/authoring/formatting/)
 
-- ==This was marked (highlight)==
-- ^^This was inserted (underline)^^
-- ~~This was deleted (strikethrough)~~
-- H~2~O
-- A^T^A
-- ++ctrl+alt+del++
+-   ==This was marked (highlight)==
+-   ^^This was inserted (underline)^^
+-   ~~This was deleted (strikethrough)~~
+-   H~2~O
+-   A^T^A
+-   ++ctrl+alt+del++
 
 ## Icons, Emojis
 
 > Go to [documentation](https://zensical.org/docs/authoring/icons-emojis/)
 
-* :sparkles: `:sparkles:`
-* :rocket: `:rocket:`
-* :tada: `:tada:`
-* :memo: `:memo:`
-* :eyes: `:eyes:`
+-   :sparkles: `:sparkles:`
+-   :rocket: `:rocket:`
+-   :tada: `:tada:`
+-   :memo: `:memo:`
+-   :eyes: `:eyes:`
 
 ## Maths
 
@@ -126,11 +127,11 @@ $$
 $$
 
 !!! warning "Needs configuration"
-    Note that MathJax is included via a `script` tag on this page and is not
-    configured in the generated default configuration to avoid including it
-    in a pages that do not need it. See the documentation for details on how
-    to configure it on all your pages if they are more Maths-heavy than these
-    simple starter pages.
+Note that MathJax is included via a `script` tag on this page and is not
+configured in the generated default configuration to avoid including it
+in a pages that do not need it. See the documentation for details on how
+to configure it on all your pages if they are more Maths-heavy than these
+simple starter pages.
 
 <script id="MathJax-script" async src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
@@ -152,10 +153,10 @@ $$
 
 > Go to [documentation](https://zensical.org/docs/authoring/lists/#using-task-lists)
 
-* [x] Install Zensical
-* [x] Configure `zensical.toml`
-* [x] Write amazing documentation
-* [ ] Deploy anywhere
+-   [x] Install Zensical
+-   [x] Configure `zensical.toml`
+-   [x] Write amazing documentation
+-   [ ] Deploy anywhere
 
 ## Tooltips
 
@@ -163,4 +164,4 @@ $$
 
 [Hover me][example]
 
-  [example]: https://example.com "I'm a tooltip!"
+[example]: https://example.com "I'm a tooltip!"
