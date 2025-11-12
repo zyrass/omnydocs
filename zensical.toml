@@ -51,14 +51,14 @@ docs_dir = "docs"
 # Navigation principale
 nav = [
 
-
-
-    # Introduction générale
+    # Page d'accueil racine + Introduction générale
     {"Accueil" = [
-        "home/index.md",
+        "index.md",
         {"Préambule" = "home/preambule.md"},
         {"Introduction" = "home/introduction.md"},
     ]},
+
+
 
     # Bases Informatique
     {"Bases Informatique" = [
@@ -76,22 +76,50 @@ nav = [
         # Outils essentiels
         {"Outils de Développement" = [
             "bases/outils/index.md",
+            {"Expressions régulières" = "bases/outils/regex.md"},
+
+            {"Environnements Virtuels" = [
+                # "bases/outils/environnement-virtuel/index.md",
+                {"WSL"              = "bases/outils/environnement-virtuel/wsl.md"},
+                {"NVM"              = "bases/outils/environnement-virtuel/nvm.md"},
+                {"VENV"             = "bases/outils/environnement-virtuel/venv.md"},
+                {"VirtualBox"       = "bases/outils/environnement-virtuel/virtualbox.md"},
+                {"Vagrant"          = "bases/outils/environnement-virtuel/vagrant.md"},
+                {"VBoxManage CLI"   = "bases/outils/environnement-virtuel/vboxmanage.md"},
+            ]},
+
             {"Git" = [
-                # "bases/outils/git/index.md",
                 {"Commandes de base"        = "bases/outils/git/bases.md"},
                 {"Workflow Git"             = "bases/outils/git/workflow.md"},
                 {"Bonnes pratiques"         = "bases/outils/git/bonnes-pratiques.md"}
             ]},
+
+            {"GitHub" = [
+                {"Fondamentaux GitHub" = "bases/outils/github/bases.md"}
+            ]},
+
             {"Markdown" = [
-                # "outils/markdown/index.md",
                 {"Les bases"                = "bases/outils/markdown/bases.md"},
                 {"Markdown avancé"          = "bases/outils/markdown/intermediaire.md"}
-            ]}
+            ]},
+
+            {"Terminaux et Shells" = [
+                {"Bash" = "bases/outils/terminaux/bash.md"},
+                {"PowerShell" = "bases/outils/terminaux/powershell.md"},
+                {"Zsh" = "bases/outils/terminaux/zsh.md"}
+            ]},
+
+            {"Visual Studio Code" = [
+                {"Configuration" = "bases/outils/vscode/config.md"},
+                {"Extensions essentielles" = "bases/outils/vscode/liste-extensions.md"},
+                {"Snippets personnalisés" = "bases/outils/vscode/snippet.md"}
+            ]},
+
+            
         ]},
 
         # Gestionnaires de paquets
         {"Gestionnaires de Paquets Unix" = [
-            "bases/paquets/index.md",
             {"APK Alpine"                   = "bases/paquets/apk-alpine.md"},
             {"APT Debian/Ubuntu"            = "bases/paquets/apt-debian.md"},
             {"PACMAN Arch"                  = "bases/paquets/pacman-arch.md"},
@@ -99,12 +127,30 @@ nav = [
             {"DNF RHEL Moderne"             = "bases/paquets/dnf-rhel.md"}
         ]},
 
+        # Réseaux et protocoles
+        {"Réseaux et Protocoles" = [
+            {"Modèle OSI" = "bases/reseaux/modele-osi.md"},
+            {"Modèle TCP/IP" = "bases/reseaux/modele-tcp.md"},
+            {"Liste des protocoles" = "bases/reseaux/liste-protocoles.md"}
+        ]},
+
+        # Formats de données
+        {"Structures de Données" = [
+            {"JSON" = "bases/structure-donnees/json.md"},
+            {"YAML" = "bases/structure-donnees/yml.md"},
+            {"XML" = "bases/structure-donnees/xml.md"},
+            {"CSV" = "bases/structure-donnees/csv.md"}
+        ]},
+
         # Concepts avancés
         {"Concepts de Programmation" = [
-            "bases/concepts/index.md",
-            {"Principes SOLID"              = "bases/concepts/solid.md"},
-            {"Paradigmes de Programmation"  = "bases/concepts/paradigmes.md"},
-            {"Design Patterns"              = "bases/concepts/design-patterns.md"}
+            {"Architecture Unix" = "bases/concepts/architecture-unix.md"},
+            {"Principes SOLID" = "bases/concepts/solid.md"},
+            {"Paradigmes de Programmation" = "bases/concepts/paradigmes.md"},
+            {"Design Patterns" = "bases/concepts/design-patterns.md"},
+            {"Encodage des caractères" = "bases/concepts/encodage.md"},
+            {"Variables d'environnement" = "bases/concepts/variables-environnements.md"},
+            {"Liste des codes d'erreur" = "bases/concepts/liste-code-erreur.md"}
         ]},
     ]}
 ]
