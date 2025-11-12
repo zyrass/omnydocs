@@ -58,7 +58,7 @@ _La **Stack** est comme votre bureau : accès rapide mais espace limité.
 Le **Heap** est comme votre grenier : beaucoup de place mais plus lent à accéder.  
 Les **types primitifs vivent dans la Stack** pour être **ultra-rapides** !_
 
-!!! tip "Elle sera détaillé dans la documentation suivante incluant la référence par la même occasion."
+!!! tip "Elle sera détaillée dans la documentation suivante incluant la référence par la même occasion."
 
 ## Tour d'horizon par langage
 
