@@ -1,6 +1,6 @@
----
-description: "à éditer"
-# icon: lucide/book-check
----
+  ---
+  description: "à éditer"
+  # icon: lucide/book-check
+  ---
 
-# Concepts
+  # Concepts
