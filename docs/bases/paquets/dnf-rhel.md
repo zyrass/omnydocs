@@ -1,1 +1,6 @@
-# DNF RHEL Moderne
+---
+description: "à éditer"
+icon: lucide/book-open-check
+---
+
+# Gestionnaire pour Redhat (DNF RHEL)
