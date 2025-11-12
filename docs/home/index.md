@@ -8,7 +8,7 @@ icon: lucide/house
 
 # Bienvenue sur OmnyDocs
 
-OmnyDocs constitue le l**aboratoire d'expertise technique d'OmnyVia**, une plateforme pédagogique où l'apprentissage structuré et l'excellence technique convergent pour créer des parcours de formation professionnels et accessibles.
+OmnyDocs constitue le **laboratoire d'expertise technique d'OmnyVia**, une plateforme pédagogique où l'apprentissage structuré et l'excellence technique convergent pour créer des parcours de formation professionnels et accessibles.
 
 > Cette documentation technique **intégralement rédigée en français** s'inscrit dans une démarche de _souveraineté numérique_ et d'_accessibilité_. 
 
