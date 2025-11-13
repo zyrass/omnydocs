@@ -47,119 +47,581 @@ docs_dir = "docs"
 # Read more: https://zensical.org/docs/setup/navigation/
 
 
-
-# Navigation principale
+# ===========================================================================
+# NAVIGATION PRINCIPALE
+# ===========================================================================
 nav = [
 
-    # Page d'accueil racine + Introduction générale
+    # -----------------------------------------------------------------------
+    # 0 — Accueil
+    # -----------------------------------------------------------------------
     {"Accueil" = [
         "index.md",
-        {"Préambule" = "home/preambule.md"},
-        {"Introduction" = "home/introduction.md"},
+        {"Préambule"   = "home/preambule.md"},
+        {"Introduction"= "home/introduction.md"},
     ]},
 
 
-
-    # Bases Informatique
+    # -----------------------------------------------------------------------
+    # 1 — Bases Informatique (TRANSVERSE)
+    # -----------------------------------------------------------------------
     {"Bases Informatique" = [
         "bases/index.md",
 
-        # Fondamentaux techniques
         {"Fondamentaux techniques" = [
             "bases/fondamentaux/index.md",
-            {"Types Primitifs"              = "bases/fondamentaux/types-primitifs.md"},
-            {"Heap, Stack et Références"    = "bases/fondamentaux/heap-stack-references.md"},
-            {"Logique Booléenne"            = "bases/fondamentaux/logique-booleenne.md"},
-            {"Logique Conditionnelle"       = "bases/fondamentaux/logique-conditionnelle.md"}
+            {"Types Primitifs"            = "bases/fondamentaux/types-primitifs.md"},
+            {"Heap, Stack et Références"  = "bases/fondamentaux/heap-stack-references.md"},
+            {"Logique Booléenne"          = "bases/fondamentaux/logique-booleenne.md"},
+            {"Logique Conditionnelle"     = "bases/fondamentaux/logique-conditionnelle.md"}
         ]},
 
-        # Outils essentiels
-        {"Outils de Développement" = [
-            "bases/outils/index.md",
-            {"Expressions régulières" = "bases/outils/regex.md"},
+        # {"Outils de Développement" = [
+        #     "bases/outils/index.md",
+        #     {"Expressions régulières" = "bases/outils/regex.md"},
 
-            {"Environnements Virtuels" = [
-                # "bases/outils/environnement-virtuel/index.md",
-                {"WSL"              = "bases/outils/environnement-virtuel/wsl.md"},
-                {"NVM"              = "bases/outils/environnement-virtuel/nvm.md"},
-                {"VENV"             = "bases/outils/environnement-virtuel/venv.md"},
-                {"VirtualBox"       = "bases/outils/environnement-virtuel/virtualbox.md"},
-                {"Vagrant"          = "bases/outils/environnement-virtuel/vagrant.md"},
-                {"VBoxManage CLI"   = "bases/outils/environnement-virtuel/vboxmanage.md"},
-            ]},
+        #     {"📁 Environnements Virtu." = [
+        #         # canonique ici (installation, notions, CLI de base)
+        #         {"WSL"            = "bases/outils/environnement-virtuel/wsl.md"},
+        #         {"NVM"            = "bases/outils/environnement-virtuel/nvm.md"},
+        #         {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},
+        #         {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},
+        #         {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},
+        #         {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"},
+        #     ]},
 
-            {"Git" = [
-                {"Commandes de base"        = "bases/outils/git/bases.md"},
-                {"Workflow Git"             = "bases/outils/git/workflow.md"},
-                {"Bonnes pratiques"         = "bases/outils/git/bonnes-pratiques.md"}
-            ]},
+        #     {"📁 Git" = [
+        #         {"Commandes de base" = "bases/outils/git/bases.md"},
+        #         {"Workflow Git"      = "bases/outils/git/workflow.md"},
+        #         {"Bonnes pratiques"  = "bases/outils/git/bonnes-pratiques.md"}
+        #     ]},
 
-            {"GitHub" = [
-                {"Fondamentaux GitHub" = "bases/outils/github/bases.md"}
-            ]},
+        #     {"📁 GitHub" = [
+        #         {"Fondamentaux GitHub" = "bases/outils/github/bases.md"}
+        #     ]},
 
-            {"Markdown" = [
-                {"Les bases"                = "bases/outils/markdown/bases.md"},
-                {"Markdown avancé"          = "bases/outils/markdown/intermediaire.md"}
-            ]},
+        #     {"📁 Markdown" = [
+        #         {"Les bases"       = "bases/outils/markdown/bases.md"},
+        #         {"Markdown avancé" = "bases/outils/markdown/intermediaire.md"}
+        #     ]},
 
-            {"Terminaux et Shells" = [
-                {"Bash" = "bases/outils/terminaux/bash.md"},
-                {"PowerShell" = "bases/outils/terminaux/powershell.md"},
-                {"Zsh" = "bases/outils/terminaux/zsh.md"}
-            ]},
+        #     {"📁 Terminaux et Shells" = [
+        #         {"Bash"       = "bases/outils/terminaux/bash.md"},
+        #         {"PowerShell" = "bases/outils/terminaux/powershell.md"},
+        #         {"Zsh"        = "bases/outils/terminaux/zsh.md"}
+        #     ]},
 
-            {"Visual Studio Code" = [
-                {"Configuration" = "bases/outils/vscode/config.md"},
-                {"Extensions essentielles" = "bases/outils/vscode/liste-extensions.md"},
-                {"Snippets personnalisés" = "bases/outils/vscode/snippet.md"}
-            ]},
+        #     {"📁 Visual Studio Code" = [
+        #         {"Configuration"           = "bases/outils/vscode/config.md"},
+        #         {"Extensions essentielles" = "bases/outils/vscode/liste-extensions.md"},
+        #         {"Snippets personnalisés"  = "bases/outils/vscode/snippet.md"}
+        #     ]},
+        # ]},
 
-            
-        ]},
+        # {"Gestionnaires de Paquets Unix" = [
+        #     {"APK Alpine"        = "bases/paquets/apk-alpine.md"},
+        #     {"APT Debian/Ubuntu" = "bases/paquets/apt-debian.md"},
+        #     {"PACMAN Arch"       = "bases/paquets/pacman-arch.md"},
+        #     {"YUM RHEL Legacy"   = "bases/paquets/yum-rhel.md"},
+        #     {"DNF RHEL Moderne"  = "bases/paquets/dnf-rhel.md"}
+        # ]},
 
-        # Gestionnaires de paquets
-        {"Gestionnaires de Paquets Unix" = [
-            {"APK Alpine"                   = "bases/paquets/apk-alpine.md"},
-            {"APT Debian/Ubuntu"            = "bases/paquets/apt-debian.md"},
-            {"PACMAN Arch"                  = "bases/paquets/pacman-arch.md"},
-            {"YUM RHEL Legacy"              = "bases/paquets/yum-rhel.md"},
-            {"DNF RHEL Moderne"             = "bases/paquets/dnf-rhel.md"}
-        ]},
+        # {"Réseaux et Protocoles" = [
+        #     {"Modèle OSI"         = "bases/reseaux/modele-osi.md"},
+        #     {"Modèle TCP/IP"      = "bases/reseaux/modele-tcp.md"},
+        #     {"Sockets & Serveurs"  = "bases/reseaux/sockets-serveurs.md"},
+        #     {"HTTP – Méthodes"     = "bases/reseaux/http-methodes.md"},
+        #     {"DNS – Notions"       = "bases/reseaux/dns-notions.md"},
+        #     {"Liste des protocoles"= "bases/reseaux/liste-protocoles.md"}
+        # ]},
 
-        # Réseaux et protocoles
-        {"Réseaux et Protocoles" = [
-            {"Modèle OSI" = "bases/reseaux/modele-osi.md"},
-            {"Modèle TCP/IP" = "bases/reseaux/modele-tcp.md"},
-            {"Liste des protocoles" = "bases/reseaux/liste-protocoles.md"}
-        ]},
+        # {"Structures de Données" = [
+        #     {"JSON" = "bases/structure-donnees/json.md"},
+        #     {"YAML" = "bases/structure-donnees/yml.md"},
+        #     {"XML"  = "bases/structure-donnees/xml.md"},
+        #     {"CSV"  = "bases/structure-donnees/csv.md"}
+        # ]},
 
-        # Formats de données
-        {"Structures de Données" = [
-            {"JSON" = "bases/structure-donnees/json.md"},
-            {"YAML" = "bases/structure-donnees/yml.md"},
-            {"XML" = "bases/structure-donnees/xml.md"},
-            {"CSV" = "bases/structure-donnees/csv.md"}
-        ]},
+        # {"Concepts de Prog." = [
+        #     "bases/concepts/index.md",
+        #     {"Architecture Unix"          = "bases/concepts/architecture-unix.md"},
+        #     {"Principes SOLID"            = "bases/concepts/solid.md"},
+        #     {"Paradigmes de Programmation"= "bases/concepts/paradigmes.md"},
+        #     {"Design Patterns"            = "bases/concepts/design-patterns.md"},
+        #     {"Encodage des caractères"    = "bases/concepts/encodage.md"},
+        #     {"Variables d'environnement"  = "bases/concepts/variables-environnements.md"},
+        #     {"Liste des codes d'erreur"   = "bases/concepts/liste-code-erreur.md"}
+        # ]},
 
-        # Concepts avancés
-        {"Concepts de Prog." = [
-            "bases/concepts/index.md",
-            {"Architecture Unix" = "bases/concepts/architecture-unix.md"},
-            {"Principes SOLID" = "bases/concepts/solid.md"},
-            {"Paradigmes de Programmation" = "bases/concepts/paradigmes.md"},
-            {"Design Patterns" = "bases/concepts/design-patterns.md"},
-            {"Encodage des caractères" = "bases/concepts/encodage.md"},
-            {"Variables d'environnement" = "bases/concepts/variables-environnements.md"},
-            {"Liste des codes d'erreur" = "bases/concepts/liste-code-erreur.md"}
-        ]},
+        # {"Cryptographie & PKI" = [
+        #     "bases/crypto/index.md",
+        #     {"OpenSSL" = "bases/crypto/openssl.md"},
+        #     {"GPG"     = "bases/crypto/gpg.md"},
+        #     {"PKI"     = "bases/crypto/pki.md"}
+        # ]}
     ]},
 
-    # Glossaire
-    {"Glossaire" = [
-        "glossaire/index.md",
-    ]}
+
+    # -----------------------------------------------------------------------
+    # 2 — Systèmes & Réseaux (spécialisé infra)
+    # -----------------------------------------------------------------------
+    # {"Systèmes & Réseaux" = [
+    #     "sys-reseau/index.md",
+
+    #     {"Linux" = [
+    #         "sys-reseau/linux/index.md",
+    #         {"Administration"     = "sys-reseau/linux/admin.md"},
+    #         {"Services & Daemons" = "sys-reseau/linux/services-daemons.md"},
+    #         {"📁 Sécurité (host)"           = [
+    #             "sys-reseau/linux/security/index.md",
+    #             {"fail2ban"   = "sys-reseau/linux/security/fail2ban.md"},
+    #             {"ufw"        = "sys-reseau/linux/security/ufw.md"},
+    #             {"ClamAV"     = "sys-reseau/linux/security/clamav.md"},
+    #             {"Lynis"      = "sys-reseau/linux/security/lynis.md"},
+    #             {"Chkrootkit" = "sys-reseau/linux/security/chkrootkit.md"},
+    #         ]},
+    #     ]},
+
+    #     {"Windows" = [
+    #         "sys-reseau/windows/index.md",
+    #         {"AD & GPO"     = "sys-reseau/windows/ad-gpo.md"},
+    #         {"Durcissement" = "sys-reseau/windows/hardening.md"}
+    #     ]},
+
+    #     {"Réseaux" = [
+    #         "sys-reseau/network/index.md",
+    #         {"📁 Outils & Analyse" = [
+    #             "sys-reseau/network/outils/index.md",
+    #             {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},
+    #             {"netstat"  = "sys-reseau/network/outils/netstat.md"},
+    #             {"scapy"    = "sys-reseau/network/outils/scapy.md"},
+    #             {"nslookup" = "sys-reseau/network/outils/nslookup.md"}
+    #         ]},
+    #         {"📁 Services réseau" = [
+    #             "sys-reseau/network/services/index.md",
+    #             {"SSH"    = "sys-reseau/network/services/ssh.md"},
+    #             {"FTP"    = "sys-reseau/network/services/ftp.md"},
+    #             {"DNS"    = "sys-reseau/network/services/dns.md"},
+    #             {"Samba"  = "sys-reseau/network/services/samba.md"},
+    #             {"LDAP & PAM" = "sys-reseau/network/services/ldap-pam.md"}
+    #         ]},
+    #         {"📁 Sécurité périmétrique" = [
+    #             "sys-reseau/network/security/index.md",
+    #             {"pfSense"  = "sys-reseau/network/security/pfsense.md"},
+    #             {"WAF"      = "sys-reseau/network/security/waf.md"},
+    #             {"OpenVPN"  = "sys-reseau/network/security/openvpn.md"},
+    #             {"HAProxy"  = "sys-reseau/network/security/haproxy.md"}
+    #         ]}
+    #     ]},
+
+    #     {"Virtualisation (HyperV.)" = [
+    #         "sys-reseau/virtualisation/index.md",
+    #         {"Panorama Virtualisation"      = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},
+    #         {"KVM / Proxmox"                = "sys-reseau/virtualisation/kvm-proxmox.md"},
+    #         {"QEMU"                         = "sys-reseau/virtualisation/qemu.md"}
+    #     ]},
+
+    #     {"Stockage & Sauvegarde" = [
+    #         "sys-reseau/storage/index.md",
+    #         {"RAID & Filesystems" = "sys-reseau/storage/raid-fs.md"},
+    #         {"Sauvegarde & PRA"   = "sys-reseau/storage/backup-pra.md"},
+    #         {"Amanda (Backup)"    = "sys-reseau/storage/amanda.md"},
+    #     ]},
+
+    #     {"Supervision" = [
+    #         "sys-reseau/observabilite/index.md",
+    #         {"Logs & Journaux"   = "sys-reseau/observabilite/logs.md"},
+    #         {"Monitoring (intro)"= "sys-reseau/observabilite/monitoring.md"},
+    #         {"ntop/ntopng"       = "sys-reseau/observabilite/ntop.md"}
+    #     ]},
+    # ]},
+
+
+    # -----------------------------------------------------------------------
+    # 3 — Développement & Cloud
+    # -----------------------------------------------------------------------
+    # {"Développement & Cloud" = [
+    #     "dev-cloud/index.md",
+
+    #     {"Langages" = [
+    #         "dev-cloud/lang/index.md",
+    #         {"📁 Python"     = [
+    #             "dev-cloud/lang/python/index.md",
+    #             {"Fondamentaux" = "dev-cloud/lang/python/fondamentaux.md"},
+    #             {"Avancé"       = "dev-cloud/lang/python/avance.md"}
+    #         ]},
+    #         {"📁 JavaScript" = [
+    #             "dev-cloud/lang/js/index.md",
+    #             {"Fondamentaux" = "dev-cloud/lang/js/fondamentaux.md"},
+    #             {"Avancé"       = "dev-cloud/lang/js/avance.md"}
+    #         ]},
+    #         {"📁 TypeScript" = [
+    #             "dev-cloud/lang/ts/index.md",
+    #             {"Fondamentaux" = "dev-cloud/lang/ts/fondamentaux.md"},
+    #             {"Avancé"       = "dev-cloud/lang/ts/avance.md"}
+    #         ]},
+    #         {"📁 PHP" = [
+    #             "dev-cloud/lang/php/index.md",
+    #             {"Fondamentaux" = "dev-cloud/lang/php/fondamentaux.md"},
+    #             {"Avancé"       = "dev-cloud/lang/php/avance.md"}
+    #         ]},
+    #         {"📁 Go" = [
+    #             "dev-cloud/lang/go/index.md",
+    #             {"Fondamentaux" = "dev-cloud/lang/go/fondamentaux.md"},
+    #             {"Avancé"       = "dev-cloud/lang/go/avance.md"}
+    #         ]},
+    #         {"📁 Bash" = [
+    #             "dev-cloud/lang/bash/index.md",
+    #             {"Fondamentaux" = "dev-cloud/lang/bash/fondamentaux.md"},
+    #             {"Avancé"       = "dev-cloud/lang/bash/avance.md"}
+    #         ]},
+    #         {"📁 Angular" = [
+    #             "dev-cloud/lang/angular/index.md",
+    #             {"Fondamentaux" = "dev-cloud/lang/angular/fondamentaux.md"},
+    #             {"Avancé"       = "dev-cloud/lang/angular/avance.md"}
+    #         ]},
+    #         {"📁 Laravel" = [
+    #             "dev-cloud/lang/laravel/index.md",
+    #             {"Fondamentaux" = "dev-cloud/lang/laravel/fondamentaux.md"},
+    #             {"Avancé"       = "dev-cloud/lang/laravel/avance.md"}
+    #         ]},
+    #     ]},
+
+    #     {"Stacks" = [
+    #         "dev-cloud/frameworks/index.md",
+    #         {"📁 MEAN" = ["dev-cloud/frameworks/mean/index.md"]},
+    #         {"📁 TALL" = ["dev-cloud/frameworks/tall/index.md"]},
+    #     ]},
+
+    #     {"Architecture & API" = [
+    #         "dev-cloud/architecture/index.md",
+    #         {"API REST"           = "dev-cloud/architecture/api-rest.md"},
+    #         {"Clean Architecture" = "dev-cloud/architecture/clean-architecture.md"},
+    #         {"Patterns d’architecture (pratique)" = "dev-cloud/architecture/patterns-pratiques.md"},
+    #     ]},
+
+    #     {"📁 Data" = [
+    #         "dev-cloud/data/index.md",
+    #         {"MariaDB & MySQL"  = "dev-cloud/data/sql.md"},
+    #         {"NoSQL"            = "dev-cloud/data/nosql.md"},
+    #         {"GraphQL"          = "dev-cloud/data/graphql.md"},
+    #         {"SQLite"           = "dev-cloud/data/sqlite.md"}
+    #     ]},
+
+    #     {"Cloud Providers" = [
+    #         "dev-cloud/cloud/index.md",
+    #         {"AWS"   = "dev-cloud/cloud/aws/index.md"},
+    #         {"Azure" = "dev-cloud/cloud/azure/index.md"}
+    #     ]},
+
+    #     {"Tests & Qualité" = [
+    #         "dev-cloud/tests-qualite/index.md",
+    #         {"TDD"                     = "dev-cloud/tests-qualite/tdd.md"},
+    #         {"Unitaires & Intégration" = "dev-cloud/tests-qualite/unit-integ.md"},
+    #         {"Contrats & E2E"          = "dev-cloud/tests-qualite/contrats-e2e.md"}
+    #     ]},
+    # ]},
+
+
+    # -----------------------------------------------------------------------
+    # 4 — DevSecOps (pipeline, IaC, AppSec)
+    # -----------------------------------------------------------------------
+    # {"DevSecOps" = [
+    #     "devsecops/index.md",
+
+    #     {"Culture & Pratiques" = [
+    #         "devsecops/culture/index.md",
+    #         {"CALMS (piliers DevOps)" = "devsecops/culture/calms.md"}
+    #     ]},
+
+    #     {"CI/CD" = [
+    #         "devsecops/cicd/index.md",
+    #         {"GitHub Actions" = "devsecops/cicd/github-actions.md"},
+    #         {"GitLab CI/CD"   = "devsecops/cicd/gitlab-cicd.md"},
+    #         {"Jenkins"        = "devsecops/cicd/jenkins.md"}
+    #     ]},
+
+    #     {"IaC & Automatisation" = [
+    #         "devsecops/iac/index.md",
+    #         {"Terraform / OpenTofu" = "devsecops/iac/terraform.md"},
+    #         {"Ansible"              = "devsecops/iac/ansible.md"}
+    #     ]},
+
+    #     {"Conteneurs & Orchestration" = [
+    #         "devsecops/containers/index.md",
+    #         {"📁 Docker" = [
+    #             {"Docker (Moteur)"         = "devsecops/containers/docker/docker.md"},
+    #             {"Docker Compose"          = "devsecops/containers/docker/compose.md"},
+    #             {"Docker Swarm"            = "devsecops/containers/docker/swarm.md"},
+    #             {"Tableau comparatif (Docker/Compose/Swarm)" = "devsecops/containers/docker/tableau-comparatif.md"},
+    #         ]},
+    #         {"Kubernetes"              = "devsecops/containers/kubernetes.md"},
+    #         {"Helm"                    = "devsecops/containers/helm.md"}
+    #     ]},
+
+    #     {"Sécurité Applicative" = [
+    #         "devsecops/appsec/index.md",
+    #         {"AuthN/AuthZ & JWT"  = "devsecops/appsec/jwt-auth.md"},
+    #         {"SAST"               = "devsecops/appsec/sast.md"},
+    #         {"DAST"               = "devsecops/appsec/dast.md"},
+    #         {"SCA (dépendances)"  = "devsecops/appsec/sca.md"},
+    #         {"Rate Limiting & RBAC" = "devsecops/appsec/rate-rbac.md"}
+    #     ]},
+
+    #     {"Secrets & Vault" = [
+    #         "devsecops/secrets/index.md",
+    #         {"Vault (HashiCorp)" = "devsecops/secrets/vault.md"}
+    #     ]},
+
+    #     {"Observabilité & Sécurité" = [
+    #         "devsecops/obs-sec/index.md",
+    #         {"Intégrations IDS/IPS"     = "devsecops/obs-sec/ids-hooks.md"},
+    #         {"Wazuh dans le pipeline"   = "devsecops/obs-sec/wazuh.md"}
+    #     ]},
+    # ]},
+
+
+    # -----------------------------------------------------------------------
+    # 5 — Cybersécurité (Gouv, SOC, Blue, Red, Forensic, TI, IR)
+    # -----------------------------------------------------------------------
+    # {"Cybersécurité" = [
+    #     "cyber/index.md",
+
+    #     # --- Référentiels & Normes -------------------------------------------
+    #     {"Référentiels & Normes" = [
+    #         "cyber/refs-normes/index.md",
+
+    #         {"📁 Autorités FR" = [
+    #             "cyber/refs-normes/autorites/index.md",
+    #             {"ANSSI"  = "cyber/refs-normes/autorites/anssi.md"},
+    #             {"CNIL"   = "cyber/refs-normes/autorites/cnil.md"},
+    #             {"CLUSIF" = "cyber/refs-normes/autorites/clusif.md"}
+    #         ]},
+
+    #         {"📁 ISOs" = [
+    #             "cyber/refs-normes/isos/index.md",
+    #             {"ISO 27001"    = "cyber/refs-normes/isos/iso-27001.md"},
+    #             {"ISO 27002"    = "cyber/refs-normes/isos/iso-27002.md"},
+    #             {"ISO 27005"    = "cyber/refs-normes/isos/iso-27005.md"},
+    #             {"ISO 27017"    = "cyber/refs-normes/isos/iso-27017.md"},
+    #             {"ISO 27018"    = "cyber/refs-normes/isos/iso-27018.md"},
+    #             {"ISO 22301"    = "cyber/refs-normes/isos/iso-22301.md"},
+    #             {"ISO 20000"    = "cyber/refs-normes/isos/iso-20000.md"},
+    #             {"ISO 9001"     = "cyber/refs-normes/isos/iso-9001.md"},
+    #             {"ISO 14001"    = "cyber/refs-normes/isos/iso-14001.md"}
+    #         ]},
+            
+    #         {"RGPD"             = "cyber/refs-normes/rgpd.md"},
+    #         {"NIS2"             = "cyber/refs-normes/nis2.md"},
+    #         {"DORA"             = "cyber/refs-normes/dora.md"},
+    #         {"HDS (FR – santé)" = "cyber/refs-normes/hds.md"},
+    #         {"SecNumCloud"      = "cyber/refs-normes/secnumcloud.md"},
+    #         {"PCI DSS"          = "cyber/refs-normes/pci-dss.md"},
+    #         {"NIST"             = "cyber/refs-normes/nist.md"},
+
+    #         {"📁 Réglementations UE" = [
+    #             "cyber/refs-normes/eu/index.md",
+    #             {"DSA"                  = "cyber/refs-normes/eu/dsa.md"},
+    #             {"DMA"                  = "cyber/refs-normes/eu/dma.md"},
+    #             {"DGA"                  = "cyber/refs-normes/eu/dga.md"},
+    #             {"Data Act"             = "cyber/refs-normes/eu/data-act.md"},
+    #             {"AI Act"               = "cyber/refs-normes/eu/ai-act.md"},
+    #             {"Cyber Resilience Act" = "cyber/refs-normes/eu/cra.md"}
+    #         ]}
+
+
+    #     ]},
+
+    #     # --- Opérations de sécurité (SOC) ------------------------------------
+    #     {"SOC" = [
+    #         "cyber/soc/index.md",
+    #         {"SIEM (Wazuh)"              = "cyber/soc/siem.md"},
+    #         {"EDR/XDR"                                  = "cyber/soc/edr-xdr.md"},
+    #         {"NDR (Zeek/Arkime)"                        = "cyber/soc/ndr.md"},
+    #         {"IDS/IPS (Suricata/Snort)"                 = "cyber/soc/ids-ips.md"},
+    #         {"Case Management (TheHive)"                = "cyber/soc/thehive.md"},
+    #         {"Automations & Analyzers (Cortex)"         = "cyber/soc/cortex.md"},
+    #         {"SOAR (général)"                           = "cyber/soc/soar.md"},
+    #         {"Threat Intel Platform (MISP/OpenCTI)"     = "cyber/soc/tip.md"},
+    #         {"Playbooks & Runbooks"                     = "cyber/soc/playbooks.md"},
+    #         {"On-call, SLA & Communication"             = "cyber/soc/oncall-sla.md"}
+    #     ]},
+
+    #     # --- Gestion des vulnérabilités ------------------------------------
+    #     {"Gestion des vulnérabilités" = [
+    #         "cyber/vuln/index.md",
+    #         {"OpenVAS (Greenbone)"  = "cyber/vuln/openvas.md"},
+    #         {"CVE & CVSS"           = "cyber/vuln/cve-cvss.md"},
+    #         {"OWASP Top 10"         = "cyber/vuln/owasp-top10.md"},
+    #         {"Fuzzing (général)"    = "cyber/vuln/fuzzing.md"}
+    #     ]},
+
+    #     # --- Red Team (Offensif) ---------------------------------------------
+    #     {"Red Team" = [
+    #         "cyber/red/index.md",
+    #         {"OSINT"                    = "cyber/red/osint.md"},
+    #         {"Pentest Web / API"        = "cyber/red/pentest-web.md"},
+    #         {"Pentest Réseau"           = "cyber/red/pentest-reseau.md"},
+    #         {"Phases d’un pentest"      = "cyber/red/pentest-ebios.md"},
+    #         {"Post-Exploitation"        = "cyber/red/post-exploit.md"},
+    #         {"Social Engineering"       = "cyber/red/se.md"},
+    #         {"OpSec & Anonymisation"    = "cyber/red/opsec-tor.md"},
+    #         {"Stéganographie"           = "cyber/red/steganographie.md"}
+    #     ]},
+
+    #     # --- Forensic & Investigation ----------------------------------------
+    #     {"Forensic" = [
+    #         "cyber/outils/forensic/index.md",
+    #         {"Analyse Mémoire"      = "cyber/outils/forensic/investigation/memory.md"},
+    #         {"Analyse Disque"       = "cyber/outils/forensic/investigation/disk.md"},
+    #         {"Artefacts Windows"    = "cyber/outils/forensic/investigation/windows-artifacts.md"},
+    #         {"Timeline & Logs"      = "cyber/outils/forensic/investigation/timeline.md"},
+    #         {"Outils hôte (Velociraptor, OSQuery)" = "cyber/forensic/host-tools.md"},
+    #         {"Acquisition mémoire (LiME)" = "cyber/forensic/lime.md"}
+    #     ]},
+
+    #     # --- Malware & Investigation ----------------------------------------
+    #     {"Malwares & Reverse" = [
+    #         "cyber/malware/index.md",
+    #         {"Compréhension des malwares" = "cyber/malware/intro.md"},
+    #         {"Reverse engineering"        = "cyber/malware/reverse.md"},
+    #         {"Techniques d’obfuscation"   = "cyber/malware/obfuscation.md"}
+    #     ]},
+
+            
+    #     # --- Threat Intelligence ---------------------------------------------
+    #     {"Threat Intelligence" = [
+    #         "cyber/threat-intel/index.md",
+    #         {"YARA"        = "cyber/threat-intel/yara.md"},
+    #         {"IOC & TTP"   = "cyber/threat-intel/ioc-ttp.md"}
+    #     ]},
+
+    #     # --- Catalogue d'outils (granulaire, par usage) ----------------------
+    #     {"Outils (catalogue par usage)" = [
+    #         "cyber/outils/index.md",
+
+    #         {"📁 Recon & OSINT" = [
+    #             {"theHarvester"     = "cyber/outils/osint/theharvester.md"},
+    #             {"Maltego"          = "cyber/outils/osint/maltego.md"},
+    #             {"SpiderFoot"       = "cyber/outils/osint/spiderfoot.md"},
+    #             {"Amass"            = "cyber/outils/osint/amass.md"}
+    #         ]},
+
+    #         {"📁 Web & API" = [
+    #             {"Burp Suite"       = "cyber/outils/web/burp.md"},
+    #             {"OWASP ZAP"        = "cyber/outils/web/zap.md"},
+    #             {"Nikto"            = "cyber/outils/web/nikto.md"},
+    #             {"ffuf"             = "cyber/outils/web/ffuf.md"},
+    #             {"Gobuster"         = "cyber/outils/web/gobuster.md"}
+    #         ]},
+
+    #         {"📁 Réseau & Services" = [
+    #             {"Nmap (NSE)"   = "cyber/outils/network/nmap.md"},
+    #             {"Scapy"        = "cyber/outils/network/scapy.md"},
+    #             {"Impacket"     = "cyber/outils/network/impacket.md"},
+    #             {"CrackMapExec" = "cyber/outils/network/cme.md"},
+    #             {"Responder"    = "cyber/outils/network/responder.md"},
+    #             {"BloodHound"   = "cyber/outils/network/bloodhound.md"},
+    #             {"OpenVPN"      = "cyber/outils/network/openvpn.md"},
+    #             {"HAProxy"      = "cyber/outils/network/haproxy.md"},
+    #             {"pfSense"      = "cyber/outils/network/pfsense.md"}
+    #         ]},
+
+    #         {"📁 Exploit. & Post-Exploit." = [
+    #             {"Metasploit"           = "cyber/outils/exploit/metasploit.md"},
+    #             {"Msfvenom"             = "cyber/outils/exploit/msfvenom.md"},
+    #             {"LinPEAS"              = "cyber/outils/exploit/linpeas.md"},
+    #             {"WinPEAS"              = "cyber/outils/exploit/winpeas.md"},
+    #             {"Chisel"               = "cyber/outils/exploit/chisel.md"},
+    #             {"Ligolo-NG"            = "cyber/outils/exploit/ligolo-ng.md"},
+    #             {"PayloadAllTheThings"  = "cyber/outils/exploit/payload-all-the-things.md"}
+    #         ]},
+
+    #         {"📁 Bruteforce & Cracking" = [
+    #             {"John the Ripper"  = "cyber/outils/crack/john.md"},
+    #             {"Hashcat"          = "cyber/outils/crack/hashcat.md"},
+    #             {"Hydra"            = "cyber/outils/crack/hydra.md"},
+    #             {"Medusa"           = "cyber/outils/crack/medusa.md"},
+    #             {"CeWL"             = "cyber/outils/crack/cewl.md"}
+    #         ]},
+
+    #         {"📁 Ingénierie sociale" = [
+    #             {"SET"      = "cyber/outils/se/set.md"},
+    #             {"GoPhish"  = "cyber/outils/se/gophish.md"}
+    #         ]},
+
+    #         {"📁 Réseau défensif" = [
+    #             {"Zeek"         = "cyber/outils/def-network/zeek.md"},
+    #             {"Suricata"     = "cyber/outils/def-network/suricata.md"},
+    #             {"Snort"        = "cyber/outils/def-network/snort.md"},
+    #             {"Arkime"       = "cyber/outils/def-network/arkime.md"},
+    #             {"ntop/ng"      = "cyber/outils/def-network/ntop.md"},
+    #             {"WAF"          = "cyber/outils/def-network/waf.md"}
+    #         ]},
+
+    #         {"📁 Détection & Règles" = [
+    #             {"YARA"       = "cyber/outils/detection/yara.md"},
+    #             {"Sigma"      = "cyber/outils/detection/sigma.md"},
+    #             {"Sysmon"     = "cyber/outils/detection/sysmon.md"},
+    #             {"ClamAV"     = "cyber/outils/detection/clamav.md"}
+    #         ]},
+        
+    #         {"📁 Forensic — Acquisition" = [
+    #             "cyber/outils/forensic-acq/index.md",
+    #             {"dd"       = "cyber/outils/forensic-acq/dd.md"},
+    #             {"dc3dd"    = "cyber/outils/forensic-acq/dc3dd.md"},
+    #             {"LiME"     = "cyber/outils/forensic-acq/lime.md"},
+    #             {"Guymager" = "cyber/outils/forensic-acq/guymager.md"}
+    #         ]},
+        
+    #         {"📁 Forensic — Disque & Artefacts" = [
+    #             "cyber/outils/forensic/forensic-disk/index.md",
+    #             {"Autopsy / SleuthKit"  = "cyber/outils/forensic/forensic-disk/autopsy-sleuthkit.md"},
+    #             {"foremost"             = "cyber/outils/forensic/forensic-disk/foremost.md"},
+    #             {"scalpel"              = "cyber/outils/forensic/forensic-disk/scalpel.md"},
+    #             {"bulk_extractor"       = "cyber/outils/forensic/forensic-disk/bulk_extractor.md"},
+    #             {"PhotoRec"             = "cyber/outils/forensic-disk/photorec.md"},
+    #             {"Carving (concepts)"   = "cyber/outils/forensic-disk/carving.md"}
+    #         ]},
+
+    #         {"📁 Forensic — Mémoire & Logs" = [
+    #             "cyber/outils/forensic-mem/index.md",
+    #             {"Volatility"   = "cyber/outils/forensic-mem/volatility.md"},
+    #             {"Rekall"       = "cyber/outils/forensic-mem/rekall.md"},
+    #             {"Chainsaw"     = "cyber/outils/forensic-logs/chainsaw.md"},
+    #             {"Hayabusa"     = "cyber/outils/forensic-logs/hayabusa.md"},
+    #             {"Velociraptor" = "cyber/outils/host/velociraptor.md"},
+    #             {"OSQuery"      = "cyber/outils/forensic-host/osquery.md"}
+    #         ]},
+        
+    #     ]},
+
+    #     # --- Incident Response ------------------------------------------------
+    #     {"Incident Response" = [
+    #         "cyber/ir/index.md",
+    #         {"TheHive & Cortex (IR)" = "cyber/ir/thehive-cortex.md"},
+    #         {"Playbooks DFIR"        = "cyber/ir/playbooks-dfir.md"},
+    #         {"CSIRT & CERT"          = "cyber/ir/csirt-cert.md"}
+    #     ]},
+    # ]},
+
+
+    # -----------------------------------------------------------------------
+    # 6 — Projets
+    # -----------------------------------------------------------------------
+    # {"Projets (A → Z)" = [
+    #     "projets/index.md",
+    # ]},
+
+
+    # -----------------------------------------------------------------------
+    # 7 — Glossaire
+    # -----------------------------------------------------------------------
+    # {"Glossaire" = [
+    #     "glossaire/index.md",
+    # ]},
 ]
+
 
 # With the "extra_css" option you can add your own CSS styling to customize
 # your Zensical project according to your needs. You can add any number of

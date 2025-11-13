@@ -16,3 +16,21 @@
 .md-sidebar--secondary {
   min-width: 400px;
 }
+
+.md-nav__item--active.md-nav__item--nested > .md-nav__link,
+.md-nav__item--pruned.md-nav__item--nested > .md-nav__link {
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+}
+
+.md-nav__item--section:hover > .md-nav__link {
+  border: 1px solid var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+  padding: 8px;
+}
+
+.md-nav__item--section > .md-nav__link {
+  border: 1px solid var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+  padding: 8px;
+}
