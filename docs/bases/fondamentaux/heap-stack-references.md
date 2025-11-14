@@ -325,3 +325,5 @@ print(id(fruits3))  # Adresse 1 (même que fruits1)
     **Dernière mise à jour** : Novembre 2025  
     **Durée de lecture** : 20-25 minutes  
     **Niveau** : Débutant & Intermédiaire
+
+[^1]: **Ownership** signifie la responsabilité pleine et assumée d’un sujet, d’une action ou d’un résultat, avec l’obligation d’en répondre et d’en assurer la bonne exécution.
