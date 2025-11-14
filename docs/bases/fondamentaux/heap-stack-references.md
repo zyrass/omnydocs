@@ -76,6 +76,8 @@ Quand on copie une variable contenant une liste, on pense copier la liste entiè
 Quand on copie une variable contenant une liste, on copie juste **l'adresse** vers cette liste dans le Heap. Les deux variables pointent maintenant vers la **même liste** !
 
 ```python
+# Langage : Python
+# ----------------------------------------------------------------
 # Exemple du piège classique
 mes_fruits = ["pomme", "poire"]
 copie_fruits = mes_fruits  # On copie l'ADRESSE, pas la liste !
@@ -95,6 +97,8 @@ print(copie_fruits)  # ["pomme", "poire", "banane"] - SURPRISE !
 En Python, techniquement tout est objet, mais le comportement des types simples ressemble à celui de la Stack.
 
 ```python
+# Langage : Python
+# ----------------------------------------------------------------
 # Types simples - se comportent comme s'ils étaient sur le bureau
 age = 25
 age_copie = age
@@ -122,6 +126,8 @@ print(fruits_vraie_copie)  # ["pomme", "poire", "banane"] - pas d'orange !
 JavaScript fait une distinction claire entre types primitifs (**sur la Stack**) et objets (**dans le Heap**).
 
 ```javascript
+// Langage : JavaScript
+// ----------------------------------------------------------------
 // Primitifs - sur le bureau, copie complète
 let age = 25;
 let ageCopie = age;
@@ -149,6 +155,8 @@ console.log(personneVraieCopie.age);  // 30 - pas changé !
 PHP permet de choisir explicitement entre **copie de valeur** et **copie d'adresse** avec l'opérateur `&`.
 
 ```php
+# Langage : PHP
+# ----------------------------------------------------------------
 <?php
 // Par défaut : copie de valeur
 $nombre = 10;
@@ -179,6 +187,8 @@ print_r($copie_fruits);  // ["pomme", "poire"] - pas changé !
 Go vous force à être explicite sur vos intentions. **Les pointeurs** rendent la gestion mémoire visible.
 
 ```go
+// Langage : Go
+// ----------------------------------------------------------------
 package main
 import "fmt"
 
@@ -211,6 +221,8 @@ func main() {
 Rust utilise un système d'**ownership**[^1] (propriété) qui garantit qu'une seule variable possède une donnée à la fois.
 
 ```rust
+// Langage : Rust
+// ----------------------------------------------------------------
 fn main() {
     // Valeur simple - copie automatique (trait Copy)
     let age = 25;
@@ -268,6 +280,8 @@ Bonne nouvelle : vous n'avez **pas à vous soucier du nettoyage** !
 Tous ces langages disposent d'un **Garbage Collector** (ramasse-miettes) qui nettoie automatiquement la mémoire quand vous n'utilisez plus vos données. C'est comme un majordome invisible qui range votre armoire dès que vous n'avez plus besoin de quelque chose.
 
 ```python
+# Langage : Python
+# ----------------------------------------------------------------
 def exemple_nettoyage():
     grosse_liste = [i for i in range(100000)]  # Créée dans le Heap
     # Utilisation de la liste...
