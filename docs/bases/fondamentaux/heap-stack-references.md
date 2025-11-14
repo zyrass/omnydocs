@@ -90,6 +90,46 @@ print(copie_fruits)  # ["pomme", "poire", "banane"] - SURPRISE !
 !!! danger "ATTENTION"
     Si vous ne comprenez pas ce mécanisme, vous aurez des **bugs mystérieux** où vos données changent "toutes seules" sans que vous compreniez pourquoi !
 
+### Copie par valeur vs Copie par adresse
+
+#### Copie par VALEUR - Types simples
+```mermaid
+graph TB
+    subgraph "Copie par VALEUR"
+        A1["Variable : age<br/>Valeur : 25<br/>(Stack)"]
+        A2["Variable : age_copie<br/>Valeur : 25<br/>(Stack)"]
+        A3["Variable : age<br/>Valeur : 30<br/>(Stack)"]
+        A4["Variable : age_copie<br/>Valeur : 25<br/>(Stack)"]
+        
+        A1 -->|"age_copie = age<br/>COPIE la valeur"| A2
+        A2 -->|"age = 30<br/>Modification"| A3
+        A3 -.->|"age_copie reste<br/>indépendant"| A4
+    end
+```
+_Le premier diagramme illustre le mécanisme de **copie par valeur** qui s'applique aux types simples comme les **nombres**, les **booléens** ou les **caractères**. Lorsque vous créez une copie d'une **variable contenant un type simple**, l'ordinateur duplique intégralement la valeur dans un nouvel emplacement de la Stack._
+
+!!! info ""
+    _**Chaque variable possède alors sa propre copie indépendante de la donnée**. Cette indépendance garantit que toute modification apportée à la variable originale n'affecte en aucun cas la copie, et inversement. Les deux variables évoluent de manière totalement autonome car elles occupent des emplacements mémoire physiquement distincts sur votre bureau numérique._
+
+#### Copie par ADRESSE - Objets/Listes
+```mermaid
+graph TB    
+    subgraph "Copie par ADRESSE"
+        B1["Variable : fruits<br/>Adresse : →A3<br/>(Stack)"]
+        B2["Variable : copie<br/>Adresse : →A3<br/>(Stack)"]
+        B3["Données : ['pomme', 'poire']<br/>Emplacement : A3<br/>(Heap)"]
+        B4["Données : ['pomme', 'poire', 'banane']<br/>Emplacement : A3<br/>(Heap)"]
+        
+        B1 & B2 -.->|"Les deux pointent<br/>vers A3"| B3
+        B3 -->|"fruits.append('banane')<br/>Modification"| B4
+        B1 & B2 -.->|"Les deux voient<br/>le changement"| B4
+    end
+```
+_Le second diagramme présente le mécanisme de **copie par adresse** qui régit les **structures complexes** telles que les **listes**, les **tableaux** et les **objets**. Contrairement au mécanisme précédent, **la copie d'une variable contenant une structure complexe ne duplique pas les données elles-mêmes**. **Seule l'adresse mémoire pointant vers ces données dans le Heap est copiée**._
+
+!!! info ""
+    _**Les deux variables conservent donc des références identiques vers un unique ensemble de données partagées dans l'armoire numérique**. Cette architecture explique pourquoi la modification des données via l'une des variables se répercute immédiatement sur toutes les autres variables partageant la même adresse. **Toutes observent simultanément les changements car elles consultent le même emplacement mémoire dans le Heap**._
+
 ## Comportement par langage
 
 ### Python - Tout est objet
