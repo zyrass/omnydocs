@@ -1,0 +1,21 @@
+# ============================================================================
+# NAVIGATION PRINCIPALE (FRAGMENTS GÉRÉS PAR MAKEFILE)
+# Ce bloc ouvre la liste nav = [ ... ] dans la table [project].
+# ============================================================================
+
+nav = [
+  
+  # --------------------------------------------------------------------------
+  # 0 — Accueil
+  # Entrée principale de la documentation.
+  # --------------------------------------------------------------------------
+  {"Accueil" = [
+
+    # Page d’index de la doc.
+    "index.md",
+
+    # Sous-pages rattachées à l’accueil.
+    {"Préambule"    = "home/preambule.md"},
+    {"Introduction" = "home/introduction.md"},
+  ]},
+
