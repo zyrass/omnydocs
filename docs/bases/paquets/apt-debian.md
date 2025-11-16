@@ -8,7 +8,7 @@ tags: ["APT", "DEBIAN", "UBUNTU", "PAQUETS", "LINUX", "SYSTÈME"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+**Niveau :** 🟡 Intermédiaire / 🔴 Avancé
 
 !!! quote "Analogie pédagogique"
     _Imaginez une **bibliothèque universitaire géante** avec un catalogue informatisé sophistiqué. Lorsque vous demandez un livre, le système vérifie automatiquement toutes ses dépendances (bibliographies requises, prérequis), résout les conflits potentiels avec vos emprunts existants, télécharge tout le nécessaire, et organise le tout dans votre bibliothèque personnelle. **APT fonctionne exactement ainsi** : c'est un système de gestion de paquets intelligent qui automatise entièrement l'installation, la mise à jour et la suppression de logiciels en gérant toutes les dépendances complexes._
@@ -1051,7 +1051,7 @@ debsecan | grep "remotely exploitable"
 ---
 
 !!! abstract "Métadonnées"
-    **Version** : 1.0  
+    **Version** : 1.1  
     **Dernière mise à jour** : Novembre 2025  
     **Durée de lecture** : 45-50 minutes  
-    **Niveau** : Débutant & Intermédiaire
+    **Niveau** : 🟡 Intermédiaire / 🔴 Avancé
