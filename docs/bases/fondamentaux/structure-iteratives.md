@@ -58,7 +58,7 @@ La boucle **WHILE** constitue la forme la plus fondamentale de répétition cond
 ### Fonctionnement de la boucle WHILE
 
 ```mermaid
-graph TD
+flowchart TD
     A[Programme en cours] --> B[Entrée dans la boucle WHILE]
     B --> C{Test de condition<br/>AVANT l'itération}
     C -->|Condition VRAIE| D[Itération N :<br/>Exécuter le bloc d'instructions]
