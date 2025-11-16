@@ -39,3 +39,86 @@ th,
 td {
   border: 0.025rem solid var(--md-typeset-table-color);
 }
+
+/* ==========================================================================
+   Palette dérivée d'OmnyVia / OmnyDocs
+   --------------------------------------------------------------------------
+   - Lilas principal  : #f3a5ff
+   - Cyan accent      : #4fd4ff
+   - Fond sombre      : #111827
+   - Fond clair       : #f5f5fa
+   - Texte sombre     : #111827
+   - Texte clair      : #f9fafb
+   ========================================================================== */
+
+/* =========================== */
+/* Thème clair (scheme=default) */
+/* =========================== */
+
+:root,
+[data-md-color-scheme="default"] {
+  /* Fond / texte des blocs de code */
+  --md-code-bg-color: #f5f5fa; /* bloc bien détaché du fond blanc */
+  --md-code-fg-color: #111827; /* texte principal très lisible     */
+  --md-code-hl-color: #e0ecff; /* surlignage de ligne (search, etc) */
+
+  /* Couleurs de syntaxe */
+  --md-code-hl-number-color: #df6fff; /* nombres : lilas vif              */
+  --md-code-hl-special-color: #f97373; /* décorateurs / specials : rouge   */
+  --md-code-hl-function-color: #2563eb; /* fonctions : bleu                 */
+  --md-code-hl-constant-color: #7c3aed; /* const / true/false : violet      */
+  --md-code-hl-keyword-color: #0ea5e9; /* if, for, return : cyan           */
+  --md-code-hl-string-color: #079b20; /* chaînes : vert lisible           */
+  --md-code-hl-name-color: #111827; /* identifiants neutres             */
+  --md-code-hl-operator-color: #374151; /* +, -, =                          */
+  --md-code-hl-punctuation-color: #6b7280; /* ., (), {}                        */
+  --md-code-hl-comment-color: #9ca3af; /* commentaires gris clair          */
+  --md-code-hl-generic-color: #111827; /* fallback                         */
+  --md-code-hl-variable-color: #7563bb; /* variables “importantes”          */
+}
+
+/* Style visuel des blocs en thème clair */
+[data-md-color-scheme="default"] .md-typeset pre code {
+  border-radius: 0.25rem;
+  border: 1px solid #e0e7ff;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+/* =========================== */
+/* Thème sombre (scheme=slate) */
+/* =========================== */
+
+[data-md-color-scheme="slate"] {
+  /* Fond / texte des blocs de code */
+  --md-code-bg-color: #111827; /* graphite profond                  */
+  --md-code-fg-color: #f9fafb; /* texte très clair                  */
+  --md-code-hl-color: #1f2937; /* surlignage discret                */
+
+  /* Couleurs de syntaxe – versions “néon” contrôlées */
+  --md-code-hl-number-color: #f3a5ff; /* nombres : lilas Omny             */
+  --md-code-hl-special-color: #fb7185; /* specials : rose/rouge            */
+  --md-code-hl-function-color: #cfdf96; /* fonctions : bleu clair           */
+  --md-code-hl-constant-color: #c4b5fd; /* const : violet doux              */
+  --md-code-hl-keyword-color: #38bdf8; /* if, for : cyan Omny              */
+  --md-code-hl-string-color: #4ade80; /* chaînes : vert néon lisible      */
+  --md-code-hl-name-color: #e5e7eb; /* identifiants : quasi-blanc       */
+  --md-code-hl-operator-color: #9ca3af; /* opérateurs                       */
+  --md-code-hl-punctuation-color: #6b7280; /* ponctuation                      */
+  --md-code-hl-comment-color: #6b7280; /* commentaires en gris moyen       */
+  --md-code-hl-generic-color: #e5e7eb; /* fallback                         */
+  --md-code-hl-variable-color: #7563bb; /* variables mises en avant         */
+}
+
+/* Style visuel des blocs en thème sombre */
+[data-md-color-scheme="slate"] .md-typeset pre code {
+  border-radius: 0.25rem;
+  border: 1px solid rgba(79, 148, 255, 0.35); /* liseré bleu-cyan */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Optionnel : padding et typographie harmonisés pour tous les thèmes */
+.md-typeset pre code {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  padding: 1.1rem 1.2rem;
+}
