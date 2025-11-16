@@ -34,31 +34,31 @@ APT s'articule autour de plusieurs couches qui collaborent pour gérer le cycle 
 ```mermaid
 graph TB
     subgraph "Interface Utilisateur"
-        A1[apt<br/>Interface moderne]
-        A2[apt-get<br/>Interface legacy]
-        A3[aptitude<br/>Interface ncurses]
-        A4[GUI: Software Center<br/>GNOME Software, Discover]
+        A1["apt<br/>Interface moderne"]
+        A2["apt-get<br/>Interface legacy"]
+        A3["aptitude<br/>Interface ncurses"]
+        A4["GUI: Software Center<br/>GNOME Software, Discover"]
     end
     
     subgraph "Couche APT - Logique Métier"
-        B1[libapt-pkg<br/>Bibliothèque C++]
-        B2[Résolution dépendances]
-        B3[Gestion cache]
-        B4[Acquisition paquets]
-        B5[Vérification signatures]
+        B1["libapt-pkg<br/>Bibliothèque C++"]
+        B2["Résolution dépendances"]
+        B3["Gestion cache"]
+        B4["Acquisition paquets"]
+        B5["Vérification signatures"]
     end
     
     subgraph "Couche DPKG - Installation Bas Niveau"
-        C1[dpkg<br/>Installation/Suppression]
-        C2[Base de données<br/>/var/lib/dpkg/]
-        C3[Scripts maintainer<br/>preinst, postinst, etc.]
+        C1["dpkg<br/>Installation/Suppression"]
+        C2["Base de données<br/>/var/lib/dpkg/"]
+        C3["Scripts maintainer<br/>preinst, postinst, etc."]
     end
     
     subgraph "Système de Fichiers"
-        D1[/etc/apt/<br/>Configuration]
-        D2[/var/cache/apt/<br/>Cache paquets]
-        D3[/var/lib/apt/<br/>État système]
-        D4[Dépôts distants<br/>HTTP/HTTPS]
+        D1["/etc/apt/<br/>Configuration"]
+        D2["/var/cache/apt/<br/>Cache paquets"]
+        D3["/var/lib/apt/<br/>État système"]
+        D4["Dépôts distants<br/>HTTP/HTTPS"]
     end
     
     A1 --> B1
@@ -96,7 +96,9 @@ APT constitue une **surcouche intelligente** au-dessus de dpkg.
 | **aptitude** | Haut | Interface ncurses + résolveur avancé | Résolution conflits complexes |
 
 !!! warning "dpkg vs APT"
-    **dpkg** installe uniquement le fichier `.deb` fourni sans gérer les dépendances. Si une dépendance manque, l'installation échoue. **APT** résout automatiquement toutes les dépendances en téléchargeant les paquets nécessaires depuis les dépôts. N'utilisez jamais dpkg directement sauf cas très spécifiques.
+    **dpkg** installe uniquement le fichier `.deb` fourni sans gérer les dépendances. Si une dépendance manque, l'installation échoue. **APT** résout automatiquement toutes les dépendances en téléchargeant les paquets nécessaires depuis les dépôts.  
+    
+    > N'utilisez jamais dpkg directement sauf cas très spécifiques.
 
 ### Composants du système
 
@@ -286,6 +288,7 @@ apt update
 
 !!! warning "Sécurité des dépôts tiers"
     L'ajout de dépôts tiers expose votre système à des risques :
+
     - **Malwares** : Un dépôt compromis peut distribuer des paquets malveillants
     - **Conflits** : Paquets incompatibles avec les versions système
     - **Abandonnement** : Dépôt non maintenu avec vulnérabilités
@@ -316,6 +319,7 @@ ls /etc/apt/sources.list.d/
 
 !!! danger "Risques des PPA"
     Les PPA sont maintenus par des **individus**, pas par Canonical. Risques :
+
     - Qualité variable du packaging
     - Peut casser le système lors de mises à jour
     - Peut être abandonné sans avertissement
@@ -777,6 +781,7 @@ apt-fast upgrade
 ```
 
 **Gains typiques :**
+
 - Connexion lente : 2-3× plus rapide
 - Connexion rapide : 1.5-2× plus rapide
 - Mises à jour massives : 3-5× plus rapide
@@ -814,6 +819,7 @@ http://cache-server:3142/acng-report.html
 ```
 
 **Économies typiques :**
+
 - 10 serveurs : ~90% de bande passante économisée
 - Mises à jour hebdomadaires : ~70% de temps gagné
 
