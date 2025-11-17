@@ -1,6 +1,6 @@
 ---
 description: "Association de référence des professionnels de la sécurité de l'information en France"
-icon: lucide/users
+icon: lucide/book-open-check
 tags: ["CLUSIF", "CYBERSÉCURITÉ", "ASSOCIATION", "FRANCE", "COMMUNAUTÉ"]
 status: beta
 ---

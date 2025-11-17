@@ -1,6 +1,6 @@
 ---
 description: "L'autorité française de protection des données personnelles et de la vie privée"
-icon: lucide/shield-check
+icon: lucide/book-open-check
 tags: ["CNIL", "RGPD", "DONNÉES PERSONNELLES", "FRANCE", "AUTORITÉ"]
 status: beta
 ---

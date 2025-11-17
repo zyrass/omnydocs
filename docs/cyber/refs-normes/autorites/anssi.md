@@ -1,6 +1,6 @@
 ---
 description: "L'autorité nationale en matière de sécurité des systèmes d'information"
-icon: lucide/shield-check
+icon: lucide/book-open-check
 tags: ["ANSSI", "CYBERSÉCURITÉ", "RÉFÉRENTIEL", "FRANCE", "AUTORITÉ"]
 status: beta
 ---
