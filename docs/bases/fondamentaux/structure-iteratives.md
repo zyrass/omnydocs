@@ -20,7 +20,7 @@ tags: ["GO", "PYTHON", "PHP", "JS", "RUST"]
 !!! info "Pourquoi c'est important ?"
     Les structures itératives permettent le **traitement de collections de données**, l'**automatisation de tâches répétitives**, l'**analyse de logs système** et la **mise en œuvre d'algorithmes** de recherche et de tri. Sans elles, vous devriez écrire manuellement chaque répétition, rendant impossible le traitement de données volumineuses.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous n'avez pas encore lu les documentations sur **la logique booléenne** et **la logique conditionnelle**, faites-le d'abord. **Les structures itératives** combinent directement ces deux concepts en répétant des instructions tant qu'une condition booléenne est vraie. **La maîtrise des conditions** constitue donc un prérequis absolu pour comprendre comment et quand vos boucles s'arrêteront.
 

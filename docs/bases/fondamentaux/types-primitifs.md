@@ -19,7 +19,7 @@ Ces concepts vous aideront à choisir le bon type pour vos données, à éviter 
 !!! info "Pourquoi c'est important ?"
     La maîtrise des types primitifs impacte la **performance** de vos programmes, leur **sécurité**, la **clarté** de votre code et votre **professionnalisme** technique.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous ne savez pas encore ce qu'est une **variable**, imaginez-la comme une boîte avec une étiquette. Les types primitifs sont les différentes choses que vous pouvez ranger dans ces boîtes.
 

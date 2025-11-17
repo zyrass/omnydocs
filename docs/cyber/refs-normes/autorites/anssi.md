@@ -21,7 +21,7 @@ Dans un contexte où les **cybermenaces se professionnalisent et s'intensifient*
 !!! info "Pourquoi c'est important ?"
     L'ANSSI **structure l'écosystème de la cybersécurité française** en définissant les référentiels, en qualifiant les produits et services de sécurité, en formant les professionnels, en coordonnant la réponse aux incidents majeurs, et en établissant la doctrine nationale de cybersécurité. **Comprendre son rôle et ses ressources** permet aux professionnels de la cybersécurité de **s'appuyer sur une autorité reconnue** et d'**adopter les meilleures pratiques** validées au plus haut niveau.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous débutez dans la cybersécurité, il est essentiel de comprendre qu'**il existe des autorités de référence** qui définissent les standards et les bonnes pratiques. L'ANSSI n'est pas une entreprise privée ni un simple organisme de conseil. C'est une **autorité d'État** dont les recommandations et les certifications font **force de référence** dans l'écosystème français de la cybersécurité.
 

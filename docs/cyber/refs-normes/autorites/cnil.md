@@ -21,7 +21,7 @@ Dans un monde où **chaque interaction numérique génère des données**, où l
 !!! info "Pourquoi c'est important ?"
     La CNIL **structure l'ensemble de l'écosystème** de protection des données en France. Ses **décisions créent jurisprudence**, ses **recommandations définissent les standards**, ses **sanctions dissuadent les manquements**, et ses **outils pratiques** facilitent la mise en conformité. Pour tout professionnel manipulant des données personnelles, **comprendre la CNIL est aussi essentiel que comprendre le droit du travail pour un DRH** : c'est le cadre légal incontournable de votre activité.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous découvrez le monde de la protection des données, il est crucial de comprendre que **toute organisation traitant des données personnelles** (nom, prénom, email, adresse IP, cookies, historiques d'achat, données de santé, etc.) est **soumise à la réglementation** que la CNIL fait appliquer. Ce n'est pas réservé aux grandes entreprises technologiques. Une **PME avec un fichier client**, une **association gérant des adhérents**, un **site web utilisant Google Analytics**, un **artisan conservant des devis** : tous manipulent des données personnelles et sont donc concernés.
 

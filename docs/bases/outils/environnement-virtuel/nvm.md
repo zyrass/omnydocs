@@ -20,7 +20,7 @@ Avant NVM, les développeurs devaient **désinstaller et réinstaller Node.js ma
 !!! info "Pourquoi c'est important ?"
     NVM permet de **travailler sur plusieurs projets** avec des versions Node différentes, **tester la compatibilité** de votre code, **basculer instantanément** entre versions LTS et latest, **isoler les environnements** par projet, et **suivre les best practices** de l'écosystème JavaScript moderne.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 **Node.js** est un **environnement d'exécution JavaScript** qui permet d'exécuter du code JavaScript en dehors du navigateur - pour créer des serveurs web, des outils en ligne de commande, des applications desktop, etc. **npm** (Node Package Manager) est le gestionnaire de paquets livré avec Node.js.
 

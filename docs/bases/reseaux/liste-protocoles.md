@@ -20,7 +20,7 @@ Comprendre les protocoles réseau devient essentiel dès que vous développez de
 !!! info "Pourquoi c'est important ?"
     Les protocoles déterminent **comment vos données voyagent**, **quelles garanties vous avez** sur leur livraison, **comment gérer la sécurité**, et **quelle performance attendre**. Choisir le mauvais protocole peut compromettre la fiabilité, la sécurité ou les performances de votre application.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Ce chapitre nécessite une compréhension basique du modèle OSI ou TCP/IP et du concept d'**adresse IP** et de **port**. Si vous ne savez pas comment deux ordinateurs établissent une connexion, consultez d'abord les bases des réseaux.
 

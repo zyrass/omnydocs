@@ -21,7 +21,7 @@ Dans un contexte où **80% des données d'entreprise migrent vers le cloud**, o�
 !!! info "Pourquoi c'est important ?"
     SecNumCloud **structure l'écosystème français et européen du cloud de confiance**. Pour les entreprises et administrations manipulant des données sensibles, choisir un cloud SecNumCloud garantit un **niveau de sécurité évalué** par l'autorité nationale, une **immunité aux législations extraterritoriales**, et une **souveraineté des données**. Pour les fournisseurs cloud, obtenir la qualification SecNumCloud constitue un **différenciateur concurrentiel majeur** sur les marchés publics et privés exigeant des garanties de sécurité maximales.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous découvrez SecNumCloud, il est essentiel de comprendre qu'il ne s'agit **pas d'un label commercial** auto-déclaratif mais d'une **qualification délivrée par l'ANSSI** après un processus d'évaluation rigoureux par des organismes indépendants. SecNumCloud n'est **pas une certification ISO** (bien qu'il intègre les exigences ISO 27001/27017/27018), mais un **référentiel souverain** développé par l'État français pour répondre à ses besoins spécifiques de sécurité et de confiance.
 

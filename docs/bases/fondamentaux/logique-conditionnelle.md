@@ -23,7 +23,7 @@ Nous avons découvert les **types primitifs** qui constituent les briques de bas
 !!! info "Pourquoi c'est important ?"
     La logique conditionnelle régit la **validation des données**, la **gestion des erreurs**, les **systèmes de sécurité** multi-niveaux et l'**expérience utilisateur** adaptative. Elle transforme des instructions statiques en comportements dynamiques.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous n'avez pas encore lu la documentation sur **la logique booléenne**, faites-le d'abord. **La logique conditionnelle** s'appuie directement sur les concepts **vrai/faux** et **les opérateurs ET/OU/NON** que nous y avons découverts.
 

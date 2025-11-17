@@ -20,7 +20,7 @@ PACMAN se distingue par sa **philosophie minimaliste** : pas d'interface graphiq
 !!! info "Pourquoi c'est important ?"
     PACMAN permet de maintenir un système **toujours à jour** (rolling release), de gérer les **dépendances complexes** avec précision, d'accéder aux **logiciels les plus récents** quelques heures après leur sortie, de **comprendre exactement** ce qui se passe sur le système, et de construire un environnement **minimaliste et optimisé** sans bloatware.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous n'avez jamais utilisé Arch Linux, sachez qu'Arch n'est **pas une distribution pour débutants Linux**. Arch exige une **compréhension solide** du système Linux (partitionnement, chroot, systemd, réseau) car l'installation est entièrement **manuelle** et minimale. PACMAN suppose que vous savez ce que vous faites. Il n'y a pas de garde-fous, pas de confirmations excessives, pas de récupération automatique d'erreurs.
 

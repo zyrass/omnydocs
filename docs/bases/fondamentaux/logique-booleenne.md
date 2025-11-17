@@ -19,7 +19,7 @@ Cette logique vous permettra de **contrôler l'accès aux applications**, de **v
 !!! info "Pourquoi c'est important ?"
     La logique booléenne est le **fondement des décisions automatiques** dans vos programmes. Elle régit l'**authentification**, les **contrôles d'accès**, les **règles de sécurité** et **toute forme de validation conditionnelle**.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous n'avez pas encore lu la documentation sur les **types primitifs**, nous vous recommandons de commencer par là. **La logique booléenne** utilise le type `bool` que nous avons déjà découvert dans ce chapitre précédent.
 

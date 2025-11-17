@@ -17,7 +17,7 @@ Cette organisation s'appelle la **gestion mémoire**. Comprendre où vont vos do
 !!! info "Pourquoi c'est important ?"
     La compréhension de la gestion mémoire impacte la **vitesse** de vos programmes, leur **stabilité**, la **prévisibilité** de vos modifications et votre **confiance** dans le code que vous écrivez.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous n'avez pas encore lu la documentation sur les **types primitifs**, nous vous recommandons de commencer par là. Elle vous donnera les bases nécessaires pour bien comprendre cette section.
 

@@ -21,7 +21,7 @@ Contrairement à l'ANSSI qui est une **autorité d'État** avec des missions ré
 !!! info "Pourquoi c'est important ?"
     Le CLUSIF représente la **voix collective des professionnels de la cybersécurité en France**. Ses publications constituent des **références sectorielles** reconnues, ses études mesurent l'évolution des pratiques et des menaces, et ses groupes de travail permettent le **partage d'expériences** entre pairs. Pour un professionnel de la cybersécurité, adhérer au CLUSIF ou consulter ses ressources offre un **accès privilégié à l'intelligence collective** de la communauté française.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous découvrez l'univers de la cybersécurité, il est essentiel de comprendre qu'**au-delà des autorités publiques et des entreprises commerciales**, il existe un **écosystème associatif** qui structure la profession. Le CLUSIF n'édicte pas de règles obligatoires comme l'ANSSI, ne contrôle pas la conformité comme la CNIL, et ne vend pas de produits comme les éditeurs de solutions. Il constitue un **lieu d'échange neutre** où les professionnels partagent leurs expériences, leurs difficultés et leurs solutions.
 

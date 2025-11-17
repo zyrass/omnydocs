@@ -20,7 +20,7 @@ Git a révolutionné le développement logiciel. Avant Git, les systèmes centra
 !!! info "Pourquoi c'est important ?"
     Git permet de **tracer chaque modification** du code (qui, quoi, quand, pourquoi), de **collaborer efficacement** en parallèle sans écraser le travail des autres, de **revenir en arrière** en cas d'erreur catastrophique, d'**expérimenter librement** dans des branches isolées, et de **maintenir plusieurs versions** du logiciel simultanément (production, développement, hotfixes).
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous n'avez jamais utilisé de système de versioning, Git semblera d'abord complexe. Cette complexité apparente cache une puissance remarquable. Comprenez que Git n'est **pas** un système de sauvegarde automatique comme Dropbox. Vous devez **explicitement** dire à Git quelles modifications sauvegarder et quand. Cette approche manuelle permet un contrôle total sur l'historique.
 

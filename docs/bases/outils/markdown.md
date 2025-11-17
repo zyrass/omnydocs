@@ -20,7 +20,7 @@ Markdown est devenu le **standard de facto** pour la documentation technique. Gi
 !!! info "Pourquoi c'est important ?"
     Markdown permet de **rédiger rapidement** sans quitter le clavier, de **versionner** facilement la documentation avec Git (format texte brut), de **se concentrer sur le contenu** plutôt que la mise en forme, de **garantir la portabilité** entre plateformes, et de **générer automatiquement** du HTML, PDF, ou autres formats.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous n'avez jamais utilisé Markdown, vous découvrirez qu'écrire en Markdown ressemble à **prendre des notes structurées**. Les symboles utilisés correspondent souvent à ce que vous feriez naturellement : souligner un titre avec `===`, mettre des astérisques autour d'un mot important `*important*`, ou créer des listes avec des tirets `-`. La beauté de Markdown réside dans cette **intuitivité naturelle**.
 

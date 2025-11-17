@@ -20,7 +20,7 @@ tags: ["GO", "PYTHON", "PHP", "JS", "RUST"]
 !!! info "Pourquoi c'est important ?"
     Les fonctions permettent la **réutilisation du code**, la **décomposition de problèmes complexes**, la **facilitation du débogage** et la **collaboration efficace** entre développeurs. Sans elles, vous devriez dupliquer le même code à chaque utilisation, multipliant les risques d'erreurs et rendant la maintenance cauchemardesque.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous n'avez pas encore maîtrisé les **structures conditionnelles** et **itératives**, consolidez d'abord ces fondations. Les fonctions encapsulent fréquemment des conditions et des boucles, et leur compréhension nécessite donc la maîtrise préalable de ces structures de contrôle.
 

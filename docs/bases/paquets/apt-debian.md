@@ -20,7 +20,7 @@ APT gère aujourd'hui **plus de 60 000 paquets** dans les dépôts Debian, couvr
 !!! info "Pourquoi c'est important ?"
     APT permet la **gestion centralisée** de milliers de paquets, garantit la **stabilité du système** par la résolution rigoureuse des dépendances, automatise les **mises à jour de sécurité** critiques, et assure la **reproductibilité** des installations sur de multiples machines. Maîtriser APT est essentiel pour l'administration système professionnelle.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous débutez avec Linux, APT constitue probablement votre premier contact avec un gestionnaire de paquets. Contrairement à Windows où vous téléchargez des `.exe` depuis divers sites, ou macOS où vous utilisez l'App Store, Linux centralise tous les logiciels dans des **dépôts** sécurisés accessibles via APT. Cette approche garantit la sécurité, la cohérence et la simplicité de gestion.
 

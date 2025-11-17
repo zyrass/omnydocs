@@ -20,7 +20,7 @@ Comprendre les méthodes HTTP devient essentiel dès que vous développez des ap
 !!! info "Pourquoi c'est important ?"
     Les méthodes HTTP régissent **toutes les interactions client-serveur**, déterminent **la sécurité des opérations**, permettent **la conception d'APIs REST**, et influencent **les performances** et **la mise en cache**. Une utilisation incorrecte peut créer des vulnérabilités de sécurité graves comme des modifications non autorisées ou des fuites de données.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Ce chapitre nécessite une compréhension basique du fonctionnement du web. Vous devez savoir qu'un **client** (navigateur) envoie des **requêtes** à un **serveur** qui répond avec des **données**. Si ces concepts vous semblent flous, consultez d'abord la documentation sur les **bases des réseaux**.
 

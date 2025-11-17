@@ -21,7 +21,7 @@ NIS2 marque une **extension massive** du périmètre réglementaire de la cybers
 !!! info "Pourquoi c'est important ?"
     NIS2 **harmonise les exigences de cybersécurité** à travers l'Europe, créant un socle commun de mesures de protection. Pour les organisations concernées, la conformité NIS2 n'est **pas optionnelle** : elle s'impose sous peine de sanctions administratives lourdes (jusqu'à 10 millions d'euros ou 2% du CA mondial). Pour les professionnels de la cybersécurité, NIS2 structure le **cadre d'intervention** et définit les **standards minimaux** à respecter pour protéger les services essentiels.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous découvrez NIS2, comprenez qu'il s'agit d'une **directive européenne** et non d'un règlement. Contrairement au RGPD (règlement directement applicable), une directive doit être **transposée en droit national** par chaque État membre. Chaque pays européen a donc adopté ou adoptera une **loi nationale** qui transpose les exigences de NIS2 en droit local.
 

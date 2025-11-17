@@ -20,7 +20,7 @@ APK se distingue par sa **vitesse d'exécution**, sa **consommation mémoire min
 !!! info "Pourquoi c'est important ?"
     APK permet de construire des **systèmes ultra-légers** (images Docker de 5-10 MB contre 100+ MB pour Ubuntu), d'accélérer les **déploiements** (builds Docker 3-5× plus rapides), de réduire la **surface d'attaque** (moins de code = moins de vulnérabilités), et de maîtriser la **consommation de ressources** (critique pour les environnements cloud et edge).
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous n'avez jamais administré de système Linux, ce chapitre suppose que vous comprenez les concepts de **distribution Linux**, **paquet logiciel**, et **ligne de commande**. Alpine Linux diffère substantiellement des distributions grand public (Ubuntu, Fedora) dans sa philosophie et ses outils. Si vous débutez avec Linux en général, considérez d'abord Ubuntu ou Debian avant Alpine.
 

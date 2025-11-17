@@ -21,7 +21,7 @@ Contrairement aux réglementations étatiques (RGPD, NIS2), PCI DSS est un **sta
 !!! info "Pourquoi c'est important ?"
     Les **violations de données de cartes bancaires** causent des dommages considérables : pertes financières directes, coûts de renouvellement massif de cartes, atteinte à la réputation, sanctions des réseaux de cartes. PCI DSS **structure l'écosystème mondial du paiement** en imposant un socle de sécurité uniforme. Pour les commerçants et prestataires, la conformité PCI DSS est **non négociable** : elle conditionne la capacité même d'accepter les cartes bancaires. Pour les professionnels de la cybersécurité, PCI DSS constitue un **référentiel technique détaillé** couvrant l'ensemble du spectre de la sécurité informatique appliquée aux paiements.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous découvrez PCI DSS, comprenez qu'il s'agit d'un **standard privé** et non d'une loi. Il est **imposé contractuellement** par les réseaux de cartes bancaires à tous les acteurs de la chaîne de paiement. PCI DSS s'applique **mondialement** : un site e-commerce français, une PME américaine ou une multinationale japonaise acceptant Visa/Mastercard doivent tous respecter PCI DSS.
 

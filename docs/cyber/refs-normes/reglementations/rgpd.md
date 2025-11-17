@@ -21,7 +21,7 @@ Le RGPD représente une **révolution juridique et opérationnelle** qui a boule
 !!! info "Pourquoi c'est important ?"
     Le RGPD **redéfinit l'équilibre de pouvoir** entre les organisations collectant des données et les individus. Il transforme la protection des données d'une **obligation formelle** en un **enjeu stratégique** impactant la réputation, la confiance client et la viabilité économique. Les amendes record prononcées contre Amazon (746 millions €), Google (90 millions €) et Meta (405 millions €) démontrent que le RGPD n'est pas une simple formalité administrative mais un **impératif juridique et financier absolu**.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous découvrez le RGPD, comprenez qu'il ne s'agit pas d'un texte national français mais d'un **règlement européen directement applicable** dans tous les États membres sans nécessiter de transposition nationale. Cette nature de règlement (et non de directive) garantit une **application uniforme** à travers l'Europe.
 

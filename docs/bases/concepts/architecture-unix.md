@@ -23,7 +23,7 @@ L'architecture Unix repose sur des **principes fondamentaux** établis dans les 
 !!! tip "L'année 1970 et l'Epoch Unix"
     Le **1er janvier 1970 à 00:00:00 UTC** marque l'**Epoch Unix**, point de départ du temps dans les systèmes Unix/Linux. Tous les timestamps sont calculés en **secondes écoulées depuis cette date**. Par exemple, le timestamp `1700000000` représente le 14 novembre 2023 à 22:13:20 UTC. Cette convention universelle permet de synchroniser les horloges système, gérer les fichiers, planifier des tâches cron, et garantir la cohérence temporelle entre tous les systèmes Unix du monde entier.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si les termes **système d'exploitation**, **processus**, ou **fichier** vous semblent vagues, ce chapitre vous aidera à construire ces concepts. Aucune connaissance préalable n'est requise, mais une curiosité pour comprendre **comment les ordinateurs fonctionnent en profondeur** sera votre meilleur atout.
 
@@ -34,7 +34,7 @@ Si les termes **système d'exploitation**, **processus**, ou **fichier** vous se
 
 ## Histoire et évolution
 
-### Les origines (1969-1973)
+### › Les origines (1969-1973)
 
 Unix naît en **1969** aux **Bell Labs** (AT&T) grâce à **Ken Thompson** et **Dennis Ritchie** comme réaction contre la complexité du système Multics[^1].
 
@@ -45,7 +45,7 @@ Unix naît en **1969** aux **Bell Labs** (AT&T) grâce à **Ken Thompson** et **
 - [x] **Modularité** : Petits programmes composables
 - [x] **Ouverture** : Code source accessible
 
-### Timeline historique
+### › Timeline historique
 
 ```mermaid
 timeline
@@ -63,7 +63,7 @@ timeline
         : Android
 ```
 
-### L'arbre généalogique Unix
+### › L'arbre généalogique Unix
 
 Afin de mieux comprendre la timeline précédente, nous la transformons en arbre généalogique pour mieux assimiler le concept.
 
@@ -91,7 +91,7 @@ graph TD
 
 _Ce diagramme montre l'**influence massive** d'Unix sur les systèmes modernes. Linux et BSD représentent les réimplémentations libres, tandis que macOS descend directement de BSD._
 
-### Unix aujourd'hui
+### › Unix aujourd'hui
 
 **Systèmes Unix "purs" (certification officielle) :**
 
@@ -110,7 +110,7 @@ _Ce diagramme montre l'**influence massive** d'Unix sur les systèmes modernes. 
 
 La philosophie Unix tient en **quelques principes simples** qui guident toute décision de conception.
 
-### Principe 1 : Tout est fichier
+### › Principe 1 : Tout est fichier
 
 ```mermaid
 graph LR
@@ -149,7 +149,7 @@ graph LR
     cat /dev/tcp/example.com/80
     ```
 
-### Principe 2 : Programmes spécialisés et composables
+### › Principe 2 : Programmes spécialisés et composables
 
 Chaque programme Unix fait **une seule chose bien** et peut se **combiner avec d'autres**.
 
@@ -175,7 +175,7 @@ graph LR
     style C fill:#f3e3e3
 ```
 
-### Principe 3 : Interface textuelle
+### › Principe 3 : Interface textuelle
 
 Les données circulent sous forme de **flux de texte**, permettant l'interopérabilité maximale.
 
@@ -186,7 +186,7 @@ Les données circulent sous forme de **flux de texte**, permettant l'interopéra
 - [x] Indépendant du langage
 - [x] Composition triviale
 
-### Principe 4 : Configuration en fichiers texte
+### › Principe 4 : Configuration en fichiers texte
 
 **Toute la configuration** Unix se fait via des fichiers texte éditables.
 
@@ -275,13 +275,13 @@ graph TB
     style C5 fill:#e3f3e3
 ```
 
-### Couche 1 : Matériel (Hardware)
+### › Couche 1 : Matériel (Hardware)
 
 Composants physiques : **processeur**, **mémoire**, **disques**, **périphériques**.
 
 **Rôle :** Exécuter les instructions et stocker les données.
 
-### Couche 2 : Kernel (Noyau)
+### › Couche 2 : Kernel (Noyau)
 
 Le **cœur du système d'exploitation** qui gère toutes les ressources.
 
@@ -542,7 +542,7 @@ GPU | Réseau | USB | Son | Disque
 !!! warning "Réservé aux administrateurs systèmes"
     La gestion des modules kernel est une opération **critique** réservée aux administrateurs systèmes, réseaux et professionnels de la cybersécurité. Un module mal configuré peut rendre le système **instable** ou **non bootable**.
 
-### Couche 3 : Utilitaires système et Shell
+### › Couche 3 : Utilitaires système et Shell
 
 Le **shell** est l'interface entre l'utilisateur et le kernel.
 
@@ -637,7 +637,7 @@ Le **shell** est l'interface entre l'utilisateur et le kernel.
     ip          # Configuration réseau (moderne)
     ```
 
-### Couche 4 : Applications utilisateur
+### › Couche 4 : Applications utilisateur
 
 Applications de haut niveau qui utilisent les services des couches inférieures.
 
@@ -653,7 +653,7 @@ Applications de haut niveau qui utilisent les services des couches inférieures.
 
 Unix implémente un **modèle de permissions rigoureux** basé sur utilisateurs, groupes et autres.
 
-### Structure des permissions
+### › Structure des permissions
 
 Chaque fichier possède :
 
@@ -693,7 +693,7 @@ $ ls -l fichier.txt
 | `p` | Pipe nommé (FIFO) |
 | `s` | Socket |
 
-### Permissions en octal
+### › Permissions en octal
 
 === ":lucide-terminal: Bash"
 
@@ -735,7 +735,7 @@ $ ls -l fichier.txt
     chmod 777 /tmp/shared/      # drwxrwxrwx (répertoire partagé - DANGEREUX)
     ```
 
-### Permissions spéciales
+### › Permissions spéciales
 
 #### Setuid (SUID) - bit 4000
 
@@ -820,7 +820,7 @@ Sur **répertoires** : Seul le propriétaire peut **supprimer ses propres fichie
 
 ## Processus et IPC
 
-### Cycle de vie d'un processus
+### › Cycle de vie d'un processus
 
 ```mermaid
 stateDiagram-v2
@@ -840,7 +840,7 @@ stateDiagram-v2
     end note
 ```
 
-### États des processus
+### › États des processus
 
 | État | Symbole ps | Description |
 |------|-----------|-------------|
@@ -853,7 +853,7 @@ stateDiagram-v2
 !!! example "États de processus avec Docker"
     Lorsque vous démarrez un conteneur Docker avec `docker run`, le processus principal passe par les états **Created → Ready → Running**. Si vous faites `docker pause`, le processus entre en état **Stopped**. Avec `docker stop`, le processus reçoit SIGTERM puis passe en **Zombie** brièvement avant terminaison complète. Observez avec `docker stats` ou `ps aux | grep docker`.
 
-### Hiérarchie des processus
+### › Hiérarchie des processus
 
 Tous les processus descendent du processus **init** (PID 1).
 
@@ -888,7 +888,7 @@ Tous les processus descendent du processus **init** (PID 1).
     systemd-cgls       # Hiérarchie systemd (cgroups)
     ```
 
-### Communication inter-processus (IPC)
+### › Communication inter-processus (IPC)
 
 #### Pipes (tubes)
 
@@ -1016,7 +1016,7 @@ Zone mémoire accessible par plusieurs processus - ultra-rapide.
 
 ## Utilisateurs et groupes
 
-### Types d'utilisateurs
+### › Types d'utilisateurs
 
 === "Types d'UID"
 
@@ -1035,7 +1035,7 @@ Zone mémoire accessible par plusieurs processus - ultra-rapide.
     Utilisateurs humains interactifs
     ```
 
-### Fichiers de configuration
+### › Fichiers de configuration
 
 === "/etc/passwd"
 
@@ -1102,7 +1102,7 @@ $id$salt$hash
     └──────────────────────────────── Nom du groupe
     ```
 
-### Commandes de gestion des utilisateurs
+### › Commandes de gestion des utilisateurs
 
 === ":lucide-terminal: Bash"
 
@@ -1150,7 +1150,7 @@ graph TB
     style G fill:#f3e3e3
 ```
 
-### Étapes détaillées
+### › Étapes détaillées
 
 #### 1. BIOS/UEFI
 

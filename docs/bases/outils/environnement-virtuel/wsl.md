@@ -20,7 +20,7 @@ WSL révolutionne le développement sous Windows en permettant aux développeurs
 !!! info "Pourquoi c'est important ?"
     WSL permet le **développement web/cloud moderne**, l'**utilisation d'outils DevOps**, l'**exécution de conteneurs Docker**, le **scripting Bash**, l'**apprentissage Linux** sans quitter Windows, et l'**accès aux outils de cybersécurité Linux**. C'est devenu l'environnement de référence pour les développeurs sous Windows.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous débutez complètement, sachez que **Linux** est un système d'exploitation (comme Windows) largement utilisé pour les **serveurs**, le **développement** et la **cybersécurité**. WSL vous permet d'utiliser Linux **sans installer un système séparé**, directement depuis votre Windows. Aucune connaissance Linux préalable n'est requise - ce chapitre vous guidera pas à pas.
 

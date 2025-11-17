@@ -21,7 +21,7 @@ DORA répond à un constat majeur : la **transformation numérique du secteur fi
 !!! info "Pourquoi c'est important ?"
     DORA **unifie et renforce** les exigences de résilience opérationnelle numérique qui étaient auparavant **fragmentées** entre directives sectorielles, réglementations nationales et guidelines non contraignantes. Pour les entités financières, DORA impose des **obligations strictes** avec un contrôle renforcé des autorités de supervision. Pour les prestataires de services TIC (technologies de l'information et de la communication), DORA crée un **cadre de supervision directe** inédit, les plaçant sous le contrôle des autorités financières européennes.
 
-## Pour les vrais débutants
+## Pour repartir des bases (vrais débutants)
 
 Si vous découvrez DORA, comprenez qu'il s'agit d'un **règlement européen directement applicable** (comme le RGPD), et non d'une directive nécessitant une transposition nationale. Dès son **entrée en vigueur le 17 janvier 2025**, DORA s'appliquera **uniformément** dans les 27 États membres de l'Union européenne sans nécessiter de loi nationale d'application.
 
