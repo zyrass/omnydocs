@@ -12,7 +12,7 @@ tags: ["NIST", "CYBERSÉCURITÉ", "FRAMEWORK", "USA", "INFRASTRUCTURES CRITIQUES
 <div
   class="omny-meta"
   data-level="🟢 Débutant & 🟡 Intermédiaire"
-  data-version="1.0"
+  data-version="1.1"
   data-time="60-70 minutes">
 </div>
 
@@ -3694,29 +3694,29 @@ Cette section présente des cas pratiques d'implémentation du NIST CSF dans dif
 
 #### Contexte initial
 
-**Profil de l'organisation** :
+=== "Profil de l'organisation"
 
-- **Activité** : Vente en ligne de matériel électronique (10M€ CA annuel)
-- **Effectif** : 50 collaborateurs (direction, marketing, logistique, support client)
-- **Infrastructure IT** :
-  - Site web hébergé chez OVH (WordPress + WooCommerce)
-  - ERP SaaS (Odoo)
-  - 50 postes Windows 10/11
-  - 3 serveurs on-premise (fichiers, Active Directory, comptabilité)
-  - Aucun RSSI dédié (DSI à temps partiel)
+    - **Activité** : Vente en ligne de matériel électronique (10M€ CA annuel)
+    - **Effectif** : 50 collaborateurs (direction, marketing, logistique, support client)
+    - **Infrastructure IT** :
+      - Site web hébergé chez OVH (WordPress + WooCommerce)
+      - ERP SaaS (Odoo)
+      - 50 postes Windows 10/11
+      - 3 serveurs on-premise (fichiers, Active Directory, comptabilité)
+      - Aucun RSSI dédié (DSI à temps partiel)
 
-**État de sécurité initial (Tier 1)** :
+=== "État de sécurité initial (Tier 1)"
 
-| Fonction | État | Problèmes identifiés |
-|----------|------|---------------------|
-| **GOVERN** | ❌ Inexistant | Aucune gouvernance cyber, pas de politique formelle |
-| **IDENTIFY** | ⚠️ Partiel | Inventaire Excel obsolète, pas d'analyse de risques |
-| **PROTECT** | ⚠️ Minimal | Antivirus uniquement, pas de MFA, mots de passe faibles |
-| **DETECT** | ❌ Inexistant | Aucun monitoring, logs non centralisés |
-| **RESPOND** | ❌ Ad hoc | Pas de plan, réaction au cas par cas |
-| **RECOVER** | ⚠️ Partiel | Sauvegardes quotidiennes jamais testées |
+      | Fonction | État | Problèmes identifiés |
+      |----------|------|---------------------|
+      | **GOVERN** | ❌ Inexistant | Aucune gouvernance cyber, pas de politique formelle |
+      | **IDENTIFY** | ⚠️ Partiel | Inventaire Excel obsolète, pas d'analyse de risques |
+      | **PROTECT** | ⚠️ Minimal | Antivirus uniquement, pas de MFA, mots de passe faibles |
+      | **DETECT** | ❌ Inexistant | Aucun monitoring, logs non centralisés |
+      | **RESPOND** | ❌ Ad hoc | Pas de plan, réaction au cas par cas |
+      | **RECOVER** | ⚠️ Partiel | Sauvegardes quotidiennes jamais testées |
 
-**Incident déclencheur** : Tentative de ransomware bloquée par antivirus (chance), mais prise de conscience du risque.
+      **Incident déclencheur** : Tentative de ransomware bloquée par antivirus (chance), mais prise de conscience du risque.
 
 #### Objectif et contraintes
 
@@ -3865,12 +3865,12 @@ Cette section présente des cas pratiques d'implémentation du NIST CSF dans dif
 - **Gain commercial** : 2 contrats B2B majeurs (500K€ CA) grâce à garanties cyber
 - **ROI estimé** : **300% sur 2 ans** (hors valeur immatérielle réputation)
 
-**Prochaines étapes (Tier 2 → Tier 3)** :
+!!! info "Prochaines étapes (Tier 2 → Tier 3)"
 
-- Certification ISO 27001 (M18-24)
-- RSSI temps plein (M18)
-- SOC externalisé 24/7 (M24)
-- Conformité NIS2 si croissance continue
+    - Certification ISO 27001 (M18-24)
+    - RSSI temps plein (M18)
+    - SOC externalisé 24/7 (M24)
+    - Conformité NIS2 si croissance continue
 
 ---
 
@@ -3878,28 +3878,28 @@ Cette section présente des cas pratiques d'implémentation du NIST CSF dans dif
 
 #### Contexte initial
 
-**Profil de l'organisation** :
+=== "Profil de l'organisation"
 
-- **Type** : Centre Hospitalier territorial (CHT)
-- **Capacité** : 500 lits, 1200 personnels (médecins, soignants, administratifs)
-- **Budget IT** : 3M€/an (0.5% budget global, sous la moyenne nationale 2%)
-- **Infrastructure critique** :
-  - Dossier Patient Informatisé (DPI) : solution éditeur français
-  - 15 équipements médicaux connectés critiques (imagerie, monitoring)
-  - PACS (Picture Archiving System) pour imagerie médicale
-  - 800 postes Windows, 200 terminaux mobiles (infirmières)
-  - 2 datacenters on-premise (principal + secours même site)
+    - **Type** : Centre Hospitalier territorial (CHT)
+    - **Capacité** : 500 lits, 1200 personnels (médecins, soignants, administratifs)
+    - **Budget IT** : 3M€/an (0.5% budget global, sous la moyenne nationale 2%)
+    - **Infrastructure critique** :
+      - Dossier Patient Informatisé (DPI) : solution éditeur français
+      - 15 équipements médicaux connectés critiques (imagerie, monitoring)
+      - PACS (Picture Archiving System) pour imagerie médicale
+      - 800 postes Windows, 200 terminaux mobiles (infirmières)
+      - 2 datacenters on-premise (principal + secours même site)
 
-**État de sécurité initial (Tier 2)** :
+=== "État de sécurité initial (Tier 2)"
 
-| Fonction | État | Commentaires |
-|----------|------|--------------|
-| **GOVERN** | ⚠️ Partiel | RSSI temps partiel, pas de reporting direction |
-| **IDENTIFY** | ✅ Bon | Inventaire à jour, BIA réalisé |
-| **PROTECT** | ⚠️ Moyen | MFA admin uniquement, pas EDR, segmentation limitée |
-| **DETECT** | ⚠️ Basique | SIEM présent mais sous-exploité, pas de SOC |
-| **RESPOND** | ⚠️ Documenté | Plan incident existant mais jamais testé |
-| **RECOVER** | ⚠️ Partiel | PCA théorique, jamais testé, pas de site distant |
+      | Fonction | État | Commentaires |
+      |----------|------|--------------|
+      | **GOVERN** | ⚠️ Partiel | RSSI temps partiel, pas de reporting direction |
+      | **IDENTIFY** | ✅ Bon | Inventaire à jour, BIA réalisé |
+      | **PROTECT** | ⚠️ Moyen | MFA admin uniquement, pas EDR, segmentation limitée |
+      | **DETECT** | ⚠️ Basique | SIEM présent mais sous-exploité, pas de SOC |
+      | **RESPOND** | ⚠️ Documenté | Plan incident existant mais jamais testé |
+      | **RECOVER** | ⚠️ Partiel | PCA théorique, jamais testé, pas de site distant |
 
 **Incident déclencheur** : **Attaque ransomware février 2023** (Lockbit 3.0) :
 
@@ -4059,41 +4059,39 @@ Cette section présente des cas pratiques d'implémentation du NIST CSF dans dif
 - **ROI** : **Seuil de rentabilité atteint** si aucun incident majeur sur 2 ans
 - **Valeur immatérielle** : Confiance, réputation, conformité réglementaire
 
-**Prochaines étapes (Tier 3 → Tier 4)** :
+!!! info "Prochaines étapes (Tier 3 → Tier 4)"
 
-- Certification ISO 27001 (M30)
-- Threat hunting proactif (équipe interne)
-- Architecture Zero Trust pour accès distants
-- SOAR pour automatisation réponse
-
----
+      - Certification ISO 27001 (M30)
+      - Threat hunting proactif (équipe interne)
+      - Architecture Zero Trust pour accès distants
+      - SOAR pour automatisation réponse
 
 ### Cas 3 : Startup SaaS B2B (Tier 1 → Tier 3)
 
 #### Contexte initial
 
-**Profil de l'organisation** :
+=== "Profil de l'organisation"
 
-- **Activité** : Plateforme SaaS de gestion RH (SIRH cloud)
-- **Stade** : Series A (7M€ levés), 35 employés
-- **Clients** : 150 PME européennes (5000 utilisateurs finaux)
-- **Stack technique** :
-  - Frontend : React (Vercel)
-  - Backend : Node.js + PostgreSQL (AWS)
-  - Infrastructure : 100% cloud AWS (eu-west-1)
-  - CI/CD : GitLab + Terraform
-  - Équipe dev : 15 personnes
+    - **Activité** : Plateforme SaaS de gestion RH (SIRH cloud)
+    - **Stade** : Series A (7M€ levés), 35 employés
+    - **Clients** : 150 PME européennes (5000 utilisateurs finaux)
+    - **Stack technique** :
+      - Frontend : React (Vercel)
+      - Backend : Node.js + PostgreSQL (AWS)
+      - Infrastructure : 100% cloud AWS (eu-west-1)
+      - CI/CD : GitLab + Terraform
+      - Équipe dev : 15 personnes
 
-**État de sécurité initial (Tier 1)** :
+=== "État de sécurité initial (Tier 1)"
 
-| Fonction | État | Problèmes identifiés |
-|----------|------|---------------------|
-| **GOVERN** | ❌ Inexistant | Startup, focus product-market fit, pas de gouvernance |
-| **IDENTIFY** | ⚠️ Minimal | Architecture documentée, mais pas d'analyse de risques |
-| **PROTECT** | ⚠️ DevOps | MFA GitHub/AWS, mais code non sécurisé (SAST absent) |
-| **DETECT** | ❌ CloudWatch | Logs AWS basiques, pas de SIEM, pas de monitoring sécu |
-| **RESPOND** | ❌ Inexistant | Pas de plan, équipe dev gère les incidents |
-| **RECOVER** | ⚠️ AWS | Sauvegardes RDS automatiques, jamais testées |
+      | Fonction | État | Problèmes identifiés |
+      |----------|------|---------------------|
+      | **GOVERN** | ❌ Inexistant | Startup, focus product-market fit, pas de gouvernance |
+      | **IDENTIFY** | ⚠️ Minimal | Architecture documentée, mais pas d'analyse de risques |
+      | **PROTECT** | ⚠️ DevOps | MFA GitHub/AWS, mais code non sécurisé (SAST absent) |
+      | **DETECT** | ❌ CloudWatch | Logs AWS basiques, pas de SIEM, pas de monitoring sécu |
+      | **RESPOND** | ❌ Inexistant | Pas de plan, équipe dev gère les incidents |
+      | **RECOVER** | ⚠️ AWS | Sauvegardes RDS automatiques, jamais testées |
 
 **Déclencheur** : **Demande client Fortune 500** (contrat 500K€/an) exigeant **SOC 2 Type II** sous 18 mois.
 
@@ -4246,14 +4244,12 @@ Cette section présente des cas pratiques d'implémentation du NIST CSF dans dif
 - **Shift-left** : Sécurité intégrée dès développement (pas après)
 - **Ownership** : Développeurs responsables sécurité code (pas "équipe sécu")
 
-**Prochaines étapes (Tier 3 → Tier 4)** :
+!!! info "Prochaines étapes (Tier 3 → Tier 4)"
 
-- ISO 27001 certification (M24) pour EMEA
-- Threat modeling automatisé (Microsoft Threat Modeling Tool)
-- Chaos engineering sécurité (Gremlin)
-- Expansion géographique (US East Coast : AWS us-east-1)
-
----
+    - ISO 27001 certification (M24) pour EMEA
+    - Threat modeling automatisé (Microsoft Threat Modeling Tool)
+    - Chaos engineering sécurité (Gremlin)
+    - Expansion géographique (US East Coast : AWS us-east-1)
 
 ## Comparaison des 3 cas
 
