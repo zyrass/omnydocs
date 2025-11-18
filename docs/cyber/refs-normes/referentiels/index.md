@@ -44,12 +44,12 @@ Ils traduisent les obligations des réglementations européennes (**RGPD**, **NI
 
 <div class="grid cards" markdown>
 
--   :lucide-library-big:{ .lg .middle } **NIST** — _Cadres de contrôle_  - <mark>Pas encore disponible</mark>
+-   :lucide-library-big:{ .lg .middle } **NIST** — _Cadres de contrôle_
 
     ---
     Frameworks largement utilisés pour structurer la gestion des risques, les contrôles techniques et les processus de sécurité (CSF, SP 800-53).
 
-    [:lucide-book-open-check: Voir la fiche sur NIST](#)
+    [:lucide-book-open-check: Voir la fiche sur NIST](./nist-csf.md)
 </div>
 
 ## Rôle général dans l’écosystème
