@@ -8,7 +8,12 @@ tags: ["HTTP", "STATUT", "ERREUR", "API", "REST"]
 
 ## Introduction
 
-**Niveau :** 🟢 Débutant & 🟡 Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.4"
+  data-time="35-40 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un service postal qui vous envoie différents types de notifications : **"Colis livré"** (succès), **"Adresse introuvable"** (erreur client), **"Centre de tri en panne"** (erreur serveur), ou **"Colis redirigé vers une nouvelle adresse"** (redirection). **Les codes de statut HTTP fonctionnent exactement ainsi** : ils constituent un langage standardisé permettant au serveur de communiquer précisément ce qui s'est passé avec votre requête._
@@ -1029,11 +1034,3 @@ graph LR
     Choisir le bon code de statut n'est pas un détail cosmétique - c'est une **décision architecturale** qui impacte la robustesse, la maintenabilité et l'expérience développeur de votre API. Un code **400** au lieu de **422** peut casser la logique de retry d'un client. Un code **500** au lieu de **503** peut déclencher des alertes inutiles.
     
     Maîtrisez ces codes, utilisez-les avec précision, et vos APIs deviendront des modèles de clarté et de fiabilité.
-
----
-
-!!! abstract "Métadonnées"
-    **Version** : 1.3  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 35-40 minutes  
-    **Niveau** : 🟢 Débutant & 🟡 Intermédiaire

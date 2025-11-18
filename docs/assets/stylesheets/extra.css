@@ -124,3 +124,93 @@ td {
   line-height: 1.5;
   padding: 1.1rem 1.2rem;
 }
+
+/* -------------------------------------------------------------------
+ * Méta-bloc d'article (OmnyDocs)
+ * ------------------------------------------------------------------- */
+
+.md-typeset {
+  --omny-meta-border: rgba(148, 163, 184, 0.32); /* Gris neutre */
+  --omny-meta-muted: rgba(148, 163, 184, 0.85);
+  --omny-meta-pill-bg: var(--md-code-bg-color);
+}
+
+/* Conteneur de métadonnées */
+.md-typeset .metadata {
+  position: relative;
+  margin: 1.2rem 0 2rem;
+  padding: 0.4rem 0.8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+
+  border-radius: 0.6rem;
+  border: 1px solid var(--omny-meta-border);
+  font-size: 0.7rem;
+  line-height: 1.4;
+  background-color: var(--md-default-bg-color);
+}
+
+/* Badge version flottant centré */
+.md-typeset .metadata__version {
+  position: absolute;
+  top: -0.65rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0.1rem 0.55rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+
+  border-radius: 8px;
+  background-color: var(--md-default-bg-color);
+  color: var(--md-accent-fg-color);
+
+  border: 1px solid var(--omny-meta-border);
+  white-space: nowrap;
+}
+
+/* Texte du niveau */
+.md-typeset .metadata__niveau {
+  font-weight: 500;
+}
+
+/* Bloc de durée */
+.md-typeset .metadata__duree {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.md-typeset .metadata__duree-text {
+  color: var(--omny-meta-muted);
+}
+
+/* Capsule de temps de lecture */
+.md-typeset .metadata__duree-time {
+  padding: 0.2rem 0.4rem;
+  border-radius: 8px;
+
+  border: 1px solid var(--md-accent-fg-color);
+  background-color: var(--omny-meta-pill-bg);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Mobile : empilement naturel */
+@media (max-width: 768px) {
+  .md-typeset .metadata {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding-top: 1.2rem; /* place pour le badge */
+  }
+
+  .md-typeset .metadata__duree {
+    margin-left: 0;
+  }
+}
