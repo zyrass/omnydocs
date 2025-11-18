@@ -8,7 +8,12 @@ tags: ["HTTP", "API", "REST", "SECURITE"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="40-45 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez une bibliothèque où vous pouvez effectuer différentes actions : **consulter** un livre (GET), **emprunter** un livre en remplissant un formulaire (POST), **remplacer** complètement un livre endommagé (PUT), **corriger** quelques pages (PATCH), ou **retourner** un livre (DELETE). Chaque action suit des règles précises. **Les méthodes HTTP fonctionnent exactement ainsi** : elles définissent les actions possibles sur les ressources web, chacune avec ses propres caractéristiques et règles de sécurité._
@@ -1037,11 +1042,5 @@ Protégez vos APIs contre les abus en limitant le nombre de requêtes.
     Une utilisation correcte des méthodes HTTP garantit des APIs prévisibles, performantes et sécurisées. Une utilisation incorrecte expose vos systèmes à des vulnérabilités critiques et des comportements imprévisibles qui compromettent la fiabilité de vos applications.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 40-45 minutes  
-    **Niveau** : Débutant & Intermédiaire
 
 [^1]: En développement, une opération est **idempotente** lorsqu’elle peut être exécutée plusieurs fois sans modifier le résultat final au-delà de son premier effet, comme un `PUT` HTTP qui met toujours la ressource dans le même état quel que soit le nombre d’appels.

@@ -7,7 +7,12 @@ icon: lucide/book-open-check
 
 ## Introduction
 
-**Niveau :** Débutant
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="15-20 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez que vous construisez une maison. Avant de poser les murs, vous avez besoin de **matériaux de base** : du ciment, des briques, du bois, des clous. En programmation, les **types primitifs** sont exactement ces matériaux fondamentaux !_
@@ -388,12 +393,5 @@ var_dump(0 === "");  // false
     Les types primitifs sont comme apprendre à tenir un crayon. Ça paraît basique, mais c'est la fondation de tout ce que vous écrirez ensuite ! Prenez le temps de bien les comprendre. Votre futur vous (et vos collègues) vous remercieront !
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 15-20 minutes  
-    **Niveau** : Débutant
-
 
 [^1]: Le **type juggling** (ou _conversion implicite de type_) désigne le processus par lequel un langage de programmation **convertit automatiquement une valeur d’un type à un autre** pour exécuter une opération, souvent sans que le développeur le demande explicitement.

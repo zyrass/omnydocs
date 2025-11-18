@@ -8,7 +8,12 @@ tags: ["GO", "PYTHON", "PHP", "JS", "RUST"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="35-40 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez une recette de cuisine que vous écrivez une seule fois dans votre livre de recettes. Chaque fois que vous voulez préparer ce plat, vous consultez simplement la recette au lieu de réécrire toutes les étapes. **Les fonctions fonctionnent exactement ainsi** : vous définissez une séquence d'instructions une seule fois, puis vous l'appelez autant de fois que nécessaire en lui fournissant différents ingrédients selon vos besoins._
@@ -1011,11 +1016,5 @@ Face à une tâche complexe, **décomposez-la en sous-fonctions** plus simples q
     L'important réside dans la compréhension que chaque fonction bien conçue représente une abstraction qui simplifie votre programme. Plus vous maîtriserez l'art de créer des fonctions focalisées et bien nommées, plus vos programmes gagneront en clarté et en évolutivité.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 35-40 minutes  
-    **Niveau** : Débutant & Intermédiaire
 
 [^1]: Un **effet de bord** désigne une modification inattendue ou non souhaitée de l’état d’un programme provoquée par l’exécution d’une fonction, comme altérer une variable globale ou modifier une ressource externe alors qu’on attendait seulement un calcul.

@@ -5,3 +5,12 @@ icon: lucide/book-open-check
 
 # OpenSSL
 
+## Introduction
+
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0"
+  data-time="??-?? minutes">
+</div>
+

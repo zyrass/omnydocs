@@ -7,7 +7,12 @@ icon: lucide/book-open-check
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.2"
+  data-time="20-25 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un interrupteur : il est soit **allumé** soit **éteint**. Pas de position intermédiaire ! En programmation, nous utilisons exactement cette même logique simple : **vrai** ou **faux**, **oui** ou **non**, **autorisé** ou **interdit**._
@@ -359,10 +364,3 @@ Cette **distinction peut sembler mineure** mais **celle-ci impacte significative
     L'important réside dans **la compréhension des principes plutôt que dans la mémorisation de règles abstraites**. **Vous utilisez déjà cette logique quotidiennement dans vos raisonnements naturels**. Désormais, vous savez simplement comment l'exprimer formellement à un ordinateur.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 20-25 minutes  
-    **Niveau** : Débutant & Intermédiaire
-```

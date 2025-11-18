@@ -9,7 +9,12 @@ status: beta
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0.2"
+  data-time="55-65 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **règlement de sécurité incendie étendu à l'échelle européenne**. Tout comme les établissements recevant du public doivent respecter des normes strictes de sécurité incendie (extincteurs, issues de secours, détecteurs de fumée), **NIS2 impose des exigences de cybersécurité** aux organisations fournissant des services essentiels ou importants pour la société. L'absence de conformité expose à des sanctions, tout comme le non-respect des normes de sécurité incendie._
@@ -754,9 +759,3 @@ graph TD
 - **Commission européenne** : [https://digital-strategy.ec.europa.eu](https://digital-strategy.ec.europa.eu)
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 0.1  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 55-65 minutes  
-    **Niveau** : Débutant & Intermédiaire

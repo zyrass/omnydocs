@@ -8,7 +8,12 @@ tags: ["GIT", "VERSIONING", "VCS", "DÉVELOPPEMENT", "COLLABORATION"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="50-55 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez une **machine à remonter le temps** pour vos documents. À chaque modification importante, vous créez un **point de sauvegarde** avec une description. Vous pouvez revenir à n'importe quel point passé, comparer deux versions séparées de mois, ou même créer des **univers parallèles** où vous testez différentes approches sans affecter votre travail principal. **Git fonctionne exactement ainsi** : c'est un système de gestion de versions qui enregistre l'historique complet de vos fichiers et permet une collaboration sans conflit entre dizaines de développeurs._
@@ -1475,9 +1480,3 @@ git branch -d feature/user-profile
     L'écosystème Git (GitHub, GitLab, Bitbucket) a créé une **culture de l'open source** où partager du code, collaborer avec des inconnus, et contribuer à des projets mondiaux est devenu trivial. Cette démocratisation du développement collaboratif a accéléré l'innovation logicielle de manière exponentielle.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.1  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 50-55 minutes  
-    **Niveau** : Débutant & Intermédiaire

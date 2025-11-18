@@ -8,7 +8,12 @@ tags: ["YAML", "DONNÉES", "CONFIGURATION", "DEVOPS", "INFRASTRUCTURE"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="50-55 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **document de configuration** écrit comme vous écririez une liste de courses ou un plan d'action : **indenté naturellement**, avec des **tirets pour les listes**, des **deux-points pour les propriétés**, et des **commentaires** pour expliquer vos choix. **YAML fonctionne exactement ainsi** : c'est un format qui privilégie la **lisibilité humaine** avant tout, rendant les fichiers de configuration aussi clairs qu'un document texte bien structuré._
@@ -1695,9 +1700,3 @@ kube-score score deployment.yaml
     Maîtriser YAML c'est comprendre que **l'indentation est sémantique** (contrairement à JSON), que les **commentaires sont essentiels** pour la documentation, et que les **ancres/références** évitent la duplication. Pour la configuration d'infrastructure moderne, YAML est devenu **incontournable**.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 55-60 minutes  
-    **Niveau** : Débutant & Intermédiaire

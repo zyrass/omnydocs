@@ -8,7 +8,12 @@ tags: ["UNIX", "LINUX", "ARCHITECTURE", "SYSTEME", "PHILOSOPHIE"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.4"
+  data-time="50-55 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez une **ville bien organisée** : le noyau central (kernel) est comme l'hôtel de ville qui gère les ressources vitales (eau, électricité, routes), les services municipaux (shell, utilitaires) permettent aux citoyens d'interagir avec la ville, et chaque citoyen (processus) vit dans sa propre maison avec ses propres ressources, ne pouvant accéder aux autres qu'avec permission. **L'architecture Unix fonctionne exactement ainsi** : un système hiérarchique et modulaire où chaque composant a un rôle précis et communique avec les autres via des interfaces standardisées._
@@ -1296,11 +1301,5 @@ systemd remplace les anciens SysVinit et Upstart.
     Maîtriser Unix, c'est acquérir une **vision systémique** de l'informatique où chaque élément s'intègre naturellement dans un tout cohérent. Cette compréhension profonde transforme les problèmes complexes en compositions élégantes de solutions simples - l'essence même de la philosophie Unix.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.1
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 50-55 minutes  
-    **Niveau** : Débutant & Intermédiaire
 
 [^1]: **Multics** (ou _Multiplexed Information and Computing Service_) est un ancien système d'exploitation conçu dans les années 60, pionnier des concepts modernes comme **la hiérarchie de fichiers**, **la sécurité par anneaux** et **le temps-partagé**, et qui a fortement influencé la création d'Unix.

@@ -8,7 +8,12 @@ tags: ["GO", "PYTHON", "PHP", "JS", "RUST"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="35-40 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un agent de sécurité qui vérifie chaque badge d'une file d'attente de cent personnes. Il répète exactement la même vérification pour chaque personne : **scanner le badge**, **vérifier le code**, **autoriser** ou **refuser l'accès**. Il ne s'arrête que lorsque la file est vide. **C'est exactement ce que font les structures itératives** : elles répètent des instructions jusqu'à ce qu'une condition d'arrêt soit satisfaite._
@@ -707,9 +712,3 @@ Les boucles imbriquées surviennent lorsqu'**une boucle contient elle-même une 
     L'important réside dans la compréhension que chaque boucle représente une automatisation qui améliore l'efficacité de vos programmes. Plus vous maîtriserez ces structures, plus vous pourrez concevoir des algorithmes sophistiqués.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 30-35 minutes  
-    **Niveau** : Débutant & Intermédiaire

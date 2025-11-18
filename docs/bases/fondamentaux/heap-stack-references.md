@@ -7,7 +7,12 @@ icon: lucide/book-open-check
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="20-25 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez que vous rangez vos affaires dans votre maison. Certaines choses, vous les mettez **sur votre bureau** pour y accéder rapidement. D'autres, vous les stockez **dans votre armoire** car elles prennent plus de place. Votre ordinateur fait **exactement la même chose** avec vos données !_
@@ -357,13 +362,5 @@ print(id(fruits3))  # Adresse 1 (même que fruits1)
     La gestion mémoire, c'est comme apprendre à conduire : _au début on y pense tout le temps, puis ça devient un réflexe naturel !_ **L'important n'est pas de tout mémoriser, mais de comprendre la logique**.  
     
     Avec de la pratique, vous développerez intuitivement les bons réflexes.
-
----
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 20-25 minutes  
-    **Niveau** : Débutant & Intermédiaire
 
 [^1]: **Ownership** signifie la responsabilité pleine et assumée d’un sujet, d’une action ou d’un résultat, avec l’obligation d’en répondre et d’en assurer la bonne exécution.

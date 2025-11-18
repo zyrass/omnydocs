@@ -7,7 +7,12 @@ icon: lucide/book-open-check
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.2"
+  data-time="35-40 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un garde de sécurité qui ne se contente pas de regarder votre badge. Il **prend des décisions** : **si** votre badge est valide, il vous laisse passer ; **sinon**, il vous demande une pièce d'identité. **Si** vous êtes VIP, il vous accompagne directement ; **sinon**, il vous donne un badge temporaire._ 
@@ -521,9 +526,3 @@ Plusieurs pièges récurrents guettent les développeurs débutants lors de l'é
     L'important réside dans la compréhension que chaque condition que vous écrivez représente une décision métier réelle. Plus vous maîtriserez ces structures, plus vos programmes deviendront intelligents et utiles.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 35-40 minutes  
-    **Niveau** : Débutant & Intermédiaire

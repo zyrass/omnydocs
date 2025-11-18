@@ -8,7 +8,12 @@ tags: ["RESEAU", "PROTOCOLES", "SECURITE", "TCP", "UDP"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0"
+  data-time="50-60 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un service postal international. Pour qu'une lettre arrive à destination, tout le monde doit suivre les mêmes règles : **format des adresses**, **types d'envoi** (courrier standard, recommandé, express), **processus de tri**, **gestion des erreurs**. **Les protocoles réseau fonctionnent exactement ainsi** : ce sont des ensembles de règles standardisées qui permettent à des ordinateurs de communiquer efficacement, quel que soit leur fabricant ou leur système d'exploitation._
@@ -1210,9 +1215,3 @@ N'ouvrez que les **ports strictement nécessaires** et **filtrez par source**.
     Chaque protocole a été conçu pour résoudre des problèmes spécifiques. Votre rôle en tant que développeur ou professionnel de la cybersécurité est de choisir le protocole adapté à votre contexte, de l'implémenter correctement, et de le sécuriser rigoureusement. Une mauvaise compréhension des protocoles expose vos systèmes à des vulnérabilités critiques.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 50-60 minutes  
-    **Niveau** : Débutant & Intermédiaire

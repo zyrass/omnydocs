@@ -8,7 +8,12 @@ tags: ["WSL", "WINDOWS", "LINUX", "VIRTUALISATION", "DEVELOPPEMENT"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="60-70 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez que vous habitez dans un immeuble (Windows) et que vous souhaitez avoir un jardin japonais authentique. Plutôt que de déménager au Japon (dual-boot) ou de construire une serre séparée dans votre appartement (machine virtuelle lourde), vous créez un **espace intégré directement dans votre salon** qui reproduit fidèlement l'environnement japonais tout en partageant l'électricité et le chauffage de votre appartement. **WSL fonctionne exactement ainsi** : il vous donne un Linux complet et performant directement intégré dans Windows, partageant les ressources système sans la lourdeur d'une virtualisation traditionnelle._
@@ -1265,10 +1270,3 @@ wsl --import Ubuntu-24.04 C:\WSL\Ubuntu D:\Backups\ubuntu-backup.tar
     WSL n'est pas un outil de niche - c'est devenu le **standard de facto** pour les développeurs modernes sous Windows, et comprendre son architecture profonde vous permet d'en exploiter tout le potentiel.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 60-70 minutes  
-    **Niveau** : Débutant & Intermédiaire  
-    **Prérequis** : Windows 10 2004+ ou Windows 11

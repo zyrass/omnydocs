@@ -9,7 +9,12 @@ status: beta
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0.2"
+  data-time="55-60 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **règlement imposant des normes antisismiques** à tous les bâtiments d'une région à risque sismique. Peu importe la taille de l'immeuble, tous doivent respecter des standards de construction garantissant leur résistance aux tremblements de terre. **DORA fonctionne sur ce principe pour le secteur financier** : tous les acteurs, des grandes banques aux petites fintechs, doivent garantir la résilience de leurs systèmes numériques face aux cybermenaces et incidents technologiques._
@@ -762,10 +767,3 @@ Pour chacun des 5 piliers, évaluer le niveau de maturité actuel :
 - **Cartographie DORA-ISO 27001** : Documents de synthèse des cabinets de conseil
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 0.1  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 55-65 minutes  
-    **Niveau** : Débutant & Intermédiaire
-    

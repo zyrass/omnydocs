@@ -4,3 +4,12 @@ icon: lucide/book-open-check
 ---
 
 # Gestionnaire pour Redhat (YUM RHEL)
+
+## Introduction
+
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0"
+  data-time="??-?? minutes">
+</div>

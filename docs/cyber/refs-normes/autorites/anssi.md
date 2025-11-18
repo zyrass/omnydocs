@@ -9,7 +9,12 @@ status: beta
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0.2"
+  data-time="45-50 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez une **banque centrale de la sécurité numérique**. Tout comme la Banque de France régule et supervise le système financier national, **l'ANSSI régule et supervise la sécurité des systèmes d'information** de l'État et des infrastructures critiques françaises. Elle émet des **recommandations de sécurité** comme une banque centrale émet des directives économiques, **qualifie des produits de sécurité** comme une banque certifie des établissements financiers, et **intervient en cas de cyberattaque majeure** comme une banque centrale intervient lors d'une crise financière._
@@ -844,8 +849,3 @@ Les **ordinateurs quantiques** menacent les algorithmes cryptographiques actuels
 
 ---
 
-!!! abstract "Métadonnées"
-    **Version** : 0.1  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 45-50 minutes  
-    **Niveau** : Débutant & Intermédiaire

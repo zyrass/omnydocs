@@ -8,7 +8,12 @@ tags: ["XML", "DONNÉES", "FORMATS", "SOAP", "CONFIGURATION"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="50-55 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **système de classement de bibliothèque** où chaque livre est dans une catégorie, chaque catégorie dans une section, chaque section dans un étage, avec des **étiquettes explicites** à chaque niveau indiquant exactement où vous êtes. **XML fonctionne exactement ainsi** : chaque élément a une **balise d'ouverture** (`<livre>`) et une **balise de fermeture** (`</livre>`), créant une structure hiérarchique claire et auto-descriptive où chaque donnée porte son propre nom._
@@ -1418,9 +1423,3 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Maîtriser XML c'est comprendre ses **forces** (validation stricte, namespaces, standards matures) et ses **faiblesses** (verbosité, complexité, vulnérabilités XXE). Dans les environnements **legacy, financiers, médicaux, et gouvernementaux**, XML reste **incontournable** et le restera pour des années.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 50-55 minutes  
-    **Niveau** : Débutant & Intermédiaire

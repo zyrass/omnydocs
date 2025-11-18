@@ -9,7 +9,12 @@ status: beta
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0.2"
+  data-time="50-60 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **protocole de sécurité universel pour les transports de fonds**. Peu importe le pays ou l'entreprise, tous les véhicules blindés doivent respecter les mêmes normes de blindage, de verrouillage et de traçabilité GPS. **PCI DSS fonctionne identiquement pour les paiements par carte** : tous les acteurs manipulant des données de cartes bancaires (numéros, codes CVV, dates d'expiration) doivent respecter le même standard de sécurité, quelle que soit leur taille ou localisation._
@@ -643,9 +648,3 @@ En cas de violation chez un **prestataire de services**, les sanctions peuvent r
 - **Liste QSA** : Auditeurs qualifiés
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 0.1  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 50-60 minutes  
-    **Niveau** : Débutant & Intermédiaire

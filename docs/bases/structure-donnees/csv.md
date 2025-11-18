@@ -8,7 +8,12 @@ tags: ["CSV", "DONNÉES", "FORMATS", "PARSING", "DÉVELOPPEMENT"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="40-45 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **tableau Excel simplifié** où chaque ligne représente une entrée et chaque colonne une information. Maintenant, enregistrez ce tableau en **texte brut** en séparant les colonnes par des virgules. **CSV fonctionne exactement ainsi** : c'est le format le plus simple pour stocker des données tabulaires, lisible par les humains et facilement manipulable par les machines._
@@ -1154,11 +1159,5 @@ fn main() -> Result<(), Box<dyn Error>> {
     Maîtriser CSV c'est comprendre ses **limites** (pas de types, pas de hiérarchie) et ses **forces** (_universalité, performance, simplicité_). Pour des données simples et tabulaires, CSV reste imbattable.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 40-45 minutes  
-    **Niveau** : Débutant & Intermédiaire
 
 [^1]: En développement JavaScript, **une IIFE** est une fonction immédiatement invoquée qui s’exécute dès sa définition afin d’isoler des variables et éviter toute pollution de l’espace global.

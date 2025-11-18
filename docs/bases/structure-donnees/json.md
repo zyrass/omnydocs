@@ -8,7 +8,12 @@ tags: ["JSON", "DONNÉES", "FORMATS", "API", "DÉVELOPPEMENT"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="50-55 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **carnet d'adresses organisé** où chaque personne possède non seulement un nom et un numéro, mais aussi une adresse complète (rue, ville, code postal), plusieurs téléphones (mobile, fixe, bureau), et même des contacts d'urgence qui ont eux-mêmes la même structure. **JSON fonctionne exactement ainsi** : c'est un format qui permet de représenter des données **hiérarchiques et complexes** de manière lisible par les humains tout en restant facile à parser pour les machines._
@@ -1779,9 +1784,3 @@ const userData = JSON.parse(userInput); // Sûr
     Maîtriser JSON c'est comprendre ses **forces** (hiérarchie, types, lisibilité) et ses **limites** (pas de commentaires, pas de dates natives, verbeux pour gros volumes). Pour les APIs modernes, les configurations, et l'échange de données structurées, JSON reste le standard incontournable.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 50-55 minutes  
-    **Niveau** : Débutant & Intermédiaire

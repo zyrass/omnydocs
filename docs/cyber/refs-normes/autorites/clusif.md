@@ -9,7 +9,12 @@ status: beta
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0.2"
+  data-time="45-50 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez une **association professionnelle comme l'Ordre des Médecins, mais pour la cybersécurité**. Tout comme l'Ordre réunit les praticiens médicaux pour partager les bonnes pratiques, actualiser les connaissances et faire évoluer la profession, **le CLUSIF fédère les professionnels de la sécurité de l'information** pour mutualiser les expertises, publier des référentiels, et faire progresser collectivement l'état de l'art de la cybersécurité en France._
@@ -750,9 +755,3 @@ La production de guides via groupes de travail suit un **processus rigoureux** (
 - **Adresse** : 11 rue de Mogador, 75009 Paris
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 0.1  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 40-45 minutes  
-    **Niveau** : Débutant & Intermédiaire

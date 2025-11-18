@@ -9,7 +9,12 @@ status: beta
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0.2"
+  data-time="60-70 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **code de la route européen pour les données personnelles**. Tout comme le code de la route établit des règles uniformes pour circuler en toute sécurité dans tous les pays européens, **le RGPD définit un cadre harmonisé** pour traiter les données personnelles de manière respectueuse des droits fondamentaux à travers l'Union européenne. Les infractions graves peuvent entraîner des amendes aussi dissuasives qu'un retrait de permis._
@@ -974,8 +979,3 @@ Les autorités de contrôle tiennent compte de :
 
 ---
 
-!!! abstract "Métadonnées"
-    **Version** : 0.1  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 60-70 minutes  
-    **Niveau** : Débutant & Intermédiaire

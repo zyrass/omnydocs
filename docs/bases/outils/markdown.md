@@ -8,7 +8,12 @@ tags: ["MARKDOWN", "DOCUMENTATION", "SYNTAXE", "RÉDACTION"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.2"
+  data-time="40-45 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **système de sténographie universel** où quelques symboles simples (`#`, `*`, `-`) transforment du texte brut en documents structurés et formatés. Vous écrivez `**gras**` et obtenez du **gras**, vous tapez `# Titre` et créez un titre principal. **Markdown fonctionne exactement ainsi** : c'est un langage de balisage léger qui permet de formater du texte avec une syntaxe minimaliste et intuitive, tout en restant parfaitement lisible même sous forme brute._
@@ -1212,9 +1217,3 @@ Si MFA activée, un code est demandé après le mot de passe.
     Markdown n'est pas parfait - il a ses limites avec les tableaux complexes, les mises en page sophistiquées, ou les documents académiques formels. Mais pour **99% de la documentation technique, des notes personnelles, et de la communication écrite professionnelle**, Markdown est l'outil optimal. Simple, rapide, portable, pérenne.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 40-45 minutes  
-    **Niveau** : Débutant & Intermédiaire

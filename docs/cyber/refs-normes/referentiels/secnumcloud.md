@@ -9,7 +9,12 @@ status: beta
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0.2"
+  data-time="50-60 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **label de qualité alimentaire comme Label Rouge** qui garantit l'origine, la traçabilité et la qualité des produits. **SecNumCloud fonctionne sur le même principe pour les services cloud** : c'est une qualification délivrée par l'ANSSI qui atteste qu'un fournisseur cloud respecte des exigences strictes de sécurité, de souveraineté et de résilience. Utiliser un cloud SecNumCloud, c'est comme choisir un produit Label Rouge : vous savez exactement ce que vous obtenez._

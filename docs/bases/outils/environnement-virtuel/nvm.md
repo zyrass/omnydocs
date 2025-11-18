@@ -8,7 +8,12 @@ tags: ["NVM", "NODEJS", "JAVASCRIPT", "DEVELOPPEMENT", "VERSION"]
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.1"
+  data-time="55-65 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez que vous êtes un traducteur professionnel devant travailler sur plusieurs projets simultanément : un roman médiéval nécessite un français du XIIIe siècle, un contrat commercial demande un français juridique moderne, et un manga requiert un français contemporain familier. **NVM fonctionne exactement ainsi** : il vous permet de basculer instantanément entre différentes versions de Node.js selon les besoins de chaque projet, sans conflit ni installation complexe._
@@ -1129,10 +1134,3 @@ git push
     Que vous utilisiez nvm classique, fnm pour la performance, ou volta pour l'automatisation, le principe reste identique : **isolation des versions, bascule transparente, configuration par projet**. Choisissez l'outil adapté à votre contexte, mais ne travaillez **jamais sans gestionnaire de versions Node**.
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 1.0  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 55-65 minutes  
-    **Niveau** : Débutant & Intermédiaire  
-    **Prérequis** : Connaissance basique de Node.js et terminal

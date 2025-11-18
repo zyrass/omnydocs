@@ -9,7 +9,12 @@ status: beta
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0.2"
+  data-time="45-50 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **gardien constitutionnel des données personnelles**, équivalent du Conseil constitutionnel pour la protection de la vie privée numérique. Tout comme le Conseil constitutionnel veille au respect des droits fondamentaux, **la CNIL garantit que les traitements de données personnelles respectent les droits et libertés** des citoyens. Elle combine les rôles de **régulateur** (comme l'Autorité de la concurrence), de **conseil** (comme le Défenseur des droits), et de **sanctionnaire** (comme l'Autorité des marchés financiers)._
@@ -974,8 +979,3 @@ Le **CLUSIF** produit des guides pratiques qui **facilitent l'application concr�
 
 ---
 
-!!! abstract "Métadonnées"
-    **Version** : 0.1  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 50-55 minutes  
-    **Niveau** : Débutant & Intermédiaire

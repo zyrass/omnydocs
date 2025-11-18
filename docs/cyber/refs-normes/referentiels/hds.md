@@ -9,7 +9,12 @@ status: beta
 
 ## Introduction
 
-**Niveau :** Débutant & Intermédiaire
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0.2"
+  data-time="25-30 minutes">
+</div>
 
 !!! quote "Analogie pédagogique"
     _Imaginez un **coffre-fort certifié pour objets de valeur**. Seuls les coffres répondant à des normes strictes de résistance à l'effraction peuvent être vendus pour protéger des biens précieux. **HDS fonctionne identiquement pour les données de santé** : seuls les hébergeurs certifiés conformes à un référentiel technique strict peuvent légalement stocker des données médicales personnelles. Cette certification garantit un niveau de sécurité adapté à la sensibilité extrême de ces informations._
@@ -317,9 +322,3 @@ En cumul des sanctions pénales, la CNIL peut prononcer :
 - **ASIP Santé** : Agence du Numérique en Santé
 
 ---
-
-!!! abstract "Métadonnées"
-    **Version** : 0.1  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 25-30 minutes  
-    **Niveau** : Débutant & Intermédiaire
