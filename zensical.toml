@@ -84,17 +84,6 @@ nav = [
     {"Outils de Développement" = [
       # "bases/outils/index.md",
   #     {"Expressions régulières" = "bases/outils/regex.md"},
-  #
-  #     {"🧰 Environnements virtuels" = [
-  #         # Canonique ici (installation, notions, CLI de base)
-  #         {"WSL"            = "bases/outils/environnement-virtuel/wsl.md"},
-  #         {"NVM"            = "bases/outils/environnement-virtuel/nvm.md"},
-  #         {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},
-  #         {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},
-  #         {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},
-  #         {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"},
-  #     ]},
-  #
       
       {"Environnements Virtu." = [
         # canonique ici (installation, notions, CLI de base)
@@ -155,7 +144,7 @@ nav = [
       # {"Modèle TCP/IP"          = "bases/reseaux/modele-tcp.md"},
       # {"Sockets & Serveurs"     = "bases/reseaux/sockets-serveurs.md"},
       {"HTTP – Méthodes"        = "bases/reseaux/http-methodes.md"},
-      # {"DNS – Notions"          = "bases/reseaux/dns-notions.md"},
+      {"DNS – Notions"          = "bases/reseaux/dns-notions.md"},
       {"Liste des protocoles"   = "bases/reseaux/liste-protocoles.md"}
     ]},
 
@@ -385,250 +374,459 @@ nav = [
   #     ]},
   ]},
 
-  # -----------------------------------------------------------------------
-  # 5 — Cybersécurité (Gouv, SOC, Blue, Red, Forensic, TI, IR)
-  # -----------------------------------------------------------------------
-  {"Cybersécurité" = [
-    "cyber/index.md",
+  # ===========================================================================
+  # 5 — CYBERSÉCURITÉ : GOUVERNANCE, RISK & COMPLIANCE (GRC)
+  # ===========================================================================
+  # Cette section couvre l'aspect stratégique et organisationnel de la cybersécurité :
+  # - Conformité réglementaire (RGPD, NIS2, DORA, etc.)
+  # - Référentiels et normes (ISO 27001, SecNumCloud, PCI DSS, etc.)
+  # - Démarche SMSI (Système de Management de la Sécurité de l'Information)
+  # - Analyse de risques (EBIOS RM, MEHARI, ISO 27005)
+  # - Gouvernance documentaire (PSSI, SDSI, BIA)
+  # 
+  # PUBLIC CIBLE : RSSI, DPO, Responsables Conformité, Auditeurs
+  # ===========================================================================
 
-    # --- Référentiels & Normes -------------------------------------------
+  {"Cyber : GRC" = [
+    "cyber/governance/index.md",
+
+    # -------------------------------------------------------------------------
+    # Référentiels & Normes
+    # Ensemble des textes légaux, réglementaires et normatifs encadrant
+    # la cybersécurité en France et en Europe.
+    # -------------------------------------------------------------------------
     {"Référentiels & Normes" = [
-      "cyber/refs-normes/index.md",
-
-      {"Autorités FR" = [
-        "cyber/refs-normes/autorites/index.md",
-        {"ANSSI"  = "cyber/refs-normes/autorites/anssi.md"},
-        {"CNIL"   = "cyber/refs-normes/autorites/cnil.md"},
-        {"CLUSIF" = "cyber/refs-normes/autorites/clusif.md"}
-      ]},
-
-      {"Réglementations Euro." = [
-        "cyber/refs-normes/reglementations/index.md",
-        {"RGPD"             = "cyber/refs-normes/reglementations/rgpd.md"},
-        {"NIS2"             = "cyber/refs-normes/reglementations/nis2.md"},
-        {"DORA"             = "cyber/refs-normes/reglementations/dora.md"},
-      ]},
-
-      {"Référentiels & Certifs" = [
-        "cyber/refs-normes/referentiels/index.md",
-        {"HDS (FR – santé)" = "cyber/refs-normes/referentiels/hds.md"},
-        {"SecNumCloud"      = "cyber/refs-normes/referentiels/secnumcloud.md"},
-        {"PCI DSS"          = "cyber/refs-normes/referentiels/pci-dss.md"},
-        {"NIST CSF"             = "cyber/refs-normes/referentiels/nist-csf.md"},
-      ]},
-
-  #         {"📁 ISOs" = [
-  #             "cyber/refs-normes/isos/index.md",
-  #             {"ISO 27001"    = "cyber/refs-normes/isos/iso-27001.md"},
-  #             {"ISO 27002"    = "cyber/refs-normes/isos/iso-27002.md"},
-  #             {"ISO 27005"    = "cyber/refs-normes/isos/iso-27005.md"},
-  #             {"ISO 27017"    = "cyber/refs-normes/isos/iso-27017.md"},
-  #             {"ISO 27018"    = "cyber/refs-normes/isos/iso-27018.md"},
-  #             {"ISO 22301"    = "cyber/refs-normes/isos/iso-22301.md"},
-  #             {"ISO 20000"    = "cyber/refs-normes/isos/iso-20000.md"},
-  #             {"ISO 9001"     = "cyber/refs-normes/isos/iso-9001.md"},
-  #             {"ISO 14001"    = "cyber/refs-normes/isos/iso-14001.md"}
-  #         ]},
-          
+      "cyber/governance/refs-normes/index.md",
       
+      # --- Autorités françaises ---
+      # Organismes de référence en matière de cybersécurité et protection
+      # des données en France.
+      {"Autorités FR" = [
+        "cyber/governance/refs-normes/autorites/index.md",
+        {"ANSSI"  = "cyber/governance/refs-normes/autorites/anssi.md"},   # Agence Nationale de la Sécurité des SI
+        {"CNIL"   = "cyber/governance/refs-normes/autorites/cnil.md"},    # Commission Nationale Informatique et Libertés
+        {"CLUSIF" = "cyber/governance/refs-normes/autorites/clusif.md"}   # Club de la Sécurité de l'Information Français
+      ]},
 
+      # --- Réglementations européennes ---
+      # Directives et règlements européens applicables à la cybersécurité
+      # et à la protection des données.
+      {"Réglementations Euro." = [
+        "cyber/governance/refs-normes/reglementations/index.md",
+        {"RGPD"             = "cyber/governance/refs-normes/reglementations/rgpd.md"},  # Règlement Général sur la Protection des Données
+        {"NIS2"             = "cyber/governance/refs-normes/reglementations/nis2.md"},  # Network and Information Security Directive 2
+        {"DORA"             = "cyber/governance/refs-normes/reglementations/dora.md"},  # Digital Operational Resilience Act (secteur financier)
+        # {"DSA"              = "cyber/governance/refs-normes/reglementations/dsa.md"},   # Digital Services Act
+        # {"DMA"              = "cyber/governance/refs-normes/reglementations/dma.md"},   # Digital Markets Act
+        # {"DGA"              = "cyber/governance/refs-normes/reglementations/dga.md"},   # Data Governance Act
+        # {"Data Act"         = "cyber/governance/refs-normes/reglementations/data-act.md"},
+        # {"AI Act"           = "cyber/governance/refs-normes/reglementations/ai-act.md"},
+        # {"Cyber Resilience Act" = "cyber/governance/refs-normes/reglementations/cra.md"}
+      ]},
 
-  #         {"📁 Réglementations UE" = [
-  #             "cyber/refs-normes/eu/index.md",
-  #             {"DSA"                  = "cyber/refs-normes/eu/dsa.md"},
-  #             {"DMA"                  = "cyber/refs-normes/eu/dma.md"},
-  #             {"DGA"                  = "cyber/refs-normes/eu/dga.md"},
-  #             {"Data Act"             = "cyber/refs-normes/eu/data-act.md"},
-  #             {"AI Act"               = "cyber/refs-normes/eu/ai-act.md"},
-  #             {"Cyber Resilience Act" = "cyber/refs-normes/eu/cra.md"}
-  #         ]}
+      # --- Certifications et référentiels sectoriels ---
+      # Labels et certifications spécifiques à certains secteurs d'activité
+      # ou types d'infrastructures.
+      {"Refs. & Certifs" = [
+        "cyber/governance/refs-normes/referentiels/index.md",
+        {"HDS (Santé)"   = "cyber/governance/refs-normes/referentiels/hds.md"},        # Hébergement de Données de Santé
+        {"SecNumCloud"   = "cyber/governance/refs-normes/referentiels/secnumcloud.md"}, # Qualification ANSSI pour le Cloud
+        {"PCI DSS"       = "cyber/governance/refs-normes/referentiels/pci-dss.md"},    # Payment Card Industry Data Security Standard
+        {"NIST CSF"      = "cyber/governance/refs-normes/referentiels/nist-csf.md"}    # NIST Cybersecurity Framework
+      ]},
 
-
+      # --- Normes ISO ---
+      # Standards internationaux de l'Organisation Internationale de Normalisation
+      # applicables à la sécurité de l'information et la continuité d'activité.
+      # {"ISOs" = [
+      #   "cyber/governance/refs-normes/isos/index.md",
+      #   {"ISO 27001"            = "cyber/governance/refs-normes/isos/iso-27001.md"},  # Système de Management de la Sécurité de l'Information (SMSI)
+      #   {"ISO 27002"            = "cyber/governance/refs-normes/isos/iso-27002.md"},  # Code de bonnes pratiques pour le management de la sécurité de l'information
+      #   {"ISO 27005"            = "cyber/governance/refs-normes/isos/iso-27005.md"},  # Gestion des risques liés à la sécurité de l'information
+      #   {"ISO 27017"            = "cyber/governance/refs-normes/isos/iso-27017.md"},  # Sécurité du Cloud Computing
+      #   {"ISO 27018"            = "cyber/governance/refs-normes/isos/iso-27018.md"},  # Protection des données personnelles dans le Cloud
+      #   {"ISO 22301"            = "cyber/governance/refs-normes/isos/iso-22301.md"},  # Système de Management de la Continuité d'Activité (PCA/PRA)
+      #   {"ISO 20000"            = "cyber/governance/refs-normes/isos/iso-20000.md"},  # Gestion des services IT (ITSM)
+      #   {"ISO 9001"             = "cyber/governance/refs-normes/isos/iso-9001.md"},   # Système de Management de la Qualité
+      #   {"ISO 14001"            = "cyber/governance/refs-normes/isos/iso-14001.md"}   # Système de Management Environnemental
+      # ]}
     ]},
 
-  #     # --- Opérations de sécurité (SOC) ------------------------------------
-  #     {"SOC" = [
-  #         "cyber/soc/index.md",
-  #         {"SIEM (Wazuh)"              = "cyber/soc/siem.md"},
-  #         {"EDR/XDR"                                  = "cyber/soc/edr-xdr.md"},
-  #         {"NDR (Zeek/Arkime)"                        = "cyber/soc/ndr.md"},
-  #         {"IDS/IPS (Suricata/Snort)"                 = "cyber/soc/ids-ips.md"},
-  #         {"Case Management (TheHive)"                = "cyber/soc/thehive.md"},
-  #         {"Automations & Analyzers (Cortex)"         = "cyber/soc/cortex.md"},
-  #         {"SOAR (général)"                           = "cyber/soc/soar.md"},
-  #         {"Threat Intel Platform (MISP/OpenCTI)"     = "cyber/soc/tip.md"},
-  #         {"Playbooks & Runbooks"                     = "cyber/soc/playbooks.md"},
-  #         {"On-call, SLA & Communication"             = "cyber/soc/oncall-sla.md"}
-  #     ]},
-
-  #     # --- Gestion des vulnérabilités ------------------------------------
-  #     {"Gestion des vulnérabilités" = [
-  #         "cyber/vuln/index.md",
-  #         {"OpenVAS (Greenbone)"  = "cyber/vuln/openvas.md"},
-  #         {"CVE & CVSS"           = "cyber/vuln/cve-cvss.md"},
-  #         {"OWASP Top 10"         = "cyber/vuln/owasp-top10.md"},
-  #         {"Fuzzing (général)"    = "cyber/vuln/fuzzing.md"}
-  #     ]},
-
-  #     # --- Red Team (Offensif) ---------------------------------------------
-  #     {"Red Team" = [
-  #         "cyber/red/index.md",
-  #         {"OSINT"                    = "cyber/red/osint.md"},
-  #         {"Pentest Web / API"        = "cyber/red/pentest-web.md"},
-  #         {"Pentest Réseau"           = "cyber/red/pentest-reseau.md"},
-  #         {"Phases d’un pentest"      = "cyber/red/pentest-ebios.md"},
-  #         {"Post-Exploitation"        = "cyber/red/post-exploit.md"},
-  #         {"Social Engineering"       = "cyber/red/se.md"},
-  #         {"OpSec & Anonymisation"    = "cyber/red/opsec-tor.md"},
-  #         {"Stéganographie"           = "cyber/red/steganographie.md"}
-  #     ]},
-
-  #     # --- Forensic & Investigation ----------------------------------------
-  #     {"Forensic" = [
-  #         "cyber/outils/forensic/index.md",
-  #         {"Analyse Mémoire"      = "cyber/outils/forensic/investigation/memory.md"},
-  #         {"Analyse Disque"       = "cyber/outils/forensic/investigation/disk.md"},
-  #         {"Artefacts Windows"    = "cyber/outils/forensic/investigation/windows-artifacts.md"},
-  #         {"Timeline & Logs"      = "cyber/outils/forensic/investigation/timeline.md"},
-  #         {"Outils hôte (Velociraptor, OSQuery)" = "cyber/forensic/host-tools.md"},
-  #         {"Acquisition mémoire (LiME)" = "cyber/forensic/lime.md"}
-  #     ]},
-
-  #     # --- Malware & Investigation ----------------------------------------
-  #     {"Malwares & Reverse" = [
-  #         "cyber/malware/index.md",
-  #         {"Compréhension des malwares" = "cyber/malware/intro.md"},
-  #         {"Reverse engineering"        = "cyber/malware/reverse.md"},
-  #         {"Techniques d’obfuscation"   = "cyber/malware/obfuscation.md"}
-  #     ]},
-
-          
-  #     # --- Threat Intelligence ---------------------------------------------
-  #     {"Threat Intelligence" = [
-  #         "cyber/threat-intel/index.md",
-  #         {"YARA"        = "cyber/threat-intel/yara.md"},
-  #         {"IOC & TTP"   = "cyber/threat-intel/ioc-ttp.md"}
-  #     ]},
-
-  #     # --- Catalogue d'outils (granulaire, par usage) ----------------------
-  #     {"Outils (catalogue par usage)" = [
-  #         "cyber/outils/index.md",
-
-  #         {"📁 Recon & OSINT" = [
-  #             {"theHarvester"     = "cyber/outils/osint/theharvester.md"},
-  #             {"Maltego"          = "cyber/outils/osint/maltego.md"},
-  #             {"SpiderFoot"       = "cyber/outils/osint/spiderfoot.md"},
-  #             {"Amass"            = "cyber/outils/osint/amass.md"}
-  #         ]},
-
-  #         {"📁 Web & API" = [
-  #             {"Burp Suite"       = "cyber/outils/web/burp.md"},
-  #             {"OWASP ZAP"        = "cyber/outils/web/zap.md"},
-  #             {"Nikto"            = "cyber/outils/web/nikto.md"},
-  #             {"ffuf"             = "cyber/outils/web/ffuf.md"},
-  #             {"Gobuster"         = "cyber/outils/web/gobuster.md"}
-  #         ]},
-
-  #         {"📁 Réseau & Services" = [
-  #             {"Nmap (NSE)"   = "cyber/outils/network/nmap.md"},
-  #             {"Scapy"        = "cyber/outils/network/scapy.md"},
-  #             {"Impacket"     = "cyber/outils/network/impacket.md"},
-  #             {"CrackMapExec" = "cyber/outils/network/cme.md"},
-  #             {"Responder"    = "cyber/outils/network/responder.md"},
-  #             {"BloodHound"   = "cyber/outils/network/bloodhound.md"},
-  #             {"OpenVPN"      = "cyber/outils/network/openvpn.md"},
-  #             {"HAProxy"      = "cyber/outils/network/haproxy.md"},
-  #             {"pfSense"      = "cyber/outils/network/pfsense.md"}
-  #         ]},
-
-  #         {"📁 Exploit. & Post-Exploit." = [
-  #             {"Metasploit"           = "cyber/outils/exploit/metasploit.md"},
-  #             {"Msfvenom"             = "cyber/outils/exploit/msfvenom.md"},
-  #             {"LinPEAS"              = "cyber/outils/exploit/linpeas.md"},
-  #             {"WinPEAS"              = "cyber/outils/exploit/winpeas.md"},
-  #             {"Chisel"               = "cyber/outils/exploit/chisel.md"},
-  #             {"Ligolo-NG"            = "cyber/outils/exploit/ligolo-ng.md"},
-  #             {"PayloadAllTheThings"  = "cyber/outils/exploit/payload-all-the-things.md"}
-  #         ]},
-
-  #         {"📁 Bruteforce & Cracking" = [
-  #             {"John the Ripper"  = "cyber/outils/crack/john.md"},
-  #             {"Hashcat"          = "cyber/outils/crack/hashcat.md"},
-  #             {"Hydra"            = "cyber/outils/crack/hydra.md"},
-  #             {"Medusa"           = "cyber/outils/crack/medusa.md"},
-  #             {"CeWL"             = "cyber/outils/crack/cewl.md"}
-  #         ]},
-
-  #         {"📁 Ingénierie sociale" = [
-  #             {"SET"      = "cyber/outils/se/set.md"},
-  #             {"GoPhish"  = "cyber/outils/se/gophish.md"}
-  #         ]},
-
-  #         {"📁 Réseau défensif" = [
-  #             {"Zeek"         = "cyber/outils/def-network/zeek.md"},
-  #             {"Suricata"     = "cyber/outils/def-network/suricata.md"},
-  #             {"Snort"        = "cyber/outils/def-network/snort.md"},
-  #             {"Arkime"       = "cyber/outils/def-network/arkime.md"},
-  #             {"ntop/ng"      = "cyber/outils/def-network/ntop.md"},
-  #             {"WAF"          = "cyber/outils/def-network/waf.md"}
-  #         ]},
-
-  #         {"📁 Détection & Règles" = [
-  #             {"YARA"       = "cyber/outils/detection/yara.md"},
-  #             {"Sigma"      = "cyber/outils/detection/sigma.md"},
-  #             {"Sysmon"     = "cyber/outils/detection/sysmon.md"},
-  #             {"ClamAV"     = "cyber/outils/detection/clamav.md"}
-  #         ]},
+    # -------------------------------------------------------------------------
+    # Démarche SMSI (Système de Management de la Sécurité de l'Information)
+    # Méthodologies et documents structurants pour mettre en place un SMSI
+    # conforme ISO 27001 et aux exigences réglementaires.
+    # -------------------------------------------------------------------------
+    # {"Démarche SMSI" = [
+    #   "cyber/governance/smsi/index.md",
       
-  #         {"📁 Forensic — Acquisition" = [
-  #             "cyber/outils/forensic-acq/index.md",
-  #             {"dd"       = "cyber/outils/forensic-acq/dd.md"},
-  #             {"dc3dd"    = "cyber/outils/forensic-acq/dc3dd.md"},
-  #             {"LiME"     = "cyber/outils/forensic-acq/lime.md"},
-  #             {"Guymager" = "cyber/outils/forensic-acq/guymager.md"}
-  #         ]},
+      # --- Analyse de Risques ---
+      # Méthodologies reconnues pour identifier, évaluer et traiter les risques
+      # de sécurité de l'information.
+      # {"Analyse de Risques" = [
+      #   "cyber/governance/smsi/risques/index.md",
+      #   {"EBIOS Risk Manager"   = "cyber/governance/smsi/risques/ebios-rm.md"},   # Méthode française de gestion des risques cyber (ANSSI)
+      #   {"MEHARI"               = "cyber/governance/smsi/risques/mehari.md"},     # Méthode Harmonisée d'Analyse de Risques (CLUSIF)
+      #   {"ISO 27005"            = "cyber/governance/smsi/risques/iso-27005.md"}   # Norme internationale de gestion des risques SI
+      # ]},
       
-  #         {"📁 Forensic — Disque & Artefacts" = [
-  #             "cyber/outils/forensic/forensic-disk/index.md",
-  #             {"Autopsy / SleuthKit"  = "cyber/outils/forensic/forensic-disk/autopsy-sleuthkit.md"},
-  #             {"foremost"             = "cyber/outils/forensic/forensic-disk/foremost.md"},
-  #             {"scalpel"              = "cyber/outils/forensic/forensic-disk/scalpel.md"},
-  #             {"bulk_extractor"       = "cyber/outils/forensic/forensic-disk/bulk_extractor.md"},
-  #             {"PhotoRec"             = "cyber/outils/forensic-disk/photorec.md"},
-  #             {"Carving (concepts)"   = "cyber/outils/forensic-disk/carving.md"}
-  #         ]},
+      # --- Documents structurants du SMSI ---
+      # Livrables documentaires essentiels à la gouvernance de la sécurité.
+    #   {"BIA (Business Impact Analysis)"   = "cyber/governance/smsi/bia.md"},    # Analyse d'Impact sur l'Activité (évaluation criticité)
+    #   {"SDSI (Schéma Directeur)"          = "cyber/governance/smsi/sdsi.md"},   # Schéma Directeur de la Sécurité de l'Information
+    #   {"PSSI (Politique de Sécurité)"     = "cyber/governance/smsi/pssi.md"}    # Politique de Sécurité du Système d'Information
+    # ]},
 
-  #         {"📁 Forensic — Mémoire & Logs" = [
-  #             "cyber/outils/forensic-mem/index.md",
-  #             {"Volatility"   = "cyber/outils/forensic-mem/volatility.md"},
-  #             {"Rekall"       = "cyber/outils/forensic-mem/rekall.md"},
-  #             {"Chainsaw"     = "cyber/outils/forensic-logs/chainsaw.md"},
-  #             {"Hayabusa"     = "cyber/outils/forensic-logs/hayabusa.md"},
-  #             {"Velociraptor" = "cyber/outils/host/velociraptor.md"},
-  #             {"OSQuery"      = "cyber/outils/forensic-host/osquery.md"}
-  #         ]},
-      
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Gestion des Vulnérabilités
+    # Processus de veille, d'évaluation et de priorisation des vulnérabilités
+    # dans une démarche de conformité et de gouvernance des risques.
+    # -------------------------------------------------------------------------
+    # {"Gestion des Vulnérabilités" = [
+    #   "cyber/governance/vuln/index.md",
+    #   {"CVE & CVSS"           = "cyber/governance/vuln/cve-cvss.md"},           # Common Vulnerabilities and Exposures + Common Vulnerability Scoring System
+    #   {"OWASP Top 10"         = "cyber/governance/vuln/owasp-top10.md"},        # Top 10 des vulnérabilités applicatives Web
+    #   {"Patch Management"     = "cyber/governance/vuln/patch-management.md"},   # Processus de gestion des correctifs de sécurité
+    #   {"Politique de Scan"    = "cyber/governance/vuln/scan-policy.md"}         # Cadre réglementaire et organisationnel pour les scans de vulnérabilités
+    # ]}
 
-  #     # --- Incident Response ------------------------------------------------
-  #     {"Incident Response" = [
-  #         "cyber/ir/index.md",
-  #         {"TheHive & Cortex (IR)" = "cyber/ir/thehive-cortex.md"},
-  #         {"Playbooks DFIR"        = "cyber/ir/playbooks-dfir.md"},
-  #         {"CSIRT & CERT"          = "cyber/ir/csirt-cert.md"}
-  #     ]},
   ]},
 
-  # -----------------------------------------------------------------------
-  # 6 — Glossaire
-  # -----------------------------------------------------------------------
-  {"Glossaire" = [
-    "glossaire/index.md",
-  ]},
+  # ===========================================================================
+  # 6 — CYBERSÉCURITÉ : OPÉRATIONS & SOC (BLUE TEAM / DFIR)
+  # ===========================================================================
+  # Cette section couvre l'aspect opérationnel de la cybersécurité défensive :
+  # - Architecture et fonctionnement d'un Security Operations Center (SOC)
+  # - Détection et réponse aux incidents (SIEM, EDR, IDS/IPS, NDR)
+  # - Investigation numérique et forensic (DFIR - Digital Forensics & Incident Response)
+  # - Analyse de malwares et reverse engineering
+  # - Threat Intelligence et chasse aux menaces (Threat Hunting)
+  # - Automatisation et orchestration (SOAR)
+  # 
+  # PUBLIC CIBLE : Analystes SOC, Incident Responders, Forensic Analysts, Threat Hunters
+  # ===========================================================================
+
+  {"Cyber : Opé. & SOC" = [
+    "cyber/operations/index.md",
+
+    # -------------------------------------------------------------------------
+    # Architecture SOC
+    # Composantes techniques d'un SOC moderne : solutions de détection,
+    # corrélation d'événements, threat intelligence, monitoring réseau.
+    # -------------------------------------------------------------------------
+    {"Architecture SOC" = [
+      "cyber/operations/soc/index.md",
+      # {"SIEM (Wazuh)"                         = "cyber/operations/soc/siem.md"},        # Security Information and Event Management
+      # {"EDR/XDR"                              = "cyber/operations/soc/edr-xdr.md"},     # Endpoint Detection & Response / Extended Detection & Response
+      # {"NDR (Zeek/Arkime)"                    = "cyber/operations/soc/ndr.md"},         # Network Detection & Response
   
-  # --------------------------------------------------------------------------
-  # Fin de la navigation principale
-  # --------------------------------------------------------------------------
+      # --- Systèmes de Détection/Prévention d'Intrusion ---
+      # IDS/IPS basés sur signatures et anomalies pour détecter et bloquer
+      # les activités malveillantes sur le réseau.
+      {"IDS/IPS" = [
+        "cyber/operations/soc/ids-ips/index.md",
+        # {"Suricata"         = "cyber/operations/soc/ids-ips/suricata.md"},              # IDS/IPS moderne multi-thread (OISF) - recommandé
+        # {"Snort"            = "cyber/operations/soc/ids-ips/snort.md"}                  # IDS/IPS historique (Cisco/Sourcefire) - Snort 2.x et 3.x
+      ]}, 
+      
+      # {"TIP (MISP/OpenCTI)" = "cyber/operations/soc/tip.md"},         # Threat Intelligence Platform
+      # {"ntopng (Monitoring)"                  = "cyber/operations/soc/ntopng.md"}       # Network Traffic Monitoring
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Détection & Analyse
+    # Outils et méthodologies pour détecter les menaces, créer des règles
+    # de détection et effectuer du threat hunting proactif.
+    # -------------------------------------------------------------------------
+    {"Détection & Analyse" = [
+      "cyber/operations/detection/index.md",
+      # {"YARA (Malware Detection)"     = "cyber/operations/detection/yara.md"},      # Règles de détection de patterns (malwares, IOCs)
+      # {"Sigma (SIEM Rules)"           = "cyber/operations/detection/sigma.md"},     # Langage universel pour règles SIEM
+      # {"Sysmon"                       = "cyber/operations/detection/sysmon.md"},    # Monitoring avancé Windows (Sysinternals)
+      # {"ClamAV"                       = "cyber/operations/detection/clamav.md"},    # Antivirus open-source
+      # {"IOC & TTP"                    = "cyber/operations/detection/ioc-ttp.md"},   # Indicators of Compromise & Tactics, Techniques & Procedures
+      # {"Hunting Playbooks"            = "cyber/operations/detection/hunting.md"}    # Méthodologies de chasse aux menaces proactive
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Incident Response & DFIR
+    # Processus de gestion d'incident, investigation forensic, chaîne de preuve,
+    # analyse post-mortem.
+    # -------------------------------------------------------------------------
+    {"Incident Response & DFIR" = [
+      "cyber/operations/ir/index.md",
+      # {"Gestion d'Incident"               = "cyber/operations/ir/thehive.md"},      # Plateforme de case management pour IR
+      # {"Playbooks DFIR"                   = "cyber/operations/ir/playbooks-dfir.md"}, # Procédures standardisées de réponse à incident
+      # {"CSIRT & CERT"                     = "cyber/operations/ir/csirt-cert.md"},   # Computer Security Incident Response Team / Computer Emergency Response Team
+      
+      # --- Investigation Numérique (Digital Forensics) ---
+      # Acquisition de preuves, analyse disque/mémoire/logs, chaîne de traçabilité.
+      # Cette section regroupe tous les aspects forensic du SOC.
+      {"Investigation Numérique" = [
+        "cyber/operations/ir/forensic/index.md",
+        
+        # --- Acquisition ---
+        # Techniques et outils pour acquérir des preuves numériques
+        # sans altérer l'intégrité des données (chaîne de preuve).
+        {"Acquisition" = [
+          "cyber/operations/ir/forensic/acq/index.md",
+
+          # --- Outils de copie bit-à-bit ---
+          # dd : outil Unix standard pour la copie de données brutes.
+          # dc3dd : fork forensic de dd avec hashing intégré et logging avancé.
+          # Usage recommandé :
+          #   - dd : copies génériques, backups, clonage système
+          #   - dc3dd : acquisitions forensic légales avec vérification d'intégrité
+          # {"dd / dc3dd"   = "cyber/operations/ir/forensic/acq/dd-dc3dd.md"},       # Copie bit-à-bit (forensic-sound)
+          
+          # {"LiME (Mémoire)"   = "cyber/operations/ir/forensic/acq/lime.md"},       # Linux Memory Extractor
+          # {"Guymager"         = "cyber/operations/ir/forensic/acq/guymager.md"}    # Outil GUI pour acquisition forensic
+        ]},
+        
+        # --- Analyse Disque ---
+        # Analyse de systèmes de fichiers, récupération de données effacées,
+        # carving de fichiers, analyse de métadonnées.
+        {"Analyse Disque" = [
+          "cyber/operations/ir/forensic/disk/index.md",
+          {"Autopsy / SleuthKit"  = "cyber/operations/ir/forensic/disk/autopsy.md"},       # Suite forensic open-source de référence
+          {"foremost / scalpel"   = "cyber/operations/ir/forensic/disk/carving.md"},       # File carving (récupération de fichiers)
+          {"bulk_extractor"       = "cyber/operations/ir/forensic/disk/bulk_extractor.md"}, # Extraction automatique d'artefacts
+          {"PhotoRec"             = "cyber/operations/ir/forensic/disk/photorec.md"}        # Récupération de fichiers effacés
+        ]},
+        
+        # --- Analyse Mémoire ---
+        # Forensic RAM : analyse de processus, connexions réseau, artefacts volatiles,
+        # détection de rootkits et malwares en mémoire.
+        {"Analyse Mémoire" = [
+          "cyber/operations/ir/forensic/memory/index.md",
+          # {"Volatility"   = "cyber/operations/ir/forensic/memory/volatility.md"},  # Framework forensic mémoire (Windows/Linux/Mac)
+          # {"Rekall"       = "cyber/operations/ir/forensic/memory/rekall.md"}       # Alternative à Volatility (Google)
+        ]},
+        
+        # --- Analyse Logs ---
+        # Parsing et corrélation de journaux Windows (EVTX), Syslog, IIS, etc.
+        # pour reconstituer une chronologie d'incident.
+        {"Analyse Logs" = [
+          "cyber/operations/ir/forensic/logs/index.md",
+          # {"Chainsaw"     = "cyber/operations/ir/forensic/logs/chainsaw.md"},      # Parser EVTX (logs Windows) avec règles Sigma
+          # {"Hayabusa"     = "cyber/operations/ir/forensic/logs/hayabusa.md"}       # Threat hunting dans les logs Windows Event
+        ]},
+        
+        # --- Outils Endpoint ---
+        # Collecte d'artefacts et télémétrie sur les postes de travail et serveurs
+        # pour investigation à grande échelle (hunt, IR).
+        {"Outils Endpoint" = [
+          "cyber/operations/ir/forensic/endpoint/index.md",
+          # {"Velociraptor" = "cyber/operations/ir/forensic/endpoint/velociraptor.md"}, # Agent de collecte forensic distribué
+          # {"OSQuery"      = "cyber/operations/ir/forensic/endpoint/osquery.md"}       # Framework SQL pour interroger les endpoints (Facebook)
+        ]}
+      ]}
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Malware Analysis
+    # Analyse comportementale et reverse engineering de malwares pour
+    # comprendre les tactiques adverses et développer des signatures.
+    # -------------------------------------------------------------------------
+    {"Malware Analysis" = [
+      "cyber/operations/malware/index.md",
+      # {"Comprendre les malwares"      = "cyber/operations/malware/intro.md"},           # Types, vecteurs d'infection, kill chain
+      # {"Reverse Engineering"          = "cyber/operations/malware/reverse.md"},         # Désassemblage, débogage, analyse statique/dynamique
+      # {"Techniques d'obfuscation"     = "cyber/operations/malware/obfuscation.md"},     # Packing, polymorphisme, anti-debug
+      # {"Sandboxing"                   = "cyber/operations/malware/sandbox.md"}          # Analyse automatisée en environnement isolé (Cuckoo, ANY.RUN)
+    ]},
+
+    # -------------------------------------------------------------------------
+    # SOAR & Automatisation
+    # Orchestration des réponses à incidents, automatisation de tâches SOC,
+    # intégration d'analyzers et playbooks pour accélérer la réponse.
+    # -------------------------------------------------------------------------
+    {"SOAR & Automatisation" = [
+      "cyber/operations/soar/index.md",
+      # {"SOAR (général)"               = "cyber/operations/soar/soar.md"},              # Security Orchestration, Automation and Response
+      # {"Cortex (Analyzers)"           = "cyber/operations/soar/cortex.md"},            # Moteur d'analyseurs automatiques (TheHive)
+      # {"Playbooks & Runbooks"         = "cyber/operations/soar/playbooks.md"}          # Procédures automatisées de réponse à incident
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Gestion Opérationnelle
+    # Organisation humaine du SOC : astreintes, SLA, communication de crise,
+    # métriques de performance, amélioration continue.
+    # -------------------------------------------------------------------------
+    {"Gestion Opérationnelle" = [
+      "cyber/operations/management/index.md",
+      # {"On-call & Astreintes"         = "cyber/operations/management/oncall.md"},      # Organisation des équipes SOC 24/7
+      # {"SLA & Métriques SOC"          = "cyber/operations/management/sla.md"},         # KPIs, temps de détection/réponse (MTTD/MTTR)
+      # {"Communication de crise"       = "cyber/operations/management/crisis-comm.md"}  # Gestion de la communication lors d'incidents majeurs
+    ]}
+
+  ]},
+
+  # ===========================================================================
+  # 7 — CYBERSÉCURITÉ : OUTILS & RED TEAM
+  # ===========================================================================
+  # Cette section est dédiée au catalogue d'outils offensifs et méthodologies
+  # Red Team / Pentest :
+  # - Reconnaissance et OSINT (Open Source Intelligence)
+  # - Tests d'intrusion Web, API, réseaux, Active Directory
+  # - Exploitation et post-exploitation
+  # - Password attacks (bruteforce, cracking)
+  # - Social engineering
+  # - Méthodologies et frameworks offensifs
+  # 
+  # PUBLIC CIBLE : Pentesters, Red Teamers, Ethical Hackers, Consultants Sécurité Offensive
+  # ===========================================================================
+
+  {"Cyber : Outils & Red Team" = [
+    "cyber/tools/index.md",
+
+    # -------------------------------------------------------------------------
+    # OSINT & Reconnaissance
+    # Phase de collecte d'informations publiques (passive) : cartographie
+    # d'infrastructure, énumération de cibles, recherche de fuites de données.
+    # -------------------------------------------------------------------------
+    {"OSINT & Reconnaissance" = [
+      "cyber/tools/osint/index.md",
+      # {"theHarvester"         = "cyber/tools/osint/theharvester.md"},      # Collecte d'emails, sous-domaines, IPs (sources multiples)
+      # {"Maltego"              = "cyber/tools/osint/maltego.md"},           # Plateforme d'OSINT graphique (Paterva)
+      # {"SpiderFoot"           = "cyber/tools/osint/spiderfoot.md"},        # Automatisation OSINT (scan 200+ sources)
+      # {"Amass"                = "cyber/tools/osint/amass.md"},             # Cartographie d'infrastructure externe (OWASP)
+      # {"Shodan / Censys"      = "cyber/tools/osint/shodan-censys.md"}     # Moteurs de recherche pour équipements exposés (IoT, serveurs)
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Pentest Web & API
+    # Tests d'intrusion applicatifs : injection SQL, XSS, CSRF, SSRF,
+    # vulnérabilités OWASP Top 10, fuzzing de paramètres, énumération de contenus.
+    # -------------------------------------------------------------------------
+    {"Pentest Web & API" = [
+      "cyber/tools/web/index.md",
+      # {"Burp Suite"           = "cyber/tools/web/burp.md"},                # Proxy d'interception et scanner Web (PortSwigger)
+      # {"OWASP ZAP"            = "cyber/tools/web/zap.md"},                 # Proxy d'interception et scanner Web open-source (OWASP)
+      # {"Nikto"                = "cyber/tools/web/nikto.md"},               # Scanner de vulnérabilités Web (configurations, fichiers sensibles)
+      # {"ffuf"                 = "cyber/tools/web/ffuf.md"},                # Fuzzer HTTP rapide (directories, vhosts, paramètres)
+      # {"Gobuster"             = "cyber/tools/web/gobuster.md"},            # Brute-force de directories/DNS/vhosts (Go)
+      # {"Fuzzing (général)"    = "cyber/tools/web/fuzzing.md"}             # Méthodologies de fuzzing applicatif
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Pentest Réseau & Services
+    # Découverte réseau, énumération de services, exploitation de protocoles,
+    # pivoting, attaques Active Directory, Man-in-the-Middle.
+    # -------------------------------------------------------------------------
+    {"Pentest Réseau & Services" = [
+      "cyber/tools/network/index.md",
+      # {"Nmap (NSE)"           = "cyber/tools/network/nmap.md"},            # Scanner de ports et énumération de services (scripts NSE)
+      
+      # --- Outils DNS ---
+      # Suite d'outils pour interroger les serveurs DNS et effectuer de la
+      # reconnaissance sur les infrastructures réseau.
+      {"DNS" = [
+        "cyber/tools/network/dns/index.md",
+        {"dig"                = "cyber/tools/network/dns/dig.md"},         # Outil DNS flexible et complet (BIND)
+        # {"dog"                = "cyber/tools/network/dns/dog.md"},         # Alternative moderne à dig, écrite en Rust (colorisation, JSON)
+        {"nslookup"           = "cyber/tools/network/dns/nslookup.md"},    # Outil DNS legacy, multiplateforme (Windows/Linux)
+        {"host"               = "cyber/tools/network/dns/host.md"}         # Outil DNS simple pour résolutions A/AAAA/MX/TXT
+      ]},
+      
+      {"ping"                 = "cyber/tools/network/ping.md"},            # Test de connectivité ICMP
+      # {"Scapy"                = "cyber/tools/network/scapy.md"},           # Manipulation de paquets réseau (Python)
+      # {"Impacket"             = "cyber/tools/network/impacket.md"},        # Suite d'outils Python pour protocoles Windows (SMB, LDAP, Kerberos)
+      # {"CrackMapExec"         = "cyber/tools/network/cme.md"},             # Exploitation et énumération multi-protocoles (SMB, WinRM, LDAP, MSSQL)
+      # {"Responder"            = "cyber/tools/network/responder.md"},       # Poisoning LLMNR/NBT-NS pour capture de hashes
+      # {"BloodHound (AD)"      = "cyber/tools/network/bloodhound.md"},      # Cartographie et exploitation Active Directory (chemins d'escalade)
+      
+      # NOTE : Les outils ci-dessous sont également référencés dans "Systèmes & Réseaux".
+      # Ils sont listés ici car utilisés dans un contexte offensif (Red Team).
+      # À terme, tu pourras choisir de :
+      # - Conserver cette duplication avec un focus offensif ici
+      # - Rediriger vers sys-reseau avec un lien explicite
+      # {"OpenVPN"              = "cyber/tools/network/openvpn.md"},         # VPN open-source (usage : tunneling, pivoting)
+      # {"HAProxy"              = "cyber/tools/network/haproxy.md"},         # Load balancer / reverse proxy (usage : infrastructure Red Team)
+      # {"pfSense"              = "cyber/tools/network/pfsense.md"}          # Firewall/routeur open-source (usage : lab sécurisé)
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Exploitation & Post-Exploit
+    # Frameworks d'exploitation, élévation de privilèges, persistance,
+    # tunneling, pivoting, exfiltration de données.
+    # -------------------------------------------------------------------------
+    {"Exploitation & Post-Exploit" = [
+      "cyber/tools/exploit/index.md",
+      # {"Metasploit"                   = "cyber/tools/exploit/metasploit.md"},           # Framework d'exploitation (Rapid7)
+      # {"Msfvenom"                     = "cyber/tools/exploit/msfvenom.md"},             # Générateur de payloads Metasploit
+      # {"LinPEAS / WinPEAS"            = "cyber/tools/exploit/peas.md"},                 # Scripts d'énumération post-exploitation (Linux/Windows)
+      # {"Chisel"                       = "cyber/tools/exploit/chisel.md"},               # Tunneling HTTP/SOCKS5 rapide (Go)
+      # {"Ligolo-NG"                    = "cyber/tools/exploit/ligolo-ng.md"},            # Tunneling avancé pour pivoting (Go)
+      # {"PayloadAllTheThings"          = "cyber/tools/exploit/payload-all-the-things.md"} # Référentiel de payloads et techniques d'exploitation
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Password Attacks
+    # Cracking de hashes, bruteforce d'authentifications, génération de wordlists,
+    # attaques par dictionnaire, rainbow tables.
+    # -------------------------------------------------------------------------
+    {"Password Attacks" = [
+      "cyber/tools/crack/index.md",
+      # {"John the Ripper"              = "cyber/tools/crack/john.md"},       # Cracker de mots de passe (CPU)
+      # {"Hashcat"                      = "cyber/tools/crack/hashcat.md"},    # Cracker de mots de passe (GPU, très rapide)
+      # {"Hydra"                        = "cyber/tools/crack/hydra.md"},      # Bruteforce d'authentifications réseau (SSH, FTP, HTTP, etc.)
+      # {"Medusa"                       = "cyber/tools/crack/medusa.md"},     # Alternative à Hydra (parallélisé)
+      # {"CeWL"                         = "cyber/tools/crack/cewl.md"}        # Générateur de wordlists depuis sites Web (spidering)
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Social Engineering
+    # Ingénierie sociale : phishing, spear-phishing, pretexting, manipulation
+    # psychologique, campagnes de sensibilisation.
+    # -------------------------------------------------------------------------
+    {"Social Engineering" = [
+      "cyber/tools/se/index.md",
+      # {"SET"               = "cyber/tools/se/set.md"},      # Framework d'attaques d'ingénierie sociale (TrustedSec)
+      # {"GoPhish"           = "cyber/tools/se/gophish.md"}   # Plateforme de simulation de phishing open-source
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Scan de Vulnérabilités
+    # Outils de scan automatisé de vulnérabilités (infrastructure, Web, applicatif).
+    # Note : OpenVAS était précédemment dans "Gestion des vulnérabilités" (gouvernance).
+    # Il est repositionné ici car c'est un outil opérationnel utilisé par les pentesters.
+    # -------------------------------------------------------------------------
+    {"Scan de Vulnérabilités" = [
+      "cyber/tools/scan/index.md",
+      # {"OpenVAS (Greenbone)"          = "cyber/tools/scan/openvas.md"},    # Scanner de vulnérabilités open-source (infrastructure)
+      # {"Nessus"                       = "cyber/tools/scan/nessus.md"},     # Scanner commercial (Tenable) - référence
+      # {"Nuclei"                       = "cyber/tools/scan/nuclei.md"}      # Scanner basé sur templates YAML (ProjectDiscovery)
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Méthodologies Red Team
+    # Frameworks, phases de pentest, OpSec, techniques d'évasion, Kill Chain,
+    # MITRE ATT&CK mapping.
+    # -------------------------------------------------------------------------
+    {"Méthodologies Red Team" = [
+      "cyber/tools/methodology/index.md",
+      # {"Phases d'un Pentest"          = "cyber/tools/methodology/pentest-phases.md"},      # Reconnaissance, Scanning, Exploitation, Post-Exploit, Reporting
+      # {"EBIOS RM (vue Red Team)"      = "cyber/tools/methodology/ebios-redteam.md"},       # Approche Red Team basée sur la méthodologie EBIOS RM
+      # {"MITRE ATT&CK"                 = "cyber/tools/methodology/mitre-attack.md"},        # Cartographie des tactiques et techniques adverses
+      # {"OpSec & Anonymisation"        = "cyber/tools/methodology/opsec-tor.md"},           # Operational Security : Tor, VPN, chaînes de proxies, effacement de traces
+      # {"Stéganographie"               = "cyber/tools/methodology/steganographie.md"},      # Dissimulation de données dans des fichiers (images, audio, vidéo)
+      # {"C2 (Command & Control)"       = "cyber/tools/methodology/c2-frameworks.md"}        # Frameworks C2 : Cobalt Strike, Sliver, Havoc, Mythic
+    ]}
+
+  ]},
+
+# ===========================================================================
+  # 8 — GLOSSAIRE
+  # ===========================================================================
+  # Définitions des termes techniques, acronymes et concepts utilisés
+  # dans l'ensemble de la documentation.
+  # ===========================================================================
+
+  {"Glossaire" = [
+    "glossaire/index.md"
+  ]},
+
 ]
 
 # ============================================================================

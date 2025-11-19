@@ -1,0 +1,17 @@
+---
+description: "à éditer"
+icon: lucide/book-open-check
+---
+
+# OpenVPN
+
+## Introduction
+
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0"
+  data-time="??-?? minutes">
+</div>
+
+en reflexion avec sys-reseau

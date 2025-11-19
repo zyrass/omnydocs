@@ -8,8 +8,10 @@ PARTS = [
     "config/toml/navigation/02-nav-sys-reseau.toml",
     "config/toml/navigation/03-nav-dev-cloud.toml",
     "config/toml/navigation/04-nav-devsecops.toml",
-    "config/toml/navigation/05-nav-cyber.toml",
-    "config/toml/navigation/06-nav-glossaire.toml",
+    "config/toml/navigation/05-nav-cyber-governance.toml",
+    "config/toml/navigation/06-nav-cyber-operations.toml",
+    "config/toml/navigation/07-nav-cyber-tools.toml",
+    "config/toml/navigation/08-nav-glossaire.toml",
     "config/toml/10-project-theme-and-markdown.toml",
 ]
 

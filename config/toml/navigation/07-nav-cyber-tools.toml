@@ -1,0 +1,153 @@
+  # ===========================================================================
+  # 7 — CYBERSÉCURITÉ : OUTILS & RED TEAM
+  # ===========================================================================
+  # Cette section est dédiée au catalogue d'outils offensifs et méthodologies
+  # Red Team / Pentest :
+  # - Reconnaissance et OSINT (Open Source Intelligence)
+  # - Tests d'intrusion Web, API, réseaux, Active Directory
+  # - Exploitation et post-exploitation
+  # - Password attacks (bruteforce, cracking)
+  # - Social engineering
+  # - Méthodologies et frameworks offensifs
+  # 
+  # PUBLIC CIBLE : Pentesters, Red Teamers, Ethical Hackers, Consultants Sécurité Offensive
+  # ===========================================================================
+
+  {"Cyber : Outils & Red Team" = [
+    "cyber/tools/index.md",
+
+    # -------------------------------------------------------------------------
+    # OSINT & Reconnaissance
+    # Phase de collecte d'informations publiques (passive) : cartographie
+    # d'infrastructure, énumération de cibles, recherche de fuites de données.
+    # -------------------------------------------------------------------------
+    {"OSINT & Reconnaissance" = [
+      "cyber/tools/osint/index.md",
+      # {"theHarvester"         = "cyber/tools/osint/theharvester.md"},      # Collecte d'emails, sous-domaines, IPs (sources multiples)
+      # {"Maltego"              = "cyber/tools/osint/maltego.md"},           # Plateforme d'OSINT graphique (Paterva)
+      # {"SpiderFoot"           = "cyber/tools/osint/spiderfoot.md"},        # Automatisation OSINT (scan 200+ sources)
+      # {"Amass"                = "cyber/tools/osint/amass.md"},             # Cartographie d'infrastructure externe (OWASP)
+      # {"Shodan / Censys"      = "cyber/tools/osint/shodan-censys.md"}     # Moteurs de recherche pour équipements exposés (IoT, serveurs)
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Pentest Web & API
+    # Tests d'intrusion applicatifs : injection SQL, XSS, CSRF, SSRF,
+    # vulnérabilités OWASP Top 10, fuzzing de paramètres, énumération de contenus.
+    # -------------------------------------------------------------------------
+    {"Pentest Web & API" = [
+      "cyber/tools/web/index.md",
+      # {"Burp Suite"           = "cyber/tools/web/burp.md"},                # Proxy d'interception et scanner Web (PortSwigger)
+      # {"OWASP ZAP"            = "cyber/tools/web/zap.md"},                 # Proxy d'interception et scanner Web open-source (OWASP)
+      # {"Nikto"                = "cyber/tools/web/nikto.md"},               # Scanner de vulnérabilités Web (configurations, fichiers sensibles)
+      # {"ffuf"                 = "cyber/tools/web/ffuf.md"},                # Fuzzer HTTP rapide (directories, vhosts, paramètres)
+      # {"Gobuster"             = "cyber/tools/web/gobuster.md"},            # Brute-force de directories/DNS/vhosts (Go)
+      # {"Fuzzing (général)"    = "cyber/tools/web/fuzzing.md"}             # Méthodologies de fuzzing applicatif
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Pentest Réseau & Services
+    # Découverte réseau, énumération de services, exploitation de protocoles,
+    # pivoting, attaques Active Directory, Man-in-the-Middle.
+    # -------------------------------------------------------------------------
+    {"Pentest Réseau & Services" = [
+      "cyber/tools/network/index.md",
+      # {"Nmap (NSE)"           = "cyber/tools/network/nmap.md"},            # Scanner de ports et énumération de services (scripts NSE)
+      
+      # --- Outils DNS ---
+      # Suite d'outils pour interroger les serveurs DNS et effectuer de la
+      # reconnaissance sur les infrastructures réseau.
+      {"DNS" = [
+        "cyber/tools/network/dns/index.md",
+        {"dig"                = "cyber/tools/network/dns/dig.md"},         # Outil DNS flexible et complet (BIND)
+        # {"dog"                = "cyber/tools/network/dns/dog.md"},         # Alternative moderne à dig, écrite en Rust (colorisation, JSON)
+        {"nslookup"           = "cyber/tools/network/dns/nslookup.md"},    # Outil DNS legacy, multiplateforme (Windows/Linux)
+        {"host"               = "cyber/tools/network/dns/host.md"}         # Outil DNS simple pour résolutions A/AAAA/MX/TXT
+      ]},
+      
+      {"ping"                 = "cyber/tools/network/ping.md"},            # Test de connectivité ICMP
+      # {"Scapy"                = "cyber/tools/network/scapy.md"},           # Manipulation de paquets réseau (Python)
+      # {"Impacket"             = "cyber/tools/network/impacket.md"},        # Suite d'outils Python pour protocoles Windows (SMB, LDAP, Kerberos)
+      # {"CrackMapExec"         = "cyber/tools/network/cme.md"},             # Exploitation et énumération multi-protocoles (SMB, WinRM, LDAP, MSSQL)
+      # {"Responder"            = "cyber/tools/network/responder.md"},       # Poisoning LLMNR/NBT-NS pour capture de hashes
+      # {"BloodHound (AD)"      = "cyber/tools/network/bloodhound.md"},      # Cartographie et exploitation Active Directory (chemins d'escalade)
+      
+      # NOTE : Les outils ci-dessous sont également référencés dans "Systèmes & Réseaux".
+      # Ils sont listés ici car utilisés dans un contexte offensif (Red Team).
+      # À terme, tu pourras choisir de :
+      # - Conserver cette duplication avec un focus offensif ici
+      # - Rediriger vers sys-reseau avec un lien explicite
+      # {"OpenVPN"              = "cyber/tools/network/openvpn.md"},         # VPN open-source (usage : tunneling, pivoting)
+      # {"HAProxy"              = "cyber/tools/network/haproxy.md"},         # Load balancer / reverse proxy (usage : infrastructure Red Team)
+      # {"pfSense"              = "cyber/tools/network/pfsense.md"}          # Firewall/routeur open-source (usage : lab sécurisé)
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Exploitation & Post-Exploit
+    # Frameworks d'exploitation, élévation de privilèges, persistance,
+    # tunneling, pivoting, exfiltration de données.
+    # -------------------------------------------------------------------------
+    {"Exploitation & Post-Exploit" = [
+      "cyber/tools/exploit/index.md",
+      # {"Metasploit"                   = "cyber/tools/exploit/metasploit.md"},           # Framework d'exploitation (Rapid7)
+      # {"Msfvenom"                     = "cyber/tools/exploit/msfvenom.md"},             # Générateur de payloads Metasploit
+      # {"LinPEAS / WinPEAS"            = "cyber/tools/exploit/peas.md"},                 # Scripts d'énumération post-exploitation (Linux/Windows)
+      # {"Chisel"                       = "cyber/tools/exploit/chisel.md"},               # Tunneling HTTP/SOCKS5 rapide (Go)
+      # {"Ligolo-NG"                    = "cyber/tools/exploit/ligolo-ng.md"},            # Tunneling avancé pour pivoting (Go)
+      # {"PayloadAllTheThings"          = "cyber/tools/exploit/payload-all-the-things.md"} # Référentiel de payloads et techniques d'exploitation
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Password Attacks
+    # Cracking de hashes, bruteforce d'authentifications, génération de wordlists,
+    # attaques par dictionnaire, rainbow tables.
+    # -------------------------------------------------------------------------
+    {"Password Attacks" = [
+      "cyber/tools/crack/index.md",
+      # {"John the Ripper"              = "cyber/tools/crack/john.md"},       # Cracker de mots de passe (CPU)
+      # {"Hashcat"                      = "cyber/tools/crack/hashcat.md"},    # Cracker de mots de passe (GPU, très rapide)
+      # {"Hydra"                        = "cyber/tools/crack/hydra.md"},      # Bruteforce d'authentifications réseau (SSH, FTP, HTTP, etc.)
+      # {"Medusa"                       = "cyber/tools/crack/medusa.md"},     # Alternative à Hydra (parallélisé)
+      # {"CeWL"                         = "cyber/tools/crack/cewl.md"}        # Générateur de wordlists depuis sites Web (spidering)
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Social Engineering
+    # Ingénierie sociale : phishing, spear-phishing, pretexting, manipulation
+    # psychologique, campagnes de sensibilisation.
+    # -------------------------------------------------------------------------
+    {"Social Engineering" = [
+      "cyber/tools/se/index.md",
+      # {"SET"               = "cyber/tools/se/set.md"},      # Framework d'attaques d'ingénierie sociale (TrustedSec)
+      # {"GoPhish"           = "cyber/tools/se/gophish.md"}   # Plateforme de simulation de phishing open-source
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Scan de Vulnérabilités
+    # Outils de scan automatisé de vulnérabilités (infrastructure, Web, applicatif).
+    # Note : OpenVAS était précédemment dans "Gestion des vulnérabilités" (gouvernance).
+    # Il est repositionné ici car c'est un outil opérationnel utilisé par les pentesters.
+    # -------------------------------------------------------------------------
+    {"Scan de Vulnérabilités" = [
+      "cyber/tools/scan/index.md",
+      # {"OpenVAS (Greenbone)"          = "cyber/tools/scan/openvas.md"},    # Scanner de vulnérabilités open-source (infrastructure)
+      # {"Nessus"                       = "cyber/tools/scan/nessus.md"},     # Scanner commercial (Tenable) - référence
+      # {"Nuclei"                       = "cyber/tools/scan/nuclei.md"}      # Scanner basé sur templates YAML (ProjectDiscovery)
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Méthodologies Red Team
+    # Frameworks, phases de pentest, OpSec, techniques d'évasion, Kill Chain,
+    # MITRE ATT&CK mapping.
+    # -------------------------------------------------------------------------
+    {"Méthodologies Red Team" = [
+      "cyber/tools/methodology/index.md",
+      # {"Phases d'un Pentest"          = "cyber/tools/methodology/pentest-phases.md"},      # Reconnaissance, Scanning, Exploitation, Post-Exploit, Reporting
+      # {"EBIOS RM (vue Red Team)"      = "cyber/tools/methodology/ebios-redteam.md"},       # Approche Red Team basée sur la méthodologie EBIOS RM
+      # {"MITRE ATT&CK"                 = "cyber/tools/methodology/mitre-attack.md"},        # Cartographie des tactiques et techniques adverses
+      # {"OpSec & Anonymisation"        = "cyber/tools/methodology/opsec-tor.md"},           # Operational Security : Tor, VPN, chaînes de proxies, effacement de traces
+      # {"Stéganographie"               = "cyber/tools/methodology/steganographie.md"},      # Dissimulation de données dans des fichiers (images, audio, vidéo)
+      # {"C2 (Command & Control)"       = "cyber/tools/methodology/c2-frameworks.md"}        # Frameworks C2 : Cobalt Strike, Sliver, Havoc, Mythic
+    ]}
+
+  ]},

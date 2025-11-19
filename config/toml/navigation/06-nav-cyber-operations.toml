@@ -1,0 +1,169 @@
+  # ===========================================================================
+  # 6 — CYBERSÉCURITÉ : OPÉRATIONS & SOC (BLUE TEAM / DFIR)
+  # ===========================================================================
+  # Cette section couvre l'aspect opérationnel de la cybersécurité défensive :
+  # - Architecture et fonctionnement d'un Security Operations Center (SOC)
+  # - Détection et réponse aux incidents (SIEM, EDR, IDS/IPS, NDR)
+  # - Investigation numérique et forensic (DFIR - Digital Forensics & Incident Response)
+  # - Analyse de malwares et reverse engineering
+  # - Threat Intelligence et chasse aux menaces (Threat Hunting)
+  # - Automatisation et orchestration (SOAR)
+  # 
+  # PUBLIC CIBLE : Analystes SOC, Incident Responders, Forensic Analysts, Threat Hunters
+  # ===========================================================================
+
+  {"Cyber : Opé. & SOC" = [
+    "cyber/operations/index.md",
+
+    # -------------------------------------------------------------------------
+    # Architecture SOC
+    # Composantes techniques d'un SOC moderne : solutions de détection,
+    # corrélation d'événements, threat intelligence, monitoring réseau.
+    # -------------------------------------------------------------------------
+    {"Architecture SOC" = [
+      "cyber/operations/soc/index.md",
+      # {"SIEM (Wazuh)"                         = "cyber/operations/soc/siem.md"},        # Security Information and Event Management
+      # {"EDR/XDR"                              = "cyber/operations/soc/edr-xdr.md"},     # Endpoint Detection & Response / Extended Detection & Response
+      # {"NDR (Zeek/Arkime)"                    = "cyber/operations/soc/ndr.md"},         # Network Detection & Response
+  
+      # --- Systèmes de Détection/Prévention d'Intrusion ---
+      # IDS/IPS basés sur signatures et anomalies pour détecter et bloquer
+      # les activités malveillantes sur le réseau.
+      {"IDS/IPS" = [
+        "cyber/operations/soc/ids-ips/index.md",
+        # {"Suricata"         = "cyber/operations/soc/ids-ips/suricata.md"},              # IDS/IPS moderne multi-thread (OISF) - recommandé
+        # {"Snort"            = "cyber/operations/soc/ids-ips/snort.md"}                  # IDS/IPS historique (Cisco/Sourcefire) - Snort 2.x et 3.x
+      ]}, 
+      
+      # {"TIP (MISP/OpenCTI)" = "cyber/operations/soc/tip.md"},         # Threat Intelligence Platform
+      # {"ntopng (Monitoring)"                  = "cyber/operations/soc/ntopng.md"}       # Network Traffic Monitoring
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Détection & Analyse
+    # Outils et méthodologies pour détecter les menaces, créer des règles
+    # de détection et effectuer du threat hunting proactif.
+    # -------------------------------------------------------------------------
+    {"Détection & Analyse" = [
+      "cyber/operations/detection/index.md",
+      # {"YARA (Malware Detection)"     = "cyber/operations/detection/yara.md"},      # Règles de détection de patterns (malwares, IOCs)
+      # {"Sigma (SIEM Rules)"           = "cyber/operations/detection/sigma.md"},     # Langage universel pour règles SIEM
+      # {"Sysmon"                       = "cyber/operations/detection/sysmon.md"},    # Monitoring avancé Windows (Sysinternals)
+      # {"ClamAV"                       = "cyber/operations/detection/clamav.md"},    # Antivirus open-source
+      # {"IOC & TTP"                    = "cyber/operations/detection/ioc-ttp.md"},   # Indicators of Compromise & Tactics, Techniques & Procedures
+      # {"Hunting Playbooks"            = "cyber/operations/detection/hunting.md"}    # Méthodologies de chasse aux menaces proactive
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Incident Response & DFIR
+    # Processus de gestion d'incident, investigation forensic, chaîne de preuve,
+    # analyse post-mortem.
+    # -------------------------------------------------------------------------
+    {"Incident Response & DFIR" = [
+      "cyber/operations/ir/index.md",
+      # {"Gestion d'Incident"               = "cyber/operations/ir/thehive.md"},      # Plateforme de case management pour IR
+      # {"Playbooks DFIR"                   = "cyber/operations/ir/playbooks-dfir.md"}, # Procédures standardisées de réponse à incident
+      # {"CSIRT & CERT"                     = "cyber/operations/ir/csirt-cert.md"},   # Computer Security Incident Response Team / Computer Emergency Response Team
+      
+      # --- Investigation Numérique (Digital Forensics) ---
+      # Acquisition de preuves, analyse disque/mémoire/logs, chaîne de traçabilité.
+      # Cette section regroupe tous les aspects forensic du SOC.
+      {"Investigation Numérique" = [
+        "cyber/operations/ir/forensic/index.md",
+        
+        # --- Acquisition ---
+        # Techniques et outils pour acquérir des preuves numériques
+        # sans altérer l'intégrité des données (chaîne de preuve).
+        {"Acquisition" = [
+          "cyber/operations/ir/forensic/acq/index.md",
+
+          # --- Outils de copie bit-à-bit ---
+          # dd : outil Unix standard pour la copie de données brutes.
+          # dc3dd : fork forensic de dd avec hashing intégré et logging avancé.
+          # Usage recommandé :
+          #   - dd : copies génériques, backups, clonage système
+          #   - dc3dd : acquisitions forensic légales avec vérification d'intégrité
+          # {"dd / dc3dd"   = "cyber/operations/ir/forensic/acq/dd-dc3dd.md"},       # Copie bit-à-bit (forensic-sound)
+          
+          # {"LiME (Mémoire)"   = "cyber/operations/ir/forensic/acq/lime.md"},       # Linux Memory Extractor
+          # {"Guymager"         = "cyber/operations/ir/forensic/acq/guymager.md"}    # Outil GUI pour acquisition forensic
+        ]},
+        
+        # --- Analyse Disque ---
+        # Analyse de systèmes de fichiers, récupération de données effacées,
+        # carving de fichiers, analyse de métadonnées.
+        {"Analyse Disque" = [
+          "cyber/operations/ir/forensic/disk/index.md",
+          {"Autopsy / SleuthKit"  = "cyber/operations/ir/forensic/disk/autopsy.md"},       # Suite forensic open-source de référence
+          {"foremost / scalpel"   = "cyber/operations/ir/forensic/disk/carving.md"},       # File carving (récupération de fichiers)
+          {"bulk_extractor"       = "cyber/operations/ir/forensic/disk/bulk_extractor.md"}, # Extraction automatique d'artefacts
+          {"PhotoRec"             = "cyber/operations/ir/forensic/disk/photorec.md"}        # Récupération de fichiers effacés
+        ]},
+        
+        # --- Analyse Mémoire ---
+        # Forensic RAM : analyse de processus, connexions réseau, artefacts volatiles,
+        # détection de rootkits et malwares en mémoire.
+        {"Analyse Mémoire" = [
+          "cyber/operations/ir/forensic/memory/index.md",
+          # {"Volatility"   = "cyber/operations/ir/forensic/memory/volatility.md"},  # Framework forensic mémoire (Windows/Linux/Mac)
+          # {"Rekall"       = "cyber/operations/ir/forensic/memory/rekall.md"}       # Alternative à Volatility (Google)
+        ]},
+        
+        # --- Analyse Logs ---
+        # Parsing et corrélation de journaux Windows (EVTX), Syslog, IIS, etc.
+        # pour reconstituer une chronologie d'incident.
+        {"Analyse Logs" = [
+          "cyber/operations/ir/forensic/logs/index.md",
+          # {"Chainsaw"     = "cyber/operations/ir/forensic/logs/chainsaw.md"},      # Parser EVTX (logs Windows) avec règles Sigma
+          # {"Hayabusa"     = "cyber/operations/ir/forensic/logs/hayabusa.md"}       # Threat hunting dans les logs Windows Event
+        ]},
+        
+        # --- Outils Endpoint ---
+        # Collecte d'artefacts et télémétrie sur les postes de travail et serveurs
+        # pour investigation à grande échelle (hunt, IR).
+        {"Outils Endpoint" = [
+          "cyber/operations/ir/forensic/endpoint/index.md",
+          # {"Velociraptor" = "cyber/operations/ir/forensic/endpoint/velociraptor.md"}, # Agent de collecte forensic distribué
+          # {"OSQuery"      = "cyber/operations/ir/forensic/endpoint/osquery.md"}       # Framework SQL pour interroger les endpoints (Facebook)
+        ]}
+      ]}
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Malware Analysis
+    # Analyse comportementale et reverse engineering de malwares pour
+    # comprendre les tactiques adverses et développer des signatures.
+    # -------------------------------------------------------------------------
+    {"Malware Analysis" = [
+      "cyber/operations/malware/index.md",
+      # {"Comprendre les malwares"      = "cyber/operations/malware/intro.md"},           # Types, vecteurs d'infection, kill chain
+      # {"Reverse Engineering"          = "cyber/operations/malware/reverse.md"},         # Désassemblage, débogage, analyse statique/dynamique
+      # {"Techniques d'obfuscation"     = "cyber/operations/malware/obfuscation.md"},     # Packing, polymorphisme, anti-debug
+      # {"Sandboxing"                   = "cyber/operations/malware/sandbox.md"}          # Analyse automatisée en environnement isolé (Cuckoo, ANY.RUN)
+    ]},
+
+    # -------------------------------------------------------------------------
+    # SOAR & Automatisation
+    # Orchestration des réponses à incidents, automatisation de tâches SOC,
+    # intégration d'analyzers et playbooks pour accélérer la réponse.
+    # -------------------------------------------------------------------------
+    {"SOAR & Automatisation" = [
+      "cyber/operations/soar/index.md",
+      # {"SOAR (général)"               = "cyber/operations/soar/soar.md"},              # Security Orchestration, Automation and Response
+      # {"Cortex (Analyzers)"           = "cyber/operations/soar/cortex.md"},            # Moteur d'analyseurs automatiques (TheHive)
+      # {"Playbooks & Runbooks"         = "cyber/operations/soar/playbooks.md"}          # Procédures automatisées de réponse à incident
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Gestion Opérationnelle
+    # Organisation humaine du SOC : astreintes, SLA, communication de crise,
+    # métriques de performance, amélioration continue.
+    # -------------------------------------------------------------------------
+    {"Gestion Opérationnelle" = [
+      "cyber/operations/management/index.md",
+      # {"On-call & Astreintes"         = "cyber/operations/management/oncall.md"},      # Organisation des équipes SOC 24/7
+      # {"SLA & Métriques SOC"          = "cyber/operations/management/sla.md"},         # KPIs, temps de détection/réponse (MTTD/MTTR)
+      # {"Communication de crise"       = "cyber/operations/management/crisis-comm.md"}  # Gestion de la communication lors d'incidents majeurs
+    ]}
+
+  ]},

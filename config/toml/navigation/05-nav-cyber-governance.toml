@@ -1,0 +1,117 @@
+  # ===========================================================================
+  # 5 — CYBERSÉCURITÉ : GOUVERNANCE, RISK & COMPLIANCE (GRC)
+  # ===========================================================================
+  # Cette section couvre l'aspect stratégique et organisationnel de la cybersécurité :
+  # - Conformité réglementaire (RGPD, NIS2, DORA, etc.)
+  # - Référentiels et normes (ISO 27001, SecNumCloud, PCI DSS, etc.)
+  # - Démarche SMSI (Système de Management de la Sécurité de l'Information)
+  # - Analyse de risques (EBIOS RM, MEHARI, ISO 27005)
+  # - Gouvernance documentaire (PSSI, SDSI, BIA)
+  # 
+  # PUBLIC CIBLE : RSSI, DPO, Responsables Conformité, Auditeurs
+  # ===========================================================================
+
+  {"Cyber : GRC" = [
+    "cyber/governance/index.md",
+
+    # -------------------------------------------------------------------------
+    # Référentiels & Normes
+    # Ensemble des textes légaux, réglementaires et normatifs encadrant
+    # la cybersécurité en France et en Europe.
+    # -------------------------------------------------------------------------
+    {"Référentiels & Normes" = [
+      "cyber/governance/refs-normes/index.md",
+      
+      # --- Autorités françaises ---
+      # Organismes de référence en matière de cybersécurité et protection
+      # des données en France.
+      {"Autorités FR" = [
+        "cyber/governance/refs-normes/autorites/index.md",
+        {"ANSSI"  = "cyber/governance/refs-normes/autorites/anssi.md"},   # Agence Nationale de la Sécurité des SI
+        {"CNIL"   = "cyber/governance/refs-normes/autorites/cnil.md"},    # Commission Nationale Informatique et Libertés
+        {"CLUSIF" = "cyber/governance/refs-normes/autorites/clusif.md"}   # Club de la Sécurité de l'Information Français
+      ]},
+
+      # --- Réglementations européennes ---
+      # Directives et règlements européens applicables à la cybersécurité
+      # et à la protection des données.
+      {"Réglementations Euro." = [
+        "cyber/governance/refs-normes/reglementations/index.md",
+        {"RGPD"             = "cyber/governance/refs-normes/reglementations/rgpd.md"},  # Règlement Général sur la Protection des Données
+        {"NIS2"             = "cyber/governance/refs-normes/reglementations/nis2.md"},  # Network and Information Security Directive 2
+        {"DORA"             = "cyber/governance/refs-normes/reglementations/dora.md"},  # Digital Operational Resilience Act (secteur financier)
+        # {"DSA"              = "cyber/governance/refs-normes/reglementations/dsa.md"},   # Digital Services Act
+        # {"DMA"              = "cyber/governance/refs-normes/reglementations/dma.md"},   # Digital Markets Act
+        # {"DGA"              = "cyber/governance/refs-normes/reglementations/dga.md"},   # Data Governance Act
+        # {"Data Act"         = "cyber/governance/refs-normes/reglementations/data-act.md"},
+        # {"AI Act"           = "cyber/governance/refs-normes/reglementations/ai-act.md"},
+        # {"Cyber Resilience Act" = "cyber/governance/refs-normes/reglementations/cra.md"}
+      ]},
+
+      # --- Certifications et référentiels sectoriels ---
+      # Labels et certifications spécifiques à certains secteurs d'activité
+      # ou types d'infrastructures.
+      {"Refs. & Certifs" = [
+        "cyber/governance/refs-normes/referentiels/index.md",
+        {"HDS (Santé)"   = "cyber/governance/refs-normes/referentiels/hds.md"},        # Hébergement de Données de Santé
+        {"SecNumCloud"   = "cyber/governance/refs-normes/referentiels/secnumcloud.md"}, # Qualification ANSSI pour le Cloud
+        {"PCI DSS"       = "cyber/governance/refs-normes/referentiels/pci-dss.md"},    # Payment Card Industry Data Security Standard
+        {"NIST CSF"      = "cyber/governance/refs-normes/referentiels/nist-csf.md"}    # NIST Cybersecurity Framework
+      ]},
+
+      # --- Normes ISO ---
+      # Standards internationaux de l'Organisation Internationale de Normalisation
+      # applicables à la sécurité de l'information et la continuité d'activité.
+      # {"ISOs" = [
+      #   "cyber/governance/refs-normes/isos/index.md",
+      #   {"ISO 27001"            = "cyber/governance/refs-normes/isos/iso-27001.md"},  # Système de Management de la Sécurité de l'Information (SMSI)
+      #   {"ISO 27002"            = "cyber/governance/refs-normes/isos/iso-27002.md"},  # Code de bonnes pratiques pour le management de la sécurité de l'information
+      #   {"ISO 27005"            = "cyber/governance/refs-normes/isos/iso-27005.md"},  # Gestion des risques liés à la sécurité de l'information
+      #   {"ISO 27017"            = "cyber/governance/refs-normes/isos/iso-27017.md"},  # Sécurité du Cloud Computing
+      #   {"ISO 27018"            = "cyber/governance/refs-normes/isos/iso-27018.md"},  # Protection des données personnelles dans le Cloud
+      #   {"ISO 22301"            = "cyber/governance/refs-normes/isos/iso-22301.md"},  # Système de Management de la Continuité d'Activité (PCA/PRA)
+      #   {"ISO 20000"            = "cyber/governance/refs-normes/isos/iso-20000.md"},  # Gestion des services IT (ITSM)
+      #   {"ISO 9001"             = "cyber/governance/refs-normes/isos/iso-9001.md"},   # Système de Management de la Qualité
+      #   {"ISO 14001"            = "cyber/governance/refs-normes/isos/iso-14001.md"}   # Système de Management Environnemental
+      # ]}
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Démarche SMSI (Système de Management de la Sécurité de l'Information)
+    # Méthodologies et documents structurants pour mettre en place un SMSI
+    # conforme ISO 27001 et aux exigences réglementaires.
+    # -------------------------------------------------------------------------
+    # {"Démarche SMSI" = [
+    #   "cyber/governance/smsi/index.md",
+      
+      # --- Analyse de Risques ---
+      # Méthodologies reconnues pour identifier, évaluer et traiter les risques
+      # de sécurité de l'information.
+      # {"Analyse de Risques" = [
+      #   "cyber/governance/smsi/risques/index.md",
+      #   {"EBIOS Risk Manager"   = "cyber/governance/smsi/risques/ebios-rm.md"},   # Méthode française de gestion des risques cyber (ANSSI)
+      #   {"MEHARI"               = "cyber/governance/smsi/risques/mehari.md"},     # Méthode Harmonisée d'Analyse de Risques (CLUSIF)
+      #   {"ISO 27005"            = "cyber/governance/smsi/risques/iso-27005.md"}   # Norme internationale de gestion des risques SI
+      # ]},
+      
+      # --- Documents structurants du SMSI ---
+      # Livrables documentaires essentiels à la gouvernance de la sécurité.
+    #   {"BIA (Business Impact Analysis)"   = "cyber/governance/smsi/bia.md"},    # Analyse d'Impact sur l'Activité (évaluation criticité)
+    #   {"SDSI (Schéma Directeur)"          = "cyber/governance/smsi/sdsi.md"},   # Schéma Directeur de la Sécurité de l'Information
+    #   {"PSSI (Politique de Sécurité)"     = "cyber/governance/smsi/pssi.md"}    # Politique de Sécurité du Système d'Information
+    # ]},
+
+    # -------------------------------------------------------------------------
+    # Gestion des Vulnérabilités
+    # Processus de veille, d'évaluation et de priorisation des vulnérabilités
+    # dans une démarche de conformité et de gouvernance des risques.
+    # -------------------------------------------------------------------------
+    # {"Gestion des Vulnérabilités" = [
+    #   "cyber/governance/vuln/index.md",
+    #   {"CVE & CVSS"           = "cyber/governance/vuln/cve-cvss.md"},           # Common Vulnerabilities and Exposures + Common Vulnerability Scoring System
+    #   {"OWASP Top 10"         = "cyber/governance/vuln/owasp-top10.md"},        # Top 10 des vulnérabilités applicatives Web
+    #   {"Patch Management"     = "cyber/governance/vuln/patch-management.md"},   # Processus de gestion des correctifs de sécurité
+    #   {"Politique de Scan"    = "cyber/governance/vuln/scan-policy.md"}         # Cadre réglementaire et organisationnel pour les scans de vulnérabilités
+    # ]}
+
+  ]},

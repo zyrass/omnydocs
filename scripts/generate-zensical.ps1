@@ -52,7 +52,9 @@ Add-File "$NAV_DIR/04-nav-devsecops.toml"
 Add-CRLF
 Add-File "$NAV_DIR/05-nav-cyber.toml"
 Add-CRLF
-Add-File "$NAV_DIR/06-nav-glossaire.toml"
+Add-File "$NAV_DIR/06-nav-cyber-outils.toml"
+Add-CRLF
+Add-File "$NAV_DIR/07-nav-glossaire.toml"
 Add-CRLF
 Add-CRLF
 
