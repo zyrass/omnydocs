@@ -35,7 +35,10 @@
  * ---------------------------------------------------------------------------
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+/**
+ * Fonction principale de transformation des blocs omny-meta
+ */
+function transformMetadataBlocks() {
   /**
    * Sélectionne tous les blocs Metadata déclarés via la classe `omny-meta`.
    *
@@ -43,6 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
    *   <div class="omny-meta" data-level="..." data-version="..." data-time="..."></div>
    */
   const metaBlocks = document.querySelectorAll(".omny-meta");
+
+  // Si aucun bloc trouvé, on arrête (évite les exécutions inutiles)
+  if (metaBlocks.length === 0) return;
 
   // Parcourt chaque bloc trouvé
   metaBlocks.forEach((placeholder) => {
@@ -82,4 +88,43 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     placeholder.outerHTML = html;
   });
+
+  console.log(`✅ OmnyMeta: ${metaBlocks.length} bloc(s) transformé(s)`);
+}
+
+/**
+ * ---------------------------------------------------------------------------
+ * STRATÉGIE DE DÉCLENCHEMENT MULTIPLE
+ * ---------------------------------------------------------------------------
+ * Zensical peut charger le contenu à différents moments selon le contexte :
+ * - Navigation initiale
+ * - Navigation client-side (SPA)
+ * - Rechargement de page
+ *
+ * On écoute donc TOUS les événements pertinents pour garantir l'exécution.
+ * ---------------------------------------------------------------------------
+ */
+
+// 1️⃣ Chargement initial du DOM
+document.addEventListener("DOMContentLoaded", transformMetadataBlocks);
+
+// 2️⃣ Chargement complet de la page (fallback si DOMContentLoaded rate)
+window.addEventListener("load", transformMetadataBlocks);
+
+// 3️⃣ Navigation client-side (SPA) - événement custom Zensical
+document.addEventListener("zensical:navigation", transformMetadataBlocks);
+
+// 4️⃣ MutationObserver - détecte les changements dynamiques dans le DOM
+const observer = new MutationObserver(() => {
+  // On vérifie s'il y a de nouveaux blocs omny-meta non transformés
+  const untransformedBlocks = document.querySelectorAll(".omny-meta");
+  if (untransformedBlocks.length > 0) {
+    transformMetadataBlocks();
+  }
+});
+
+// Observe le body pour détecter les ajouts dynamiques de contenu
+observer.observe(document.body, {
+  childList: true, // Détecte l'ajout/suppression d'éléments
+  subtree: true, // Observe tous les descendants
 });
