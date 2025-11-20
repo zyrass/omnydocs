@@ -1,216 +1,837 @@
-/* CSS Suplémentaire : https://zensical.org/docs/customization/#additional-css */
+/* ============================================================================
+   OMNYDOCS - STYLES PERSONNALISÉS
+   ============================================================================
+   Documentation technique professionnelle pour la cybersécurité
+   Auteur : Alain GUILLON (Zyrass)
+   Version : 2.0
+   ============================================================================ */
+
+/* ============================================================================
+   TABLE DES MATIÈRES
+   ============================================================================
+   1. Configuration globale
+   2. Layout et largeurs
+   3. Navigation
+   4. Typographie
+   5. Palette de couleurs (clair/sombre)
+   6. Blocs de code et syntaxe
+   7. Métadonnées d'article
+   8. Grid Cards
+   9. Tableaux
+   ============================================================================ */
+
+/* ============================================================================
+   1. CONFIGURATION GLOBALE
+   ============================================================================ */
 
 :root {
+  /* Comportement de défilement fluide pour l'ancrage */
   scroll-behavior: smooth;
 }
 
-/* largeur de la zone de contenu : https://zensical.org/docs/setup/navigation/#content-area-width */
+/* ============================================================================
+   2. LAYOUT ET LARGEURS
+   ============================================================================
+   Layout en pleine largeur avec sidebars optimisées et contenu central lisible
+   ============================================================================ */
+
+/* Conteneur principal - pleine largeur de l'écran */
 .md-grid {
-  max-width: 1600px;
+  max-width: 100%; /* Utilise toute la largeur disponible */
+  padding: 0 1.5rem; /* Marges latérales minimales */
 }
 
-.md-nav--secondary {
-  min-width: 350px;
+/* Sidebar primaire (gauche) - Navigation principale */
+.md-sidebar--primary {
+  width: 14rem; /* ~320px - largeur confortable pour navigation */
 }
 
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  padding-right: 1.5rem; /* Gap entre sidebar et contenu */
+}
+
+/* Sidebar secondaire (droite) - Table des matières */
 .md-sidebar--secondary {
-  min-width: 400px;
+  width: 18rem; /* ~272px - légèrement plus large */
 }
 
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  padding-left: 1rem; /* Gap entre contenu et sidebar */
+}
+
+/* Navigation secondaire (TOC) */
+.md-nav--secondary {
+  min-width: unset;
+}
+
+/* Conteneur du contenu principal */
+.md-content {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Article principal - LARGEUR LIMITÉE POUR LISIBILITÉ */
+.md-content__inner {
+  max-width: 52rem; /* ~832px - largeur optimale pour lecture (60-80 caractères) */
+  margin: 0 auto !important; /* Centré entre les deux sidebars */
+  padding: 0 4rem; /* Espacement interne confortable */
+}
+
+/* Sur très grands écrans (>1920px), on peut augmenter légèrement */
+@media screen and (min-width: 1921px) {
+  .md-content__inner {
+    max-width: 60rem; /* ~960px sur très grands écrans */
+  }
+}
+
+/* Sur écrans moyens (tablettes, petits laptops) */
+@media screen and (max-width: 76.1875em) {
+  .md-sidebar--primary {
+    width: 16rem; /* ~256px */
+  }
+
+  .md-sidebar--secondary {
+    width: 14rem; /* ~224px */
+  }
+
+  .md-content__inner {
+    max-width: 48rem; /* Réduction proportionnelle */
+  }
+}
+
+/* Sur petits écrans (mobile) */
+@media screen and (max-width: 60em) {
+  .md-grid {
+    padding: 0 1rem;
+  }
+
+  .md-content__inner {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+/* ============================================================================
+     3. NAVIGATION
+     ============================================================================
+     Styles pour la sidebar gauche et les éléments de navigation
+     ============================================================================ */
+
+/* Item de navigation actif et imbriqué - mise en évidence */
 .md-nav__item--active.md-nav__item--nested > .md-nav__link,
 .md-nav__item--pruned.md-nav__item--nested > .md-nav__link {
+  font-weight: 700; /* Gras pour indiquer la page active */
+  color: var(--md-primary-fg-color); /* Couleur primaire (deep purple) */
+}
+
+/* Sections de navigation - style "bouton" avec border */
+.md-nav__item--section > .md-nav__link {
+  border: 1px solid var(--md-primary-fg-color); /* Border primaire */
+  color: var(--md-primary-fg-color);
+  padding: 8px; /* Espacement interne pour effet bouton */
+}
+
+/* Effet hover sur les sections de navigation */
+.md-nav__item--section:hover > .md-nav__link {
+  border: 1px solid var(--md-accent-fg-color); /* Border accent au survol */
+  color: var(--md-accent-fg-color); /* Texte accent (light blue) */
+  padding: 8px;
+}
+
+/* ============================================================================
+   3.1 TABLE DES MATIÈRES (Sidebar droite)
+   ============================================================================
+   Amélioration de la hiérarchie, lisibilité et utilisation de l'espace
+   ============================================================================ */
+
+/* --- FIX : Désactivation du padding forcé par Zensical --- */
+
+/* Le code natif de Zensical force un padding-right calculé qui casse le layout.
+   On le force à 0 pour laisser notre layout custom gérer les espacements. */
+   @supports selector(::-webkit-scrollbar) {
+    [dir=ltr] .md-sidebar__inner {
+      padding-right: 0 !important; /* Override du padding forcé */
+    }
+    
+    [dir=rtl] .md-sidebar__inner {
+      padding-left: 0 !important; /* Pour les layouts RTL (arabe, hébreu) */
+    }
+  }
+
+  
+  .md-sidebar--secondary .md-sidebar__inner {
+    padding-right: 1rem; /* Petit espace pour la scrollbar */
+  }
+
+/* Titre "Table des matières" */
+.md-sidebar--secondary
+  .md-sidebar__scrollwrap
+  > .md-sidebar__inner
+  > .md-nav
+  > .md-nav__title {
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase; /* Majuscules pour distinction */
+  letter-spacing: 0.05em; /* Espacement des lettres */
+  text-align: center;
+}
+
+.md-sidebar--secondary
+  .md-sidebar__scrollwrap
+  > .md-sidebar__inner
+  > .md-nav {
+    margin: 0 auto;
+  }
+
+/* Liste principale de la TOC */
+.md-nav--secondary .md-nav__list {
+  font-size: 0.66rem; /* Taille de base cohérente */
+  line-height: 1.2;
+}
+
+/* Liens de niveau 1 (h2) - titres principaux */
+.md-nav--secondary .md-nav__item {
+  margin-bottom: 0.1rem;
+}
+
+.md-nav--secondary .md-nav__link {
+  font-size: 0.6rem; /* Cohérent avec le reste */
+  font-weight: 500; /* Semi-gras pour niveau 1 */
+  padding: 0.2rem 0.8rem;
+  color: var(--md-primary-fg-color--light);
+  border-radius: 0.25rem;
+  transition: all 0.15s ease;
+}
+
+/* Hover sur les liens */
+.md-nav--secondary .md-nav__link:hover {
+  background-color: var(--md-primary-fg-color--transparent);
+  color: var(--md-primary-fg-color);
+  padding-left: 1rem; /* Légère indentation au survol */
+}
+
+/* Lien actif */
+.md-nav--secondary .md-nav__link--active {
   font-weight: 700;
   color: var(--md-primary-fg-color);
+  background-color: var(--md-primary-fg-color--transparent);
+  border-left: 3px solid var(--md-primary-fg-color);
+  padding-left: 0.8rem;
 }
 
-.md-nav__item--section:hover > .md-nav__link {
-  border: 1px solid var(--md-accent-fg-color);
-  color: var(--md-accent-fg-color);
-  padding: 8px;
+/* --- HIÉRARCHIE DES SOUS-NIVEAUX --- */
+
+/* Niveau 2 (h3) - sous-sections */
+.md-nav--secondary .md-nav__item .md-nav__item {
+  margin-left: 0.4rem; /* Indentation visuelle */
 }
 
-.md-nav__item--section > .md-nav__link {
-  border: 1px solid var(--md-primary-fg-color);
-  color: var(--md-primary-fg-color);
-  padding: 8px;
+.md-nav--secondary .md-nav__item .md-nav__item .md-nav__link {
+  font-size: 0.55rem; /* Légèrement plus petit que niveau 1 */
+  font-weight: 400; /* Poids normal */
+  padding-left: 1rem; /* Indentation supplémentaire */
+  color: var(--md-default-fg-color--light);
 }
 
-th,
-td {
-  border: 0.025rem solid var(--md-typeset-table-color);
+/* Niveau 3 (h4) - sous-sous-sections */
+.md-nav--secondary .md-nav__item .md-nav__item .md-nav__item {
+  margin-left: 0.8rem; /* Double indentation */
+  margin-bottom: 0.15rem;
 }
 
-/*  
-  ==========================================================================
-  Palette dérivée d'OmnyVia / OmnyDocs
-  --------------------------------------------------------------------------
-  - Lilas principal  : #f3a5ff
-  - Cyan accent      : #4fd4ff
-  - Fond sombre      : #111827
-  - Fond clair       : #f5f5fa
-  - Texte sombre     : #111827
-  - Texte clair      : #f9fafb
-  ==========================================================================
-*/
+.md-nav--secondary .md-nav__item .md-nav__item .md-nav__item .md-nav__link {
+  font-size: 0.63rem; /* Encore plus petit */
+  font-weight: 400;
+  padding: 0.25rem 0.5rem;
+  padding-left: 1.2rem; /* Triple indentation */
+  color: var(--md-primary-fg-color--lighter);
+}
 
-/* =========================== */
-/* Thème clair (scheme=default) */
-/* =========================== */
+/* Niveau 4 (h5) - rarement utilisé mais au cas où */
+.md-nav--secondary .md-nav__item .md-nav__item .md-nav__item .md-nav__item {
+  margin-left: 2.4rem;
+}
+
+.md-nav--secondary
+  .md-nav__item
+  .md-nav__item
+  .md-nav__item
+  .md-nav__item
+  .md-nav__link {
+  font-size: 0.6rem;
+  padding-left: 1.4rem;
+  font-style: italic; /* Italique pour distinction */
+}
+
+/* --- INDICATEURS VISUELS POUR HIÉRARCHIE --- */
+
+/* Points/puces pour les sous-niveaux */
+.md-nav--secondary .md-nav__item .md-nav__item .md-nav__link::before {
+  content: "•"; /* Puce pour niveau 2 */
+  position: absolute;
+  left: 0.4rem;
+  color: var(--md-default-fg-color--lighter);
+  font-size: 0.5rem;
+}
+
+.md-nav--secondary
+  .md-nav__item
+  .md-nav__item
+  .md-nav__item
+  .md-nav__link::before {
+  content: "◦"; /* Puce creuse pour niveau 3 */
+  font-size: 0.6rem;
+}
+
+.md-nav--secondary
+  .md-nav__item
+  .md-nav__item
+  .md-nav__item
+  .md-nav__item
+  .md-nav__link::before {
+  content: "▫"; /* Carré pour niveau 4 */
+  font-size: 0.4rem;
+}
+
+/* Liens positionnés en relatif pour les pseudo-éléments */
+.md-nav--secondary .md-nav__link {
+  position: relative;
+}
+
+/* --- SCROLLBAR PERSONNALISÉE --- */
+
+/* Pour Webkit (Chrome, Safari, Edge) */
+.md-sidebar--secondary .md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 0.4rem; /* Scrollbar fine */
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 0.2rem;
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap::-webkit-scrollbar-thumb:hover {
+  background: var(--md-default-fg-color--lighter);
+}
+
+/* --- MODE SOMBRE - AJUSTEMENTS --- */
+
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link:hover {
+  background-color: rgba(129, 212, 250, 0.1);
+  color: rgba(129, 212, 250, 1);
+}
+
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link--active {
+  color: rgba(129, 212, 250, 1);
+  background-color: rgba(129, 212, 250, 0.15);
+  border-left-color: rgba(129, 212, 250, 1);
+}
+
+/* ============================================================================
+     4. TYPOGRAPHIE
+     ============================================================================
+     Ajustements de taille pour une meilleure densité et lisibilité
+     ============================================================================ */
+
+/* Corps de texte principal - taille optimisée */
+.md-typeset {
+  font-size: 0.8rem; /* 14.4px au lieu de 16px - meilleure densité */
+  line-height: 1.6; /* Espacement vertical confortable */
+}
+
+/* Paragraphes - espacement vertical */
+.md-typeset p {
+  margin-bottom: 1rem;
+  line-height: 1.65; /* Légèrement plus aéré que le texte global */
+}
+
+/* --- Titres - hiérarchie visuelle claire --- */
+
+.md-typeset h1 {
+  font-size: 2rem; /* 32px - titre principal de page */
+  margin: 1rem 0 2rem; /* Espacement important avant nouvelle section */
+  text-align: center;
+}
+
+.md-typeset h2 {
+  font-size: 1.5rem; /* 24px - sections principales */
+  margin-top: 2rem; /* Espacement important avant nouvelle section */
+  line-height: 1.4;
+}
+
+.md-typeset h3 {
+  font-size: 1.25rem; /* 20px - sous-sections */
+  margin-top: 1.5rem;
+  line-height: 1.4;
+}
+
+.md-typeset h4 {
+  font-size: 1.1rem; /* 17.6px */
+  margin-top: 1.2rem;
+}
+
+.md-typeset h5 {
+  font-size: 1rem; /* 16px */
+  margin-top: 1rem;
+}
+
+/* --- Citations (blockquotes) --- */
+
+.md-typeset blockquote {
+  font-size: 0.66rem; /* 14px - distingue visuellement du corps */
+  line-height: 1.4;
+  font-style: italic; /* Italique pour différenciation */
+  padding: 0 1.2rem;
+}
+
+/* --- Listes (ul/ol) --- */
+
+.md-typeset ul,
+.md-typeset ol {
+  font-size: 0.7rem; /* Cohérent avec le corps de texte */
+  line-height: 1.4;
+}
+
+.md-typeset li {
+  margin: 0.4rem 0; /* Espacement entre items */
+}
+
+/* --- Emphases textuelles --- */
+
+.md-typeset strong {
+  font-weight: 700; /* Gras prononcé */
+}
+
+.md-typeset em {
+  font-style: italic; /* Italique standard */
+}
+
+/* --- Code inline --- */
+.md-typeset code {
+  font-size: 0.82rem; /* ~13px - légèrement plus petit que le texte */
+  padding: 0.15rem 0.4rem; /* Espacement interne pour lisibilité */
+}
+
+/* --- Admonitions (notes, warnings, etc.) --- */
+.md-typeset .admonition {
+  font-size: 0.66rem; /* Légèrement réduit */
+}
+
+.md-typeset .admonition-title {
+  font-size: 0.77rem;
+  font-weight: 400;
+}
+
+/* ============================================================================
+     5. PALETTE DE COULEURS (CLAIR/SOMBRE)
+     ============================================================================
+     Palette dérivée d'OmnyVia / OmnyDocs
+     - Lilas principal : #f3a5ff
+     - Cyan accent     : #4fd4ff
+     - Fond sombre     : #111827
+     - Fond clair      : #f5f5fa
+     ============================================================================ */
+
+/* --- THÈME CLAIR (default) --- */
 
 :root,
 [data-md-color-scheme="default"] {
-  /* Fond / texte des blocs de code */
-  --md-code-bg-color: #f5f5fa; /* bloc bien détaché du fond blanc */
-  --md-code-fg-color: #111827; /* texte principal très lisible     */
-  --md-code-hl-color: #e0ecff; /* surlignage de ligne (search, etc) */
+  /* Fond et texte des blocs de code */
+  --md-code-bg-color: #f5f5fa; /* Fond gris très clair, distinct du blanc */
+  --md-code-fg-color: #111827; /* Texte principal noir-gris très lisible */
+  --md-code-hl-color: #e0ecff; /* Surlignage de ligne (recherche, focus) */
 
-  /* Couleurs de syntaxe */
-  --md-code-hl-number-color: #df6fff; /* nombres : lilas vif              */
-  --md-code-hl-special-color: #f97373; /* décorateurs / specials : rouge   */
-  --md-code-hl-function-color: #2563eb; /* fonctions : bleu                 */
-  --md-code-hl-constant-color: #7c3aed; /* const / true/false : violet      */
-  --md-code-hl-keyword-color: #0ea5e9; /* if, for, return : cyan           */
-  --md-code-hl-string-color: #079b20; /* chaînes : vert lisible           */
-  --md-code-hl-name-color: #111827; /* identifiants neutres             */
-  --md-code-hl-operator-color: #374151; /* +, -, =                          */
-  --md-code-hl-punctuation-color: #6b7280; /* ., (), {}                        */
-  --md-code-hl-comment-color: #9ca3af; /* commentaires gris clair          */
-  --md-code-hl-generic-color: #111827; /* fallback                         */
-  --md-code-hl-variable-color: #7563bb; /* variables “importantes”          */
+  /* Couleurs de syntaxe - palette équilibrée */
+  --md-code-hl-number-color: #df6fff; /* Nombres : lilas vif */
+  --md-code-hl-special-color: #f97373; /* Décorateurs/specials : rouge */
+  --md-code-hl-function-color: #1b54d0; /* Fonctions : bleu */
+  --md-code-hl-constant-color: #7c3aed; /* Constantes (true/false) : violet */
+  --md-code-hl-keyword-color: #0ea5e9; /* Mots-clés (if/for/return) : cyan */
+  --md-code-hl-string-color: #079b20; /* Chaînes de caractères : vert */
+  --md-code-hl-name-color: #111827; /* Identifiants : neutre */
+  --md-code-hl-operator-color: #374151; /* Opérateurs (+, -, =) : gris foncé */
+  --md-code-hl-punctuation-color: #6b7280; /* Ponctuation (., (), {}) : gris */
+  --md-code-hl-comment-color: #9ca3af; /* Commentaires : gris clair */
+  --md-code-hl-generic-color: #111827; /* Fallback générique */
+  --md-code-hl-variable-color: #7563bb; /* Variables importantes : violet */
 }
 
-/* Style visuel des blocs en thème clair */
+/* Style visuel des blocs de code en thème clair */
 [data-md-color-scheme="default"] .md-typeset pre code {
-  border-radius: 0.25rem;
-  border: 1px solid #e0e7ff;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+  border-radius: 0.25rem; /* Coins arrondis */
+  border: 1px solid var(--md-primary-fg-color); /* Border bleu très clair */
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06); /* Ombre subtile */
 }
 
-/* =========================== */
-/* Thème sombre (scheme=slate) */
-/* =========================== */
+/* --- THÈME SOMBRE (slate) --- */
 
 [data-md-color-scheme="slate"] {
-  /* Fond / texte des blocs de code */
-  --md-code-bg-color: #111827; /* graphite profond                  */
-  --md-code-fg-color: #f9fafb; /* texte très clair                  */
-  --md-code-hl-color: #1f2937; /* surlignage discret                */
+  /* Fond et texte des blocs de code */
+  --md-code-bg-color: #111827; /* Graphite profond */
+  --md-code-fg-color: #f9fafb; /* Texte blanc cassé très lisible */
+  --md-code-hl-color: #1f2937; /* Surlignage discret */
 
-  /* Couleurs de syntaxe – versions “néon” contrôlées */
-  --md-code-hl-number-color: #f3a5ff; /* nombres : lilas Omny             */
-  --md-code-hl-special-color: #fb7185; /* specials : rose/rouge            */
-  --md-code-hl-function-color: #cfdf96; /* fonctions : bleu clair           */
-  --md-code-hl-constant-color: #c4b5fd; /* const : violet doux              */
-  --md-code-hl-keyword-color: #38bdf8; /* if, for : cyan Omny              */
-  --md-code-hl-string-color: #4ade80; /* chaînes : vert néon lisible      */
-  --md-code-hl-name-color: #e5e7eb; /* identifiants : quasi-blanc       */
-  --md-code-hl-operator-color: #9ca3af; /* opérateurs                       */
-  --md-code-hl-punctuation-color: #6b7280; /* ponctuation                      */
-  --md-code-hl-comment-color: #6b7280; /* commentaires en gris moyen       */
-  --md-code-hl-generic-color: #e5e7eb; /* fallback                         */
-  --md-code-hl-variable-color: #7563bb; /* variables mises en avant         */
+  /* Couleurs de syntaxe - versions "néon" contrôlées */
+  --md-code-hl-number-color: #f3a5ff; /* Nombres : lilas OmnyDocs */
+  --md-code-hl-special-color: #fb7185; /* Specials : rose/rouge */
+  --md-code-hl-function-color: #cfdf96; /* Fonctions : jaune-vert clair */
+  --md-code-hl-constant-color: #c4b5fd; /* Constantes : violet doux */
+  --md-code-hl-keyword-color: #38bdf8; /* Mots-clés : cyan OmnyDocs */
+  --md-code-hl-string-color: #4ade80; /* Chaînes : vert néon lisible */
+  --md-code-hl-name-color: #e5e7eb; /* Identifiants : quasi-blanc */
+  --md-code-hl-operator-color: #9ca3af; /* Opérateurs : gris */
+  --md-code-hl-punctuation-color: #6b7280; /* Ponctuation : gris moyen */
+  --md-code-hl-comment-color: #6b7280; /* Commentaires : gris moyen */
+  --md-code-hl-generic-color: #e5e7eb; /* Fallback */
+  --md-code-hl-variable-color: #7563bb; /* Variables : violet */
 }
 
-/* Style visuel des blocs en thème sombre */
+/* Style visuel des blocs de code en thème sombre */
 [data-md-color-scheme="slate"] .md-typeset pre code {
   border-radius: 0.25rem;
-  border: 1px solid rgba(79, 148, 255, 0.35); /* liseré bleu-cyan */
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(79, 148, 255, 0.35); /* Liseré bleu-cyan */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45); /* Ombre marquée */
 }
 
-/* Optionnel : padding et typographie harmonisés pour tous les thèmes */
+/* ============================================================================
+     6. BLOCS DE CODE ET SYNTAXE
+     ============================================================================
+     Styles harmonisés pour tous les thèmes
+     ============================================================================ */
+
 .md-typeset pre code {
-  font-size: 0.69rem;
-  line-height: 1.5;
-  padding: 1.1rem 1.2rem;
+  font-size: 0.69rem; /* ~11px - compact mais lisible */
+  line-height: 1.5; /* Espacement vertical confortable */
+  padding: 1.1rem 1.2rem; /* Padding généreux pour aération */
 }
 
-/* -------------------------------------------------------------------
- * Méta-bloc d'article (OmnyDocs)
- * ------------------------------------------------------------------- */
+/* ============================================================================
+     7. MÉTADONNÉES D'ARTICLE
+     ============================================================================
+     Bloc custom affichant version, niveau, temps de lecture
+     Structure :
+     <div class="metadata">
+       <span class="metadata__version">v1.0</span>
+       <span class="metadata__niveau">Intermédiaire & Avancé</span>
+       <div class="metadata__duree">
+         <span class="metadata__duree-text">Temps de lecture estimé :</span>
+         <span class="metadata__duree-time">35-40 minutes</span>
+       </div>
+     </div>
+     ============================================================================ */
 
+/* Variables CSS pour les métadonnées */
 .md-typeset {
-  --omny-meta-border: rgba(148, 163, 184, 0.32); /* Gris neutre */
-  --omny-meta-muted: rgba(148, 163, 184, 0.85);
-  --omny-meta-pill-bg: var(--md-code-bg-color);
+  --omny-meta-border: rgba(148, 163, 184, 0.32); /* Border grise neutre */
+  --omny-meta-muted: rgba(148, 163, 184, 0.85); /* Texte secondaire */
+  --omny-meta-pill-bg: var(--md-default-bg-color); /* Fond des badges */
 }
 
-/* Conteneur de métadonnées */
+/* Conteneur principal des métadonnées */
 .md-typeset .metadata {
-  position: relative;
-  margin: 1.2rem 0 2rem;
+  position: relative; /* Pour positionner le badge version */
+  margin: 1.2rem 0 2rem; /* Espacement avant/après */
   padding: 0.4rem 0.8rem;
 
+  /* Layout flexbox pour alignement horizontal */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permet le passage à la ligne si nécessaire */
   gap: 0.4rem;
 
+  /* Style visuel */
   border-radius: 0.6rem;
   border: 1px solid var(--omny-meta-border);
-  font-size: 0.7rem;
+  font-size: 0.75rem; /* Légèrement agrandi depuis 0.7rem */
   line-height: 1.4;
   background-color: var(--md-default-bg-color);
 }
 
-/* Badge version flottant centré */
+/* Badge version - flottant centré en haut */
 .md-typeset .metadata__version {
   position: absolute;
-  top: -0.65rem;
-  left: 50%;
-  transform: translateX(-50%);
+  top: -0.65rem; /* Positionné au-dessus du conteneur */
+  left: 50%; /* Centré horizontalement */
+  transform: translateX(-50%); /* Ajustement du centrage */
 
   padding: 0.1rem 0.55rem;
-  font-size: 0.65rem;
+  font-size: 0.7rem; /* Reste petit pour rester discret */
   font-weight: 600;
 
+  /* Style badge */
   border-radius: 8px;
   background-color: var(--md-default-bg-color);
-  color: var(--md-accent-fg-color);
+  color: var(--md-primary-fg-color); /* Couleur accent (light blue) */
 
   border: 1px solid var(--omny-meta-border);
-  white-space: nowrap;
+  white-space: nowrap; /* Empêche le retour à la ligne */
 }
 
-/* Texte du niveau */
+/* Texte du niveau (ex: "Intermédiaire & Avancé") */
 .md-typeset .metadata__niveau {
-  font-weight: 500;
+  font-weight: 500; /* Semi-gras */
 }
 
-/* Bloc de durée */
+/* Conteneur de la durée de lecture */
 .md-typeset .metadata__duree {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permet adaptation mobile */
 }
 
+/* Texte "Temps de lecture estimé :" */
 .md-typeset .metadata__duree-text {
-  color: var(--omny-meta-muted);
+  color: var(--omny-meta-muted); /* Couleur secondaire */
 }
 
-/* Capsule de temps de lecture */
+/* Capsule du temps (ex: "35-40 minutes") */
 .md-typeset .metadata__duree-time {
   padding: 0.2rem 0.4rem;
   border-radius: 8px;
 
-  border: 1px solid var(--md-accent-fg-color);
+  /* Style badge avec border accent */
+  border: 1px solid var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
   background-color: var(--omny-meta-pill-bg);
   font-weight: 500;
   white-space: nowrap;
 }
 
-/* Mobile : empilement naturel */
+/* Responsive mobile - empilement vertical */
 @media (max-width: 768px) {
   .md-typeset .metadata {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Empilement vertical */
+    align-items: flex-start; /* Alignement à gauche */
     gap: 0.4rem;
-    padding-top: 1.2rem; /* place pour le badge */
+    padding-top: 1.2rem; /* Espace supplémentaire pour le badge version */
   }
 
   .md-typeset .metadata__duree {
     margin-left: 0;
   }
 }
+
+/* ============================================================================
+     8. GRID CARDS
+     ============================================================================
+     Amélioration du contraste et de la visibilité des cards en grille
+     Utilisé pour afficher des liens de navigation (ex: piliers de la GRC)
+     ============================================================================ */
+
+/* --- MODE CLAIR --- */
+
+.md-typeset .grid.cards > ul > li {
+  /* Border avec couleur primaire (deep purple) */
+  border: 1px solid rgba(103, 58, 183, 0.2);
+
+  /* Fond très légèrement teinté */
+  background-color: rgba(103, 58, 183, 0.02);
+
+  /* Ombre subtile pour donner du relief */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+  /* Transition fluide pour l'animation hover */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Effet hover - mode clair */
+.md-typeset .grid.cards > ul > li:hover {
+  /* Border plus visible au survol */
+  border-color: rgba(103, 58, 183, 0.4);
+
+  /* Fond plus marqué */
+  background-color: rgba(103, 58, 183, 0.05);
+
+  /* Ombre plus prononcée */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+  /* Légère élévation de la card */
+  transform: translateY(-2px);
+}
+
+/* Texte dans les grid cards - cohérence typographique */
+.md-typeset .grid.cards > ul > li {
+  font-size: 0.66rem; /* Légèrement réduit */
+}
+
+/* Titres dans les grid cards */
+.md-typeset .grid.cards > ul > li strong {
+  font-size: 0.88rem; /* Un peu plus gros que le texte */
+}
+
+/* --- MODE SOMBRE --- */
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li {
+  /* Border avec couleur d'accent (light blue) */
+  border: 1px solid rgba(129, 212, 250, 0.3);
+
+  /* Fond légèrement teinté */
+  background-color: rgba(129, 212, 250, 0.04);
+
+  /* Ombre pour donner du relief */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Effet hover - mode sombre */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover {
+  /* Border plus visible */
+  border-color: rgba(129, 212, 250, 0.5);
+
+  /* Fond plus marqué */
+  background-color: rgba(129, 212, 250, 0.08);
+
+  /* Ombre plus prononcée */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+
+  /* Légère élévation */
+  transform: translateY(-2px);
+}
+
+.md-typeset .grid.cards > ul > li strong {
+  font-size: inherit; /* Prend la même taille que le parent */
+  font-weight: 700; /* Mais reste en gras */
+}
+
+/* ============================================================================
+     9. TABLEAUX
+     ============================================================================
+     Amélioration du contraste, lisibilité et esthétique des tableaux
+     Cible uniquement les tableaux markdown standards (sans classe custom)
+     ============================================================================ */
+
+/* --- MODE CLAIR --- */
+
+/* Conteneur du tableau - style global */
+.md-typeset table:not([class]) {
+  /* Border autour du tableau */
+  border: 1px solid rgba(103, 58, 183, 0.15);
+
+  /* Coins arrondis pour adoucir */
+  border-radius: 0.3rem;
+
+  /* Ombre subtile pour donner du relief */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  /* Taille de police réduite pour densité */
+  font-size: 0.66rem; /* 13.6px */
+}
+
+/* Header du tableau (thead) */
+.md-typeset table:not([class]) thead {
+  /* Background avec couleur primaire (deep purple) */
+  background-color: rgba(103, 58, 183, 0.08);
+
+  /* Border inférieure marquée */
+  border-bottom: 2px solid rgba(103, 58, 183, 0.3);
+}
+
+/* Cellules du header */
+.md-typeset table:not([class]) thead th {
+  /* Texte en gras pour distinction */
+  font-weight: 700;
+
+  /* Couleur de texte foncée */
+  color: rgba(0, 0, 0, 0.87);
+
+  /* Padding confortable */
+  padding: 0.5rem 0.7rem;
+
+  /* Taille légèrement plus grande que le corps */
+  font-size: 0.77rem; /* 14px */
+}
+
+/* Lignes du corps du tableau (tbody) */
+.md-typeset table:not([class]) tbody tr {
+  /* Border subtile entre les lignes */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  /* Transition fluide pour l'effet hover */
+  transition: background-color 0.15s ease;
+}
+
+/* Effet hover sur les lignes du tableau */
+.md-typeset table:not([class]) tbody tr:hover {
+  /* Background coloré au survol */
+  background-color: rgba(103, 58, 183, 0.04);
+}
+
+/* Cellules du corps du tableau */
+.md-typeset table:not([class]) td {
+  /* Padding confortable */
+  padding: 0.9rem 1.2rem;
+
+  /* Couleur de texte légèrement atténuée */
+  color: rgba(0, 0, 0, 0.75);
+}
+
+/* --- MODE SOMBRE --- */
+
+/* Conteneur du tableau - mode sombre */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  /* Border avec couleur d'accent (light blue) */
+  border: 1px solid rgba(129, 212, 250, 0.25);
+
+  /* Ombre plus marquée pour fond sombre */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Header du tableau - mode sombre */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) thead {
+  /* Background avec couleur d'accent */
+  background-color: rgba(129, 212, 250, 0.12);
+
+  /* Border inférieure plus visible */
+  border-bottom: 2px solid rgba(129, 212, 250, 0.4);
+}
+
+/* Cellules du header - mode sombre */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) thead th {
+  /* Texte en gras */
+  font-weight: 700;
+
+  /* Couleur de texte claire */
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Lignes du corps - mode sombre */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tbody tr {
+  /* Border subtile */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Effet hover - mode sombre */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tbody tr:hover {
+  /* Background coloré au survol */
+  background-color: rgba(129, 212, 250, 0.08);
+}
+
+/* Cellules du corps - mode sombre */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td {
+  /* Couleur de texte légèrement atténuée */
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================================================
+     BORDERS DE CELLULES (commun aux deux thèmes)
+     ============================================================================
+     Override de la border par défaut pour cohérence visuelle
+     ============================================================================ */
+
+th,
+td {
+  border: 0.025rem solid var(--md-typeset-table-color);
+}
+
+/* ============================================================================
+     FIN DU FICHIER
+     ============================================================================ */
