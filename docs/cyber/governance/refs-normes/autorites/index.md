@@ -1,8 +1,16 @@
 ---
 description: "Les principales autorités françaises impliquées dans la cybersécurité et la protection des données."
+tags: ["ANSSI", "CNIL", "CLUSIF", "AUTORITÉS", "FRANCE"]
 ---
 
 # :lucide-building: Autorités françaises
+
+<div
+  class="omny-meta"
+  data-level="🟡 Intermédiaire"
+  data-version="1.0"
+  data-time="5-7 minutes">
+</div>
 
 ## Présentation générale
 
