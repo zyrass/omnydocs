@@ -3,7 +3,7 @@ description: "Fondations techniques essentielles pour tout professionnel de l'in
 icon: lucide/rocket
 ---
 
-# Bases Informatique
+# Fontamentaux IT
 
 Cette section constitue le **socle fondamental** de votre parcours d'apprentissage technique. Elle rassemble l'ensemble des connaissances et compétences _indispensables_ à tout professionnel de l'informatique, quel que soit son domaine de spécialisation ultérieur.
 

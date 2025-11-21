@@ -43,111 +43,152 @@ extra_javascript = ["assets/javascripts/extra.js"]
 
 nav = [
   
-  # --------------------------------------------------------------------------
-  # 0 — Accueil
-  # Entrée principale de la documentation.
-  # --------------------------------------------------------------------------
-  {"Accueil" = [
+  # ===========================================================================
+  # 0 — ACCUEIL
+  # ===========================================================================
+  # Point d'entrée principal de la documentation OmnyDocs.
+  # Cette section présente la philosophie du projet, son organisation
+  # et guide l'utilisateur vers les différents domaines de connaissance.
+  # 
+  # PUBLIC CIBLE : Tous publics (débutants à experts)
+  # ===========================================================================
 
-    # Page d’index de la doc.
+  {"Accueil" = [
+    # Page d'index principale de la documentation
     "index.md",
 
-    # Sous-pages rattachées à l’accueil.
-    {"Préambule"    = "home/preambule.md"},
-    {"Introduction" = "home/introduction.md"},
+    # -------------------------------------------------------------------------
+    # Pages introductives
+    # Contexte, objectifs et structure de la documentation
+    # -------------------------------------------------------------------------
+    {"Préambule"    = "home/preambule.md"},       # Philosophie et approche pédagogique
+    {"Introduction" = "home/introduction.md"}     # Présentation générale et organisation
   ]},
 
-  # --------------------------------------------------------------------------
-  # 1 — Bases Informatiques (TRANSVERSE)
-  # Regroupe les fondamentaux techniques de l'informatique.
-  # --------------------------------------------------------------------------
-  {"Bases Informatique" = [
+  # ===========================================================================
+  # 1 — FONDAMENTAUX IT
+  # ===========================================================================
+  # Socle de connaissances transversal couvrant les concepts fondamentaux
+  # de l'informatique, indépendamment des technologies spécifiques.
+  # Cette section pose les bases nécessaires pour aborder sereinement
+  # les domaines plus spécialisés (développement, infrastructure, cybersécurité).
+  # 
+  # Contenu :
+  # - Types de données et structures de contrôle
+  # - Outils de développement essentiels (Git, Markdown, environnements virtuels)
+  # - Formats de données (JSON, YAML, XML, CSV)
+  # - Concepts de programmation (architecture Unix, codes d'erreur)
+  # - Réseaux et protocoles (HTTP, DNS, liste des protocoles standards)
+  # 
+  # PUBLIC CIBLE : Débutants et professionnels en reconversion
+  # ===========================================================================
 
-    # Page d’introduction de la section "Bases Informatique".
+  {"Fondamentaux IT" = [
+    # Page d'introduction de la section
     "bases/index.md",
 
-    # Sous-section : Fondamentaux techniques.
+    # -------------------------------------------------------------------------
+    # Fondamentaux techniques
+    # Concepts de base de la programmation : types primitifs, logique,
+    # structures de contrôle, fonctions
+    # -------------------------------------------------------------------------
     {"Fondamentaux techniques" = [
-
-      # Page d’introduction de la sous-section.
       "bases/fondamentaux/index.md",
-
-      # Pages détaillées (chemins réels dans docs/bases/fondamentaux/).
-      {"Types Primitifs"           = "bases/fondamentaux/types-primitifs.md"},
-      {"Heap, Stack et Références" = "bases/fondamentaux/heap-stack-references.md"},
-      {"Logique Booléenne"         = "bases/fondamentaux/logique-booleenne.md"},
-      {"Logique Conditionnelle"    = "bases/fondamentaux/logique-conditionnelle.md"},
-      {"Structures Itératives"     = "bases/fondamentaux/structure-iteratives.md"},
-      {"Fonctions"                 = "bases/fondamentaux/fonctions.md"},
+      {"Types Primitifs"           = "bases/fondamentaux/types-primitifs.md"},           # int, float, string, boolean
+      {"Heap, Stack et Références" = "bases/fondamentaux/heap-stack-references.md"},     # Gestion mémoire
+      {"Logique Booléenne"         = "bases/fondamentaux/logique-booleenne.md"},         # AND, OR, NOT, tables de vérité
+      {"Logique Conditionnelle"    = "bases/fondamentaux/logique-conditionnelle.md"},    # if/else, switch, opérateurs ternaires
+      {"Structures Itératives"     = "bases/fondamentaux/structure-iteratives.md"},      # for, while, do-while
+      {"Fonctions"                 = "bases/fondamentaux/fonctions.md"}                  # Déclaration, paramètres, retours
     ]},
 
+    # -------------------------------------------------------------------------
+    # Outils de Développement
+    # Environnements, gestionnaires de paquets, contrôle de version
+    # -------------------------------------------------------------------------
     {"Outils de Développement" = [
-      # "bases/outils/index.md",
-  #     {"Expressions régulières" = "bases/outils/regex.md"},
-      
+      # -----------------------------------------------------------------------
+      # Environnements virtuels
+      # Isolation des dépendances et environnements de développement
+      # -----------------------------------------------------------------------
       {"Environnements Virtu." = [
-        # canonique ici (installation, notions, CLI de base)
-        {"WSL"            = "bases/outils/environnement-virtuel/wsl.md"},
-        {"NVM"            = "bases/outils/environnement-virtuel/nvm.md"},
-        # {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},
-        # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},
-        # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},
-        # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"},
+        {"WSL"            = "bases/outils/environnement-virtuel/wsl.md"},                 # Windows Subsystem for Linux
+        {"NVM"            = "bases/outils/environnement-virtuel/nvm.md"},                  # Node Version Manager
+        # {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},              # Python Virtual Environment
+        # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},        # Hyperviseur type 2
+        # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},           # Provisioning automatisé
+        # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"}         # CLI VirtualBox
       ]},
-      
-      
+
+      # -----------------------------------------------------------------------
+      # Gestionnaires de paquets
+      # Installation et gestion de logiciels par distribution Linux
+      # -----------------------------------------------------------------------
+      {"Gestionnaires de Paquets" = [
+        {"APK — Alpine"        = "bases/paquets/apk-alpine.md"},            # Alpine Package Keeper (conteneurs Docker)
+        {"APT — Debian/Ubuntu" = "bases/paquets/apt-debian.md"},            # Advanced Package Tool (Debian/Ubuntu)
+        {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},            # Package Manager (Arch Linux)
+        # {"YUM — RHEL Legacy"   = "bases/paquets/yum-rhel.md"},            # Yellowdog Updater Modified (CentOS 7-)
+        # {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"}             # Dandified YUM (CentOS 8+, RHEL 8+)
+      ]},
+
+  
+      # -----------------------------------------------------------------------
+      # Outils essentiels
+      # Markdown pour documentation, Git pour versionning
+      # -----------------------------------------------------------------------
+      {"Markdown"   = "bases/outils/markdown.md"},        # Syntaxe de rédaction légère
+      {"Git"        = "bases/outils/git.md"},              # Contrôle de version distribué
+      # {"GitHub"     = "bases/outils/github.md"}         # Plateforme d'hébergement Git
+
       # {"Terminaux et Shells" = "bases/outils/terminaux-shell.md"},
 
-      {"Gestionnaires de Paquets" = [
-        {"APK — Alpine"        = "bases/paquets/apk-alpine.md"},
-        {"APT — Debian/Ubuntu" = "bases/paquets/apt-debian.md"},
-        {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},
-        # {"YUM RHEL — Legacy"   = "bases/paquets/yum-rhel.md"},
-        # {"DNF RHEL — Moderne"  = "bases/paquets/dnf-rhel.md"}
-      ]},
-
-      {"Markdown"   = "bases/outils/markdown.md"},
-      {"Git"        = "bases/outils/git.md"},
-      # {"GitHub"     = "bases/outils/github.md"},
-    
       # {"Visual Studio Code" = [
         # {"Configuration"            =   "bases/outils/vscode/config.md"},
         # {"Extensions essentielles"  =   "bases/outils/vscode/liste-extensions.md"},
         # {"Snippets personnalisés"   =   "bases/outils/vscode/snippet.md"},
       # ]},
-
     ]},
-
+    
+    # -------------------------------------------------------------------------
+    # Structures de Données
+    # Formats d'échange et de stockage de données
+    # -------------------------------------------------------------------------
     {"Structures de Données" = [
       "bases/structure-donnees/index.md",
-      {"JSON" = "bases/structure-donnees/json.md"},
-      {"YAML" = "bases/structure-donnees/yaml.md"},
-      {"XML"  = "bases/structure-donnees/xml.md"},
-      {"CSV"  = "bases/structure-donnees/csv.md"},
+      {"JSON" = "bases/structure-donnees/json.md"},      # JavaScript Object Notation
+      {"YAML" = "bases/structure-donnees/yaml.md"},      # YAML Ain't Markup Language (config)
+      {"XML"  = "bases/structure-donnees/xml.md"},       # eXtensible Markup Language
+      {"CSV"  = "bases/structure-donnees/csv.md"}        # Comma-Separated Values
     ]},
-      
+
+    # -------------------------------------------------------------------------
+    # Concepts de Programmation
+    # Principes généraux et architectures logicielles
+    # -------------------------------------------------------------------------
     {"Concepts de Prog." = [
-      # "bases/concepts/index.md",
-      {"Architecture Unix"          = "bases/concepts/architecture-unix.md"},
-      # {"Principes SOLID"            = "bases/concepts/solid.md"},
-      # {"Paradigmes de Prog."        = "bases/concepts/paradigmes.md"},
-      # {"Design Patterns"            = "bases/concepts/design-patterns.md"},
-      # {"Encodage"                   = "bases/concepts/encodage.md"},
-      # {"Variables d'env."           = "bases/concepts/variables-environnements.md"},
-      {"Liste des codes d'erreur"   = "bases/concepts/liste-code-erreur.md"},
-      # {"Expressions régulières"     = "bases/concepts/regex.md"},
+      {"Architecture Unix"          = "bases/concepts/architecture-unix.md"},   # Philosophie Unix, pipes, processus
+      {"Liste des codes d'erreur"   = "bases/concepts/liste-code-erreur.md"},    # HTTP, SMTP, FTP, exit codes
+      # {"Principes SOLID"            = "bases/concepts/solid.md"},                      # Design OO (Single Responsibility, etc.)
+      # {"Paradigmes de Prog."        = "bases/concepts/paradigmes.md"},                 # Impératif, OO, Fonctionnel
+      # {"Design Patterns"            = "bases/concepts/design-patterns.md"},            # Gang of Four, patterns courants
+      # {"Encodage"                   = "bases/concepts/encodage.md"},                   # ASCII, UTF-8, Base64
+      # {"Variables d'environnement"  = "bases/concepts/variables-environnements.md"},   # PATH, HOME, etc.
+      # {"Expressions régulières"     = "bases/concepts/regex.md"}                       # Syntaxe regex, exemples
     ]},
 
-  
+    # -------------------------------------------------------------------------
+    # Réseaux et Protocoles
+    # Concepts réseau fondamentaux et protocoles standards
+    # -------------------------------------------------------------------------
     {"Réseaux et Protocoles" = [
-      # {"Modèle OSI"             = "bases/reseaux/modele-osi.md"},
-      # {"Modèle TCP/IP"          = "bases/reseaux/modele-tcp.md"},
-      # {"Sockets & Serveurs"     = "bases/reseaux/sockets-serveurs.md"},
-      {"HTTP – Méthodes"        = "bases/reseaux/http-methodes.md"},
-      {"DNS – Notions"          = "bases/reseaux/dns-notions.md"},
-      {"Liste des protocoles"   = "bases/reseaux/liste-protocoles.md"}
+      {"HTTP – Méthodes"        = "bases/reseaux/http-methodes.md"},        # GET, POST, PUT, DELETE, PATCH
+      {"DNS – Notions"          = "bases/reseaux/dns-notions.md"},          # Résolution de noms, types d'enregistrements
+      {"Liste des protocoles"   = "bases/reseaux/liste-protocoles.md"},     # TCP, UDP, ICMP, SSH, FTP, SMTP
+      # {"Modèle OSI"             = "bases/reseaux/modele-osi.md"},                      # 7 couches du modèle OSI
+      # {"Modèle TCP/IP"          = "bases/reseaux/modele-tcp.md"},                      # 4 couches TCP/IP
+      # {"Sockets & Serveurs"     = "bases/reseaux/sockets-serveurs.md"}                 # Communication client-serveur
     ]},
-
   
     # {"Cryptographie & PKI" = [
       # "bases/crypto/index.md",
@@ -158,220 +199,380 @@ nav = [
 
   ]},
 
-  # -----------------------------------------------------------------------
-  # 2 — Systèmes & Réseaux (spécialisé infra)
-  # -----------------------------------------------------------------------
-  {"Systèmes & Réseaux" = [
+  # ===========================================================================
+  # 2 — SYSTÈMES & INFRASTRUCTURE
+  # ===========================================================================
+  # Spécialisation dans l'administration système et l'architecture réseau.
+  # Cette section couvre les aspects opérationnels de la gestion d'infrastructures :
+  # systèmes d'exploitation, services réseau, virtualisation, stockage, supervision.
+  # 
+  # Contenu :
+  # - Administration Linux et Windows
+  # - Services réseau (SSH, DNS, FTP, Samba, LDAP)
+  # - Sécurité périmétrique (pfSense, WAF, VPN)
+  # - Virtualisation (KVM, Proxmox, QEMU)
+  # - Stockage et sauvegarde (RAID, PRA)
+  # - Supervision et monitoring
+  # 
+  # PUBLIC CIBLE : Administrateurs système, Ingénieurs infrastructure, SRE
+  # ===========================================================================
+  {"Systèmes & Infra" = [
+    # Page d'introduction de la section
     "sys-reseau/index.md",
 
-  #     {"Linux" = [
-  #         "sys-reseau/linux/index.md",
-  #         {"Administration"     = "sys-reseau/linux/admin.md"},
-  #         {"Services & Daemons" = "sys-reseau/linux/services-daemons.md"},
-  #         {"📁 Sécurité (host)"           = [
-  #             "sys-reseau/linux/security/index.md",
-  #             {"fail2ban"   = "sys-reseau/linux/security/fail2ban.md"},
-  #             {"ufw"        = "sys-reseau/linux/security/ufw.md"},
-  #             {"ClamAV"     = "sys-reseau/linux/security/clamav.md"},
-  #             {"Lynis"      = "sys-reseau/linux/security/lynis.md"},
-  #             {"Chkrootkit" = "sys-reseau/linux/security/chkrootkit.md"},
-  #         ]},
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Linux
+    # Administration système Linux, services, sécurité hôte
+    # -------------------------------------------------------------------------
+    {"Linux" = [
+      "sys-reseau/linux/index.md",
+      {"Administration"       = "sys-reseau/linux/admin.md"},                          # Gestion utilisateurs, permissions, cron
+      {"Services & Daemons"   = "sys-reseau/linux/services-daemons.md"},               # systemd, services, logs
+      
+      # -----------------------------------------------------------------------
+      # Sécurité hôte Linux
+      # Outils de durcissement et de détection d'intrusion au niveau système
+      # -----------------------------------------------------------------------
+      {"Sécurité (host)"      = [
+        "sys-reseau/linux/security/index.md",
+        {"fail2ban"           = "sys-reseau/linux/security/fail2ban.md"},             # Protection contre bruteforce
+        {"ufw"                = "sys-reseau/linux/security/ufw.md"},                  # Uncomplicated Firewall
+        {"ClamAV"             = "sys-reseau/linux/security/clamav.md"},               # Antivirus open-source
+        {"Lynis"              = "sys-reseau/linux/security/lynis.md"},                # Audit de sécurité système
+        {"Chkrootkit"         = "sys-reseau/linux/security/chkrootkit.md"}            # Détection de rootkits
+      ]}
+    ]},
 
-  #     {"Windows" = [
-  #         "sys-reseau/windows/index.md",
-  #         {"AD & GPO"     = "sys-reseau/windows/ad-gpo.md"},
-  #         {"Durcissement" = "sys-reseau/windows/hardening.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Windows
+    # Administration Active Directory et durcissement Windows Server
+    # -------------------------------------------------------------------------
+    {"Windows" = [
+      "sys-reseau/windows/index.md",
+      {"AD & GPO"     = "sys-reseau/windows/ad-gpo.md"},                            # Active Directory, Group Policy Objects
+      {"Durcissement" = "sys-reseau/windows/hardening.md"}                          # Sécurisation Windows Server
+    ]},
 
-  #     {"Réseaux" = [
-  #         "sys-reseau/network/index.md",
-  #         {"📁 Outils & Analyse" = [
-  #             "sys-reseau/network/outils/index.md",
-  #             {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},
-  #             {"netstat"  = "sys-reseau/network/outils/netstat.md"},
-  #             {"scapy"    = "sys-reseau/network/outils/scapy.md"},
-  #             {"nslookup" = "sys-reseau/network/outils/nslookup.md"}
-  #         ]},
-  #         {"📁 Services réseau" = [
-  #             "sys-reseau/network/services/index.md",
-  #             {"SSH"    = "sys-reseau/network/services/ssh.md"},
-  #             {"FTP"    = "sys-reseau/network/services/ftp.md"},
-  #             {"DNS"    = "sys-reseau/network/services/dns.md"},
-  #             {"Samba"  = "sys-reseau/network/services/samba.md"},
-  #             {"LDAP & PAM" = "sys-reseau/network/services/ldap-pam.md"}
-  #         ]},
-  #         {"📁 Sécurité périmétrique" = [
-  #             "sys-reseau/network/security/index.md",
-  #             {"pfSense"  = "sys-reseau/network/security/pfsense.md"},
-  #             {"WAF"      = "sys-reseau/network/security/waf.md"},
-  #             {"OpenVPN"  = "sys-reseau/network/security/openvpn.md"},
-  #             {"HAProxy"  = "sys-reseau/network/security/haproxy.md"}
-  #         ]}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Réseaux
+    #  Outils d'analyse, services réseau, sécurité périmétrique
+    # -------------------------------------------------------------------------
+    {"Réseaux" = [
+      "sys-reseau/network/index.md",
 
-  #     {"Virtualisation (HyperV.)" = [
-  #         "sys-reseau/virtualisation/index.md",
-  #         {"Panorama Virtualisation"      = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},
-  #         {"KVM / Proxmox"                = "sys-reseau/virtualisation/kvm-proxmox.md"},
-  #         {"QEMU"                         = "sys-reseau/virtualisation/qemu.md"}
-  #     ]},
+      # -----------------------------------------------------------------------
+      # Outils & Analyse réseau
+      # Capture de paquets, analyse de trafic, diagnostic
+      # -----------------------------------------------------------------------
+      {"Outils & Analyse" = [
+        "sys-reseau/network/outils/index.md",
+        {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},                     # Capture de paquets CLI
+        {"netstat"  = "sys-reseau/network/outils/netstat.md"},                     # Statistiques réseau
+        {"scapy"    = "sys-reseau/network/outils/scapy.md"},                       # Manipulation de paquets Python
+        {"nslookup" = "sys-reseau/network/outils/nslookup.md"}                     # Requêtes DNS
+      ]},
+      
+      # -----------------------------------------------------------------------
+      # Services réseau
+      # Configuration et administration des services d'infrastructure
+      # -----------------------------------------------------------------------
+      {"Services réseau" = [
+        "sys-reseau/network/services/index.md",
+        {"SSH"         = "sys-reseau/network/services/ssh.md"},                    # Secure Shell (accès distant)
+        {"FTP"         = "sys-reseau/network/services/ftp.md"},                    # File Transfer Protocol
+        {"DNS"         = "sys-reseau/network/services/dns.md"},                    # Domain Name System (BIND)
+        {"Samba"       = "sys-reseau/network/services/samba.md"},                  # Partage de fichiers SMB/CIFS
+        {"LDAP & PAM"  = "sys-reseau/network/services/ldap-pam.md"}                # Annuaire et authentification
+      ]},
 
-  #     {"Stockage & Sauvegarde" = [
-  #         "sys-reseau/storage/index.md",
-  #         {"RAID & Filesystems" = "sys-reseau/storage/raid-fs.md"},
-  #         {"Sauvegarde & PRA"   = "sys-reseau/storage/backup-pra.md"},
-  #         {"Amanda (Backup)"    = "sys-reseau/storage/amanda.md"},
-  #     ]},
+      # -----------------------------------------------------------------------
+      # Sécurité périmétrique
+      # Firewalls, reverse proxy, VPN, WAF
+      # -----------------------------------------------------------------------
+      {"Sécurité périmétrique" = [
+        "sys-reseau/network/security/index.md",
+        {"pfSense"  = "sys-reseau/network/security/pfsense.md"},                   # Firewall/routeur open-source
+        {"WAF"      = "sys-reseau/network/security/waf.md"},                       # Web Application Firewall
+        {"OpenVPN"  = "sys-reseau/network/security/openvpn.md"},                   # VPN SSL/TLS
+        {"HAProxy"  = "sys-reseau/network/security/haproxy.md"}                    # Load balancer / reverse proxy
+      ]},
+    ]},
 
-  #     {"Supervision" = [
-  #         "sys-reseau/observabilite/index.md",
-  #         {"Logs & Journaux"   = "sys-reseau/observabilite/logs.md"},
-  #         {"Monitoring (intro)"= "sys-reseau/observabilite/monitoring.md"},
-  #         {"ntop/ntopng"       = "sys-reseau/observabilite/ntop.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Virtualisation
+    # Hyperviseurs et technologies de virtualisation
+    # -------------------------------------------------------------------------
+    {"Virtualisation (Hyperviseurs)" = [
+      "sys-reseau/virtualisation/index.md",
+      {"Panorama Virtualisation"  = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},  # Types 1/2, comparatif
+      {"KVM / Proxmox"            = "sys-reseau/virtualisation/kvm-proxmox.md"},            # Hyperviseur type 1
+      {"QEMU"                     = "sys-reseau/virtualisation/qemu.md"}                    # Émulateur et virtualisation
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Stockage & Sauvegarde
+    # RAID, systèmes de fichiers, stratégies de backup, PRA
+    # -------------------------------------------------------------------------
+    {"Stockage & Sauvegarde" = [
+      "sys-reseau/storage/index.md",
+      {"RAID & Filesystems" = "sys-reseau/storage/raid-fs.md"},                   # RAID 0/1/5/6/10, ext4, XFS, Btrfs
+      {"Sauvegarde & PRA"   = "sys-reseau/storage/backup-pra.md"},                # Plan de Reprise d'Activité
+      {"Amanda"             = "sys-reseau/storage/amanda.md"}                     # Advanced Maryland Automatic Network Disk Archiver
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Supervision
+    # Monitoring d'infrastructure, gestion des logs, métriques
+    # -------------------------------------------------------------------------
+    {"Supervision" = [
+      "sys-reseau/supervision/index.md",
+      {"Logs & Journaux"      = "sys-reseau/supervision/logs.md"},                # syslog, journalctl, logrotate
+      {"Monitoring (intro)"   = "sys-reseau/supervision/monitoring.md"},          # Prometheus, Grafana, Nagios
+      {"ntop/ntopng"          = "sys-reseau/supervision/ntop.md"}                 # Monitoring de flux réseau
+    ]}
   ]},
 
-  # -----------------------------------------------------------------------
-  # 3 — Développement & Cloud
-  # -----------------------------------------------------------------------
-  {"Développement & Cloud" = [
-    "dev-cloud/index.md",
+  # ===========================================================================
+  # 3 — DÉVELOPPEMENT WEB & CLOUD
+  # ===========================================================================
+  # Développement d'applications modernes, architectures cloud-native,
+  # bases de données et méthodologies de tests.
+  # 
+  # Contenu :
+  # - Langages de programmation (Python, JavaScript/TypeScript, PHP, Go, Bash)
+  # - Frameworks (Angular, Laravel) et stacks (MEAN, TALL)
+  # - Architecture et API (REST, Clean Architecture, patterns)
+  # - Bases de données (SQL, NoSQL, GraphQL)
+  # - Cloud providers (AWS, Azure)
+  # - Tests et qualité (TDD, tests unitaires/intégration/E2E)
+  # 
+  # PUBLIC CIBLE : Développeurs, Architectes logiciels, DevOps
+  # ===========================================================================
 
-  #     {"Langages" = [
-  #         "dev-cloud/lang/index.md",
-  #         {"📁 Python"     = [
-  #             "dev-cloud/lang/python/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/python/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/python/avance.md"}
-  #         ]},
-  #         {"📁 JavaScript" = [
-  #             "dev-cloud/lang/js/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/js/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/js/avance.md"}
-  #         ]},
-  #         {"📁 TypeScript" = [
-  #             "dev-cloud/lang/ts/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/ts/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/ts/avance.md"}
-  #         ]},
-  #         {"📁 PHP" = [
-  #             "dev-cloud/lang/php/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/php/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/php/avance.md"}
-  #         ]},
-  #         {"📁 Go" = [
-  #             "dev-cloud/lang/go/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/go/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/go/avance.md"}
-  #         ]},
-  #         {"📁 Bash" = [
-  #             "dev-cloud/lang/bash/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/bash/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/bash/avance.md"}
-  #         ]},
-  #         {"📁 Angular" = [
-  #             "dev-cloud/lang/angular/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/angular/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/angular/avance.md"}
-  #         ]},
-  #         {"📁 Laravel" = [
-  #             "dev-cloud/lang/laravel/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/laravel/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/laravel/avance.md"}
-  #         ]},
-  #     ]},
+  {"Dev Web & Cloud" = [
+    # Page d'introduction de la section
+    "dev-cloud/index.md"
 
-  #     {"Stacks" = [
-  #         "dev-cloud/frameworks/index.md",
-  #         {"📁 MEAN" = ["dev-cloud/frameworks/mean/index.md"]},
-  #         {"📁 TALL" = ["dev-cloud/frameworks/tall/index.md"]},
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Langages de programmation
+    # Fondamentaux et concepts avancés pour chaque langage
+    # -------------------------------------------------------------------------
+    # {"Langages" = [
+    #   "dev-cloud/lang/index.md",
+      
+    #   {"Python" = [
+    #     "dev-cloud/lang/python/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/python/fondamentaux.md"},              # Types, structures, fonctions
+    #     {"Avancé"       = "dev-cloud/lang/python/avance.md"}                     # Décorateurs, générateurs, async
+    #   ]},
+      
+    #   {"JavaScript" = [
+    #     "dev-cloud/lang/js/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/js/fondamentaux.md"},                  # ES6+, DOM, événements
+    #     {"Avancé"       = "dev-cloud/lang/js/avance.md"}                         # Closures, prototypes, promises
+    #   ]},
+      
+    #   {"TypeScript" = [
+    #     "dev-cloud/lang/ts/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/ts/fondamentaux.md"},                  # Types, interfaces, generics
+    #     {"Avancé"       = "dev-cloud/lang/ts/avance.md"}                         # Utility types, decorators
+    #   ]},
+      
+    #   {"PHP" = [
+    #     "dev-cloud/lang/php/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/php/fondamentaux.md"},                 # Syntaxe, OO, namespaces
+    #     {"Avancé"       = "dev-cloud/lang/php/avance.md"}                        # Traits, reflection, SPL
+    #   ]},
+      
+    #   {"Go" = [
+    #     "dev-cloud/lang/go/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/go/fondamentaux.md"},                  # Goroutines, channels, structs
+    #     {"Avancé"       = "dev-cloud/lang/go/avance.md"}                         # Reflection, CGO, performance
+    #   ]},
+      
+    #   {"Bash" = [
+    #     "dev-cloud/lang/bash/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/bash/fondamentaux.md"},                # Scripts, variables, conditions
+    #     {"Avancé"       = "dev-cloud/lang/bash/avance.md"}                       # Regex, sed, awk
+    #   ]},
+      
+    #   {"Angular" = [
+    #     "dev-cloud/lang/angular/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/angular/fondamentaux.md"},             # Components, services, routing
+    #     {"Avancé"       = "dev-cloud/lang/angular/avance.md"}                    # RxJS, state management, SSR
+    #   ]},
+      
+    #   {"Laravel" = [
+    #     "dev-cloud/lang/laravel/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/laravel/fondamentaux.md"},             # Eloquent, Blade, routing
+    #     {"Avancé"       = "dev-cloud/lang/laravel/avance.md"}                    # Events, queues, broadcasting
+    #   ]}
+    # ]},
 
-  #     {"Architecture & API" = [
-  #         "dev-cloud/architecture/index.md",
-  #         {"API REST"           = "dev-cloud/architecture/api-rest.md"},
-  #         {"Clean Architecture" = "dev-cloud/architecture/clean-architecture.md"},
-  #         {"Patterns d’architecture (pratique)" = "dev-cloud/architecture/patterns-pratiques.md"},
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Stacks technologiques
+    # Combinaisons cohérentes de technologies pour applications complètes
+    # -------------------------------------------------------------------------
+    # {"Stacks" = [
+    #   "dev-cloud/frameworks/index.md",
+    #   {"MEAN" = "dev-cloud/frameworks/mean/index.md"},                           # MongoDB, Express, Angular, Node.js
+    #   {"TALL" = "dev-cloud/frameworks/tall/index.md"}                            # Tailwind, Alpine.js, Laravel, Livewire
+    # ]},
 
-  #     {"📁 Data" = [
-  #         "dev-cloud/data/index.md",
-  #         {"MariaDB & MySQL"  = "dev-cloud/data/sql.md"},
-  #         {"NoSQL"            = "dev-cloud/data/nosql.md"},
-  #         {"GraphQL"          = "dev-cloud/data/graphql.md"},
-  #         {"SQLite"           = "dev-cloud/data/sqlite.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Architecture & API
+    # Patterns d'architecture, conception d'API, principes de design
+    # -------------------------------------------------------------------------
+    # {"Architecture & API" = [
+    #   "dev-cloud/architecture/index.md",
+    #   {"API REST"                       = "dev-cloud/architecture/api-rest.md"},              # RESTful design, HATEOAS
+    #   {"Clean Architecture"             = "dev-cloud/architecture/clean-architecture.md"},    # Layered architecture, DDD
+    #   {"Patterns d'architecture"        = "dev-cloud/architecture/patterns-pratiques.md"}     # MVC, CQRS, Event Sourcing
+    # ]},
 
-  #     {"Cloud Providers" = [
-  #         "dev-cloud/cloud/index.md",
-  #         {"AWS"   = "dev-cloud/cloud/aws/index.md"},
-  #         {"Azure" = "dev-cloud/cloud/azure/index.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Data
+    # Bases de données relationnelles, NoSQL, GraphQL
+    # -------------------------------------------------------------------------
+    # {"Data" = [
+    #   "dev-cloud/data/index.md",
+    #   {"MariaDB & MySQL"  = "dev-cloud/data/sql.md"},                            # SGBDR, requêtes, optimisation
+    #   {"NoSQL"            = "dev-cloud/data/nosql.md"},                          # MongoDB, Redis, Cassandra
+    #   {"GraphQL"          = "dev-cloud/data/graphql.md"},                        # Langage de requête pour API
+    #   {"SQLite"           = "dev-cloud/data/sqlite.md"}                          # Base de données embarquée
+    # ]},
 
-  #     {"Tests & Qualité" = [
-  #         "dev-cloud/tests-qualite/index.md",
-  #         {"TDD"                     = "dev-cloud/tests-qualite/tdd.md"},
-  #         {"Unitaires & Intégration" = "dev-cloud/tests-qualite/unit-integ.md"},
-  #         {"Contrats & E2E"          = "dev-cloud/tests-qualite/contrats-e2e.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Cloud Providers
+    # Services cloud AWS et Azure
+    # -------------------------------------------------------------------------
+    # {"Cloud Providers" = [
+    #   "dev-cloud/cloud/index.md",
+    #   {"AWS"   = "dev-cloud/cloud/aws/index.md"},                                # EC2, S3, Lambda, RDS
+    #   {"Azure" = "dev-cloud/cloud/azure/index.md"}                               # VMs, Blob Storage, Functions
+    # ]},
+
+    # -------------------------------------------------------------------------
+    # Tests & Qualité
+    # Stratégies de test et assurance qualité logicielle
+    # -------------------------------------------------------------------------
+    # {"Tests & Qualité" = [
+    #   "dev-cloud/tests-qualite/index.md",
+    #   {"TDD"                        = "dev-cloud/tests-qualite/tdd.md"},         # Test-Driven Development
+    #   {"Unitaires & Intégration"    = "dev-cloud/tests-qualite/unit-integ.md"},  # Jest, PHPUnit, pytest
+    #   {"Contrats & E2E"             = "dev-cloud/tests-qualite/contrats-e2e.md"} # Pact, Cypress, Playwright
+    # ]}
+    
   ]},
 
-  # -----------------------------------------------------------------------
-  # 4 — DevSecOps (pipeline, IaC, AppSec)
-  # -----------------------------------------------------------------------
+  # ===========================================================================
+  # 4 — DEVSECOPS
+  # ===========================================================================
+  # Intégration de la sécurité dans les pipelines de développement et de déploiement.
+  # Cette section couvre l'automatisation, l'infrastructure as code, la conteneurisation
+  # et les pratiques de sécurité applicative.
+  # 
+  # Contenu :
+  # - Culture DevOps et pratiques CALMS
+  # - CI/CD (GitHub Actions, GitLab CI, Jenkins)
+  # - Infrastructure as Code (Terraform, Ansible)
+  # - Conteneurs et orchestration (Docker, Kubernetes, Helm)
+  # - Sécurité applicative (SAST, DAST, SCA, JWT)
+  # - Gestion des secrets (Vault)
+  # - Observabilité et intégrations sécurité
+  # 
+  # PUBLIC CIBLE : DevOps, SRE, Ingénieurs Sécurité Applicative
+  # ===========================================================================
+
   {"DevSecOps" = [
+    # Page d'introduction de la section
     "devsecops/index.md",
 
-  #     {"Culture & Pratiques" = [
-  #         "devsecops/culture/index.md",
-  #         {"CALMS (piliers DevOps)" = "devsecops/culture/calms.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Culture & Pratiques
+    # Fondamentaux philosophiques et organisationnels du DevOps
+    # -------------------------------------------------------------------------
+    # {"Culture & Pratiques" = [
+    #   "devsecops/culture/index.md",
+    #   {"CALMS (piliers DevOps)" = "devsecops/culture/calms.md"}            # Culture, Automation, Lean, Measurement, Sharing
+    # ]},
 
-  #     {"CI/CD" = [
-  #         "devsecops/cicd/index.md",
-  #         {"GitHub Actions" = "devsecops/cicd/github-actions.md"},
-  #         {"GitLab CI/CD"   = "devsecops/cicd/gitlab-cicd.md"},
-  #         {"Jenkins"        = "devsecops/cicd/jenkins.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # CI/CD
+    # Intégration continue et déploiement continu
+    # -------------------------------------------------------------------------
+    # {"CI/CD" = [
+    #   "devsecops/cicd/index.md",
+    #   {"GitHub Actions" = "devsecops/cicd/github-actions.md"},             # Workflows YAML, runners, actions
+    #   {"GitLab CI/CD"   = "devsecops/cicd/gitlab-cicd.md"},                # Pipelines, stages, artifacts
+    #   {"Jenkins"        = "devsecops/cicd/jenkins.md"}                     # Jenkinsfile, pipelines déclaratives
+    # ]},
 
-  #     {"IaC & Automatisation" = [
-  #         "devsecops/iac/index.md",
-  #         {"Terraform / OpenTofu" = "devsecops/iac/terraform.md"},
-  #         {"Ansible"              = "devsecops/iac/ansible.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # IaC & Automatisation
+    # Infrastructure as Code et gestion de configuration
+    # -------------------------------------------------------------------------
+    # {"IaC & Automatisation" = [
+    #   "devsecops/iac/index.md",
+    #   {"Terraform / OpenTofu" = "devsecops/iac/terraform.md"},             # Provisioning déclaratif multi-cloud
+    #   {"Ansible"              = "devsecops/iac/ansible.md"}                # Gestion de configuration, playbooks
+    # ]},
 
-  #     {"Conteneurs & Orchestration" = [
-  #         "devsecops/containers/index.md",
-  #         {"📁 Docker" = [
-  #             {"Docker (Moteur)"         = "devsecops/containers/docker/docker.md"},
-  #             {"Docker Compose"          = "devsecops/containers/docker/compose.md"},
-  #             {"Docker Swarm"            = "devsecops/containers/docker/swarm.md"},
-  #             {"Tableau comparatif (Docker/Compose/Swarm)" = "devsecops/containers/docker/tableau-comparatif.md"},
-  #         ]},
-  #         {"Kubernetes"              = "devsecops/containers/kubernetes.md"},
-  #         {"Helm"                    = "devsecops/containers/helm.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Conteneurs & Orchestration
+    # Docker, Docker Compose, Swarm, Kubernetes, Helm
+    # -------------------------------------------------------------------------
+    # {"Conteneurs & Orchestration" = [
+    #   "devsecops/containers/index.md",
+      
+    #   # -----------------------------------------------------------------------
+    #   # Docker
+    #   # Conteneurisation d'applications, orchestration simple
+    #   # -----------------------------------------------------------------------
+    #   {"Docker" = [
+    #     "devsecops/containers/docker/index.md",
+    #     {"Docker (Moteur)"              = "devsecops/containers/docker/docker.md"},        # Images, conteneurs, Dockerfile
+    #     {"Docker Compose"               = "devsecops/containers/docker/compose.md"},       # Multi-conteneurs, docker-compose.yml
+    #     {"Docker Swarm"                 = "devsecops/containers/docker/swarm.md"},         # Orchestration native Docker
+    #     {"Tableau comparatif"           = "devsecops/containers/docker/tableau-comparatif.md"} # Docker vs Compose vs Swarm
+    #   ]},
+      
+    #   {"Kubernetes"              = "devsecops/containers/kubernetes.md"},          # Orchestration de conteneurs à grande échelle
+    #   {"Helm"                    = "devsecops/containers/helm.md"}                 # Gestionnaire de packages Kubernetes
+    # ]},
 
-  #     {"Sécurité Applicative" = [
-  #         "devsecops/appsec/index.md",
-  #         {"AuthN/AuthZ & JWT"  = "devsecops/appsec/jwt-auth.md"},
-  #         {"SAST"               = "devsecops/appsec/sast.md"},
-  #         {"DAST"               = "devsecops/appsec/dast.md"},
-  #         {"SCA (dépendances)"  = "devsecops/appsec/sca.md"},
-  #         {"Rate Limiting & RBAC" = "devsecops/appsec/rate-rbac.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Sécurité Applicative
+    # Tests de sécurité automatisés, authentification, autorisation
+    # -------------------------------------------------------------------------
+    # {"Sécurité Applicative" = [
+    #   "devsecops/appsec/index.md",
+    #   {"AuthN/AuthZ & JWT"        = "devsecops/appsec/jwt-auth.md"},       # JSON Web Tokens, OAuth2, OIDC
+    #   {"SAST"                     = "devsecops/appsec/sast.md"},           # Static Application Security Testing
+    #   {"DAST"                     = "devsecops/appsec/dast.md"},           # Dynamic Application Security Testing
+    #   {"SCA (dépendances)"        = "devsecops/appsec/sca.md"},            # Software Composition Analysis
+    #   {"Rate Limiting & RBAC"     = "devsecops/appsec/rate-rbac.md"}      # Protection API, contrôle d'accès
+    # ]},
 
-  #     {"Secrets & Vault" = [
-  #         "devsecops/secrets/index.md",
-  #         {"Vault (HashiCorp)" = "devsecops/secrets/vault.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Secrets & Vault
+    # Gestion sécurisée des secrets et credentials
+    # -------------------------------------------------------------------------
+    # {"Secrets & Vault" = [
+    #   "devsecops/secrets/index.md",
+    #   {"Vault (HashiCorp)" = "devsecops/secrets/vault.md"}                 # Stockage sécurisé, rotation automatique
+    # ]},
 
-  #     {"Observabilité & Sécurité" = [
-  #         "devsecops/obs-sec/index.md",
-  #         {"Intégrations IDS/IPS"     = "devsecops/obs-sec/ids-hooks.md"},
-  #         {"Wazuh dans le pipeline"   = "devsecops/obs-sec/wazuh.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Observabilité & Sécurité
+    # Monitoring, logging, intégration SIEM/IDS dans le pipeline
+    # -------------------------------------------------------------------------
+    # {"Observabilité & Sécurité" = [
+    #   "devsecops/obs-sec/index.md",
+    #   {"Intégrations IDS/IPS"     = "devsecops/obs-sec/ids-hooks.md"},     # Hooks pour Suricata/Snort
+    #   {"Wazuh dans le pipeline"   = "devsecops/obs-sec/wazuh.md"}          # Intégration SIEM dans CI/CD
+    # ]}
+
   ]},
 
   # ===========================================================================
@@ -387,7 +588,7 @@ nav = [
   # PUBLIC CIBLE : RSSI, DPO, Responsables Conformité, Auditeurs
   # ===========================================================================
 
-  {"Cyber : GRC" = [
+  {"Cyber : Gouvernance" = [
     "cyber/governance/index.md",
 
     # -------------------------------------------------------------------------
@@ -509,7 +710,7 @@ nav = [
   # PUBLIC CIBLE : Analystes SOC, Incident Responders, Forensic Analysts, Threat Hunters
   # ===========================================================================
 
-  {"Cyber : Opé. & SOC" = [
+  {"Cyber : Défense" = [
     "cyber/operations/index.md",
 
     # -------------------------------------------------------------------------
@@ -680,7 +881,7 @@ nav = [
   # PUBLIC CIBLE : Pentesters, Red Teamers, Ethical Hackers, Consultants Sécurité Offensive
   # ===========================================================================
 
-  {"Cyber : Outils & Red Team" = [
+  {"Cyber : Attaque" = [
     "cyber/tools/index.md",
 
     # -------------------------------------------------------------------------

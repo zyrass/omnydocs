@@ -1,84 +1,132 @@
-  # -----------------------------------------------------------------------
-  # 3 — Développement & Cloud
-  # -----------------------------------------------------------------------
-  {"Développement & Cloud" = [
-    "dev-cloud/index.md",
+  # ===========================================================================
+  # 3 — DÉVELOPPEMENT WEB & CLOUD
+  # ===========================================================================
+  # Développement d'applications modernes, architectures cloud-native,
+  # bases de données et méthodologies de tests.
+  # 
+  # Contenu :
+  # - Langages de programmation (Python, JavaScript/TypeScript, PHP, Go, Bash)
+  # - Frameworks (Angular, Laravel) et stacks (MEAN, TALL)
+  # - Architecture et API (REST, Clean Architecture, patterns)
+  # - Bases de données (SQL, NoSQL, GraphQL)
+  # - Cloud providers (AWS, Azure)
+  # - Tests et qualité (TDD, tests unitaires/intégration/E2E)
+  # 
+  # PUBLIC CIBLE : Développeurs, Architectes logiciels, DevOps
+  # ===========================================================================
 
-  #     {"Langages" = [
-  #         "dev-cloud/lang/index.md",
-  #         {"📁 Python"     = [
-  #             "dev-cloud/lang/python/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/python/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/python/avance.md"}
-  #         ]},
-  #         {"📁 JavaScript" = [
-  #             "dev-cloud/lang/js/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/js/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/js/avance.md"}
-  #         ]},
-  #         {"📁 TypeScript" = [
-  #             "dev-cloud/lang/ts/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/ts/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/ts/avance.md"}
-  #         ]},
-  #         {"📁 PHP" = [
-  #             "dev-cloud/lang/php/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/php/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/php/avance.md"}
-  #         ]},
-  #         {"📁 Go" = [
-  #             "dev-cloud/lang/go/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/go/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/go/avance.md"}
-  #         ]},
-  #         {"📁 Bash" = [
-  #             "dev-cloud/lang/bash/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/bash/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/bash/avance.md"}
-  #         ]},
-  #         {"📁 Angular" = [
-  #             "dev-cloud/lang/angular/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/angular/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/angular/avance.md"}
-  #         ]},
-  #         {"📁 Laravel" = [
-  #             "dev-cloud/lang/laravel/index.md",
-  #             {"Fondamentaux" = "dev-cloud/lang/laravel/fondamentaux.md"},
-  #             {"Avancé"       = "dev-cloud/lang/laravel/avance.md"}
-  #         ]},
-  #     ]},
+  {"Dev Web & Cloud" = [
+    # Page d'introduction de la section
+    "dev-cloud/index.md"
 
-  #     {"Stacks" = [
-  #         "dev-cloud/frameworks/index.md",
-  #         {"📁 MEAN" = ["dev-cloud/frameworks/mean/index.md"]},
-  #         {"📁 TALL" = ["dev-cloud/frameworks/tall/index.md"]},
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Langages de programmation
+    # Fondamentaux et concepts avancés pour chaque langage
+    # -------------------------------------------------------------------------
+    # {"Langages" = [
+    #   "dev-cloud/lang/index.md",
+      
+    #   {"Python" = [
+    #     "dev-cloud/lang/python/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/python/fondamentaux.md"},              # Types, structures, fonctions
+    #     {"Avancé"       = "dev-cloud/lang/python/avance.md"}                     # Décorateurs, générateurs, async
+    #   ]},
+      
+    #   {"JavaScript" = [
+    #     "dev-cloud/lang/js/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/js/fondamentaux.md"},                  # ES6+, DOM, événements
+    #     {"Avancé"       = "dev-cloud/lang/js/avance.md"}                         # Closures, prototypes, promises
+    #   ]},
+      
+    #   {"TypeScript" = [
+    #     "dev-cloud/lang/ts/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/ts/fondamentaux.md"},                  # Types, interfaces, generics
+    #     {"Avancé"       = "dev-cloud/lang/ts/avance.md"}                         # Utility types, decorators
+    #   ]},
+      
+    #   {"PHP" = [
+    #     "dev-cloud/lang/php/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/php/fondamentaux.md"},                 # Syntaxe, OO, namespaces
+    #     {"Avancé"       = "dev-cloud/lang/php/avance.md"}                        # Traits, reflection, SPL
+    #   ]},
+      
+    #   {"Go" = [
+    #     "dev-cloud/lang/go/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/go/fondamentaux.md"},                  # Goroutines, channels, structs
+    #     {"Avancé"       = "dev-cloud/lang/go/avance.md"}                         # Reflection, CGO, performance
+    #   ]},
+      
+    #   {"Bash" = [
+    #     "dev-cloud/lang/bash/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/bash/fondamentaux.md"},                # Scripts, variables, conditions
+    #     {"Avancé"       = "dev-cloud/lang/bash/avance.md"}                       # Regex, sed, awk
+    #   ]},
+      
+    #   {"Angular" = [
+    #     "dev-cloud/lang/angular/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/angular/fondamentaux.md"},             # Components, services, routing
+    #     {"Avancé"       = "dev-cloud/lang/angular/avance.md"}                    # RxJS, state management, SSR
+    #   ]},
+      
+    #   {"Laravel" = [
+    #     "dev-cloud/lang/laravel/index.md",
+    #     {"Fondamentaux" = "dev-cloud/lang/laravel/fondamentaux.md"},             # Eloquent, Blade, routing
+    #     {"Avancé"       = "dev-cloud/lang/laravel/avance.md"}                    # Events, queues, broadcasting
+    #   ]}
+    # ]},
 
-  #     {"Architecture & API" = [
-  #         "dev-cloud/architecture/index.md",
-  #         {"API REST"           = "dev-cloud/architecture/api-rest.md"},
-  #         {"Clean Architecture" = "dev-cloud/architecture/clean-architecture.md"},
-  #         {"Patterns d’architecture (pratique)" = "dev-cloud/architecture/patterns-pratiques.md"},
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Stacks technologiques
+    # Combinaisons cohérentes de technologies pour applications complètes
+    # -------------------------------------------------------------------------
+    # {"Stacks" = [
+    #   "dev-cloud/frameworks/index.md",
+    #   {"MEAN" = "dev-cloud/frameworks/mean/index.md"},                           # MongoDB, Express, Angular, Node.js
+    #   {"TALL" = "dev-cloud/frameworks/tall/index.md"}                            # Tailwind, Alpine.js, Laravel, Livewire
+    # ]},
 
-  #     {"📁 Data" = [
-  #         "dev-cloud/data/index.md",
-  #         {"MariaDB & MySQL"  = "dev-cloud/data/sql.md"},
-  #         {"NoSQL"            = "dev-cloud/data/nosql.md"},
-  #         {"GraphQL"          = "dev-cloud/data/graphql.md"},
-  #         {"SQLite"           = "dev-cloud/data/sqlite.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Architecture & API
+    # Patterns d'architecture, conception d'API, principes de design
+    # -------------------------------------------------------------------------
+    # {"Architecture & API" = [
+    #   "dev-cloud/architecture/index.md",
+    #   {"API REST"                       = "dev-cloud/architecture/api-rest.md"},              # RESTful design, HATEOAS
+    #   {"Clean Architecture"             = "dev-cloud/architecture/clean-architecture.md"},    # Layered architecture, DDD
+    #   {"Patterns d'architecture"        = "dev-cloud/architecture/patterns-pratiques.md"}     # MVC, CQRS, Event Sourcing
+    # ]},
 
-  #     {"Cloud Providers" = [
-  #         "dev-cloud/cloud/index.md",
-  #         {"AWS"   = "dev-cloud/cloud/aws/index.md"},
-  #         {"Azure" = "dev-cloud/cloud/azure/index.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Data
+    # Bases de données relationnelles, NoSQL, GraphQL
+    # -------------------------------------------------------------------------
+    # {"Data" = [
+    #   "dev-cloud/data/index.md",
+    #   {"MariaDB & MySQL"  = "dev-cloud/data/sql.md"},                            # SGBDR, requêtes, optimisation
+    #   {"NoSQL"            = "dev-cloud/data/nosql.md"},                          # MongoDB, Redis, Cassandra
+    #   {"GraphQL"          = "dev-cloud/data/graphql.md"},                        # Langage de requête pour API
+    #   {"SQLite"           = "dev-cloud/data/sqlite.md"}                          # Base de données embarquée
+    # ]},
 
-  #     {"Tests & Qualité" = [
-  #         "dev-cloud/tests-qualite/index.md",
-  #         {"TDD"                     = "dev-cloud/tests-qualite/tdd.md"},
-  #         {"Unitaires & Intégration" = "dev-cloud/tests-qualite/unit-integ.md"},
-  #         {"Contrats & E2E"          = "dev-cloud/tests-qualite/contrats-e2e.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Cloud Providers
+    # Services cloud AWS et Azure
+    # -------------------------------------------------------------------------
+    # {"Cloud Providers" = [
+    #   "dev-cloud/cloud/index.md",
+    #   {"AWS"   = "dev-cloud/cloud/aws/index.md"},                                # EC2, S3, Lambda, RDS
+    #   {"Azure" = "dev-cloud/cloud/azure/index.md"}                               # VMs, Blob Storage, Functions
+    # ]},
+
+    # -------------------------------------------------------------------------
+    # Tests & Qualité
+    # Stratégies de test et assurance qualité logicielle
+    # -------------------------------------------------------------------------
+    # {"Tests & Qualité" = [
+    #   "dev-cloud/tests-qualite/index.md",
+    #   {"TDD"                        = "dev-cloud/tests-qualite/tdd.md"},         # Test-Driven Development
+    #   {"Unitaires & Intégration"    = "dev-cloud/tests-qualite/unit-integ.md"},  # Jest, PHPUnit, pytest
+    #   {"Contrats & E2E"             = "dev-cloud/tests-qualite/contrats-e2e.md"} # Pact, Cypress, Playwright
+    # ]}
+    
   ]},

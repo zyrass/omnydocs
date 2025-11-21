@@ -1,94 +1,127 @@
-  # --------------------------------------------------------------------------
-  # 1 — Bases Informatiques (TRANSVERSE)
-  # Regroupe les fondamentaux techniques de l'informatique.
-  # --------------------------------------------------------------------------
-  {"Bases Informatique" = [
+  # ===========================================================================
+  # 1 — FONDAMENTAUX IT
+  # ===========================================================================
+  # Socle de connaissances transversal couvrant les concepts fondamentaux
+  # de l'informatique, indépendamment des technologies spécifiques.
+  # Cette section pose les bases nécessaires pour aborder sereinement
+  # les domaines plus spécialisés (développement, infrastructure, cybersécurité).
+  # 
+  # Contenu :
+  # - Types de données et structures de contrôle
+  # - Outils de développement essentiels (Git, Markdown, environnements virtuels)
+  # - Formats de données (JSON, YAML, XML, CSV)
+  # - Concepts de programmation (architecture Unix, codes d'erreur)
+  # - Réseaux et protocoles (HTTP, DNS, liste des protocoles standards)
+  # 
+  # PUBLIC CIBLE : Débutants et professionnels en reconversion
+  # ===========================================================================
 
-    # Page d’introduction de la section "Bases Informatique".
+  {"Fondamentaux IT" = [
+    # Page d'introduction de la section
     "bases/index.md",
 
-    # Sous-section : Fondamentaux techniques.
+    # -------------------------------------------------------------------------
+    # Fondamentaux techniques
+    # Concepts de base de la programmation : types primitifs, logique,
+    # structures de contrôle, fonctions
+    # -------------------------------------------------------------------------
     {"Fondamentaux techniques" = [
-
-      # Page d’introduction de la sous-section.
       "bases/fondamentaux/index.md",
-
-      # Pages détaillées (chemins réels dans docs/bases/fondamentaux/).
-      {"Types Primitifs"           = "bases/fondamentaux/types-primitifs.md"},
-      {"Heap, Stack et Références" = "bases/fondamentaux/heap-stack-references.md"},
-      {"Logique Booléenne"         = "bases/fondamentaux/logique-booleenne.md"},
-      {"Logique Conditionnelle"    = "bases/fondamentaux/logique-conditionnelle.md"},
-      {"Structures Itératives"     = "bases/fondamentaux/structure-iteratives.md"},
-      {"Fonctions"                 = "bases/fondamentaux/fonctions.md"},
+      {"Types Primitifs"           = "bases/fondamentaux/types-primitifs.md"},           # int, float, string, boolean
+      {"Heap, Stack et Références" = "bases/fondamentaux/heap-stack-references.md"},     # Gestion mémoire
+      {"Logique Booléenne"         = "bases/fondamentaux/logique-booleenne.md"},         # AND, OR, NOT, tables de vérité
+      {"Logique Conditionnelle"    = "bases/fondamentaux/logique-conditionnelle.md"},    # if/else, switch, opérateurs ternaires
+      {"Structures Itératives"     = "bases/fondamentaux/structure-iteratives.md"},      # for, while, do-while
+      {"Fonctions"                 = "bases/fondamentaux/fonctions.md"}                  # Déclaration, paramètres, retours
     ]},
 
+    # -------------------------------------------------------------------------
+    # Outils de Développement
+    # Environnements, gestionnaires de paquets, contrôle de version
+    # -------------------------------------------------------------------------
     {"Outils de Développement" = [
-      # "bases/outils/index.md",
-  #     {"Expressions régulières" = "bases/outils/regex.md"},
-      
+      # -----------------------------------------------------------------------
+      # Environnements virtuels
+      # Isolation des dépendances et environnements de développement
+      # -----------------------------------------------------------------------
       {"Environnements Virtu." = [
-        # canonique ici (installation, notions, CLI de base)
-        {"WSL"            = "bases/outils/environnement-virtuel/wsl.md"},
-        {"NVM"            = "bases/outils/environnement-virtuel/nvm.md"},
-        # {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},
-        # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},
-        # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},
-        # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"},
+        {"WSL"            = "bases/outils/environnement-virtuel/wsl.md"},                 # Windows Subsystem for Linux
+        {"NVM"            = "bases/outils/environnement-virtuel/nvm.md"},                  # Node Version Manager
+        # {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},              # Python Virtual Environment
+        # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},        # Hyperviseur type 2
+        # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},           # Provisioning automatisé
+        # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"}         # CLI VirtualBox
       ]},
-      
-      
+
+      # -----------------------------------------------------------------------
+      # Gestionnaires de paquets
+      # Installation et gestion de logiciels par distribution Linux
+      # -----------------------------------------------------------------------
+      {"Gestionnaires de Paquets" = [
+        {"APK — Alpine"        = "bases/paquets/apk-alpine.md"},            # Alpine Package Keeper (conteneurs Docker)
+        {"APT — Debian/Ubuntu" = "bases/paquets/apt-debian.md"},            # Advanced Package Tool (Debian/Ubuntu)
+        {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},            # Package Manager (Arch Linux)
+        # {"YUM — RHEL Legacy"   = "bases/paquets/yum-rhel.md"},            # Yellowdog Updater Modified (CentOS 7-)
+        # {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"}             # Dandified YUM (CentOS 8+, RHEL 8+)
+      ]},
+
+  
+      # -----------------------------------------------------------------------
+      # Outils essentiels
+      # Markdown pour documentation, Git pour versionning
+      # -----------------------------------------------------------------------
+      {"Markdown"   = "bases/outils/markdown.md"},        # Syntaxe de rédaction légère
+      {"Git"        = "bases/outils/git.md"},              # Contrôle de version distribué
+      # {"GitHub"     = "bases/outils/github.md"}         # Plateforme d'hébergement Git
+
       # {"Terminaux et Shells" = "bases/outils/terminaux-shell.md"},
 
-      {"Gestionnaires de Paquets" = [
-        {"APK — Alpine"        = "bases/paquets/apk-alpine.md"},
-        {"APT — Debian/Ubuntu" = "bases/paquets/apt-debian.md"},
-        {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},
-        # {"YUM RHEL — Legacy"   = "bases/paquets/yum-rhel.md"},
-        # {"DNF RHEL — Moderne"  = "bases/paquets/dnf-rhel.md"}
-      ]},
-
-      {"Markdown"   = "bases/outils/markdown.md"},
-      {"Git"        = "bases/outils/git.md"},
-      # {"GitHub"     = "bases/outils/github.md"},
-    
       # {"Visual Studio Code" = [
         # {"Configuration"            =   "bases/outils/vscode/config.md"},
         # {"Extensions essentielles"  =   "bases/outils/vscode/liste-extensions.md"},
         # {"Snippets personnalisés"   =   "bases/outils/vscode/snippet.md"},
       # ]},
-
     ]},
-
+    
+    # -------------------------------------------------------------------------
+    # Structures de Données
+    # Formats d'échange et de stockage de données
+    # -------------------------------------------------------------------------
     {"Structures de Données" = [
       "bases/structure-donnees/index.md",
-      {"JSON" = "bases/structure-donnees/json.md"},
-      {"YAML" = "bases/structure-donnees/yaml.md"},
-      {"XML"  = "bases/structure-donnees/xml.md"},
-      {"CSV"  = "bases/structure-donnees/csv.md"},
+      {"JSON" = "bases/structure-donnees/json.md"},      # JavaScript Object Notation
+      {"YAML" = "bases/structure-donnees/yaml.md"},      # YAML Ain't Markup Language (config)
+      {"XML"  = "bases/structure-donnees/xml.md"},       # eXtensible Markup Language
+      {"CSV"  = "bases/structure-donnees/csv.md"}        # Comma-Separated Values
     ]},
-      
+
+    # -------------------------------------------------------------------------
+    # Concepts de Programmation
+    # Principes généraux et architectures logicielles
+    # -------------------------------------------------------------------------
     {"Concepts de Prog." = [
-      # "bases/concepts/index.md",
-      {"Architecture Unix"          = "bases/concepts/architecture-unix.md"},
-      # {"Principes SOLID"            = "bases/concepts/solid.md"},
-      # {"Paradigmes de Prog."        = "bases/concepts/paradigmes.md"},
-      # {"Design Patterns"            = "bases/concepts/design-patterns.md"},
-      # {"Encodage"                   = "bases/concepts/encodage.md"},
-      # {"Variables d'env."           = "bases/concepts/variables-environnements.md"},
-      {"Liste des codes d'erreur"   = "bases/concepts/liste-code-erreur.md"},
-      # {"Expressions régulières"     = "bases/concepts/regex.md"},
+      {"Architecture Unix"          = "bases/concepts/architecture-unix.md"},   # Philosophie Unix, pipes, processus
+      {"Liste des codes d'erreur"   = "bases/concepts/liste-code-erreur.md"},    # HTTP, SMTP, FTP, exit codes
+      # {"Principes SOLID"            = "bases/concepts/solid.md"},                      # Design OO (Single Responsibility, etc.)
+      # {"Paradigmes de Prog."        = "bases/concepts/paradigmes.md"},                 # Impératif, OO, Fonctionnel
+      # {"Design Patterns"            = "bases/concepts/design-patterns.md"},            # Gang of Four, patterns courants
+      # {"Encodage"                   = "bases/concepts/encodage.md"},                   # ASCII, UTF-8, Base64
+      # {"Variables d'environnement"  = "bases/concepts/variables-environnements.md"},   # PATH, HOME, etc.
+      # {"Expressions régulières"     = "bases/concepts/regex.md"}                       # Syntaxe regex, exemples
     ]},
 
-  
+    # -------------------------------------------------------------------------
+    # Réseaux et Protocoles
+    # Concepts réseau fondamentaux et protocoles standards
+    # -------------------------------------------------------------------------
     {"Réseaux et Protocoles" = [
-      # {"Modèle OSI"             = "bases/reseaux/modele-osi.md"},
-      # {"Modèle TCP/IP"          = "bases/reseaux/modele-tcp.md"},
-      # {"Sockets & Serveurs"     = "bases/reseaux/sockets-serveurs.md"},
-      {"HTTP – Méthodes"        = "bases/reseaux/http-methodes.md"},
-      {"DNS – Notions"          = "bases/reseaux/dns-notions.md"},
-      {"Liste des protocoles"   = "bases/reseaux/liste-protocoles.md"}
+      {"HTTP – Méthodes"        = "bases/reseaux/http-methodes.md"},        # GET, POST, PUT, DELETE, PATCH
+      {"DNS – Notions"          = "bases/reseaux/dns-notions.md"},          # Résolution de noms, types d'enregistrements
+      {"Liste des protocoles"   = "bases/reseaux/liste-protocoles.md"},     # TCP, UDP, ICMP, SSH, FTP, SMTP
+      # {"Modèle OSI"             = "bases/reseaux/modele-osi.md"},                      # 7 couches du modèle OSI
+      # {"Modèle TCP/IP"          = "bases/reseaux/modele-tcp.md"},                      # 4 couches TCP/IP
+      # {"Sockets & Serveurs"     = "bases/reseaux/sockets-serveurs.md"}                 # Communication client-serveur
     ]},
-
   
     # {"Cryptographie & PKI" = [
       # "bases/crypto/index.md",

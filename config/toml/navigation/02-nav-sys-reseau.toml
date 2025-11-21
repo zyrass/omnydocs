@@ -1,73 +1,132 @@
-  # -----------------------------------------------------------------------
-  # 2 — Systèmes & Réseaux (spécialisé infra)
-  # -----------------------------------------------------------------------
-  {"Systèmes & Réseaux" = [
+  # ===========================================================================
+  # 2 — SYSTÈMES & INFRASTRUCTURE
+  # ===========================================================================
+  # Spécialisation dans l'administration système et l'architecture réseau.
+  # Cette section couvre les aspects opérationnels de la gestion d'infrastructures :
+  # systèmes d'exploitation, services réseau, virtualisation, stockage, supervision.
+  # 
+  # Contenu :
+  # - Administration Linux et Windows
+  # - Services réseau (SSH, DNS, FTP, Samba, LDAP)
+  # - Sécurité périmétrique (pfSense, WAF, VPN)
+  # - Virtualisation (KVM, Proxmox, QEMU)
+  # - Stockage et sauvegarde (RAID, PRA)
+  # - Supervision et monitoring
+  # 
+  # PUBLIC CIBLE : Administrateurs système, Ingénieurs infrastructure, SRE
+  # ===========================================================================
+  {"Systèmes & Infra" = [
+    # Page d'introduction de la section
     "sys-reseau/index.md",
 
-  #     {"Linux" = [
-  #         "sys-reseau/linux/index.md",
-  #         {"Administration"     = "sys-reseau/linux/admin.md"},
-  #         {"Services & Daemons" = "sys-reseau/linux/services-daemons.md"},
-  #         {"📁 Sécurité (host)"           = [
-  #             "sys-reseau/linux/security/index.md",
-  #             {"fail2ban"   = "sys-reseau/linux/security/fail2ban.md"},
-  #             {"ufw"        = "sys-reseau/linux/security/ufw.md"},
-  #             {"ClamAV"     = "sys-reseau/linux/security/clamav.md"},
-  #             {"Lynis"      = "sys-reseau/linux/security/lynis.md"},
-  #             {"Chkrootkit" = "sys-reseau/linux/security/chkrootkit.md"},
-  #         ]},
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Linux
+    # Administration système Linux, services, sécurité hôte
+    # -------------------------------------------------------------------------
+    {"Linux" = [
+      "sys-reseau/linux/index.md",
+      {"Administration"       = "sys-reseau/linux/admin.md"},                          # Gestion utilisateurs, permissions, cron
+      {"Services & Daemons"   = "sys-reseau/linux/services-daemons.md"},               # systemd, services, logs
+      
+      # -----------------------------------------------------------------------
+      # Sécurité hôte Linux
+      # Outils de durcissement et de détection d'intrusion au niveau système
+      # -----------------------------------------------------------------------
+      {"Sécurité (host)"      = [
+        "sys-reseau/linux/security/index.md",
+        {"fail2ban"           = "sys-reseau/linux/security/fail2ban.md"},             # Protection contre bruteforce
+        {"ufw"                = "sys-reseau/linux/security/ufw.md"},                  # Uncomplicated Firewall
+        {"ClamAV"             = "sys-reseau/linux/security/clamav.md"},               # Antivirus open-source
+        {"Lynis"              = "sys-reseau/linux/security/lynis.md"},                # Audit de sécurité système
+        {"Chkrootkit"         = "sys-reseau/linux/security/chkrootkit.md"}            # Détection de rootkits
+      ]}
+    ]},
 
-  #     {"Windows" = [
-  #         "sys-reseau/windows/index.md",
-  #         {"AD & GPO"     = "sys-reseau/windows/ad-gpo.md"},
-  #         {"Durcissement" = "sys-reseau/windows/hardening.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Windows
+    # Administration Active Directory et durcissement Windows Server
+    # -------------------------------------------------------------------------
+    {"Windows" = [
+      "sys-reseau/windows/index.md",
+      {"AD & GPO"     = "sys-reseau/windows/ad-gpo.md"},                            # Active Directory, Group Policy Objects
+      {"Durcissement" = "sys-reseau/windows/hardening.md"}                          # Sécurisation Windows Server
+    ]},
 
-  #     {"Réseaux" = [
-  #         "sys-reseau/network/index.md",
-  #         {"📁 Outils & Analyse" = [
-  #             "sys-reseau/network/outils/index.md",
-  #             {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},
-  #             {"netstat"  = "sys-reseau/network/outils/netstat.md"},
-  #             {"scapy"    = "sys-reseau/network/outils/scapy.md"},
-  #             {"nslookup" = "sys-reseau/network/outils/nslookup.md"}
-  #         ]},
-  #         {"📁 Services réseau" = [
-  #             "sys-reseau/network/services/index.md",
-  #             {"SSH"    = "sys-reseau/network/services/ssh.md"},
-  #             {"FTP"    = "sys-reseau/network/services/ftp.md"},
-  #             {"DNS"    = "sys-reseau/network/services/dns.md"},
-  #             {"Samba"  = "sys-reseau/network/services/samba.md"},
-  #             {"LDAP & PAM" = "sys-reseau/network/services/ldap-pam.md"}
-  #         ]},
-  #         {"📁 Sécurité périmétrique" = [
-  #             "sys-reseau/network/security/index.md",
-  #             {"pfSense"  = "sys-reseau/network/security/pfsense.md"},
-  #             {"WAF"      = "sys-reseau/network/security/waf.md"},
-  #             {"OpenVPN"  = "sys-reseau/network/security/openvpn.md"},
-  #             {"HAProxy"  = "sys-reseau/network/security/haproxy.md"}
-  #         ]}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Réseaux
+    #  Outils d'analyse, services réseau, sécurité périmétrique
+    # -------------------------------------------------------------------------
+    {"Réseaux" = [
+      "sys-reseau/network/index.md",
 
-  #     {"Virtualisation (HyperV.)" = [
-  #         "sys-reseau/virtualisation/index.md",
-  #         {"Panorama Virtualisation"      = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},
-  #         {"KVM / Proxmox"                = "sys-reseau/virtualisation/kvm-proxmox.md"},
-  #         {"QEMU"                         = "sys-reseau/virtualisation/qemu.md"}
-  #     ]},
+      # -----------------------------------------------------------------------
+      # Outils & Analyse réseau
+      # Capture de paquets, analyse de trafic, diagnostic
+      # -----------------------------------------------------------------------
+      {"Outils & Analyse" = [
+        "sys-reseau/network/outils/index.md",
+        {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},                     # Capture de paquets CLI
+        {"netstat"  = "sys-reseau/network/outils/netstat.md"},                     # Statistiques réseau
+        {"scapy"    = "sys-reseau/network/outils/scapy.md"},                       # Manipulation de paquets Python
+        {"nslookup" = "sys-reseau/network/outils/nslookup.md"}                     # Requêtes DNS
+      ]},
+      
+      # -----------------------------------------------------------------------
+      # Services réseau
+      # Configuration et administration des services d'infrastructure
+      # -----------------------------------------------------------------------
+      {"Services réseau" = [
+        "sys-reseau/network/services/index.md",
+        {"SSH"         = "sys-reseau/network/services/ssh.md"},                    # Secure Shell (accès distant)
+        {"FTP"         = "sys-reseau/network/services/ftp.md"},                    # File Transfer Protocol
+        {"DNS"         = "sys-reseau/network/services/dns.md"},                    # Domain Name System (BIND)
+        {"Samba"       = "sys-reseau/network/services/samba.md"},                  # Partage de fichiers SMB/CIFS
+        {"LDAP & PAM"  = "sys-reseau/network/services/ldap-pam.md"}                # Annuaire et authentification
+      ]},
 
-  #     {"Stockage & Sauvegarde" = [
-  #         "sys-reseau/storage/index.md",
-  #         {"RAID & Filesystems" = "sys-reseau/storage/raid-fs.md"},
-  #         {"Sauvegarde & PRA"   = "sys-reseau/storage/backup-pra.md"},
-  #         {"Amanda (Backup)"    = "sys-reseau/storage/amanda.md"},
-  #     ]},
+      # -----------------------------------------------------------------------
+      # Sécurité périmétrique
+      # Firewalls, reverse proxy, VPN, WAF
+      # -----------------------------------------------------------------------
+      {"Sécurité périmétrique" = [
+        "sys-reseau/network/security/index.md",
+        {"pfSense"  = "sys-reseau/network/security/pfsense.md"},                   # Firewall/routeur open-source
+        {"WAF"      = "sys-reseau/network/security/waf.md"},                       # Web Application Firewall
+        {"OpenVPN"  = "sys-reseau/network/security/openvpn.md"},                   # VPN SSL/TLS
+        {"HAProxy"  = "sys-reseau/network/security/haproxy.md"}                    # Load balancer / reverse proxy
+      ]},
+    ]},
 
-  #     {"Supervision" = [
-  #         "sys-reseau/observabilite/index.md",
-  #         {"Logs & Journaux"   = "sys-reseau/observabilite/logs.md"},
-  #         {"Monitoring (intro)"= "sys-reseau/observabilite/monitoring.md"},
-  #         {"ntop/ntopng"       = "sys-reseau/observabilite/ntop.md"}
-  #     ]},
+    # -------------------------------------------------------------------------
+    # Virtualisation
+    # Hyperviseurs et technologies de virtualisation
+    # -------------------------------------------------------------------------
+    {"Virtualisation (Hyperviseurs)" = [
+      "sys-reseau/virtualisation/index.md",
+      {"Panorama Virtualisation"  = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},  # Types 1/2, comparatif
+      {"KVM / Proxmox"            = "sys-reseau/virtualisation/kvm-proxmox.md"},            # Hyperviseur type 1
+      {"QEMU"                     = "sys-reseau/virtualisation/qemu.md"}                    # Émulateur et virtualisation
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Stockage & Sauvegarde
+    # RAID, systèmes de fichiers, stratégies de backup, PRA
+    # -------------------------------------------------------------------------
+    {"Stockage & Sauvegarde" = [
+      "sys-reseau/storage/index.md",
+      {"RAID & Filesystems" = "sys-reseau/storage/raid-fs.md"},                   # RAID 0/1/5/6/10, ext4, XFS, Btrfs
+      {"Sauvegarde & PRA"   = "sys-reseau/storage/backup-pra.md"},                # Plan de Reprise d'Activité
+      {"Amanda"             = "sys-reseau/storage/amanda.md"}                     # Advanced Maryland Automatic Network Disk Archiver
+    ]},
+
+    # -------------------------------------------------------------------------
+    # Supervision
+    # Monitoring d'infrastructure, gestion des logs, métriques
+    # -------------------------------------------------------------------------
+    {"Supervision" = [
+      "sys-reseau/supervision/index.md",
+      {"Logs & Journaux"      = "sys-reseau/supervision/logs.md"},                # syslog, journalctl, logrotate
+      {"Monitoring (intro)"   = "sys-reseau/supervision/monitoring.md"},          # Prometheus, Grafana, Nagios
+      {"ntop/ntopng"          = "sys-reseau/supervision/ntop.md"}                 # Monitoring de flux réseau
+    ]}
   ]},
