@@ -39,6 +39,11 @@ Dans un contexte où les infrastructures modernes reposent sur la virtualisation
 
 ## Pour repartir des bases
 
+!!! quote "Pré-requis recommandé"
+    Avant tout, pour comprendre où se situe QEMU dans l'écosystème global de la virtualisation
+    (_Type 1 / Type 2_, _VirtualBox_, _VMware_, _Hyper-V_, _WSL_, _KVM_, _libvirt_, _Proxmox_),
+    commence par la page **“Panorama de la virtualisation”**.
+
 Si vous découvrez QEMU, quatre points fondamentaux sont à retenir :
 
 ### 1. Deux modes : Émulation vs Virtualisation
