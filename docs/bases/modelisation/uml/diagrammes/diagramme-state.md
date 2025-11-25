@@ -1,2 +1,0 @@
-# Diagramme d'état
-
