@@ -14,6 +14,7 @@ PARTS = [
     "config/toml/navigation/06-nav-cyber-operations.toml",
     "config/toml/navigation/07-nav-cyber-tools.toml",
     "config/toml/navigation/08-nav-glossaire.toml",
+    "config/toml/navigation/09-nav-projets.toml",
     "config/toml/10-project-theme-and-markdown.toml",
 ]
 

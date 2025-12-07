@@ -132,7 +132,6 @@ nav = [
         # {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"}             # Dandified YUM (CentOS 8+, RHEL 8+)
       ]},
 
-  
       # -----------------------------------------------------------------------
       # Outils essentiels
       # Markdown pour documentation, Git pour versionning
@@ -181,7 +180,6 @@ nav = [
     #       {"Package"                = "bases/modelisation/uml/diagrammes/package.md"},
     #       {"Timing"                 = "bases/modelisation/uml/diagrammes/timing.md"},
     #       {"Communication"          = "bases/modelisation/uml/diagrammes/communication.md"},
-
     #       # Fusion des 3 fichiers après car Prodile et Overview bug.
     #       {"Architecture Avancée"   = "bases/modelisation/uml/diagrammes/architecture-avancee.md"}
     #       # {"Component"              = "bases/modelisation/uml/diagrammes/component.md"},
@@ -199,7 +197,7 @@ nav = [
       #   {"MPD > SQL"            = "bases/modelisation/merise/mpd-to-sql.md"}
       # ]}
 
-    ]},
+    # ]},
 
     {"Gestion Projet" = [
       "bases/projet/index.md",
@@ -234,12 +232,12 @@ nav = [
       # {"Sockets & Serveurs"     = "bases/reseaux/sockets-serveurs.md"}                 # Communication client-serveur
     ]},
   
-    # {"Cryptographie & PKI" = [
-      # "bases/crypto/index.md",
+    {"Cryptographie & PKI" = [
+      "bases/crypto/index.md",
       # {"OpenSSL" = "bases/crypto/openssl.md"},
       # {"GPG"     = "bases/crypto/gpg.md"},
       # {"PKI"     = "bases/crypto/pki.md"}
-    # ]},
+    ]}
 
   ]},
 
@@ -1071,10 +1069,28 @@ nav = [
   # Définitions des termes techniques, acronymes et concepts utilisés
   # dans l'ensemble de la documentation.
   # ===========================================================================
-
   {"Glossaire" = [
-    "glossaire/index.md"
+    "glossaire/index.md",
+    {"Arch Linux" = "glossaire/arch-linux.md"}
   ]},
+
+# ===========================================================================
+  # 9 — Projets
+  # ===========================================================================
+  # Création de différents projet
+  # ===========================================================================
+  {"Projets" = [
+    {"Lab Arch" = [
+      "projets/arch-lab/index.md",
+      {"introduction"           = "projets/arch-lab/01-introduction.md"},
+      {"Panorama"               = "projets/arch-lab/02-panorama-linux.md"},
+      {"Arch Serveur"           = "projets/arch-lab/03-arch-serveur.md"},
+      {"Arch Desktop"           = "projets/arch-lab/04-arch-desktop.md"},
+      {"Virtualbox - Réseau"    = "projets/arch-lab/05-virtualbox-reseau.md"},
+      {"Lab multi-os"           = "projets/arch-lab/06-lab-multi-os.md"},
+      {"Annexes"                = "projets/arch-lab/07-annexes.md"},
+    ]}
+  ]}
 
 ]
 
