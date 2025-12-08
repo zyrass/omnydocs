@@ -1,6 +1,7 @@
 ---
 description: "à éditer"
 icon: lucide/book-open-check
+status: alpha
 ---
 
 # TALL
@@ -8,6 +9,8 @@ icon: lucide/book-open-check
 <div
   class="omny-meta"
   data-level="🟢 Débutant & 🟡 Intermédiaire"
-  data-version="0"
+  data-version="0.0.1"
   data-time="??-?? minutes">
 </div>
+
+Bonjour
