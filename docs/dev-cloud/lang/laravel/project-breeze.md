@@ -5,7 +5,7 @@ tags: ["BREEZE", "BLOG", "VISION", "ARCHITECTURE", "LARAVEL"]
 status: beta
 ---
 
-# Projet Breeze
+# Projet Breezei
 
 <div
   class="omny-meta"
