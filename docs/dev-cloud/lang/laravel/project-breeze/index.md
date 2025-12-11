@@ -2,7 +2,6 @@
 description: "Vision globale du projet Blog Multi-Auteurs Laravel : architecture complète, 7 phases progressives pour maîtriser Laravel Breeze, l'authentification et le déploiement production."
 icon: lucide/compass
 tags: ["BREEZE", "BLOG", "ARCHITECTURE", "LARAVEL", "FULL-PROJECT"]
-status: stable
 ---
 
 # Laravel - Breeze : Blog Multi-Auteurs
@@ -10,7 +9,7 @@ status: stable
 <div
   class="omny-meta"
   data-level="🟢 Débutant 🟡 Intermédiaire 🔴 Avancé"
-  data-version="0.0.3"
+  data-version="1.0"
   data-time="12-18 heures (7 phases)">
 </div>
 
@@ -450,19 +449,24 @@ Laravel Breeze est un **starter kit d'authentification minimaliste** qui génèr
 
     ---
 
-    **Temps :** 15-20 minutes  
+    **Temps :** 30-45 minutes  
     **Objectif :** Installer Laravel, Breeze, configurer BDD  
     **Livrables :**
 
     - Projet Laravel fonctionnel
     - Breeze installé et migrations exécutées
     - Authentification testée (register/login)
+    - 
+
+    ---
+
+    🟢 Débutant
 
 - :fontawesome-solid-database: **Phase 2 : Base de Données et Modèles**
 
     ---
 
-    **Temps :** 30-40 minutes  
+    **Temps :** 1h30-2 heures  
     **Objectif :** Créer structure BDD complète et modèles Eloquent  
     **Livrables :**
 
@@ -470,11 +474,15 @@ Laravel Breeze est un **starter kit d'authentification minimaliste** qui génèr
     - Modèles avec relations (User, Post, Category, Comment)
     - Seeders avec données de test
 
+    ---
+
+    🟡 Intermédiaire
+
 - :fontawesome-solid-seedling: **Phase 3 : Seeders et Données de Test**
 
     ---
 
-    **Temps :** 15-20 minutes  
+    **Temps :** 45-60 minutes  
     **Objectif :** Créer données de test pour développement  
     **Livrables :**
 
@@ -482,11 +490,15 @@ Laravel Breeze est un **starter kit d'authentification minimaliste** qui génèr
     - DatabaseSeeder avec 3 users + 7 posts + 2 comments
     - Commande `migrate:fresh --seed` fonctionnelle
 
+    ---
+
+    🟢 Débutant
+
 - :fontawesome-solid-code: **Phase 4 : Contrôleurs et Logique Métier**
 
     ---
 
-    **Temps :** 45-60 minutes  
+    **Temps :** 2-3 heures  
     **Objectif :** Implémenter toute la logique CRUD et business  
     **Livrables :**
 
@@ -494,11 +506,15 @@ Laravel Breeze est un **starter kit d'authentification minimaliste** qui génèr
     - Validation formulaires
     - Authorization (ownership)
 
+    ---
+
+    🟡 Intermédiaire
+
 - :fontawesome-solid-route: **Phase 5 : Routes et Organisation**
 
     ---
 
-    **Temps :** 15-20 minutes  
+    **Temps :** 30-45 minutes  
     **Objectif :** Structurer routes publiques/protégées  
     **Livrables :**
 
@@ -506,17 +522,25 @@ Laravel Breeze est un **starter kit d'authentification minimaliste** qui génèr
     - Routes protégées (dashboard, CRUD posts)
     - Routes authentification (Breeze)
 
+    ---
+
+    🟢 Débutant
+
 - :fontawesome-solid-eye: **Phase 6 : Vues Blade et Interface**
 
     ---
 
-    **Temps :** 60-90 minutes  
+    **Temps :** 3-4 heures  
     **Objectif :** Créer toute l'interface utilisateur  
     **Livrables :**
 
     - Layout principal (navigation, footer)
     - 9 vues complètes (home, post show, create, edit, dashboard, etc.)
     - Design Tailwind CSS responsive
+
+    ---
+
+    🟡 Intermédiaire
 
 </div>
 
@@ -526,13 +550,17 @@ Laravel Breeze est un **starter kit d'authentification minimaliste** qui génèr
 
     ---
 
-    **Temps :** 15-20 minutes  
+    **Temps :** 4-6 heures  
     **Objectif :** Tester toutes les fonctionnalités  
     **Livrables :**
 
     - Checklist tests complète
     - Blog 100% fonctionnel
     - Documentation utilisation
+
+    ---
+
+    🔴 Avancé
 
 </div>
 
@@ -755,17 +783,15 @@ Les prérequis techniques listés ci-dessous distinguent clairement les **connai
 
     ---
 
-    - ✅ Laravel (architecture MVC complète)
-    - ✅ Eloquent ORM (relations, scopes, mutators)
-    - ✅ Blade templating (directives, components, layouts)
-    - ✅ Validation et Authorization (Policies, Form Requests)
-    - ✅ Migrations et Seeders (schema builder, factories)
+    - [x] Laravel (architecture MVC complète)
+    - [x] Eloquent ORM (relations, scopes, mutators)
+    - [x] Blade templating (directives, components, layouts)
+    - [x] Validation et Authorization (Policies, Form Requests)
+    - [x] Migrations et Seeders (schema builder, factories)
 
 </div>
 
-<small>*Si vous avez suivi le cours d'initiation Laravel Breeze, vous possédez déjà les bases d'authentification (register, login, password reset) et la structure MVC de base. Ce projet enrichit ces connaissances en ajoutant la gestion complète d'un blog multi-auteurs avec relations complexes (User ↔ Post ↔ Category ↔ Comment), autorisation granulaire (ownership des articles), et interface utilisateur responsive. **Tous les concepts seront réexpliqués étape par étape**, y compris ceux vus dans le cours Breeze.*</small>
-
----
+<small>*Si vous avez suivi le cours d'initiation Laravel Breeze, vous possédez déjà les bases d'authentification (**register**, **login**, **password reset**) et la structure MVC de base. Ce projet enrichit ces connaissances en ajoutant la gestion complète d'un blog multi-auteurs avec relations complexes (**User ↔ Post ↔ Category ↔ Comment**), autorisation granulaire (**ownership des articles**), et interface utilisateur responsive. **Tous les concepts seront réexpliqués étape par étape**, y compris ceux vus dans le cours Breeze.*</small>
 
 ### Environnement Technique
 
@@ -825,9 +851,7 @@ Les prérequis techniques listés ci-dessous distinguent clairement les **connai
 
 </div>
 
----
-
-**Systèmes d'exploitation supportés :**
+### Systèmes d'exploitation supportés
 
 | OS | Solutions | Recommandation |
 |---|---|---|
@@ -926,14 +950,4 @@ Les prérequis techniques listés ci-dessous distinguent clairement les **connai
 
 </div>
 
-## Sommaire Rapide
-
-- [Phase 0 : Vision Globale](#phase-0-vision-globale)
-- [Phase 1 : Installation et Configuration](#phase-1-installation-et-configuration-15-min)
-- [Phase 2 : Base de Données et Modèles](#phase-2-créer-les-modèles-et-migrations-30-min)
-- [Phase 3 : Seeders et Données de Test](#phase-3-seeders-pour-données-de-test-15-min)
-- [Phase 4 : Contrôleurs et Logique Métier](#phase-4-contrôleurs-45-min)
-- [Phase 5 : Routes](#phase-5-routes-15-min)
-- [Phase 6 : Vues Blade et Interface](#phase-6-vues-blade-60-90-min)
-- [Phase 7 : Tests Finaux](#phase-7-tests-finaux-et-vérification-15-min)
-
+<br />
