@@ -2,7 +2,6 @@
 description: "Installation Laravel 11, intégration Breeze, configuration base de données et premiers pas avec l'authentification."
 icon: lucide/package-open
 tags: ["BREEZE", "INSTALLATION", "LARAVEL", "SETUP"]
-status: stable
 ---
 
 # Phase 1 : Installation & Configuration Base

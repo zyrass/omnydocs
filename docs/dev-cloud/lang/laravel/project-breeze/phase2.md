@@ -2,7 +2,6 @@
 description: "Création des migrations (users, categories, posts, comments), relations Eloquent et structure base de données complète."
 icon: lucide/database
 tags: ["ELOQUENT", "MIGRATIONS", "RELATIONS", "BDD"]
-status: stable
 ---
 
 # Phase 2 : Base de Données & Modèles Eloquent
@@ -40,7 +39,7 @@ Cette approche est valide **uniquement en développement local** : si la migrati
 
 Ouvrir le fichier `database/migrations/2014_10_12_000000_create_users_table.php`
 
-```php
+```php title="Fichier : 2014_10_12_000000_create_users_table.php"
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -140,7 +139,7 @@ php artisan make:migration create_categories_table
 
 Ouvrir `database/migrations/202X_XX_XX_XXXXXX_create_categories_table.php` :
 
-```php
+```php title="Fichier : 202X_XX_XX_XXXXXX_create_categories_table.php"
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -230,7 +229,7 @@ php artisan make:migration create_posts_table
 
 Ouvrir `database/migrations/202X_XX_XX_XXXXXX_create_posts_table.php` :
 
-```php
+```php title="Fichier : 202X_XX_XX_XXXXXX_create_posts_table.php"
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -390,7 +389,7 @@ php artisan make:migration create_comments_table
 
 Ouvrir `database/migrations/202X_XX_XX_XXXXXX_create_comments_table.php` :
 
-```php
+```php title="Fichier : 202X_XX_XX_XXXXXX_create_comments_table.php"
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -658,7 +657,7 @@ EXIT;
 
     **Éditer `app/Models/Category.php` :**
 
-    ```php
+    ```php title="Fichier : app/Models/Category.php"
     <?php
 
     namespace App\Models;
@@ -796,7 +795,7 @@ EXIT;
 
     **Éditer `app/Models/Post.php` :**
 
-    ```php
+    ```php title="Fichier : app/Models/Post.php"
     <?php
 
     namespace App\Models;
@@ -1046,7 +1045,7 @@ EXIT;
 
     **Éditer `app/Models/Comment.php` :**
 
-    ```php
+    ```php title="Fichier : app/Models/Comment.php"
     <?php
 
     namespace App\Models;
@@ -1196,7 +1195,7 @@ EXIT;
 
     **Ouvrir `app/Models/User.php` et modifier :**
 
-    ```php
+    ```php title="Fichier : app/Models/User.php"
     <?php
 
     namespace App\Models;
@@ -1339,4 +1338,4 @@ EXIT;
 
 !!! success "Phase 2 Terminée - Votre architecture de données est maintenant **complète et opérationnelle**. Vous êtes prêt à passer à la **Phase 3 : Seeders** pour remplir la base avec des données de test réalistes, puis à la **Phase 4 : Contrôleurs** pour implémenter la logique métier du blog."
 
-
+<br />
