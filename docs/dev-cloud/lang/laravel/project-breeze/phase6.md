@@ -2,7 +2,6 @@
 description: "Création de 9 vues Blade avec Tailwind CSS : layouts, grilles articles, formulaires CRUD, dashboard et design responsive."
 icon: lucide/layout-template
 tags: ["BLADE", "TAILWIND", "VIEWS", "FRONTEND", "UI-UX"]
-status: stable
 ---
 
 # Phase 6 : Vues Blade & Interface
@@ -15,7 +14,6 @@ status: stable
 </div>
 
 ## Introduction aux Vues Blade et Interface Utilisateur
-
 
 ### Vue d'Ensemble de la Phase
 
@@ -113,7 +111,7 @@ Layout (app.blade.php)         Vue enfant (home.blade.php)
 
 **Ouvrir `resources/views/layouts/app.blade.php`** (créé par Breeze) et **remplacer TOUT le contenu** par :
 
-```html
+```html title="Fichier : resources/views/layouts/app.blade.php"
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 {{--
@@ -480,7 +478,7 @@ return view('home', compact('posts', 'categories', 'popularPosts'));
 
 **Créer le fichier `resources/views/home.blade.php` :**
 
-```html
+```html title="Fichier : resources/views/home.blade.php"
 {{--
 |------------------------------------------------------------------------------
 | PAGE D'ACCUEIL DU BLOG
@@ -865,7 +863,7 @@ mkdir resources/views/posts
 
 **Contenu de `resources/views/posts/show.blade.php` :**
 
-```html
+```html title="Fichier : resources/views/posts/show.blade.php"
 {{--
 |------------------------------------------------------------------------------
 | PAGE ARTICLE INDIVIDUEL
@@ -1387,7 +1385,7 @@ return view('posts.create', compact('categories'));
 
 **Créer le fichier `resources/views/posts/create.blade.php` :**
 
-```html
+```html title="Fichier : resources/views/posts/create.blade.php"
 {{--
 |------------------------------------------------------------------------------
 | FORMULAIRE CRÉATION ARTICLE
@@ -1759,7 +1757,7 @@ return view('posts.edit', compact('post', 'categories'));
 
 **Créer le fichier `resources/views/posts/edit.blade.php` :**
 
-```html
+```html title="Fichier : resources/views/posts/edit.blade.php"
 {{--
 |------------------------------------------------------------------------------
 | FORMULAIRE ÉDITION ARTICLE
@@ -2125,7 +2123,7 @@ return view('posts.edit', compact('post', 'categories'));
 
     Laravel utilise le **method spoofing** : un champ caché `_method` indique la vraie méthode souhaitée.
 
-    ```blade
+    ```html title="Code Blade"
     <form method="POST">
         @method('PUT')
         <!-- Génère : <input type="hidden" name="_method" value="PUT"> -->
@@ -2170,7 +2168,7 @@ return view('posts.edit', compact('post', 'categories'));
 
     **Dans les formulaires Laravel :**
 
-    ```blade
+    ```html title="Code Blade"
     {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }}
     ```
 
@@ -2206,7 +2204,7 @@ return view('posts.edit', compact('post', 'categories'));
 
     **Exemple de complexité avec formulaire unique :**
 
-    ```html
+    ```html title="Code Blade"
     {{-- Formulaire unique (complexe) --}}
     <form action="{{ $post->exists ? route('posts.update', $post) : route('posts.store') }}" method="POST">
         @csrf
@@ -2280,7 +2278,7 @@ return view('posts.edit', compact('post', 'categories'));
 
     **Astuce debug :**
 
-    ```html
+    ```html title="Code Blade"
     {{-- Afficher contenu session old --}}
     @php
         dd(old()); // Dump all old input
@@ -2352,7 +2350,7 @@ return view('dashboard', compact('posts', 'stats', 'mostViewedPost', 'recentPost
 
 **Ouvrir `resources/views/dashboard.blade.php`** (créé par Breeze) et **remplacer TOUT le contenu** par :
 
-```html
+```html title="Fichier : resources/views/dashboard.blade.php"
 {{--
 |------------------------------------------------------------------------------
 | DASHBOARD AUTEUR
@@ -3332,7 +3330,7 @@ mkdir resources/views/categories
 
 **Créer le fichier `resources/views/categories/show.blade.php` :**
 
-```html title="Code Blade"
+```html title="Fichier : resources/views/categories/show.blade.php"
 {{--
 |------------------------------------------------------------------------------
 | PAGE CATÉGORIE (Filtrage par Thématique)
@@ -4137,7 +4135,7 @@ mkdir resources/views/authors
 
 **Créer le fichier `resources/views/authors/show.blade.php` :**
 
-```html title="Code Blade"
+```html title="Fichier : resources/views/authors/show.blade.php"
 {{--
 |------------------------------------------------------------------------------
 | PAGE PROFIL PUBLIC AUTEUR
@@ -5111,7 +5109,7 @@ DELETE /profile → ProfileController::destroy()
 
 **Ouvrir `resources/views/profile/edit.blade.php`** (créé par Breeze) et **remplacer TOUT le contenu** par :
 
-```html title="Code Blade"
+```html title="Fichier : resources/views/profile/edit.blade.php"
 {{--
 |------------------------------------------------------------------------------
 | PAGE ÉDITION PROFIL UTILISATEUR
@@ -6135,3 +6133,5 @@ DELETE /profile → ProfileController::destroy()
 - Helpers Laravel (`Str::limit()`, `route()`, `asset()`)
 - Carbon formatage dates (`format()`, `diffForHumans()`)
 - Eager Loading optimisation (`with()`)
+
+<br />

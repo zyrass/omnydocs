@@ -2,7 +2,6 @@
 description: "29 tests automatisés (Feature + Unit), optimisations performance (indexes, cache, Eager Loading), sécurité et déploiement production OVH complet."
 icon: lucide/rocket
 tags: ["TESTS", "OPTIMIZATION", "DEPLOYMENT", "PRODUCTION", "SECURITY"]
-status: stable
 ---
 
 # Phase 7 : Tests, Optimisation & Déploiement
@@ -15,7 +14,6 @@ status: stable
 </div>
 
 ## Introduction aux Tests, Optimisation et Déploiement
-
 
 **Vue d'ensemble de la phase :**
 
@@ -84,7 +82,7 @@ $this->assertDatabaseHas('posts', ['title' => 'Mon Article']);
 
     **Ouvrir `phpunit.xml`** (racine projet) et **vérifier la configuration** :
 
-    ```xml
+    ```xml title="Fichier : phpunit.xml"
     <?xml version="1.0" encoding="UTF-8"?>
     <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
@@ -203,7 +201,7 @@ $this->assertDatabaseHas('posts', ['title' => 'Mon Article']);
 
     **Éditer `tests/Feature/HomeControllerTest.php` :**
 
-    ```php
+    ```php title="Fichier : tests/Feature/HomeControllerTest.php"
     <?php
 
     namespace Tests\Feature;
@@ -537,7 +535,7 @@ $this->assertDatabaseHas('posts', ['title' => 'Mon Article']);
 
     **Éditer `tests/Feature/PostControllerTest.php` :**
 
-    ```php
+    ```php title="Fichier : tests/Feature/PostControllerTest.php"
     <?php
 
     namespace Tests\Feature;
@@ -1116,7 +1114,7 @@ class PostTest extends TestCase
 
     **Éditer `tests/Unit/PostTest.php` :**
 
-    ```php
+    ```php title="Fichier : tests/Unit/PostTest.php"
     <?php
 
     namespace Tests\Unit;
@@ -1590,7 +1588,7 @@ class PostTest extends TestCase
 
     **Éditer `tests/Unit/UserTest.php` :**
 
-    ```php
+    ```php title="Fichier : tests/Unit/UserTest.php"
     <?php
 
     namespace Tests\Unit;
@@ -1990,7 +1988,7 @@ class PostTest extends TestCase
 
     **Éditer `database/migrations/XXXX_XX_XX_add_indexes_to_posts_table.php` :**
 
-    ```php
+    ```php title="Fichier : database/migrations/XXXX_XX_XX_add_indexes_to_posts_table.php"
     <?php
 
     use Illuminate\Database\Migrations\Migration;
@@ -2244,7 +2242,7 @@ class PostTest extends TestCase
 
     **Fichier : `app/Http/Controllers/HomeController.php`**
 
-    ```php
+    ```php title="Fichier : app/Http/Controllers/HomeController.php"
     public function index()
     {
         /**
@@ -2302,7 +2300,7 @@ class PostTest extends TestCase
 
     **Fichier : `app/Http/Controllers/PostController.php`**
 
-    ```php
+    ```php title="Fichier : app/Http/Controllers/PostController.php"
     public function show(Post $post)
     {
         /**
@@ -2353,7 +2351,7 @@ class PostTest extends TestCase
 
     **Fichier : `app/Http/Controllers/CategoryController.php`**
 
-    ```php
+    ```php title="Fichier : app/Http/Controllers/CategoryController.php"
     public function show(Category $category)
     {
         /**
@@ -2371,7 +2369,7 @@ class PostTest extends TestCase
 
     **Fichier : `app/Http/Controllers/AuthorController.php`**
 
-    ```php
+    ```php title="Fichier : app/Http/Controllers/AuthorController.php"
     public function show(User $user)
     {
         /**
@@ -2404,7 +2402,7 @@ class PostTest extends TestCase
 
     **Fichier : `app/Http/Controllers/DashboardController.php`**
 
-    ```php
+    ```php title="Fichier : app/Http/Controllers/DashboardController.php"
     public function index()
     {
         $user = auth()->user();
@@ -6214,3 +6212,5 @@ Le déploiement est l'étape finale : transformer application locale en site web
 - ⚡ **Page complète** : <500ms
 - ⚡ **Requêtes SQL** : 3 (Eager Loading)
 - ⚡ **Score PageSpeed** : 90+ (prévu)
+
+<br />

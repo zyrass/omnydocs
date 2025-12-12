@@ -2,7 +2,6 @@
 description: "Création de 7 contrôleurs avec CRUD complet, validation formulaires, ownership et logique métier articles/commentaires."
 icon: lucide/cpu
 tags: ["CONTROLLERS", "CRUD", "VALIDATION", "BUSINESS-LOGIC"]
-status: stable
 ---
 
 # Phase 4 : Contrôleurs & Logique Métier
@@ -65,7 +64,7 @@ php artisan make:controller HomeController
 
 Ouvrir `app/Http/Controllers/HomeController.php` et **remplacer tout le contenu** par :
 
-```php
+```php title="Fichier : app/Http/Controllers/HomeController.php"
 <?php
 
 namespace App\Http\Controllers;
@@ -212,7 +211,7 @@ php artisan make:controller PostController
 
 Ouvrir `app/Http/Controllers/PostController.php` et **remplacer tout le contenu** par :
 
-```php
+```php title="Fichier : app/Http/Controllers/PostController.php"
 <?php
 
 namespace App\Http\Controllers;
@@ -1225,3 +1224,5 @@ class ProfileController extends Controller
 - Messages flash (`with()`)
 - Relations Eloquent dans contrôleurs
 - Collections Laravel (filtrage, tri, agrégation)
+
+<br />

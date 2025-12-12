@@ -2,7 +2,6 @@
 description: "Configuration des routes publiques/protégées, middleware auth, Route Model Binding et organisation architecture."
 icon: lucide/route
 tags: ["ROUTES", "MIDDLEWARE", "ROUTING", "ARCHITECTURE"]
-status: stable
 ---
 
 # Phase 5 : Routes & Organisation
@@ -15,7 +14,6 @@ status: stable
 </div>
 
 ## Introduction aux Routes et Organisation
-
 
 ### Vue d'Ensemble de la Phase
 
@@ -58,7 +56,7 @@ status: stable
 
 Ouvrir `routes/web.php` et **remplacer tout le contenu** par :
 
-```php
+```php title="Fichier : routes/web.php"
 <?php
 
 use App\Http\Controllers\{
@@ -451,3 +449,5 @@ DELETE    /comments/{comment}              comments.destroy    auth
 - Messages flash
 
 !!! success "Phases 5 Terminées - Votre application dispose maintenant de **toute la logique fonctionnelle** et **toutes les URLs configurées**. Il ne reste plus qu'à créer les **vues Blade** (Phase 6) pour afficher l'interface utilisateur, puis tester le tout (Phase 7). Vous êtes à 70% du projet terminé !"
+
+<br />

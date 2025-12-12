@@ -2,7 +2,6 @@
 description: "Génération données de test avec Factories et Seeders : catégories, utilisateurs, articles et relations automatiques."
 icon: lucide/sprout
 tags: ["SEEDERS", "FACTORIES", "FAKER", "TEST-DATA"]
-status: stable
 ---
 
 # Phase 3 : Seeders & Données de Test
@@ -66,7 +65,7 @@ php artisan make:seeder CategorySeeder
 
 Ouvrir `database/seeders/CategorySeeder.php` et **remplacer tout le contenu** par :
 
-```php
+```php title="Fichier : database/seeders/CategorySeeder.php"
 <?php
 
 namespace Database\Seeders;
@@ -228,7 +227,7 @@ class CategorySeeder extends Seeder
 Le fichier `database/seeders/DatabaseSeeder.php` existe déjà (créé par Laravel).  
 Ouvrir et **remplacer tout le contenu** par :
 
-```php
+```php title="Fichier : database/seeders/DatabaseSeeder.php"
 <?php
 
 namespace Database\Seeders;

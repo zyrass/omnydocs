@@ -4,7 +4,7 @@ icon: lucide/compass
 tags: ["BREEZE", "BLOG", "ARCHITECTURE", "LARAVEL", "FULL-PROJECT"]
 ---
 
-# Laravel - Breeze : Blog Multi-Auteurs
+# Laravel - Breeze
 
 <div
   class="omny-meta"
@@ -13,7 +13,7 @@ tags: ["BREEZE", "BLOG", "ARCHITECTURE", "LARAVEL", "FULL-PROJECT"]
   data-time="12-18 heures (7 phases)">
 </div>
 
-## Introduction du projet
+## Introduction du projet - Blog Multi-Auteurs
 
 Bienvenue dans ce projet **Blog Multi-Auteurs avec Laravel Breeze** ! Avant de commencer à "_coder_", "_"installer des dépendances"_ ou bien même de "_créer des migrations_", il est **crucial** que vous compreniez la vision d'ensemble du projet, son architecture complète et la logique pédagogique qui structure ce parcours d'apprentissage.
 

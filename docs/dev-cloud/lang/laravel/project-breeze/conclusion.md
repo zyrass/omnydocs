@@ -2,7 +2,6 @@
 description: "Bilan complet du projet Blog Multi-Auteurs : compétences acquises, statistiques, évolutions possibles et prochains tutoriels (Jetstream, Sanctum)."
 icon: lucide/trophy
 tags: ["CONCLUSION", "RECAP", "NEXT-STEPS", "SKILLS"]
-status: stable
 ---
 
 # Conclusion : Projet Terminé
@@ -370,4 +369,4 @@ Ce projet marathon de **7 phases** vous a fait parcourir l'intégralité du cycl
 
 Vous êtes désormais équipé pour construire des applications web modernes et scalables avec Laravel. Les compétences acquises dans ce projet sont **directement transférables en entreprise** et constituent une base solide pour votre évolution vers des sujets plus avancés (microservices, APIs GraphQL, applications temps réel avec WebSockets, etc.).
 
-**Continuez à pratiquer, expérimenter et surtout : construisez vos propres projets ! **
+**Continuez à pratiquer, expérimenter et surtout : construisez vos propres projets !**
