@@ -71,6 +71,35 @@ graph TB
     
     **Si vous voulez contrôle total**, utilisez Breeze et ajoutez fonctionnalités manuellement.
 
+## Mise en Pratique : Projet Complet avec Jetstream
+
+!!! success "Appliquer Jetstream dans un SaaS professionnel"
+    Ce guide couvre **les concepts théoriques** de Laravel Jetstream. Pour **construire un SaaS complet** utilisant toutes les fonctionnalités Jetstream dans un contexte professionnel, suivez notre projet :
+    
+    **👉 [Pentest Management Platform avec Laravel Jetstream + Angular 21](/projets/jetstream-pentest-platform/)**
+    
+    **Ce que vous allez construire :**
+    
+    - ✅ **Teams multi-clients** (isolation complète données par organisation)
+    - ✅ **Authentification 2FA obligatoire** (TOTP Google Authenticator)
+    - ✅ **API tokens** pour scanners automatisés (Burp Suite, Nuclei)
+    - ✅ **Gestion missions pentest** (web, mobile, infra, API)
+    - ✅ **CVSS calculator** et classification OWASP automatique
+    - ✅ **Upload evidences S3** (screenshots, PoC)
+    - ✅ **Génération rapports PDF** (DOMPDF avec template professionnel)
+    - ✅ **Frontend Angular 21 avec Signals** (architecture API-first moderne)
+    - ✅ **Dashboard analytics** (Chart.js, métriques temps réel)
+    - ✅ **Rôles granulaires** (owner, admin, pentester_lead, pentester_junior, client_ro)
+    
+    **Durée :** 20-28 heures (8 phases progressives)  
+    **Niveau :** 🟡 Intermédiaire → 🔴 Avancé
+    
+    **Pourquoi ce projet ?**
+    
+    Ce n'est pas un tutoriel "ToDo SaaS" générique. C'est une **plateforme métier réelle** issue du domaine cybersécurité, couvrant l'intégralité des fonctionnalités Jetstream (Teams, 2FA, API tokens, permissions) dans un contexte professionnel. Le frontend Angular 21 avec Signals démontre l'architecture **API-first** moderne.
+    
+    **Réutilisable directement** pour votre portfolio cybersécurité ou comme base d'un outil de consulting pentest.
+
 ## Installation et configuration
 
 ### Prérequis

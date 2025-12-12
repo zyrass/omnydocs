@@ -67,74 +67,107 @@ graph TB
     - Vous **n'avez PAS besoin** d'OAuth2 complet (apps tierces, authorization server)
     - Vous voulez **simplicité** plutôt que spec OAuth2 complète
 
+## Mise en Pratique : Projet Complet avec Sanctum
+
+!!! success "Appliquer Sanctum dans une API REST moderne"
+    Ce guide couvre **les concepts théoriques** de Laravel Sanctum. Pour **construire une API REST complète** avec authentification token-based et frontend découplé, suivez notre projet :
+    
+    **👉 [Dungeon Memory Battle RPG avec Laravel Sanctum + Angular 21](/projets/sanctum-rpg-dungeon/)**
+    
+    **Ce que vous allez construire :**
+    
+    - ✅ **API REST stateless complète** (authentification token-based)
+    - ✅ **Frontend Angular 21 avec Signals** (state management jeu temps réel)
+    - ✅ **Jeu mémoire 4×4** (flip cartes, paires, trésors, monstres)
+    - ✅ **Combat RPG tour par tour** (attaque, défense, sorts, potions)
+    - ✅ **3 classes jouables** (Guerrier, Archer, Mage avec stats uniques)
+    - ✅ **Système progression** (XP, levels, équipement, inventaire)
+    - ✅ **Token abilities** (permissions granulaires par token)
+    - ✅ **Leaderboard et achievements** (déblocables)
+    - ✅ **Architecture API-first** (réutilisable pour app mobile future)
+    
+    **Durée :** 18-24 heures (8 phases progressives)  
+    **Niveau :** 🟡 Intermédiaire → 🔴 Avancé
+    
+    **Pourquoi un jeu ?**
+    
+    Les jeux sont des **applications complexes** nécessitant gestion d'état temps réel (HP, Mana, Combat), logique métier (calculs dégâts, progression), et interactions instantanées. Ce projet démontre :
+    
+    - **API REST** professionnelle avec Sanctum (tokens révocables, abilities)
+    - **Architecture stateless** scalable (pas de sessions serveur)
+    - **Frontend découplé** Angular 21 (Signals pour réactivité 60 FPS)
+    - **State management** temps réel pour applications exigeantes
+    
+    **Compétences transférables** directement aux **apps mobiles**, **dashboards temps réel**, **plateformes SaaS**, et **APIs REST** professionnelles.
+
 ### Architecture Sanctum
 
 **Deux modes d'authentification distincts :**
 
-#### Mode 1 : SPA Authentication (Cookies)
+!!! Abstract "Mode 1 : SPA Authentication (Cookies)"
 
-```mermaid
-sequenceDiagram
-    participant SPA as SPA Frontend<br/>(React/Vue)
-    participant API as API Laravel<br/>(Sanctum)
-    participant DB as Database
-    
-    SPA->>API: GET /sanctum/csrf-cookie
-    API->>SPA: Set-Cookie: XSRF-TOKEN
-    
-    SPA->>API: POST /login (credentials)
-    Note over SPA,API: Cookie: XSRF-TOKEN<br/>Header: X-XSRF-TOKEN
-    API->>DB: Vérifier credentials
-    API->>SPA: Set-Cookie: session_id (httpOnly)
-    
-    SPA->>API: GET /api/user
-    Note over SPA,API: Cookie: session_id (auto)
-    API->>DB: Charger user via session
-    API->>SPA: JSON user data
-    
-    SPA->>API: POST /logout
-    API->>SPA: Clear cookies
-```
+    ```mermaid
+    sequenceDiagram
+        participant SPA as SPA Frontend<br/>(React/Vue)
+        participant API as API Laravel<br/>(Sanctum)
+        participant DB as Database
+        
+        SPA->>API: GET /sanctum/csrf-cookie
+        API->>SPA: Set-Cookie: XSRF-TOKEN
+        
+        SPA->>API: POST /login (credentials)
+        Note over SPA,API: Cookie: XSRF-TOKEN<br/>Header: X-XSRF-TOKEN
+        API->>DB: Vérifier credentials
+        API->>SPA: Set-Cookie: session_id (httpOnly)
+        
+        SPA->>API: GET /api/user
+        Note over SPA,API: Cookie: session_id (auto)
+        API->>DB: Charger user via session
+        API->>SPA: JSON user data
+        
+        SPA->>API: POST /logout
+        API->>SPA: Clear cookies
+    ```
 
-**Caractéristiques :**
+    **Caractéristiques :**
 
-- **Cookie httpOnly** (JavaScript ne peut pas lire → protection XSS)
-- **CSRF protection** automatique (cookie XSRF-TOKEN)
-- **Stateful** (session serveur Laravel classique)
-- **Same-domain** ou subdomains (cookies partagés)
+    - **Cookie httpOnly** (JavaScript ne peut pas lire → protection XSS)
+    - **CSRF protection** automatique (cookie XSRF-TOKEN)
+    - **Stateful** (session serveur Laravel classique)
+    - **Same-domain** ou subdomains (cookies partagés)
 
-#### Mode 2 : API Token Authentication
+!!! abstract "Mode 2 : API Token Authentication"
 
-```mermaid
-sequenceDiagram
-    participant Client as Client<br/>(Mobile/Postman)
-    participant API as API Laravel<br/>(Sanctum)
-    participant DB as Database
-    
-    Client->>API: POST /api/tokens/create<br/>(email, password, device_name)
-    API->>DB: Vérifier credentials
-    API->>DB: Créer token (hashed)
-    API->>Client: JSON: { token: "1|plaintext..." }
-    
-    Note over Client: Stocker token localement
-    
-    Client->>API: GET /api/user<br/>Authorization: Bearer 1|plaintext...
-    API->>DB: Vérifier token (hash)
-    API->>DB: Charger user
-    API->>Client: JSON user data
-    
-    Client->>API: DELETE /api/tokens/5<br/>Authorization: Bearer ...
-    API->>DB: Supprimer token
-    API->>Client: 204 No Content
-```
+    ```mermaid
+    sequenceDiagram
+        participant Client as Client<br/>(Mobile/Postman)
+        participant API as API Laravel<br/>(Sanctum)
+        participant DB as Database
+        
+        Client->>API: POST /api/tokens/create<br/>(email, password, device_name)
+        API->>DB: Vérifier credentials
+        API->>DB: Créer token (hashed)
+        API->>Client: JSON: { token: "1|plaintext..." }
+        
+        Note over Client: Stocker token localement
+        
+        Client->>API: GET /api/user<br/>Authorization: Bearer 1|plaintext...
+        API->>DB: Vérifier token (hash)
+        API->>DB: Charger user
+        API->>Client: JSON user data
+        
+        Client->>API: DELETE /api/tokens/5<br/>Authorization: Bearer ...
+        API->>DB: Supprimer token
+        API->>Client: 204 No Content
+    ```
 
-**Caractéristiques :**
+    **Caractéristiques :**
 
-- **Bearer Token** (header `Authorization: Bearer {token}`)
-- **Stateless** (pas de session serveur)
-- **Révocable** (supprimer token en BDD)
-- **Abilities** (permissions granulaires par token)
-- **Cross-domain** (pas de cookies, juste header)
+    - **Bearer Token** (header `Authorization: Bearer {token}`)
+    - **Stateless** (pas de session serveur)
+    - **Révocable** (supprimer token en BDD)
+    - **Abilities** (permissions granulaires par token)
+    - **Cross-domain** (pas de cookies, juste header)
 
 ## Installation et configuration
 

@@ -206,6 +206,151 @@ graph TB
     - Vous voulez un **écosystème complet** (authentification, queues, cache, broadcasting)
     - Vous recherchez une **communauté active** et des ressources d'apprentissage abondantes
 
+## 🗺️ Parcours d'Apprentissage Laravel : Théorie + Pratique
+
+Laravel s'apprend efficacement en **combinant théorie et pratique**. Ce guide couvre les **fondamentaux théoriques**, mais la maîtrise vient de la **construction de projets complets**.
+
+### 📚 Architecture Documentation
+
+Nous avons structuré l'apprentissage Laravel en **3 niveaux progressifs**, chacun combinant :
+
+1. **📖 Guide théorique** (concepts, syntaxe, bonnes pratiques)
+2. **🛠️ Projet pratique complet** (application réelle, 12-28h)
+```mermaid
+graph LR
+    A[🟢 Niveau 1Breeze] --> B[🟡 Niveau 2Jetstream]
+    B --> C[🔴 Niveau 3Sanctum]
+    
+    A -.-> A1[Théorie :Laravel Breeze]
+    A -.-> A2[Pratique :Blog Multi-Auteurs]
+    
+    B -.-> B1[Théorie :Laravel Jetstream]
+    B -.-> B2[Pratique :Pentest Platform]
+    
+    C -.-> C1[Théorie :Laravel Sanctum]
+    C -.-> C2[Pratique :RPG API REST]
+```
+
+---
+
+### 🟢 Niveau 1 : Fondamentaux Laravel (Breeze)
+
+**Objectif :** Maîtriser les bases Laravel + authentification simple
+
+#### 📖 Théorie (3-5h)
+
+1. **[Guide Laravel Fondamentaux](/dev-cloud/lang/laravel/)** ← Vous êtes ici
+2. **[Guide Laravel Breeze](/dev-cloud/lang/laravel/breeze/)**
+
+#### 🛠️ Pratique (12-18h)
+
+**[Projet Blog Multi-Auteurs](/projets/breeze-blog-multi-auteurs/)**
+
+- Authentification complète (register, login, 2FA, reset password)
+- CRUD articles avec ownership (Policies)
+- Relations Eloquent (User → Post → Category → Comment)
+- Validation, Authorization, Form Requests
+- Interface Blade + Tailwind CSS
+- Déploiement production
+
+**Compétences acquises :**
+
+- [x] MVC Laravel complet
+- [x] Authentification Breeze
+- [x] CRUD avec ownership
+- [x] Relations 1-N, N-N
+- [x] Blade templating
+- [x] Migrations, Seeders, Factories
+
+---
+
+### 🟡 Niveau 2 : Architecture SaaS (Jetstream)
+
+**Objectif :** Construire applications multi-clients professionnelles
+
+**Prérequis :** Niveau 1 terminé (Breeze maîtrisé)
+
+#### 📖 Théorie (2-3h)
+
+1. **[Guide Laravel Jetstream](/dev-cloud/lang/laravel/jetstream/)**
+
+#### 🛠️ Pratique (20-28h)
+
+**[Projet Pentest Management Platform](/projets/jetstream-pentest-platform/)**
+
+- Teams multi-clients (multi-tenancy, isolation données)
+- Authentification 2FA obligatoire (TOTP)
+- API tokens pour scanners automatisés
+- Frontend Angular 21 + Signals (architecture API-first)
+- Génération rapports PDF professionnels
+- Dashboard analytics temps réel
+- Permissions granulaires (5 rôles)
+
+**Compétences acquises :**
+
+- [x] Architecture SaaS B2B
+- [x] Teams Jetstream (multi-tenancy)
+- [x] 2FA + sécurité avancée
+- [x] API REST Laravel
+- [x] Frontend découplé Angular
+- [x] Signals state management
+- [x] Rôles et permissions
+
+---
+
+### 🔴 Niveau 3 : API REST Moderne (Sanctum)
+
+**Objectif :** Maîtriser architecture API-first + frontend découplé
+
+**Prérequis :** Niveau 2 terminé (Jetstream maîtrisé)
+
+#### 📖 Théorie (2-3h)
+
+1. **[Guide Laravel Sanctum](/dev-cloud/lang/laravel/sanctum/)**
+
+#### 🛠️ Pratique (18-24h)
+
+**[Projet Dungeon Memory Battle RPG](/projets/sanctum-rpg-dungeon/)**
+
+- API REST stateless complète (Sanctum tokens)
+- Frontend Angular 21 + Signals (jeu temps réel)
+- Jeu mémoire 4×4 + combat RPG tour par tour
+- 3 classes jouables (Guerrier, Archer, Mage)
+- Système progression (XP, levels, équipement)
+- Token abilities (permissions granulaires)
+- Leaderboard et achievements
+
+**Compétences acquises :**
+
+- [x] API REST stateless professionnelle
+- [x] Authentification token-based (Sanctum)
+- [x] Architecture API-first scalable
+- [x] State management temps réel (Signals)
+- [x] Guards, Interceptors Angular
+- [x] Optimisation requêtes API
+
+---
+
+### 🎯 Après les 3 Niveaux : Vous Maîtrisez
+
+✅ **Laravel complet** (Breeze, Jetstream, Sanctum)  
+✅ **Architectures modernes** (Monolithe, SaaS, API-first)  
+✅ **Frontend Angular 21** (Signals, TypeScript, Material)  
+✅ **Déploiement production** (VPS, Docker, CI/CD)  
+✅ **Portfolio professionnel** (3 projets production-ready)
+
+---
+
+### 🚀 Quelle Route Choisir ?
+
+| Profil | Recommandation |
+|--------|----------------|
+| **Débutant Laravel complet** | Commencer **Niveau 1** (Breeze Blog) |
+| **Connaît déjà Laravel bases** | Sauter à **Niveau 2** (Jetstream Pentest) |
+| **Maîtrise Laravel + Angular** | Tester **Niveau 3** (Sanctum RPG) |
+| **Objectif cybersécurité pro** | Focus **Niveau 2** (portfolio métier) |
+| **Objectif développement API moderne** | Focus **Niveau 3** (architecture API-first) |
+
 ## Installation et configuration
 
 ### Prérequis système

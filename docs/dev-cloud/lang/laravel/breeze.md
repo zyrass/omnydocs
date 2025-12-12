@@ -70,6 +70,30 @@ graph TB
     - Vous **n'avez PAS besoin** de 2FA, teams, ou API tokens
     - Vous préférez **personnaliser vous-même** plutôt qu'utiliser des abstractions
 
+## Mise en Pratique : Projet Complet avec Breeze
+
+!!! success "Appliquer Breeze dans un projet réel"
+    Ce guide couvre **les concepts théoriques** de Laravel Breeze. Pour **appliquer concrètement** ces connaissances dans un projet production-ready, suivez notre projet complet :
+    
+    **👉 [Blog Multi-Auteurs avec Laravel Breeze](/projets/breeze-blog-multi-auteurs/)**
+    
+    **Ce que vous allez construire :**
+    
+    - ✅ **Authentification complète** (register, login, 2FA, reset password, email verification)
+    - ✅ **CRUD articles avec ownership** (seul l'auteur peut modifier ses articles)
+    - ✅ **Système commentaires publics** (utilisateurs authentifiés et invités)
+    - ✅ **Dashboard auteur** avec statistiques (posts publiés, vues, commentaires)
+    - ✅ **Gestion catégories et tags** (Many-to-Many)
+    - ✅ **Upload images** (featured image par article)
+    - ✅ **Pagination et recherche** (optimisation requêtes)
+    - ✅ **Déploiement production** (VPS avec Nginx)
+    
+    **Durée :** 12-18 heures (7 phases progressives)  
+    **Niveau :** 🟢 Débutant → 🟡 Intermédiaire
+    
+    Ce projet vous guide **pas à pas** : de l'installation Breeze jusqu'au déploiement, en couvrant tous les concepts Laravel essentiels (Eloquent relations, Policies, Form Requests, Blade components, etc.).
+
+
 ## Installation et configuration
 
 ### Prérequis
