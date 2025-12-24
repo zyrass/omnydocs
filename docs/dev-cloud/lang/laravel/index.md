@@ -1,6 +1,6 @@
 ---
 description: "Maîtriser Laravel pour des applications web modernes et robustes"
-icon: lucide/layers
+icon: fontawesome/brands/laravel
 tags: ["LARAVEL", "PHP", "MVC", "FRAMEWORK", "BACKEND"]
 status: stable
 ---
