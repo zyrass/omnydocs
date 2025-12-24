@@ -5,7 +5,7 @@ tags: ["PHP", "OOP", "CLASSES", "OBJECTS", "LARAVEL-PREP"]
 status: production
 ---
 
-# POO
+# PHP - POO
 
 <div
   class="omny-meta"
@@ -14,7 +14,7 @@ status: production
   data-time="14-16 heures">
 </div>
 
-## Introduction au Projet POO : Gestionnaire de Contacts (Version Orientée Objet)
+## Introduction au Projet POO : Gestionnaire de Contacts (Orientée Objet)
 
 !!! quote "Analogie pédagogique"
     _Imaginez que vous gérez des contacts avec des **fonctions séparées** : `create_contact()`, `update_contact()`, `delete_contact()`, `validate_email()`, `upload_photo()`. Chaque fonction existe indépendamment, les données passent d'une fonction à l'autre via paramètres, et vous devez vous souvenir de l'ordre d'appel exact. **PHP POO transforme cette collection de fonctions en objets cohérents** : une classe `Contact` qui contient ses propres données ($firstName, $email) ET ses propres méthodes (save(), delete(), validate()), une classe `ContactManager` qui orchestre les opérations, une classe `Database` singleton pour la connexion unique. Au lieu de manipuler des arrays `['first_name' => 'John']`, vous manipulez des **objets** `$contact->firstName`. Les données et les comportements sont **encapsulés ensemble**, le code est **réutilisable**, et la maintenance devient **intuitive** car tout est organisé en entités métier. C'est le MÊME projet que le Guide 8, mais pensé objet._

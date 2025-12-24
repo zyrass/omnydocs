@@ -5,7 +5,7 @@ tags: ["PHP", "PROCEDURAL", "SECURITY", "DATABASE", "CRUD"]
 status: production
 ---
 
-# PHP 8.3
+# PHP
 
 <div
   class="omny-meta"
