@@ -98,13 +98,14 @@
     # Data
     # Bases de données relationnelles, NoSQL, GraphQL
     # -------------------------------------------------------------------------
-    # {"Data" = [
-    #   "dev-cloud/data/index.md",
-    #   {"MariaDB & MySQL"  = "dev-cloud/data/sql.md"},                            # SGBDR, requêtes, optimisation
-    #   {"NoSQL"            = "dev-cloud/data/nosql.md"},                          # MongoDB, Redis, Cassandra
-    #   {"GraphQL"          = "dev-cloud/data/graphql.md"},                        # Langage de requête pour API
-    #   {"SQLite"           = "dev-cloud/data/sqlite.md"}                          # Base de données embarquée
-    # ]},
+    {"Base de données" = [
+      "dev-cloud/data/index.md",
+      {"SQLite"           = "dev-cloud/data/sqlite.md"},                         # Base de données embarquée
+      {"MariaDB & MySQL"  = "dev-cloud/data/sql.md"},                            # SGBDR, requêtes, optimisation
+      {"PostgreSQL"       = "dev-cloud/data/postgresql.md"},                     # SGBDR, requêtes, optimisation
+      {"NoSQL"            = "dev-cloud/data/nosql.md"},                          # MongoDB, Redis, Cassandra
+      {"GraphQL"          = "dev-cloud/data/graphql.md"}                         # Langage de requête pour API
+    ]},
 
     # -------------------------------------------------------------------------
     # Cloud Providers
@@ -120,11 +121,28 @@
     # Tests & Qualité
     # Stratégies de test et assurance qualité logicielle
     # -------------------------------------------------------------------------
-    # {"Tests & Qualité" = [
-    #   "dev-cloud/tests-qualite/index.md",
-    #   {"TDD"                        = "dev-cloud/tests-qualite/tdd.md"},         # Test-Driven Development
-    #   {"Unitaires & Intégration"    = "dev-cloud/tests-qualite/unit-integ.md"},  # Jest, PHPUnit, pytest
-    #   {"Contrats & E2E"             = "dev-cloud/tests-qualite/contrats-e2e.md"} # Pact, Cypress, Playwright
-    # ]}
+    {"Tests & Qualité" = [
+      "dev-cloud/tests-qualite/index.md",
+      {"TDD vs BDD"                 = "dev-cloud/tests-qualite/tdd.md"},         # Test-Driven Development
+      {"pyramide des tests"         = "dev-cloud/tests-qualite/pyramide-tests.md"},  # Jest, PHPUnit, pytest
+      {"coverage"                   = "dev-cloud/tests-qualite/coverage.md"}, # Pact, Cypress, Playwright
+      {"frontend"                   = [
+        "dev-cloud/tests-qualite/frontend/jest.md",
+        "dev-cloud/tests-qualite/frontend/jasmine.md",
+        "dev-cloud/tests-qualite/frontend/vitest.md",
+        "dev-cloud/tests-qualite/frontend/cypress.md",
+      ]}, # Pact, Cypress, Playwright
+      {"backend"                   = [
+        "dev-cloud/tests-qualite/backend/phpunit.md",
+        "dev-cloud/tests-qualite/backend/pest.md",
+        "dev-cloud/tests-qualite/backend/pytest.md",
+        "dev-cloud/tests-qualite/backend/go-testing.md",
+      ]},
+      {"Sécurité"                   = [
+        "dev-cloud/tests-qualite/securite/sast.md",
+        "dev-cloud/tests-qualite/securite/dast.md",
+        "dev-cloud/tests-qualite/securite/fuzzing.md",
+      ]}, 
+    ]}
     
   ]},

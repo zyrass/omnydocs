@@ -3,7 +3,7 @@ description: "à éditer"
 icon: lucide/book-open-check
 ---
 
-# Contrats & E2E
+# Pyramide des tests
 
 <div
   class="omny-meta"
