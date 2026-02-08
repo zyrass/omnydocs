@@ -309,44 +309,6 @@ func main() {
     Go vous force à être explicite.  
     **Pas de conversion automatique = moins de bugs** !
 
-### Rust - Sécurité maximale
-
-**Particularité** : Rust détecte les débordements et refuse tout ce qui pourrait être dangereux.
-
-| Type | Exemple | Sécurité |
-| :---: | --- | --- |
-| `i8`, `i16`, `i32`, `i64`, `i128` | Entiers signés | Débordement détecté |
-| `u8`, `u16`, `u32`, `u64`, `u128` | Non-signés | Débordement détecté |
-| `f32`, `f64` | Flottants | Standard IEEE 754 |
-| `bool` | `true`, `false` | Type strict |
-| `char` | Unicode | Toujours valide |
-
-```rust
-fn main() {
-    // Découverte simple des types Rust
-    let entier: i32 = 42;
-    let flottant: f64 = 3.14;
-    let texte: &str = "Hello";
-    
-    println!("Entier: {}", entier);
-    println!("Flottant: {:.2}", flottant);
-    println!("Texte: {}", texte);
-    
-    // Rust gère intelligemment les débordements
-    let max = i8::MAX;  // 127
-    
-    // Vérification automatique en mode debug
-    match max.checked_add(1) {
-        Some(val) => println!("Résultat: {}", val),
-        None => println!("Débordement détecté !"),
-    }
-}
-```
-
-!!! tip "Sécurité Rust"
-    Rust vous force à penser aux cas limites.  
-    **Moins de liberté = moins de bugs** !
-
 ## Comparaison rapide
 
 | Langage | Complexité | Sécurité | Performance | Pour débuter |
@@ -355,7 +317,6 @@ fn main() {
 | **JavaScript** | 🟢 Simple | 🟡 Moyenne | 🟡 Moyenne | ⭐⭐⭐ |
 | **PHP** | 🟢 Simple | 🟡 Moyenne | 🟡 Moyenne | ⭐⭐⭐ |
 | **Go** | 🟢 Simple | 🟢 Bonne | 🟢 Rapide | ⭐⭐ |
-| **Rust** | 🟡 Moyenne | 🟢 Excellente | 🟢 Maximale | ⭐ |
 
 ## Pièges classiques
 
@@ -392,6 +353,5 @@ var_dump(0 === "");  // false
 !!! quote 
     Les types primitifs sont comme apprendre à tenir un crayon. Ça paraît basique, mais c'est la fondation de tout ce que vous écrirez ensuite ! Prenez le temps de bien les comprendre. Votre futur vous (et vos collègues) vous remercieront !
 
----
 
 [^1]: Le **type juggling** (ou _conversion implicite de type_) désigne le processus par lequel un langage de programmation **convertit automatiquement une valeur d’un type à un autre** pour exécuter une opération, souvent sans que le développeur le demande explicitement.
