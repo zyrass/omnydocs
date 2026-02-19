@@ -46,17 +46,21 @@
 /* Conteneur principal - pleine largeur de l'écran */
 .md-grid {
   max-width: 100%; /* Utilise toute la largeur disponible */
-  padding: 0 1.5rem; /* Marges latérales minimales */
 }
 
 /* Sidebar primaire (gauche) - Navigation principale */
 
-/* .md-sidebar--primary { */
-/* width: 14rem; ~320px - largeur confortable pour navigation */
-/* } */
+.md-sidebar--primary {
+  width: 16rem; /* ~320px - largeur confortable pour navigation */
+}
+
+@media screen and (max-width: 768px) {
+  .md-sidebar--primary {
+    width: 12rem; /* ~320px - largeur confortable pour navigation */
+  }
+}
 
 .md-sidebar--primary .md-sidebar__scrollwrap {
-  padding-right: 1.5rem; /* Gap entre sidebar et contenu */
 }
 
 /* Sidebar secondaire (droite) - Table des matières */
@@ -67,10 +71,6 @@
 /* Sidebar secondaire (droite) - Table des matières */
 .md-sidebar--secondary {
   width: 18rem; /* ~272px - légèrement plus large */
-}
-
-.md-sidebar--secondary .md-sidebar__scrollwrap {
-  padding-left: 1rem; /* Gap entre contenu et sidebar */
 }
 
 /* Navigation secondaire (TOC) */
