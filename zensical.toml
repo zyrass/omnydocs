@@ -269,8 +269,8 @@ nav = [
     {"Linux"                        = [
       "sys-reseau/linux/index.md",
       {"Bash"                       = "sys-reseau/linux/bash.md"},
-      # {"Administration"             = "sys-reseau/linux/admin.md"},                          # Gestion utilisateurs, permissions, cron
-      # {"Services & Daemons"         = "sys-reseau/linux/services-daemons.md"},               # systemd, services, logs
+      # {"Administration"           = "sys-reseau/linux/admin.md"},                          # Gestion utilisateurs, permissions, cron
+      # {"Services & Daemons"       = "sys-reseau/linux/services-daemons.md"},               # systemd, services, logs
       
       # -----------------------------------------------------------------------
       # Sécurité hôte Linux
@@ -772,6 +772,21 @@ nav = [
         ]},
 
       ]},
+
+
+
+
+
+      {"Déploiement & Qualité" = [
+        {"Docker" = "bases/deploiement/docker.md"},
+        {"Docker Compose" = "bases/deploiement/docker_compose.md"},
+        {"CI/CD" = [
+          {"Github Actions" = "bases/deploiement/github_actions.md"},
+          {"Gitlab CI/CD" = "bases/deploiement/gitlab_cicd.md"},  
+        ]},
+        {"Secrets" = "bases/deploiement/secret.md"}, # les bases : variables, rotation, pas de secrets en repo
+        {"Sécurité mots de passe" = "bases/deploiement/securite_mdp.md"}, # hashing, argon2/bcrypt, politiques, rate limit
+      ]}
 
     ]},
 

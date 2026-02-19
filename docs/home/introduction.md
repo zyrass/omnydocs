@@ -1,7 +1,6 @@
 ---
 description: 'Introduction sur le projet en cours de rédaction'
 icon: lucide/pin
-status: edit
 ---
 
 # Introduction
@@ -21,3 +20,16 @@ _Prenez le temps nécessaire pour assimiler chaque notion.<br />
 **Fixer une durée stricte n'est pas pertinent** face à la diversité des profils et des rythmes d'apprentissage._
 
 -   [x] **Mon conseil**<br />_Avancez méthodiquement, sans brûler les étapes, car c'est de cette rigueur qui fera de vous un professionnel fiable, compétent et recherché._
+
+---
+
+## Comment lire la doc ?
+
+
+## Les différents parcours
+
+
+## Prérequis
+
+
+## Glossaire
