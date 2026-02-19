@@ -4,7 +4,7 @@ icon: lucide/test-tubes
 tags: ["TESTING", "PHPUNIT", "PEST", "PYTEST", "JEST", "VITEST", "CYPRESS", "QUALITY"]
 ---
 
-# Guide Complet des Frameworks de Testing
+# Frameworks de Testing
 
 <div
   class="omny-meta"

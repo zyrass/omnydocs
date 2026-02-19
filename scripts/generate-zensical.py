@@ -21,12 +21,11 @@ PARTS = [
 # -------------------------------------------------------------------
 # AJUSTEMENT : racine du projet
 # Le script est placé dans scripts/, on remonte donc d'un niveau
-# pour cibler la racine du repo : .../omnydocs
+# pour cibler la racine du repo : ../omnydocs
 # -------------------------------------------------------------------
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 OUT_FILE = PROJECT_ROOT / "zensical.toml"
-
 
 # -------------------------------------------------------------------
 # Nettoyage des artefacts de build à la racine du projet

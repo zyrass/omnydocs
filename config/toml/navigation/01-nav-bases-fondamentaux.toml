@@ -47,7 +47,7 @@
       {"Environnements Virtu." = [
         {"WSL"            = "bases/outils/environnement-virtuel/wsl.md"},                 # Windows Subsystem for Linux
         {"NVM"            = "bases/outils/environnement-virtuel/nvm.md"},                 # Node Version Manager
-        # {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},              # Python Virtual Environment
+        {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},              # Python Virtual Environment
         # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},        # Hyperviseur type 2
         # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},           # Provisioning automatisé
         # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"}         # CLI VirtualBox
@@ -60,9 +60,9 @@
       {"Gestionnaires de Paquets" = [
         {"APK — Alpine"        = "bases/paquets/apk-alpine.md"},            # Alpine Package Keeper (conteneurs Docker)
         {"APT — Debian/Ubuntu" = "bases/paquets/apt-debian.md"},            # Advanced Package Tool (Debian/Ubuntu)
-        {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},            # Package Manager (Arch Linux)
-        # {"YUM — RHEL Legacy"   = "bases/paquets/yum-rhel.md"},            # Yellowdog Updater Modified (CentOS 7-)
-        # {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"}             # Dandified YUM (CentOS 8+, RHEL 8+)
+        {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},           # Package Manager (Arch Linux)
+        {"YUM — RHEL Legacy"   = "bases/paquets/yum-rhel.md"},              # Yellowdog Updater Modified (CentOS 7-)
+        {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"}               # Dandified YUM (CentOS 8+, RHEL 8+)
       ]},
 
       # -----------------------------------------------------------------------
@@ -76,9 +76,9 @@
       # {"Terminaux et Shells" = "bases/outils/terminaux-shell.md"},
 
       # {"Visual Studio Code" = [
-        # {"Configuration"            =   "bases/outils/vscode/config.md"},
-        # {"Extensions essentielles"  =   "bases/outils/vscode/liste-extensions.md"},
-        # {"Snippets personnalisés"   =   "bases/outils/vscode/snippet.md"},
+      #   {"Configuration"            =   "bases/outils/vscode/config.md"},
+      #   {"Extensions essentielles"  =   "bases/outils/vscode/liste-extensions.md"},
+      #   {"Snippets personnalisés"   =   "bases/outils/vscode/snippet.md"},
       # ]},
     ]},
     
@@ -132,10 +132,10 @@
 
     # ]},
 
-    {"Gestion Projet" = [
-      "bases/projet/index.md",
-      {"Diagramme de Gantt"             = "bases/projet/gantt.md"}
-    ]},
+    # {"Gestion Projet" = [
+    #   "bases/projet/index.md",
+    #   {"Diagramme de Gantt"             = "bases/projet/gantt.md"}
+    # ]},
 
     # -------------------------------------------------------------------------
     # Concepts de Programmation
@@ -166,10 +166,10 @@
     ]},
   
     {"Cryptographie & PKI" = [
-      "bases/crypto/index.md"
-      # {"OpenSSL" = "bases/crypto/openssl.md"},
-      # {"GPG"     = "bases/crypto/gpg.md"},
-      # {"PKI"     = "bases/crypto/pki.md"}
+      "bases/crypto/index.md",
+      {"GPG"     = "bases/crypto/gpg.md"},
+      {"OpenSSL" = "bases/crypto/openssl.md"},
+      {"PKI"     = "bases/crypto/pki.md"}
     ]}
 
   ]},

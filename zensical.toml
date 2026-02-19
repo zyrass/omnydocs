@@ -114,7 +114,7 @@ nav = [
       {"Environnements Virtu." = [
         {"WSL"            = "bases/outils/environnement-virtuel/wsl.md"},                 # Windows Subsystem for Linux
         {"NVM"            = "bases/outils/environnement-virtuel/nvm.md"},                 # Node Version Manager
-        # {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},              # Python Virtual Environment
+        {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},              # Python Virtual Environment
         # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},        # Hyperviseur type 2
         # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},           # Provisioning automatisé
         # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"}         # CLI VirtualBox
@@ -127,9 +127,9 @@ nav = [
       {"Gestionnaires de Paquets" = [
         {"APK — Alpine"        = "bases/paquets/apk-alpine.md"},            # Alpine Package Keeper (conteneurs Docker)
         {"APT — Debian/Ubuntu" = "bases/paquets/apt-debian.md"},            # Advanced Package Tool (Debian/Ubuntu)
-        {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},            # Package Manager (Arch Linux)
-        # {"YUM — RHEL Legacy"   = "bases/paquets/yum-rhel.md"},            # Yellowdog Updater Modified (CentOS 7-)
-        # {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"}             # Dandified YUM (CentOS 8+, RHEL 8+)
+        {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},           # Package Manager (Arch Linux)
+        {"YUM — RHEL Legacy"   = "bases/paquets/yum-rhel.md"},              # Yellowdog Updater Modified (CentOS 7-)
+        {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"}               # Dandified YUM (CentOS 8+, RHEL 8+)
       ]},
 
       # -----------------------------------------------------------------------
@@ -143,9 +143,9 @@ nav = [
       # {"Terminaux et Shells" = "bases/outils/terminaux-shell.md"},
 
       # {"Visual Studio Code" = [
-        # {"Configuration"            =   "bases/outils/vscode/config.md"},
-        # {"Extensions essentielles"  =   "bases/outils/vscode/liste-extensions.md"},
-        # {"Snippets personnalisés"   =   "bases/outils/vscode/snippet.md"},
+      #   {"Configuration"            =   "bases/outils/vscode/config.md"},
+      #   {"Extensions essentielles"  =   "bases/outils/vscode/liste-extensions.md"},
+      #   {"Snippets personnalisés"   =   "bases/outils/vscode/snippet.md"},
       # ]},
     ]},
     
@@ -199,10 +199,10 @@ nav = [
 
     # ]},
 
-    {"Gestion Projet" = [
-      "bases/projet/index.md",
-      {"Diagramme de Gantt"             = "bases/projet/gantt.md"}
-    ]},
+    # {"Gestion Projet" = [
+    #   "bases/projet/index.md",
+    #   {"Diagramme de Gantt"             = "bases/projet/gantt.md"}
+    # ]},
 
     # -------------------------------------------------------------------------
     # Concepts de Programmation
@@ -233,10 +233,10 @@ nav = [
     ]},
   
     {"Cryptographie & PKI" = [
-      "bases/crypto/index.md"
-      # {"OpenSSL" = "bases/crypto/openssl.md"},
-      # {"GPG"     = "bases/crypto/gpg.md"},
-      # {"PKI"     = "bases/crypto/pki.md"}
+      "bases/crypto/index.md",
+      {"GPG"     = "bases/crypto/gpg.md"},
+      {"OpenSSL" = "bases/crypto/openssl.md"},
+      {"PKI"     = "bases/crypto/pki.md"}
     ]}
 
   ]},
@@ -266,23 +266,27 @@ nav = [
     # Linux
     # Administration système Linux, services, sécurité hôte
     # -------------------------------------------------------------------------
-    {"Linux" = [
+    {"Linux"                        = [
       "sys-reseau/linux/index.md",
-      # {"Administration"       = "sys-reseau/linux/admin.md"},                          # Gestion utilisateurs, permissions, cron
-      # {"Services & Daemons"   = "sys-reseau/linux/services-daemons.md"},               # systemd, services, logs
+      {"Bash"                       = "sys-reseau/linux/bash.md"},
+      # {"Administration"             = "sys-reseau/linux/admin.md"},                          # Gestion utilisateurs, permissions, cron
+      # {"Services & Daemons"         = "sys-reseau/linux/services-daemons.md"},               # systemd, services, logs
       
       # -----------------------------------------------------------------------
       # Sécurité hôte Linux
       # Outils de durcissement et de détection d'intrusion au niveau système
       # -----------------------------------------------------------------------
-      {"Sécurité (host)"      = [
+      {"Sécurité (host)"            = [
         "sys-reseau/linux/security/index.md",
-        # {"fail2ban"           = "sys-reseau/linux/security/fail2ban.md"},             # Protection contre bruteforce
-        # {"ufw"                = "sys-reseau/linux/security/ufw.md"},                  # Uncomplicated Firewall
-        # {"ClamAV"             = "sys-reseau/linux/security/clamav.md"},               # Antivirus open-source
-        # {"Lynis"              = "sys-reseau/linux/security/lynis.md"},                # Audit de sécurité système
-        # {"Chkrootkit"         = "sys-reseau/linux/security/chkrootkit.md"}            # Détection de rootkits
+        {"Lynis"                    = "sys-reseau/linux/security/lynis.md"},                # Audit de sécurité système
+        {"ufw"                      = "sys-reseau/linux/security/ufw.md"},                  # Uncomplicated Firewall
+        {"fail2ban"                 = "sys-reseau/linux/security/fail2ban.md"},             # Protection contre bruteforce
+        {"Vuls"                     = "sys-reseau/linux/security/vuls.md"},
+        {"ClamAV"                   = "sys-reseau/linux/security/clamav.md"},               # Antivirus open-source
+        {"Linux Malware Detect"     = "sys-reseau/linux/security/linux_malware_detect.md"},
+        {"Chkrootkit"               = "sys-reseau/linux/security/chkrootkit.md"},           # Détection de rootkits
       ]}
+      
     ]},
 
     # -------------------------------------------------------------------------
@@ -291,6 +295,7 @@ nav = [
     # -------------------------------------------------------------------------
     {"Windows" = [
       "sys-reseau/windows/index.md",
+      {"Powershell" = "sys-reseau/windows/powershell.md"},
       # {"AD & GPO"     = "sys-reseau/windows/ad-gpo.md"},                            # Active Directory, Group Policy Objects
       # {"Durcissement" = "sys-reseau/windows/hardening.md"}                          # Sécurisation Windows Server
     ]},
@@ -308,10 +313,10 @@ nav = [
       # -----------------------------------------------------------------------
       {"Outils & Analyse" = [
         "sys-reseau/network/outils/index.md",
+        {"nslookup" = "sys-reseau/network/outils/nslookup.md"},                    # Requêtes DNS
+        {"netstat"  = "sys-reseau/network/outils/netstat.md"},                     # Statistiques réseau
         # {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},                     # Capture de paquets CLI
-        # {"netstat"  = "sys-reseau/network/outils/netstat.md"},                     # Statistiques réseau
         # {"scapy"    = "sys-reseau/network/outils/scapy.md"},                       # Manipulation de paquets Python
-        # {"nslookup" = "sys-reseau/network/outils/nslookup.md"}                     # Requêtes DNS
       ]},
       
       # -----------------------------------------------------------------------
@@ -320,11 +325,11 @@ nav = [
       # -----------------------------------------------------------------------
       {"Services réseau" = [
         "sys-reseau/network/services/index.md",
-        # {"SSH"         = "sys-reseau/network/services/ssh.md"},                    # Secure Shell (accès distant)
+        {"DNS"         = "sys-reseau/network/services/dns.md"},                    # Domain Name System (BIND)
+        {"SSH"         = "sys-reseau/network/services/ssh.md"},                    # Secure Shell (accès distant)
         # {"FTP"         = "sys-reseau/network/services/ftp.md"},                    # File Transfer Protocol
-        # {"DNS"         = "sys-reseau/network/services/dns.md"},                    # Domain Name System (BIND)
         # {"Samba"       = "sys-reseau/network/services/samba.md"},                  # Partage de fichiers SMB/CIFS
-        # {"LDAP & PAM"  = "sys-reseau/network/services/ldap-pam.md"}                # Annuaire et authentification
+        # {"LDAP & PAM"  = "sys-reseau/network/services/ldap-pam.md"},               # Annuaire et authentification
       ]},
 
       # -----------------------------------------------------------------------
@@ -346,8 +351,8 @@ nav = [
     # -------------------------------------------------------------------------
     {"Virtualisation (Hyperviseurs)" = [
       "sys-reseau/virtualisation/index.md",
-      {"Panorama Virtualisation"  = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},  # Types 1/2, comparatif
-      {"QEMU - (Émulateur)"       = "sys-reseau/virtualisation/qemu.md"},             # Émulateur et virtualisation
+      # {"Panorama Virtualisation"  = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},  # Types 1/2, comparatif
+      # {"QEMU - (Émulateur)"       = "sys-reseau/virtualisation/qemu.md"},             # Émulateur et virtualisation
       # {"KVM / Proxmox"            = "sys-reseau/virtualisation/kvm-proxmox.md"},            # Hyperviseur type 1
       # {"OLD"       = "sys-reseau/virtualisation/old.md"},             # Émulateur et virtualisation
     ]},
@@ -380,7 +385,7 @@ nav = [
   # ===========================================================================
   # Développement d'applications modernes, architectures cloud-native,
   # bases de données et méthodologies de tests.
-  # 
+  #
   # Contenu :
   # - Langages de programmation (Python, JavaScript/TypeScript, PHP, Go, Bash)
   # - Frameworks (Angular, Laravel) et stacks (MEAN, TALL)
@@ -388,7 +393,7 @@ nav = [
   # - Bases de données (SQL, NoSQL, GraphQL)
   # - Cloud providers (AWS, Azure)
   # - Tests et qualité (TDD, tests unitaires/intégration/E2E)
-  # 
+  #
   # PUBLIC CIBLE : Développeurs, Architectes logiciels, DevOps
   # ===========================================================================
 
@@ -400,28 +405,126 @@ nav = [
     # Langages de programmation
     # Fondamentaux et concepts avancés pour chaque langage
     # -------------------------------------------------------------------------
-    {"Langages" = [
-      "dev-cloud/lang/html-css.md",
-      "dev-cloud/lang/javascript.md",
+    {"Langages & standards" = [
+      "dev-cloud/lang/index.md",
+
+      # {"Bash" = [
+      #   "dev-cloud/lang/bash/index.md",
+      #   {"Fondamentaux" = "dev-cloud/lang/bash/fondamentaux.md"},                # Scripts, variables, conditions
+      #   {"Avancé"       = "dev-cloud/lang/bash/avance.md"}                       # Regex, sed, awk
+      # ]},
+
+      {"HTML5 & CSS3" = [
+        "dev-cloud/lang/html-css/index.md",
+
+        {"HTML - Fondamentaux" = [
+          "dev-cloud/lang/html-css/html-fondamental/module1.md",
+          "dev-cloud/lang/html-css/html-fondamental/module2.md",
+          "dev-cloud/lang/html-css/html-fondamental/module3.md",
+          "dev-cloud/lang/html-css/html-fondamental/module4.md",
+          "dev-cloud/lang/html-css/html-fondamental/module5.md",
+          "dev-cloud/lang/html-css/html-fondamental/module6.md",
+        ]},
+
+        {"CSS - Fondamentaux" = [
+          "dev-cloud/lang/html-css/css-fondamental/module7.md",
+          "dev-cloud/lang/html-css/css-fondamental/module8.md",
+          "dev-cloud/lang/html-css/css-fondamental/module9.md",
+        ]},
+
+        {"CSS - Layout Moderne" = [
+          "dev-cloud/lang/html-css/layout-modern/module10.md",
+          "dev-cloud/lang/html-css/layout-modern/module11.md",
+        ]},
+
+        {"CSS - Responsive" = [
+          "dev-cloud/lang/html-css/responsive/module12.md",
+          "dev-cloud/lang/html-css/responsive/module13.md",
+          "dev-cloud/lang/html-css/responsive/module14.md",
+          "dev-cloud/lang/html-css/responsive/module15.md",
+        ]},
+
+        # "dev-cloud/lang/html-css/html-css.md",
+      ]},
+
+      {"JavaScript" = [
+        "dev-cloud/lang/javascript/index.md",
+        "dev-cloud/lang/javascript/javascript.md",
+      ]},
+
+      # {"Python" = [
+      #   "dev-cloud/lang/python/index.md",
+      #   {"Django"     = "dev-cloud/lang/python/django.md"},
+      #   {"Tinker"     = "dev-cloud/lang/python/tinker.md"},
+      #   {"Flask"      = "dev-cloud/lang/python/flask.md"},
+      # ]},
+
+      {"PHP" = [
+        "dev-cloud/lang/php/index.md",
+
+        {"Procédurale" = [
+          "dev-cloud/lang/php/procedurale/module1.md",
+          "dev-cloud/lang/php/procedurale/module2.md",
+          "dev-cloud/lang/php/procedurale/module3.md",
+          "dev-cloud/lang/php/procedurale/module4.md",
+          "dev-cloud/lang/php/procedurale/module5.md",
+          "dev-cloud/lang/php/procedurale/module6.md",
+          "dev-cloud/lang/php/procedurale/module7.md",
+        ]},
+
+        {"POO" = [
+          "dev-cloud/lang/php/poo/module8.md",
+          "dev-cloud/lang/php/poo/module9.md",
+          "dev-cloud/lang/php/poo/module10.md",
+          "dev-cloud/lang/php/poo/module11.md",
+          "dev-cloud/lang/php/poo/module12.md",
+          "dev-cloud/lang/php/poo/module13.md",
+          "dev-cloud/lang/php/poo/module14.md",
+          "dev-cloud/lang/php/poo/module15.md",
+          "dev-cloud/lang/php/poo/module16.md",
+        ]}
+      ]},
+
+    ]},
+
+    {"Frameworks & bibliothèques" = [
+
+      {"Laravel"                    = [
+        "dev-cloud/lang/laravel/index.md",
+          "dev-cloud/lang/laravel/module1.md",
+          "dev-cloud/lang/laravel/module2.md",
+          "dev-cloud/lang/laravel/module3.md",
+          "dev-cloud/lang/laravel/module4.md",
+          "dev-cloud/lang/laravel/module5.md",
+          "dev-cloud/lang/laravel/module6.md",
+          "dev-cloud/lang/laravel/module7.md",
+          "dev-cloud/lang/laravel/module8.md",
+          "dev-cloud/lang/laravel/module9.md",
+
+      ]},
 
       {"Alpine.js" = [
-        {"Présentation" = "dev-cloud/lang/alpine/alpine-demo.md"},
-        {"Fondamentaux" = "dev-cloud/lang/alpine/alpinejs-fondamentaux.md"},
-        {"Alpine.js"     = "dev-cloud/lang/alpine/chapitre/index.md"},
+
+        # {"Présentation" = "dev-cloud/lang/alpine/alpine-demo.md"},
+        # {"Fondamentaux" = "dev-cloud/lang/alpine/alpinejs-fondamentaux.md"},
+        
+        "dev-cloud/lang/alpine/chapitre/index.md",
+
         {"Chapitre 1"   = [
-          {"Leçon 1"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson1.md"},
-          {"Leçon 2"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson2.md"},
-          {"Leçon 3"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson3.md"},
-          {"Leçon 4"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson4.md"},
-          {"Leçon 5"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson5.md"},
-          {"Leçon 6"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson6.md"},
-          {"Leçon 7"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson7.md"},
-          {"Leçon 8"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson8.md"},
-          {"Leçon 9"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson9.md"},
+          {"Leçon 1"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson1.md"},
+          {"Leçon 2"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson2.md"},
+          {"Leçon 3"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson3.md"},
+          {"Leçon 4"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson4.md"},
+          {"Leçon 5"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson5.md"},
+          {"Leçon 6"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson6.md"},
+          {"Leçon 7"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson7.md"},
+          {"Leçon 8"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson8.md"},
+          {"Leçon 9"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson9.md"},
           {"Leçon 10"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson10.md"},
           {"Leçon 11"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson11.md"},
           {"Leçon 12"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson12.md"},
         ]},
+
         {"Chapitre 2"   = [
           {"Leçon 1"     = "dev-cloud/lang/alpine/chapitre/2/c2-lesson1.md"},
           {"Leçon 2"     = "dev-cloud/lang/alpine/chapitre/2/c2-lesson2.md"},
@@ -498,69 +601,41 @@ nav = [
         ]},
       ]},
 
-      "dev-cloud/lang/angular.md",
-      "dev-cloud/lang/node.md",
-
-      {"Python" = [
-        "dev-cloud/lang/python/index.md",
-        {"Django"     = "dev-cloud/lang/python/django.md"},              # Types, structures, fonctions
-        {"Tinker"     = "dev-cloud/lang/python/tinker.md"},                     # Décorateurs, générateurs, async
-        {"Flask"      = "dev-cloud/lang/python/flask.md"},                     # Décorateurs, générateurs, async
+      {"Livewire" = [
+        "dev-cloud/lang/livewire/index.md",
+        "dev-cloud/lang/livewire/module1.md",
+        "dev-cloud/lang/livewire/module2.md",
+        "dev-cloud/lang/livewire/module3.md",
+        "dev-cloud/lang/livewire/module4.md",
+        "dev-cloud/lang/livewire/module5.md",
+        "dev-cloud/lang/livewire/module6.md",
+        "dev-cloud/lang/livewire/module7.md",
+        "dev-cloud/lang/livewire/module8.md",
+        "dev-cloud/lang/livewire/module9.md",
+        "dev-cloud/lang/livewire/module10.md",
+        "dev-cloud/lang/livewire/module11.md",
+        "dev-cloud/lang/livewire/module12.md",
+        "dev-cloud/lang/livewire/module13.md",
+        "dev-cloud/lang/livewire/module14.md",
+        "dev-cloud/lang/livewire/module15.md",
       ]},
-
-      {"PHP" = [
-        "dev-cloud/lang/php/index.md",
-        {"📁 - Procédurale" = [
-          {"Module 1" = "dev-cloud/lang/php/module1.md" },
-          {"Module 2" = "dev-cloud/lang/php/module2.md" },
-          {"Module 3" = "dev-cloud/lang/php/module3.md" },
-          {"Module 4" = "dev-cloud/lang/php/module4.md" },
-          {"Module 5" = "dev-cloud/lang/php/module5.md" },
-          {"Module 6" = "dev-cloud/lang/php/module6.md" },
-          {"Module 7" = "dev-cloud/lang/php/module7.md" },
-        ]},
-        {"📁 - POO" = [
-          {"Module 8" = "dev-cloud/lang/php/module8.md"},
-          {"Module 9" = "dev-cloud/lang/php/module9.md"},
-          {"Module 10" = "dev-cloud/lang/php/module10.md"},
-          {"Module 11" = "dev-cloud/lang/php/module11.md"},
-          {"Module 12" = "dev-cloud/lang/php/module12.md"},
-          {"Module 13" = "dev-cloud/lang/php/module13.md"},
-          {"Module 14" = "dev-cloud/lang/php/module14.md"},
-          {"Module 15" = "dev-cloud/lang/php/module15.md"},
-          {"Module 16" = "dev-cloud/lang/php/module16.md"},
-        ]}  
-      ]},
-
-      {"Laravel"                    = [
-        {"Modules"                  = [
-          "dev-cloud/lang/laravel/modules/index.md",
-          {"Module 1"               = "dev-cloud/lang/laravel/modules/module1.md" },
-          {"Module 2"               = "dev-cloud/lang/laravel/modules/module2.md" },
-          {"Module 3"               = "dev-cloud/lang/laravel/modules/module3.md" },
-          {"Module 4"               = "dev-cloud/lang/laravel/modules/module4.md" },
-          {"Module 5"               = "dev-cloud/lang/laravel/modules/module5.md" },
-          {"Module 6"               = "dev-cloud/lang/laravel/modules/module6.md" },
-          {"Module 7"               = "dev-cloud/lang/laravel/modules/module7.md" },
-          {"Module 8"               = "dev-cloud/lang/laravel/modules/module8.md" },
-          {"Module 9"               = "dev-cloud/lang/laravel/modules/module9.md" },
-        ]},
-        "dev-cloud/lang/laravel/index.md",
-        {"Breeze"                   = "dev-cloud/lang/laravel/breeze.md"},
-        {"Jetstream"                = "dev-cloud/lang/laravel/jetstream.md"},
-        {"Sanctum"                  = "dev-cloud/lang/laravel/sanctum.md"}
-      ]},
-
-      "dev-cloud/lang/livewire-fondamentaux.md",
-      "dev-cloud/lang/go.md",
-        
-      #   {"Bash" = [
-      #     "dev-cloud/lang/bash/index.md",
-      #     {"Fondamentaux" = "dev-cloud/lang/bash/fondamentaux.md"},                # Scripts, variables, conditions
-      #     {"Avancé"       = "dev-cloud/lang/bash/avance.md"}                       # Regex, sed, awk
-      #   ]},
 
     ]},
+
+    {"Écosystèmes & modules" = [
+
+      {"Authentification Laravel" = [
+        {"Breeze"                   = "dev-cloud/lang/laravel/breeze.md"},
+        {"Jetstream"                = "dev-cloud/lang/laravel/jetstream.md"},
+        {"Sanctum"                  = "dev-cloud/lang/laravel/sanctum.md"},
+      ]}
+
+    ]},
+
+
+    # "dev-cloud/lang/angular.md",
+    # "dev-cloud/lang/node.md",
+    # "dev-cloud/lang/go.md",
 
     # -------------------------------------------------------------------------
     # Stacks technologiques
@@ -609,68 +684,97 @@ nav = [
 
     # -------------------------------------------------------------------------
     # Cloud Providers
-    # Services cloud AWS et Azure
+    # Présentation des principaux fournisseurs cloud et de leurs services
+    # fondamentaux pour l’hébergement, le calcul, le stockage et le serverless.
     # -------------------------------------------------------------------------
     # {"Cloud Providers" = [
     #   "dev-cloud/cloud/index.md",
-    #   {"AWS"   = "dev-cloud/cloud/aws/index.md"},                                # EC2, S3, Lambda, RDS
-    #   {"Azure" = "dev-cloud/cloud/azure/index.md"}                               # VMs, Blob Storage, Functions
+    #   {"AWS"   = "dev-cloud/cloud/aws/index.md"},      # EC2, S3, RDS, Lambda, IAM
+    #   {"Azure" = "dev-cloud/cloud/azure/index.md"}    # VMs, Blob Storage, Functions, Entra ID
     # ]},
 
     # -------------------------------------------------------------------------
     # Tests & Qualité
-    # Stratégies de test et assurance qualité logicielle
+    # Stratégies de test, assurance qualité logicielle et pratiques
+    # de validation du code dans un contexte applicatif moderne.
     # -------------------------------------------------------------------------
     {"Tests & Qualité" = [
       "dev-cloud/tests-qualite/index.md",
-      {"TDD vs BDD"                 = "dev-cloud/tests-qualite/tdd.md"},         # Test-Driven Development
-      {"pyramide des tests"         = "dev-cloud/tests-qualite/pyramide-tests.md"},  # Jest, PHPUnit, pytest
-      {"coverage"                   = "dev-cloud/tests-qualite/coverage.md"}, # Pact, Cypress, Playwright
-      {"frontend"                   = [
-        "dev-cloud/tests-qualite/frontend/jest.md",
-        "dev-cloud/tests-qualite/frontend/jasmine.md",
-        "dev-cloud/tests-qualite/frontend/vitest.md",
-        "dev-cloud/tests-qualite/frontend/cypress.md",
-      ]}, # Pact, Cypress, Playwright
-      {"backend"                   = [
-        "dev-cloud/tests-qualite/backend/phpunit.md",
-        "dev-cloud/tests-qualite/backend/pest.md",
-        "dev-cloud/tests-qualite/backend/pytest.md",
-        "dev-cloud/tests-qualite/backend/go-testing.md",
-      ]},
-      {"Sécurité"                   = [
-        "dev-cloud/tests-qualite/securite/sast.md",
-        "dev-cloud/tests-qualite/securite/dast.md",
-        "dev-cloud/tests-qualite/securite/fuzzing.md",
+
+      # -----------------------------------------------------------------------
+      # Fondations théoriques des tests
+      # Concepts indispensables pour comprendre pourquoi, quand
+      # et comment tester une application.
+      # -----------------------------------------------------------------------
+      {"Tests & Qualité" = [
+        {"TDD vs BDD"         = "dev-cloud/tests-qualite/tdd.md"},            # Approches de conception pilotée par les tests
+        {"Pyramide des tests" = "dev-cloud/tests-qualite/pyramide-tests.md"}, # Répartition unitaires / intégration / E2E
+        {"Coverage"           = "dev-cloud/tests-qualite/coverage.md"},       # Mesure de couverture et limites du métrique
       ]},
 
-      
-      {"Pest"                   = [
-        "dev-cloud/tests-qualite/pest/index.md",
-        "dev-cloud/tests-qualite/pest/module1.md",
-        "dev-cloud/tests-qualite/pest/module2.md",
-        "dev-cloud/tests-qualite/pest/module3.md",
-        "dev-cloud/tests-qualite/pest/module4.md",
-        "dev-cloud/tests-qualite/pest/module5.md",
-        "dev-cloud/tests-qualite/pest/module6.md",
-        "dev-cloud/tests-qualite/pest/module7.md",
-        "dev-cloud/tests-qualite/pest/module8.md",
-      ]}, 
+      # -----------------------------------------------------------------------
+      # Sécurité & Qualité avancée
+      # Techniques complémentaires visant à réduire le risque
+      # et détecter des vulnérabilités au-delà des tests fonctionnels.
+      # -----------------------------------------------------------------------
+      {"Sécurité & Qualité avancée" = [
+        {"SAST"    = "dev-cloud/tests-qualite/sast.md"},    # Analyse statique du code source
+        {"DAST"    = "dev-cloud/tests-qualite/dast.md"},    # Analyse dynamique d’une application en exécution
+        {"FUZZING" = "dev-cloud/tests-qualite/fuzzing.md"}, # Tests par entrées aléatoires et cas limites
+      ]},
 
-      
-      {"PHPUnit"                   = [
-        "dev-cloud/tests-qualite/phpunit/index.md",
-        "dev-cloud/tests-qualite/phpunit/module1.md",
-        "dev-cloud/tests-qualite/phpunit/module2.md",
-        "dev-cloud/tests-qualite/phpunit/module3.md",
-        "dev-cloud/tests-qualite/phpunit/module4.md",
-        "dev-cloud/tests-qualite/phpunit/module5.md",
-        "dev-cloud/tests-qualite/phpunit/module6.md",
-        "dev-cloud/tests-qualite/phpunit/module7.md",
-        "dev-cloud/tests-qualite/phpunit/module8.md",
-      ]},  
-    ]}
-    
+      # -----------------------------------------------------------------------
+      # Outils de tests PHP
+      # Tests côté backend, logique métier, services, API
+      # et composants Livewire dans l’écosystème Laravel.
+      # -----------------------------------------------------------------------
+      {"Outils de tests PHP" = [
+
+        {"PHPUnit" = [
+          "dev-cloud/tests-qualite/phpunit/index.md",   # Framework de test PHP de référence
+          "dev-cloud/tests-qualite/phpunit/module1.md",
+          "dev-cloud/tests-qualite/phpunit/module2.md",
+          "dev-cloud/tests-qualite/phpunit/module3.md",
+          "dev-cloud/tests-qualite/phpunit/module4.md",
+          "dev-cloud/tests-qualite/phpunit/module5.md",
+          "dev-cloud/tests-qualite/phpunit/module6.md",
+          "dev-cloud/tests-qualite/phpunit/module7.md",
+          "dev-cloud/tests-qualite/phpunit/module8.md",
+        ]},
+
+        {"Pest" = [
+          "dev-cloud/tests-qualite/pest/index.md",       # Surcouche expressive basée sur PHPUnit
+          "dev-cloud/tests-qualite/pest/module1.md",
+          "dev-cloud/tests-qualite/pest/module2.md",
+          "dev-cloud/tests-qualite/pest/module3.md",
+          "dev-cloud/tests-qualite/pest/module4.md",
+          "dev-cloud/tests-qualite/pest/module5.md",
+          "dev-cloud/tests-qualite/pest/module6.md",
+          "dev-cloud/tests-qualite/pest/module7.md",
+          "dev-cloud/tests-qualite/pest/module8.md",
+        ]},
+
+      ]},
+
+      # -----------------------------------------------------------------------
+      # Outils de tests Frontend & End-to-End
+      # Validation du comportement applicatif côté navigateur
+      # et des parcours utilisateur complets.
+      # -----------------------------------------------------------------------
+      {"Outils de tests Front & E2E" = [
+
+        {"Vitest" = [
+          "dev-cloud/tests-qualite/vitest/vitest.md",   # Tests JavaScript rapides (logique frontend ciblée)
+        ]},
+
+        {"Cypress" = [
+          "dev-cloud/tests-qualite/cypress/cypress.md", # Tests E2E basés sur des scénarios utilisateur
+        ]},
+
+      ]},
+
+    ]},
+
   ]},
 
   # ===========================================================================
@@ -1259,21 +1363,21 @@ nav = [
 
     {"Lab Authentification"             = [
       {"Laravel - Breeze"    = [
-        "dev-cloud/lang/laravel/project-breeze/index.md",
-        {"1. Install & Config"    = "dev-cloud/lang/laravel/project-breeze/phase1.md"},
-        {"2. BDD & Eloquent"      = "dev-cloud/lang/laravel/project-breeze/phase2.md"},
-        {"3. Seeders/Datatest"    = "dev-cloud/lang/laravel/project-breeze/phase3.md"},
-        {"4. Contrôleurs"         = "dev-cloud/lang/laravel/project-breeze/phase4.md"},
-        {"5. Routes & Orga."      = "dev-cloud/lang/laravel/project-breeze/phase5.md"},
-        {"6. Vue Blade"           = "dev-cloud/lang/laravel/project-breeze/phase6.md"},
-        {"7. Tests, Opti"         = "dev-cloud/lang/laravel/project-breeze/phase7.md"},
-        {"Conclusion"             = "dev-cloud/lang/laravel/project-breeze/conclusion.md"}
+        "dev-cloud/lang/laravel/projects/project-breeze/index.md",
+        {"1. Install & Config"    = "dev-cloud/lang/laravel/projects/project-breeze/phase1.md"},
+        {"2. BDD & Eloquent"      = "dev-cloud/lang/laravel/projects/project-breeze/phase2.md"},
+        {"3. Seeders/Datatest"    = "dev-cloud/lang/laravel/projects/project-breeze/phase3.md"},
+        {"4. Contrôleurs"         = "dev-cloud/lang/laravel/projects/project-breeze/phase4.md"},
+        {"5. Routes & Orga."      = "dev-cloud/lang/laravel/projects/project-breeze/phase5.md"},
+        {"6. Vue Blade"           = "dev-cloud/lang/laravel/projects/project-breeze/phase6.md"},
+        {"7. Tests, Opti"         = "dev-cloud/lang/laravel/projects/project-breeze/phase7.md"},
+        {"Conclusion"             = "dev-cloud/lang/laravel/projects/project-breeze/conclusion.md"}
       ]},
       {"Laravel - Jetstream" = [
-        "dev-cloud/lang/laravel/project-jetstream/index.md",
+        "dev-cloud/lang/laravel/projects/project-jetstream/index.md",
       ]},
       {"Laravel - Sanctum" = [
-        "dev-cloud/lang/laravel/project-sanctum/index.md",
+        "dev-cloud/lang/laravel/projects/project-sanctum/index.md",
       ]}
     ]},
   ]}

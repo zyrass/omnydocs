@@ -1,39 +1,47 @@
-/* ============================================================================
-   OMNYDOCS - STYLES PERSONNALISÉS
-   ============================================================================
-   Documentation technique professionnelle pour la cybersécurité
-   Auteur : Alain GUILLON (Zyrass)
-   Version : 2.0
-   ============================================================================ */
+/** 
+  * ============================================================================
+  *   OMNYDOCS - STYLES PERSONNALISÉS
+  * ============================================================================
+  *   Documentation technique professionnelle pour la cybersécurité
+  *   Auteur : Alain GUILLON (Zyrass)
+  *   Version : 2.1
+  * ============================================================================
+  */
 
-/* ============================================================================
-   TABLE DES MATIÈRES
-   ============================================================================
-   1. Configuration globale
-   2. Layout et largeurs
-   3. Navigation
-   4. Typographie
-   5. Palette de couleurs (clair/sombre)
-   6. Blocs de code et syntaxe
-   7. Métadonnées d'article
-   8. Grid Cards
-   9. Tableaux
-   ============================================================================ */
+/**
+ * ============================================================================
+ *  TABLE DES MATIÈRES
+ * ============================================================================
+ *    1. Configuration globale
+ *    2. Layout et largeurs
+ *    3. Navigation
+ *    4. Typographie
+ *    5. Palette de couleurs (clair/sombre)
+ *    6. Blocs de code et syntaxe
+ *    7. Métadonnées d'article
+ *    8. Grid Cards
+ *    9. Tableaux
+ * ============================================================================
+ */
 
-/* ============================================================================
-   1. CONFIGURATION GLOBALE
-   ============================================================================ */
+/** 
+  * ============================================================================
+  *   1. CONFIGURATION GLOBALE
+  * ============================================================================
+  */
 
 :root {
   /* Comportement de défilement fluide pour l'ancrage */
   scroll-behavior: smooth;
 }
 
-/* ============================================================================
-   2. LAYOUT ET LARGEURS
-   ============================================================================
-   Layout en pleine largeur avec sidebars optimisées et contenu central lisible
-   ============================================================================ */
+/** 
+   * ============================================================================
+   *  2. LAYOUT ET LARGEURS
+   * ============================================================================
+   *  Layout en pleine largeur avec sidebars optimisées et contenu central lisible
+   * ============================================================================
+   */
 
 /* Conteneur principal - pleine largeur de l'écran */
 .md-grid {
@@ -42,12 +50,18 @@
 }
 
 /* Sidebar primaire (gauche) - Navigation principale */
-.md-sidebar--primary {
-  width: 14rem; /* ~320px - largeur confortable pour navigation */
-}
+
+/* .md-sidebar--primary { */
+/* width: 14rem; ~320px - largeur confortable pour navigation */
+/* } */
 
 .md-sidebar--primary .md-sidebar__scrollwrap {
   padding-right: 1.5rem; /* Gap entre sidebar et contenu */
+}
+
+/* Sidebar secondaire (droite) - Table des matières */
+.md-sidebar--secondary {
+  width: 18rem; /* ~272px - légèrement plus large */
 }
 
 /* Sidebar secondaire (droite) - Table des matières */
@@ -85,19 +99,19 @@
 }
 
 /* Sur écrans moyens (tablettes, petits laptops) */
-@media screen and (max-width: 76.1875em) {
-  .md-sidebar--primary {
-    width: 16rem; /* ~256px */
-  }
+/* @media screen and (max-width: 76.1875em) {
+    .md-sidebar--primary {
+      width: 16rem; /* ~256px */
+/* } */
 
-  .md-sidebar--secondary {
-    width: 14rem; /* ~224px */
-  }
-
-  .md-content__inner {
-    max-width: 48rem; /* Réduction proportionnelle */
-  }
+.md-sidebar--secondary {
+  width: 14rem; /* ~224px */
 }
+
+.md-content__inner {
+  max-width: 48rem; /* Réduction proportionnelle */
+}
+/* } */
 
 /* Sur petits écrans (mobile) */
 @media screen and (max-width: 60em) {
@@ -111,11 +125,13 @@
   }
 }
 
-/* ============================================================================
-     3. NAVIGATION
-     ============================================================================
-     Styles pour la sidebar gauche et les éléments de navigation
-     ============================================================================ */
+/** 
+    * ============================================================================
+    *   3. NAVIGATION
+    * ============================================================================
+    *   Styles pour la sidebar gauche et les éléments de navigation
+    * ============================================================================
+    */
 
 /* Item de navigation actif et imbriqué - mise en évidence */
 .md-nav__item--active.md-nav__item--nested > .md-nav__link,
@@ -138,30 +154,31 @@
   padding: 8px;
 }
 
-/* ============================================================================
-   3.1 TABLE DES MATIÈRES (Sidebar droite)
-   ============================================================================
-   Amélioration de la hiérarchie, lisibilité et utilisation de l'espace
-   ============================================================================ */
+/**
+   * ============================================================================
+   *  3.1 TABLE DES MATIÈRES (Sidebar droite)
+   * ============================================================================
+   *  Amélioration de la hiérarchie, lisibilité et utilisation de l'espace
+   * ============================================================================
+   */
 
 /* --- FIX : Désactivation du padding forcé par Zensical --- */
 
 /* Le code natif de Zensical force un padding-right calculé qui casse le layout.
-   On le force à 0 pour laisser notre layout custom gérer les espacements. */
-   @supports selector(::-webkit-scrollbar) {
-    [dir=ltr] .md-sidebar__inner {
-      padding-right: 0 !important; /* Override du padding forcé */
-    }
-    
-    [dir=rtl] .md-sidebar__inner {
-      padding-left: 0 !important; /* Pour les layouts RTL (arabe, hébreu) */
-    }
+     On le force à 0 pour laisser notre layout custom gérer les espacements. */
+@supports selector(::-webkit-scrollbar) {
+  [dir="ltr"] .md-sidebar__inner {
+    padding-right: 0 !important; /* Override du padding forcé */
   }
 
-  
-  .md-sidebar--secondary .md-sidebar__inner {
-    padding-right: 1rem; /* Petit espace pour la scrollbar */
+  [dir="rtl"] .md-sidebar__inner {
+    padding-left: 0 !important; /* Pour les layouts RTL (arabe, hébreu) */
   }
+}
+
+.md-sidebar--secondary .md-sidebar__inner {
+  padding-right: 1rem; /* Petit espace pour la scrollbar */
+}
 
 /* Titre "Table des matières" */
 .md-sidebar--secondary
@@ -176,12 +193,9 @@
   text-align: center;
 }
 
-.md-sidebar--secondary
-  .md-sidebar__scrollwrap
-  > .md-sidebar__inner
-  > .md-nav {
-    margin: 0 auto;
-  }
+.md-sidebar--secondary .md-sidebar__scrollwrap > .md-sidebar__inner > .md-nav {
+  margin: 0 auto;
+}
 
 /* Liste principale de la TOC */
 .md-nav--secondary .md-nav__list {
@@ -245,7 +259,6 @@
   font-weight: 400;
   padding: 0.25rem 0.5rem;
   padding-left: 1.2rem; /* Triple indentation */
-  color: var(--md-primary-fg-color--lighter);
 }
 
 /* Niveau 4 (h5) - rarement utilisé mais au cas où */
@@ -336,11 +349,13 @@
   border-left-color: rgba(129, 212, 250, 1);
 }
 
-/* ============================================================================
-     4. TYPOGRAPHIE
-     ============================================================================
-     Ajustements de taille pour une meilleure densité et lisibilité
-     ============================================================================ */
+/** 
+    * ============================================================================
+    *   4. TYPOGRAPHIE
+    * ============================================================================
+    *   Ajustements de taille pour une meilleure densité et lisibilité
+    * ============================================================================
+    */
 
 /* Corps de texte principal - taille optimisée */
 .md-typeset {
@@ -384,15 +399,6 @@
   margin-top: 1rem;
 }
 
-/* --- Citations (blockquotes) --- */
-
-.md-typeset blockquote {
-  font-size: 0.66rem; /* 14px - distingue visuellement du corps */
-  line-height: 1.4;
-  font-style: italic; /* Italique pour différenciation */
-  padding: 0 1.2rem;
-}
-
 /* --- Listes (ul/ol) --- */
 
 .md-typeset ul,
@@ -405,22 +411,6 @@
   margin: 0.4rem 0; /* Espacement entre items */
 }
 
-/* --- Emphases textuelles --- */
-
-.md-typeset strong {
-  font-weight: 700; /* Gras prononcé */
-}
-
-.md-typeset em {
-  font-style: italic; /* Italique standard */
-}
-
-/* --- Code inline --- */
-.md-typeset code {
-  font-size: 0.82rem; /* ~13px - légèrement plus petit que le texte */
-  padding: 0.15rem 0.4rem; /* Espacement interne pour lisibilité */
-}
-
 /* --- Admonitions (notes, warnings, etc.) --- */
 .md-typeset .admonition {
   font-size: 0.66rem; /* Légèrement réduit */
@@ -431,15 +421,17 @@
   font-weight: 400;
 }
 
-/* ============================================================================
-     5. PALETTE DE COULEURS (CLAIR/SOMBRE)
-     ============================================================================
-     Palette dérivée d'OmnyVia / OmnyDocs
-     - Lilas principal : #f3a5ff
-     - Cyan accent     : #4fd4ff
-     - Fond sombre     : #111827
-     - Fond clair      : #f5f5fa
-     ============================================================================ */
+/**
+   * ============================================================================
+   *  5. PALETTE DE COULEURS (CLAIR/SOMBRE)
+   * ============================================================================
+   *  Palette dérivée d'OmnyVia / OmnyDocs
+   *    - Lilas principal : #f3a5ff
+   *    - Cyan accent     : #4fd4ff
+   *    - Fond sombre     : #111827
+   *    - Fond clair      : #f5f5fa
+   * ============================================================================
+   */
 
 /* --- THÈME CLAIR (default) --- */
 
@@ -502,11 +494,13 @@
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45); /* Ombre marquée */
 }
 
-/* ============================================================================
-     6. BLOCS DE CODE ET SYNTAXE
-     ============================================================================
-     Styles harmonisés pour tous les thèmes
-     ============================================================================ */
+/**
+    * ============================================================================
+    *   6. BLOCS DE CODE ET SYNTAXE
+    * ============================================================================
+    *   Styles harmonisés pour tous les thèmes
+    * ============================================================================
+    */
 
 .md-typeset pre code {
   font-size: 0.69rem; /* ~11px - compact mais lisible */
@@ -514,20 +508,22 @@
   padding: 1.1rem 1.2rem; /* Padding généreux pour aération */
 }
 
-/* ============================================================================
-     7. MÉTADONNÉES D'ARTICLE
-     ============================================================================
-     Bloc custom affichant version, niveau, temps de lecture
-     Structure :
-     <div class="metadata">
-       <span class="metadata__version">v1.0</span>
-       <span class="metadata__niveau">Intermédiaire & Avancé</span>
-       <div class="metadata__duree">
-         <span class="metadata__duree-text">Temps de lecture estimé :</span>
-         <span class="metadata__duree-time">35-40 minutes</span>
-       </div>
-     </div>
-     ============================================================================ */
+/** ============================================================================
+   *    7. MÉTADONNÉES D'ARTICLE
+   *  ============================================================================
+   *    Bloc custom affichant version, niveau, temps de lecture. La structure :
+   *
+   *    <div class="metadata">
+   *      <span class="metadata__version">v1.0</span>
+   *      <span class="metadata__niveau">Intermédiaire & Avancé</span>
+   *      <div class="metadata__duree">
+   *        <span class="metadata__duree-text">Temps de lecture estimé :</span>
+   *        <span class="metadata__duree-time">35-40 minutes</span>
+   *      </div>
+   *    </div>
+   *
+   *  ============================================================================ 
+   */
 
 /* Variables CSS pour les métadonnées */
 .md-typeset {
@@ -612,7 +608,7 @@
 @media (max-width: 768px) {
   .md-typeset .metadata {
     flex-direction: column; /* Empilement vertical */
-    align-items: flex-start; /* Alignement à gauche */
+    align-items: center; /* Alignement au centre */
     gap: 0.4rem;
     padding-top: 1.2rem; /* Espace supplémentaire pour le badge version */
   }
@@ -622,12 +618,14 @@
   }
 }
 
-/* ============================================================================
-     8. GRID CARDS
-     ============================================================================
-     Amélioration du contraste et de la visibilité des cards en grille
-     Utilisé pour afficher des liens de navigation (ex: piliers de la GRC)
-     ============================================================================ */
+/**
+   * ============================================================================
+   *  8. GRID CARDS
+   * ============================================================================
+   *  Amélioration du contraste et de la visibilité des cards en grille
+   *  Utilisé pour afficher des liens de navigation (ex: piliers de la GRC)
+   * ============================================================================
+   */
 
 /* --- MODE CLAIR --- */
 
@@ -703,12 +701,14 @@
   font-weight: 700; /* Mais reste en gras */
 }
 
-/* ============================================================================
-     9. TABLEAUX
-     ============================================================================
-     Amélioration du contraste, lisibilité et esthétique des tableaux
-     Cible uniquement les tableaux markdown standards (sans classe custom)
-     ============================================================================ */
+/**
+   * ============================================================================
+   *  9. TABLEAUX
+   * ============================================================================
+   *  Amélioration du contraste, lisibilité et esthétique des tableaux
+   *  Cible uniquement les tableaux markdown standards (sans classe custom)
+   * ============================================================================
+   */
 
 /* --- MODE CLAIR --- */
 
@@ -822,17 +822,21 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ============================================================================
-     BORDERS DE CELLULES (commun aux deux thèmes)
-     ============================================================================
-     Override de la border par défaut pour cohérence visuelle
-     ============================================================================ */
+/**
+   * ============================================================================
+   *  BORDERS DE CELLULES (commun aux deux thèmes)
+   * ============================================================================
+   *  Override de la border par défaut pour cohérence visuelle
+   * ============================================================================
+   */
 
 th,
 td {
   border: 0.025rem solid var(--md-typeset-table-color);
 }
 
-/* ============================================================================
-     FIN DU FICHIER
-     ============================================================================ */
+/** 
+   * ============================================================================
+   *  FIN DU FICHIER
+   * ============================================================================
+   */

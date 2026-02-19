@@ -1,6 +1,5 @@
 ---
 description: "Fondations techniques essentielles pour tout professionnel de l'informatique"
-icon: lucide/rocket
 ---
 
 # Fontamentaux IT

@@ -1,6 +1,5 @@
 ---
 description: "Gouvernance, Risk & Compliance : pilotage stratégique de la cybersécurité"
-icon: lucide/shield-check
 tags: ["GRC", "GOUVERNANCE", "CONFORMITÉ", "RISQUES", "SMSI"]
 ---
 

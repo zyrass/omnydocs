@@ -1,6 +1,5 @@
 ---
 description: "Laboratoire d'expertise technique et plateforme pédagogique francophone"
-icon: lucide/house
 ---
 
 ![Image title](../assets/images/home/double-logo-dark.svg#only-light)

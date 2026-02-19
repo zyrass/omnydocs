@@ -23,23 +23,27 @@
     # Linux
     # Administration système Linux, services, sécurité hôte
     # -------------------------------------------------------------------------
-    {"Linux" = [
+    {"Linux"                        = [
       "sys-reseau/linux/index.md",
-      # {"Administration"       = "sys-reseau/linux/admin.md"},                          # Gestion utilisateurs, permissions, cron
-      # {"Services & Daemons"   = "sys-reseau/linux/services-daemons.md"},               # systemd, services, logs
+      {"Bash"                       = "sys-reseau/linux/bash.md"},
+      # {"Administration"           = "sys-reseau/linux/admin.md"},                          # Gestion utilisateurs, permissions, cron
+      # {"Services & Daemons"       = "sys-reseau/linux/services-daemons.md"},               # systemd, services, logs
       
       # -----------------------------------------------------------------------
       # Sécurité hôte Linux
       # Outils de durcissement et de détection d'intrusion au niveau système
       # -----------------------------------------------------------------------
-      {"Sécurité (host)"      = [
+      {"Sécurité (host)"            = [
         "sys-reseau/linux/security/index.md",
-        # {"fail2ban"           = "sys-reseau/linux/security/fail2ban.md"},             # Protection contre bruteforce
-        # {"ufw"                = "sys-reseau/linux/security/ufw.md"},                  # Uncomplicated Firewall
-        # {"ClamAV"             = "sys-reseau/linux/security/clamav.md"},               # Antivirus open-source
-        # {"Lynis"              = "sys-reseau/linux/security/lynis.md"},                # Audit de sécurité système
-        # {"Chkrootkit"         = "sys-reseau/linux/security/chkrootkit.md"}            # Détection de rootkits
+        {"Lynis"                    = "sys-reseau/linux/security/lynis.md"},                # Audit de sécurité système
+        {"ufw"                      = "sys-reseau/linux/security/ufw.md"},                  # Uncomplicated Firewall
+        {"fail2ban"                 = "sys-reseau/linux/security/fail2ban.md"},             # Protection contre bruteforce
+        {"Vuls"                     = "sys-reseau/linux/security/vuls.md"},
+        {"ClamAV"                   = "sys-reseau/linux/security/clamav.md"},               # Antivirus open-source
+        {"Linux Malware Detect"     = "sys-reseau/linux/security/linux_malware_detect.md"},
+        {"Chkrootkit"               = "sys-reseau/linux/security/chkrootkit.md"},           # Détection de rootkits
       ]}
+      
     ]},
 
     # -------------------------------------------------------------------------
@@ -48,6 +52,7 @@
     # -------------------------------------------------------------------------
     {"Windows" = [
       "sys-reseau/windows/index.md",
+      {"Powershell" = "sys-reseau/windows/powershell.md"},
       # {"AD & GPO"     = "sys-reseau/windows/ad-gpo.md"},                            # Active Directory, Group Policy Objects
       # {"Durcissement" = "sys-reseau/windows/hardening.md"}                          # Sécurisation Windows Server
     ]},
@@ -65,10 +70,10 @@
       # -----------------------------------------------------------------------
       {"Outils & Analyse" = [
         "sys-reseau/network/outils/index.md",
+        {"nslookup" = "sys-reseau/network/outils/nslookup.md"},                    # Requêtes DNS
+        {"netstat"  = "sys-reseau/network/outils/netstat.md"},                     # Statistiques réseau
         # {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},                     # Capture de paquets CLI
-        # {"netstat"  = "sys-reseau/network/outils/netstat.md"},                     # Statistiques réseau
         # {"scapy"    = "sys-reseau/network/outils/scapy.md"},                       # Manipulation de paquets Python
-        # {"nslookup" = "sys-reseau/network/outils/nslookup.md"}                     # Requêtes DNS
       ]},
       
       # -----------------------------------------------------------------------
@@ -77,11 +82,11 @@
       # -----------------------------------------------------------------------
       {"Services réseau" = [
         "sys-reseau/network/services/index.md",
-        # {"SSH"         = "sys-reseau/network/services/ssh.md"},                    # Secure Shell (accès distant)
+        {"DNS"         = "sys-reseau/network/services/dns.md"},                    # Domain Name System (BIND)
+        {"SSH"         = "sys-reseau/network/services/ssh.md"},                    # Secure Shell (accès distant)
         # {"FTP"         = "sys-reseau/network/services/ftp.md"},                    # File Transfer Protocol
-        # {"DNS"         = "sys-reseau/network/services/dns.md"},                    # Domain Name System (BIND)
         # {"Samba"       = "sys-reseau/network/services/samba.md"},                  # Partage de fichiers SMB/CIFS
-        # {"LDAP & PAM"  = "sys-reseau/network/services/ldap-pam.md"}                # Annuaire et authentification
+        # {"LDAP & PAM"  = "sys-reseau/network/services/ldap-pam.md"},               # Annuaire et authentification
       ]},
 
       # -----------------------------------------------------------------------
@@ -103,8 +108,8 @@
     # -------------------------------------------------------------------------
     {"Virtualisation (Hyperviseurs)" = [
       "sys-reseau/virtualisation/index.md",
-      {"Panorama Virtualisation"  = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},  # Types 1/2, comparatif
-      {"QEMU - (Émulateur)"       = "sys-reseau/virtualisation/qemu.md"},             # Émulateur et virtualisation
+      # {"Panorama Virtualisation"  = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},  # Types 1/2, comparatif
+      # {"QEMU - (Émulateur)"       = "sys-reseau/virtualisation/qemu.md"},             # Émulateur et virtualisation
       # {"KVM / Proxmox"            = "sys-reseau/virtualisation/kvm-proxmox.md"},            # Hyperviseur type 1
       # {"OLD"       = "sys-reseau/virtualisation/old.md"},             # Émulateur et virtualisation
     ]},

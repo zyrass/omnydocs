@@ -3,7 +3,7 @@
   # ===========================================================================
   # Développement d'applications modernes, architectures cloud-native,
   # bases de données et méthodologies de tests.
-  # 
+  #
   # Contenu :
   # - Langages de programmation (Python, JavaScript/TypeScript, PHP, Go, Bash)
   # - Frameworks (Angular, Laravel) et stacks (MEAN, TALL)
@@ -11,7 +11,7 @@
   # - Bases de données (SQL, NoSQL, GraphQL)
   # - Cloud providers (AWS, Azure)
   # - Tests et qualité (TDD, tests unitaires/intégration/E2E)
-  # 
+  #
   # PUBLIC CIBLE : Développeurs, Architectes logiciels, DevOps
   # ===========================================================================
 
@@ -23,28 +23,126 @@
     # Langages de programmation
     # Fondamentaux et concepts avancés pour chaque langage
     # -------------------------------------------------------------------------
-    {"Langages" = [
-      "dev-cloud/lang/html-css.md",
-      "dev-cloud/lang/javascript.md",
+    {"Langages & standards" = [
+      "dev-cloud/lang/index.md",
+
+      # {"Bash" = [
+      #   "dev-cloud/lang/bash/index.md",
+      #   {"Fondamentaux" = "dev-cloud/lang/bash/fondamentaux.md"},                # Scripts, variables, conditions
+      #   {"Avancé"       = "dev-cloud/lang/bash/avance.md"}                       # Regex, sed, awk
+      # ]},
+
+      {"HTML5 & CSS3" = [
+        "dev-cloud/lang/html-css/index.md",
+
+        {"HTML - Fondamentaux" = [
+          "dev-cloud/lang/html-css/html-fondamental/module1.md",
+          "dev-cloud/lang/html-css/html-fondamental/module2.md",
+          "dev-cloud/lang/html-css/html-fondamental/module3.md",
+          "dev-cloud/lang/html-css/html-fondamental/module4.md",
+          "dev-cloud/lang/html-css/html-fondamental/module5.md",
+          "dev-cloud/lang/html-css/html-fondamental/module6.md",
+        ]},
+
+        {"CSS - Fondamentaux" = [
+          "dev-cloud/lang/html-css/css-fondamental/module7.md",
+          "dev-cloud/lang/html-css/css-fondamental/module8.md",
+          "dev-cloud/lang/html-css/css-fondamental/module9.md",
+        ]},
+
+        {"CSS - Layout Moderne" = [
+          "dev-cloud/lang/html-css/layout-modern/module10.md",
+          "dev-cloud/lang/html-css/layout-modern/module11.md",
+        ]},
+
+        {"CSS - Responsive" = [
+          "dev-cloud/lang/html-css/responsive/module12.md",
+          "dev-cloud/lang/html-css/responsive/module13.md",
+          "dev-cloud/lang/html-css/responsive/module14.md",
+          "dev-cloud/lang/html-css/responsive/module15.md",
+        ]},
+
+        # "dev-cloud/lang/html-css/html-css.md",
+      ]},
+
+      {"JavaScript" = [
+        "dev-cloud/lang/javascript/index.md",
+        "dev-cloud/lang/javascript/javascript.md",
+      ]},
+
+      # {"Python" = [
+      #   "dev-cloud/lang/python/index.md",
+      #   {"Django"     = "dev-cloud/lang/python/django.md"},
+      #   {"Tinker"     = "dev-cloud/lang/python/tinker.md"},
+      #   {"Flask"      = "dev-cloud/lang/python/flask.md"},
+      # ]},
+
+      {"PHP" = [
+        "dev-cloud/lang/php/index.md",
+
+        {"Procédurale" = [
+          "dev-cloud/lang/php/procedurale/module1.md",
+          "dev-cloud/lang/php/procedurale/module2.md",
+          "dev-cloud/lang/php/procedurale/module3.md",
+          "dev-cloud/lang/php/procedurale/module4.md",
+          "dev-cloud/lang/php/procedurale/module5.md",
+          "dev-cloud/lang/php/procedurale/module6.md",
+          "dev-cloud/lang/php/procedurale/module7.md",
+        ]},
+
+        {"POO" = [
+          "dev-cloud/lang/php/poo/module8.md",
+          "dev-cloud/lang/php/poo/module9.md",
+          "dev-cloud/lang/php/poo/module10.md",
+          "dev-cloud/lang/php/poo/module11.md",
+          "dev-cloud/lang/php/poo/module12.md",
+          "dev-cloud/lang/php/poo/module13.md",
+          "dev-cloud/lang/php/poo/module14.md",
+          "dev-cloud/lang/php/poo/module15.md",
+          "dev-cloud/lang/php/poo/module16.md",
+        ]}
+      ]},
+
+    ]},
+
+    {"Frameworks & bibliothèques" = [
+
+      {"Laravel"                    = [
+        "dev-cloud/lang/laravel/index.md",
+          "dev-cloud/lang/laravel/module1.md",
+          "dev-cloud/lang/laravel/module2.md",
+          "dev-cloud/lang/laravel/module3.md",
+          "dev-cloud/lang/laravel/module4.md",
+          "dev-cloud/lang/laravel/module5.md",
+          "dev-cloud/lang/laravel/module6.md",
+          "dev-cloud/lang/laravel/module7.md",
+          "dev-cloud/lang/laravel/module8.md",
+          "dev-cloud/lang/laravel/module9.md",
+
+      ]},
 
       {"Alpine.js" = [
-        {"Présentation" = "dev-cloud/lang/alpine/alpine-demo.md"},
-        {"Fondamentaux" = "dev-cloud/lang/alpine/alpinejs-fondamentaux.md"},
-        {"Alpine.js"     = "dev-cloud/lang/alpine/chapitre/index.md"},
+
+        # {"Présentation" = "dev-cloud/lang/alpine/alpine-demo.md"},
+        # {"Fondamentaux" = "dev-cloud/lang/alpine/alpinejs-fondamentaux.md"},
+        
+        "dev-cloud/lang/alpine/chapitre/index.md",
+
         {"Chapitre 1"   = [
-          {"Leçon 1"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson1.md"},
-          {"Leçon 2"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson2.md"},
-          {"Leçon 3"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson3.md"},
-          {"Leçon 4"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson4.md"},
-          {"Leçon 5"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson5.md"},
-          {"Leçon 6"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson6.md"},
-          {"Leçon 7"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson7.md"},
-          {"Leçon 8"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson8.md"},
-          {"Leçon 9"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson9.md"},
+          {"Leçon 1"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson1.md"},
+          {"Leçon 2"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson2.md"},
+          {"Leçon 3"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson3.md"},
+          {"Leçon 4"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson4.md"},
+          {"Leçon 5"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson5.md"},
+          {"Leçon 6"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson6.md"},
+          {"Leçon 7"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson7.md"},
+          {"Leçon 8"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson8.md"},
+          {"Leçon 9"      = "dev-cloud/lang/alpine/chapitre/1/c1-lesson9.md"},
           {"Leçon 10"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson10.md"},
           {"Leçon 11"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson11.md"},
           {"Leçon 12"     = "dev-cloud/lang/alpine/chapitre/1/c1-lesson12.md"},
         ]},
+
         {"Chapitre 2"   = [
           {"Leçon 1"     = "dev-cloud/lang/alpine/chapitre/2/c2-lesson1.md"},
           {"Leçon 2"     = "dev-cloud/lang/alpine/chapitre/2/c2-lesson2.md"},
@@ -121,69 +219,41 @@
         ]},
       ]},
 
-      "dev-cloud/lang/angular.md",
-      "dev-cloud/lang/node.md",
-
-      {"Python" = [
-        "dev-cloud/lang/python/index.md",
-        {"Django"     = "dev-cloud/lang/python/django.md"},              # Types, structures, fonctions
-        {"Tinker"     = "dev-cloud/lang/python/tinker.md"},                     # Décorateurs, générateurs, async
-        {"Flask"      = "dev-cloud/lang/python/flask.md"},                     # Décorateurs, générateurs, async
+      {"Livewire" = [
+        "dev-cloud/lang/livewire/index.md",
+        "dev-cloud/lang/livewire/module1.md",
+        "dev-cloud/lang/livewire/module2.md",
+        "dev-cloud/lang/livewire/module3.md",
+        "dev-cloud/lang/livewire/module4.md",
+        "dev-cloud/lang/livewire/module5.md",
+        "dev-cloud/lang/livewire/module6.md",
+        "dev-cloud/lang/livewire/module7.md",
+        "dev-cloud/lang/livewire/module8.md",
+        "dev-cloud/lang/livewire/module9.md",
+        "dev-cloud/lang/livewire/module10.md",
+        "dev-cloud/lang/livewire/module11.md",
+        "dev-cloud/lang/livewire/module12.md",
+        "dev-cloud/lang/livewire/module13.md",
+        "dev-cloud/lang/livewire/module14.md",
+        "dev-cloud/lang/livewire/module15.md",
       ]},
-
-      {"PHP" = [
-        "dev-cloud/lang/php/index.md",
-        {"📁 - Procédurale" = [
-          {"Module 1" = "dev-cloud/lang/php/module1.md" },
-          {"Module 2" = "dev-cloud/lang/php/module2.md" },
-          {"Module 3" = "dev-cloud/lang/php/module3.md" },
-          {"Module 4" = "dev-cloud/lang/php/module4.md" },
-          {"Module 5" = "dev-cloud/lang/php/module5.md" },
-          {"Module 6" = "dev-cloud/lang/php/module6.md" },
-          {"Module 7" = "dev-cloud/lang/php/module7.md" },
-        ]},
-        {"📁 - POO" = [
-          {"Module 8" = "dev-cloud/lang/php/module8.md"},
-          {"Module 9" = "dev-cloud/lang/php/module9.md"},
-          {"Module 10" = "dev-cloud/lang/php/module10.md"},
-          {"Module 11" = "dev-cloud/lang/php/module11.md"},
-          {"Module 12" = "dev-cloud/lang/php/module12.md"},
-          {"Module 13" = "dev-cloud/lang/php/module13.md"},
-          {"Module 14" = "dev-cloud/lang/php/module14.md"},
-          {"Module 15" = "dev-cloud/lang/php/module15.md"},
-          {"Module 16" = "dev-cloud/lang/php/module16.md"},
-        ]}  
-      ]},
-
-      {"Laravel"                    = [
-        {"Modules"                  = [
-          "dev-cloud/lang/laravel/modules/index.md",
-          {"Module 1"               = "dev-cloud/lang/laravel/modules/module1.md" },
-          {"Module 2"               = "dev-cloud/lang/laravel/modules/module2.md" },
-          {"Module 3"               = "dev-cloud/lang/laravel/modules/module3.md" },
-          {"Module 4"               = "dev-cloud/lang/laravel/modules/module4.md" },
-          {"Module 5"               = "dev-cloud/lang/laravel/modules/module5.md" },
-          {"Module 6"               = "dev-cloud/lang/laravel/modules/module6.md" },
-          {"Module 7"               = "dev-cloud/lang/laravel/modules/module7.md" },
-          {"Module 8"               = "dev-cloud/lang/laravel/modules/module8.md" },
-          {"Module 9"               = "dev-cloud/lang/laravel/modules/module9.md" },
-        ]},
-        "dev-cloud/lang/laravel/index.md",
-        {"Breeze"                   = "dev-cloud/lang/laravel/breeze.md"},
-        {"Jetstream"                = "dev-cloud/lang/laravel/jetstream.md"},
-        {"Sanctum"                  = "dev-cloud/lang/laravel/sanctum.md"}
-      ]},
-
-      "dev-cloud/lang/livewire-fondamentaux.md",
-      "dev-cloud/lang/go.md",
-        
-      #   {"Bash" = [
-      #     "dev-cloud/lang/bash/index.md",
-      #     {"Fondamentaux" = "dev-cloud/lang/bash/fondamentaux.md"},                # Scripts, variables, conditions
-      #     {"Avancé"       = "dev-cloud/lang/bash/avance.md"}                       # Regex, sed, awk
-      #   ]},
 
     ]},
+
+    {"Écosystèmes & modules" = [
+
+      {"Authentification Laravel" = [
+        {"Breeze"                   = "dev-cloud/lang/laravel/breeze.md"},
+        {"Jetstream"                = "dev-cloud/lang/laravel/jetstream.md"},
+        {"Sanctum"                  = "dev-cloud/lang/laravel/sanctum.md"},
+      ]}
+
+    ]},
+
+
+    # "dev-cloud/lang/angular.md",
+    # "dev-cloud/lang/node.md",
+    # "dev-cloud/lang/go.md",
 
     # -------------------------------------------------------------------------
     # Stacks technologiques
@@ -232,66 +302,95 @@
 
     # -------------------------------------------------------------------------
     # Cloud Providers
-    # Services cloud AWS et Azure
+    # Présentation des principaux fournisseurs cloud et de leurs services
+    # fondamentaux pour l’hébergement, le calcul, le stockage et le serverless.
     # -------------------------------------------------------------------------
     # {"Cloud Providers" = [
     #   "dev-cloud/cloud/index.md",
-    #   {"AWS"   = "dev-cloud/cloud/aws/index.md"},                                # EC2, S3, Lambda, RDS
-    #   {"Azure" = "dev-cloud/cloud/azure/index.md"}                               # VMs, Blob Storage, Functions
+    #   {"AWS"   = "dev-cloud/cloud/aws/index.md"},      # EC2, S3, RDS, Lambda, IAM
+    #   {"Azure" = "dev-cloud/cloud/azure/index.md"}    # VMs, Blob Storage, Functions, Entra ID
     # ]},
 
     # -------------------------------------------------------------------------
     # Tests & Qualité
-    # Stratégies de test et assurance qualité logicielle
+    # Stratégies de test, assurance qualité logicielle et pratiques
+    # de validation du code dans un contexte applicatif moderne.
     # -------------------------------------------------------------------------
     {"Tests & Qualité" = [
       "dev-cloud/tests-qualite/index.md",
-      {"TDD vs BDD"                 = "dev-cloud/tests-qualite/tdd.md"},         # Test-Driven Development
-      {"pyramide des tests"         = "dev-cloud/tests-qualite/pyramide-tests.md"},  # Jest, PHPUnit, pytest
-      {"coverage"                   = "dev-cloud/tests-qualite/coverage.md"}, # Pact, Cypress, Playwright
-      {"frontend"                   = [
-        "dev-cloud/tests-qualite/frontend/jest.md",
-        "dev-cloud/tests-qualite/frontend/jasmine.md",
-        "dev-cloud/tests-qualite/frontend/vitest.md",
-        "dev-cloud/tests-qualite/frontend/cypress.md",
-      ]}, # Pact, Cypress, Playwright
-      {"backend"                   = [
-        "dev-cloud/tests-qualite/backend/phpunit.md",
-        "dev-cloud/tests-qualite/backend/pest.md",
-        "dev-cloud/tests-qualite/backend/pytest.md",
-        "dev-cloud/tests-qualite/backend/go-testing.md",
-      ]},
-      {"Sécurité"                   = [
-        "dev-cloud/tests-qualite/securite/sast.md",
-        "dev-cloud/tests-qualite/securite/dast.md",
-        "dev-cloud/tests-qualite/securite/fuzzing.md",
+
+      # -----------------------------------------------------------------------
+      # Fondations théoriques des tests
+      # Concepts indispensables pour comprendre pourquoi, quand
+      # et comment tester une application.
+      # -----------------------------------------------------------------------
+      {"Tests & Qualité" = [
+        {"TDD vs BDD"         = "dev-cloud/tests-qualite/tdd.md"},            # Approches de conception pilotée par les tests
+        {"Pyramide des tests" = "dev-cloud/tests-qualite/pyramide-tests.md"}, # Répartition unitaires / intégration / E2E
+        {"Coverage"           = "dev-cloud/tests-qualite/coverage.md"},       # Mesure de couverture et limites du métrique
       ]},
 
-      
-      {"Pest"                   = [
-        "dev-cloud/tests-qualite/pest/index.md",
-        "dev-cloud/tests-qualite/pest/module1.md",
-        "dev-cloud/tests-qualite/pest/module2.md",
-        "dev-cloud/tests-qualite/pest/module3.md",
-        "dev-cloud/tests-qualite/pest/module4.md",
-        "dev-cloud/tests-qualite/pest/module5.md",
-        "dev-cloud/tests-qualite/pest/module6.md",
-        "dev-cloud/tests-qualite/pest/module7.md",
-        "dev-cloud/tests-qualite/pest/module8.md",
-      ]}, 
+      # -----------------------------------------------------------------------
+      # Sécurité & Qualité avancée
+      # Techniques complémentaires visant à réduire le risque
+      # et détecter des vulnérabilités au-delà des tests fonctionnels.
+      # -----------------------------------------------------------------------
+      {"Sécurité & Qualité avancée" = [
+        {"SAST"    = "dev-cloud/tests-qualite/sast.md"},    # Analyse statique du code source
+        {"DAST"    = "dev-cloud/tests-qualite/dast.md"},    # Analyse dynamique d’une application en exécution
+        {"FUZZING" = "dev-cloud/tests-qualite/fuzzing.md"}, # Tests par entrées aléatoires et cas limites
+      ]},
 
-      
-      {"PHPUnit"                   = [
-        "dev-cloud/tests-qualite/phpunit/index.md",
-        "dev-cloud/tests-qualite/phpunit/module1.md",
-        "dev-cloud/tests-qualite/phpunit/module2.md",
-        "dev-cloud/tests-qualite/phpunit/module3.md",
-        "dev-cloud/tests-qualite/phpunit/module4.md",
-        "dev-cloud/tests-qualite/phpunit/module5.md",
-        "dev-cloud/tests-qualite/phpunit/module6.md",
-        "dev-cloud/tests-qualite/phpunit/module7.md",
-        "dev-cloud/tests-qualite/phpunit/module8.md",
-      ]},  
-    ]}
-    
+      # -----------------------------------------------------------------------
+      # Outils de tests PHP
+      # Tests côté backend, logique métier, services, API
+      # et composants Livewire dans l’écosystème Laravel.
+      # -----------------------------------------------------------------------
+      {"Outils de tests PHP" = [
+
+        {"PHPUnit" = [
+          "dev-cloud/tests-qualite/phpunit/index.md",   # Framework de test PHP de référence
+          "dev-cloud/tests-qualite/phpunit/module1.md",
+          "dev-cloud/tests-qualite/phpunit/module2.md",
+          "dev-cloud/tests-qualite/phpunit/module3.md",
+          "dev-cloud/tests-qualite/phpunit/module4.md",
+          "dev-cloud/tests-qualite/phpunit/module5.md",
+          "dev-cloud/tests-qualite/phpunit/module6.md",
+          "dev-cloud/tests-qualite/phpunit/module7.md",
+          "dev-cloud/tests-qualite/phpunit/module8.md",
+        ]},
+
+        {"Pest" = [
+          "dev-cloud/tests-qualite/pest/index.md",       # Surcouche expressive basée sur PHPUnit
+          "dev-cloud/tests-qualite/pest/module1.md",
+          "dev-cloud/tests-qualite/pest/module2.md",
+          "dev-cloud/tests-qualite/pest/module3.md",
+          "dev-cloud/tests-qualite/pest/module4.md",
+          "dev-cloud/tests-qualite/pest/module5.md",
+          "dev-cloud/tests-qualite/pest/module6.md",
+          "dev-cloud/tests-qualite/pest/module7.md",
+          "dev-cloud/tests-qualite/pest/module8.md",
+        ]},
+
+      ]},
+
+      # -----------------------------------------------------------------------
+      # Outils de tests Frontend & End-to-End
+      # Validation du comportement applicatif côté navigateur
+      # et des parcours utilisateur complets.
+      # -----------------------------------------------------------------------
+      {"Outils de tests Front & E2E" = [
+
+        {"Vitest" = [
+          "dev-cloud/tests-qualite/vitest/vitest.md",   # Tests JavaScript rapides (logique frontend ciblée)
+        ]},
+
+        {"Cypress" = [
+          "dev-cloud/tests-qualite/cypress/cypress.md", # Tests E2E basés sur des scénarios utilisateur
+        ]},
+
+      ]},
+
+    ]},
+
   ]},

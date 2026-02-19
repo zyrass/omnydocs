@@ -1,562 +1,302 @@
 ---
-description: "Formation PHP complète : du procédural à la POO, avec sécurité au cœur de chaque module"
-icon: fontawesome/brands/php
-tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "FORMATION"]
+description: "Parcours complet pour maîtriser PHP, du procédural à la POO, avec sécurité au cœur de chaque module"
+tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 ---
 
 # PHP
 
 <div
   class="omny-meta"
-  data-level="🟢 Débutant à Expert"
-  data-version="1.0"
+  data-level="🟢 Débutant à 🔴 Expert"
+  data-version="8.3"
   data-time="120-150 heures">
 </div>
 
-## Vue d'Ensemble de la Formation complète
+## Introduction
 
-!!! quote "Philosophie de la Formation"
-    _Cette formation PHP est construite sur **3 piliers fondamentaux** : **Compréhension profonde**, **Sécurité dès le départ**, et **Best Practices modernes**. Chaque concept est expliqué avec des analogies concrètes, des diagrammes visuels, et des exemples progressifs. La sécurité n'est pas un chapitre final, mais un **fil conducteur** présent dans chaque module. Vous apprendrez PHP comme il devrait être enseigné : **proprement, sûrement, professionnellement**._
+**PHP** est le langage backend le plus utilisé au monde, propulsant 78% des sites web (WordPress, Laravel, Symfony). Cette formation vous accompagne depuis les fondations jusqu'à la création d'applications production-ready sécurisées.
 
-**Structure de la formation :**
+> PHP moderne (8.x) n'a plus rien à voir avec le PHP 5 d'antan. **Types stricts**, **JIT compiler**, **Match expressions**, **Attributes**, **Enums** : c'est un langage professionnel robuste.
 
-📗 **PARTIE 1 : PHP PROCÉDURAL** (7 modules, 50-60h)
-📘 **PARTIE 2 : PHP ORIENTÉ OBJET** (9 modules, 70-90h)
+!!! info "Pourquoi cette formation ?"
+    - Elle **structure** votre apprentissage de manière progressive (procédural → POO → architecture)
+    - Elle **intègre** la sécurité dès le premier module (XSS, CSRF, SQLi, etc.)
+    - Elle **couvre** 100% des compétences pour développer en production
+    - Elle **produit** 35+ projets réels et déployables
 
----
+## Parcours pédagogique
 
-## 📗 PARTIE 1 : PHP Procédural (50-60 heures)
+## Partie 1 — PHP Procédural
 
-### Module 1 - Fondations PHP 🟢
-**Durée :** 6-8 heures  
-**Niveau :** Débutant
+!!! note "Cette partie couvre les fondations, structures de contrôle, formulaires, sessions et bases de données"
 
-**Contenu :**
-- Installation environnement (XAMPP, Docker, Laravel Valet)
-- Syntaxe de base PHP (balises, echo, commentaires)
-- Variables et constantes (types, déclaration, portée)
-- Types de données (int, float, string, bool, array, null)
-- Opérateurs (arithmétiques, comparaison, logiques)
-- Type juggling vs type casting
-- **Sécurité :** Validation types, null coalescing, strict_types
+<div class="grid cards" markdown>
 
-**Projets :**
-- Calculatrice simple sécurisée
-- Convertisseur unités avec validation
+-   :lucide-code:{ .lg .middle } **Module 1** — _Fondations PHP_
 
----
+    ---
+    Installation, syntaxe, variables, types, opérateurs, validation basique.
 
-### Module 2 - Structures de Contrôle 🟢
-**Durée :** 7-9 heures  
-**Niveau :** Débutant
+    **Projets** : 2 | **Durée** : ~6-8h | **Niveau** : 🟢 Débutant
 
-**Contenu :**
-- Conditions (if/elseif/else, ternaire, match PHP 8)
-- Switch vs match : différences et cas d'usage
-- Boucles (for, while, do-while, foreach)
-- Break, continue, goto (et pourquoi éviter goto)
-- Opérateurs avancés (spaceship <=>, null coalescing ??, nullsafe ?->)
-- **Sécurité :** Prévenir boucles infinies, validation conditions
+    [:lucide-book-open-check: Accéder au module 1](./module-01/)
 
-**Projets :**
-- Système de notes avec conditions
-- Générateur de tables de multiplication
-- Quiz interactif avec scoring
+-   :lucide-git-branch:{ .lg .middle } **Module 2** — _Structures de Contrôle_
 
----
+    ---
+    Conditions (if, match), boucles (for, foreach), opérateurs avancés (<=>, ??, ?->).
 
-### Module 3 - Fonctions & Organisation Code 🟡
-**Durée :** 8-10 heures  
-**Niveau :** Intermédiaire
+    **Projets** : 3 | **Durée** : ~7-9h | **Niveau** : 🟢 Débutant
 
-**Contenu :**
-- Déclaration et appel de fonctions
-- Paramètres (types, valeurs par défaut, arguments nommés PHP 8)
-- Return types et void
-- Portée variables (global, static, superglobales)
-- Fonctions variables et anonymes (closures)
-- Arrow functions PHP 7.4+
-- Includes et requires (include, require, include_once, require_once)
-- **Sécurité :** Validation paramètres, échapper retours, Path Traversal
+    [:lucide-book-open-check: Accéder au module 2](./module-02/)
 
-**Projets :**
-- Bibliothèque fonctions utilitaires sécurisées
-- Système templating simple
-- Calculateur complexe modulaire
+-   :lucide-function-square:{ .lg .middle } **Module 3** — _Fonctions & Organisation_
 
----
+    ---
+    Déclaration, paramètres typés, closures, arrow functions, includes sécurisés.
 
-### Module 4 - Manipulation de Données 🟡
-**Durée :** 9-11 heures  
-**Niveau :** Intermédiaire
+    **Projets** : 3 | **Durée** : ~8-10h | **Niveau** : 🟡 Intermédiaire
 
-**Contenu :**
-- Arrays (indexed, associatifs, multidimensionnels)
-- Fonctions arrays (array_map, array_filter, array_reduce, etc.)
-- Manipulation strings (strlen, substr, str_replace, explode, implode)
-- Expressions régulières (preg_match, preg_replace, patterns)
-- Dates et heures (DateTime, DateInterval, Carbon)
-- JSON (encode/decode, validation)
-- Serialization (serialize, unserialize dangers)
-- **Sécurité :** Validation données, regex injection, unserialize attacks
+    [:lucide-book-open-check: Accéder au module 3](./module-03/)
 
-**Projets :**
-- Gestionnaire contacts avec recherche/filtrage
-- Validateur données multiformats
-- Système export/import CSV/JSON sécurisé
+-   :lucide-database:{ .lg .middle } **Module 4** — _Manipulation de Données_
 
----
+    ---
+    Arrays, strings, regex, JSON, DateTime, sérialisation sécurisée.
 
-### Module 5 - Formulaires & Sécurité Web 🔴
-**Durée :** 10-12 heures  
-**Niveau :** Intermédiaire à Avancé
+    **Projets** : 3 | **Durée** : ~9-11h | **Niveau** : 🟡 Intermédiaire
 
-**Contenu :**
-- Méthodes HTTP (GET, POST, PUT, DELETE)
-- Récupération données ($_GET, $_POST, $_REQUEST)
-- Validation inputs (filter_var, filter_input)
-- Sanitization vs Validation
-- **XSS (Cross-Site Scripting)** : htmlspecialchars, strip_tags
-- **CSRF (Cross-Site Request Forgery)** : tokens, SameSite cookies
-- **SQL Injection** : Prévention avec validation
-- Upload fichiers sécurisé (types, tailles, mime types)
-- Headers sécurité (Content-Security-Policy, X-Frame-Options)
-- **Sécurité :** Au cœur du module, exemples attaques réelles
+    [:lucide-book-open-check: Accéder au module 4](./module-04/)
 
-**Projets :**
-- Formulaire contact ultra-sécurisé
-- Système upload images avec validation complète
-- Mini-CMS avec protection CSRF/XSS
+
+-   :lucide-shield-alert:{ .lg .middle } **Module 5** — _Formulaires & Sécurité Web_
+
+    ---
+    GET/POST, validation, sanitization, **XSS**, **CSRF**, **SQL Injection**, upload sécurisé.
+
+    **Projets** : 3 | **Durée** : ~10-12h | **Niveau** : 🔴 Avancé
+
+    [:lucide-book-open-check: Accéder au module 5](./module-05/)
+
+-   :lucide-cookie:{ .lg .middle } **Module 6** — _Sessions & Authentification_
+
+    ---
+    Sessions PHP, cookies sécurisés, login/logout, `password_hash`, session hijacking.
+
+    **Projets** : 3 | **Durée** : ~8-10h | **Niveau** : 🔴 Avancé
+
+    [:lucide-book-open-check: Accéder au module 6](./module-06/)
+
+</div>
+
+<div class="grid cards" markdown>
+
+-   :lucide-hard-drive:{ .lg .middle } **Module 7** — _Bases de Données avec PDO_
+
+    ---
+    PDO, requêtes préparées, CRUD sécurisé, transactions, pagination, **SQL Injection**.
+
+    **Projets** : 3 | **Durée** : ~10-12h | **Niveau** : 🔴 Avancé
+
+    [:lucide-book-open-check: Accéder au module 7](./module-07/)
+
+</div>
+
+### Atelier Partie 1
+
+<div class="grid cards" markdown>
+
+-   :lucide-newspaper:{ .lg .middle } **Atelier #1** — _Blog Procédural Complet_
+
+    ---
+    Blog avec authentification, CRUD articles, upload images, commentaires sécurisés.
+
+    **Niveau** : 🔴 Avancé | **Durée** : 3-4h
+
+    [:lucide-hammer: Accéder à l'atelier](./atelier-01/)
+
+</div>
 
 ---
 
-### Module 6 - Sessions, Cookies & Authentification 🔴
-**Durée :** 8-10 heures  
-**Niveau :** Intermédiaire à Avancé
+## Partie 2 — PHP Orienté Objet
 
-**Contenu :**
-- Sessions PHP (session_start, $_SESSION, session_destroy)
-- Cookies ($_COOKIE, setcookie, sécurisation)
-- Authentification utilisateur (login/logout sécurisé)
-- Hashage mots de passe (password_hash, password_verify, Argon2)
-- Session hijacking et fixation : prévention
-- Remember me sécurisé
-- Rate limiting connexions
-- **Sécurité :** Session security, cookie flags (HttpOnly, Secure, SameSite)
+!!! note "Cette partie approfondit la POO, l'architecture, les design patterns et la production"
 
-**Projets :**
-- Système authentification complet
-- Gestion sessions multi-utilisateurs
-- Panel admin avec niveaux accès
+<div class="grid cards" markdown>
 
----
+-   :lucide-box:{ .lg .middle } **Module 8** — _Fondations POO_
 
-### Module 7 - Bases de Données avec PDO 🔴
-**Durée :** 10-12 heures  
-**Niveau :** Avancé
+    ---
+    Classes, objets, propriétés, méthodes, constructeur, `$this`, type hinting.
 
-**Contenu :**
-- Introduction PDO vs mysqli
-- Connexion base de données sécurisée
-- Requêtes préparées (prepare, execute, bindParam)
-- CRUD complet sécurisé (Create, Read, Update, Delete)
-- Transactions (beginTransaction, commit, rollback)
-- Gestion erreurs PDO (try/catch, PDO::ERRMODE_EXCEPTION)
-- Pagination résultats
-- **SQL Injection** : Prévention totale avec requêtes préparées
-- **Sécurité :** Credentials hors code, least privilege, input validation
+    **Projets** : 3 | **Durée** : ~8-10h | **Niveau** : 🟡 Intermédiaire
 
-**Projets :**
-- Blog complet avec base de données
-- Système CRUD utilisateurs sécurisé
-- Application gestion produits avec transactions
+    [:lucide-book-open-check: Accéder au module 8](./module-08/)
 
----
+-   :lucide-lock:{ .lg .middle } **Module 9** — _Encapsulation & Visibilité_
 
-## 📘 PARTIE 2 : PHP Orienté Objet (70-90 heures)
+    ---
+    Public/private/protected, getters/setters, property promotion PHP 8, readonly.
 
-### Module 8 - Fondations POO 🟢
-**Durée :** 8-10 heures  
-**Niveau :** Intermédiaire
+    **Projets** : 3 | **Durée** : ~7-9h | **Niveau** : 🟡 Intermédiaire
 
-**Contenu :**
-- Paradigme Orienté Objet : pourquoi et quand
-- Classes et Objets (définition, instanciation)
-- Propriétés et Méthodes
-- Constructeur et Destructeur
-- $this et self
-- Type hinting et return types
-- Constantes de classe
-- **Sécurité :** Validation constructeur, type safety
+    [:lucide-book-open-check: Accéder au module 9](./module-09/)
 
-**Projets :**
-- Classe User avec propriétés sécurisées
-- Système gestion produits en POO
-- Convertisseur POO avec validations
+-   :lucide-git-merge:{ .lg .middle } **Module 10** — _Héritage & Polymorphisme_
 
----
+    ---
+    `extends`, classes abstraites, interfaces, polymorphisme, Liskov principle.
 
-### Module 9 - Encapsulation & Visibilité 🟡
-**Durée :** 7-9 heures  
-**Niveau :** Intermédiaire
+    **Projets** : 3 | **Durée** : ~9-11h | **Niveau** : 🔴 Avancé
 
-**Contenu :**
-- Visibilité (public, private, protected)
-- Getters et Setters (accesseurs et mutateurs)
-- Encapsulation : principes et avantages
-- Property promotion PHP 8
-- Readonly properties PHP 8.1
-- Magic methods (__get, __set, __call, __toString)
-- **Sécurité :** Validation dans setters, immutabilité
+    [:lucide-book-open-check: Accéder au module 10](./module-10/)
 
-**Projets :**
-- Classe BankAccount avec encapsulation totale
-- Value Objects immuables
-- Système configuration sécurisé
+-   :lucide-package:{ .lg .middle } **Module 11** — _Traits, Namespaces & Autoloading_
 
----
+    ---
+    Traits, namespaces, PSR-4, Composer, gestion dépendances.
 
-### Module 10 - Héritage & Polymorphisme 🟡
-**Durée :** 9-11 heures  
-**Niveau :** Intermédiaire à Avancé
+    **Projets** : 3 | **Durée** : ~8-10h | **Niveau** : 🔴 Avancé
 
-**Contenu :**
-- Héritage (extends, parent::)
-- Classes abstraites (abstract)
-- Interfaces (implements)
-- Polymorphisme : concept et usage
-- Final classes et methods
-- Type juggling avec héritage
-- Liskov Substitution Principle
-- **Sécurité :** Validation héritée, override sécurisé
+    [:lucide-book-open-check: Accéder au module 11](./module-11/)
 
-**Projets :**
-- Hiérarchie animaux (Animal → Dog/Cat)
-- Système paiements polymorphe
-- Framework routing simple
+-   :lucide-puzzle:{ .lg .middle } **Module 12** — _Design Patterns_
 
----
+    ---
+    Singleton, Factory, Strategy, Observer, Dependency Injection, Repository.
 
-### Module 11 - Traits, Namespaces & Autoloading 🔴
-**Durée :** 8-10 heures  
-**Niveau :** Avancé
+    **Projets** : 3 | **Durée** : ~10-12h | **Niveau** : 🔴 Avancé
 
-**Contenu :**
-- Traits (use, composition)
-- Namespaces (namespace, use, alias)
-- Autoloading PSR-4
-- Composer : installation et utilisation
-- Gestion dépendances
-- Vendor directory
-- **Sécurité :** Isolation code, dependency scanning
+    [:lucide-book-open-check: Accéder au module 12](./module-12/)
 
-**Projets :**
-- Application multi-modules avec namespaces
-- Package Composer réutilisable
-- Framework maison avec autoloading
+-   :lucide-alert-triangle:{ .lg .middle } **Module 13** — _Gestion des Erreurs_
+
+    ---
+    Exceptions, try/catch/finally, classes custom, error handling, logging (Monolog).
+
+    **Projets** : 3 | **Durée** : ~7-9h | **Niveau** : 🔴 Avancé
+
+    [:lucide-book-open-check: Accéder au module 13](./module-13/)
+
+-   :lucide-layout-template:{ .lg .middle } **Module 14** — _Architecture MVC_
+
+    ---
+    Pattern MVC, routing, controllers, models, views, front controller.
+
+    **Projets** : 3 | **Durée** : ~12-15h | **Niveau** : 🔴 Avancé
+
+    [:lucide-book-open-check: Accéder au module 14](./module-14/)
+
+-   :lucide-shield-check:{ .lg .middle } **Module 15** — _Sécurité POO Avancée_
+
+    ---
+    DI sécurisée, RBAC, JWT, OAuth 2.0, rate limiting, OWASP Top 10.
+
+    **Projets** : 3 | **Durée** : ~9-11h | **Niveau** : 🔴 Expert
+
+    [:lucide-book-open-check: Accéder au module 15](./module-15/)
+
+-   :lucide-rocket:{ .lg .middle } **Module 16** — _Standards & Production_
+
+    ---
+    PSR standards, Composer avancé, PHPUnit, PHPStan, CI/CD, déploiement.
+
+    **Projets** : 2 | **Durée** : ~8-10h | **Niveau** : 🔴 Expert
+
+    [:lucide-book-open-check: Accéder au module 16](./module-16/)
+
+</div>
+
+### Atelier Partie 2
+
+<div class="grid cards" markdown>
+
+-   :lucide-layers:{ .lg .middle } **Atelier #2** — _Mini-Framework MVC_
+
+    ---
+    Framework from scratch : routing, controllers, ORM simple, templates, middleware.
+
+    **Niveau** : 🔴 Expert | **Durée** : 4-5h
+
+    [:lucide-hammer: Accéder à l'atelier](./atelier-02/)
+
+</div>
 
 ---
 
-### Module 12 - Design Patterns 🔴
-**Durée :** 10-12 heures  
-**Niveau :** Avancé
+## Compétences validées
 
-**Contenu :**
-- Singleton Pattern
-- Factory Pattern
-- Strategy Pattern
-- Observer Pattern
-- Dependency Injection
-- Repository Pattern
-- Service Container
-- **Sécurité :** Patterns sécurisés, anti-patterns dangereux
-
-**Projets :**
-- Logger avec Singleton
-- Factory paiements multiples
-- Event system avec Observer
-
----
-
-### Module 13 - Gestion des Erreurs 🔴
-**Durée :** 7-9 heures  
-**Niveau :** Avancé
-
-**Contenu :**
-- Exceptions (throw, try, catch, finally)
-- Classes Exception personnalisées
-- Error vs Exception
-- Error handling global (set_error_handler, set_exception_handler)
-- Logging erreurs (Monolog)
-- Debugging (var_dump, Xdebug, dump servers)
-- **Sécurité :** Ne pas exposer stack traces, logs sécurisés
-
-**Projets :**
-- Système exceptions hiérarchiques
-- Logger centralisé avec niveaux
-- Application avec error handling complet
-
----
-
-### Module 14 - Architecture MVC 🔴
-**Durée :** 12-15 heures  
-**Niveau :** Avancé
-
-**Contenu :**
-- Pattern MVC : Model-View-Controller
-- Routing (Router simple puis avancé)
-- Controllers (actions, responses)
-- Models (Active Record vs Data Mapper)
-- Views (templates, moteur simple)
-- Front Controller Pattern
-- Request/Response objects
-- **Sécurité :** Input validation MVC, CSRF protection, XSS prevention
-
-**Projets :**
-- Mini-framework MVC from scratch
-- Blog MVC complet sécurisé
-- API REST en MVC
-
----
-
-### Module 15 - Sécurité POO Avancée 🔴
-**Durée :** 9-11 heures  
-**Niveau :** Avancé
-
-**Contenu :**
-- Injection de dépendances sécurisée
-- Validation et sanitization en couches
-- Authentication & Authorization (RBAC)
-- JWT (JSON Web Tokens)
-- OAuth 2.0 basics
-- Rate limiting avancé
-- Content Security Policy
-- OWASP Top 10 en PHP
-- **Sécurité :** Module dédié sécurité avancée
-
-**Projets :**
-- Système auth avec JWT
-- API sécurisée avec rate limiting
-- Application OWASP-compliant
-
----
-
-### Module 16 - Standards & Production 🔴
-**Durée :** 8-10 heures  
-**Niveau :** Avancé à Expert
-
-**Contenu :**
-- PSR Standards (PSR-1, PSR-2, PSR-4, PSR-12)
-- Composer avancé (scripts, optimizations)
-- Tests unitaires (PHPUnit basics)
-- Code quality (PHPStan, Psalm, PHP-CS-Fixer)
-- CI/CD pour PHP
-- Déploiement production
-- Performance (OPcache, profiling)
-- **Sécurité :** Security headers, environment variables, production hardening
-
-**Projets :**
-- Application production-ready
-- Package Composer publié
-- Pipeline CI/CD complet
-
----
-
-## 🎯 Parcours d'Apprentissage Recommandé
-
-**Diagramme : Progression Formation**
+À l'issue de cette formation, vous serez capable de :
 
 ```mermaid
-graph TB
-    Start([Démarrer Formation PHP])
-    
-    subgraph "PARTIE 1 : Procédural"
-        M1[Module 1<br/>Fondations PHP]
-        M2[Module 2<br/>Structures Contrôle]
-        M3[Module 3<br/>Fonctions]
-        M4[Module 4<br/>Données]
-        M5[Module 5<br/>Formulaires & Sécu]
-        M6[Module 6<br/>Sessions & Auth]
-        M7[Module 7<br/>BDD & PDO]
-    end
-    
-    subgraph "PARTIE 2 : POO"
-        M8[Module 8<br/>Fondations POO]
-        M9[Module 9<br/>Encapsulation]
-        M10[Module 10<br/>Héritage]
-        M11[Module 11<br/>Traits & Namespaces]
-        M12[Module 12<br/>Design Patterns]
-        M13[Module 13<br/>Gestion Erreurs]
-        M14[Module 14<br/>MVC]
-        M15[Module 15<br/>Sécurité Avancée]
-        M16[Module 16<br/>Production]
-    end
-    
-    End([Expert PHP])
-    
-    Start --> M1
-    M1 --> M2 --> M3 --> M4 --> M5 --> M6 --> M7
-    M7 --> M8
-    M8 --> M9 --> M10 --> M11 --> M12 --> M13 --> M14 --> M15 --> M16
-    M16 --> End
-    
-    style Start fill:#e1f5e1
-    style End fill:#ffd700
+mindmap
+    root((Compétences<br/>PHP))
+        Procédural
+            Variables & Types
+            Structures contrôle
+            Fonctions modulaires
+            Formulaires sécurisés
+            Sessions & Auth
+            PDO & SQL
+        POO
+            Classes & Objets
+            Encapsulation
+            Héritage
+            Traits & Namespaces
+            Design Patterns
+        Architecture
+            MVC
+            Routing
+            Dependency Injection
+            Repository Pattern
+        Sécurité
+            XSS Prevention
+            CSRF Protection
+            SQL Injection
+            Password Hashing
+            OWASP Top 10
+        Production
+            PSR Standards
+            Tests PHPUnit
+            CI/CD
+            Composer
+            Déploiement
 ```
 
----
+## Synthèse par niveau
 
-## 📊 Statistiques Formation
+| Partie | Modules | Niveau | Prérequis |
+|--------|---------|--------|-----------|
+| **Procédural** | 1, 2, 3, 4 | 🟢 Débutant | HTML/CSS basique |
+| **Sécurité Web** | 5, 6, 7 | 🔴 Avancé | Modules 1-4 complétés |
+| **POO Fondations** | 8, 9, 10, 11 | 🟡 Intermédiaire | Partie 1 complète |
+| **POO Avancée** | 12, 13, 14 | 🔴 Avancé | Modules 8-11 complétés |
+| **Production** | 15, 16 | 🔴 Expert | Toute la formation |
 
-**Tableau récapitulatif complet :**
+!!! tip "Conseils de progression"
+    - [x] **Suivez l'ordre strict** : chaque module s'appuie sur les précédents
+    - [x] **Codez TOUS les projets** : la pratique est 80% de l'apprentissage
+    - [x] **Ne sautez JAMAIS la sécurité** : elle est intégrée partout
+    - [x] **Refaites les ateliers** plusieurs fois jusqu'à maîtrise totale
 
-| Partie | Modules | Durée | Projets | Niveau |
-|--------|---------|-------|---------|--------|
-| **Procédural** | 7 | 50-60h | 15+ | Débutant → Avancé |
-| **POO** | 9 | 70-90h | 20+ | Intermédiaire → Expert |
-| **TOTAL** | **16** | **120-150h** | **35+** | **Expert PHP** |
+## Livrables obtenus
 
-**Ce que vous allez accomplir :**
+À la fin de cette formation, vous disposerez de :
 
-✅ **35+ projets PHP** complets
-✅ **Sécurité maîtrisée** (XSS, CSRF, SQL Injection, etc.)
-✅ **POO avancée** (Design Patterns, MVC, DI)
-✅ **Production-ready** (PSR, tests, CI/CD)
-✅ **Portfolio professionnel** (projets déployables)
+- Un **environnement PHP professionnel** (Docker/XAMPP + Composer + Git)
+- **35+ projets PHP** variés et déployables
+- Un **blog procédural complet** avec authentification sécurisée
+- Un **mini-framework MVC** from scratch fonctionnel
+- Une **API REST sécurisée** avec JWT et rate limiting
+- Un **package Composer** publié et réutilisable
+- Une **checklist sécurité** complète (XSS, CSRF, SQLi, OWASP)
+- Un **template projet production** (PSR, tests, CI/CD)
 
----
+!!! warning "Prérequis techniques"
+    Cette formation suppose une connaissance basique de **HTML** et **CSS**.  
+    Aucune expérience en programmation n'est requise : on part de **zéro absolu**.
 
-## 🛡️ Sécurité : Fil Conducteur de la Formation
+> Les modules suivants détaillent chaque concept avec des analogies pédagogiques, des diagrammes explicatifs, des exemples progressifs et des projets concrets.
 
-**Chaque module intègre la sécurité :**
-
-| Module | Concepts Sécurité |
-|--------|-------------------|
-| M1 | Type validation, strict_types |
-| M2 | Input validation conditions |
-| M3 | Parameter validation, path traversal |
-| M4 | Regex injection, unserialize dangers |
-| M5 | **XSS, CSRF, SQL Injection** |
-| M6 | Session security, password hashing |
-| M7 | Prepared statements, least privilege |
-| M8-M16 | Security by design, OWASP Top 10 |
-
----
-
-## 🎓 Prérequis
-
-**Avant de commencer :**
-
-- Ordinateur avec Windows, macOS ou Linux
-- Éditeur de code (VS Code recommandé)
-- Motivation et rigueur
-- **Aucune expérience programmation requise** (on part de zéro)
-
-**Outils installés durant Module 1 :**
-
-- PHP 8.2+
-- Serveur local (XAMPP, Laragon, ou Docker)
-- Composer
-- Git
-
----
-
-## 🚀 Comment Utiliser Cette Formation
-
-**Approche recommandée :**
-
-1. **Suivre l'ordre des modules** (progressif)
-2. **Faire TOUS les exercices** (pratique essentielle)
-3. **Projets obligatoires** (application réelle)
-4. **Checkpoints réguliers** (auto-évaluation)
-5. **Ne jamais sauter la sécurité** (critique)
-
-**Rythme suggéré :**
-
-- **Temps plein** : 6-8 semaines (20h/semaine)
-- **Temps partiel** : 4-6 mois (10h/semaine)
-- **Hobby** : 8-12 mois (5h/semaine)
-
----
-
-## 📚 Ressources Complémentaires
-
-**Documentation :**
-
-- [PHP.net Official](https://www.php.net/docs.php)
-- [PHP The Right Way](https://phptherightway.com/)
-- [OWASP PHP Security](https://owasp.org/www-project-php-security/)
-
-**Livres :**
-
-- "PHP Objects, Patterns, and Practice" - Zandstra
-- "Modern PHP" - Josh Lockhart
-- "PHP Security" - Chris Shiflett
-
-**Communautés :**
-
-- [PHP Discord](https://discord.gg/php)
-- [r/PHP Reddit](https://reddit.com/r/PHP)
-- [Stack Overflow PHP](https://stackoverflow.com/questions/tagged/php)
-
----
-
-## ✅ Certification Progression
-
-**Checkpoints de validation :**
-
-🎯 **Checkpoint Procédural** (après Module 7)
-- Quiz 50 questions
-- Projet final procédural
-- Code review
-
-🎯 **Checkpoint POO** (après Module 16)
-- Quiz 100 questions
-- Projet final POO complet
-- Application production-ready
-
----
-
-## 📝 Notes Importantes
-
-**Cette formation est :**
-
-✅ **100% gratuite** et open-source
-✅ **Maintenue régulièrement** (PHP 8.3+ compatible)
-✅ **Pratique avant tout** (35+ projets réels)
-✅ **Sécurité-first** (OWASP compliance)
-✅ **Production-ready** (standards professionnels)
-
-**Cette formation N'EST PAS :**
-
-❌ Un tutoriel vidéo passif
-❌ Une liste de fonctions PHP
-❌ Un cours théorique sans pratique
-❌ Obsolète (PHP 5.x ou 7.x ancien)
-
----
-
-**Prêt à devenir Expert PHP ?**
-
-[:lucide-arrow-right: Commencer Module 1 - Fondations PHP](./module-01-fondations-php/)
-
----
-
-**Auteur :** OmnyVia - Formation Professionnelle PHP
-**Version :** 1.0 - Février 2026
-**Licence :** MIT avec attribution
-
-**Bon apprentissage ! 🚀**
-
----
-
-Voilà l'**INDEX COMPLET** de la formation PHP ! 
-
-**Structure créée :**
-- ✅ **16 modules** (7 procédural + 9 POO)
-- ✅ **120-150 heures** de contenu
-- ✅ **35+ projets** réels
-- ✅ **Sécurité intégrée** dans chaque module
-- ✅ **Progression claire** débutant → expert
-
-Veux-tu que je commence par créer le **Module 1 - Fondations PHP** complet avec la même rigueur exhaustive que les modules PEST ?
+<br />
