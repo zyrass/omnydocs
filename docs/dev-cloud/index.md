@@ -4,116 +4,395 @@ description: "à éditer"
 
 # Dev Web & Cloud
 
-    # ===========================================================================
-    # 3 — DÉVELOPPEMENT WEB & CLOUD
-    # ===========================================================================
-    # Développement d'applications modernes, architectures cloud-native,
-    # bases de données et méthodologies de tests.
-    # 
-    # Contenu :
-    # - Langages de programmation (Python, JavaScript/TypeScript, PHP, Go, Bash)
-    # - Frameworks (Angular, Laravel) et stacks (MEAN, TALL)
-    # - Architecture et API (REST, Clean Architecture, patterns)
-    # - Bases de données (SQL, NoSQL, GraphQL)
-    # - Cloud providers (AWS, Azure)
-    # - Tests et qualité (TDD, tests unitaires/intégration/E2E)
-    # 
-    # PUBLIC CIBLE : Développeurs, Architectes logiciels, DevOps
-    # ===========================================================================
+    # ============================================================================
+    # 3 — DÉVELOPPEMENT
+    # ============================================================================
+    # Périmètre :
+    # - Conception et implémentation d’applications (frontend/backend).
+    # - Structuration via frameworks et stacks.
+    # - Validation logicielle (tests, qualité).
+    # - Livraison applicative (CI/CD, conteneurisation, gestion des secrets).
+    #
+    # Objectif de navigation :
+    # - Proposer une progression lisible (socle -> outillage -> compositions).
+    # - Limiter les ambiguïtés de périmètre avec la section Cybersécurité.
+    #
+    # Sous-domaines :
+    # - Langages & standards
+    # - Frameworks & bibliothèques
+    # - Stacks
+    # - Base de données
+    # - Tests & Qualité
+    # - DevSecOps (version minimale : CI/CD + Docker + Secrets)
+    # ============================================================================
 
-    Dev Web & Cloud
+    {"Développement" = [
 
-      # -------------------------------------------------------------------------
-      # Langages de programmation
-      # Fondamentaux et concepts avancés pour chaque langage
-      # -------------------------------------------------------------------------
-      Langages
-        
-        Python
-          Fondamentaux          - Types, structures, fonctions
-          Avancé                - Décorateurs, générateurs, async
-        
-        JavaScript
-          Fondamentaux"         - ES6+, DOM, événements
-          Avancé"               - Closures, prototypes, promises
-        
-        TypeScript
-          Fondamentaux"         - Types, interfaces, generics
-          Avancé"               - Utility types, decorators
-        
-        PHP
-      #     {"Fondamentaux" = "dev-cloud/lang/php/fondamentaux.md"},                 # Syntaxe, OO, namespaces
-      #     {"Avancé"       = "dev-cloud/lang/php/avance.md"}                        # Traits, reflection, SPL
-        
-        Go
-      #     {"Fondamentaux" = "dev-cloud/lang/go/fondamentaux.md"},                  # Goroutines, channels, structs
-      #     {"Avancé"       = "dev-cloud/lang/go/avance.md"}                         # Reflection, CGO, performance
-        
-        Bash
-      #     {"Fondamentaux" = "dev-cloud/lang/bash/fondamentaux.md"},                # Scripts, variables, conditions
-      #     {"Avancé"       = "dev-cloud/lang/bash/avance.md"}                       # Regex, sed, awk
-        
-        Angular
-      #     {"Fondamentaux" = "dev-cloud/lang/angular/fondamentaux.md"},             # Components, services, routing
-      #     {"Avancé"       = "dev-cloud/lang/angular/avance.md"}                    # RxJS, state management, SSR
-        
-        Laravel
-      #     {"Fondamentaux" = "dev-cloud/lang/laravel/fondamentaux.md"},             # Eloquent, Blade, routing
-      #     {"Avancé"       = "dev-cloud/lang/laravel/avance.md"}                    # Events, queues, broadcasting
-      # ]},
+      # --------------------------------------------------------------------------
+      # Index de section
+      # --------------------------------------------------------------------------
+      # Page d’entrée : présente la structure, les prérequis et les parcours conseillés.
+      "dev-cloud/index.md",
 
-      # -------------------------------------------------------------------------
-      # Stacks technologiques
-      # Combinaisons cohérentes de technologies pour applications complètes
-      # -------------------------------------------------------------------------
-      # {"Stacks" = [
-      #   "dev-cloud/frameworks/index.md",
-      #   {"MEAN" = "dev-cloud/frameworks/mean/index.md"},                           # MongoDB, Express, Angular, Node.js
-      #   {"TALL" = "dev-cloud/frameworks/tall/index.md"}                            # Tailwind, Alpine.js, Laravel, Livewire
-      # ]},
+      # ==========================================================================
+      # 3.1 — Langages & standards
+      # ==========================================================================
+      # Rôle :
+      # - Définir le socle de syntaxe et de concepts nécessaires à l’écosystème.
+      # - Servir de base aux frameworks et aux stacks (références croisées attendues).
+      {"Langages & standards" = [
 
-      # -------------------------------------------------------------------------
-      # Architecture & API
-      # Patterns d'architecture, conception d'API, principes de design
-      # -------------------------------------------------------------------------
-      # {"Architecture & API" = [
-      #   "dev-cloud/architecture/index.md",
-      #   {"API REST"                       = "dev-cloud/architecture/api-rest.md"},              # RESTful design, HATEOAS
-      #   {"Clean Architecture"             = "dev-cloud/architecture/clean-architecture.md"},    # Layered architecture, DDD
-      #   {"Patterns d'architecture"        = "dev-cloud/architecture/patterns-pratiques.md"}     # MVC, CQRS, Event Sourcing
-      # ]},
+        # Index Langages : liste, ordre conseillé, objectifs par langage.
+        "dev-cloud/lang/index.md",
 
-      # -------------------------------------------------------------------------
-      # Data
-      # Bases de données relationnelles, NoSQL, GraphQL
-      # -------------------------------------------------------------------------
-      # {"Data" = [
-      #   "dev-cloud/data/index.md",
-      #   {"MariaDB & MySQL"  = "dev-cloud/data/sql.md"},                            # SGBDR, requêtes, optimisation
-      #   {"NoSQL"            = "dev-cloud/data/nosql.md"},                          # MongoDB, Redis, Cassandra
-      #   {"GraphQL"          = "dev-cloud/data/graphql.md"},                        # Langage de requête pour API
-      #   {"SQLite"           = "dev-cloud/data/sqlite.md"}                          # Base de données embarquée
-      # ]},
+        # ------------------------------------------------------------------------
+        # HTML5 & CSS3
+        # ------------------------------------------------------------------------
+        # Rôle :
+        # - Établir les bases de l’intégration frontend (structure, style, mise en page).
+        # - Préparer l’utilisation de frameworks UI et de composants.
+        {"HTML5 & CSS3" = [
 
-      # -------------------------------------------------------------------------
-      # Cloud Providers
-      # Services cloud AWS et Azure
-      # -------------------------------------------------------------------------
-      # {"Cloud Providers" = [
-      #   "dev-cloud/cloud/index.md",
-      #   {"AWS"   = "dev-cloud/cloud/aws/index.md"},                                # EC2, S3, Lambda, RDS
-      #   {"Azure" = "dev-cloud/cloud/azure/index.md"}                               # VMs, Blob Storage, Functions
-      # ]},
+          # Index HTML/CSS : plan global et acquis attendus.
+          "dev-cloud/lang/html-css/index.md",
 
-      # -------------------------------------------------------------------------
-      # Tests & Qualité
-      # Stratégies de test et assurance qualité logicielle
-      # -------------------------------------------------------------------------
-      # {"Tests & Qualité" = [
-      #   "dev-cloud/tests-qualite/index.md",
-      #   {"TDD"                        = "dev-cloud/tests-qualite/tdd.md"},         # Test-Driven Development
-      #   {"Unitaires & Intégration"    = "dev-cloud/tests-qualite/unit-integ.md"},  # Jest, PHPUnit, pytest
-      #   {"Contrats & E2E"             = "dev-cloud/tests-qualite/contrats-e2e.md"} # Pact, Cypress, Playwright
-      # ]}
-      
-    ]},
+          # HTML — Fondamentaux :
+          # - Structure de document, sémantique, formulaires, bonnes pratiques.
+          {"HTML - Fondamentaux" = [
+            "dev-cloud/lang/html-css/html-fondamental/module1.md",
+            "dev-cloud/lang/html-css/html-fondamental/module2.md",
+            "dev-cloud/lang/html-css/html-fondamental/module3.md",
+            "dev-cloud/lang/html-css/html-fondamental/module4.md",
+            "dev-cloud/lang/html-css/html-fondamental/module5.md",
+            "dev-cloud/lang/html-css/html-fondamental/module6.md",
+          ]},
+
+          # CSS — Fondamentaux :
+          # - Sélecteurs, box model, typographie, cascade, héritage, variables.
+          {"CSS - Fondamentaux" = [
+            "dev-cloud/lang/html-css/css-fondamental/module7.md",
+            "dev-cloud/lang/html-css/css-fondamental/module8.md",
+            "dev-cloud/lang/html-css/css-fondamental/module9.md",
+          ]},
+
+          # CSS — Layout Moderne :
+          # - Flexbox/Grid, patterns de layout, alignements, contraintes.
+          {"CSS - Layout Moderne" = [
+            "dev-cloud/lang/html-css/layout-modern/module10.md",
+            "dev-cloud/lang/html-css/layout-modern/module11.md",
+          ]},
+
+          # CSS — Responsive :
+          # - Media queries, mobile-first, breakpoints, design fluide.
+          {"CSS - Responsive" = [
+            "dev-cloud/lang/html-css/responsive/module12.md",
+            "dev-cloud/lang/html-css/responsive/module13.md",
+            "dev-cloud/lang/html-css/responsive/module14.md",
+            "dev-cloud/lang/html-css/responsive/module15.md",
+          ]},
+        ]},
+
+        # ------------------------------------------------------------------------
+        # JavaScript
+        # ------------------------------------------------------------------------
+        # Rôle :
+        # - Couvrir le langage côté client (DOM, événements, asynchrone).
+        # - Préparer Alpine.js, tests frontend, et intégrations UI.
+        {"JavaScript" = [
+          "dev-cloud/lang/javascript/index.md",
+          "dev-cloud/lang/javascript/javascript.md",
+        ]},
+
+        # ------------------------------------------------------------------------
+        # Python
+        # ------------------------------------------------------------------------
+        # Rôle :
+        # - Langage polyvalent (scripts, automatisation, web selon besoin).
+        # - À maintenir uniquement si un usage réel est prévu dans les parcours.
+        {"Python" = [
+          "dev-cloud/lang/python/index.md",
+          {"Django" = "dev-cloud/lang/python/django.md"},
+          {"Tinker" = "dev-cloud/lang/python/tinker.md"},
+          {"Flask"  = "dev-cloud/lang/python/flask.md"},
+        ]},
+
+        # ------------------------------------------------------------------------
+        # PHP
+        # ------------------------------------------------------------------------
+        # Rôle :
+        # - Installer les bases nécessaires à Laravel (types, erreurs, POO).
+        # - Fournir un socle de bonnes pratiques pour la maintenabilité.
+        {"PHP" = [
+          "dev-cloud/lang/php/index.md",
+
+          # PHP — Procédural :
+          # - Syntaxe, fonctions, fichiers, gestion d’erreurs, bonnes pratiques.
+          {"Procédurale" = [
+            "dev-cloud/lang/php/procedurale/module1.md",
+            "dev-cloud/lang/php/procedurale/module2.md",
+            "dev-cloud/lang/php/procedurale/module3.md",
+            "dev-cloud/lang/php/procedurale/module4.md",
+            "dev-cloud/lang/php/procedurale/module5.md",
+            "dev-cloud/lang/php/procedurale/module6.md",
+            "dev-cloud/lang/php/procedurale/module7.md",
+          ]},
+
+          # PHP — POO :
+          # - Classes/objets, encapsulation, interfaces, traits, exceptions, SOLID.
+          {"POO" = [
+            "dev-cloud/lang/php/poo/module8.md",
+            "dev-cloud/lang/php/poo/module9.md",
+            "dev-cloud/lang/php/poo/module10.md",
+            "dev-cloud/lang/php/poo/module11.md",
+            "dev-cloud/lang/php/poo/module12.md",
+            "dev-cloud/lang/php/poo/module13.md",
+            "dev-cloud/lang/php/poo/module14.md",
+            "dev-cloud/lang/php/poo/module15.md",
+            "dev-cloud/lang/php/poo/module16.md",
+          ]},
+        ]},
+      ]},
+
+      # ==========================================================================
+      # 3.2 — Frameworks & bibliothèques
+      # ==========================================================================
+      # Rôle :
+      # - Structurer le développement applicatif via conventions et composants.
+      # - Centraliser l’outillage spécifique (Laravel, Livewire, Alpine.js).
+      {"Frameworks & bibliothèques" = [
+
+        # ------------------------------------------------------------------------
+        # Laravel
+        # ------------------------------------------------------------------------
+        # Rôle :
+        # - Framework backend PHP : routage, MVC, validation, ORM, sécurité.
+        # - Sert de base à la Stack TALL et aux exemples applicatifs.
+        {"Laravel" = [
+          "dev-cloud/frameworks/laravel/index.md",
+          "dev-cloud/frameworks/laravel/module1.md",
+          "dev-cloud/frameworks/laravel/module2.md",
+          "dev-cloud/frameworks/laravel/module3.md",
+          "dev-cloud/frameworks/laravel/module4.md",
+          "dev-cloud/frameworks/laravel/module5.md",
+          "dev-cloud/frameworks/laravel/module6.md",
+          "dev-cloud/frameworks/laravel/module7.md",
+          "dev-cloud/frameworks/laravel/module8.md",
+          "dev-cloud/frameworks/laravel/module9.md",
+
+          # Authentification Laravel :
+          # - Mécanismes et starter-kits officiels, usage web et API.
+          {"Authentification Laravel" = [
+            {"Breeze"    = "dev-cloud/frameworks/laravel/breeze.md"},
+            {"Jetstream" = "dev-cloud/frameworks/laravel/jetstream.md"},
+            {"Sanctum"   = "dev-cloud/frameworks/laravel/sanctum.md"},
+          ]},
+        ]},
+
+        # ------------------------------------------------------------------------
+        # Alpine.js
+        # ------------------------------------------------------------------------
+        # Rôle :
+        # - Interactivité frontend légère (sans framework SPA).
+        # - Complément de Livewire dans la Stack TALL.
+        {"Alpine.js" = [
+          # Index Alpine : décrit l’organisation “chapitres/leçons”.
+          "dev-cloud/frameworks/alpine/chapitre/index.md",
+        ]},
+
+        # ------------------------------------------------------------------------
+        # Livewire
+        # ------------------------------------------------------------------------
+        # Rôle :
+        # - Composants stateful côté serveur, interactions sans SPA.
+        # - Modèle mental : état serveur, actions, validation, rendu, événements.
+        {"Livewire" = [
+          "dev-cloud/frameworks/livewire/index.md",
+          "dev-cloud/frameworks/livewire/module1.md",
+          "dev-cloud/frameworks/livewire/module2.md",
+          "dev-cloud/frameworks/livewire/module3.md",
+          "dev-cloud/frameworks/livewire/module4.md",
+          "dev-cloud/frameworks/livewire/module5.md",
+          "dev-cloud/frameworks/livewire/module6.md",
+          "dev-cloud/frameworks/livewire/module7.md",
+          "dev-cloud/frameworks/livewire/module8.md",
+          "dev-cloud/frameworks/livewire/module9.md",
+          "dev-cloud/frameworks/livewire/module10.md",
+          "dev-cloud/frameworks/livewire/module11.md",
+          "dev-cloud/frameworks/livewire/module12.md",
+          "dev-cloud/frameworks/livewire/module13.md",
+          "dev-cloud/frameworks/livewire/module14.md",
+          "dev-cloud/frameworks/livewire/module15.md",
+        ]},
+      ]},
+
+      # ==========================================================================
+      # 3.3 — Stacks
+      # ==========================================================================
+      # Rôle :
+      # - Regrouper des compositions cohérentes (frameworks + conventions + pratiques).
+      # - Centraliser les parcours “prêts à produire” (structure, déploiement, auth).
+      {"Stacks" = [
+        "dev-cloud/stacks/index.md",
+
+        # Stack TALL :
+        # - Tailwind + Alpine + Laravel + Livewire.
+        # - Objectif : productivité web sans SPA lourde.
+        {"Stack TALL" = [
+          "dev-cloud/stacks/tall/index.md",
+          "dev-cloud/stacks/tall/installation.md",
+          "dev-cloud/stacks/tall/feuille-route.md",
+          "dev-cloud/stacks/tall/fondations.md",
+          "dev-cloud/stacks/tall/interface-laravel.md",
+          "dev-cloud/stacks/tall/livewire-pur.md",
+          "dev-cloud/stacks/tall/alpine-pur.md",
+          "dev-cloud/stacks/tall/hybride.md",
+          "dev-cloud/stacks/tall/production.md",
+          "dev-cloud/stacks/tall/authentification.md",
+        ]},
+      ]},
+
+      # ==========================================================================
+      # 3.4 — Base de données
+      # ==========================================================================
+      # Rôle :
+      # - Présenter les solutions de persistance et les modèles d’accès aux données.
+      # - Servir de référence lors des implémentations backend (ex: Laravel/Eloquent).
+      {"Base de données" = [
+        "dev-cloud/data/index.md",
+
+        # SQLite :
+        # - Base embarquée, adaptée aux projets pédagogiques et prototypes.
+        {"SQLite"          = "dev-cloud/data/sqlite.md"},
+
+        # MariaDB/MySQL :
+        # - SGBDR classique orienté web.
+        {"MariaDB & MySQL" = "dev-cloud/data/sql.md"},
+
+        # PostgreSQL :
+        # - SGBDR avancé, robustesse, fonctionnalités étendues.
+        {"PostgreSQL"      = "dev-cloud/data/postgresql.md"},
+
+        # NoSQL :
+        # - Principaux modèles (document, clé-valeur, etc.) et cas d’usage.
+        {"NoSQL"           = "dev-cloud/data/nosql.md"},
+
+        # GraphQL :
+        # - API orientée schéma, requêtes typées, avantages/limites.
+        {"GraphQL"         = "dev-cloud/data/graphql.md"},
+      ]},
+
+      # ==========================================================================
+      # 3.5 — Tests & Qualité
+      # ==========================================================================
+      # Rôle :
+      # - Définir les stratégies de tests et la démarche qualité.
+      # - Fournir un outillage concret (PHPUnit, Pest, Vitest, Cypress).
+      {"Tests & Qualité" = [
+        "dev-cloud/tests-qualite/index.md",
+
+        # Stratégies :
+        # - Approches de conception et organisation des tests.
+        {"TDD vs BDD"         = "dev-cloud/tests-qualite/tdd.md"},
+        {"Pyramide des tests" = "dev-cloud/tests-qualite/pyramide-tests.md"},
+        {"Coverage"           = "dev-cloud/tests-qualite/coverage.md"},
+
+        # Sécurité & Qualité avancée :
+        # - Techniques complémentaires de réduction du risque (analyse/robustesse).
+        {"Sécurité & Qualité avancée" = [
+          {"SAST"    = "dev-cloud/tests-qualite/sast.md"},
+          {"DAST"    = "dev-cloud/tests-qualite/dast.md"},
+          {"FUZZING" = "dev-cloud/tests-qualite/fuzzing.md"},
+        ]},
+
+        # Outils backend PHP :
+        # - Tests unitaires/intégration et patterns de tests dans l’écosystème PHP.
+        {"Outils de tests PHP" = [
+          {"PHPUnit" = [
+            "dev-cloud/tests-qualite/phpunit/index.md",
+            "dev-cloud/tests-qualite/phpunit/module1.md",
+            "dev-cloud/tests-qualite/phpunit/module2.md",
+            "dev-cloud/tests-qualite/phpunit/module3.md",
+            "dev-cloud/tests-qualite/phpunit/module4.md",
+            "dev-cloud/tests-qualite/phpunit/module5.md",
+            "dev-cloud/tests-qualite/phpunit/module6.md",
+            "dev-cloud/tests-qualite/phpunit/module7.md",
+            "dev-cloud/tests-qualite/phpunit/module8.md",
+          ]},
+          {"Pest" = [
+            "dev-cloud/tests-qualite/pest/index.md",
+            "dev-cloud/tests-qualite/pest/module1.md",
+            "dev-cloud/tests-qualite/pest/module2.md",
+            "dev-cloud/tests-qualite/pest/module3.md",
+            "dev-cloud/tests-qualite/pest/module4.md",
+            "dev-cloud/tests-qualite/pest/module5.md",
+            "dev-cloud/tests-qualite/pest/module6.md",
+            "dev-cloud/tests-qualite/pest/module7.md",
+            "dev-cloud/tests-qualite/pest/module8.md",
+          ]},
+        ]},
+
+        # Outils frontend & E2E :
+        # - Tests JavaScript et tests de parcours utilisateur.
+        {"Outils de tests Front & E2E" = [
+          {"Vitest"  = "dev-cloud/tests-qualite/vitest/vitest.md"},
+          {"Cypress" = "dev-cloud/tests-qualite/cypress/cypress.md"},
+        ]},
+      ]},
+
+      # ==========================================================================
+      # 3.6 — DevSecOps (version minimale)
+      # ==========================================================================
+      # Rôle :
+      # - Automatiser la livraison applicative (build/test/deploy).
+      # - Standardiser les environnements (Docker).
+      # - Encadrer la gestion des secrets (y compris politiques MDP/entropie).
+      #
+      # Remarque de périmètre :
+      # - La cybersécurité outillage/attaque/défense n’est pas traitée ici.
+      {"DevSecOps" = [
+        "dev-cloud/devsecops/index.md",
+
+        # ------------------------------------------------------------------------
+        # CI/CD
+        # ------------------------------------------------------------------------
+        # Rôle :
+        # - Définir des pipelines reproductibles (stages, artifacts, runners).
+        # - Intégrer tests et contrôles qualité dans la chaîne de livraison.
+        {"CI/CD" = [
+          "dev-cloud/devsecops/cicd/index.md",
+          {"GitHub Actions" = "dev-cloud/devsecops/cicd/github-actions.md"},
+          {"GitLab CI/CD"   = "dev-cloud/devsecops/cicd/gitlab-cicd.md"},
+        ]},
+
+        # ------------------------------------------------------------------------
+        # Conteneurisation (Docker)
+        # ------------------------------------------------------------------------
+        # Rôle :
+        # - Packaging et exécution reproductible.
+        # - Orchestration simple multi-services via Compose.
+        {"Docker" = [
+          "dev-cloud/devsecops/containers/index.md",
+          {"Docker (Moteur)" = "dev-cloud/devsecops/containers/docker.md"},
+          {"Docker Compose"  = "dev-cloud/devsecops/containers/docker_compose.md"},
+        ]},
+
+        # ------------------------------------------------------------------------
+        # Secrets
+        # ------------------------------------------------------------------------
+        # Rôle :
+        # - Stockage et manipulation de secrets (local, CI, environnements).
+        # - Politiques MDP : entropie, robustesse, bonnes pratiques.
+        {"Secrets" = [
+          "dev-cloud/devsecops/secrets/index.md",
+
+          # Entropie des mots de passe :
+          # - Modèles de menace, longueur vs complexité, recommandations.
+          {"Entropie des mots de passe" = "dev-cloud/devsecops/secrets/password-entropy.md"},
+
+          # Vault :
+          # - Gestion centralisée et rotation des secrets (option d’industrialisation).
+          {"Vault (HashiCorp)" = "dev-cloud/devsecops/secrets/vault.md"},
+        ]},
+      ]},
+
+    ]}, # Fin Développement

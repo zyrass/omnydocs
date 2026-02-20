@@ -44,7 +44,7 @@ Notre méthodologie s'articule autour de **trois principes fondamentaux**.
 <br />
 
 ---
-
+f
 ## Domaines d'expertise couverts
 
 ### Systèmes & Infrastructure

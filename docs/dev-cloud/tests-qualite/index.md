@@ -1,10 +1,9 @@
 ---
 description: "Guide exhaustif des frameworks de testing modernes : de PHPUnit à Vitest, maîtrisez le testing dans tous les langages"
-icon: lucide/test-tubes
 tags: ["TESTING", "PHPUNIT", "PEST", "PYTEST", "JEST", "VITEST", "CYPRESS", "QUALITY"]
 ---
 
-# Frameworks de Testing
+# Tests & Qualité
 
 <div
   class="omny-meta"

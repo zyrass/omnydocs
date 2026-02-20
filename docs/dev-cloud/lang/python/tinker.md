@@ -1,8 +1,7 @@
 ---
 description: "Maîtriser Tkinter avec un projet professionnel : Network Scanner GUI"
-icon: fontawesome/brands/python
+icon: lucide/book-open-check
 tags: ["TKINTER", "PYTHON", "GUI", "DESKTOP", "NETWORK", "SECURITY"]
-status: production
 ---
 
 # Tkinter

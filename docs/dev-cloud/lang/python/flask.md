@@ -1,8 +1,7 @@
 ---
 description: "Maîtriser Flask avec un projet professionnel : Vulnerability Scanner API + Intégrations"
-icon: fontawesome/brands/python
+icon: lucide/book-open-check
 tags: ["FLASK", "PYTHON", "API", "SECURITY", "MICROSERVICES", "REST"]
-status: production
 ---
 
 # Flask

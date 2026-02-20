@@ -1,8 +1,7 @@
 ---
 description: "Maîtriser Django 5.x avec un projet professionnel : Security Dashboard"
-icon: fontawesome/brands/python
+icon: lucide/book-open-check
 tags: ["DJANGO", "PYTHON", "WEB", "CYBERSECURITY", "REST-API", "DASHBOARD"]
-status: production
 ---
 
 # Django 5.x

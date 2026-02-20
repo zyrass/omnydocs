@@ -1,8 +1,6 @@
 ---
 description: "Maîtriser Python avec data science à travers un projet professionnel : CyberAnalyzer"
-icon: fontawesome/brands/python
 tags: ["PYTHON", "DATA-SCIENCE", "CYBERSECURITY", "PANDAS", "NUMPY", "POO"]
-status: production
 ---
 
 # Python
