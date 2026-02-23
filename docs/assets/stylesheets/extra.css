@@ -43,6 +43,13 @@
    * ============================================================================
    */
 
+.mermaid,
+.mermaid + p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Conteneur principal - pleine largeur de l'écran */
 .md-grid {
   max-width: 100%; /* Utilise toute la largeur disponible */
@@ -60,7 +67,8 @@
   }
 }
 
-.md-sidebar--primary .md-sidebar__scrollwrap {
+.md-nav__list {
+  min-height: 100%;
 }
 
 /* Sidebar secondaire (droite) - Table des matières */
