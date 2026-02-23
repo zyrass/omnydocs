@@ -3,7 +3,7 @@ description: "Référentiels et certifications utilisés pour appliquer et audit
 tags: ["SECNUMCLOUD", "HDS", "PCI DSS", "NIST", "CERTIFICATIONS"]
 ---
 
-# Réfs. & Certifs
+# Référentiels & certifications sectoriels
 
 <div
   class="omny-meta"

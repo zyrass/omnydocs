@@ -1,6 +1,5 @@
 ---
 description: "Méthodologies et documents structurants pour mettre en place un SMSI conforme ISO 27001"
-icon: lucide/folder-tree
 tags: ["SMSI", "ISO 27001", "ANALYSE RISQUES", "BIA", "PSSI", "SDSI"]
 ---
 

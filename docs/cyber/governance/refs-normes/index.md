@@ -1,6 +1,5 @@
 ---
 description: "Vue d'ensemble des autorités, réglementations et référentiels structurants en cybersécurité"
-icon: lucide/library
 tags: ["RÉFÉRENTIELS", "NORMES", "RÉGLEMENTATION", "CONFORMITÉ"]
 ---
 

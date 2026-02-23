@@ -1,175 +1,277 @@
-  # ===========================================================================
-  # 1 — FONDAMENTAUX IT
-  # ===========================================================================
-  # Socle de connaissances transversal couvrant les concepts fondamentaux
-  # de l'informatique, indépendamment des technologies spécifiques.
-  # Cette section pose les bases nécessaires pour aborder sereinement
-  # les domaines plus spécialisés (développement, infrastructure, cybersécurité).
-  # 
-  # Contenu :
-  # - Types de données et structures de contrôle
-  # - Outils de développement essentiels (Git, Markdown, environnements virtuels)
-  # - Formats de données (JSON, YAML, XML, CSV)
-  # - Concepts de programmation (architecture Unix, codes d'erreur)
-  # - Réseaux et protocoles (HTTP, DNS, liste des protocoles standards)
-  # 
-  # PUBLIC CIBLE : Débutants et professionnels en reconversion
-  # ===========================================================================
+# ============================================================================
+# 1 — FONDAMENTAUX IT
+# ============================================================================
+# Socle transversal : concepts fondamentaux et durables, indépendants
+# d’une technologie, d’un langage ou d’un environnement spécifique.
+#
+# Objectifs :
+# - Construire une base commune de compréhension (concepts, modèles, vocabulaire).
+# - Réduire la friction lors du passage vers :
+#   - Développement (frameworks, architectures, patterns)
+#   - Systèmes & Infrastructure (exploitation, services, opérations)
+#   - Cybersécurité (menaces, contrôles, pratiques)
+#
+# Public cible :
+# - Débutants en informatique
+# - Profils en reconversion
+# - Professionnels souhaitant consolider les bases
+# ============================================================================
 
-  {"Fondamentaux IT" = [
-    # Page d'introduction de la section
-    "bases/index.md",
+{"Fondamentaux IT" = [
 
-    # -------------------------------------------------------------------------
-    # Fondamentaux techniques
-    # Concepts de base de la programmation : types primitifs, logique,
-    # structures de contrôle, fonctions
-    # -------------------------------------------------------------------------
-    {"Fondamentaux techniques" = [
-      "bases/fondamentaux/index.md",
-      {"Types Primitifs"           = "bases/fondamentaux/types-primitifs.md"},           # int, float, string, boolean
-      {"Heap, Stack et Références" = "bases/fondamentaux/heap-stack-references.md"},     # Gestion mémoire
-      {"Logique Booléenne"         = "bases/fondamentaux/logique-booleenne.md"},         # AND, OR, NOT, tables de vérité
-      {"Logique Conditionnelle"    = "bases/fondamentaux/logique-conditionnelle.md"},    # if/else, switch, opérateurs ternaires
-      {"Structures Itératives"     = "bases/fondamentaux/structure-iteratives.md"},      # for, while, do-while
-      {"Fonctions"                 = "bases/fondamentaux/fonctions.md"}                  # Déclaration, paramètres, retours
-    ]},
+  # --------------------------------------------------------------------------
+  # Page d’introduction
+  # --------------------------------------------------------------------------
+  # Point d’entrée de la section :
+  # - périmètre exact des “fondamentaux”
+  # - organisation et progression recommandée
+  # - conventions utilisées dans la documentation
+  # --------------------------------------------------------------------------
+  "bases/index.md",
 
-    # -------------------------------------------------------------------------
-    # Outils de Développement
-    # Environnements, gestionnaires de paquets, contrôle de version
-    # -------------------------------------------------------------------------
-    {"Outils de Développement" = [
-      # -----------------------------------------------------------------------
-      # Environnements virtuels
-      # Isolation des dépendances et environnements de développement
-      # -----------------------------------------------------------------------
-      {"Environnements Virtu." = [
-        {"WSL"            = "bases/outils/environnement-virtuel/wsl.md"},                 # Windows Subsystem for Linux
-        {"NVM"            = "bases/outils/environnement-virtuel/nvm.md"},                 # Node Version Manager
-        {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},              # Python Virtual Environment
-        # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},        # Hyperviseur type 2
-        # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},           # Provisioning automatisé
-        # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"}         # CLI VirtualBox
-      ]},
+  # ==========================================================================
+  # 1.1 — Fondamentaux techniques
+  # ==========================================================================
+  # Primitives universelles de programmation :
+  # - types, mémoire, logique
+  # - structures de contrôle
+  # - fonctions et portée
+  #
+  # Ces notions sont communes à la quasi-totalité des langages modernes.
+  # ==========================================================================
+  {"Fondamentaux techniques" = [
+    "bases/fondamentaux/index.md",
 
-      # -----------------------------------------------------------------------
-      # Gestionnaires de paquets
-      # Installation et gestion de logiciels par distribution Linux
-      # -----------------------------------------------------------------------
-      {"Gestionnaires de Paquets" = [
-        {"APK — Alpine"        = "bases/paquets/apk-alpine.md"},            # Alpine Package Keeper (conteneurs Docker)
-        {"APT — Debian/Ubuntu" = "bases/paquets/apt-debian.md"},            # Advanced Package Tool (Debian/Ubuntu)
-        {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},           # Package Manager (Arch Linux)
-        {"YUM — RHEL Legacy"   = "bases/paquets/yum-rhel.md"},              # Yellowdog Updater Modified (CentOS 7-)
-        {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"}               # Dandified YUM (CentOS 8+, RHEL 8+)
-      ]},
+    # Types scalaires et représentation des valeurs
+    {"Types Primitifs" = "bases/fondamentaux/types-primitifs.md"},
 
-      # -----------------------------------------------------------------------
-      # Outils essentiels
-      # Markdown pour documentation, Git pour versionning
-      # -----------------------------------------------------------------------
-      {"Markdown"   = "bases/outils/markdown.md"},        # Syntaxe de rédaction légère
-      {"Git"        = "bases/outils/git.md"},              # Contrôle de version distribué
-      # {"GitHub"     = "bases/outils/github.md"}         # Plateforme d'hébergement Git
+    # Modèle mémoire : pile, tas, références, cycle de vie
+    {"Heap, Stack et Références" = "bases/fondamentaux/heap-stack-references.md"},
 
-      # {"Terminaux et Shells" = "bases/outils/terminaux-shell.md"},
+    # Opérateurs logiques, tables de vérité, lois de base
+    {"Logique Booléenne" = "bases/fondamentaux/logique-booleenne.md"},
 
-      # {"Visual Studio Code" = [
-      #   {"Configuration"            =   "bases/outils/vscode/config.md"},
-      #   {"Extensions essentielles"  =   "bases/outils/vscode/liste-extensions.md"},
-      #   {"Snippets personnalisés"   =   "bases/outils/vscode/snippet.md"},
-      # ]},
-    ]},
-    
-    # -------------------------------------------------------------------------
-    # Structures de Données
-    # Formats d'échange et de stockage de données
-    # -------------------------------------------------------------------------
-    {"Structures de Données" = [
-      "bases/structure-donnees/index.md",
-      {"JSON" = "bases/structure-donnees/json.md"},      # JavaScript Object Notation
-      {"YAML" = "bases/structure-donnees/yaml.md"},      # YAML Ain't Markup Language (config)
-      {"XML"  = "bases/structure-donnees/xml.md"},       # eXtensible Markup Language
-      {"CSV"  = "bases/structure-donnees/csv.md"}        # Comma-Separated Values
-    ]},
+    # Branches d’exécution : conditions, alternatives, cas multiples
+    {"Logique Conditionnelle" = "bases/fondamentaux/logique-conditionnelle.md"},
 
-    # {"Modélisation & Conception" = [
-    #   "bases/modelisation/index.md",
+    # Boucles : itération, contrôles, risques de boucle infinie
+    {"Structures Itératives" = "bases/fondamentaux/structure-iteratives.md"},
 
-    #   {"UML" = [
-    #     "bases/modelisation/uml/index.md",
-    #     {"Introduction"             = "bases/modelisation/uml/uml-intro.md"},  
-    #     {"Diagrammes" = [
-    #       "bases/modelisation/uml/diagrammes/index.md",
-    #       {"UseCase"                = "bases/modelisation/uml/diagrammes/usecase.md"},
-    #       {"Classes"                = "bases/modelisation/uml/diagrammes/classes.md"},
-    #       {"Séquences"              = "bases/modelisation/uml/diagrammes/sequence.md"},
-    #       {"Activités"              = "bases/modelisation/uml/diagrammes/activity.md"},
-    #       {"États"                  = "bases/modelisation/uml/diagrammes/state.md"},
-    #       {"Object"                 = "bases/modelisation/uml/diagrammes/object.md"},
-    #       {"Composite Structure"    = "bases/modelisation/uml/diagrammes/composite-structure.md"},
-    #       {"Deployment"             = "bases/modelisation/uml/diagrammes/deployment.md"},
-    #       {"Package"                = "bases/modelisation/uml/diagrammes/package.md"},
-    #       {"Timing"                 = "bases/modelisation/uml/diagrammes/timing.md"},
-    #       {"Communication"          = "bases/modelisation/uml/diagrammes/communication.md"},
-    #       # Fusion des 3 fichiers après car Prodile et Overview bug.
-    #       {"Architecture Avancée"   = "bases/modelisation/uml/diagrammes/architecture-avancee.md"}
-    #       # {"Component"              = "bases/modelisation/uml/diagrammes/component.md"},
-    #       # {"Profile"                = "bases/modelisation/uml/diagrammes/diag-profile.md"},
-    #       # {"Overview"               = "bases/modelisation/uml/diagrammes/vue-ensemble.md"}
-    #     ]}
-    #   ]},
-
-      # {"Merise" = [
-      #   "bases/modelisation/merise/index.md",
-      #   {"Introduction"         = "bases/modelisation/merise/intro.md"},
-      #   {"MCD"                  = "bases/modelisation/merise/mcd.md"},
-      #   {"MLD"                  = "bases/modelisation/merise/mld.md"},
-      #   {"MPD"                  = "bases/modelisation/merise/mpd.md"},
-      #   {"MPD > SQL"            = "bases/modelisation/merise/mpd-to-sql.md"}
-      # ]}
-
-    # ]},
-
-    # {"Gestion Projet" = [
-    #   "bases/projet/index.md",
-    #   {"Diagramme de Gantt"             = "bases/projet/gantt.md"}
-    # ]},
-
-    # -------------------------------------------------------------------------
-    # Concepts de Programmation
-    # Principes généraux et architectures logicielles
-    # -------------------------------------------------------------------------
-    {"Concepts de Prog." = [
-      {"Architecture Unix"          = "bases/concepts/architecture-unix.md"},   # Philosophie Unix, pipes, processus
-      {"Liste des codes d'erreur"   = "bases/concepts/liste-code-erreur.md"},    # HTTP, SMTP, FTP, exit codes
-      # {"Principes SOLID"            = "bases/concepts/solid.md"},                      # Design OO (Single Responsibility, etc.)
-      # {"Paradigmes de Prog."        = "bases/concepts/paradigmes.md"},                 # Impératif, OO, Fonctionnel
-      # {"Design Patterns"            = "bases/concepts/design-patterns.md"},            # Gang of Four, patterns courants
-      # {"Encodage"                   = "bases/concepts/encodage.md"},                   # ASCII, UTF-8, Base64
-      # {"Variables d'environnement"  = "bases/concepts/variables-environnements.md"},   # PATH, HOME, etc.
-      # {"Expressions régulières"     = "bases/concepts/regex.md"}                       # Syntaxe regex, exemples
-    ]},
-
-    # -------------------------------------------------------------------------
-    # Réseaux et Protocoles
-    # Concepts réseau fondamentaux et protocoles standards
-    # -------------------------------------------------------------------------
-    {"Réseaux et Protocoles" = [
-      {"HTTP – Méthodes"        = "bases/reseaux/http-methodes.md"},        # GET, POST, PUT, DELETE, PATCH
-      {"DNS – Notions"          = "bases/reseaux/dns-notions.md"},          # Résolution de noms, types d'enregistrements
-      {"Liste des protocoles"   = "bases/reseaux/liste-protocoles.md"}     # TCP, UDP, ICMP, SSH, FTP, SMTP
-      # {"Modèle OSI"             = "bases/reseaux/modele-osi.md"},                      # 7 couches du modèle OSI
-      # {"Modèle TCP/IP"          = "bases/reseaux/modele-tcp.md"},                      # 4 couches TCP/IP
-      # {"Sockets & Serveurs"     = "bases/reseaux/sockets-serveurs.md"}                 # Communication client-serveur
-    ]},
-  
-    {"Cryptographie & PKI" = [
-      "bases/crypto/index.md",
-      {"GPG"     = "bases/crypto/gpg.md"},
-      {"OpenSSL" = "bases/crypto/openssl.md"},
-      {"PKI"     = "bases/crypto/pki.md"}
-    ]}
-
+    # Fonctions : signatures, paramètres, retours, portée, composition
+    {"Fonctions" = "bases/fondamentaux/fonctions.md"},
   ]},
+
+  # ==========================================================================
+  # 1.2 — Formats & sérialisation
+  # ==========================================================================
+  # Formats d’échange / configuration / stockage léger.
+  # Objectif : savoir lire, produire et valider des données structurées.
+  # ==========================================================================
+  {"Formats & sérialisation" = [
+    "bases/structure-donnees/index.md",
+
+    # Format dominant des API et des applications web
+    {"JSON" = "bases/structure-donnees/json.md"},
+
+    # Format de configuration lisible et hiérarchique
+    {"YAML" = "bases/structure-donnees/yaml.md"},
+
+    # Format extensible historique (interopérabilité, intégrations)
+    {"XML"  = "bases/structure-donnees/xml.md"},
+
+    # Format tabulaire simple pour échanges et exports
+    {"CSV"  = "bases/structure-donnees/csv.md"},
+  ]},
+
+  # ==========================================================================
+  # 1.3 — Outils de Développement
+  # ==========================================================================
+  # Outillage transverse pour produire et maintenir du logiciel :
+  # - environnements et isolation
+  # - gestion d’outils/dépendances
+  # - terminaux et éditeurs
+  # - documentation et versionning
+  #
+  # Remarque : l’exploitation avancée des OS et services est traitée
+  # dans “Systèmes & Infrastructure”. Ici : usage orienté dev/projet.
+  # ==========================================================================
+  {"Outils de Développement" = [
+
+    # ------------------------------------------------------------------------
+    # Environnements virtuels
+    # ------------------------------------------------------------------------
+    # Objectif : isoler les dépendances, reproduire les environnements,
+    # limiter les effets de bord entre projets.
+    # ------------------------------------------------------------------------
+    {"Environnements virtuels" = [
+      {"WSL"  = "bases/outils/environnement-virtuel/wsl.md"},   # Linux sous Windows
+      {"NVM"  = "bases/outils/environnement-virtuel/nvm.md"},   # Gestion versions Node.js
+      {"VENV" = "bases/outils/environnement-virtuel/venv.md"},  # Environnements Python
+      # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},
+      # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},
+      # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"},
+    ]},
+
+    # ------------------------------------------------------------------------
+    # Gestionnaires de paquets
+    # ------------------------------------------------------------------------
+    # Objectif : comprendre l’installation, la mise à jour et la provenance
+    # des logiciels (dépôts, signatures, versions, dépendances).
+    # ------------------------------------------------------------------------
+    {"Gestionnaires de paquets" = [
+      {"APK — Alpine"        = "bases/paquets/apk-alpine.md"},
+      {"APT — Debian/Ubuntu" = "bases/paquets/apt-debian.md"},
+      {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},
+      {"YUM — RHEL Legacy"   = "bases/paquets/yum-rhel.md"},
+      {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"},
+    ]},
+
+    # ------------------------------------------------------------------------
+    # Terminaux & Shells
+    # ------------------------------------------------------------------------
+    # Objectif : maîtriser l’interface CLI pour exécuter, automatiser,
+    # diagnostiquer et manipuler des projets (build, tests, scripts).
+    # ------------------------------------------------------------------------
+    # {"Terminaux et Shells" = "bases/outils/terminaux-shell.md"},
+
+    # ------------------------------------------------------------------------
+    # Éditeur & IDE
+    # ------------------------------------------------------------------------
+    # Objectif : standardiser l’environnement de travail :
+    # - configuration fiable
+    # - extensions utiles
+    # - snippets réutilisables
+    # ------------------------------------------------------------------------
+    # {"Visual Studio Code" = [
+    #   {"Configuration"           = "bases/outils/vscode/config.md"},
+    #   {"Extensions essentielles" = "bases/outils/vscode/liste-extensions.md"},
+    #   {"Snippets personnalisés"  = "bases/outils/vscode/snippet.md"},
+    # ]},
+
+    # ------------------------------------------------------------------------
+    # Documentation & versionning
+    # ------------------------------------------------------------------------
+    # Objectif : produire une documentation maintenable et garantir la traçabilité :
+    # - rédaction technique (Markdown)
+    # - historique et collaboration (Git)
+    # ------------------------------------------------------------------------
+    {"Documentation & versionning" = [
+      {"Markdown" = "bases/outils/markdown.md"},
+      {"Git"      = "bases/outils/git.md"},
+      # {"GitHub"   = "bases/outils/github.md"},
+      # {"GitLab"   = "bases/outils/gitlab.md"},
+    ]},
+  ]},
+
+  # ==========================================================================
+  # 1.4 — Modélisation & Conception
+  # ==========================================================================
+  # Objectif : raisonner avant d’implémenter.
+  # On y place les méthodes et notations permettant :
+  # - d’exprimer un besoin
+  # - de structurer un système
+  # - de communiquer une architecture
+  #
+  # Remarque : on reste sur des modèles et notations (fondamentaux),
+  # pas sur l’implémentation spécifique d’un framework.
+  # ==========================================================================
+  {"Modélisation & Conception" = [
+    "bases/modelisation/index.md",
+
+    {"UML" = [
+      "bases/modelisation/uml/index.md",
+      {"Introduction" = "bases/modelisation/uml/uml-intro.md"},
+
+      {"Diagrammes" = [
+        "bases/modelisation/uml/diagrammes/index.md",
+        {"UseCase"             = "bases/modelisation/uml/diagrammes/usecase.md"},
+        {"Classes"             = "bases/modelisation/uml/diagrammes/classes.md"},
+        {"Séquences"           = "bases/modelisation/uml/diagrammes/sequence.md"},
+        {"Activités"           = "bases/modelisation/uml/diagrammes/activity.md"},
+        {"États"               = "bases/modelisation/uml/diagrammes/state.md"},
+        {"Object"              = "bases/modelisation/uml/diagrammes/object.md"},
+        {"Composite Structure" = "bases/modelisation/uml/diagrammes/composite-structure.md"},
+        {"Deployment"          = "bases/modelisation/uml/diagrammes/deployment.md"},
+        {"Package"             = "bases/modelisation/uml/diagrammes/package.md"},
+        {"Timing"              = "bases/modelisation/uml/diagrammes/timing.md"},
+        {"Communication"       = "bases/modelisation/uml/diagrammes/communication.md"},
+        {"Architecture Avancée"= "bases/modelisation/uml/diagrammes/architecture-avancee.md"},
+        # {"Component" = "bases/modelisation/uml/diagrammes/component.md"},
+        # {"Profile"   = "bases/modelisation/uml/diagrammes/diag-profile.md"},
+        # {"Overview"  = "bases/modelisation/uml/diagrammes/vue-ensemble.md"},
+      ]},
+    ]},
+
+    {"Merise" = [
+      "bases/modelisation/merise/index.md",
+      {"Introduction" = "bases/modelisation/merise/intro.md"},
+      {"MCD"          = "bases/modelisation/merise/mcd.md"},
+      {"MLD"          = "bases/modelisation/merise/mld.md"},
+      {"MPD"          = "bases/modelisation/merise/mpd.md"},
+      {"MPD > SQL"    = "bases/modelisation/merise/mpd-to-sql.md"},
+    ]},
+  ]},
+
+  # ==========================================================================
+  # 1.5 — Gestion de projet
+  # ==========================================================================
+  # Objectif : structurer le travail et piloter un projet :
+  # - planification
+  # - jalons
+  # - dépendances
+  #
+  # Remarque : les méthodes “agiles” détaillées peuvent être ajoutées ici
+  # si tu veux garder une logique transverse (dev/infra/cyber).
+  # ==========================================================================
+  {"Gestion de projet" = [
+    "bases/projet/index.md",
+    {"Diagramme de Gantt" = "bases/projet/gantt.md"},
+  ]},
+
+  # ==========================================================================
+  # 1.6 — Concepts de programmation
+  # ==========================================================================
+  # Principes structurants et notions durables issues des systèmes et de l’ingénierie.
+  # ==========================================================================
+  {"Concepts de programmation" = [
+    {"Architecture Unix"        = "bases/concepts/architecture-unix.md"},
+    {"Liste des codes d'erreur" = "bases/concepts/liste-code-erreur.md"},
+    # {"Principes SOLID"           = "bases/concepts/solid.md"},
+    # {"Paradigmes de Prog."       = "bases/concepts/paradigmes.md"},
+    # {"Design Patterns"           = "bases/concepts/design-patterns.md"},
+    # {"Encodage"                  = "bases/concepts/encodage.md"},
+    # {"Variables d'environnement" = "bases/concepts/variables-environnements.md"},
+    # {"Expressions régulières"    = "bases/concepts/regex.md"},
+  ]},
+
+  # ==========================================================================
+  # 1.7 — Réseaux et Protocoles
+  # ==========================================================================
+  # Partie conceptuelle : modèles en couches, grandes familles de protocoles,
+  # mécanismes client-serveur. L’opérationnel est dans “Systèmes & Infrastructure”.
+  # ==========================================================================
+  {"Réseaux et Protocoles" = [
+    {"HTTP – Méthodes"      = "bases/reseaux/http-methodes.md"},
+    {"DNS – Notions"        = "bases/reseaux/dns-notions.md"},
+    {"Liste des protocoles" = "bases/reseaux/liste-protocoles.md"},
+    {"Modèle OSI"           = "bases/reseaux/modele-osi.md"},
+    {"Modèle TCP/IP"        = "bases/reseaux/modele-tcp.md"},
+    {"Sockets & Serveurs"   = "bases/reseaux/sockets-serveurs.md"},
+  ]},
+
+  # ==========================================================================
+  # 1.8 — Cryptographie & PKI
+  # ==========================================================================
+  # Bases cryptographiques nécessaires avant d’aborder :
+  # - sécurité applicative (auth, JWT, etc.)
+  # - sécurité réseau (TLS, certificats)
+  # - pratiques PKI (chaînes, confiance, rotation)
+  # ==========================================================================
+  {"Cryptographie & PKI" = [
+    "bases/crypto/index.md",
+    {"GPG"     = "bases/crypto/gpg.md"},
+    {"OpenSSL" = "bases/crypto/openssl.md"},
+    {"PKI"     = "bases/crypto/pki.md"},
+  ]},
+
+]},

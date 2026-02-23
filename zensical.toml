@@ -53,7 +53,7 @@ nav = [
   # PUBLIC CIBLE : Tous publics (débutants à experts)
   # ===========================================================================
 
-  {"Accueil" = [
+    {"Accueil" = [
     # Page d'index principale de la documentation
     "index.md",
 
@@ -61,322 +61,571 @@ nav = [
     # Pages introductives
     # Contexte, objectifs et structure de la documentation
     # -------------------------------------------------------------------------
-    {"Préambule"    = "home/preambule.md"},       # Philosophie et approche pédagogique
-    {"Introduction" = "home/introduction.md"}     # Présentation générale et organisation
-  ]},
 
-  # ===========================================================================
-  # 1 — FONDAMENTAUX IT
-  # ===========================================================================
-  # Socle de connaissances transversal couvrant les concepts fondamentaux
-  # de l'informatique, indépendamment des technologies spécifiques.
-  # Cette section pose les bases nécessaires pour aborder sereinement
-  # les domaines plus spécialisés (développement, infrastructure, cybersécurité).
-  # 
-  # Contenu :
-  # - Types de données et structures de contrôle
-  # - Outils de développement essentiels (Git, Markdown, environnements virtuels)
-  # - Formats de données (JSON, YAML, XML, CSV)
-  # - Concepts de programmation (architecture Unix, codes d'erreur)
-  # - Réseaux et protocoles (HTTP, DNS, liste des protocoles standards)
-  # 
-  # PUBLIC CIBLE : Débutants et professionnels en reconversion
-  # ===========================================================================
+    # Philosophie et approche pédagogique
+    {"Préambule" = "home/preambule.md"},
 
-  {"Fondamentaux IT" = [
-    # Page d'introduction de la section
-    "bases/index.md",
+    # Présentation générale et organisation
+    {"Introduction" = "home/introduction.md"},
 
     # -------------------------------------------------------------------------
-    # Fondamentaux techniques
-    # Concepts de base de la programmation : types primitifs, logique,
-    # structures de contrôle, fonctions
+    # Parcours guidés
+    # Pages d'orientation pour aider à choisir un chemin cohérent
     # -------------------------------------------------------------------------
-    {"Fondamentaux techniques" = [
-      "bases/fondamentaux/index.md",
-      {"Types Primitifs"           = "bases/fondamentaux/types-primitifs.md"},           # int, float, string, boolean
-      {"Heap, Stack et Références" = "bases/fondamentaux/heap-stack-references.md"},     # Gestion mémoire
-      {"Logique Booléenne"         = "bases/fondamentaux/logique-booleenne.md"},         # AND, OR, NOT, tables de vérité
-      {"Logique Conditionnelle"    = "bases/fondamentaux/logique-conditionnelle.md"},    # if/else, switch, opérateurs ternaires
-      {"Structures Itératives"     = "bases/fondamentaux/structure-iteratives.md"},      # for, while, do-while
-      {"Fonctions"                 = "bases/fondamentaux/fonctions.md"}                  # Déclaration, paramètres, retours
+    {"Parcours d'apprentissage" = [
+      {"Compréhension" = "home/comprehension.md"},
+
+      # Mesurer et visualiser la progression (référentiels internes)
+      {"Compétences" = [
+        {"Matrice de compétences" = "home/competences/matrice.md"},
+        {"Heatmap de compétences" = "home/competences/heatmap.md"},
+        {"Diagramme radar des compétences" = "home/competences/radar.md"},
+      ]},
     ]},
 
     # -------------------------------------------------------------------------
-    # Outils de Développement
-    # Environnements, gestionnaires de paquets, contrôle de version
+    # Référentiel Mermaid (banc de test + patterns)
+    # Objectif : valider la compatibilité Zensical + standardiser les usages
     # -------------------------------------------------------------------------
-    {"Outils de Développement" = [
-      # -----------------------------------------------------------------------
-      # Environnements virtuels
-      # Isolation des dépendances et environnements de développement
-      # -----------------------------------------------------------------------
-      {"Environnements Virtu." = [
-        {"WSL"            = "bases/outils/environnement-virtuel/wsl.md"},                 # Windows Subsystem for Linux
-        {"NVM"            = "bases/outils/environnement-virtuel/nvm.md"},                 # Node Version Manager
-        {"VENV"           = "bases/outils/environnement-virtuel/venv.md"},              # Python Virtual Environment
-        # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},        # Hyperviseur type 2
-        # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},           # Provisioning automatisé
-        # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"}         # CLI VirtualBox
+    {"Schémas Mermaid (référentiel)" = [
+      "home/mermaid/index.md",
+
+      # Essentiels (les plus utilisés)
+      {"Essentiels" = [
+        {"Flowchart (fondamental)" = "home/mermaid/essentiels/flowchart.md"},
+        {"Séquence (fondamental)"  = "home/mermaid/essentiels/sequence.md"},
+        {"Séquence (alt/else)"     = "home/mermaid/essentiels/sequence_alt_else.md"},
+        {"Flowchart (Subgraph)"    = "home/mermaid/essentiels/flowchart_subgraph.md"},
+        {"Flowchart (Styles + Classes)" = "home/mermaid/essentiels/flowchart_styles_classes.md"},
       ]},
 
-      # -----------------------------------------------------------------------
-      # Gestionnaires de paquets
-      # Installation et gestion de logiciels par distribution Linux
-      # -----------------------------------------------------------------------
-      {"Gestionnaires de Paquets" = [
-        {"APK — Alpine"        = "bases/paquets/apk-alpine.md"},            # Alpine Package Keeper (conteneurs Docker)
-        {"APT — Debian/Ubuntu" = "bases/paquets/apt-debian.md"},            # Advanced Package Tool (Debian/Ubuntu)
-        {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},           # Package Manager (Arch Linux)
-        {"YUM — RHEL Legacy"   = "bases/paquets/yum-rhel.md"},              # Yellowdog Updater Modified (CentOS 7-)
-        {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"}               # Dandified YUM (CentOS 8+, RHEL 8+)
+      # Modélisation & structure (UML / Data / États)
+      {"Modélisation" = [
+        {"Class Diagram (UML)" = "home/mermaid/modelisation/class_uml.md"},
+        {"ER Diagram (données)" = "home/mermaid/modelisation/er.md"},
+        {"State Diagram (cycle de vie)" = "home/mermaid/modelisation/state.md"},
       ]},
 
-      # -----------------------------------------------------------------------
-      # Outils essentiels
-      # Markdown pour documentation, Git pour versionning
-      # -----------------------------------------------------------------------
-      {"Markdown"   = "bases/outils/markdown.md"},        # Syntaxe de rédaction légère
-      {"Git"        = "bases/outils/git.md"},              # Contrôle de version distribué
-      # {"GitHub"     = "bases/outils/github.md"}         # Plateforme d'hébergement Git
+      # Pilotage projet / DevOps (temps + Git)
+      {"Pilotage & DevOps" = [
+        {"Gantt (planning)" = "home/mermaid/pilotage/gantt.md"},
+        {"GitGraph (workflow Git)" = "home/mermaid/pilotage/gitgraph.md"},
+      ]},
 
-      # {"Terminaux et Shells" = "bases/outils/terminaux-shell.md"},
+      # Synthèse & narration (communication)
+      {"Synthèse" = [
+        {"Pie Chart (répartition)" = "home/mermaid/synthese/piechart.md"},
+        {"Journey (parcours)" = "home/mermaid/synthese/journey.md"},
+      ]},
 
-      # {"Visual Studio Code" = [
-      #   {"Configuration"            =   "bases/outils/vscode/config.md"},
-      #   {"Extensions essentielles"  =   "bases/outils/vscode/liste-extensions.md"},
-      #   {"Snippets personnalisés"   =   "bases/outils/vscode/snippet.md"},
-      # ]},
+      # Avancés / support variable (selon version Mermaid/Zensical)
+      {"Avancés (support variable)" = [
+        {"Mindmap" = "home/mermaid/avances/mindmap.md"},
+        {"Timeline" = "home/mermaid/avances/timeline.md"},
+        {"Quadrant (priorisation)" = "home/mermaid/avances/quadrant.md"},
+        {"Block Diagram" = "home/mermaid/avances/block.md"},
+        {"Architecture" = "home/mermaid/avances/architecture.md"},
+        {"Radar (compétences)" = "home/mermaid/avances/radar.md"},
+        {"XY Chart (beta)" = "home/mermaid/avances/xychart.md"},
+        {"ZenUML" = "home/mermaid/avances/zenuml.md"},
+      ]},
     ]},
-    
-    # -------------------------------------------------------------------------
-    # Structures de Données
-    # Formats d'échange et de stockage de données
-    # -------------------------------------------------------------------------
-    {"Structures de Données" = [
-      "bases/structure-donnees/index.md",
-      {"JSON" = "bases/structure-donnees/json.md"},      # JavaScript Object Notation
-      {"YAML" = "bases/structure-donnees/yaml.md"},      # YAML Ain't Markup Language (config)
-      {"XML"  = "bases/structure-donnees/xml.md"},       # eXtensible Markup Language
-      {"CSV"  = "bases/structure-donnees/csv.md"}        # Comma-Separated Values
-    ]},
-
-    # {"Modélisation & Conception" = [
-    #   "bases/modelisation/index.md",
-
-    #   {"UML" = [
-    #     "bases/modelisation/uml/index.md",
-    #     {"Introduction"             = "bases/modelisation/uml/uml-intro.md"},  
-    #     {"Diagrammes" = [
-    #       "bases/modelisation/uml/diagrammes/index.md",
-    #       {"UseCase"                = "bases/modelisation/uml/diagrammes/usecase.md"},
-    #       {"Classes"                = "bases/modelisation/uml/diagrammes/classes.md"},
-    #       {"Séquences"              = "bases/modelisation/uml/diagrammes/sequence.md"},
-    #       {"Activités"              = "bases/modelisation/uml/diagrammes/activity.md"},
-    #       {"États"                  = "bases/modelisation/uml/diagrammes/state.md"},
-    #       {"Object"                 = "bases/modelisation/uml/diagrammes/object.md"},
-    #       {"Composite Structure"    = "bases/modelisation/uml/diagrammes/composite-structure.md"},
-    #       {"Deployment"             = "bases/modelisation/uml/diagrammes/deployment.md"},
-    #       {"Package"                = "bases/modelisation/uml/diagrammes/package.md"},
-    #       {"Timing"                 = "bases/modelisation/uml/diagrammes/timing.md"},
-    #       {"Communication"          = "bases/modelisation/uml/diagrammes/communication.md"},
-    #       # Fusion des 3 fichiers après car Prodile et Overview bug.
-    #       {"Architecture Avancée"   = "bases/modelisation/uml/diagrammes/architecture-avancee.md"}
-    #       # {"Component"              = "bases/modelisation/uml/diagrammes/component.md"},
-    #       # {"Profile"                = "bases/modelisation/uml/diagrammes/diag-profile.md"},
-    #       # {"Overview"               = "bases/modelisation/uml/diagrammes/vue-ensemble.md"}
-    #     ]}
-    #   ]},
-
-      # {"Merise" = [
-      #   "bases/modelisation/merise/index.md",
-      #   {"Introduction"         = "bases/modelisation/merise/intro.md"},
-      #   {"MCD"                  = "bases/modelisation/merise/mcd.md"},
-      #   {"MLD"                  = "bases/modelisation/merise/mld.md"},
-      #   {"MPD"                  = "bases/modelisation/merise/mpd.md"},
-      #   {"MPD > SQL"            = "bases/modelisation/merise/mpd-to-sql.md"}
-      # ]}
-
-    # ]},
-
-    # {"Gestion Projet" = [
-    #   "bases/projet/index.md",
-    #   {"Diagramme de Gantt"             = "bases/projet/gantt.md"}
-    # ]},
-
-    # -------------------------------------------------------------------------
-    # Concepts de Programmation
-    # Principes généraux et architectures logicielles
-    # -------------------------------------------------------------------------
-    {"Concepts de Prog." = [
-      {"Architecture Unix"          = "bases/concepts/architecture-unix.md"},   # Philosophie Unix, pipes, processus
-      {"Liste des codes d'erreur"   = "bases/concepts/liste-code-erreur.md"},    # HTTP, SMTP, FTP, exit codes
-      # {"Principes SOLID"            = "bases/concepts/solid.md"},                      # Design OO (Single Responsibility, etc.)
-      # {"Paradigmes de Prog."        = "bases/concepts/paradigmes.md"},                 # Impératif, OO, Fonctionnel
-      # {"Design Patterns"            = "bases/concepts/design-patterns.md"},            # Gang of Four, patterns courants
-      # {"Encodage"                   = "bases/concepts/encodage.md"},                   # ASCII, UTF-8, Base64
-      # {"Variables d'environnement"  = "bases/concepts/variables-environnements.md"},   # PATH, HOME, etc.
-      # {"Expressions régulières"     = "bases/concepts/regex.md"}                       # Syntaxe regex, exemples
-    ]},
-
-    # -------------------------------------------------------------------------
-    # Réseaux et Protocoles
-    # Concepts réseau fondamentaux et protocoles standards
-    # -------------------------------------------------------------------------
-    {"Réseaux et Protocoles" = [
-      {"HTTP – Méthodes"        = "bases/reseaux/http-methodes.md"},        # GET, POST, PUT, DELETE, PATCH
-      {"DNS – Notions"          = "bases/reseaux/dns-notions.md"},          # Résolution de noms, types d'enregistrements
-      {"Liste des protocoles"   = "bases/reseaux/liste-protocoles.md"}     # TCP, UDP, ICMP, SSH, FTP, SMTP
-      # {"Modèle OSI"             = "bases/reseaux/modele-osi.md"},                      # 7 couches du modèle OSI
-      # {"Modèle TCP/IP"          = "bases/reseaux/modele-tcp.md"},                      # 4 couches TCP/IP
-      # {"Sockets & Serveurs"     = "bases/reseaux/sockets-serveurs.md"}                 # Communication client-serveur
-    ]},
-  
-    {"Cryptographie & PKI" = [
-      "bases/crypto/index.md",
-      {"GPG"     = "bases/crypto/gpg.md"},
-      {"OpenSSL" = "bases/crypto/openssl.md"},
-      {"PKI"     = "bases/crypto/pki.md"}
-    ]}
 
   ]},
 
-  # ===========================================================================
+# ============================================================================
+# 1 — FONDAMENTAUX IT
+# ============================================================================
+# Socle transversal : concepts fondamentaux et durables, indépendants
+# d’une technologie, d’un langage ou d’un environnement spécifique.
+#
+# Objectifs :
+# - Construire une base commune de compréhension (concepts, modèles, vocabulaire).
+# - Réduire la friction lors du passage vers :
+#   - Développement (frameworks, architectures, patterns)
+#   - Systèmes & Infrastructure (exploitation, services, opérations)
+#   - Cybersécurité (menaces, contrôles, pratiques)
+#
+# Public cible :
+# - Débutants en informatique
+# - Profils en reconversion
+# - Professionnels souhaitant consolider les bases
+# ============================================================================
+
+{"Fondamentaux IT" = [
+
+  # --------------------------------------------------------------------------
+  # Page d’introduction
+  # --------------------------------------------------------------------------
+  # Point d’entrée de la section :
+  # - périmètre exact des “fondamentaux”
+  # - organisation et progression recommandée
+  # - conventions utilisées dans la documentation
+  # --------------------------------------------------------------------------
+  "bases/index.md",
+
+  # ==========================================================================
+  # 1.1 — Fondamentaux techniques
+  # ==========================================================================
+  # Primitives universelles de programmation :
+  # - types, mémoire, logique
+  # - structures de contrôle
+  # - fonctions et portée
+  #
+  # Ces notions sont communes à la quasi-totalité des langages modernes.
+  # ==========================================================================
+  {"Fondamentaux techniques" = [
+    "bases/fondamentaux/index.md",
+
+    # Types scalaires et représentation des valeurs
+    {"Types Primitifs" = "bases/fondamentaux/types-primitifs.md"},
+
+    # Modèle mémoire : pile, tas, références, cycle de vie
+    {"Heap, Stack et Références" = "bases/fondamentaux/heap-stack-references.md"},
+
+    # Opérateurs logiques, tables de vérité, lois de base
+    {"Logique Booléenne" = "bases/fondamentaux/logique-booleenne.md"},
+
+    # Branches d’exécution : conditions, alternatives, cas multiples
+    {"Logique Conditionnelle" = "bases/fondamentaux/logique-conditionnelle.md"},
+
+    # Boucles : itération, contrôles, risques de boucle infinie
+    {"Structures Itératives" = "bases/fondamentaux/structure-iteratives.md"},
+
+    # Fonctions : signatures, paramètres, retours, portée, composition
+    {"Fonctions" = "bases/fondamentaux/fonctions.md"},
+  ]},
+
+  # ==========================================================================
+  # 1.2 — Formats & sérialisation
+  # ==========================================================================
+  # Formats d’échange / configuration / stockage léger.
+  # Objectif : savoir lire, produire et valider des données structurées.
+  # ==========================================================================
+  {"Formats & sérialisation" = [
+    "bases/structure-donnees/index.md",
+
+    # Format dominant des API et des applications web
+    {"JSON" = "bases/structure-donnees/json.md"},
+
+    # Format de configuration lisible et hiérarchique
+    {"YAML" = "bases/structure-donnees/yaml.md"},
+
+    # Format extensible historique (interopérabilité, intégrations)
+    {"XML"  = "bases/structure-donnees/xml.md"},
+
+    # Format tabulaire simple pour échanges et exports
+    {"CSV"  = "bases/structure-donnees/csv.md"},
+  ]},
+
+  # ==========================================================================
+  # 1.3 — Outils de Développement
+  # ==========================================================================
+  # Outillage transverse pour produire et maintenir du logiciel :
+  # - environnements et isolation
+  # - gestion d’outils/dépendances
+  # - terminaux et éditeurs
+  # - documentation et versionning
+  #
+  # Remarque : l’exploitation avancée des OS et services est traitée
+  # dans “Systèmes & Infrastructure”. Ici : usage orienté dev/projet.
+  # ==========================================================================
+  {"Outils de Développement" = [
+
+    # ------------------------------------------------------------------------
+    # Environnements virtuels
+    # ------------------------------------------------------------------------
+    # Objectif : isoler les dépendances, reproduire les environnements,
+    # limiter les effets de bord entre projets.
+    # ------------------------------------------------------------------------
+    {"Environnements virtuels" = [
+      {"WSL"  = "bases/outils/environnement-virtuel/wsl.md"},   # Linux sous Windows
+      {"NVM"  = "bases/outils/environnement-virtuel/nvm.md"},   # Gestion versions Node.js
+      {"VENV" = "bases/outils/environnement-virtuel/venv.md"},  # Environnements Python
+      # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},
+      # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},
+      # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"},
+    ]},
+
+    # ------------------------------------------------------------------------
+    # Gestionnaires de paquets
+    # ------------------------------------------------------------------------
+    # Objectif : comprendre l’installation, la mise à jour et la provenance
+    # des logiciels (dépôts, signatures, versions, dépendances).
+    # ------------------------------------------------------------------------
+    {"Gestionnaires de paquets" = [
+      {"APK — Alpine"        = "bases/paquets/apk-alpine.md"},
+      {"APT — Debian/Ubuntu" = "bases/paquets/apt-debian.md"},
+      {"PACMAN — Arch"       = "bases/paquets/pacman-arch.md"},
+      {"YUM — RHEL Legacy"   = "bases/paquets/yum-rhel.md"},
+      {"DNF — RHEL Moderne"  = "bases/paquets/dnf-rhel.md"},
+    ]},
+
+    # ------------------------------------------------------------------------
+    # Terminaux & Shells
+    # ------------------------------------------------------------------------
+    # Objectif : maîtriser l’interface CLI pour exécuter, automatiser,
+    # diagnostiquer et manipuler des projets (build, tests, scripts).
+    # ------------------------------------------------------------------------
+    # {"Terminaux et Shells" = "bases/outils/terminaux-shell.md"},
+
+    # ------------------------------------------------------------------------
+    # Éditeur & IDE
+    # ------------------------------------------------------------------------
+    # Objectif : standardiser l’environnement de travail :
+    # - configuration fiable
+    # - extensions utiles
+    # - snippets réutilisables
+    # ------------------------------------------------------------------------
+    # {"Visual Studio Code" = [
+    #   {"Configuration"           = "bases/outils/vscode/config.md"},
+    #   {"Extensions essentielles" = "bases/outils/vscode/liste-extensions.md"},
+    #   {"Snippets personnalisés"  = "bases/outils/vscode/snippet.md"},
+    # ]},
+
+    # ------------------------------------------------------------------------
+    # Documentation & versionning
+    # ------------------------------------------------------------------------
+    # Objectif : produire une documentation maintenable et garantir la traçabilité :
+    # - rédaction technique (Markdown)
+    # - historique et collaboration (Git)
+    # ------------------------------------------------------------------------
+    {"Documentation & versionning" = [
+      {"Markdown" = "bases/outils/markdown.md"},
+      {"Git"      = "bases/outils/git.md"},
+      # {"GitHub"   = "bases/outils/github.md"},
+      # {"GitLab"   = "bases/outils/gitlab.md"},
+    ]},
+  ]},
+
+  # ==========================================================================
+  # 1.4 — Modélisation & Conception
+  # ==========================================================================
+  # Objectif : raisonner avant d’implémenter.
+  # On y place les méthodes et notations permettant :
+  # - d’exprimer un besoin
+  # - de structurer un système
+  # - de communiquer une architecture
+  #
+  # Remarque : on reste sur des modèles et notations (fondamentaux),
+  # pas sur l’implémentation spécifique d’un framework.
+  # ==========================================================================
+  {"Modélisation & Conception" = [
+    "bases/modelisation/index.md",
+
+    {"UML" = [
+      "bases/modelisation/uml/index.md",
+      {"Introduction" = "bases/modelisation/uml/uml-intro.md"},
+
+      {"Diagrammes" = [
+        "bases/modelisation/uml/diagrammes/index.md",
+        {"UseCase"             = "bases/modelisation/uml/diagrammes/usecase.md"},
+        {"Classes"             = "bases/modelisation/uml/diagrammes/classes.md"},
+        {"Séquences"           = "bases/modelisation/uml/diagrammes/sequence.md"},
+        {"Activités"           = "bases/modelisation/uml/diagrammes/activity.md"},
+        {"États"               = "bases/modelisation/uml/diagrammes/state.md"},
+        {"Object"              = "bases/modelisation/uml/diagrammes/object.md"},
+        {"Composite Structure" = "bases/modelisation/uml/diagrammes/composite-structure.md"},
+        {"Deployment"          = "bases/modelisation/uml/diagrammes/deployment.md"},
+        {"Package"             = "bases/modelisation/uml/diagrammes/package.md"},
+        {"Timing"              = "bases/modelisation/uml/diagrammes/timing.md"},
+        {"Communication"       = "bases/modelisation/uml/diagrammes/communication.md"},
+        {"Architecture Avancée"= "bases/modelisation/uml/diagrammes/architecture-avancee.md"},
+        # {"Component" = "bases/modelisation/uml/diagrammes/component.md"},
+        # {"Profile"   = "bases/modelisation/uml/diagrammes/diag-profile.md"},
+        # {"Overview"  = "bases/modelisation/uml/diagrammes/vue-ensemble.md"},
+      ]},
+    ]},
+
+    {"Merise" = [
+      "bases/modelisation/merise/index.md",
+      {"Introduction" = "bases/modelisation/merise/intro.md"},
+      {"MCD"          = "bases/modelisation/merise/mcd.md"},
+      {"MLD"          = "bases/modelisation/merise/mld.md"},
+      {"MPD"          = "bases/modelisation/merise/mpd.md"},
+      {"MPD > SQL"    = "bases/modelisation/merise/mpd-to-sql.md"},
+    ]},
+  ]},
+
+  # ==========================================================================
+  # 1.5 — Gestion de projet
+  # ==========================================================================
+  # Objectif : structurer le travail et piloter un projet :
+  # - planification
+  # - jalons
+  # - dépendances
+  #
+  # Remarque : les méthodes “agiles” détaillées peuvent être ajoutées ici
+  # si tu veux garder une logique transverse (dev/infra/cyber).
+  # ==========================================================================
+  {"Gestion de projet" = [
+    "bases/projet/index.md",
+    {"Diagramme de Gantt" = "bases/projet/gantt.md"},
+  ]},
+
+  # ==========================================================================
+  # 1.6 — Concepts de programmation
+  # ==========================================================================
+  # Principes structurants et notions durables issues des systèmes et de l’ingénierie.
+  # ==========================================================================
+  {"Concepts de programmation" = [
+    {"Architecture Unix"        = "bases/concepts/architecture-unix.md"},
+    {"Liste des codes d'erreur" = "bases/concepts/liste-code-erreur.md"},
+    # {"Principes SOLID"           = "bases/concepts/solid.md"},
+    # {"Paradigmes de Prog."       = "bases/concepts/paradigmes.md"},
+    # {"Design Patterns"           = "bases/concepts/design-patterns.md"},
+    # {"Encodage"                  = "bases/concepts/encodage.md"},
+    # {"Variables d'environnement" = "bases/concepts/variables-environnements.md"},
+    # {"Expressions régulières"    = "bases/concepts/regex.md"},
+  ]},
+
+  # ==========================================================================
+  # 1.7 — Réseaux et Protocoles
+  # ==========================================================================
+  # Partie conceptuelle : modèles en couches, grandes familles de protocoles,
+  # mécanismes client-serveur. L’opérationnel est dans “Systèmes & Infrastructure”.
+  # ==========================================================================
+  {"Réseaux et Protocoles" = [
+    {"HTTP – Méthodes"      = "bases/reseaux/http-methodes.md"},
+    {"DNS – Notions"        = "bases/reseaux/dns-notions.md"},
+    {"Liste des protocoles" = "bases/reseaux/liste-protocoles.md"},
+    {"Modèle OSI"           = "bases/reseaux/modele-osi.md"},
+    {"Modèle TCP/IP"        = "bases/reseaux/modele-tcp.md"},
+    {"Sockets & Serveurs"   = "bases/reseaux/sockets-serveurs.md"},
+  ]},
+
+  # ==========================================================================
+  # 1.8 — Cryptographie & PKI
+  # ==========================================================================
+  # Bases cryptographiques nécessaires avant d’aborder :
+  # - sécurité applicative (auth, JWT, etc.)
+  # - sécurité réseau (TLS, certificats)
+  # - pratiques PKI (chaînes, confiance, rotation)
+  # ==========================================================================
+  {"Cryptographie & PKI" = [
+    "bases/crypto/index.md",
+    {"GPG"     = "bases/crypto/gpg.md"},
+    {"OpenSSL" = "bases/crypto/openssl.md"},
+    {"PKI"     = "bases/crypto/pki.md"},
+  ]},
+
+]},
+
+  # ============================================================================
   # 2 — SYSTÈMES & INFRASTRUCTURE
-  # ===========================================================================
-  # Spécialisation dans l'administration système et l'architecture réseau.
-  # Cette section couvre les aspects opérationnels de la gestion d'infrastructures :
-  # systèmes d'exploitation, services réseau, virtualisation, stockage, supervision.
-  # 
-  # Contenu :
-  # - Administration Linux et Windows
-  # - Services réseau (SSH, DNS, FTP, Samba, LDAP)
-  # - Sécurité périmétrique (pfSense, WAF, VPN)
-  # - Virtualisation (KVM, Proxmox, QEMU)
-  # - Stockage et sauvegarde (RAID, PRA)
-  # - Supervision et monitoring
-  # 
-  # PUBLIC CIBLE : Administrateurs système, Ingénieurs infrastructure, SRE
-  # ===========================================================================
+  # ============================================================================
+  # Cette section couvre l’exploitation opérationnelle des systèmes
+  # informatiques et des infrastructures réseau.
+  #
+  # Elle se concentre sur la mise en œuvre, l’administration, le durcissement
+  # et la supervision des environnements techniques en production.
+  #
+  # Contrairement aux Fondamentaux IT (conceptuels) et au Développement
+  # (applicatif), cette partie adopte une approche orientée exploitation.
+  #
+  # Périmètre couvert :
+  # - administration systèmes Linux et Windows
+  # - gestion des services réseau
+  # - sécurité hôte et périmétrique
+  # - virtualisation et isolation
+  # - stockage et continuité d’activité
+  # - supervision et observabilité
+  #
+  # PUBLIC CIBLE :
+  # - Administrateurs systèmes
+  # - Ingénieurs infrastructure
+  # - SRE / DevOps orientés plateforme
+  # ============================================================================
+
   {"Systèmes & Infra" = [
-    # Page d'introduction de la section
+
+
+    # -------------------------------------------------------------------------
+    # Page d’introduction
+    # -------------------------------------------------------------------------
+    # Présente :
+    # - le périmètre de l’administration systèmes & réseaux
+    # - les prérequis recommandés
+    # - l’organisation de la section
+    # -------------------------------------------------------------------------
     "sys-reseau/index.md",
 
-    # -------------------------------------------------------------------------
+    # ========================================================================
     # Linux
-    # Administration système Linux, services, sécurité hôte
-    # -------------------------------------------------------------------------
-    {"Linux"                        = [
+    # ========================================================================
+    # Administration des systèmes Linux en environnement serveur.
+    # Cette section couvre :
+    # - l’utilisation du shell
+    # - l’administration système
+    # - la gestion des services
+    # - le durcissement de l’hôte
+    # ========================================================================
+    {"Linux" = [
       "sys-reseau/linux/index.md",
-      {"Bash"                       = "sys-reseau/linux/bash.md"},
-      # {"Administration"           = "sys-reseau/linux/admin.md"},                          # Gestion utilisateurs, permissions, cron
-      # {"Services & Daemons"       = "sys-reseau/linux/services-daemons.md"},               # systemd, services, logs
-      
-      # -----------------------------------------------------------------------
-      # Sécurité hôte Linux
-      # Outils de durcissement et de détection d'intrusion au niveau système
-      # -----------------------------------------------------------------------
-      {"Sécurité (host)"            = [
+
+      # ---------------------------------------------------------------------
+      # Shell & scripting
+      # ---------------------------------------------------------------------
+      # Utilisation de Bash pour l’automatisation et l’exploitation système.
+      {"Bash" = "sys-reseau/linux/bash.md"},
+
+      # ---------------------------------------------------------------------
+      # Administration système
+      # ---------------------------------------------------------------------
+      # Gestion des utilisateurs, permissions, tâches planifiées, etc.
+      {"Administration" = "sys-reseau/linux/admin.md"},  
+
+      # ---------------------------------------------------------------------
+      # Services & Daemons
+      # ---------------------------------------------------------------------
+      # Gestion des services via systemd, journalisation et cycle de vie
+      # des processus système.
+      {"Services & Daemons" = "sys-reseau/linux/services-daemons.md"},              
+
+      # ---------------------------------------------------------------------
+      # Sécurité de l’hôte Linux
+      # ---------------------------------------------------------------------
+      # Outils de durcissement, d’audit et de détection d’intrusion
+      # au niveau du système d’exploitation.
+      {"Sécurité (host)" = [
         "sys-reseau/linux/security/index.md",
-        {"Lynis"                    = "sys-reseau/linux/security/lynis.md"},                # Audit de sécurité système
-        {"ufw"                      = "sys-reseau/linux/security/ufw.md"},                  # Uncomplicated Firewall
-        {"fail2ban"                 = "sys-reseau/linux/security/fail2ban.md"},             # Protection contre bruteforce
-        {"Vuls"                     = "sys-reseau/linux/security/vuls.md"},
-        {"ClamAV"                   = "sys-reseau/linux/security/clamav.md"},               # Antivirus open-source
-        {"Linux Malware Detect"     = "sys-reseau/linux/security/linux_malware_detect.md"},
-        {"Chkrootkit"               = "sys-reseau/linux/security/chkrootkit.md"},           # Détection de rootkits
+
+        # Audit de configuration et de conformité
+        {"Lynis" = "sys-reseau/linux/security/lynis.md"},
+
+        # Pare-feu simplifié basé sur iptables/nftables
+        {"ufw" = "sys-reseau/linux/security/ufw.md"},
+
+        # Protection contre les attaques par force brute
+        {"fail2ban" = "sys-reseau/linux/security/fail2ban.md"},
+
+        # Scanner de vulnérabilités système
+        {"Vuls" = "sys-reseau/linux/security/vuls.md"},
+
+        # Antivirus open source
+        {"ClamAV" = "sys-reseau/linux/security/clamav.md"},
+
+        # Détection de malwares Linux
+        {"Linux Malware Detect" = "sys-reseau/linux/security/linux_malware_detect.md"},
+
+        # Détection de rootkits
+        {"Chkrootkit" = "sys-reseau/linux/security/chkrootkit.md"},
       ]}
-      
+
     ]},
 
-    # -------------------------------------------------------------------------
+    # ========================================================================
     # Windows
-    # Administration Active Directory et durcissement Windows Server
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # Administration des environnements Windows Server et Active Directory.
+    # ========================================================================
     {"Windows" = [
       "sys-reseau/windows/index.md",
+
+      # Automatisation et administration via PowerShell
       {"Powershell" = "sys-reseau/windows/powershell.md"},
-      # {"AD & GPO"     = "sys-reseau/windows/ad-gpo.md"},                            # Active Directory, Group Policy Objects
-      # {"Durcissement" = "sys-reseau/windows/hardening.md"}                          # Sécurisation Windows Server
+
+      # Gestion d’annuaire et stratégies de groupe
+      {"AD & GPO" = "sys-reseau/windows/ad-gpo.md"},
+
+      # Bonnes pratiques de sécurisation Windows Server
+      {"Durcissement" = "sys-reseau/windows/hardening.md"},
+
     ]},
 
-    # -------------------------------------------------------------------------
+    # ========================================================================
     # Réseaux
-    #  Outils d'analyse, services réseau, sécurité périmétrique
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # Mise en œuvre opérationnelle des services réseau et outils de diagnostic.
+    # ========================================================================
     {"Réseaux" = [
       "sys-reseau/network/index.md",
 
-      # -----------------------------------------------------------------------
-      # Outils & Analyse réseau
-      # Capture de paquets, analyse de trafic, diagnostic
-      # -----------------------------------------------------------------------
+      # ---------------------------------------------------------------------
+      # Outils d’analyse réseau
+      # ---------------------------------------------------------------------
+      # Outils de diagnostic, capture et inspection du trafic.
       {"Outils & Analyse" = [
         "sys-reseau/network/outils/index.md",
-        {"nslookup" = "sys-reseau/network/outils/nslookup.md"},                    # Requêtes DNS
-        {"netstat"  = "sys-reseau/network/outils/netstat.md"},                     # Statistiques réseau
-        # {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},                     # Capture de paquets CLI
-        # {"scapy"    = "sys-reseau/network/outils/scapy.md"},                       # Manipulation de paquets Python
+
+        {"nslookup" = "sys-reseau/network/outils/nslookup.md"},
+        {"netstat"  = "sys-reseau/network/outils/netstat.md"},
+        {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},
+        {"scapy"    = "sys-reseau/network/outils/scapy.md"},
       ]},
-      
-      # -----------------------------------------------------------------------
+
+      # ---------------------------------------------------------------------
       # Services réseau
-      # Configuration et administration des services d'infrastructure
-      # -----------------------------------------------------------------------
+      # ---------------------------------------------------------------------
+      # Déploiement et administration des services d’infrastructure.
       {"Services réseau" = [
         "sys-reseau/network/services/index.md",
-        {"DNS"         = "sys-reseau/network/services/dns.md"},                    # Domain Name System (BIND)
-        {"SSH"         = "sys-reseau/network/services/ssh.md"},                    # Secure Shell (accès distant)
-        # {"FTP"         = "sys-reseau/network/services/ftp.md"},                    # File Transfer Protocol
-        # {"Samba"       = "sys-reseau/network/services/samba.md"},                  # Partage de fichiers SMB/CIFS
-        # {"LDAP & PAM"  = "sys-reseau/network/services/ldap-pam.md"},               # Annuaire et authentification
+
+        {"DNS"        = "sys-reseau/network/services/dns.md"},
+        {"SSH"        = "sys-reseau/network/services/ssh.md"},
+        {"FTP"        = "sys-reseau/network/services/ftp.md"},
+        {"Samba"      = "sys-reseau/network/services/samba.md"},
+        {"LDAP & PAM" = "sys-reseau/network/services/ldap-pam.md"},
       ]},
 
-      # -----------------------------------------------------------------------
+      # ---------------------------------------------------------------------
       # Sécurité périmétrique
-      # Firewalls, reverse proxy, VPN, WAF
-      # -----------------------------------------------------------------------
+      # ---------------------------------------------------------------------
+      # Protection du périmètre réseau et contrôle des flux.
       {"Sécurité périmétrique" = [
         "sys-reseau/network/security/index.md",
-        # {"pfSense"  = "sys-reseau/network/security/pfsense.md"},                   # Firewall/routeur open-source
-        # {"WAF"      = "sys-reseau/network/security/waf.md"},                       # Web Application Firewall
-        # {"OpenVPN"  = "sys-reseau/network/security/openvpn.md"},                   # VPN SSL/TLS
-        # {"HAProxy"  = "sys-reseau/network/security/haproxy.md"}                    # Load balancer / reverse proxy
-      ]},
+
+        {"pfSense" = "sys-reseau/network/security/pfsense.md"},
+        {"WAF"     = "sys-reseau/network/security/waf.md"},
+        {"OpenVPN" = "sys-reseau/network/security/openvpn.md"},
+        {"HAProxy" = "sys-reseau/network/security/haproxy.md"},
+      ]}
     ]},
 
-    # -------------------------------------------------------------------------
+    # ========================================================================
     # Virtualisation
-    # Hyperviseurs et technologies de virtualisation
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # Technologies d’isolation et d’exécution d’environnements virtualisés.
+    # ========================================================================
     {"Virtualisation (Hyperviseurs)" = [
       "sys-reseau/virtualisation/index.md",
-      # {"Panorama Virtualisation"  = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},  # Types 1/2, comparatif
-      # {"QEMU - (Émulateur)"       = "sys-reseau/virtualisation/qemu.md"},             # Émulateur et virtualisation
-      # {"KVM / Proxmox"            = "sys-reseau/virtualisation/kvm-proxmox.md"},            # Hyperviseur type 1
-      # {"OLD"       = "sys-reseau/virtualisation/old.md"},             # Émulateur et virtualisation
+
+      # Panorama des approches de virtualisation
+      {"Panorama Virtualisation" = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},
+
+      # Émulation et virtualisation légère
+      {"QEMU - (Émulateur)" = "sys-reseau/virtualisation/qemu.md"},
+
+      # Hyperviseur type 1 basé sur KVM
+      {"KVM / Proxmox" = "sys-reseau/virtualisation/kvm-proxmox.md"},
     ]},
 
-    # -------------------------------------------------------------------------
+
+    # ========================================================================
     # Stockage & Sauvegarde
-    # RAID, systèmes de fichiers, stratégies de backup, PRA
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # Gestion de la persistance des données et continuité d’activité.
+    # ========================================================================
     {"Stockage & Sauvegarde" = [
       "sys-reseau/storage/index.md",
-      # {"RAID & Filesystems" = "sys-reseau/storage/raid-fs.md"},                   # RAID 0/1/5/6/10, ext4, XFS, Btrfs
-      # {"Sauvegarde & PRA"   = "sys-reseau/storage/backup-pra.md"},                # Plan de Reprise d'Activité
-      # {"Amanda"             = "sys-reseau/storage/amanda.md"}                     # Advanced Maryland Automatic Network Disk Archiver
+
+      {"RAID & Filesystems" = "sys-reseau/storage/raid-fs.md"},
+      {"Sauvegarde & PRA"   = "sys-reseau/storage/backup-pra.md"},
+      {"Amanda"             = "sys-reseau/storage/amanda.md"},
     ]},
 
-    # -------------------------------------------------------------------------
-    # Supervision
-    # Monitoring d'infrastructure, gestion des logs, métriques
-    # -------------------------------------------------------------------------
-    {"Supervision" = [
+    # ========================================================================
+    # Supervision & Observabilité
+    # ========================================================================
+    # Surveillance de l’état des systèmes, collecte des métriques
+    # et analyse des journaux.
+    # ========================================================================
+    {"Supervision & Observabilité" = [
       "sys-reseau/supervision/index.md",
-      # {"Logs & Journaux"      = "sys-reseau/supervision/logs.md"},                # syslog, journalctl, logrotate
-      # {"Monitoring (intro)"   = "sys-reseau/supervision/monitoring.md"},          # Prometheus, Grafana, Nagios
-      # {"ntop/ntopng"          = "sys-reseau/supervision/ntop.md"}                 # Monitoring de flux réseau
+
+      {"Logs & Journaux"     = "sys-reseau/supervision/logs.md"},
+      {"Monitoring (intro)"  = "sys-reseau/supervision/monitoring.md"},
+      {"ntop/ntopng"         = "sys-reseau/supervision/ntop.md"},
     ]}
   ]},
 
@@ -775,498 +1024,757 @@ nav = [
 
   ]}, # Fin Développement
 
-
-
-  # ===========================================================================
-  # 5 — CYBERSÉCURITÉ : GOUVERNANCE, RISK & COMPLIANCE (GRC)
-  # ===========================================================================
-  # Cette section couvre l'aspect stratégique et organisationnel de la cybersécurité :
-  # - Conformité réglementaire (RGPD, NIS2, DORA, etc.)
-  # - Référentiels et normes (ISO 27001, SecNumCloud, PCI DSS, etc.)
-  # - Démarche SMSI (Système de Management de la Sécurité de l'Information)
-  # - Analyse de risques (EBIOS RM, MEHARI, ISO 27005)
-  # - Gouvernance documentaire (PSSI, SDSI, BIA)
-  # 
-  # PUBLIC CIBLE : RSSI, DPO, Responsables Conformité, Auditeurs
-  # ===========================================================================
+  # ============================================================================
+  # 4 — CYBERSÉCURITÉ : GOUVERNANCE, RISK & COMPLIANCE (GRC)
+  # ============================================================================
+  # Cette section couvre l’aspect stratégique, juridique et organisationnel
+  # de la cybersécurité (GRC).
+  #
+  # Elle se concentre sur :
+  # - conformité réglementaire (RGPD, NIS2, DORA, etc.)
+  # - référentiels et normes (ISO 27001, NIST, PCI DSS, SecNumCloud, etc.)
+  # - démarche SMSI (pilotage, preuves, audits, amélioration continue)
+  # - analyse de risques (EBIOS RM, MEHARI, ISO 27005)
+  # - gouvernance documentaire (PSSI, SDSI, BIA)
+  # - gestion des vulnérabilités (cadre, métriques, priorisation)
+  #
+  # PUBLIC CIBLE :
+  # - RSSI / CISO
+  # - DPO
+  # - Responsables conformité
+  # - Auditeurs (interne / externe)
+  # ============================================================================
 
   {"Cyber : Gouvernance" = [
+
+    # -------------------------------------------------------------------------
+    # Index de section
+    # -------------------------------------------------------------------------
+    # Page d’entrée : périmètre, prérequis, parcours recommandés.
     "cyber/governance/index.md",
 
-    # -------------------------------------------------------------------------
-    # Référentiels & Normes
-    # Ensemble des textes légaux, réglementaires et normatifs encadrant
-    # la cybersécurité en France et en Europe.
-    # -------------------------------------------------------------------------
+    # ==========================================================================
+    # 4.1 — Référentiels, normes & cadre réglementaire
+    # ==========================================================================
+    # Rôle :
+    # - Centraliser les textes, normes et référentiels utiles à la conformité.
+    # - Clarifier “qui publie quoi” (autorités, règlements, certifications, ISO).
+    # - Servir de base pour relier exigences, contrôles et preuves.
     {"Référentiels & Normes" = [
       "cyber/governance/refs-normes/index.md",
-      
-      # --- Autorités françaises ---
-      # Organismes de référence en matière de cybersécurité et protection
-      # des données en France.
+
+      # ------------------------------------------------------------------------
+      # Autorités françaises
+      # ------------------------------------------------------------------------
+      # Organismes nationaux : doctrine, guides, contrôle, sanctions.
       {"Autorités FR" = [
         "cyber/governance/refs-normes/autorites/index.md",
-        {"ANSSI"  = "cyber/governance/refs-normes/autorites/anssi.md"},   # Agence Nationale de la Sécurité des SI
-        {"CNIL"   = "cyber/governance/refs-normes/autorites/cnil.md"},    # Commission Nationale Informatique et Libertés
-        {"CLUSIF" = "cyber/governance/refs-normes/autorites/clusif.md"}   # Club de la Sécurité de l'Information Français
+        {"ANSSI"  = "cyber/governance/refs-normes/autorites/anssi.md"},
+        {"CNIL"   = "cyber/governance/refs-normes/autorites/cnil.md"},
+        {"CLUSIF" = "cyber/governance/refs-normes/autorites/clusif.md"},
       ]},
 
-      # --- Réglementations européennes ---
-      # Directives et règlements européens applicables à la cybersécurité
-      # et à la protection des données.
+      # ------------------------------------------------------------------------
+      # Réglementations européennes
+      # ------------------------------------------------------------------------
+      # Directives et règlements UE : obligations, périmètres, sanctions.
       {"Réglementations Euro." = [
         "cyber/governance/refs-normes/reglementations/index.md",
-        {"RGPD"                   = "cyber/governance/refs-normes/reglementations/rgpd.md"},  # Règlement Général sur la Protection des Données
-        {"NIS2"                   = "cyber/governance/refs-normes/reglementations/nis2.md"},  # Network and Information Security Directive 2
-        {"DORA"                   = "cyber/governance/refs-normes/reglementations/dora.md"},  # Digital Operational Resilience Act (secteur financier)
-        {"DSA"                    = "cyber/governance/refs-normes/reglementations/dsa.md"},   # Digital Services Act
-        {"DMA"                    = "cyber/governance/refs-normes/reglementations/dma.md"},   # Digital Markets Act
-        {"DGA"                    = "cyber/governance/refs-normes/reglementations/dga.md"},   # Data Governance Act
-        {"Data Act"               = "cyber/governance/refs-normes/reglementations/data-act.md"},
-        {"AI Act"                 = "cyber/governance/refs-normes/reglementations/ai-act.md"},
-        {"Cyber Resilience Act"   = "cyber/governance/refs-normes/reglementations/cra.md"}
+        {"RGPD"          = "cyber/governance/refs-normes/reglementations/rgpd.md"},
+        {"NIS2"          = "cyber/governance/refs-normes/reglementations/nis2.md"},
+        {"DORA"          = "cyber/governance/refs-normes/reglementations/dora.md"},
+        {"DSA"           = "cyber/governance/refs-normes/reglementations/dsa.md"},
+        {"DMA"           = "cyber/governance/refs-normes/reglementations/dma.md"},
+        {"DGA"           = "cyber/governance/refs-normes/reglementations/dga.md"},
+        {"Data Act"      = "cyber/governance/refs-normes/reglementations/data-act.md"},
+        {"AI Act"        = "cyber/governance/refs-normes/reglementations/ai-act.md"},
+        {"Cyber Resilience Act" = "cyber/governance/refs-normes/reglementations/cra.md"},
       ]},
 
-      # --- Certifications et référentiels sectoriels ---
-      # Labels et certifications spécifiques à certains secteurs d'activité
-      # ou types d'infrastructures.
-      {"Refs. & Certifs" = [
+      # ------------------------------------------------------------------------
+      # Référentiels & certifications sectoriels
+      # ------------------------------------------------------------------------
+      # Labels/cadres : exigences, périmètre, auditabilité.
+      {"Référentiels & certifications sectoriel" = [
         "cyber/governance/refs-normes/referentiels/index.md",
-        {"HDS (Santé)"   = "cyber/governance/refs-normes/referentiels/hds.md"},        # Hébergement de Données de Santé
-        {"SecNumCloud"   = "cyber/governance/refs-normes/referentiels/secnumcloud.md"}, # Qualification ANSSI pour le Cloud
-        {"PCI DSS"       = "cyber/governance/refs-normes/referentiels/pci-dss.md"},    # Payment Card Industry Data Security Standard
-        {"NIST CSF"      = "cyber/governance/refs-normes/referentiels/nist-csf.md"}    # NIST Cybersecurity Framework
+        {"HDS (Santé)" = "cyber/governance/refs-normes/referentiels/hds.md"},
+        {"SecNumCloud" = "cyber/governance/refs-normes/referentiels/secnumcloud.md"},
+        {"PCI DSS"     = "cyber/governance/refs-normes/referentiels/pci-dss.md"},
+        {"NIST CSF"    = "cyber/governance/refs-normes/referentiels/nist-csf.md"},
       ]},
 
-      # --- Normes ISO ---
-      # Standards internationaux de l'Organisation Internationale de Normalisation
-      # applicables à la sécurité de l'information et la continuité d'activité.
+      # ------------------------------------------------------------------------
+      # Normes ISO
+      # ------------------------------------------------------------------------
+      # Standards internationaux : sécurité, risques, continuité, qualité, services.
       {"Normes ISOs" = [
         "cyber/governance/refs-normes/isos/index.md",
-        # {"ISO 27001"            = "cyber/governance/refs-normes/isos/iso-27001.md"},  # Système de Management de la Sécurité de l'Information (SMSI)
-        # {"ISO 27002"            = "cyber/governance/refs-normes/isos/iso-27002.md"},  # Code de bonnes pratiques pour le management de la sécurité de l'information
-        # {"ISO 27005"            = "cyber/governance/refs-normes/isos/iso-27005.md"},  # Gestion des risques liés à la sécurité de l'information
-        # {"ISO 27017"            = "cyber/governance/refs-normes/isos/iso-27017.md"},  # Sécurité du Cloud Computing
-        # {"ISO 27018"            = "cyber/governance/refs-normes/isos/iso-27018.md"},  # Protection des données personnelles dans le Cloud
-        # {"ISO 22301"            = "cyber/governance/refs-normes/isos/iso-22301.md"},  # Système de Management de la Continuité d'Activité (PCA/PRA)
-        # {"ISO 20000"            = "cyber/governance/refs-normes/isos/iso-20000.md"},  # Gestion des services IT (ITSM)
-        # {"ISO 9001"             = "cyber/governance/refs-normes/isos/iso-9001.md"},   # Système de Management de la Qualité
-        # {"ISO 14001"            = "cyber/governance/refs-normes/isos/iso-14001.md"},   # Système de Management Environnemental
-        {"ISO 31000"            = "cyber/governance/refs-normes/isos/iso-31000.md"}   # Système de Management du Risque
-      ]}
-    
+        {"ISO 27001" = "cyber/governance/refs-normes/isos/iso-27001.md"},
+        {"ISO 27002" = "cyber/governance/refs-normes/isos/iso-27002.md"},
+        {"ISO 27005" = "cyber/governance/refs-normes/isos/iso-27005.md"},
+        {"ISO 31000" = "cyber/governance/refs-normes/isos/iso-31000.md"},
+        {"ISO 22301" = "cyber/governance/refs-normes/isos/iso-22301.md"},
+      ]},
     ]},
 
-    # -------------------------------------------------------------------------
-    # Démarche SMSI (Système de Management de la Sécurité de l'Information)
-    # Méthodologies et documents structurants pour mettre en place un SMSI
-    # conforme ISO 27001 et aux exigences réglementaires.
-    # -------------------------------------------------------------------------
+    # ==========================================================================
+    # 4.2 — Démarche SMSI
+    # ==========================================================================
+    # Rôle :
+    # - Structurer la gouvernance sécurité (pilotage, preuves, audits).
+    # - Encadrer la mise en place d’un SMSI (PDCA, périmètre, rôles).
     {"Démarche SMSI" = [
       "cyber/governance/smsi/index.md",
-      {"Présentation du SMSI"     = "cyber/governance/smsi/presentation.md"},
-      
-      # --- Analyse de Risques ---
-      # Méthodologies reconnues pour identifier, évaluer et traiter les risques
-      # de sécurité de l'information.
+      {"Présentation du SMSI" = "cyber/governance/smsi/presentation.md"},
+
+      # ------------------------------------------------------------------------
+      # Analyse de risques
+      # ------------------------------------------------------------------------
+      # Méthodes et livrables : identification, évaluation, traitement.
       {"Analyse de Risques" = [
         "cyber/governance/smsi/risques/index.md",
-        # {"EBIOS Risk Manager"   = "cyber/governance/smsi/risques/ebios-rm.md"},   # Méthode française de gestion des risques cyber (ANSSI)
-        # {"MEHARI"               = "cyber/governance/smsi/risques/mehari.md"},     # Méthode Harmonisée d'Analyse de Risques (CLUSIF)
-        # {"ISO 27005"            = "cyber/governance/smsi/risques/iso-27005.md"}   # Norme internationale de gestion des risques SI
+        {"EBIOS Risk Manager" = "cyber/governance/smsi/risques/ebios-rm.md"},
+        {"MEHARI"            = "cyber/governance/smsi/risques/mehari.md"},
+        {"ISO 27005"         = "cyber/governance/smsi/risques/iso-27005.md"},
       ]},
-      
-      # --- Documents structurants du SMSI ---
-      # Livrables documentaires essentiels à la gouvernance de la sécurité.
-      # {"BIA (Business Impact Analysis)"   = "cyber/governance/smsi/bia.md"},    # Analyse d'Impact sur l'Activité (évaluation criticité)
-      # {"SDSI (Schéma Directeur)"          = "cyber/governance/smsi/sdsi.md"},   # Schéma Directeur de la Sécurité de l'Information
-      # {"PSSI (Politique de Sécurité)"     = "cyber/governance/smsi/pssi.md"}    # Politique de Sécurité du Système d'Information
+
+      # ------------------------------------------------------------------------
+      # Documents structurants du SMSI
+      # ------------------------------------------------------------------------
+      # Livrables clés : politiques, schémas directeurs, analyses d’impact.
+      {"BIA (Business Impact Analysis)" = "cyber/governance/smsi/bia.md"},
+      {"SDSI (Schéma Directeur)"        = "cyber/governance/smsi/sdsi.md"},
+      {"PSSI (Politique de Sécurité)"   = "cyber/governance/smsi/pssi.md"},
     ]},
 
-    # -------------------------------------------------------------------------
-    # Gestion des Vulnérabilités
-    # Processus de veille, d'évaluation et de priorisation des vulnérabilités
-    # dans une démarche de conformité et de gouvernance des risques.
-    # -------------------------------------------------------------------------
-    {"Gestion des Vuln." = [
+    # ==========================================================================
+    # 4.3 — Gestion des vulnérabilités (cadre gouvernance)
+    # ==========================================================================
+    # Rôle :
+    # - Définir un processus (cadre, rôles, métriques, SLA, priorisation).
+    # - Relier vulnérabilités, actifs, risques et exigences de conformité.
+    {"Gestion des vulnérabilités" = [
       "cyber/governance/vuln/index.md",
-      # {"CVE & CVSS"           = "cyber/governance/vuln/cve-cvss.md"},           # Common Vulnerabilities and Exposures + Common Vulnerability Scoring System
-      # {"OWASP Top 10"         = "cyber/governance/vuln/owasp-top10.md"},        # Top 10 des vulnérabilités applicatives Web
-      # {"Patch Management"     = "cyber/governance/vuln/patch-management.md"},   # Processus de gestion des correctifs de sécurité
-      # {"Politique de Scan"    = "cyber/governance/vuln/scan-policy.md"}         # Cadre réglementaire et organisationnel pour les scans de vulnérabilités
-    ]}
+      {"CVE & CVSS"        = "cyber/governance/vuln/cve-cvss.md"},
+      {"OWASP Top 10"      = "cyber/governance/vuln/owasp-top10.md"},
+      {"Patch Management"  = "cyber/governance/vuln/patch-management.md"},
+      {"Politique de Scan" = "cyber/governance/vuln/scan-policy.md"},
+    ]},
 
   ]},
 
-  # ===========================================================================
-  # 6 — CYBERSÉCURITÉ : OPÉRATIONS & SOC (BLUE TEAM / DFIR)
-  # ===========================================================================
-  # Cette section couvre l'aspect opérationnel de la cybersécurité défensive :
-  # - Architecture et fonctionnement d'un Security Operations Center (SOC)
-  # - Détection et réponse aux incidents (SIEM, EDR, IDS/IPS, NDR)
-  # - Investigation numérique et forensic (DFIR - Digital Forensics & Incident Response)
-  # - Analyse de malwares et reverse engineering
-  # - Threat Intelligence et chasse aux menaces (Threat Hunting)
-  # - Automatisation et orchestration (SOAR)
-  # 
-  # PUBLIC CIBLE : Analystes SOC, Incident Responders, Forensic Analysts, Threat Hunters
-  # ===========================================================================
+  # ============================================================================
+  # 5 — CYBERSÉCURITÉ : OPÉRATIONS & SOC (BLUE TEAM / DFIR)
+  # ============================================================================
+  # Cette section couvre l’aspect opérationnel de la cybersécurité défensive.
+  #
+  # Elle traite notamment :
+  # - l’architecture et l’organisation d’un SOC moderne
+  # - les capacités de détection (SIEM, IDS/IPS, EDR, NDR)
+  # - la réponse à incident (IR) et le forensic (DFIR)
+  # - l’analyse de malwares et le reverse engineering
+  # - le threat hunting et l’amélioration continue
+  # - l’automatisation via SOAR
+  #
+  # Contrairement à la section Gouvernance (GRC), cette partie est orientée
+  # opérations techniques, détection et investigation.
+  #
+  # PUBLIC CIBLE :
+  # - Analystes SOC (N1 → N3)
+  # - Incident Responders
+  # - Forensic Analysts
+  # - Threat Hunters
+  # ============================================================================
 
   {"Cyber : Défense" = [
     "cyber/operations/index.md",
 
-    # -------------------------------------------------------------------------
-    # Architecture SOC
-    # Composantes techniques d'un SOC moderne : solutions de détection,
-    # corrélation d'événements, threat intelligence, monitoring réseau.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 5.1 — Architecture SOC
+    # ========================================================================
+    # Présentation des composantes techniques d’un SOC moderne :
+    # - SIEM / centralisation des logs
+    # - EDR/XDR / télémétrie endpoint
+    # - IDS/IPS réseau
+    # - Threat Intelligence Platform
+    #
+    # Objectif :
+    # - Comprendre la chaîne de détection
+    # - Positionner les capteurs
+    # - Structurer une architecture SOC cohérente
+    # ========================================================================
     {"Architecture SOC" = [
       "cyber/operations/soc/index.md",
-      # {"SIEM (Wazuh)"                         = "cyber/operations/soc/siem.md"},        # Security Information and Event Management
-      # {"EDR/XDR"                              = "cyber/operations/soc/edr-xdr.md"},     # Endpoint Detection & Response / Extended Detection & Response
-      # {"NDR (Zeek/Arkime)"                    = "cyber/operations/soc/ndr.md"},         # Network Detection & Response
-  
-      # --- Systèmes de Détection/Prévention d'Intrusion ---
-      # IDS/IPS basés sur signatures et anomalies pour détecter et bloquer
-      # les activités malveillantes sur le réseau.
+
+      # ---------------------------------------------------------------------
+      # IDS / IPS
+      # ---------------------------------------------------------------------
+      # Systèmes de détection et de prévention d’intrusion réseau.
+      # Analyse par signatures, anomalies ou approches hybrides.
       {"IDS/IPS" = [
         "cyber/operations/soc/ids-ips/index.md",
-        # {"Suricata"         = "cyber/operations/soc/ids-ips/suricata.md"},              # IDS/IPS moderne multi-thread (OISF) - recommandé
-        # {"Snort"            = "cyber/operations/soc/ids-ips/snort.md"}                  # IDS/IPS historique (Cisco/Sourcefire) - Snort 2.x et 3.x
-      ]}, 
-      
-      # {"TIP (MISP/OpenCTI)" = "cyber/operations/soc/tip.md"},         # Threat Intelligence Platform
-      # {"ntopng (Monitoring)"                  = "cyber/operations/soc/ntopng.md"}       # Network Traffic Monitoring
+        {"Suricata" = "cyber/operations/soc/ids-ips/suricata.md"},
+        {"Snort"    = "cyber/operations/soc/ids-ips/snort.md"},
+      ]}
     ]},
 
-    # -------------------------------------------------------------------------
-    # Détection & Analyse
-    # Outils et méthodologies pour détecter les menaces, créer des règles
-    # de détection et effectuer du threat hunting proactif.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 5.2 — Détection & Analyse
+    # ========================================================================
+    # Méthodologies et outils permettant :
+    # - la détection d’activités malveillantes
+    # - la création de règles de corrélation
+    # - le threat hunting proactif
+    #
+    # Cette section constitue le cœur analytique du SOC.
+    # ========================================================================
     {"Détection & Analyse" = [
       "cyber/operations/detection/index.md",
-      # {"YARA (Malware Detection)"     = "cyber/operations/detection/yara.md"},      # Règles de détection de patterns (malwares, IOCs)
-      # {"Sigma (SIEM Rules)"           = "cyber/operations/detection/sigma.md"},     # Langage universel pour règles SIEM
-      # {"Sysmon"                       = "cyber/operations/detection/sysmon.md"},    # Monitoring avancé Windows (Sysinternals)
-      # {"ClamAV"                       = "cyber/operations/detection/clamav.md"},    # Antivirus open-source
-      # {"IOC & TTP"                    = "cyber/operations/detection/ioc-ttp.md"},   # Indicators of Compromise & Tactics, Techniques & Procedures
-      # {"Hunting Playbooks"            = "cyber/operations/detection/hunting.md"}    # Méthodologies de chasse aux menaces proactive
+      {"YARA"      = "cyber/operations/detection/yara.md"},
+      {"Sigma"     = "cyber/operations/detection/sigma.md"},
+      {"Sysmon"    = "cyber/operations/detection/sysmon.md"},
+      {"IOC & TTP" = "cyber/operations/detection/ioc-ttp.md"},
     ]},
 
-    # -------------------------------------------------------------------------
-    # Incident Response & DFIR
-    # Processus de gestion d'incident, investigation forensic, chaîne de preuve,
-    # analyse post-mortem.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 5.3 — Incident Response & DFIR
+    # ========================================================================
+    # Gestion opérationnelle des incidents de sécurité :
+    # - qualification
+    # - confinement
+    # - éradication
+    # - remédiation
+    #
+    # Inclut les investigations forensic complètes.
+    # ========================================================================
     {"Incident Response & DFIR" = [
       "cyber/operations/ir/index.md",
-      # {"Gestion d'Incident"               = "cyber/operations/ir/thehive.md"},      # Plateforme de case management pour IR
-      # {"Playbooks DFIR"                   = "cyber/operations/ir/playbooks-dfir.md"}, # Procédures standardisées de réponse à incident
-      # {"CSIRT & CERT"                     = "cyber/operations/ir/csirt-cert.md"},   # Computer Security Incident Response Team / Computer Emergency Response Team
-      
-      # --- Investigation Numérique (Digital Forensics) ---
-      # Acquisition de preuves, analyse disque/mémoire/logs, chaîne de traçabilité.
-      # Cette section regroupe tous les aspects forensic du SOC.
+
+      # ---------------------------------------------------------------------
+      # Investigation Numérique (Forensic)
+      # ---------------------------------------------------------------------
+      # Analyse post-incident :
+      # - acquisition de preuves
+      # - analyse disque et mémoire
+      # - reconstruction de chronologie
+      # - analyse d’artefacts
       {"Investigation Numérique" = [
         "cyber/operations/ir/forensic/index.md",
-        
-        # --- Acquisition ---
-        # Techniques et outils pour acquérir des preuves numériques
-        # sans altérer l'intégrité des données (chaîne de preuve).
+
+        # --- Acquisition ---------------------------------------------------
+        # Techniques d’acquisition forensique garantissant l’intégrité.
         {"Acquisition" = [
           "cyber/operations/ir/forensic/acq/index.md",
-
-          # --- Outils de copie bit-à-bit ---
-          # dd : outil Unix standard pour la copie de données brutes.
-          # dc3dd : fork forensic de dd avec hashing intégré et logging avancé.
-          # Usage recommandé :
-          #   - dd : copies génériques, backups, clonage système
-          #   - dc3dd : acquisitions forensic légales avec vérification d'intégrité
-          # {"dd / dc3dd"   = "cyber/operations/ir/forensic/acq/dd-dc3dd.md"},       # Copie bit-à-bit (forensic-sound)
-          
-          # {"LiME (Mémoire)"   = "cyber/operations/ir/forensic/acq/lime.md"},       # Linux Memory Extractor
-          # {"Guymager"         = "cyber/operations/ir/forensic/acq/guymager.md"}    # Outil GUI pour acquisition forensic
+          {"dd / dc3dd" = "cyber/operations/ir/forensic/acq/dd-dc3dd.md"},
         ]},
-        
-        # --- Analyse Disque ---
-        # Analyse de systèmes de fichiers, récupération de données effacées,
-        # carving de fichiers, analyse de métadonnées.
+
+        # --- Analyse Disque -----------------------------------------------
+        # Analyse des systèmes de fichiers et récupération de données.
         {"Analyse Disque" = [
           "cyber/operations/ir/forensic/disk/index.md",
-          # {"Autopsy / SleuthKit"  = "cyber/operations/ir/forensic/disk/autopsy.md"},       # Suite forensic open-source de référence
-          # {"foremost / scalpel"   = "cyber/operations/ir/forensic/disk/carving.md"},       # File carving (récupération de fichiers)
-          # {"bulk_extractor"       = "cyber/operations/ir/forensic/disk/bulk_extractor.md"}, # Extraction automatique d'artefacts
-          # {"PhotoRec"             = "cyber/operations/ir/forensic/disk/photorec.md"}        # Récupération de fichiers effacés
         ]},
-        
-        # --- Analyse Mémoire ---
-        # Forensic RAM : analyse de processus, connexions réseau, artefacts volatiles,
-        # détection de rootkits et malwares en mémoire.
+
+        # --- Analyse Mémoire ----------------------------------------------
+        # Investigation RAM et artefacts volatiles.
         {"Analyse Mémoire" = [
           "cyber/operations/ir/forensic/memory/index.md",
-          # {"Volatility"   = "cyber/operations/ir/forensic/memory/volatility.md"},  # Framework forensic mémoire (Windows/Linux/Mac)
-          # {"Rekall"       = "cyber/operations/ir/forensic/memory/rekall.md"}       # Alternative à Volatility (Google)
         ]},
-        
-        # --- Analyse Logs ---
-        # Parsing et corrélation de journaux Windows (EVTX), Syslog, IIS, etc.
-        # pour reconstituer une chronologie d'incident.
+
+        # --- Analyse Logs -------------------------------------------------
+        # Reconstruction de timeline via journaux système.
         {"Analyse Logs" = [
           "cyber/operations/ir/forensic/logs/index.md",
-          # {"Chainsaw"     = "cyber/operations/ir/forensic/logs/chainsaw.md"},      # Parser EVTX (logs Windows) avec règles Sigma
-          # {"Hayabusa"     = "cyber/operations/ir/forensic/logs/hayabusa.md"}       # Threat hunting dans les logs Windows Event
         ]},
-        
-        # --- Outils Endpoint ---
-        # Collecte d'artefacts et télémétrie sur les postes de travail et serveurs
-        # pour investigation à grande échelle (hunt, IR).
+
+        # --- Outils Endpoint ---------------------------------------------
+        # Collecte distribuée et investigation à grande échelle.
         {"Outils Endpoint" = [
           "cyber/operations/ir/forensic/endpoint/index.md",
-          # {"Velociraptor" = "cyber/operations/ir/forensic/endpoint/velociraptor.md"}, # Agent de collecte forensic distribué
-          # {"OSQuery"      = "cyber/operations/ir/forensic/endpoint/osquery.md"}       # Framework SQL pour interroger les endpoints (Facebook)
         ]}
       ]}
     ]},
 
-    # -------------------------------------------------------------------------
-    # Malware Analysis
-    # Analyse comportementale et reverse engineering de malwares pour
-    # comprendre les tactiques adverses et développer des signatures.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 5.4 — Malware Analysis
+    # ========================================================================
+    # Analyse comportementale et statique de logiciels malveillants :
+    # - reverse engineering
+    # - sandboxing
+    # - compréhension des TTP adverses
+    # - génération de signatures
+    # ========================================================================
     {"Malware Analysis" = [
       "cyber/operations/malware/index.md",
-      # {"Comprendre les malwares"      = "cyber/operations/malware/intro.md"},           # Types, vecteurs d'infection, kill chain
-      # {"Reverse Engineering"          = "cyber/operations/malware/reverse.md"},         # Désassemblage, débogage, analyse statique/dynamique
-      # {"Techniques d'obfuscation"     = "cyber/operations/malware/obfuscation.md"},     # Packing, polymorphisme, anti-debug
-      # {"Sandboxing"                   = "cyber/operations/malware/sandbox.md"}          # Analyse automatisée en environnement isolé (Cuckoo, ANY.RUN)
     ]},
 
-    # -------------------------------------------------------------------------
-    # SOAR & Automatisation
-    # Orchestration des réponses à incidents, automatisation de tâches SOC,
-    # intégration d'analyzers et playbooks pour accélérer la réponse.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 5.5 — SOAR & Automatisation
+    # ========================================================================
+    # Orchestration et automatisation des réponses SOC :
+    # - playbooks automatisés
+    # - enrichissement d’alertes
+    # - intégration d’analyzers
+    # - réduction du MTTR
+    # ========================================================================
     {"SOAR & Automatisation" = [
       "cyber/operations/soar/index.md",
-      # {"SOAR (général)"               = "cyber/operations/soar/soar.md"},              # Security Orchestration, Automation and Response
-      # {"Cortex (Analyzers)"           = "cyber/operations/soar/cortex.md"},            # Moteur d'analyseurs automatiques (TheHive)
-      # {"Playbooks & Runbooks"         = "cyber/operations/soar/playbooks.md"}          # Procédures automatisées de réponse à incident
     ]},
 
-    # -------------------------------------------------------------------------
-    # Gestion Opérationnelle
-    # Organisation humaine du SOC : astreintes, SLA, communication de crise,
-    # métriques de performance, amélioration continue.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 5.6 — Gestion Opérationnelle du SOC
+    # ========================================================================
+    # Organisation humaine et pilotage du SOC :
+    # - astreintes et modèle de couverture
+    # - SLA / SLO
+    # - métriques SOC (MTTD, MTTR)
+    # - communication de crise
+    # - amélioration continue
+    # ========================================================================
     {"Gestion Opérationnelle" = [
       "cyber/operations/management/index.md",
-      # {"On-call & Astreintes"         = "cyber/operations/management/oncall.md"},      # Organisation des équipes SOC 24/7
-      # {"SLA & Métriques SOC"          = "cyber/operations/management/sla.md"},         # KPIs, temps de détection/réponse (MTTD/MTTR)
-      # {"Communication de crise"       = "cyber/operations/management/crisis-comm.md"}  # Gestion de la communication lors d'incidents majeurs
     ]}
-
   ]},
 
   # ===========================================================================
-  # 7 — CYBERSÉCURITÉ : OUTILS & RED TEAM
+  # 6 — CYBERSÉCURITÉ : OUTILS & RED TEAM
   # ===========================================================================
-  # Cette section est dédiée au catalogue d'outils offensifs et méthodologies
-  # Red Team / Pentest :
-  # - Reconnaissance et OSINT (Open Source Intelligence)
-  # - Tests d'intrusion Web, API, réseaux, Active Directory
-  # - Exploitation et post-exploitation
-  # - Password attacks (bruteforce, cracking)
-  # - Social engineering
-  # - Méthodologies et frameworks offensifs
-  # 
-  # PUBLIC CIBLE : Pentesters, Red Teamers, Ethical Hackers, Consultants Sécurité Offensive
+  # Cette section constitue le catalogue opérationnel des outils et méthodes
+  # de sécurité offensive.
+  #
+  # Elle couvre l’ensemble du cycle d’un test d’intrusion :
+  # - reconnaissance et cartographie
+  # - énumération et analyse de surface d’attaque
+  # - exploitation et post-exploitation
+  # - attaques sur authentification
+  # - ingénierie sociale
+  # - scan automatisé de vulnérabilités
+  # - cadres méthodologiques Red Team
+  #
+  # Contrairement aux sections GRC et SOC, l’approche ici est strictement
+  # offensive et orientée tests d’intrusion.
+  #
+  # PUBLIC CIBLE :
+  # - Pentesters
+  # - Red Teamers
+  # - Consultants sécurité offensive
+  # - Ethical Hackers
   # ===========================================================================
 
   {"Cyber : Attaque" = [
+
+    # -------------------------------------------------------------------------
+    # Page d’introduction
+    # -------------------------------------------------------------------------
+    # Cette page présente :
+    # - le cadre légal et éthique des tests d’intrusion
+    # - les prérequis techniques recommandés
+    # - l’organisation des phases offensives
+    # - les parcours de lecture conseillés dans OmnyDocs
+    # -------------------------------------------------------------------------
     "cyber/tools/index.md",
 
-    # -------------------------------------------------------------------------
-    # OSINT & Reconnaissance
-    # Phase de collecte d'informations publiques (passive) : cartographie
-    # d'infrastructure, énumération de cibles, recherche de fuites de données.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 6.1 — OSINT & Reconnaissance
+    # ========================================================================
+    # Phase de collecte d’informations publiques et de cartographie externe.
+    #
+    # Objectifs :
+    # - identifier les surfaces exposées
+    # - découvrir les actifs Internet
+    # - préparer les phases actives de scan
+    # ========================================================================
     {"OSINT & Reconnaissance" = [
       "cyber/tools/osint/index.md",
-      # {"theHarvester"         = "cyber/tools/osint/theharvester.md"},      # Collecte d'emails, sous-domaines, IPs (sources multiples)
-      # {"Maltego"              = "cyber/tools/osint/maltego.md"},           # Plateforme d'OSINT graphique (Paterva)
-      # {"SpiderFoot"           = "cyber/tools/osint/spiderfoot.md"},        # Automatisation OSINT (scan 200+ sources)
-      # {"Amass"                = "cyber/tools/osint/amass.md"},             # Cartographie d'infrastructure externe (OWASP)
-      # {"Shodan / Censys"      = "cyber/tools/osint/shodan-censys.md"}     # Moteurs de recherche pour équipements exposés (IoT, serveurs)
+
+      # Outils de collecte OSINT multi-sources
+      {"theHarvester" = "cyber/tools/osint/theharvester.md"},   # Collecte emails, domaines, hôtes
+      {"SpiderFoot"   = "cyber/tools/osint/spiderfoot.md"},     # Automatisation OSINT à grande échelle
+      {"Maltego"      = "cyber/tools/osint/maltego.md"},        # Analyse graphique des relations
+
+      # Enumération de sous-domaines
+      {"Amass"        = "cyber/tools/osint/amass.md"},          # Cartographie d’infrastructure externe
+      {"subfinder"    = "cyber/tools/osint/subfinder.md"},      # Enumération rapide de sous-domaines
+      {"assetfinder"  = "cyber/tools/osint/assetfinder.md"},    # Découverte simple d’assets
+
+      # Validation HTTP des cibles découvertes
+      {"httpx"        = "cyber/tools/osint/httpx.md"},          # Probe HTTP/HTTPS des endpoints
+
+      # Moteurs de recherche d’équipements exposés
+      {"Shodan / Censys" = "cyber/tools/osint/shodan-censys.md"} # Recherche Internet-wide
     ]},
 
-    # -------------------------------------------------------------------------
-    # Pentest Web & API
-    # Tests d'intrusion applicatifs : injection SQL, XSS, CSRF, SSRF,
-    # vulnérabilités OWASP Top 10, fuzzing de paramètres, énumération de contenus.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 6.2 — Pentest Web & API
+    # ========================================================================
+    # Tests d’intrusion applicatifs :
+    # - vulnérabilités OWASP Top 10
+    # - tests d’authentification et de session
+    # - fuzzing de paramètres et d’endpoints
+    # - analyse de surface Web et API
+    # ========================================================================
     {"Pentest Web & API" = [
       "cyber/tools/web/index.md",
-      # {"Burp Suite"           = "cyber/tools/web/burp.md"},                # Proxy d'interception et scanner Web (PortSwigger)
-      # {"OWASP ZAP"            = "cyber/tools/web/zap.md"},                 # Proxy d'interception et scanner Web open-source (OWASP)
-      # {"Nikto"                = "cyber/tools/web/nikto.md"},               # Scanner de vulnérabilités Web (configurations, fichiers sensibles)
-      # {"ffuf"                 = "cyber/tools/web/ffuf.md"},                # Fuzzer HTTP rapide (directories, vhosts, paramètres)
-      # {"Gobuster"             = "cyber/tools/web/gobuster.md"},            # Brute-force de directories/DNS/vhosts (Go)
-      # {"Fuzzing (général)"    = "cyber/tools/web/fuzzing.md"}             # Méthodologies de fuzzing applicatif
+
+      # Proxys d’interception
+      {"Burp Suite" = "cyber/tools/web/burp.md"},               # Proxy d’interception et tests manuels
+      {"OWASP ZAP"  = "cyber/tools/web/zap.md"},                # Alternative open-source
+
+      # Scanners et détection de surface
+      {"Nikto"      = "cyber/tools/web/nikto.md"},              # Scan de configurations Web
+
+      # Fuzzing et brute-force de contenu
+      {"ffuf"        = "cyber/tools/web/ffuf.md"},              # Fuzzer HTTP rapide
+      {"Gobuster"    = "cyber/tools/web/gobuster.md"},          # Bruteforce de répertoires et DNS
+      {"feroxbuster" = "cyber/tools/web/feroxbuster.md"},       # Enumération récursive de contenu
+
+      # Scan moderne par templates
+      {"Nuclei"      = "cyber/tools/web/nuclei.md"},            # Scanner basé sur templates
+
+      # Exploitation spécialisée
+      {"sqlmap"      = "cyber/tools/web/sqlmap.md"},            # Exploitation SQLi automatisée
+      {"Fuzzing (général)" = "cyber/tools/web/fuzzing.md"}      # Méthodologie de fuzzing
     ]},
 
-    # -------------------------------------------------------------------------
-    # Pentest Réseau & Services
-    # Découverte réseau, énumération de services, exploitation de protocoles,
-    # pivoting, attaques Active Directory, Man-in-the-Middle.
-    # -------------------------------------------------------------------------
-    {"Pentest Réseau & Services" = [
+    # ========================================================================
+    # 6.3 — Pentest Réseau, Services & AD
+    # ========================================================================
+    # Découverte réseau, énumération de services et analyse d’infrastructure.
+    #
+    # Cette section couvre :
+    # - scan de ports
+    # - énumération DNS
+    # - manipulation de paquets
+    # - reconnaissance Active Directory
+    # ========================================================================
+    {"Pentest Réseau, Services & AD" = [
       "cyber/tools/network/index.md",
-      # {"Nmap (NSE)"           = "cyber/tools/network/nmap.md"},            # Scanner de ports et énumération de services (scripts NSE)
-      
-      # --- Outils DNS ---
-      # Suite d'outils pour interroger les serveurs DNS et effectuer de la
-      # reconnaissance sur les infrastructures réseau.
+
+      # Scanner réseau de référence
+      {"Nmap (NSE)" = "cyber/tools/network/nmap.md"},           # Scan de ports et scripts NSE
+      {"RustScan"   = "cyber/tools/network/rustscan.md"},       # Accélérateur de scan
+
+      # Outils DNS
       {"DNS" = [
         "cyber/tools/network/dns/index.md",
-        {"dig"                = "cyber/tools/network/dns/dig.md"},         # Outil DNS flexible et complet (BIND)
-        # {"dog"                = "cyber/tools/network/dns/dog.md"},         # Alternative moderne à dig, écrite en Rust (colorisation, JSON)
-        {"nslookup"           = "cyber/tools/network/dns/nslookup.md"},    # Outil DNS legacy, multiplateforme (Windows/Linux)
-        {"host"               = "cyber/tools/network/dns/host.md"}         # Outil DNS simple pour résolutions A/AAAA/MX/TXT
+        {"dig"      = "cyber/tools/network/dns/dig.md"},
+        {"nslookup" = "cyber/tools/network/dns/nslookup.md"},
+        {"host"     = "cyber/tools/network/dns/host.md"},
+        {"dnsenum"  = "cyber/tools/network/dns/dnsenum.md"}
       ]},
-      
-      {"ping"                 = "cyber/tools/network/ping.md"},            # Test de connectivité ICMP
-      # {"Scapy"                = "cyber/tools/network/scapy.md"},           # Manipulation de paquets réseau (Python)
-      # {"Impacket"             = "cyber/tools/network/impacket.md"},        # Suite d'outils Python pour protocoles Windows (SMB, LDAP, Kerberos)
-      # {"CrackMapExec"         = "cyber/tools/network/cme.md"},             # Exploitation et énumération multi-protocoles (SMB, WinRM, LDAP, MSSQL)
-      # {"Responder"            = "cyber/tools/network/responder.md"},       # Poisoning LLMNR/NBT-NS pour capture de hashes
-      # {"BloodHound (AD)"      = "cyber/tools/network/bloodhound.md"},      # Cartographie et exploitation Active Directory (chemins d'escalade)
-      
-      # NOTE : Les outils ci-dessous sont également référencés dans "Systèmes & Réseaux".
-      # Ils sont listés ici car utilisés dans un contexte offensif (Red Team).
-      # À terme, tu pourras choisir de :
-      # - Conserver cette duplication avec un focus offensif ici
-      # - Rediriger vers sys-reseau avec un lien explicite
-      # {"OpenVPN"              = "cyber/tools/network/openvpn.md"},         # VPN open-source (usage : tunneling, pivoting)
-      # {"HAProxy"              = "cyber/tools/network/haproxy.md"},         # Load balancer / reverse proxy (usage : infrastructure Red Team)
-      # {"pfSense"              = "cyber/tools/network/pfsense.md"}          # Firewall/routeur open-source (usage : lab sécurisé)
+
+      # Diagnostic réseau
+      {"ping" = "cyber/tools/network/ping.md"},
+
+      # Manipulation de paquets
+      {"Scapy" = "cyber/tools/network/scapy.md"},
+
+      # Écosystème Active Directory offensif
+      {"Impacket"        = "cyber/tools/network/impacket.md"},
+      {"CrackMapExec"    = "cyber/tools/network/cme.md"},
+      {"Responder"       = "cyber/tools/network/responder.md"},
+      {"BloodHound (AD)" = "cyber/tools/network/bloodhound.md"},
+
+      # Attaques MITM modernes
+      {"Bettercap" = "cyber/tools/network/bettercap.md"}
     ]},
 
-    # -------------------------------------------------------------------------
-    # Exploitation & Post-Exploit
-    # Frameworks d'exploitation, élévation de privilèges, persistance,
-    # tunneling, pivoting, exfiltration de données.
-    # -------------------------------------------------------------------------
-    {"Exploitation & Post-Exploit" = [
+    # ========================================================================
+    # 6.4 — Exploitation & Post-Exploitation
+    # ========================================================================
+    # Phase d’exploitation active et de maintien d’accès.
+    #
+    # Objectifs :
+    # - exécution de payloads
+    # - élévation de privilèges
+    # - pivoting réseau
+    # - persistance
+    # ========================================================================
+    {"Exploitation & Post-Exploitation" = [
       "cyber/tools/exploit/index.md",
-      # {"Metasploit"                   = "cyber/tools/exploit/metasploit.md"},           # Framework d'exploitation (Rapid7)
-      # {"Msfvenom"                     = "cyber/tools/exploit/msfvenom.md"},             # Générateur de payloads Metasploit
-      # {"LinPEAS / WinPEAS"            = "cyber/tools/exploit/peas.md"},                 # Scripts d'énumération post-exploitation (Linux/Windows)
-      # {"Chisel"                       = "cyber/tools/exploit/chisel.md"},               # Tunneling HTTP/SOCKS5 rapide (Go)
-      # {"Ligolo-NG"                    = "cyber/tools/exploit/ligolo-ng.md"},            # Tunneling avancé pour pivoting (Go)
-      # {"PayloadAllTheThings"          = "cyber/tools/exploit/payload-all-the-things.md"} # Référentiel de payloads et techniques d'exploitation
+
+      {"Metasploit" = "cyber/tools/exploit/metasploit.md"},     # Framework d’exploitation
+      {"Msfvenom"   = "cyber/tools/exploit/msfvenom.md"},       # Génération de payloads
+      {"LinPEAS / WinPEAS" = "cyber/tools/exploit/peas.md"},    # Enumération privesc
+      {"Chisel"     = "cyber/tools/exploit/chisel.md"},         # Tunneling HTTP/SOCKS
+      {"Ligolo-NG"  = "cyber/tools/exploit/ligolo-ng.md"},      # Pivoting avancé
+      {"Payloads & Techniques" = "cyber/tools/exploit/payload-all-the-things.md"}
     ]},
 
-    # -------------------------------------------------------------------------
-    # Password Attacks
-    # Cracking de hashes, bruteforce d'authentifications, génération de wordlists,
-    # attaques par dictionnaire, rainbow tables.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 6.5 — Password Attacks
+    # ========================================================================
+    # Attaques sur mécanismes d’authentification :
+    # - cracking offline de hashes
+    # - bruteforce online
+    # - génération de dictionnaires
+    # ========================================================================
     {"Password Attacks" = [
       "cyber/tools/crack/index.md",
-      # {"John the Ripper"              = "cyber/tools/crack/john.md"},       # Cracker de mots de passe (CPU)
-      # {"Hashcat"                      = "cyber/tools/crack/hashcat.md"},    # Cracker de mots de passe (GPU, très rapide)
-      # {"Hydra"                        = "cyber/tools/crack/hydra.md"},      # Bruteforce d'authentifications réseau (SSH, FTP, HTTP, etc.)
-      # {"Medusa"                       = "cyber/tools/crack/medusa.md"},     # Alternative à Hydra (parallélisé)
-      # {"CeWL"                         = "cyber/tools/crack/cewl.md"}        # Générateur de wordlists depuis sites Web (spidering)
+
+      {"John the Ripper" = "cyber/tools/crack/john.md"},
+      {"Hashcat"         = "cyber/tools/crack/hashcat.md"},
+      {"Hydra"           = "cyber/tools/crack/hydra.md"},
+      {"Medusa"          = "cyber/tools/crack/medusa.md"},
+      {"CeWL"            = "cyber/tools/crack/cewl.md"},
+      {"Crunch"          = "cyber/tools/crack/crunch.md"},
+      {"SecLists"        = "cyber/tools/crack/seclists.md"}
     ]},
 
-    # -------------------------------------------------------------------------
-    # Social Engineering
-    # Ingénierie sociale : phishing, spear-phishing, pretexting, manipulation
-    # psychologique, campagnes de sensibilisation.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 6.6 — Social Engineering
+    # ========================================================================
+    # Techniques d’ingénierie sociale utilisées dans un cadre autorisé :
+    # - phishing et spear-phishing
+    # - campagnes de simulation
+    # - manipulation humaine contrôlée
+    # ========================================================================
     {"Social Engineering" = [
       "cyber/tools/se/index.md",
-      # {"SET"               = "cyber/tools/se/set.md"},      # Framework d'attaques d'ingénierie sociale (TrustedSec)
-      # {"GoPhish"           = "cyber/tools/se/gophish.md"}   # Plateforme de simulation de phishing open-source
+      {"SET"     = "cyber/tools/se/set.md"},
+      {"GoPhish" = "cyber/tools/se/gophish.md"}
     ]},
 
-    # -------------------------------------------------------------------------
-    # Scan de Vulnérabilités
-    # Outils de scan automatisé de vulnérabilités (infrastructure, Web, applicatif).
-    # Note : OpenVAS était précédemment dans "Gestion des vulnérabilités" (gouvernance).
-    # Il est repositionné ici car c'est un outil opérationnel utilisé par les pentesters.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 6.7 — Scan de Vulnérabilités
+    # ========================================================================
+    # Outils automatisés d’identification de vulnérabilités.
+    #
+    # Ces outils complètent le pentest manuel mais ne le remplacent pas.
+    # ========================================================================
     {"Scan de Vulnérabilités" = [
       "cyber/tools/scan/index.md",
-      # {"OpenVAS (Greenbone)"          = "cyber/tools/scan/openvas.md"},    # Scanner de vulnérabilités open-source (infrastructure)
-      # {"Nessus"                       = "cyber/tools/scan/nessus.md"},     # Scanner commercial (Tenable) - référence
-      # {"Nuclei"                       = "cyber/tools/scan/nuclei.md"}      # Scanner basé sur templates YAML (ProjectDiscovery)
+      {"OpenVAS (Greenbone)" = "cyber/tools/scan/openvas.md"},
+      {"Nessus"              = "cyber/tools/scan/nessus.md"},
+      {"Nuclei"              = "cyber/tools/scan/nuclei.md"}
     ]},
 
-    # -------------------------------------------------------------------------
-    # Méthodologies Red Team
-    # Frameworks, phases de pentest, OpSec, techniques d'évasion, Kill Chain,
-    # MITRE ATT&CK mapping.
-    # -------------------------------------------------------------------------
+    # ========================================================================
+    # 6.8 — Méthodologies Red Team
+    # ========================================================================
+    # Cadres méthodologiques structurant les opérations offensives :
+    # - phases de pentest
+    # - cartographie MITRE ATT&CK
+    # - OPSEC
+    # - techniques avancées
+    # ========================================================================
     {"Méthodologies Red Team" = [
       "cyber/tools/methodology/index.md",
-      # {"Phases d'un Pentest"          = "cyber/tools/methodology/pentest-phases.md"},      # Reconnaissance, Scanning, Exploitation, Post-Exploit, Reporting
-      # {"EBIOS RM (vue Red Team)"      = "cyber/tools/methodology/ebios-redteam.md"},       # Approche Red Team basée sur la méthodologie EBIOS RM
-      # {"MITRE ATT&CK"                 = "cyber/tools/methodology/mitre-attack.md"},        # Cartographie des tactiques et techniques adverses
-      # {"OpSec & Anonymisation"        = "cyber/tools/methodology/opsec-tor.md"},           # Operational Security : Tor, VPN, chaînes de proxies, effacement de traces
-      # {"Stéganographie"               = "cyber/tools/methodology/steganographie.md"},      # Dissimulation de données dans des fichiers (images, audio, vidéo)
-      # {"C2 (Command & Control)"       = "cyber/tools/methodology/c2-frameworks.md"}        # Frameworks C2 : Cobalt Strike, Sliver, Havoc, Mythic
+      {"Phases d’un Pentest" = "cyber/tools/methodology/pentest-phases.md"},
+      {"MITRE ATT&CK"        = "cyber/tools/methodology/mitre-attack.md"},
+      {"OpSec & Anonymisation" = "cyber/tools/methodology/opsec.md"},
+      {"Stéganographie"        = "cyber/tools/methodology/steganographie.md"},
+      {"C2 (Command & Control)" = "cyber/tools/methodology/c2-frameworks.md"}
+    ]},
+
+    # ========================================================================
+    # 6.9 — Reporting & Livrables
+    # ========================================================================
+    # Formalisation des résultats de test d’intrusion :
+    # - structure de rapport
+    # - preuves techniques
+    # - priorisation des risques
+    # - recommandations de remédiation
+    # ========================================================================
+    {"Reporting & Livrables" = [
+      "cyber/tools/reporting/index.md",
+      {"Structure d’un rapport" = "cyber/tools/reporting/rapport-structure.md"},
+      {"Preuves & Reproductibilité" = "cyber/tools/reporting/preuves.md"},
+      {"Sévérités (CVSS) & Priorisation" = "cyber/tools/reporting/cvss.md"},
+      {"Recommandations & Correctifs" = "cyber/tools/reporting/remediation.md"}
     ]}
 
   ]},
 
-# ===========================================================================
-  # 8 — GLOSSAIRE
-  # ===========================================================================
-  # Définitions des termes techniques, acronymes et concepts utilisés
-  # dans l'ensemble de la documentation.
-  # ===========================================================================
+  # ============================================================================
+  # 7 — GLOSSAIRE
+  # ============================================================================
+  # Cette section centralise les définitions des termes techniques,
+  # acronymes et concepts utilisés dans l’ensemble de la documentation.
+  #
+  # Elle constitue une référence transversale permettant :
+  # - d’harmoniser le vocabulaire
+  # - de lever les ambiguïtés terminologiques
+  # - de faciliter la lecture pour les profils non spécialistes
+  #
+  # Le glossaire est conçu pour être :
+  # - cumulatif (enrichi au fil des modules)
+  # - normalisé (définitions courtes et précises)
+  # - interopérable avec les autres sections (liens croisés recommandés)
+  #
+  # Bonnes pratiques éditoriales :
+  # - une entrée = un terme
+  # - définition factuelle et neutre
+  # - éviter les redondances avec les contenus pédagogiques
+  #
+  # PUBLIC CIBLE :
+  # - Tous publics
+  # - Apprenants en montée en compétence
+  # - Lecteurs recherchant une référence rapide
+  # ============================================================================
+
   {"Glossaire" = [
+
+    # --------------------------------------------------------------------------
+    # Page d’index du glossaire
+    # --------------------------------------------------------------------------
+    # Point d’entrée unique permettant :
+    # - la navigation alphabétique
+    # - la recherche rapide de termes
+    # - l’accès aux définitions normalisées
+    # --------------------------------------------------------------------------
     "glossaire/index.md",
-    {"Arch Linux" = "glossaire/arch-linux.md"}
+
   ]},
 
-# ===========================================================================
-  # 9 — Projets
-  # ===========================================================================
-  # Création de différents projet
-  # ===========================================================================
+  # ============================================================================
+  # 8 — PROJETS & LABS PRATIQUES
+  # ============================================================================
+  # Cette section regroupe des projets guidés permettant de mettre en pratique
+  # les connaissances acquises dans les sections théoriques de la documentation.
+  #
+  # Elle adopte une approche orientée expérimentation et mise en situation
+  # réelle, avec des environnements reproductibles et progressifs.
+  #
+  # Objectifs pédagogiques :
+  # - consolider les compétences techniques par la pratique
+  # - comprendre l’intégration des briques technologiques
+  # - développer des réflexes d’architecture et de déploiement
+  # - préparer des scénarios proches des environnements professionnels
+  #
+  # Typologie des projets :
+  # - labs systèmes & virtualisation
+  # - projets applicatifs guidés
+  # - implémentations d’authentification
+  # - environnements multi-composants
+  #
+  # PUBLIC CIBLE :
+  # - Développeurs en montée en compétence
+  # - Ingénieurs systèmes & DevOps
+  # - Profils cybersécurité souhaitant pratiquer
+  # ============================================================================
+
   {"Projets" = [
+
+    # --------------------------------------------------------------------------
+    # Lab — Architecture Linux (Arch Linux)
+    # --------------------------------------------------------------------------
+    # Environnement de laboratoire dédié à la compréhension :
+    # - de l’installation système
+    # - de la différenciation serveur vs desktop
+    # - de la virtualisation locale
+    # - de la mise en place de réseaux de test
+    #
+    # Ce lab constitue une base solide pour :
+    # - les environnements de pentest
+    # - les plateformes DevSecOps locales
+    # - les expérimentations système avancées
+    # --------------------------------------------------------------------------
     {"Lab Arch" = [
       "projets/arch-lab/index.md",
-      {"introduction"           = "projets/arch-lab/01-introduction.md"},
-      {"Panorama"               = "projets/arch-lab/02-panorama-linux.md"},
-      {"Arch Serveur"           = "projets/arch-lab/03-arch-serveur.md"},
-      {"Arch Desktop"           = "projets/arch-lab/04-arch-desktop.md"},
-      {"Virtualbox - Réseau"    = "projets/arch-lab/05-virtualbox-reseau.md"},
-      {"Lab multi-os"           = "projets/arch-lab/06-lab-multi-os.md"},
-      {"Annexes"                = "projets/arch-lab/07-annexes.md"},
+
+      # Introduction générale du laboratoire
+      {"Introduction"        = "projets/arch-lab/01-introduction.md"},
+
+      # Vue d’ensemble de l’écosystème Linux et positionnement d’Arch
+      {"Panorama Linux"      = "projets/arch-lab/02-panorama-linux.md"},
+
+      # Déploiement d’un environnement Arch orienté serveur
+      {"Arch Serveur"        = "projets/arch-lab/03-arch-serveur.md"},
+
+      # Déploiement d’un environnement Arch orienté poste de travail
+      {"Arch Desktop"        = "projets/arch-lab/04-arch-desktop.md"},
+
+      # Mise en place du réseau VirtualBox pour le lab
+      {"VirtualBox — Réseau" = "projets/arch-lab/05-virtualbox-reseau.md"},
+
+      # Construction d’un laboratoire multi-OS interconnecté
+      {"Lab Multi-OS"        = "projets/arch-lab/06-lab-multi-os.md"},
+
+      # Ressources complémentaires et notes techniques
+      {"Annexes"             = "projets/arch-lab/07-annexes.md"},
     ]},
 
+    # --------------------------------------------------------------------------
+    # Lab — Authentification Applicative
+    # --------------------------------------------------------------------------
+    # Ensemble de projets guidés centrés sur l’implémentation des mécanismes
+    # d’authentification dans l’écosystème Laravel.
+    #
+    # Objectifs :
+    # - comprendre les flux d’authentification web
+    # - maîtriser les starter kits Laravel
+    # - structurer une application sécurisée
+    # - préparer les bases de la sécurité applicative
+    #
+    # Ce bloc est fortement lié aux sections :
+    # - Développement (frameworks Laravel)
+    # - DevSecOps (gestion des secrets)
+    # - Cybersécurité applicative (à terme)
+    # --------------------------------------------------------------------------
+    {"Lab Authentification" = [
 
-    {"Lab Authentification"             = [
-      {"Laravel - Breeze"    = [
+      # ----------------------------------------------------------------------
+      # Projet Laravel Breeze
+      # ----------------------------------------------------------------------
+      # Implémentation complète d’une application Laravel avec Breeze :
+      # - authentification session
+      # - structuration MVC
+      # - tests et optimisation
+      #
+      # Parcours recommandé pour :
+      # - développeurs Laravel débutant/intermédiaire
+      # - compréhension du flux d’authentification web classique
+      # ----------------------------------------------------------------------
+      {"Laravel — Breeze" = [
         "dev-cloud/lang/laravel/projects/project-breeze/index.md",
-        {"1. Install & Config"    = "dev-cloud/lang/laravel/projects/project-breeze/phase1.md"},
-        {"2. BDD & Eloquent"      = "dev-cloud/lang/laravel/projects/project-breeze/phase2.md"},
-        {"3. Seeders/Datatest"    = "dev-cloud/lang/laravel/projects/project-breeze/phase3.md"},
-        {"4. Contrôleurs"         = "dev-cloud/lang/laravel/projects/project-breeze/phase4.md"},
-        {"5. Routes & Orga."      = "dev-cloud/lang/laravel/projects/project-breeze/phase5.md"},
-        {"6. Vue Blade"           = "dev-cloud/lang/laravel/projects/project-breeze/phase6.md"},
-        {"7. Tests, Opti"         = "dev-cloud/lang/laravel/projects/project-breeze/phase7.md"},
-        {"Conclusion"             = "dev-cloud/lang/laravel/projects/project-breeze/conclusion.md"}
+
+        {"1. Installation & Configuration" = "dev-cloud/lang/laravel/projects/project-breeze/phase1.md"},
+
+        {"2. Base de données & Eloquent" = "dev-cloud/lang/laravel/projects/project-breeze/phase2.md"},
+
+        {"3. Seeders & Jeux de données" = "dev-cloud/lang/laravel/projects/project-breeze/phase3.md"},
+
+        {"4. Contrôleurs" = "dev-cloud/lang/laravel/projects/project-breeze/phase4.md"},
+
+        {"5. Routes & Organisation" = "dev-cloud/lang/laravel/projects/project-breeze/phase5.md"},
+
+        {"6. Vues Blade" = "dev-cloud/lang/laravel/projects/project-breeze/phase6.md"},
+
+        {"7. Tests & Optimisations" = "dev-cloud/lang/laravel/projects/project-breeze/phase7.md"},
+
+        {"Conclusion" = "dev-cloud/lang/laravel/projects/project-breeze/conclusion.md"},
       ]},
-      {"Laravel - Jetstream" = [
+
+      # ----------------------------------------------------------------------
+      # Projet Laravel Jetstream
+      # ----------------------------------------------------------------------
+      # Exploration du starter kit Jetstream :
+      # - authentification avancée
+      # - gestion des équipes (selon stack)
+      # - fonctionnalités temps réel
+      #
+      # Positionnement :
+      # - niveau intermédiaire à avancé
+      # - comparaison avec Breeze recommandée
+      # ----------------------------------------------------------------------
+      {"Laravel — Jetstream" = [
         "dev-cloud/lang/laravel/projects/project-jetstream/index.md",
       ]},
-      {"Laravel - Sanctum" = [
+
+      # ----------------------------------------------------------------------
+      # Projet Laravel Sanctum
+      # ----------------------------------------------------------------------
+      # Mise en œuvre de Sanctum pour l’authentification API :
+      # - tokens personnels
+      # - SPA authentication
+      # - sécurisation des endpoints
+      #
+      # Ce module prépare directement :
+      # - les API sécurisées
+      # - les architectures SPA/mobile
+      # - les futures intégrations DevSecOps
+      # ----------------------------------------------------------------------
+      {"Laravel — Sanctum" = [
         "dev-cloud/lang/laravel/projects/project-sanctum/index.md",
       ]}
     ]},

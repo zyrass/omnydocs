@@ -1,10 +1,9 @@
 ---
 description: "Processus de veille, d'évaluation et de priorisation des vulnérabilités dans une démarche GRC"
-icon: lucide/bug-off
 tags: ["VULNÉRABILITÉS", "CVE", "CVSS", "OWASP", "PATCH MANAGEMENT"]
 ---
 
-# Gestion des Vuln.
+# Gestion des Vulnérabilités
 
 <div
   class="omny-meta"

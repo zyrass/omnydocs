@@ -80,8 +80,15 @@
 
 /* Conteneur du contenu principal */
 .md-content {
-  max-width: 100%;
+  max-width: 50%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .md-content {
+    min-width: 100%;
+    margin: 0 auto;
+  }
 }
 
 /* Article principal - LARGEUR LIMITÉE POUR LISIBILITÉ */

@@ -43,3 +43,5 @@ Les professionnels accomplis reconnaissent que la maîtrise de plusieurs langage
 [^1]: Les **limitations intrinsèques** sont les **contraintes naturelles et inhérentes** à un système, une technologie ou un être, qui découlent directement de sa **nature, conception ou structure**, et non de facteurs extérieurs.
 
 [^2]: **Défendre dogmatiquement**, c’est **soutenir une idée ou une position de manière rigide et absolue**, sans accepter la remise en question, la discussion ou la preuve contraire — comme si elle relevait d’une vérité indiscutable.
+
+<br />
