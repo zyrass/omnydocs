@@ -2,9 +2,9 @@
   * ============================================================================
   *   OMNYDOCS - STYLES PERSONNALISÉS
   * ============================================================================
-  *   Documentation technique professionnelle pour la cybersécurité
+  *   Documentation technique professionnelle
   *   Auteur : Alain GUILLON (Zyrass)
-  *   Version : 2.1
+  *   Version : 2.2
   * ============================================================================
   */
 
@@ -43,6 +43,7 @@
    * ============================================================================
    */
 
+/* Positionnement des schémas mermaid au centre, même chose pour le paragraphe frère. */
 .mermaid,
 .mermaid + p {
   display: flex;
@@ -52,93 +53,40 @@
 
 /* Conteneur principal - pleine largeur de l'écran */
 .md-grid {
-  max-width: 100%; /* Utilise toute la largeur disponible */
+  max-width: 100vw; /* Utilise toute la largeur disponible */
 }
 
-/* Sidebar primaire (gauche) - Navigation principale */
-
-.md-sidebar--primary {
-  width: 16rem; /* ~320px - largeur confortable pour navigation */
+.md-main__inner {
+  margin-top: 0;
 }
 
-@media screen and (max-width: 768px) {
-  .md-sidebar--primary {
-    width: 12rem; /* ~320px - largeur confortable pour navigation */
-  }
-}
+/** 
+   * ============================================================================
+   *  Sidebar primaire (gauche) - Navigation principale
+   * ============================================================================
+   */
 
-.md-nav__list {
-  min-height: 100%;
-}
+/** 
+   * ============================================================================
+   *  Sidebar primaire secondaire (droite) - Table des matières
+   * ============================================================================
+   */
 
-/* Sidebar secondaire (droite) - Table des matières */
+/* Sidebar  */
 .md-sidebar--secondary {
   width: 18rem; /* ~272px - légèrement plus large */
 }
 
-/* Sidebar secondaire (droite) - Table des matières */
-.md-sidebar--secondary {
-  width: 18rem; /* ~272px - légèrement plus large */
-}
+/** 
+   * ============================================================================
+   *  Conteneur du contenu principal
+   * ============================================================================
+   */
 
-/* Navigation secondaire (TOC) */
-.md-nav--secondary {
-  min-width: unset;
-}
-
-/* Conteneur du contenu principal */
-.md-content {
-  max-width: 50%;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 768px) {
-  .md-content {
-    min-width: 100%;
-    margin: 0 auto;
-  }
-}
-
-/* Article principal - LARGEUR LIMITÉE POUR LISIBILITÉ */
-.md-content__inner {
-  max-width: 52rem; /* ~832px - largeur optimale pour lecture (60-80 caractères) */
-  margin: 0 auto !important; /* Centré entre les deux sidebars */
-  padding: 0 4rem; /* Espacement interne confortable */
-}
-
-/* Sur très grands écrans (>1920px), on peut augmenter légèrement */
-@media screen and (min-width: 1921px) {
-  .md-content__inner {
-    max-width: 60rem; /* ~960px sur très grands écrans */
-  }
-}
-
-/* Sur écrans moyens (tablettes, petits laptops) */
-/* @media screen and (max-width: 76.1875em) {
-    .md-sidebar--primary {
-      width: 16rem; /* ~256px */
-/* } */
-
-.md-sidebar--secondary {
-  width: 14rem; /* ~224px */
-}
-
-.md-content__inner {
-  min-width: 100%; /* Réduction proportionnelle */
+.md-content__inner.md-typeset {
+  width: 100%;
+  margin: 0;
   padding: 0 2rem;
-}
-/* } */
-
-/* Sur petits écrans (mobile) */
-@media screen and (max-width: 60em) {
-  .md-grid {
-    padding: 0 1rem;
-  }
-
-  .md-content__inner {
-    max-width: 100%;
-    padding: 0 1rem;
-  }
 }
 
 /** 
@@ -161,6 +109,7 @@
   border: 1px solid var(--md-primary-fg-color); /* Border primaire */
   color: var(--md-primary-fg-color);
   padding: 8px; /* Espacement interne pour effet bouton */
+  margin: 0 0 0.5rem;
 }
 
 /* Effet hover sur les sections de navigation */
@@ -227,17 +176,13 @@
 .md-nav--secondary .md-nav__link {
   font-size: 0.6rem; /* Cohérent avec le reste */
   font-weight: 500; /* Semi-gras pour niveau 1 */
-  padding: 0.2rem 0.8rem;
-  color: var(--md-primary-fg-color--light);
-  border-radius: 0.25rem;
-  transition: all 0.15s ease;
+  padding: 0.1rem 0.8rem;
 }
 
 /* Hover sur les liens */
 .md-nav--secondary .md-nav__link:hover {
   background-color: var(--md-primary-fg-color--transparent);
   color: var(--md-primary-fg-color);
-  padding-left: 1rem; /* Légère indentation au survol */
 }
 
 /* Lien actif */
@@ -245,8 +190,6 @@
   font-weight: 700;
   color: var(--md-primary-fg-color);
   background-color: var(--md-primary-fg-color--transparent);
-  border-left: 3px solid var(--md-primary-fg-color);
-  padding-left: 0.8rem;
 }
 
 /* --- HIÉRARCHIE DES SOUS-NIVEAUX --- */
@@ -257,10 +200,9 @@
 }
 
 .md-nav--secondary .md-nav__item .md-nav__item .md-nav__link {
-  font-size: 0.55rem; /* Légèrement plus petit que niveau 1 */
-  font-weight: 400; /* Poids normal */
-  padding-left: 1rem; /* Indentation supplémentaire */
+  font-size: 0.6rem; /* Légèrement plus petit que niveau 1 */
   color: var(--md-default-fg-color--light);
+  font-weight: 400;
   font-style: italic;
 }
 
@@ -270,62 +212,14 @@
   margin-bottom: 0.15rem;
 }
 
-.md-nav--secondary .md-nav__item .md-nav__item .md-nav__item .md-nav__link {
-  font-size: 0.63rem; /* Encore plus petit */
-  font-weight: 400;
-  padding: 0.25rem 0.5rem;
-  padding-left: 1.2rem; /* Triple indentation */
-}
-
-/* Niveau 4 (h5) - rarement utilisé mais au cas où */
-.md-nav--secondary .md-nav__item .md-nav__item .md-nav__item .md-nav__item {
-  margin-left: 2.4rem;
-}
-
-.md-nav--secondary
-  .md-nav__item
-  .md-nav__item
-  .md-nav__item
-  .md-nav__item
-  .md-nav__link {
-  font-size: 0.6rem;
-  padding-left: 1.4rem;
-  font-style: italic; /* Italique pour distinction */
-}
-
 /* --- INDICATEURS VISUELS POUR HIÉRARCHIE --- */
 
 /* Points/puces pour les sous-niveaux */
 .md-nav--secondary .md-nav__item .md-nav__item .md-nav__link::before {
   content: "•"; /* Puce pour niveau 2 */
   position: absolute;
-  left: 0.4rem;
+  left: 40px;
   color: var(--md-default-fg-color--lighter);
-  font-size: 0.5rem;
-}
-
-.md-nav--secondary
-  .md-nav__item
-  .md-nav__item
-  .md-nav__item
-  .md-nav__link::before {
-  content: "◦"; /* Puce creuse pour niveau 3 */
-  font-size: 0.6rem;
-}
-
-.md-nav--secondary
-  .md-nav__item
-  .md-nav__item
-  .md-nav__item
-  .md-nav__item
-  .md-nav__link::before {
-  content: "▫"; /* Carré pour niveau 4 */
-  font-size: 0.4rem;
-}
-
-/* Liens positionnés en relatif pour les pseudo-éléments */
-.md-nav--secondary .md-nav__link {
-  position: relative;
 }
 
 /* --- SCROLLBAR PERSONNALISÉE --- */
