@@ -86,7 +86,7 @@
 .md-content__inner.md-typeset {
   width: 100%;
   margin: 0;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 /** 
@@ -220,6 +220,16 @@
   position: absolute;
   left: 40px;
   color: var(--md-default-fg-color--lighter);
+}
+
+.md-nav--secondary
+  .md-nav__item
+  .md-nav__item
+  .md-nav__item
+  .md-nav__link::before {
+  content: ">"; /* Puce creuse pour niveau 3 */
+  left: 70px;
+  font-size: 0.5rem;
 }
 
 /* --- SCROLLBAR PERSONNALISÉE --- */
