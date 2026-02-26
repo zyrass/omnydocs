@@ -84,9 +84,16 @@
    */
 
 .md-content__inner.md-typeset {
-  width: 100%;
-  margin: 0;
+  width: 70%;
+  margin: 0 auto !important;
   padding: 0 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .md-content__inner.md-typeset {
+    width: 95%;
+    padding: 0 1rem;
+  }
 }
 
 /** 
@@ -308,6 +315,7 @@
   font-size: 1.25rem; /* 20px - sous-sections */
   margin-top: 1.5rem;
   line-height: 1.4;
+  text-align: center;
 }
 
 .md-typeset h4 {
