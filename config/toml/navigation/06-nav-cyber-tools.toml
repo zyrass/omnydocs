@@ -1,0 +1,249 @@
+  # ===========================================================================
+  # 6 — CYBERSÉCURITÉ : OUTILS & RED TEAM
+  # ===========================================================================
+  # Cette section constitue le catalogue opérationnel des outils et méthodes
+  # de sécurité offensive.
+  #
+  # Elle couvre l’ensemble du cycle d’un test d’intrusion :
+  # - reconnaissance et cartographie
+  # - énumération et analyse de surface d’attaque
+  # - exploitation et post-exploitation
+  # - attaques sur authentification
+  # - ingénierie sociale
+  # - scan automatisé de vulnérabilités
+  # - cadres méthodologiques Red Team
+  #
+  # Contrairement aux sections GRC et SOC, l’approche ici est strictement
+  # offensive et orientée tests d’intrusion.
+  #
+  # PUBLIC CIBLE :
+  # - Pentesters
+  # - Red Teamers
+  # - Consultants sécurité offensive
+  # - Ethical Hackers
+  # ===========================================================================
+
+  {"Cyber : Attaque" = [
+
+    # -------------------------------------------------------------------------
+    # Page d’introduction
+    # -------------------------------------------------------------------------
+    # Cette page présente :
+    # - le cadre légal et éthique des tests d’intrusion
+    # - les prérequis techniques recommandés
+    # - l’organisation des phases offensives
+    # - les parcours de lecture conseillés dans OmnyDocs
+    # -------------------------------------------------------------------------
+    "cyber/tools/index.md",
+
+    # ========================================================================
+    # 6.1 — OSINT & Reconnaissance
+    # ========================================================================
+    # Phase de collecte d’informations publiques et de cartographie externe.
+    #
+    # Objectifs :
+    # - identifier les surfaces exposées
+    # - découvrir les actifs Internet
+    # - préparer les phases actives de scan
+    # ========================================================================
+    {"OSINT & Reconnaissance" = [
+      "cyber/tools/osint/index.md",
+
+      # Outils de collecte OSINT multi-sources
+      {"theHarvester" = "cyber/tools/osint/theharvester.md"},   # Collecte emails, domaines, hôtes
+      {"SpiderFoot"   = "cyber/tools/osint/spiderfoot.md"},     # Automatisation OSINT à grande échelle
+      {"Maltego"      = "cyber/tools/osint/maltego.md"},        # Analyse graphique des relations
+
+      # Enumération de sous-domaines
+      {"Amass"        = "cyber/tools/osint/amass.md"},          # Cartographie d’infrastructure externe
+      {"subfinder"    = "cyber/tools/osint/subfinder.md"},      # Enumération rapide de sous-domaines
+      {"assetfinder"  = "cyber/tools/osint/assetfinder.md"},    # Découverte simple d’assets
+
+      # Validation HTTP des cibles découvertes
+      {"httpx"        = "cyber/tools/osint/httpx.md"},          # Probe HTTP/HTTPS des endpoints
+
+      # Moteurs de recherche d’équipements exposés
+      {"Shodan / Censys" = "cyber/tools/osint/shodan-censys.md"} # Recherche Internet-wide
+    ]},
+
+    # ========================================================================
+    # 6.2 — Pentest Web & API
+    # ========================================================================
+    # Tests d’intrusion applicatifs :
+    # - vulnérabilités OWASP Top 10
+    # - tests d’authentification et de session
+    # - fuzzing de paramètres et d’endpoints
+    # - analyse de surface Web et API
+    # ========================================================================
+    {"Pentest Web & API" = [
+      "cyber/tools/web/index.md",
+
+      # Proxys d’interception
+      {"Burp Suite" = "cyber/tools/web/burp.md"},               # Proxy d’interception et tests manuels
+      {"OWASP ZAP"  = "cyber/tools/web/zap.md"},                # Alternative open-source
+
+      # Scanners et détection de surface
+      {"Nikto"      = "cyber/tools/web/nikto.md"},              # Scan de configurations Web
+
+      # Fuzzing et brute-force de contenu
+      {"ffuf"        = "cyber/tools/web/ffuf.md"},              # Fuzzer HTTP rapide
+      {"Gobuster"    = "cyber/tools/web/gobuster.md"},          # Bruteforce de répertoires et DNS
+      {"feroxbuster" = "cyber/tools/web/feroxbuster.md"},       # Enumération récursive de contenu
+
+      # Scan moderne par templates
+      {"Nuclei"      = "cyber/tools/web/nuclei.md"},            # Scanner basé sur templates
+
+      # Exploitation spécialisée
+      {"sqlmap"      = "cyber/tools/web/sqlmap.md"},            # Exploitation SQLi automatisée
+      {"Fuzzing (général)" = "cyber/tools/web/fuzzing.md"}      # Méthodologie de fuzzing
+    ]},
+
+    # ========================================================================
+    # 6.3 — Pentest Réseau, Services & AD
+    # ========================================================================
+    # Découverte réseau, énumération de services et analyse d’infrastructure.
+    #
+    # Cette section couvre :
+    # - scan de ports
+    # - énumération DNS
+    # - manipulation de paquets
+    # - reconnaissance Active Directory
+    # ========================================================================
+    {"Pentest Réseau, Services & AD" = [
+      "cyber/tools/network/index.md",
+
+      # Scanner réseau de référence
+      {"Nmap (NSE)" = "cyber/tools/network/nmap.md"},           # Scan de ports et scripts NSE
+      {"RustScan"   = "cyber/tools/network/rustscan.md"},       # Accélérateur de scan
+
+      # Outils DNS
+      {"DNS" = [
+        "cyber/tools/network/dns/index.md",
+        {"dig"      = "cyber/tools/network/dns/dig.md"},
+        {"nslookup" = "cyber/tools/network/dns/nslookup.md"},
+        {"host"     = "cyber/tools/network/dns/host.md"},
+        {"dnsenum"  = "cyber/tools/network/dns/dnsenum.md"}
+      ]},
+
+      # Diagnostic réseau
+      {"ping" = "cyber/tools/network/ping.md"},
+
+      # Manipulation de paquets
+      {"Scapy" = "cyber/tools/network/scapy.md"},
+
+      # Écosystème Active Directory offensif
+      {"Impacket"        = "cyber/tools/network/impacket.md"},
+      {"CrackMapExec"    = "cyber/tools/network/cme.md"},
+      {"Responder"       = "cyber/tools/network/responder.md"},
+      {"BloodHound (AD)" = "cyber/tools/network/bloodhound.md"},
+
+      # Attaques MITM modernes
+      {"Bettercap" = "cyber/tools/network/bettercap.md"}
+    ]},
+
+    # ========================================================================
+    # 6.4 — Exploitation & Post-Exploitation
+    # ========================================================================
+    # Phase d’exploitation active et de maintien d’accès.
+    #
+    # Objectifs :
+    # - exécution de payloads
+    # - élévation de privilèges
+    # - pivoting réseau
+    # - persistance
+    # ========================================================================
+    {"Exploitation & Post-Exploitation" = [
+      "cyber/tools/exploit/index.md",
+
+      {"Metasploit" = "cyber/tools/exploit/metasploit.md"},     # Framework d’exploitation
+      {"Msfvenom"   = "cyber/tools/exploit/msfvenom.md"},       # Génération de payloads
+      {"LinPEAS / WinPEAS" = "cyber/tools/exploit/peas.md"},    # Enumération privesc
+      {"Chisel"     = "cyber/tools/exploit/chisel.md"},         # Tunneling HTTP/SOCKS
+      {"Ligolo-NG"  = "cyber/tools/exploit/ligolo-ng.md"},      # Pivoting avancé
+      {"Payloads & Techniques" = "cyber/tools/exploit/payload-all-the-things.md"}
+    ]},
+
+    # ========================================================================
+    # 6.5 — Password Attacks
+    # ========================================================================
+    # Attaques sur mécanismes d’authentification :
+    # - cracking offline de hashes
+    # - bruteforce online
+    # - génération de dictionnaires
+    # ========================================================================
+    {"Password Attacks" = [
+      "cyber/tools/crack/index.md",
+
+      {"John the Ripper" = "cyber/tools/crack/john.md"},
+      {"Hashcat"         = "cyber/tools/crack/hashcat.md"},
+      {"Hydra"           = "cyber/tools/crack/hydra.md"},
+      {"Medusa"          = "cyber/tools/crack/medusa.md"},
+      {"CeWL"            = "cyber/tools/crack/cewl.md"},
+      {"Crunch"          = "cyber/tools/crack/crunch.md"},
+      {"SecLists"        = "cyber/tools/crack/seclists.md"}
+    ]},
+
+    # ========================================================================
+    # 6.6 — Social Engineering
+    # ========================================================================
+    # Techniques d’ingénierie sociale utilisées dans un cadre autorisé :
+    # - phishing et spear-phishing
+    # - campagnes de simulation
+    # - manipulation humaine contrôlée
+    # ========================================================================
+    {"Social Engineering" = [
+      "cyber/tools/se/index.md",
+      {"SET"     = "cyber/tools/se/set.md"},
+      {"GoPhish" = "cyber/tools/se/gophish.md"}
+    ]},
+
+    # ========================================================================
+    # 6.7 — Scan de Vulnérabilités
+    # ========================================================================
+    # Outils automatisés d’identification de vulnérabilités.
+    #
+    # Ces outils complètent le pentest manuel mais ne le remplacent pas.
+    # ========================================================================
+    {"Scan de Vulnérabilités" = [
+      "cyber/tools/scan/index.md",
+      {"OpenVAS (Greenbone)" = "cyber/tools/scan/openvas.md"},
+      {"Nessus"              = "cyber/tools/scan/nessus.md"},
+      {"Nuclei"              = "cyber/tools/scan/nuclei.md"}
+    ]},
+
+    # ========================================================================
+    # 6.8 — Méthodologies Red Team
+    # ========================================================================
+    # Cadres méthodologiques structurant les opérations offensives :
+    # - phases de pentest
+    # - cartographie MITRE ATT&CK
+    # - OPSEC
+    # - techniques avancées
+    # ========================================================================
+    {"Méthodologies Red Team" = [
+      "cyber/tools/methodology/index.md",
+      {"Phases d’un Pentest" = "cyber/tools/methodology/pentest-phases.md"},
+      {"MITRE ATT&CK"        = "cyber/tools/methodology/mitre-attack.md"},
+      {"OpSec & Anonymisation" = "cyber/tools/methodology/opsec.md"},
+      {"Stéganographie"        = "cyber/tools/methodology/steganographie.md"},
+      {"C2 (Command & Control)" = "cyber/tools/methodology/c2-frameworks.md"}
+    ]},
+
+    # ========================================================================
+    # 6.9 — Reporting & Livrables
+    # ========================================================================
+    # Formalisation des résultats de test d’intrusion :
+    # - structure de rapport
+    # - preuves techniques
+    # - priorisation des risques
+    # - recommandations de remédiation
+    # ========================================================================
+    {"Reporting & Livrables" = [
+      "cyber/tools/reporting/index.md",
+      {"Structure d’un rapport" = "cyber/tools/reporting/rapport-structure.md"},
+      {"Preuves & Reproductibilité" = "cyber/tools/reporting/preuves.md"},
+      {"Sévérités (CVSS) & Priorisation" = "cyber/tools/reporting/cvss.md"},
+      {"Recommandations & Correctifs" = "cyber/tools/reporting/remediation.md"}
+    ]}
+
+  ]},

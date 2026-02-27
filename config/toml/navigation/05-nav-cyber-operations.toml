@@ -1,0 +1,171 @@
+  # ============================================================================
+  # 5 — CYBERSÉCURITÉ : OPÉRATIONS & SOC (BLUE TEAM / DFIR)
+  # ============================================================================
+  # Cette section couvre l’aspect opérationnel de la cybersécurité défensive.
+  #
+  # Elle traite notamment :
+  # - l’architecture et l’organisation d’un SOC moderne
+  # - les capacités de détection (SIEM, IDS/IPS, EDR, NDR)
+  # - la réponse à incident (IR) et le forensic (DFIR)
+  # - l’analyse de malwares et le reverse engineering
+  # - le threat hunting et l’amélioration continue
+  # - l’automatisation via SOAR
+  #
+  # Contrairement à la section Gouvernance (GRC), cette partie est orientée
+  # opérations techniques, détection et investigation.
+  #
+  # PUBLIC CIBLE :
+  # - Analystes SOC (N1 → N3)
+  # - Incident Responders
+  # - Forensic Analysts
+  # - Threat Hunters
+  # ============================================================================
+
+  {"Cyber : Défense" = [
+    "cyber/operations/index.md",
+
+    # ========================================================================
+    # 5.1 — Architecture SOC
+    # ========================================================================
+    # Présentation des composantes techniques d’un SOC moderne :
+    # - SIEM / centralisation des logs
+    # - EDR/XDR / télémétrie endpoint
+    # - IDS/IPS réseau
+    # - Threat Intelligence Platform
+    #
+    # Objectif :
+    # - Comprendre la chaîne de détection
+    # - Positionner les capteurs
+    # - Structurer une architecture SOC cohérente
+    # ========================================================================
+    {"Architecture SOC" = [
+      "cyber/operations/soc/index.md",
+
+      # ---------------------------------------------------------------------
+      # IDS / IPS
+      # ---------------------------------------------------------------------
+      # Systèmes de détection et de prévention d’intrusion réseau.
+      # Analyse par signatures, anomalies ou approches hybrides.
+      {"IDS/IPS" = [
+        "cyber/operations/soc/ids-ips/index.md",
+        {"Suricata" = "cyber/operations/soc/ids-ips/suricata.md"},
+        {"Snort"    = "cyber/operations/soc/ids-ips/snort.md"},
+      ]}
+    ]},
+
+    # ========================================================================
+    # 5.2 — Détection & Analyse
+    # ========================================================================
+    # Méthodologies et outils permettant :
+    # - la détection d’activités malveillantes
+    # - la création de règles de corrélation
+    # - le threat hunting proactif
+    #
+    # Cette section constitue le cœur analytique du SOC.
+    # ========================================================================
+    {"Détection & Analyse" = [
+      "cyber/operations/detection/index.md",
+      {"YARA"      = "cyber/operations/detection/yara.md"},
+      {"Sigma"     = "cyber/operations/detection/sigma.md"},
+      {"Sysmon"    = "cyber/operations/detection/sysmon.md"},
+      {"IOC & TTP" = "cyber/operations/detection/ioc-ttp.md"},
+    ]},
+
+    # ========================================================================
+    # 5.3 — Incident Response & DFIR
+    # ========================================================================
+    # Gestion opérationnelle des incidents de sécurité :
+    # - qualification
+    # - confinement
+    # - éradication
+    # - remédiation
+    #
+    # Inclut les investigations forensic complètes.
+    # ========================================================================
+    {"Incident Response & DFIR" = [
+      "cyber/operations/ir/index.md",
+
+      # ---------------------------------------------------------------------
+      # Investigation Numérique (Forensic)
+      # ---------------------------------------------------------------------
+      # Analyse post-incident :
+      # - acquisition de preuves
+      # - analyse disque et mémoire
+      # - reconstruction de chronologie
+      # - analyse d’artefacts
+      {"Investigation Numérique" = [
+        "cyber/operations/ir/forensic/index.md",
+
+        # --- Acquisition ---------------------------------------------------
+        # Techniques d’acquisition forensique garantissant l’intégrité.
+        {"Acquisition" = [
+          "cyber/operations/ir/forensic/acq/index.md",
+          {"dd / dc3dd" = "cyber/operations/ir/forensic/acq/dd-dc3dd.md"},
+        ]},
+
+        # --- Analyse Disque -----------------------------------------------
+        # Analyse des systèmes de fichiers et récupération de données.
+        {"Analyse Disque" = [
+          "cyber/operations/ir/forensic/disk/index.md",
+        ]},
+
+        # --- Analyse Mémoire ----------------------------------------------
+        # Investigation RAM et artefacts volatiles.
+        {"Analyse Mémoire" = [
+          "cyber/operations/ir/forensic/memory/index.md",
+        ]},
+
+        # --- Analyse Logs -------------------------------------------------
+        # Reconstruction de timeline via journaux système.
+        {"Analyse Logs" = [
+          "cyber/operations/ir/forensic/logs/index.md",
+        ]},
+
+        # --- Outils Endpoint ---------------------------------------------
+        # Collecte distribuée et investigation à grande échelle.
+        {"Outils Endpoint" = [
+          "cyber/operations/ir/forensic/endpoint/index.md",
+        ]}
+      ]}
+    ]},
+
+    # ========================================================================
+    # 5.4 — Malware Analysis
+    # ========================================================================
+    # Analyse comportementale et statique de logiciels malveillants :
+    # - reverse engineering
+    # - sandboxing
+    # - compréhension des TTP adverses
+    # - génération de signatures
+    # ========================================================================
+    {"Malware Analysis" = [
+      "cyber/operations/malware/index.md",
+    ]},
+
+    # ========================================================================
+    # 5.5 — SOAR & Automatisation
+    # ========================================================================
+    # Orchestration et automatisation des réponses SOC :
+    # - playbooks automatisés
+    # - enrichissement d’alertes
+    # - intégration d’analyzers
+    # - réduction du MTTR
+    # ========================================================================
+    {"SOAR & Automatisation" = [
+      "cyber/operations/soar/index.md",
+    ]},
+
+    # ========================================================================
+    # 5.6 — Gestion Opérationnelle du SOC
+    # ========================================================================
+    # Organisation humaine et pilotage du SOC :
+    # - astreintes et modèle de couverture
+    # - SLA / SLO
+    # - métriques SOC (MTTD, MTTR)
+    # - communication de crise
+    # - amélioration continue
+    # ========================================================================
+    {"Gestion Opérationnelle" = [
+      "cyber/operations/management/index.md",
+    ]}
+  ]},

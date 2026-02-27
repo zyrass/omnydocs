@@ -1,0 +1,155 @@
+  # ============================================================================
+  # 8 — PROJETS & LABS PRATIQUES
+  # ============================================================================
+  # Cette section regroupe des projets guidés permettant de mettre en pratique
+  # les connaissances acquises dans les sections théoriques de la documentation.
+  #
+  # Elle adopte une approche orientée expérimentation et mise en situation
+  # réelle, avec des environnements reproductibles et progressifs.
+  #
+  # Objectifs pédagogiques :
+  # - consolider les compétences techniques par la pratique
+  # - comprendre l’intégration des briques technologiques
+  # - développer des réflexes d’architecture et de déploiement
+  # - préparer des scénarios proches des environnements professionnels
+  #
+  # Typologie des projets :
+  # - labs systèmes & virtualisation
+  # - projets applicatifs guidés
+  # - implémentations d’authentification
+  # - environnements multi-composants
+  #
+  # PUBLIC CIBLE :
+  # - Développeurs en montée en compétence
+  # - Ingénieurs systèmes & DevOps
+  # - Profils cybersécurité souhaitant pratiquer
+  # ============================================================================
+
+  {"Projets" = [
+
+    # --------------------------------------------------------------------------
+    # Lab — Architecture Linux (Arch Linux)
+    # --------------------------------------------------------------------------
+    # Environnement de laboratoire dédié à la compréhension :
+    # - de l’installation système
+    # - de la différenciation serveur vs desktop
+    # - de la virtualisation locale
+    # - de la mise en place de réseaux de test
+    #
+    # Ce lab constitue une base solide pour :
+    # - les environnements de pentest
+    # - les plateformes DevSecOps locales
+    # - les expérimentations système avancées
+    # --------------------------------------------------------------------------
+    {"Lab Arch" = [
+      "projets/arch-lab/index.md",
+
+      # Introduction générale du laboratoire
+      {"Introduction"        = "projets/arch-lab/01-introduction.md"},
+
+      # Vue d’ensemble de l’écosystème Linux et positionnement d’Arch
+      {"Panorama Linux"      = "projets/arch-lab/02-panorama-linux.md"},
+
+      # Déploiement d’un environnement Arch orienté serveur
+      {"Arch Serveur"        = "projets/arch-lab/03-arch-serveur.md"},
+
+      # Déploiement d’un environnement Arch orienté poste de travail
+      {"Arch Desktop"        = "projets/arch-lab/04-arch-desktop.md"},
+
+      # Mise en place du réseau VirtualBox pour le lab
+      {"VirtualBox — Réseau" = "projets/arch-lab/05-virtualbox-reseau.md"},
+
+      # Construction d’un laboratoire multi-OS interconnecté
+      {"Lab Multi-OS"        = "projets/arch-lab/06-lab-multi-os.md"},
+
+      # Ressources complémentaires et notes techniques
+      {"Annexes"             = "projets/arch-lab/07-annexes.md"},
+    ]},
+
+    # --------------------------------------------------------------------------
+    # Lab — Authentification Applicative
+    # --------------------------------------------------------------------------
+    # Ensemble de projets guidés centrés sur l’implémentation des mécanismes
+    # d’authentification dans l’écosystème Laravel.
+    #
+    # Objectifs :
+    # - comprendre les flux d’authentification web
+    # - maîtriser les starter kits Laravel
+    # - structurer une application sécurisée
+    # - préparer les bases de la sécurité applicative
+    #
+    # Ce bloc est fortement lié aux sections :
+    # - Développement (frameworks Laravel)
+    # - DevSecOps (gestion des secrets)
+    # - Cybersécurité applicative (à terme)
+    # --------------------------------------------------------------------------
+    {"Lab Authentification" = [
+
+      # ----------------------------------------------------------------------
+      # Projet Laravel Breeze
+      # ----------------------------------------------------------------------
+      # Implémentation complète d’une application Laravel avec Breeze :
+      # - authentification session
+      # - structuration MVC
+      # - tests et optimisation
+      #
+      # Parcours recommandé pour :
+      # - développeurs Laravel débutant/intermédiaire
+      # - compréhension du flux d’authentification web classique
+      # ----------------------------------------------------------------------
+      {"Laravel — Breeze" = [
+        "dev-cloud/lang/laravel/projects/project-breeze/index.md",
+
+        {"1. Installation & Configuration" = "dev-cloud/lang/laravel/projects/project-breeze/phase1.md"},
+
+        {"2. Base de données & Eloquent" = "dev-cloud/lang/laravel/projects/project-breeze/phase2.md"},
+
+        {"3. Seeders & Jeux de données" = "dev-cloud/lang/laravel/projects/project-breeze/phase3.md"},
+
+        {"4. Contrôleurs" = "dev-cloud/lang/laravel/projects/project-breeze/phase4.md"},
+
+        {"5. Routes & Organisation" = "dev-cloud/lang/laravel/projects/project-breeze/phase5.md"},
+
+        {"6. Vues Blade" = "dev-cloud/lang/laravel/projects/project-breeze/phase6.md"},
+
+        {"7. Tests & Optimisations" = "dev-cloud/lang/laravel/projects/project-breeze/phase7.md"},
+
+        {"Conclusion" = "dev-cloud/lang/laravel/projects/project-breeze/conclusion.md"},
+      ]},
+
+      # ----------------------------------------------------------------------
+      # Projet Laravel Jetstream
+      # ----------------------------------------------------------------------
+      # Exploration du starter kit Jetstream :
+      # - authentification avancée
+      # - gestion des équipes (selon stack)
+      # - fonctionnalités temps réel
+      #
+      # Positionnement :
+      # - niveau intermédiaire à avancé
+      # - comparaison avec Breeze recommandée
+      # ----------------------------------------------------------------------
+      {"Laravel — Jetstream" = [
+        "dev-cloud/lang/laravel/projects/project-jetstream/index.md",
+      ]},
+
+      # ----------------------------------------------------------------------
+      # Projet Laravel Sanctum
+      # ----------------------------------------------------------------------
+      # Mise en œuvre de Sanctum pour l’authentification API :
+      # - tokens personnels
+      # - SPA authentication
+      # - sécurisation des endpoints
+      #
+      # Ce module prépare directement :
+      # - les API sécurisées
+      # - les architectures SPA/mobile
+      # - les futures intégrations DevSecOps
+      # ----------------------------------------------------------------------
+      {"Laravel — Sanctum" = [
+        "dev-cloud/lang/laravel/projects/project-sanctum/index.md",
+      ]}
+    ]},
+  ]}
+
+]
