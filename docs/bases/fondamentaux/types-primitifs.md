@@ -1,148 +1,166 @@
 ---
 description: "Comprendre les briques de base de la programmation"
 icon: lucide/book-open-check
+tags: ["FONDAMENTAUX", "PROGRAMMATION", "TYPES"]
 ---
 
 # Types Primitifs
 
-## Introduction
-
 <div
   class="omny-meta"
-  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-level="Débutant à Intermédiaire"
   data-version="1.1"
   data-time="15-20 minutes">
 </div>
 
-!!! quote "Analogie pédagogique"
-    _Imaginez que vous construisez une maison. Avant de poser les murs, vous avez besoin de **matériaux de base** : du ciment, des briques, du bois, des clous. En programmation, les **types primitifs** sont exactement ces matériaux fondamentaux !_
+!!! quote "Analogie"
+    _Construire une maison nécessite des matériaux de base : du ciment, des briques, du bois. En programmation, les **types primitifs** sont ces matériaux fondamentaux. On ne construit rien de solide sans eux._
 
-Les types primitifs sont les **éléments les plus simples** qu'un langage de programmation peut manipuler : _des nombres, du texte, vrai ou faux_. C'est un peu comme les ingrédients de base en cuisine : avec de _la farine, des œufs et du lait_, vous pouvez créer des plats complexes. Avec les types primitifs, vous créerez vos programmes !
+Les types primitifs sont les **éléments les plus simples** qu'un langage de programmation peut manipuler : des nombres, du texte, vrai ou faux. Comme les ingrédients de base en cuisine — farine, oeufs, lait — ils permettent de composer des structures bien plus complexes.
 
-Ces concepts vous aideront à choisir le bon type pour vos données, à éviter les erreurs courantes, à optimiser vos programmes et à comprendre les messages d'erreur de votre langage.
+Comprendre les types primitifs, c'est savoir choisir le bon type pour chaque donnée, éviter les erreurs courantes, optimiser la mémoire et interpréter les messages d'erreur d'un compilateur ou d'un interpréteur.
 
-!!! info "Pourquoi c'est important ?"
-    La maîtrise des types primitifs impacte la **performance** de vos programmes, leur **sécurité**, la **clarté** de votre code et votre **professionnalisme** technique.
+!!! info "Pourquoi c'est important"
+    La maîtrise des types primitifs impacte directement la **performance** des programmes, leur **sécurité**, la **clarté** du code et la **robustesse** face aux cas limites.
 
-## Pour repartir des bases (vrais débutants)
+<br />
 
-Si vous ne savez pas encore ce qu'est une **variable**, imaginez-la comme une boîte avec une étiquette. Les types primitifs sont les différentes choses que vous pouvez ranger dans ces boîtes.
+---
 
-- **Type primitif** = ce que vous rangez
-- **Variable** = la boîte pour le ranger
+## Pour repartir des bases
+
+Une **variable** est un espace nommé en mémoire permettant de stocker une valeur. On lui donne un nom — appelé identifiant — pour pouvoir y faire référence dans le code. Ce nom est l'**étiquette** ; ce qui est stocké dedans est le type **primitif**.
+
+**Un programme manipule en permanence des variables** : il en crée, les modifie, les compare et les transmet.  
+Comprendre ce mécanisme de base est le prérequis à tout le reste.
+
+!!! note "L'image ci-dessous en propose une représentation concrète."
+
+![Variable est une etiquette et la primitif est le contenu](../../assets/images/fondamentaux/variable_etiquette_primitif.png)
+
+<p style="text-align: center"><em>Image représentative de ce qu'est une variable de façon visuelle.</em></p>
+
+<br />
+
+---
 
 ## Qu'est-ce qu'un type primitif exactement ?
 
-Un type primitif est une donnée de base fournie directement par le langage. C'est l'élément le plus simple possible. Comme les couleurs primaires en peinture (**rouge**, **bleu**, **jaune**), vous ne pouvez pas les décomposer plus, mais avec elles **vous pouvez créer toutes les autres couleurs** !
+Un type primitif est une donnée de base fournie directement par le langage — l'élément le plus simple possible. Comme les couleurs primaires en peinture (rouge, bleu, jaune) : on ne peut pas les décomposer davantage, mais avec elles on peut créer toutes les autres.
 
 ### Caractéristiques communes
 
-Tous les types primitifs partagent ces qualités :
+Tous les types primitifs partagent ces propriétés :
 
-- **Simple** : Une seule valeur (un nombre, une lettre...)
-- **Rapide** : Optimisé par le processeur
-- **Direct** : Pas de détours pour accéder à la valeur
-- **Prédéfini** : Fourni par le langage
+- **Simple** — une seule valeur (un nombre, un caractère...)
+- **Rapide** — optimisé directement par le processeur
+- **Direct** — pas d'indirection pour accéder à la valeur
+- **Prédéfini** — fourni nativement par le langage
 
-### Stack et Heap - Les deux zones mémoire
+### Stack et Heap — les deux zones mémoire
 
-Il nous semble important d'introduire brièvement la **Stack** (pile) et le **Heap** (tas), deux zones de mémoire de votre ordinateur.
+!!! info "Il est utile d'introduire brièvement la **Stack** (pile) et le **Heap** (tas), deux zones mémoire fondamentales."
 
 ```mermaid
-graph LR
-    subgraph Mémoire
-        Stack["Stack - Rapide - Petite"]
-        Heap["Heap - Lent - Grande"]
-    end
-    
-    Primitifs["Types Primitifs"] --> Stack
-    Objets["Objets Complexes"] --> Heap
+flowchart TB
+  subgraph Mémoire
+    Stack["Stack<br />Rapide — Petite"]
+    Heap["Heap<br />Plus lente — Grande"]
+  end
+
+  Primitifs["Types Primitifs"] --> Stack
+  Objets["Objets Complexes"] --> Heap
 ```
 
-_La **Stack** est comme votre bureau : accès rapide mais espace limité.  
-Le **Heap** est comme votre grenier : beaucoup de place mais plus lent à accéder.  
-Les **types primitifs vivent dans la Stack** pour être **ultra-rapides** !_
+_La **Stack** est comparable à un bureau de travail : accès rapide, espace limité. Le **Heap** ressemble à un entrepôt : grande capacité, accès plus lent. Les types primitifs vivent en Stack pour des raisons de performance._
 
-!!! tip "Elle sera détaillée dans la documentation suivante incluant la référence par la même occasion."
+!!! note "Ces deux zones sont détaillées dans la fiche dédiée : [Heap, Stack & Références](./heap-stack-references.md)"
+
+<br />
+
+---
 
 ## Tour d'horizon par langage
 
-Nous allons découvrir les types primitifs dans cinq langages professionnels courants.  
-Chaque langage a sa propre philosophie !
+Les types primitifs existent dans tous les langages modernes, avec des philosophies différentes. Les cinq langages ci-dessous couvrent l'essentiel des approches rencontrées en environnement professionnel.
 
-### **Python** - Tout est objet
+### :fontawesome-brands-python: Python — tout est objet
 
-**Particularité** : Python fait semblant que tout est simple, mais en réalité même les nombres sont des objets sophistiqués.
+**Particularité** : Python donne l'impression de la simplicité, mais même les nombres entiers sont des objets internes sophistiqués.
 
 | Type | Exemple | Description | Taille en mémoire |
-| :---: | --- | --- | :---: |
-| `int` | `42`, `-123` | Nombres entiers (taille illimitée !) | Variable |
+|:---:|---|---|:---:|
+| `int` | `42`, `-123` | Nombres entiers (taille illimitée) | Variable |
 | `float` | `3.14`, `1.5e-10` | Nombres décimaux | 24 bytes |
-| `bool` | `True`, `False` | Vrai/Faux (_en fait des int déguisés_) | 28 bytes |
+| `bool` | `True`, `False` | Vrai/Faux (des int déguisés) | 28 bytes |
 | `str` | `"Hello"`, `'Bonjour'` | Texte | Variable |
-| `None` | `None` | Rien du tout | 16 bytes |
+| `None` | `None` | Absence de valeur | 16 bytes |
 
-```python
-# Démonstration simple des types Python
+```python title="Langage Python"
+# Démonstration des types Python
 def decouvrir_types_python():
     print("DÉCOUVERTE DES TYPES PYTHON")
 
-    # Entiers - Python peut gérer des nombres gigantesques !
+    # Entiers — Python gère des nombres de taille arbitraire
     petit = 42
     enorme = 123456789012345678901234567890
     print(f"Petit nombre: {petit}")
     print(f"Nombre énorme: {enorme}")
     print(f"Python peut calculer : {enorme * 2}")
 
-    # Flottants - nombres à virgule
+    # Flottants — nombres à virgule
     pi = 3.14159
     scientifique = 1.23e-4  # = 0.000123
     print(f"Pi: {pi}")
     print(f"Notation scientifique: {scientifique}")
 
-    # Booléens - vrai/faux mais aussi... des nombres !
+    # Booléens — vrai/faux mais aussi des entiers
     vrai = True
     faux = False
     print(f"True = {vrai}, False = {faux}")
-    print(f"True + True = {vrai + vrai}")  # Surprise : 2 !
+    print(f"True + True = {vrai + vrai}")  # Résultat : 2
 
-    # Strings - texte
+    # Strings — texte
     message = "Hello World!"
     print(f"Message: {message}")
-    print(f"Première lettre: {message[0]}") # H
+    print(f"Première lettre: {message[0]}")  # H
 
-    # Le type mystérieux None
+    # None — absence explicite de valeur
     rien = None
     print(f"Rien du tout: {rien}")
 
 decouvrir_types_python()
 ```
 
-!!! tip "Magie Python"
-    Python recycle les nombres de -5 à 256 pour économiser la mémoire !
+!!! tip "Optimisation Python"
+    Python recycle les objets entiers de -5 à 256 pour économiser la mémoire — un détail interne utile à connaître pour comprendre certains comportements inattendus.
 
-### **JavaScript** - Le langage du web
+<br />
 
-**Particularité** : Un seul type `number` pour tous les nombres, mais attention aux pièges !
+---
+
+### :fontawesome-brands-js: JavaScript — le langage du web
+
+**Particularité** : Un seul type `number` couvre tous les nombres, ce qui simplifie l'apprentissage mais introduit des pièges précis.
 
 | Type | Exemple | Description |
-| :---: | --- | --- |
+|:---:|---|---|
 | `number` | `42`, `3.14`, `Infinity` | Tous les nombres |
-| `bigint` | `123n` | Très gros nombres (finit par 'n') |
-| `string` | `"text"`, `'text'`, `template` | Texte |
+| `bigint` | `123n` | Très grands entiers (suffixe `n`) |
+| `string` | `"text"`, `'text'` | Texte |
 | `boolean` | `true`, `false` | Vrai/Faux |
-| `undefined` | `undefined` | Variable non définie |
-| `null` | `null` | Volontairement vide |
+| `undefined` | `undefined` | Variable déclarée mais non initialisée |
+| `null` | `null` | Absence de valeur explicite |
 
-```javascript
+```javascript title="Langage JavaScript"
 // Découverte des types JavaScript
 function decouvrirTypesJavaScript() {
     console.log('DÉCOUVERTE DES TYPES JAVASCRIPT');
 
-    // Numbers - un type pour tous les gouverner
+    // Numbers — un type unique pour tous les nombres
     let entier = 42;
     let decimal = 3.14159;
-    let grandNombre = 1.23e20; // Très grand !
+    let grandNombre = 1.23e20;
     let infini = Infinity;
     let pasDuTout = NaN; // "Not a Number"
 
@@ -152,26 +170,26 @@ function decouvrirTypesJavaScript() {
     console.log(`Infini: ${infini}`);
     console.log(`Pas un nombre: ${pasDuTout}`);
 
-    // Piège classique de précision !
-    console.log(`0.1 + 0.2 = ${0.1 + 0.2}`); // Pas 0.3 !
+    // Piège de précision flottante
+    console.log(`0.1 + 0.2 = ${0.1 + 0.2}`); // Pas 0.3 exactement
 
-    // BigInt pour les très gros nombres
+    // BigInt pour les très grands entiers
     let tresTresGros = 123456789012345678901234567890n;
     console.log(`Très très gros: ${tresTresGros}`);
 
-    // Strings avec super-pouvoirs
+    // Template literals
     let nom = 'Alice';
     let age = 25;
     let phrase = `Bonjour ${nom}, tu as ${age} ans !`;
     console.log(phrase);
 
-    // Les deux "vides"
-    let indefini; // undefined automatiquement
-    let vide = null; // vide volontaire
+    // Les deux formes de "vide"
+    let indefini;       // undefined automatiquement
+    let vide = null;    // absence de valeur explicite
     console.log(`Indéfini: ${indefini}`);
     console.log(`Vide: ${vide}`);
 
-    // Test de passage par valeur
+    // Passage par valeur — la variable originale n'est pas modifiée
     function modifier(x) {
         x = 999;
         return x;
@@ -180,50 +198,52 @@ function decouvrirTypesJavaScript() {
     let nombre = 42;
     console.log(`Avant: ${nombre}`);
     modifier(nombre);
-    console.log(`Après: ${nombre}`); // Toujours 42 !
+    console.log(`Après: ${nombre}`); // Toujours 42
 }
 
 decouvrirTypesJavaScript();
 ```
 
 !!! warning "Pièges JavaScript"
-    `typeof null` retourne `"object"` - c'est un bug historique !  
-    `0.1 + 0.2` ne donne pas exactement `0.3`. Pour en savoir plus, il faut se tourner vers la conversion des décimales au binaire.
+    `typeof null` retourne `"object"` — c'est un bug historique conservé pour des raisons de compatibilité.
+    `0.1 + 0.2` ne donne pas exactement `0.3` — conséquence directe de la représentation binaire des décimaux (norme IEEE 754[^2]).
 
-### **PHP** - Le caméléon du web
+<br />
 
-**Particularité** : PHP change automatiquement de type selon le contexte ( **type juggling**[^1] ).
+---
+
+### :fontawesome-brands-php: PHP — le caméléon du web
+
+**Particularité** : PHP convertit automatiquement les types selon le contexte — comportement connu sous le nom de **type juggling**[^1].
 
 | Type | Exemple | Description |
-| :---: | --- | --- |
+|:---:|---|---|
 | `int` | `42`, `0x2A` | Entiers (décimal, hexa, binaire, octal) |
 | `float` | `3.14` | Nombres décimaux |
 | `string` | `"text"`, `'text'` | Texte |
 | `bool` | `true`, `false` | Vrai/Faux |
-| `null` | `null` | Vide |
+| `null` | `null` | Absence de valeur |
 
 ```mermaid
-graph TB
-    Variable["Variable PHP"] --> Contexte{"Quel<br />contexte ?"}
-    Contexte -->|Addition| Int["Devient int"]
-    Contexte -->|Concaténation| String["Devient string"]
-    Contexte -->|Condition| Bool["Devient bool"]
+flowchart TB
+  Variable["Variable PHP"] --> Contexte{"Quel contexte ?"}
+  Contexte -->|Addition| Int["Devient int"]
+  Contexte -->|Concaténation| String["Devient string"]
+  Contexte -->|Condition| Bool["Devient bool"]
 ```
 
-_**PHP est un caméléon** : il change le type de vos variables selon ce que vous faites avec !  
-Pratique mais parfois surprenant._
+<p><em>PHP adapte le type d'une variable selon l'opération effectuée — comportement pratique mais source d'erreurs subtiles si on ne l'anticipe pas.</em></p>
 
-```php
+```php title="Langage PHP"
 <?php
-// Découverte des types PHP
 function decouvrirTypesPHP() {
     echo "DÉCOUVERTE DES TYPES PHP\n";
 
     // Entiers sous toutes leurs formes
-    $decimal = 42;
-    $hexadecimal = 0x2A;      // 42 en hexadécimal
-    $binaire = 0b101010;      // 42 en binaire
-    $octal = 052;             // 42 en octal
+    $decimal     = 42;
+    $hexadecimal = 0x2A;    // 42 en hexadécimal
+    $binaire     = 0b101010; // 42 en binaire
+    $octal       = 052;      // 42 en octal
 
     echo "Même nombre, différentes écritures:\n";
     echo "Décimal: $decimal\n";
@@ -231,25 +251,24 @@ function decouvrirTypesPHP() {
     echo "Binaire: $binaire\n";
     echo "Octal: $octal\n";
 
-    // La magie (parfois dangereuse) du type juggling
-    echo "\nMAGIE DU TYPE JUGGLING:\n";
-
-    $nombre = "123";          // String
-    $resultat = $nombre + 45; // Devient int automatiquement !
+    // Type juggling en action
+    echo "\nTYPE JUGGLING:\n";
+    $nombre   = "123";          // string
+    $resultat = $nombre + 45;   // converti en int automatiquement
     echo "\"123\" + 45 = $resultat\n";
 
-    $mixte = "123abc";
-    $converti = $mixte + 10;  // Prend juste "123" !
+    $mixte    = "123abc";
+    $converti = $mixte + 10;    // prend uniquement "123"
     echo "\"123abc\" + 10 = $converti\n";
 
-    // Comparaisons surprenantes
-    echo "\nCOMPARAISONS SURPRENANTES:\n";
-    echo "0 == \"\" : " . (0 == "" ? "true" : "false") . "\n";         // true !
-    echo "0 === \"\" : " . (0 === "" ? "true" : "false") . "\n";       // false
-    echo "false == \"\" : " . (false == "" ? "true" : "false") . "\n"; // true !
+    // Comparaisons à double égal vs triple égal
+    echo "\nCOMPARAISONS:\n";
+    echo "0 == \"\" : "   . (0 == ""  ? "true" : "false") . "\n";  // true
+    echo "0 === \"\" : "  . (0 === "" ? "true" : "false") . "\n";  // false
+    echo "false == \"\" : " . (false == "" ? "true" : "false") . "\n"; // true
 
-    // Types explicites avec gettype()
-    echo "\nVÉRIFICATION DES TYPES:\n";
+    // Vérification de type avec gettype()
+    echo "\nTYPES DÉTECTÉS:\n";
     $variables = [42, 3.14, "hello", true, null];
     foreach ($variables as $var) {
         echo "Valeur: " . ($var ?? 'NULL') . " -> Type: " . gettype($var) . "\n";
@@ -260,98 +279,119 @@ decouvrirTypesPHP();
 ?>
 ```
 
-!!! tip "Survie en PHP"
-    Utilisez toujours `===` (**triple égal**) pour éviter les surprises !  
-    Le triple égal compare **la valeur** ET **le type**.
+!!! tip "Règle de survie en PHP"
+    Utiliser systématiquement `===` (triple égal) pour comparer **la valeur ET le type**. Le double égal `==` déclenche une conversion implicite qui produit des résultats contre-intuitifs.
 
-### Go - Simplicité et performance
+<br />
 
-**Particularité** : Go est simple et très strict. Les conversions doivent toujours être explicites.
+---
+
+### :fontawesome-brands-golang: Go — simplicité et performance
+
+**Particularité** : Go est strict et minimaliste. Toute conversion entre types doit être explicite — ce qui élimine une classe entière de bugs silencieux.
 
 | Type | Taille | Exemple |
-| :---: | :---: | --- |
+|:---:|:---:|---|
 | `int8`, `int16`, `int32`, `int64` | Fixe | Entiers signés |
-| `uint8`, `uint16`, `uint32`, `uint64` | Fixe | Entiers non-signés |
+| `uint8`, `uint16`, `uint32`, `uint64` | Fixe | Entiers non signés |
 | `float32`, `float64` | 32/64 bits | Décimaux |
 | `bool` | 1 byte | `true`, `false` |
 | `string` | Variable | Texte UTF-8 |
-| `byte` | 8 bits | Alias de uint8 |
+| `byte` | 8 bits | Alias de `uint8` |
 | `rune` | 32 bits | Caractère Unicode |
 
-_**Entiers signés** : Peut être négatif_  
-_**Entiers non-signés** : **Ne peut pas être négatif**_
+_**Entiers signés** : peuvent être négatifs.  
+**Entiers non signés** : toujours positifs ou nuls._
 
-
-```go
+```go title="Langage Go"
 package main
-import "fmt" // Package standard : format
+
+import "fmt"
 
 func main() {
-    // Découverte simple des types Go
-    var entier int = 42
+    // Déclaration explicite des types
+    var entier   int     = 42
     var flottant float64 = 3.14
-    var texte string = "Hello"
-    
-    fmt.Printf("Entier: %d\n", entier)
-    fmt.Printf("Flottant: %.2f\n", flottant) // 2 chiffres après la virgule
-    fmt.Printf("Texte: %s\n", texte)
-    
-    // Go refuse les mélanges !
-    // var resultat = entier + flottant  // ERREUR de compilation
-    
-    // Il faut convertir explicitement
+    var texte    string  = "Hello"
+
+    fmt.Printf("Entier: %d\n",    entier)
+    fmt.Printf("Flottant: %.2f\n", flottant) // 2 décimales
+    fmt.Printf("Texte: %s\n",     texte)
+
+    // Go refuse le mélange de types
+    // var resultat = entier + flottant  // Erreur de compilation
+
+    // Conversion explicite obligatoire
     var resultat = float64(entier) + flottant
     fmt.Printf("Résultat: %.2f\n", resultat)
 }
 ```
 
-!!! tip "Go strict"
-    Go vous force à être explicite.  
-    **Pas de conversion automatique = moins de bugs** !
+!!! tip "La rigueur de Go"
+    Go force à être explicite sur les conversions. C'est une contrainte en apparence — c'est en réalité une garantie : **pas de conversion automatique = moins de comportements inattendus**.
+
+<br />
+
+---
 
 ## Comparaison rapide
 
-| Langage | Complexité | Sécurité | Performance | Pour débuter |
-| --- | :---: | :---: | :---: | :---: |
-| **Python** | 🟢 Simple | 🟢 Bonne | 🔴 Lente | ⭐⭐⭐ |
-| **JavaScript** | 🟢 Simple | 🟡 Moyenne | 🟡 Moyenne | ⭐⭐⭐ |
-| **PHP** | 🟢 Simple | 🟡 Moyenne | 🟡 Moyenne | ⭐⭐⭐ |
-| **Go** | 🟢 Simple | 🟢 Bonne | 🟢 Rapide | ⭐⭐ |
+| Langage | Complexité | Sécurité des types | Performance | Accessibilité |
+|:---:|:---:|:---:|:---:|:---|
+| :fontawesome-brands-python: | Faible | Bonne | Lente | Recommandé pour débuter |
+| :fontawesome-brands-js: | Faible | Moyenne | Moyenne | Recommandé pour débuter |
+| :fontawesome-brands-php: | Faible | Moyenne | Moyenne | Recommandé pour débuter |
+| :fontawesome-brands-golang: | Faible | Très bonne | Rapide | Accessible après les bases |
+
+<br />
+
+---
 
 ## Pièges classiques
 
 ### Le piège de la précision (JS, Python, PHP)
 
 ```javascript
-// ❌ Problème
+// Problème
 console.log(0.1 + 0.2);  // 0.30000000000000004
 
-// ✅ Solution simple
+// Solution simple
 console.log((0.1 + 0.2).toFixed(1));  // "0.3"
 ```
 
-### Le piège des conversions (PHP)
+### Le piège des conversions implicites (PHP)
 
 ```php
-// ❌ Surprenant
-var_dump(0 == "");   // true !
+<?php
+// Comportement inattendu
+var_dump(0 == "");   // true
 
-// ✅ Utilisez ===
+// Comparaison stricte
 var_dump(0 === "");  // false
 ```
 
-## Conseils pour débuter
+<br />
 
-!!! tip "Règles d'or"
-    1. **Commencez simple** : `int`, `float`, `string`, `bool`
-    2. **Nommez clairement vos variables** : `age` plutôt que `a`
-    3. **Testez avec des valeurs extrêmes** : 0, -1, très grand...
-    4. **Restez curieux** : chaque langage a ses spécificités !
+---
 
-## Le mot de la fin
+## Conseils pratiques
 
-!!! quote 
-    Les types primitifs sont comme apprendre à tenir un crayon. Ça paraît basique, mais c'est la fondation de tout ce que vous écrirez ensuite ! Prenez le temps de bien les comprendre. Votre futur vous (et vos collègues) vous remercieront !
+!!! tip "Règles d'or pour débuter"
+    - Commencer par `int`, `float`, `string`, `bool` — les quatre types fondamentaux présents dans tous les langages
+    - Nommer les variables de manière explicite : `age` plutôt que `a`, `prixUnitaire` plutôt que `p`
+    - Tester les cas limites : `0`, `-1`, valeurs très grandes, chaîne vide
+    - Lire les messages d'erreur liés aux types — ils sont souvent précis et indiquent exactement où chercher
 
+<br />
 
-[^1]: Le **type juggling** (ou _conversion implicite de type_) désigne le processus par lequel un langage de programmation **convertit automatiquement une valeur d’un type à un autre** pour exécuter une opération, souvent sans que le développeur le demande explicitement.
+---
+
+## Conclusion
+
+!!! quote "Conclusion"
+    _Les types primitifs, c'est apprendre à tenir un crayon. Ça paraît basique — c'est pourtant la fondation de tout ce qui sera écrit ensuite. Prendre le temps de bien les comprendre réduit drastiquement les bugs et les comportements inexpliqués dans les projets plus avancés._
+
+<br />
+
+[^1]: **Type juggling** — conversion implicite de type : comportement par lequel un langage convertit automatiquement une valeur d'un type vers un autre pour permettre l'exécution d'une opération, sans que le développeur l'ait demandé explicitement.
+[^2]: **IEEE 754** — norme internationale définissant la représentation des nombres à virgule flottante en binaire. Elle est à l'origine du résultat surprenant de `0.1 + 0.2` : certains décimaux ne peuvent pas être représentés exactement en base 2, ce qui introduit une erreur d'arrondi infime mais mesurable.

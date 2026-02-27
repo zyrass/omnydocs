@@ -1,93 +1,214 @@
 ---
-description: "Fondations techniques essentielles pour tout professionnel de l'informatique"
+description: "Socle transversal de connaissances fondamentales, indépendant de toute technologie ou domaine de spécialisation."
+icon: lucide/layers
+tags: ["FONDAMENTAUX", "BASES", "SOCLE"]
 ---
 
-# Fontamentaux IT
+# Fondamentaux IT
 
-Cette section constitue le **socle fondamental** de votre parcours d'apprentissage technique. Elle rassemble l'ensemble des connaissances et compétences _indispensables_ à tout professionnel de l'informatique, quel que soit son domaine de spécialisation ultérieur.
+<div
+  class="omny-meta"
+  data-level="Débutant"
+  data-version="2.0"
+  data-time="10-15 minutes">
+</div>
 
-!!! quote ""
-    _Chaque sous-section s'articule autour d'une progression pédagogique cohérente qui facilite l'assimilation progressive des concepts et leur application immédiate dans des contextes professionnels réels._
+!!! quote "Analogie"
+    _Construire une expertise technique sans maîtriser les fondamentaux, c'est élever une structure sur des fondations instables. On peut progresser vite au début — mais les lacunes se révèlent au pire moment._
 
-L'approche adoptée privilégie la **rigueur conceptuelle** tout en maintenant une orientation pratique constante. Les contenus présentés reflètent les standards industriels contemporains et les meilleures pratiques éprouvées en environnement de production.
+## Objectif
 
-**OmnyDocs** accompagnera votre montée en compétence depuis les premiers jalons jusqu'à la maîtrise opérationnelle des technologies et méthodologies qui structurent l'écosystème professionnel du développement logiciel et de l'infrastructure moderne.
+Cette section constitue le **socle transversal** d'OmnyDocs. Elle rassemble les connaissances durables, indépendantes d'un langage, d'un framework ou d'un environnement particulier. Elles sont nécessaires avant d'aborder le développement, l'administration système ou la cybersécurité.
 
-## Organisation des contenus
+Le contenu est organisé en **huit domaines complémentaires**, progressifs mais consultables indépendamment selon les besoins.
 
-La section Bases Informatique se décompose en six domaines complémentaires qui forment ensemble un référentiel technique complet et structuré. Chaque domaine dispose de sa propre documentation approfondie accessible via les liens de navigation.
+<br />
 
-### Fondamentaux techniques
+---
 
-!!! abstract "Briques élémentaires de la programmation"
-    Cette première section établit les **bases conceptuelles élémentaires** nécessaires à toute compréhension ultérieure des langages de programmation et des systèmes informatiques.
-    
-    Elle couvre les **types primitifs** qui constituent les unités atomiques de manipulation de données, les mécanismes fondamentaux de gestion mémoire à travers les concepts de **heap**, **stack** et **références**, ainsi que les principes de la **logique booléenne** et **conditionnelle** qui sous-tendent l'ensemble des structures de contrôle.
-    
-    Ces connaissances théoriques forment le *socle intellectuel minimal* requis avant d'aborder toute pratique concrète du développement logiciel.
+## Vue d'ensemble
 
-### Outils de Développement
+```mermaid
+flowchart LR
+  FI[Fondamentaux IT]
 
-!!! abstract "Arsenal technique du développeur moderne"
-    Cette section rassemble l'ensemble des technologies et utilitaires qui accompagnent quotidiennement la pratique professionnelle du développement.
-    
-    Elle couvre les langages de documentation comme **Markdown**, les interfaces en ligne de commande avec les principaux **shells Unix** et **Windows**, ainsi que les **systèmes de contrôle de versions** et les **plateformes collaboratives**. Les **environnements de développement intégré**, les **solutions de virtualisation** et les **expressions régulières** complètent cet écosystème d'outils _essentiels_ à la productivité et à la collaboration technique.
+  FT[1. Fondamentaux techniques]
+  FS[2. Formats & Sérialisation]
+  OD[3. Outils de développement]
+  MC[4. Modélisation & Conception]
+  GP[5. Gestion de projet]
+  CP[6. Concepts de programmation]
+  RP[7. Réseaux et Protocoles]
+  CK[8. Cryptographie & PKI]
 
-### Gestionnaires de Paquets Unix
+  FI --> FT
+  FI --> FS
+  FI --> OD
+  FI --> MC
+  FI --> GP
+  FI --> CP
+  FI --> RP
+  FI --> CK
+```
 
-!!! abstract "Infrastructure logicielle des systèmes Unix et Linux"
-    Cette section présente les cinq gestionnaires de paquets dominants correspondant aux grandes familles de distributions Linux.
-    
-    Elle couvre **APK** pour Alpine, **APT** pour Debian et Ubuntu, **PACMAN** pour Arch, ainsi que **YUM** et **DNF** pour les systèmes Red Hat Enterprise Linux.
-    
-    La maîtrise de ces gestionnaires garantit votre **polyvalence opérationnelle** sur l'ensemble du spectre des environnements Unix professionnels, facilitant l'**installation**, la **mise à jour** et la **maintenance** des applications en production.
+<p><em>Chaque domaine est autonome mais s'appuie sur les précédents.<br />La progression recommandée suit l'ordre de numérotation.</em></p>
 
-### Réseaux et Protocoles
+<br />
 
-!!! abstract "Fondations de la communication numérique"
-    Cette section explore les modèles conceptuels qui structurent notre compréhension des communications réseau.
-    
-    Elle présente le **modèle OSI** avec sa décomposition en _sept couches_ ainsi que le **modèle TCP/IP** qui constitue l'architecture pratique réellement implémentée dans Internet. Un catalogue exhaustif des **protocoles essentiels** complète cette section, offrant un *référentiel technique permanent* pour le diagnostic et la configuration des infrastructures réseau.
-    
-    Ces connaissances s'avèrent **indispensables** pour comprendre les architectures distribuées et développer des applications communicantes robustes.
+---
 
-### Structures de Données
+## Rôle dans la progression générale
 
-!!! abstract "Langages universels d'échange d'informations"
-    Cette section documente les **quatre formats de données structurés** qui dominent l'écosystème contemporain du développement et de l'infrastructure.
-    
-    **JSON** s'impose dans les APIs modernes, **YAML** règne sur les configurations d'infrastructure, **XML** maintient sa présence dans les systèmes legacy et les protocoles d'entreprise, tandis que **CSV** garantit l'interopérabilité universelle pour les données tabulaires.
-    
-    La compréhension approfondie de ces formats facilite la _conception d'interfaces_ entre systèmes hétérogènes et l'exploitation efficace des services cloud.
+```mermaid
+flowchart TB
+  FI[Fondamentaux IT]
 
-### Concepts de Programmation
+  DEV[Développement]
+  SYS[Systèmes & Infra]
+  GRC[Cyber Gouvernance]
+  DEF[Cyber Défense]
+  ATT[Cyber Attaque]
 
-!!! abstract "Architectures logicielles et méthodologies avancées"
-    Cette section rassemble les **concepts architecturaux et méthodologiques avancés** qui transcendent les langages spécifiques pour former l'armature intellectuelle du développement logiciel professionnel.
-    
-    Elle couvre l'**architecture Unix** et ses principes philosophiques durables, les **règles SOLID** de conception orientée objet, les différents **paradigmes de programmation** qui structurent les approches de résolution de problèmes, ainsi que les **design patterns** qui constituent un vocabulaire partagé entre architectes logiciels. Les aspects opérationnels comme l'**encodage** des caractères, les **variables d'environnement** et les **codes d'erreur standardisés** complètent cette section en apportant les connaissances techniques nécessaires au diagnostic et à la résolution d'incidents en environnement de production.
+  FI -->|Logique, formats, outils, Git| DEV
+  FI -->|Réseaux, Linux, protocoles| SYS
+  FI -->|Cryptographie, modèles, risques| GRC
+  SYS -->|Logs, services, hôte| DEF
+  DEV -->|Code, vulnérabilités| ATT
+```
 
-## Progression pédagogique recommandée
+<p><em>Les Fondamentaux IT alimentent directement les trois branches de spécialisation.<br /><strong>Une lacune à ce niveau se répercute sur l'ensemble de la progression</strong>.</em></p>
 
-L'ordre de présentation des sections reflète une progression logique qui facilite l'assimilation des compétences par empilement successif. 
+<br />
 
-**Les Fondamentaux techniques** (1️⃣) établissent les bases conceptuelles élémentaires nécessaires avant d'aborder **les Outils de Développement** (2️⃣) qui constituent l'environnement de travail quotidien. Les **Gestionnaires de Paquets Unix** (3️⃣) s'appuient naturellement sur la maîtrise préalable de la ligne de commande acquise dans la section précédente.
+---
 
-**Les Réseaux et Protocoles** (4️⃣) requièrent une compréhension solide des outils et des systèmes avant d'explorer les mécanismes de communication entre machines. **Les Structures de Données** (5️⃣) trouvent leur pleine signification une fois que vous disposez d'une vision claire des contextes d'utilisation de chaque format. **Les Concepts de Programmation** (6️⃣) concluent cette section en synthétisant et en élevant l'ensemble des connaissances acquises vers une _compréhension architecturale_ et _méthodologique_ qui caractérise les professionnels expérimentés capables de concevoir des systèmes complexes maintenables et évolutifs.
+## Domaines de la section
 
-!!! warning "Attention" 
-    _Cette progression n'**impose cependant aucune contrainte rigide**. Certains apprenants préféreront _explorer les sections selon leurs besoins immédiats_ ou _leurs projets en cours_. La documentation de chaque section reste **accessible indépendamment** et peut être **consultée dans l'ordre qui correspond le mieux à votre parcours d'apprentissage personnel** et à vos **objectifs professionnels spécifiques**.
+<div class="grid cards" markdown>
 
-## Relation avec les sections suivantes
+- ### :lucide-cpu: 1 — Fondamentaux techniques
+    ---
+    Primitives universelles de la programmation : types, mémoire, logique booléenne, structures de contrôle, fonctions. Commun à la quasi-totalité des langages modernes.
 
-Les Bases Informatique constituent le **prérequis fondamental** aux sections plus avancées de la documentation **OmnyDocs**. Les compétences acquises ici préparent directement l'exploration des **architectures applicatives modernes**, des **infrastructures cloud** et des **méthodologies DevSecOps**.
+    [Consulter](./fondamentaux/index.md)
 
-Sans cette fondation solide, l'assimilation des concepts avancés devient significativement plus difficile voire plus longue et **génère des lacunes conceptuelles** qui handicapent la progression ultérieure vers l'expertise technique.
+- ### :lucide-file-code: 2 — Formats & Sérialisation
+    ---
+    Formats d'échange et de configuration : JSON, YAML, XML, CSV. Savoir lire, produire et valider des données structurées dans tout contexte technique.
 
-!!! example "Nous souhaitons vous éviter cette situation :"
-    _J'ai écrit ce code qui fonctionne, mais je suis incapable d'expliquer pourquoi il fonctionne.  
-    Pourquoi est-ce comme ça ?_
+    [Consulter](./formats-serialisation/index.md)
 
-Cette section établit également le **vocabulaire technique** et les **références communes** qui structurent l'ensemble de la documentation.
+</div>
 
-Les **termes** et **concepts** introduits ici seront réutilisés et approfondis dans les sections suivantes sans nécessiter de réexplication systématique. Cette approche cumulative optimise l'efficacité pédagogique et accélère votre montée en compétence vers la maîtrise professionnelle des technologies contemporaines.
+<div class="grid cards" markdown>
+
+- ### :lucide-terminal: 3 — Outils de développement
+    ---
+    Environnements virtuels (WSL, NVM, VENV), gestionnaires de paquets Linux, documentation et versionning (Markdown, Git). Outillage transverse pour produire et maintenir du logiciel.
+
+    [Consulter](./outils/index.md)
+
+- ### :lucide-shapes: 4 — Modélisation & Conception
+    ---
+    Méthodes et notations pour raisonner avant d'implémenter : UML (use case, classes, séquences, états, déploiement) et Merise (MCD, MLD, MPD, SQL).
+
+    [Consulter](./modelisation/index.md)
+
+</div>
+
+<div class="grid cards" markdown>
+
+- ### :lucide-calendar-check: 5 — Gestion de projet
+    ---
+    Structuration du travail et pilotage : planification, jalons, dépendances. Outillage Gantt pour visualiser et communiquer une trajectoire de projet.
+
+    [Consulter](./projet/index.md)
+
+- ### :lucide-code: 6 — Concepts de programmation
+    ---
+    Principes structurants et durables : architecture Unix, codes d'erreur standardisés. Socle intellectuel transverse applicable dans tous les environnements.
+
+    [Consulter](./concepts/architecture-unix.md)
+
+</div>
+
+<div class="grid cards" markdown>
+
+- ### :lucide-network: 7 — Réseaux et Protocoles
+    ---
+    Modèles conceptuels (OSI, TCP/IP), grandes familles de protocoles, HTTP, DNS, sockets. Les mécanismes client-serveur avant leur mise en oeuvre opérationnelle.
+
+    [Consulter](./reseaux/modele-osi.md)
+
+- ### :lucide-lock: 8 — Cryptographie & PKI
+    ---
+    Bases cryptographiques nécessaires avant d'aborder la sécurité applicative et réseau : GPG, OpenSSL, PKI, chaînes de certificats, TLS.
+
+    [Consulter](./crypto/index.md)
+
+</div>
+
+<br />
+
+---
+
+## Progression recommandée
+
+```mermaid
+sequenceDiagram
+  participant A as Apprenant
+  participant FT as 1. Fondamentaux tech.
+  participant FS as 2. Formats
+  participant OD as 3. Outils
+  participant MC as 4. Modélisation
+  participant RP as 7. Réseaux
+  participant CK as 8. Cryptographie
+
+  A->>FT: Logique, types, mémoire
+  note over FT: Prérequis universel
+  FT->>FS: Représentation des données
+  note over FS: JSON, YAML, XML, CSV
+  FS->>OD: Environnement de travail
+  note over OD: WSL, Git, paquets Linux
+  OD->>MC: Conception avant implémentation
+  note over MC: UML, Merise
+  MC->>RP: Communication entre systèmes
+  note over RP: OSI, TCP/IP, HTTP, DNS
+  RP->>CK: Sécurisation des échanges
+  note over CK: GPG, OpenSSL, PKI
+  CK-->>A: Socle complet
+```
+
+<p><em>Cette progression n'impose aucune contrainte rigide.<br /><strong>Chaque domaine reste accessible indépendamment selon les besoins ou le projet en cours</strong>.<br />L'ordre proposé réduit simplement la friction lors de la première découverte.</em></p>
+
+<br />
+
+---
+
+## Périmètre et délimitations
+
+Il est important de comprendre ce que cette section **ne couvre pas**, pour éviter toute confusion avec les sections suivantes.
+
+| Thème | Fondamentaux IT | Section dédiée |
+|---|---|---|
+| Administration Linux avancée | Outils CLI de base | Systèmes & Infra |
+| Services réseau opérationnels | Concepts OSI/TCP | Systèmes & Infra |
+| Sécurité applicative | Bases crypto | Cyber : Défense / Attaque |
+| Frameworks web | Aucun | Développement |
+| Docker, CI/CD | Git uniquement | Développement |
+| Pentest, audit | Aucun | Cyber : Attaque |
+
+<br />
+
+---
+
+## Conclusion
+
+!!! note "Notre recommandation"
+    Toute lacune dans les Fondamentaux IT se répercute directement sur les sections suivantes — souvent de manière non évidente. Un profil qui ne comprend pas le modèle OSI diagnostique mal un incident réseau. Un profil qui ne maîtrise pas Git introduit des risques dans tout environnement collaboratif.
+
+    Investir ces bases est le seul raccourci réel vers l'expertise.
+
+**Point d'entrée recommandé : [Fondamentaux techniques](./fondamentaux/index.md)**
+
+<br />

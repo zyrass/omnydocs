@@ -1,217 +1,217 @@
-  # ============================================================================
-  # 2 — SYSTÈMES & INFRASTRUCTURE
-  # ============================================================================
-  # Cette section couvre l’exploitation opérationnelle des systèmes
-  # informatiques et des infrastructures réseau.
-  #
-  # Elle se concentre sur la mise en œuvre, l’administration, le durcissement
-  # et la supervision des environnements techniques en production.
-  #
-  # Contrairement aux Fondamentaux IT (conceptuels) et au Développement
-  # (applicatif), cette partie adopte une approche orientée exploitation.
-  #
-  # Périmètre couvert :
-  # - administration systèmes Linux et Windows
-  # - gestion des services réseau
-  # - sécurité hôte et périmétrique
-  # - virtualisation et isolation
-  # - stockage et continuité d’activité
-  # - supervision et observabilité
-  #
-  # PUBLIC CIBLE :
-  # - Administrateurs systèmes
-  # - Ingénieurs infrastructure
-  # - SRE / DevOps orientés plateforme
-  # ============================================================================
+    # ============================================================================
+    # 2 — SYSTÈMES & INFRASTRUCTURE
+    # ============================================================================
+    # Cette section couvre l’exploitation opérationnelle des systèmes
+    # informatiques et des infrastructures réseau.
+    #
+    # Elle se concentre sur la mise en œuvre, l’administration, le durcissement
+    # et la supervision des environnements techniques en production.
+    #
+    # Contrairement aux Fondamentaux IT (conceptuels) et au Développement
+    # (applicatif), cette partie adopte une approche orientée exploitation.
+    #
+    # Périmètre couvert :
+    # - administration systèmes Linux et Windows
+    # - gestion des services réseau
+    # - sécurité hôte et périmétrique
+    # - virtualisation et isolation
+    # - stockage et continuité d’activité
+    # - supervision et observabilité
+    #
+    # PUBLIC CIBLE :
+    # - Administrateurs systèmes
+    # - Ingénieurs infrastructure
+    # - SRE / DevOps orientés plateforme
+    # ============================================================================
 
-  {"Systèmes & Infra" = [
+    {"Systèmes & Infra" = [
 
 
-    # -------------------------------------------------------------------------
-    # Page d’introduction
-    # -------------------------------------------------------------------------
-    # Présente :
-    # - le périmètre de l’administration systèmes & réseaux
-    # - les prérequis recommandés
-    # - l’organisation de la section
-    # -------------------------------------------------------------------------
-    "sys-reseau/index.md",
+      # -------------------------------------------------------------------------
+      # Page d’introduction
+      # -------------------------------------------------------------------------
+      # Présente :
+      # - le périmètre de l’administration systèmes & réseaux
+      # - les prérequis recommandés
+      # - l’organisation de la section
+      # -------------------------------------------------------------------------
+      "sys-reseau/index.md",
 
-    # ========================================================================
-    # Linux
-    # ========================================================================
-    # Administration des systèmes Linux en environnement serveur.
-    # Cette section couvre :
-    # - l’utilisation du shell
-    # - l’administration système
-    # - la gestion des services
-    # - le durcissement de l’hôte
-    # ========================================================================
-    {"Linux" = [
-      "sys-reseau/linux/index.md",
+      # ========================================================================
+      # Linux
+      # ========================================================================
+      # Administration des systèmes Linux en environnement serveur.
+      # Cette section couvre :
+      # - l’utilisation du shell
+      # - l’administration système
+      # - la gestion des services
+      # - le durcissement de l’hôte
+      # ========================================================================
+      {"Linux" = [
+        "sys-reseau/linux/index.md",
 
-      # ---------------------------------------------------------------------
-      # Shell & scripting
-      # ---------------------------------------------------------------------
-      # Utilisation de Bash pour l’automatisation et l’exploitation système.
-      {"Bash" = "sys-reseau/linux/bash.md"},
+        # ---------------------------------------------------------------------
+        # Shell & scripting
+        # ---------------------------------------------------------------------
+        # Utilisation de Bash pour l’automatisation et l’exploitation système.
+        {"Bash" = "sys-reseau/linux/bash.md"},
 
-      # ---------------------------------------------------------------------
-      # Administration système
-      # ---------------------------------------------------------------------
-      # Gestion des utilisateurs, permissions, tâches planifiées, etc.
-      {"Administration" = "sys-reseau/linux/admin.md"},  
+        # ---------------------------------------------------------------------
+        # Administration système
+        # ---------------------------------------------------------------------
+        # Gestion des utilisateurs, permissions, tâches planifiées, etc.
+        {"Administration" = "sys-reseau/linux/admin.md"},  
 
-      # ---------------------------------------------------------------------
-      # Services & Daemons
-      # ---------------------------------------------------------------------
-      # Gestion des services via systemd, journalisation et cycle de vie
-      # des processus système.
-      {"Services & Daemons" = "sys-reseau/linux/services-daemons.md"},              
+        # ---------------------------------------------------------------------
+        # Services & Daemons
+        # ---------------------------------------------------------------------
+        # Gestion des services via systemd, journalisation et cycle de vie
+        # des processus système.
+        {"Services & Daemons" = "sys-reseau/linux/services-daemons.md"},              
 
-      # ---------------------------------------------------------------------
-      # Sécurité de l’hôte Linux
-      # ---------------------------------------------------------------------
-      # Outils de durcissement, d’audit et de détection d’intrusion
-      # au niveau du système d’exploitation.
-      {"Sécurité (host)" = [
-        "sys-reseau/linux/security/index.md",
+        # ---------------------------------------------------------------------
+        # Sécurité de l’hôte Linux
+        # ---------------------------------------------------------------------
+        # Outils de durcissement, d’audit et de détection d’intrusion
+        # au niveau du système d’exploitation.
+        {"Sécurité (host)" = [
+          "sys-reseau/linux/security/index.md",
 
-        # Audit de configuration et de conformité
-        {"Lynis" = "sys-reseau/linux/security/lynis.md"},
+          # Audit de configuration et de conformité
+          {"Lynis" = "sys-reseau/linux/security/lynis.md"},
 
-        # Pare-feu simplifié basé sur iptables/nftables
-        {"ufw" = "sys-reseau/linux/security/ufw.md"},
+          # Pare-feu simplifié basé sur iptables/nftables
+          {"ufw" = "sys-reseau/linux/security/ufw.md"},
 
-        # Protection contre les attaques par force brute
-        {"fail2ban" = "sys-reseau/linux/security/fail2ban.md"},
+          # Protection contre les attaques par force brute
+          {"fail2ban" = "sys-reseau/linux/security/fail2ban.md"},
 
-        # Scanner de vulnérabilités système
-        {"Vuls" = "sys-reseau/linux/security/vuls.md"},
+          # Scanner de vulnérabilités système
+          {"Vuls" = "sys-reseau/linux/security/vuls.md"},
 
-        # Antivirus open source
-        {"ClamAV" = "sys-reseau/linux/security/clamav.md"},
+          # Antivirus open source
+          {"ClamAV" = "sys-reseau/linux/security/clamav.md"},
 
-        # Détection de malwares Linux
-        {"Linux Malware Detect" = "sys-reseau/linux/security/linux_malware_detect.md"},
+          # Détection de malwares Linux
+          {"Linux Malware Detect" = "sys-reseau/linux/security/linux_malware_detect.md"},
 
-        # Détection de rootkits
-        {"Chkrootkit" = "sys-reseau/linux/security/chkrootkit.md"},
-      ]}
+          # Détection de rootkits
+          {"Chkrootkit" = "sys-reseau/linux/security/chkrootkit.md"},
+        ]}
 
-    ]},
-
-    # ========================================================================
-    # Windows
-    # ========================================================================
-    # Administration des environnements Windows Server et Active Directory.
-    # ========================================================================
-    {"Windows" = [
-      "sys-reseau/windows/index.md",
-
-      # Automatisation et administration via PowerShell
-      {"Powershell" = "sys-reseau/windows/powershell.md"},
-
-      # Gestion d’annuaire et stratégies de groupe
-      {"AD & GPO" = "sys-reseau/windows/ad-gpo.md"},
-
-      # Bonnes pratiques de sécurisation Windows Server
-      {"Durcissement" = "sys-reseau/windows/hardening.md"},
-
-    ]},
-
-    # ========================================================================
-    # Réseaux
-    # ========================================================================
-    # Mise en œuvre opérationnelle des services réseau et outils de diagnostic.
-    # ========================================================================
-    {"Réseaux" = [
-      "sys-reseau/network/index.md",
-
-      # ---------------------------------------------------------------------
-      # Outils d’analyse réseau
-      # ---------------------------------------------------------------------
-      # Outils de diagnostic, capture et inspection du trafic.
-      {"Outils & Analyse" = [
-        "sys-reseau/network/outils/index.md",
-
-        {"nslookup" = "sys-reseau/network/outils/nslookup.md"},
-        {"netstat"  = "sys-reseau/network/outils/netstat.md"},
-        {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},
-        {"scapy"    = "sys-reseau/network/outils/scapy.md"},
       ]},
 
-      # ---------------------------------------------------------------------
-      # Services réseau
-      # ---------------------------------------------------------------------
-      # Déploiement et administration des services d’infrastructure.
-      {"Services réseau" = [
-        "sys-reseau/network/services/index.md",
+      # ========================================================================
+      # Windows
+      # ========================================================================
+      # Administration des environnements Windows Server et Active Directory.
+      # ========================================================================
+      {"Windows" = [
+        "sys-reseau/windows/index.md",
 
-        {"DNS"        = "sys-reseau/network/services/dns.md"},
-        {"SSH"        = "sys-reseau/network/services/ssh.md"},
-        {"FTP"        = "sys-reseau/network/services/ftp.md"},
-        {"Samba"      = "sys-reseau/network/services/samba.md"},
-        {"LDAP & PAM" = "sys-reseau/network/services/ldap-pam.md"},
+        # Automatisation et administration via PowerShell
+        {"Powershell" = "sys-reseau/windows/powershell.md"},
+
+        # Gestion d’annuaire et stratégies de groupe
+        {"AD & GPO" = "sys-reseau/windows/ad-gpo.md"},
+
+        # Bonnes pratiques de sécurisation Windows Server
+        {"Durcissement" = "sys-reseau/windows/hardening.md"},
+
       ]},
 
-      # ---------------------------------------------------------------------
-      # Sécurité périmétrique
-      # ---------------------------------------------------------------------
-      # Protection du périmètre réseau et contrôle des flux.
-      {"Sécurité périmétrique" = [
-        "sys-reseau/network/security/index.md",
+      # ========================================================================
+      # Réseaux
+      # ========================================================================
+      # Mise en œuvre opérationnelle des services réseau et outils de diagnostic.
+      # ========================================================================
+      {"Réseaux" = [
+        "sys-reseau/network/index.md",
 
-        {"pfSense" = "sys-reseau/network/security/pfsense.md"},
-        {"WAF"     = "sys-reseau/network/security/waf.md"},
-        {"OpenVPN" = "sys-reseau/network/security/openvpn.md"},
-        {"HAProxy" = "sys-reseau/network/security/haproxy.md"},
+        # ---------------------------------------------------------------------
+        # Outils d’analyse réseau
+        # ---------------------------------------------------------------------
+        # Outils de diagnostic, capture et inspection du trafic.
+        {"Outils & Analyse" = [
+          "sys-reseau/network/outils/index.md",
+
+          {"nslookup" = "sys-reseau/network/outils/nslookup.md"},
+          {"netstat"  = "sys-reseau/network/outils/netstat.md"},
+          {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},
+          {"scapy"    = "sys-reseau/network/outils/scapy.md"},
+        ]},
+
+        # ---------------------------------------------------------------------
+        # Services réseau
+        # ---------------------------------------------------------------------
+        # Déploiement et administration des services d’infrastructure.
+        {"Services réseau" = [
+          "sys-reseau/network/services/index.md",
+
+          {"DNS"        = "sys-reseau/network/services/dns.md"},
+          {"SSH"        = "sys-reseau/network/services/ssh.md"},
+          {"FTP"        = "sys-reseau/network/services/ftp.md"},
+          {"Samba"      = "sys-reseau/network/services/samba.md"},
+          {"LDAP & PAM" = "sys-reseau/network/services/ldap-pam.md"},
+        ]},
+
+        # ---------------------------------------------------------------------
+        # Sécurité périmétrique
+        # ---------------------------------------------------------------------
+        # Protection du périmètre réseau et contrôle des flux.
+        {"Sécurité périmétrique" = [
+          "sys-reseau/network/security/index.md",
+
+          {"pfSense" = "sys-reseau/network/security/pfsense.md"},
+          {"WAF"     = "sys-reseau/network/security/waf.md"},
+          {"OpenVPN" = "sys-reseau/network/security/openvpn.md"},
+          {"HAProxy" = "sys-reseau/network/security/haproxy.md"},
+        ]}
+      ]},
+
+      # ========================================================================
+      # Virtualisation
+      # ========================================================================
+      # Technologies d’isolation et d’exécution d’environnements virtualisés.
+      # ========================================================================
+      {"Virtualisation (Hyperviseurs)" = [
+        "sys-reseau/virtualisation/index.md",
+
+        # Panorama des approches de virtualisation
+        {"Panorama Virtualisation" = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},
+
+        # Émulation et virtualisation légère
+        {"QEMU - (Émulateur)" = "sys-reseau/virtualisation/qemu.md"},
+
+        # Hyperviseur type 1 basé sur KVM
+        {"KVM / Proxmox" = "sys-reseau/virtualisation/kvm-proxmox.md"},
+      ]},
+
+
+      # ========================================================================
+      # Stockage & Sauvegarde
+      # ========================================================================
+      # Gestion de la persistance des données et continuité d’activité.
+      # ========================================================================
+      {"Stockage & Sauvegarde" = [
+        "sys-reseau/storage/index.md",
+
+        {"RAID & Filesystems" = "sys-reseau/storage/raid-fs.md"},
+        {"Sauvegarde & PRA"   = "sys-reseau/storage/backup-pra.md"},
+        {"Amanda"             = "sys-reseau/storage/amanda.md"},
+      ]},
+
+      # ========================================================================
+      # Supervision & Observabilité
+      # ========================================================================
+      # Surveillance de l’état des systèmes, collecte des métriques
+      # et analyse des journaux.
+      # ========================================================================
+      {"Supervision & Observabilité" = [
+        "sys-reseau/supervision/index.md",
+
+        {"Logs & Journaux"     = "sys-reseau/supervision/logs.md"},
+        {"Monitoring (intro)"  = "sys-reseau/supervision/monitoring.md"},
+        {"ntop/ntopng"         = "sys-reseau/supervision/ntop.md"},
       ]}
     ]},
-
-    # ========================================================================
-    # Virtualisation
-    # ========================================================================
-    # Technologies d’isolation et d’exécution d’environnements virtualisés.
-    # ========================================================================
-    {"Virtualisation (Hyperviseurs)" = [
-      "sys-reseau/virtualisation/index.md",
-
-      # Panorama des approches de virtualisation
-      {"Panorama Virtualisation" = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},
-
-      # Émulation et virtualisation légère
-      {"QEMU - (Émulateur)" = "sys-reseau/virtualisation/qemu.md"},
-
-      # Hyperviseur type 1 basé sur KVM
-      {"KVM / Proxmox" = "sys-reseau/virtualisation/kvm-proxmox.md"},
-    ]},
-
-
-    # ========================================================================
-    # Stockage & Sauvegarde
-    # ========================================================================
-    # Gestion de la persistance des données et continuité d’activité.
-    # ========================================================================
-    {"Stockage & Sauvegarde" = [
-      "sys-reseau/storage/index.md",
-
-      {"RAID & Filesystems" = "sys-reseau/storage/raid-fs.md"},
-      {"Sauvegarde & PRA"   = "sys-reseau/storage/backup-pra.md"},
-      {"Amanda"             = "sys-reseau/storage/amanda.md"},
-    ]},
-
-    # ========================================================================
-    # Supervision & Observabilité
-    # ========================================================================
-    # Surveillance de l’état des systèmes, collecte des métriques
-    # et analyse des journaux.
-    # ========================================================================
-    {"Supervision & Observabilité" = [
-      "sys-reseau/supervision/index.md",
-
-      {"Logs & Journaux"     = "sys-reseau/supervision/logs.md"},
-      {"Monitoring (intro)"  = "sys-reseau/supervision/monitoring.md"},
-      {"ntop/ntopng"         = "sys-reseau/supervision/ntop.md"},
-    ]}
-  ]},
