@@ -8,7 +8,7 @@ tags: ["FONDAMENTAUX", "PROGRAMMATION", "LOGIQUE"]
 
 <div
   class="omny-meta"
-  data-level="Débutant à Intermédiaire"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
   data-version="1.2"
   data-time="20-25 minutes">
 </div>

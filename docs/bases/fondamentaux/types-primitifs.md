@@ -8,7 +8,7 @@ tags: ["FONDAMENTAUX", "PROGRAMMATION", "TYPES"]
 
 <div
   class="omny-meta"
-  data-level="Débutant à Intermédiaire"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
   data-version="1.1"
   data-time="15-20 minutes">
 </div>
@@ -16,7 +16,7 @@ tags: ["FONDAMENTAUX", "PROGRAMMATION", "TYPES"]
 !!! quote "Analogie"
     _Construire une maison nécessite des matériaux de base : du ciment, des briques, du bois. En programmation, les **types primitifs** sont ces matériaux fondamentaux. On ne construit rien de solide sans eux._
 
-Les types primitifs sont les **éléments les plus simples** qu'un langage de programmation peut manipuler : des nombres, du texte, vrai ou faux. Comme les ingrédients de base en cuisine — farine, oeufs, lait — ils permettent de composer des structures bien plus complexes.
+Les types primitifs sont les **éléments les plus simples** qu'un langage de programmation peut manipuler : des nombres, du texte, vrai ou faux. Comme les ingrédients de base en cuisine — farine, œufs, lait — ils permettent de composer des structures bien plus complexes.
 
 Comprendre les types primitifs, c'est savoir choisir le bon type pour chaque donnée, éviter les erreurs courantes, optimiser la mémoire et interpréter les messages d'erreur d'un compilateur ou d'un interpréteur.
 
@@ -34,11 +34,11 @@ Une **variable** est un espace nommé en mémoire permettant de stocker une vale
 **Un programme manipule en permanence des variables** : il en crée, les modifie, les compare et les transmet.  
 Comprendre ce mécanisme de base est le prérequis à tout le reste.
 
-!!! note "L'image ci-dessous en propose une représentation concrète."
+!!! note "L'image ci-dessous représente concrètement la relation entre une variable et son contenu. Ce mécanisme — étiquette pointant vers une valeur — est le même que celui qui sera approfondi dans la fiche [Heap, Stack & Références](./heap-stack-references.md) pour les types complexes."
 
-![Variable est une etiquette et la primitif est le contenu](../../assets/images/fondamentaux/variable_etiquette_primitif.png)
+![Variable comme étiquette contenant un type primitif — représentation visuelle du concept de variable](../../assets/images/fondamentaux/variable_etiquette_primitif.png)
 
-<p style="text-align: center"><em>Image représentative de ce qu'est une variable de façon visuelle.</em></p>
+<p><em>Une variable est une étiquette attachée à une zone mémoire. L'étiquette porte le nom choisi par le développeur ; la zone mémoire contient la valeur primitive. Renommer la variable ne change pas la valeur — modifier la valeur ne change pas le nom.</em></p>
 
 <br />
 
@@ -82,7 +82,7 @@ _La **Stack** est comparable à un bureau de travail : accès rapide, espace lim
 
 ## Tour d'horizon par langage
 
-Les types primitifs existent dans tous les langages modernes, avec des philosophies différentes. Les cinq langages ci-dessous couvrent l'essentiel des approches rencontrées en environnement professionnel.
+Les types primitifs existent dans tous les langages modernes, avec des philosophies différentes. Les quatre langages ci-dessous couvrent l'essentiel des approches rencontrées en environnement professionnel.
 
 ### :fontawesome-brands-python: Python — tout est objet
 
@@ -96,20 +96,20 @@ Les types primitifs existent dans tous les langages modernes, avec des philosoph
 | `str` | `"Hello"`, `'Bonjour'` | Texte | Variable |
 | `None` | `None` | Absence de valeur | 16 bytes |
 
-```python title="Langage Python"
+```python title="Python — démonstration des types"
 # Démonstration des types Python
 def decouvrir_types_python():
     print("DÉCOUVERTE DES TYPES PYTHON")
 
     # Entiers — Python gère des nombres de taille arbitraire
-    petit = 42
+    petit  = 42
     enorme = 123456789012345678901234567890
     print(f"Petit nombre: {petit}")
     print(f"Nombre énorme: {enorme}")
     print(f"Python peut calculer : {enorme * 2}")
 
     # Flottants — nombres à virgule
-    pi = 3.14159
+    pi           = 3.14159
     scientifique = 1.23e-4  # = 0.000123
     print(f"Pi: {pi}")
     print(f"Notation scientifique: {scientifique}")
@@ -152,17 +152,17 @@ decouvrir_types_python()
 | `undefined` | `undefined` | Variable déclarée mais non initialisée |
 | `null` | `null` | Absence de valeur explicite |
 
-```javascript title="Langage JavaScript"
+```javascript title="JavaScript — démonstration des types"
 // Découverte des types JavaScript
 function decouvrirTypesJavaScript() {
     console.log('DÉCOUVERTE DES TYPES JAVASCRIPT');
 
     // Numbers — un type unique pour tous les nombres
-    let entier = 42;
-    let decimal = 3.14159;
+    let entier      = 42;
+    let decimal     = 3.14159;
     let grandNombre = 1.23e20;
-    let infini = Infinity;
-    let pasDuTout = NaN; // "Not a Number"
+    let infini      = Infinity;
+    let pasDuTout   = NaN; // "Not a Number"
 
     console.log(`Entier: ${entier}`);
     console.log(`Décimal: ${decimal}`);
@@ -178,8 +178,8 @@ function decouvrirTypesJavaScript() {
     console.log(`Très très gros: ${tresTresGros}`);
 
     // Template literals
-    let nom = 'Alice';
-    let age = 25;
+    let nom   = 'Alice';
+    let age   = 25;
     let phrase = `Bonjour ${nom}, tu as ${age} ans !`;
     console.log(phrase);
 
@@ -227,21 +227,21 @@ decouvrirTypesJavaScript();
 ```mermaid
 flowchart TB
   Variable["Variable PHP"] --> Contexte{"Quel contexte ?"}
-  Contexte -->|Addition| Int["Devient int"]
-  Contexte -->|Concaténation| String["Devient string"]
-  Contexte -->|Condition| Bool["Devient bool"]
+  Contexte -->|"Addition"| Int["Devient int"]
+  Contexte -->|"Concaténation"| String["Devient string"]
+  Contexte -->|"Condition"| Bool["Devient bool"]
 ```
 
 <p><em>PHP adapte le type d'une variable selon l'opération effectuée — comportement pratique mais source d'erreurs subtiles si on ne l'anticipe pas.</em></p>
 
-```php title="Langage PHP"
+```php title="PHP — démonstration des types"
 <?php
 function decouvrirTypesPHP() {
     echo "DÉCOUVERTE DES TYPES PHP\n";
 
     // Entiers sous toutes leurs formes
     $decimal     = 42;
-    $hexadecimal = 0x2A;    // 42 en hexadécimal
+    $hexadecimal = 0x2A;     // 42 en hexadécimal
     $binaire     = 0b101010; // 42 en binaire
     $octal       = 052;      // 42 en octal
 
@@ -253,19 +253,19 @@ function decouvrirTypesPHP() {
 
     // Type juggling en action
     echo "\nTYPE JUGGLING:\n";
-    $nombre   = "123";          // string
-    $resultat = $nombre + 45;   // converti en int automatiquement
+    $nombre   = "123";         // string
+    $resultat = $nombre + 45;  // converti en int automatiquement
     echo "\"123\" + 45 = $resultat\n";
 
     $mixte    = "123abc";
-    $converti = $mixte + 10;    // prend uniquement "123"
+    $converti = $mixte + 10;   // prend uniquement "123"
     echo "\"123abc\" + 10 = $converti\n";
 
     // Comparaisons à double égal vs triple égal
     echo "\nCOMPARAISONS:\n";
-    echo "0 == \"\" : "   . (0 == ""  ? "true" : "false") . "\n";  // true
-    echo "0 === \"\" : "  . (0 === "" ? "true" : "false") . "\n";  // false
-    echo "false == \"\" : " . (false == "" ? "true" : "false") . "\n"; // true
+    echo '0 == "" : '    . (0 == ""  ? "true" : "false") . "\n";  // true
+    echo '0 === "" : '   . (0 === "" ? "true" : "false") . "\n";  // false
+    echo 'false == "" : ' . (false == "" ? "true" : "false") . "\n"; // true
 
     // Vérification de type avec gettype()
     echo "\nTYPES DÉTECTÉS:\n";
@@ -303,7 +303,7 @@ decouvrirTypesPHP();
 _**Entiers signés** : peuvent être négatifs.  
 **Entiers non signés** : toujours positifs ou nuls._
 
-```go title="Langage Go"
+```go title="Go — démonstration des types"
 package main
 
 import "fmt"
@@ -314,11 +314,11 @@ func main() {
     var flottant float64 = 3.14
     var texte    string  = "Hello"
 
-    fmt.Printf("Entier: %d\n",    entier)
+    fmt.Printf("Entier: %d\n",     entier)
     fmt.Printf("Flottant: %.2f\n", flottant) // 2 décimales
-    fmt.Printf("Texte: %s\n",     texte)
+    fmt.Printf("Texte: %s\n",      texte)
 
-    // Go refuse le mélange de types
+    // Go refuse le mélange de types sans conversion explicite
     // var resultat = entier + flottant  // Erreur de compilation
 
     // Conversion explicite obligatoire
@@ -351,7 +351,7 @@ func main() {
 
 ### Le piège de la précision (JS, Python, PHP)
 
-```javascript
+```javascript title="JavaScript — piège de précision flottante"
 // Problème
 console.log(0.1 + 0.2);  // 0.30000000000000004
 
@@ -361,12 +361,12 @@ console.log((0.1 + 0.2).toFixed(1));  // "0.3"
 
 ### Le piège des conversions implicites (PHP)
 
-```php
+```php title="PHP — comparaison stricte vs laxiste"
 <?php
-// Comportement inattendu
+// Comportement inattendu avec double égal
 var_dump(0 == "");   // true
 
-// Comparaison stricte
+// Comparaison stricte — résultat attendu
 var_dump(0 === "");  // false
 ```
 
