@@ -96,7 +96,7 @@ Une seule condition fausse invalide l'ensemble de l'expression.
 ### Schéma du mécanisme ET
 
 ```mermaid
-flowchart LR
+flowchart TB
   A["Plusieurs conditions<br />à vérifier"] --> B{"Opérateur<br />ET"}
   B --> C{"TOUTES<br />sont vraies ?"}
   C -.->|"✅ Oui"| D["✅ Action autorisée"]
@@ -138,7 +138,7 @@ Une seule condition vraie suffit à valider l'ensemble de l'expression.
 ### Schéma du mécanisme OU
 
 ```mermaid
-flowchart LR
+flowchart TB
   A["Plusieurs options<br />possibles"] --> B{"Opérateur<br />OU"}
   B --> C{"AU MOINS UNE<br />est vraie ?"}
   C -->|"✅ Oui"| D["✅ Action autorisée"]
@@ -176,7 +176,7 @@ L'opérateur **NON** inverse complètement la valeur booléenne : vrai devient f
 ### Schéma du mécanisme NON
 
 ```mermaid
-flowchart LR
+flowchart TB
   A["Condition<br />à inverser"] --> B{"Opérateur<br />NON"}
   B --> C{"Valeur<br />d'origine ?"}
   C -->|"✅ Vraie"| D["❌ Devient fausse"]

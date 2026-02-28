@@ -3587,7 +3587,7 @@
 </table>
 <p>Une seule condition fausse invalide l'ensemble de l'expression.</p>
 <h3 id="schema-du-mecanisme-et">Schéma du mécanisme ET<a class="headerlink" href="#schema-du-mecanisme-et" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<pre class="mermaid"><code>flowchart TB
   A["Plusieurs conditions&lt;br /&gt;à vérifier"] --&gt; B{"Opérateur&lt;br /&gt;ET"}
   B --&gt; C{"TOUTES&lt;br /&gt;sont vraies ?"}
   C -.-&gt;|"✅ Oui"| D["✅ Action autorisée"]
@@ -3648,7 +3648,7 @@
 </table>
 <p>Une seule condition vraie suffit à valider l'ensemble de l'expression.</p>
 <h3 id="schema-du-mecanisme-ou">Schéma du mécanisme OU<a class="headerlink" href="#schema-du-mecanisme-ou" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<pre class="mermaid"><code>flowchart TB
   A["Plusieurs options&lt;br /&gt;possibles"] --&gt; B{"Opérateur&lt;br /&gt;OU"}
   B --&gt; C{"AU MOINS UNE&lt;br /&gt;est vraie ?"}
   C --&gt;|"✅ Oui"| D["✅ Action autorisée"]
@@ -3693,7 +3693,7 @@
 </tbody>
 </table>
 <h3 id="schema-du-mecanisme-non">Schéma du mécanisme NON<a class="headerlink" href="#schema-du-mecanisme-non" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart LR
+<pre class="mermaid"><code>flowchart TB
   A["Condition&lt;br /&gt;à inverser"] --&gt; B{"Opérateur&lt;br /&gt;NON"}
   B --&gt; C{"Valeur&lt;br /&gt;d'origine ?"}
   C --&gt;|"✅ Vraie"| D["❌ Devient fausse"]

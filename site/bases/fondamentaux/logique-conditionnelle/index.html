@@ -3718,7 +3718,7 @@
 <p><em>Quatre catégories évaluées dans l'ordre, du plus critique au moins urgent. Dès qu'un patient correspond à une catégorie, il est orienté et les catégories suivantes ne sont plus évaluées. C'est exactement l'évaluation en cascade de IF/ELIF/ELSE : première condition vraie rencontrée, action exécutée, reste ignoré.</em></p>
 
 <h3 id="schema-du-mecanisme-ifelifelse">Schéma du mécanisme IF/ELIF/ELSE<a class="headerlink" href="#schema-du-mecanisme-ifelifelse" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TD
+<pre class="mermaid"><code>flowchart TB
   A["Programme en cours"] --&gt; B{"Condition 1&lt;br /&gt;vraie ?"}
   B -.-&gt;|"Oui"| C["Action 1"]
   B -.-&gt;|"Non"| D{"Condition 2&lt;br /&gt;vraie ?"}

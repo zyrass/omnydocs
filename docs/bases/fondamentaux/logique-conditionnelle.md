@@ -293,7 +293,7 @@ La structure IF/ELIF/ELSE teste plusieurs conditions séquentiellement jusqu'à 
 ### Schéma du mécanisme IF/ELIF/ELSE
 
 ```mermaid
-flowchart TD
+flowchart TB
   A["Programme en cours"] --> B{"Condition 1<br />vraie ?"}
   B -.->|"Oui"| C["Action 1"]
   B -.->|"Non"| D{"Condition 2<br />vraie ?"}
