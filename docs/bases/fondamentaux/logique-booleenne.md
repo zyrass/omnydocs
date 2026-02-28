@@ -1,204 +1,249 @@
 ---
 description: "Comprendre le langage binaire de la programmation"
 icon: lucide/book-open-check
+tags: ["FONDAMENTAUX", "PROGRAMMATION", "LOGIQUE"]
 ---
 
 # Logique Booléenne
 
-## Introduction
-
 <div
   class="omny-meta"
-  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-level="Débutant à Intermédiaire"
   data-version="1.2"
   data-time="20-25 minutes">
 </div>
 
-!!! quote "Analogie pédagogique"
-    _Imaginez un interrupteur : il est soit **allumé** soit **éteint**. Pas de position intermédiaire ! En programmation, nous utilisons exactement cette même logique simple : **vrai** ou **faux**, **oui** ou **non**, **autorisé** ou **interdit**._
+!!! quote "Analogie"
+    _Un interrupteur : il est soit allumé, soit éteint. Pas de position intermédiaire. En programmation, cette même logique s'applique partout : **vrai** ou **faux**, **oui** ou **non**, **autorisé** ou **interdit**._
 
-La logique booléenne est le système qui permet à vos programmes de prendre des décisions. **C'est l'un des concepts les plus simples mais les plus puissants de l'informatique**. Elle repose exclusivement sur deux états possibles : **vrai** et **faux**.  
+La logique booléenne est le système qui permet aux programmes de prendre des décisions. C'est l'un des concepts les plus simples et les plus puissants de l'informatique. Elle repose sur deux états exclusifs : **vrai** et **faux**.
 
-Cette logique vous permettra de **contrôler l'accès aux applications**, de **vérifier plusieurs conditions en même temps**, de **faire des choix automatiques** dans vos programmes, et de **sécuriser vos applications en combinant plusieurs vérifications**.
+Cette logique permet de contrôler l'accès aux applications, de vérifier plusieurs conditions simultanément, de produire des choix automatiques et de sécuriser les systèmes en combinant plusieurs vérifications.
 
-!!! info "Pourquoi c'est important ?"
-    La logique booléenne est le **fondement des décisions automatiques** dans vos programmes. Elle régit l'**authentification**, les **contrôles d'accès**, les **règles de sécurité** et **toute forme de validation conditionnelle**.
+!!! info "Pourquoi c'est important"
+    La logique booléenne est le fondement des décisions automatiques dans tout programme. Elle régit l'**authentification**, les **contrôles d'accès**, les **règles de sécurité** et toute forme de **validation conditionnelle**.
 
-## Pour repartir des bases (vrais débutants)
+!!! note "Cette fiche fait suite aux [Types Primitifs](./types-primitifs.md). Le type `bool` y a été introduit — il est au cœur de tout ce qui suit."
 
-Si vous n'avez pas encore lu la documentation sur les **types primitifs**, nous vous recommandons de commencer par là. **La logique booléenne** utilise le type `bool` que nous avons déjà découvert dans ce chapitre précédent.
+<br />
 
-!!! tip "C'est plus simple qu'il n'y paraît !"
-    Nous utilisons la logique booléenne tous les jours sans nous en rendre compte. Lorsque vous dites _"**Il me faut mon badge ET mon code pour entrer au bureau**"_, vous exprimez déjà de la logique booléenne !
+---
 
 ## Les deux valeurs fondamentales
 
-En logique booléenne, **il n'existe que deux valeurs possibles** qui représentent les états **binaires** fondamentaux de tout système informatique.
+En logique booléenne, il n'existe que deux valeurs possibles, représentant les états binaires fondamentaux de tout système informatique.
 
-| Valeur | Signification | En binaire | Exemples de la vie |
-| :---: | --- | :---: | --- |
+| Valeur | Signification | En binaire | Exemples concrets |
+|:---:|---|:---:|---|
 | `true` / `True` | Vrai, oui, autorisé | **1** | Feu vert, porte ouverte, wifi connecté |
 | `false` / `False` | Faux, non, refusé | **0** | Feu rouge, porte fermée, wifi déconnecté |
 
-!!! warning "Important"
-    La correspondance avec le binaire (**0** ou **1**) est fondamentale car le résultat de toute condition sera toujours l'un de ces deux états. **C'est la base de la pensée informatique qui permet à vos programmes de fonctionner au niveau matériel**.
+!!! warning "Point clé"
+    La correspondance avec le binaire (**0** ou **1**) est fondamentale — le résultat de toute condition sera toujours l'un de ces deux états. C'est la base de la pensée informatique au niveau matériel.
+
+<br />
+
+!!! note "L'image ci-dessous ancre visuellement ce concept avant d'aborder les opérateurs. Comprendre que tout se réduit à deux états est le point de départ de toute logique conditionnelle."
+
+![Deux interrupteurs représentant les deux états booléens — true allumé en vert, false éteint en rouge](../../assets/images/fondamentaux/interrupteur-booleen.png)
+
+<p><em>Deux états exclusifs, aucune valeur intermédiaire possible. L'interrupteur allumé correspond à true (1) — l'interrupteur éteint correspond à false (0). Tout résultat d'une condition en programmation aboutit à l'un de ces deux états.</em></p>
+
+<br />
+
+---
 
 ## Les trois opérateurs essentiels
 
-Ces trois opérateurs constituent les outils fondamentaux qui permettent de **combiner** et **modifier** vos conditions pour **construire des décisions complexes**. Chaque langage de programmation implémente ces opérateurs avec sa propre syntaxe, **mais la logique sous-jacente reste identique**.
+Ces trois opérateurs permettent de combiner et modifier des conditions pour construire des décisions complexes. La logique sous-jacente est identique dans tous les langages — seule la syntaxe varie.
 
-| Opérateur | Python | JavaScript/PHP | Go | Rust | Description |
-| :---: | :---: | :---: | :---: | :---: | --- |
-| **ET** | `and` | `&&` | `&&` | `&&` | Il faut TOUT pour valider |
-| **OU** | `or` | `||` | `||` | `||` | Il en suffit d'UN pour valider |
-| **NON** | `not` | `!` | `!` | `!` | L'inverse de la valeur |
+| Opérateur | :fontawesome-brands-python: Python | :fontawesome-brands-js: JS | :fontawesome-brands-php: PHP | :fontawesome-brands-golang: Go | Description |
+|:---:|:---:|:---:|:---:|:---:|---|
+| **ET** | `and` | `&&` | `&&` | `&&` | Toutes les conditions doivent être vraies |
+| **OU** | `or` | `\|\|` | `\|\|` | `\|\|` | Une seule condition suffit |
+| **NON** | `not` | `!` | `!` | `!` | Inverse la valeur |
+
+<br />
+
+---
 
 ## L'opérateur ET (AND)
 
-L'opérateur **ET** exige que **toutes les conditions soient vraies simultanément** pour que le résultat global soit **vrai**. Cette exigence d'unanimité fait de cet opérateur l'outil privilégié pour les vérifications de sécurité où aucune condition ne peut être négligée.
+L'opérateur **ET** exige que toutes les conditions soient vraies simultanément pour que le résultat soit vrai. C'est l'outil privilégié pour les vérifications de sécurité où aucune condition ne peut être négligée.
 
-!!! abstract "Analogie"
-    Considérez l'ouverture d'un coffre-fort qui nécessite **la bonne clé ET le bon code ET l'empreinte digitale valide**.  
-    L'absence d'un seul de ces éléments suffit à bloquer complètement l'accès, indépendamment de la validité des autres critères.
+!!! quote "Analogie"
+    _Un coffre-fort qui nécessite la bonne clé ET le bon code ET l'empreinte digitale valide. L'absence d'un seul élément bloque l'accès, quelle que soit la validité des autres._
+
+<br />
+
+!!! note "L'image ci-dessous illustre l'exigence d'unanimité de l'opérateur ET. Visualiser chaque condition comme un cadenas distinct aide à comprendre pourquoi une seule condition fausse suffit à bloquer le résultat entier."
+
+![Opérateur ET — coffre-fort avec trois cadenas représentant trois conditions obligatoires](../../assets/images/fondamentaux/operateur-et-coffre.png)
+
+<p><em>Trois cadenas, trois conditions obligatoires. Le coffre ne s'ouvre que si les trois sont validés simultanément. Un seul cadenas rouge bloque l'accès, indépendamment des deux autres. C'est exactement le comportement de l'opérateur ET.</em></p>
 
 ### Table de vérité ET (AND)
 
-| A (_badge_) | B (_code_) | A **ET** B | Résultat pratique |
-| :---: | :---: | :---: | --- |
+| A (badge) | B (code) | A **ET** B | Résultat |
+|:---:|:---:|:---:|---|
 | ❌ Faux | ❌ Faux | ❌ Faux | Pas de badge ET pas de code → Refusé |
 | ❌ Faux | ✅ Vrai | ❌ Faux | Pas de badge ET bon code → Refusé |
 | ✅ Vrai | ❌ Faux | ❌ Faux | Bon badge ET pas de code → Refusé |
-| ✅ Vrai | ✅ Vrai | ✅ Vrai | Bon badge ET bon code → **Autorisé** |
+| ✅ Vrai | ✅ Vrai | ✅ Vrai | Bon badge ET bon code → Autorisé |
 
-Cette table démontre qu'avec l'opérateur ET, **une seule condition fausse suffit à invalider l'ensemble de l'expression**. Ce comportement garantit qu'aucun accès ne sera accordé tant que toutes les exigences de sécurité ne sont pas satisfaites.
+Une seule condition fausse invalide l'ensemble de l'expression.
 
-### Visualisation du mécanisme ET
+### Schéma du mécanisme ET
+
 ```mermaid
-graph LR
-    A[Plusieurs conditions<br/>à vérifier] --> B{Opérateur<br/>ET}
-    B --> C{TOUTES<br/>sont vraies ?}
-
-    C -.->|✅ Oui| D[✅ Action autorisée]
-    C -.->|❌ Non| E[❌ Action refusée]
+flowchart LR
+  A["Plusieurs conditions<br />à vérifier"] --> B{"Opérateur<br />ET"}
+  B --> C{"TOUTES<br />sont vraies ?"}
+  C -.->|"✅ Oui"| D["✅ Action autorisée"]
+  C -.->|"❌ Non"| E["❌ Action refusée"]
 ```
 
-_Ce diagramme illustre le mécanisme strict de l'opérateur ET où toutes les conditions doivent être simultanément satisfaites pour autoriser l'action. Dès qu'une seule condition échoue, l'ensemble de l'expression devient fausse et l'action est refusée. Cette rigueur fait de l'opérateur ET l'outil privilégié pour implémenter des contrôles de sécurité où aucun critère ne peut être négligé._
+<p><em>Dès qu'une seule condition échoue, l'ensemble de l'expression devient fausse et l'action est refusée. Cette rigueur fait de l'opérateur ET l'outil privilégié pour les contrôles de sécurité où aucun critère ne peut être négligé.</em></p>
+
+<br />
+
+---
 
 ## L'opérateur OU (OR)
 
-L'opérateur **OU** nécessite qu'**au moins une condition soit vraie** pour que le résultat global soit vrai. Cette flexibilité permet d'offrir plusieurs chemins alternatifs pour atteindre un objectif, améliorant ainsi l'expérience utilisateur tout en maintenant la sécurité.
+L'opérateur **OU** nécessite qu'au moins une condition soit vraie pour que le résultat soit vrai. Il permet d'offrir plusieurs chemins alternatifs vers un même objectif.
 
-!!! abstract "Analogie"
-    Imaginez l'accès à un bâtiment où vous pouvez entrer par **la porte principale** OU par **l'entrée de service** OU par **le parking**. Une seule porte ouverte suffit à vous permettre d'accéder au bâtiment, les autres pouvant rester fermées sans vous bloquer.
+!!! quote "Analogie"
+    _Un bâtiment accessible par l'entrée principale OU l'entrée de service OU le parking. Une seule porte ouverte suffit — les autres peuvent rester fermées sans bloquer l'accès._
+
+<br />
+
+!!! note "L'image ci-dessous rend visible la différence fondamentale avec l'opérateur ET : ici, une seule voie ouverte suffit. Cette flexibilité est exactement ce qui permet de proposer plusieurs méthodes d'authentification alternatives."
+
+![Opérateur OU — bâtiment avec trois entrées dont une seule suffit pour entrer](../../assets/images/fondamentaux/operateur-ou-portes.png)
+
+<p><em>Trois entrées disponibles, une seule ouverte (verte). Cela suffit pour accéder au bâtiment — les deux autres fermées (rouges) ne bloquent pas l'accès. C'est exactement le comportement de l'opérateur OU : une condition vraie suffit.</em></p>
 
 ### Table de vérité OU (OR)
 
-| A (_mdp_) | B (_biométrie_) | A **OU** B | Résultat pratique |
-| :---: | :---: | :---: | --- |
-| ❌ Faux | ❌ Faux | ❌ Faux | Pas de mot de passe ET pas de biométrie → Refusé |
-| ❌ Faux | ✅ Vrai | ✅ Vrai | Pas de mot de passe MAIS biométrie OK → **Autorisé** |
-| ✅ Vrai | ❌ Faux | ✅ Vrai | Mot de passe OK MAIS pas de biométrie → **Autorisé** |
-| ✅ Vrai | ✅ Vrai | ✅ Vrai | Mot de passe ET biométrie OK → **Autorisé** |
+| A (mot de passe) | B (biométrie) | A **OU** B | Résultat |
+|:---:|:---:|:---:|---|
+| ❌ Faux | ❌ Faux | ❌ Faux | Aucune méthode valide → Refusé |
+| ❌ Faux | ✅ Vrai | ✅ Vrai | Biométrie OK → Autorisé |
+| ✅ Vrai | ❌ Faux | ✅ Vrai | Mot de passe OK → Autorisé |
+| ✅ Vrai | ✅ Vrai | ✅ Vrai | Les deux valides → Autorisé |
 
-Avec l'opérateur **OU**, une seule condition vraie suffit à valider l'ensemble de l'expression. Cette caractéristique s'avère particulièrement utile pour proposer **plusieurs méthodes d'authentification alternatives**, permettant aux utilisateurs de choisir celle qui leur convient le mieux.
+Une seule condition vraie suffit à valider l'ensemble de l'expression.
 
-### Visualisation du mécanisme OU
+### Schéma du mécanisme OU
+
 ```mermaid
-graph LR
-    A[Plusieurs options<br/>possibles] --> B{Opérateur<br/>OU}
-    B --> C{AU MOINS UNE<br/>est vraie ?}
-
-    C -->|✅ Oui| D[✅ Action autorisée]
-    C -->|❌ Non| E[❌ Action refusée]
+flowchart LR
+  A["Plusieurs options<br />possibles"] --> B{"Opérateur<br />OU"}
+  B --> C{"AU MOINS UNE<br />est vraie ?"}
+  C -->|"✅ Oui"| D["✅ Action autorisée"]
+  C -->|"❌ Non"| E["❌ Action refusée"]
 ```
 
-_Ce diagramme démontre la flexibilité de l'opérateur OU qui autorise l'action dès qu'une seule condition parmi l'ensemble proposé est satisfaite. Cette permissivité permet d'offrir plusieurs chemins alternatifs pour atteindre un objectif, améliorant ainsi l'expérience utilisateur tout en maintenant les exigences de sécurité. L'utilisateur dispose donc de plusieurs moyens d'authentification sans que l'absence de l'un bloque l'accès si un autre est disponible._
+<p><em>L'opérateur OU autorise l'action dès qu'une seule condition parmi l'ensemble est satisfaite. Cette permissivité permet d'offrir plusieurs méthodes d'authentification sans qu'une seule soit obligatoire.</em></p>
+
+<br />
+
+---
 
 ## L'opérateur NON (NOT)
 
-L'opérateur **NOT** (NON) **inverse complètement la valeur booléenne** : **vrai devient faux** et **faux devient vrai**. Cette transformation constitue l'opération la plus simple mais reste fondamentale pour exprimer des conditions négatives de manière explicite.
+L'opérateur **NON** inverse complètement la valeur booléenne : vrai devient faux, faux devient vrai.
 
-!!! abstract "Analogie"
-    Comparez cet opérateur à un interrupteur inversé qui **éteint la lumière** lorsque vous appuyez dessus **au lieu de l'allumer**. De la même manière, dire **qu'un compte n'est pas bloqué** revient à **affirmer qu'il est accessible**.
+!!! quote "Analogie"
+    _Un interrupteur inversé : appuyer dessus éteint la lumière au lieu de l'allumer. Dire qu'un compte n'est pas bloqué revient à affirmer qu'il est accessible._
+
+<br />
+
+!!! note "L'image ci-dessous matérialise l'inversion. Voir physiquement la transformation vrai → faux et faux → vrai aide à comprendre pourquoi les doubles négations dans le code créent de la confusion mentale."
+
+![Opérateur NON — interrupteur inversé montrant la transformation true vers false et false vers true](../../assets/images/fondamentaux/operateur-non-inverseur.png)
+
+<p><em>L'opérateur NON applique une transformation systématique : true devient false, false devient true. Comme un miroir logique — chaque valeur est remplacée par son opposé exact. Combiner deux NON successifs restitue la valeur d'origine.</em></p>
 
 ### Table de vérité NON (NOT)
 
-| A (_Compte bloqué_) | **NON** A | Résultat pratique |
-| :---: | :---: | --- |
+| A (compte bloqué) | **NON** A | Résultat |
+|:---:|:---:|---|
 | ❌ Faux | ✅ Vrai | Compte PAS bloqué → Autorisé |
 | ✅ Vrai | ❌ Faux | Compte bloqué → Refusé |
 
-L'opérateur **NOT** (NON) permet d'exprimer clairement des conditions négatives telles que "**l'utilisateur n'est pas banni**" ou "**la session n'est pas expirée**". Toutefois, un usage excessif de la négation peut nuire à la lisibilité du code, comme nous le verrons dans les bonnes pratiques.
+### Schéma du mécanisme NON
 
-### Visualisation du mécanisme NON
 ```mermaid
-graph LR
-    A[Condition<br/>à inverser] --> B{Opérateur<br/>NON}
-    B --> C{Valeur<br/>d'origine ?}
-
-    C -->|✅ Vraie| D[❌ Devient fausse]
-    C -->|❌ Fausse| E[✅ Devient vraie]
+flowchart LR
+  A["Condition<br />à inverser"] --> B{"Opérateur<br />NON"}
+  B --> C{"Valeur<br />d'origine ?"}
+  C -->|"✅ Vraie"| D["❌ Devient fausse"]
+  C -->|"❌ Fausse"| E["✅ Devient vraie"]
 ```
 
-_Ce diagramme représente le mécanisme d'inversion simple mais puissant de l'opérateur NON qui transforme systématiquement chaque valeur en son opposé booléen. Cette transformation permet d'exprimer clairement des conditions négatives dans votre code, bien qu'un usage excessif puisse nuire à la lisibilité comme démontré dans la section sur les bonnes pratiques de nommage._
+<p><em>L'opérateur NON permet d'exprimer des conditions négatives de manière explicite. Un usage excessif de la négation nuit à la lisibilité — les bonnes pratiques de nommage en fin de fiche y répondent.</em></p>
+
+<br />
+
+---
 
 ## Exemples par langage
 
-### Python - Contrôle d'accès
+### :fontawesome-brands-python: Python — contrôle d'accès
 
-```python
-# Langage : Python
-# ----------------------------------------------------------------
+```python title="Python — opérateurs booléens ET, OU, NON"
 # Vérification d'accès à un contenu avec restrictions d'âge
 age = 17
 a_autorisation_parentale = True
 film_tout_public = False
 
-# Logique ET : il faut TOUTES les conditions
+# Logique ET : toutes les conditions requises
 majeur = age >= 18 and not film_tout_public
 print(f"Majeur : {majeur}")  # False
 
-# Logique OU : il suffit d'UNE condition
+# Logique OU : une seule condition suffit
 peut_voir = film_tout_public or (age >= 18) or a_autorisation_parentale
 print(f"Peut voir : {peut_voir}")  # True
 ```
 
-_Cet exemple illustre comment Python utilise les mots-clés `and`, `or` et `not` pour exprimer la logique booléenne de manière lisible. **L'utilisateur mineur peut accéder au contenu grâce à l'autorisation parentale**, démontrant la flexibilité de l'opérateur **OU**._
+_L'utilisateur mineur accède au contenu grâce à l'autorisation parentale — démonstration de la flexibilité de l'opérateur OU combiné à ET._
 
-### JavaScript - Authentification
+---
 
-```javascript
-// Langage : JavaScript
-// ----------------------------------------------------------------
+### :fontawesome-brands-js: JavaScript — authentification
+
+```javascript title="JavaScript — opérateurs booléens et nommage affirmatif"
 // Vérification de connexion avec nommage clair
-let motDePasseCorrect = true;
-let compteActif = true;       // Affirmatif plutôt que compteBloque = false
-let tentativesValides = true; // Affirmatif plutôt que tropDeTentatives = false
+let motDePasseCorrect   = true;
+let compteActif         = true;
+let tentativesValides   = true;
 
 // Logique ET : toutes les conditions doivent être vraies
 let connexionAutorisee = motDePasseCorrect && compteActif && tentativesValides;
 console.log(`Connexion autorisée : ${connexionAutorisee}`);  // true
 
-// Alternative avec vérification d'absence de problèmes
-let aucunBloquage = true;
+// Nommage affirmatif — élimine les doubles négations
+let aucunBloquage              = true;
 let nombreTentativesAcceptable = true;
 
 let accesSecurise = motDePasseCorrect && aucunBloquage && nombreTentativesAcceptable;
 console.log(`Accès sécurisé : ${accesSecurise}`);  // true
 ```
 
-Ce code apporte **une convention de nommage affirmative** qui **élimine les doubles négations source de confusion**. Le code se lit naturellement comme une phrase : "**la connexion est autorisée si le mot de passe est correct ET le compte est actif ET les tentatives sont valides**". Cette approche améliore significativement la lisibilité et réduit les erreurs de logique potentielles.
+_Convention de nommage affirmative : le code se lit comme une phrase — "la connexion est autorisée si le mot de passe est correct ET le compte est actif ET les tentatives sont valides"._
 
-### PHP - Validation de formulaire
+---
 
-```php
-# Langage : PHP
-# ----------------------------------------------------------------
+### :fontawesome-brands-php: PHP — validation de formulaire
+
+```php title="PHP — combinaison ET et OU pour la validation"
 <?php
 // Validation de formulaire avec vérifications multiples
-$nom_rempli = true;
-$email_valide = true;
-$age_suffisant = false;  // Utilisateur de 16 ans
+$nom_rempli     = true;
+$email_valide   = true;
+$age_suffisant  = false;  // Utilisateur de 16 ans
 $accord_parental = true;
 
 // Logique ET : conditions obligatoires
@@ -213,84 +258,64 @@ echo $peut_valider ? "Formulaire validé" : "Formulaire refusé";  // Formulaire
 ?>
 ```
 
-L'exemple **PHP** démontre comment combiner intelligemment les opérateurs **ET** et **OU** pour créer des règles de validation sophistiquées. Le formulaire peut être validé soit par un **utilisateur majeur**, soit par un **mineur disposant d'une autorisation parentale**, illustrant la flexibilité de la logique booléenne.
+_ET et OU combinés : le formulaire est validé pour un mineur disposant d'une autorisation parentale — règle de validation sophistiquée en trois variables._
 
-### Go - Système de sécurité
+---
 
-```go
-// Langage : Go
-// ----------------------------------------------------------------
+### :fontawesome-brands-golang: Go — système de sécurité
+
+```go title="Go — conditions d'accès standard et exceptionnel"
 package main
+
 import "fmt"
 
 func main() {
     // Variables de contrôle d'accès
-    badgeValide := true
-    codeCorrect := true
-    heuresBureau := false  // 22h, hors horaires normaux
+    badgeValide     := true
+    codeCorrect     := true
+    heuresBureau    := false  // 22h — hors horaires normaux
     estAgentSecurite := true
-    
+
     // Accès standard : badge ET code ET horaires
     accesStandard := badgeValide && codeCorrect && heuresBureau
-    
+
     // Accès exceptionnel : agent de sécurité avec badge
     accesExceptionnel := estAgentSecurite && badgeValide
-    
-    // Décision finale : accès standard OU exceptionnel
+
+    // Décision finale : standard OU exceptionnel
     accesAutorise := accesStandard || accesExceptionnel
     fmt.Printf("Accès autorisé : %t\n", accesAutorise)  // true
 }
 ```
 
-Go impose un **typage strict qui renforce la clarté du code**. Cet exemple illustre comment structurer des règles de sécurité complexes en séparant clairement les différentes conditions d'accès. **L'agent de sécurité peut entrer hors des horaires normaux grâce à la condition d'accès exceptionnel**.
+!!! note "Lecture du code"
+    Si `estAgentSecurite` était false et `heuresBureau` également false, alors `accesAutorise` retournerait false — les deux chemins échoueraient simultanément. L'opérateur OU n'autorise l'accès que si au moins un chemin aboutit.
 
-!!! note "Comprendre la logique conditionnelle"
-    Cette structure illustre parfaitement le fonctionnement de l'opérateur OU dans un contexte de sécurité. Si la variable `estAgentSecurite` était définie sur **false** tout en maintenant `heuresBureau` sur **false**, alors `accesAutorise` retournerait également **false**. Cette situation se produit parce que les deux chemins d'accès échoueraient simultanément : `accesStandard` nécessite que toutes ses conditions soient vraies (notamment `heuresBureau`), et `accesExceptionnel` exige que `estAgentSecurite` soit vrai. L'absence de ces deux conditions entraîne le refus d'accès, démontrant que l'opérateur OU n'autorise l'accès que si au moins un des chemins alternatifs aboutit.
+<br />
 
-### Rust - Authentification multi-facteurs
-
-```rust
-// Langage : Rust
-// ----------------------------------------------------------------
-fn main() {
-    // Facteurs d'authentification disponibles
-    let mot_de_passe_ok = true;
-    let code_sms_ok = false;
-    let empreinte_ok = true;
-    let certificat_ok = true;
-    
-    // Option 1 : Mot de passe + SMS
-    let option1 = mot_de_passe_ok && code_sms_ok;
-    
-    // Option 2 : Mot de passe + Biométrie
-    let option2 = mot_de_passe_ok && empreinte_ok;
-    
-    // Option 3 : Certificat seul (pour administrateurs)
-    let option3 = certificat_ok;
-    
-    // N'importe quelle option valide autorise l'accès
-    let acces_autorise = option1 || option2 || option3;
-    println!("Accès autorisé : {}", acces_autorise);  // true
-}
-```
-
-L'exemple Rust démontre l'implémentation d'un système d'**authentification multi-facteurs** offrant plusieurs chemins d'accès alternatifs. Cette architecture **améliore la sécurité** tout en maintenant **la flexibilité pour les utilisateurs qui peuvent choisir leur méthode d'authentification préférée**.
+---
 
 ## Ordre de priorité des opérateurs
 
-Comme en mathématiques, les opérateurs booléens suivent un **ordre de priorité strict** qui détermine l'ordre d'évaluation des expressions complexes. **La compréhension de cet ordre évite les erreurs logiques subtiles** dans vos conditions.
+Comme en mathématiques, les opérateurs booléens suivent un ordre de priorité strict qui détermine l'ordre d'évaluation des expressions complexes.
 
 | Priorité | Opérateur | Évaluation |
-| :---: | --- | --- |
+|:---:|---|---|
 | **1** | `NOT` / `!` | La négation s'applique en premier |
 | **2** | `AND` / `&&` | Les conjonctions ensuite |
 | **3** | `OR` / `\|\|` | Les disjonctions en dernier |
 
-```python
-# Langage : Python
-# ----------------------------------------------------------------
+<br />
+
+!!! note "L'image ci-dessous rend cet ordre immédiatement mémorisable. Connaître cette hiérarchie évite des erreurs logiques difficiles à détecter dans des expressions complexes."
+
+![Ordre de priorité des opérateurs booléens — podium trois niveaux NOT en premier AND en second OR en troisième](../../assets/images/fondamentaux/ordre-priorite-booleens.png)
+
+<p><em>Comme en mathématiques où la multiplication précède l'addition, les opérateurs booléens suivent une hiérarchie fixe : NOT s'évalue en premier, AND ensuite, OR en dernier. Une expression sans parenthèses est toujours interprétée selon cet ordre — d'où l'importance d'expliciter les intentions avec des parenthèses.</em></p>
+
+```python title="Python — priorité des opérateurs et parenthèses"
 # Expression sans parenthèses : A or B and not C
-# Se lit automatiquement : A or (B and (not C))
+# Évaluée automatiquement comme : A or (B and (not C))
 
 A = False
 B = True
@@ -300,67 +325,56 @@ C = False
 resultat = A or B and not C
 print(resultat)  # True
 
-# Version explicite avec parenthèses pour la clarté
+# Version explicite — intention claire pour le lecteur
 resultat_explicite = A or (B and (not C))
 print(resultat_explicite)  # True
 ```
 
-!!! tip "Conseil professionnel"
-    **Utilisez systématiquement des parenthèses pour expliciter vos intentions lorsque vous combinez plusieurs opérateurs**. Cette pratique **améliore considérablement la lisibilité de votre code** et **prévient les erreurs de logique difficiles à détecter**.
-    
-!!! quote "Un code clair vaut toujours mieux qu'un code compact mais ambigu."
+!!! tip "Règle professionnelle"
+    Utiliser systématiquement des parenthèses pour expliciter les intentions lorsque plusieurs opérateurs sont combinés. Un code lisible vaut toujours mieux qu'un code compact mais ambigu.
+
+<br />
+
+---
 
 ## Bonnes pratiques de nommage
 
-Le nommage des variables booléennes constitue **un aspect souvent négligé** mais **crucial de la lisibilité du code**. Une **convention de nommage claire élimine les ambiguïtés** et **facilite la maintenance à long terme**.
+Le nommage des variables booléennes est souvent négligé mais crucial pour la lisibilité du code.  
+Une convention affirmative élimine les ambiguïtés et facilite la maintenance.
 
 ### Convention affirmative recommandée
 
-Privilégiez systématiquement des **noms de variables affirmatifs** qui **expriment directement l'état positif** que vous vérifiez. _Cette approche élimine le besoin d'opérateurs de négation superflus qui compliquent la lecture du code._
+Privilégier des noms de variables affirmatifs qui expriment directement l'état positif vérifié — cette approche élimine les opérateurs de négation superflus qui compliquent la lecture.
 
-```python
-# Langage : Python
-# ----------------------------------------------------------------
-# ❌ Nommage négatif créant des doubles négations
+```python title="Python — nommage négatif vs affirmatif"
+# Nommage négatif — crée des doubles négations
 compte_bloque = False
-if not compte_bloque:  # "pas compte bloqué" - confusion mentale
+if not compte_bloque:  # "pas compte bloqué" — charge cognitive élevée
     print("Accès autorisé")
 
-# ✅ Nommage affirmatif clair et direct
+# Nommage affirmatif — intention immédiatement lisible
 compte_actif = True
-if compte_actif:  # "compte actif" - intention claire
+if compte_actif:  # "compte actif" — lecture directe
     print("Accès autorisé")
 ```
 
-Cette **distinction peut sembler mineure** mais **celle-ci impacte significativement la compréhension du code lors de relectures ultérieures** ou **par d'autres développeurs**. Le code se lit alors comme une phrase française naturelle plutôt qu'un puzzle logique nécessitant une traduction mentale.
+!!! example "Déconstruction de la double négation"
+    Avec `compte_bloque = False` suivi de `if not compte_bloque`, le lecteur effectue deux opérations mentales successives.
 
-!!! example "Déconstruction de la confusion mentale"
-    Analysons précisément pourquoi le nommage négatif pose problème dans la première version du code ci-dessus.
-    ```python
-        # Langage : Python
-        # ----------------------------------------------------------------
-        compte_bloque = False  # Premier niveau : "Le compte n'est pas bloqué"
-        
-        if not compte_bloque:  # Deuxième niveau : "Si PAS (compte bloqué)"
-            # Traduction mentale nécessaire : "pas" appliqué à "bloqué qui est faux"
-            # Donc : "pas faux" = "vrai" = "le compte est accessible"
-            print("Accès autorisé")
-    ```
-    
-    Cette gymnastique cognitive force le lecteur à effectuer deux opérations mentales successives. 
-    
-    1. **Premièrement**, il doit comprendre que `compte_bloque = False` **signifie que le compte n'est pas bloqué**.
-    2. **Deuxièmement**, il doit **inverser cette négation** avec l'opérateur `not`, transformant "**pas bloqué**" en "**accessible**".
-   
-    Cette double négation **ralentit la lecture du code** et **augmente significativement le risque d'erreur lors des modifications ultérieures**, particulièrement dans des conditions complexes combinant plusieurs variables.
-    
-    La version affirmative élimine complètement cette charge cognitive en permettant une lecture linéaire directe où `compte_actif = True` suivi de `if compte_actif` se comprend **immédiatement sans aucune traduction mentale intermédiaire**.
+    1. `compte_bloque = False` signifie que le compte n'est pas bloqué.
+    2. `not compte_bloque` inverse cette valeur — "pas bloqué" devient "accessible".
 
-## Le mot de la fin
+    Cette gymnastique cognitive ralentit la lecture et augmente le risque d'erreur lors des modifications. La version affirmative `compte_actif = True` + `if compte_actif` se lit en une seule passe, sans traduction mentale intermédiaire.
 
-!!! quote
-    La logique booléenne représente **le langage fondamental des décisions informatiques**. Au début, vous réfléchirez consciemment à chaque condition et à chaque opérateur. Avec **la pratique**, **cette logique deviendra une seconde nature** et vous structurerez naturellement vos conditions de manière claire et efficace.
-    
-    L'important réside dans **la compréhension des principes plutôt que dans la mémorisation de règles abstraites**. **Vous utilisez déjà cette logique quotidiennement dans vos raisonnements naturels**. Désormais, vous savez simplement comment l'exprimer formellement à un ordinateur.
+<br />
 
 ---
+
+## Conclusion
+
+!!! quote "Conclusion"
+    _La logique booléenne représente le langage fondamental des décisions informatiques. Au début, chaque condition et chaque opérateur demandent une réflexion consciente. Avec la pratique, cette logique devient un réflexe — et les conditions se structurent naturellement, clairement, efficacement._
+
+    _Cette logique s'applique déjà quotidiennement dans tout raisonnement naturel. Il s'agit simplement d'apprendre à l'exprimer formellement à un ordinateur._
+
+<br />
