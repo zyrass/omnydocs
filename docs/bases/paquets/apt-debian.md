@@ -6,198 +6,166 @@ tags: ["APT", "DEBIAN", "UBUNTU", "PAQUETS", "LINUX", "SYSTÈME"]
 
 # APT — Advanced Package Tool
 
-## Introduction
+<div
+  class="omny-meta"
+  data-level="🟡 Intermédiaire & 🔴 Avancé"
+  data-version="1.2"
+  data-time="45-50 minutes">
+</div>
 
-**Niveau :** 🟡 Intermédiaire / 🔴 Avancé
+!!! quote "Analogie"
+    _Une bibliothèque universitaire géante avec un catalogue informatisé sophistiqué. Lorsque vous demandez un livre, le système vérifie automatiquement toutes ses dépendances — bibliographies requises, prérequis — résout les conflits potentiels avec vos emprunts existants, télécharge tout le nécessaire et organise le tout dans votre bibliothèque personnelle. APT fonctionne exactement ainsi : un système de gestion de paquets intelligent qui automatise entièrement l'installation, la mise à jour et la suppression de logiciels en gérant toutes les dépendances complexes._
 
-!!! quote "Analogie pédagogique"
-    _Imaginez une **bibliothèque universitaire géante** avec un catalogue informatisé sophistiqué. Lorsque vous demandez un livre, le système vérifie automatiquement toutes ses dépendances (bibliographies requises, prérequis), résout les conflits potentiels avec vos emprunts existants, télécharge tout le nécessaire, et organise le tout dans votre bibliothèque personnelle. **APT fonctionne exactement ainsi** : c'est un système de gestion de paquets intelligent qui automatise entièrement l'installation, la mise à jour et la suppression de logiciels en gérant toutes les dépendances complexes._
+**APT (Advanced Package Tool)** est le gestionnaire de paquets de référence des distributions **Debian**, **Ubuntu** et leurs dérivées (Linux Mint, Pop!\_OS, Kali Linux, etc.). Créé en 1998, APT a révolutionné la gestion de logiciels Linux en introduisant la **résolution automatique des dépendances**, transformant l'installation de logiciels d'une tâche technique complexe en une expérience fiable.
 
-> **APT (Advanced Package Tool)** est le gestionnaire de paquets de référence des distributions **Debian**, **Ubuntu**, et leurs dérivées (Linux Mint, Pop!_OS, Kali Linux, etc.). Créé en 1998, APT a révolutionné la gestion de logiciels Linux en introduisant la **résolution automatique des dépendances**, transformant l'installation de logiciels d'un calvaire technique en une expérience fluide et fiable.
+APT gère aujourd'hui plus de **60 000 paquets** dans les dépôts Debian, couvrant pratiquement tous les besoins logiciels. Sa fiabilité éprouvée et sa documentation exhaustive en font le choix privilégié pour les serveurs de production, les infrastructures critiques et les distributions grand public.
 
-APT gère aujourd'hui **plus de 60 000 paquets** dans les dépôts Debian, couvrant pratiquement tous les besoins logiciels imaginables. Sa fiabilité éprouvée et sa documentation exhaustive en font le choix privilégié pour les **serveurs de production**, les **infrastructures critiques**, et les **distributions grand public**. Ubuntu, basé sur Debian et utilisant APT, équipe des millions d'ordinateurs de bureau et des centaines de milliers de serveurs dans le monde.
+Contrairement à Windows où les exécutables se téléchargent depuis des sites variés, Linux centralise tous les logiciels dans des **dépôts sécurisés** accessibles via APT. Cette approche garantit la sécurité, la cohérence et la simplicité de gestion.
 
-!!! info "Pourquoi c'est important ?"
-    APT permet la **gestion centralisée** de milliers de paquets, garantit la **stabilité du système** par la résolution rigoureuse des dépendances, automatise les **mises à jour de sécurité** critiques, et assure la **reproductibilité** des installations sur de multiples machines. Maîtriser APT est essentiel pour l'administration système professionnelle.
+!!! info "Pourquoi c'est important"
+    APT permet la gestion centralisée de milliers de paquets, garantit la stabilité du système par la résolution rigoureuse des dépendances, automatise les mises à jour de sécurité critiques et assure la reproductibilité des installations sur de multiples machines. Maîtriser APT est indispensable pour l'administration système professionnelle.
 
-## Pour repartir des bases (vrais débutants)
+!!! tip "APT vs apt-get — Quelle différence"
+    `apt` est la commande moderne (depuis 2014) conçue pour l'utilisateur interactif avec une sortie colorée et lisible. `apt-get` est l'outil historique optimisé pour les scripts. Dans la majorité des cas, utiliser `apt` pour une meilleure expérience. Utiliser `apt-get` uniquement dans des scripts automatisés où la stabilité de l'interface est critique.
 
-Si vous débutez avec Linux, APT constitue probablement votre premier contact avec un gestionnaire de paquets. Contrairement à Windows où vous téléchargez des `.exe` depuis divers sites, ou macOS où vous utilisez l'App Store, Linux centralise tous les logiciels dans des **dépôts** sécurisés accessibles via APT. Cette approche garantit la sécurité, la cohérence et la simplicité de gestion.
+<br />
 
-!!! tip "APT vs apt-get : Quelle différence ?"
-    **apt** est la commande moderne (depuis 2014) conçue pour l'utilisateur interactif avec une sortie colorée et lisible. **apt-get** est l'outil historique optimisé pour les scripts. Dans la majorité des cas, utilisez **apt** pour une meilleure expérience utilisateur. Utilisez **apt-get** uniquement dans des scripts automatisés où la stabilité de l'interface est critique.
+---
 
 ## Architecture APT
 
 APT s'articule autour de plusieurs couches qui collaborent pour gérer le cycle de vie complet des paquets.
 
+!!! note "L'image ci-dessous illustre les couches de l'architecture APT. Comprendre cette hiérarchie — et en particulier la séparation entre APT (logique de haut niveau) et dpkg (installation bas niveau) — explique pourquoi on n'utilise jamais dpkg directement sauf cas très spécifiques."
+
+![Architecture APT — couches interface utilisateur, libapt-pkg, dpkg et système de fichiers](../../../assets/images/paquets/apt-architecture-couches.png)
+
+<p><em>APT est une surcouche intelligente au-dessus de dpkg. APT résout les dépendances, télécharge les paquets et vérifie les signatures GPG — puis délègue l'installation physique à dpkg. Cette séparation permet à dpkg de rester simple et fiable, tandis qu'APT gère toute la complexité de l'écosystème de dépôts.</em></p>
+
 ```mermaid
-graph TB
-    subgraph "Interface Utilisateur"
-        A1["apt<br/>Interface moderne"]
-        A2["apt-get<br/>Interface legacy"]
-        A3["aptitude<br/>Interface ncurses"]
-        A4["GUI: Software Center<br/>GNOME Software, Discover"]
+flowchart TB
+    subgraph "Interface utilisateur"
+        A1["apt — Interface moderne"]
+        A2["apt-get — Interface legacy"]
+        A3["aptitude — Interface ncurses"]
+        A4["GUI — Software Center, GNOME Software"]
     end
-    
-    subgraph "Couche APT - Logique Métier"
-        B1["libapt-pkg<br/>Bibliothèque C++"]
+
+    subgraph "Couche APT — Logique métier"
+        B1["libapt-pkg — Bibliothèque C++"]
         B2["Résolution dépendances"]
         B3["Gestion cache"]
         B4["Acquisition paquets"]
-        B5["Vérification signatures"]
+        B5["Vérification signatures GPG"]
     end
-    
-    subgraph "Couche DPKG - Installation Bas Niveau"
-        C1["dpkg<br/>Installation/Suppression"]
-        C2["Base de données<br/>/var/lib/dpkg/"]
-        C3["Scripts maintainer<br/>preinst, postinst, etc."]
+
+    subgraph "Couche dpkg — Installation bas niveau"
+        C1["dpkg — Installation et suppression"]
+        C2["Base de données /var/lib/dpkg/"]
+        C3["Scripts maintainer — preinst, postinst"]
     end
-    
-    subgraph "Système de Fichiers"
-        D1["/etc/apt/<br/>Configuration"]
-        D2["/var/cache/apt/<br/>Cache paquets"]
-        D3["/var/lib/apt/<br/>État système"]
-        D4["Dépôts distants<br/>HTTP/HTTPS"]
-    end
-    
+
     A1 --> B1
     A2 --> B1
     A3 --> B1
     A4 --> B1
-    
+
     B1 --> B2
     B1 --> B3
     B1 --> B4
     B1 --> B5
-    
+
     B2 --> C1
-    B3 --> D2
-    B4 --> D4
-    B5 --> D4
-    
     C1 --> C2
     C1 --> C3
-    
-    style B1 fill:#e3f3e3
-    style C1 fill:#f3e3e3
-    style D1 fill:#e3e3f3
 ```
 
 ### Hiérarchie des outils
 
-APT constitue une **surcouche intelligente** au-dessus de dpkg.
-
 | Outil | Niveau | Rôle | Utilisation |
-|-------|--------|------|-------------|
-| **dpkg** | Bas | Installation/suppression locale de paquets .deb | Rarement direct |
-| **apt-get** | Moyen | Gestion dépôts + résolution dépendances | Scripts |
-| **apt** | Haut | Interface utilisateur moderne et conviviale | Usage quotidien |
-| **aptitude** | Haut | Interface ncurses + résolveur avancé | Résolution conflits complexes |
+|---|---|---|---|
+| dpkg | Bas niveau | Installation et suppression locale de fichiers .deb | Rarement en direct |
+| apt-get | Intermédiaire | Gestion dépôts et résolution dépendances | Scripts automatisés |
+| apt | Haut niveau | Interface utilisateur moderne et concise | Usage quotidien |
+| aptitude | Haut niveau | Interface ncurses avec résolveur avancé | Résolution de conflits complexes |
 
 !!! warning "dpkg vs APT"
-    **dpkg** installe uniquement le fichier `.deb` fourni sans gérer les dépendances. Si une dépendance manque, l'installation échoue. **APT** résout automatiquement toutes les dépendances en téléchargeant les paquets nécessaires depuis les dépôts.  
-    
-    > N'utilisez jamais dpkg directement sauf cas très spécifiques.
+    dpkg installe uniquement le fichier `.deb` fourni sans gérer les dépendances — si une dépendance manque, l'installation échoue. APT résout automatiquement toutes les dépendances en téléchargeant les paquets nécessaires depuis les dépôts. Ne jamais utiliser dpkg directement sauf dans des cas très spécifiques.
 
-### Composants du système
+### Composants du système de fichiers
 
-**Structure de configuration :**
-```
-/etc/apt/
-├── sources.list              # Liste principale des dépôts
-├── sources.list.d/           # Dépôts supplémentaires (un fichier par source)
-│   ├── docker.list
-│   ├── vscode.list
-│   └── kubernetes.list
-├── apt.conf.d/               # Configuration fragmentée
-│   ├── 00-proxy             # Configuration proxy
-│   ├── 20-auto-upgrades     # Mises à jour automatiques
-│   └── 50-unattended-upgrades
-├── preferences.d/            # Épinglage de versions (pinning)
-├── trusted.gpg.d/            # Clés GPG des dépôts
-│   ├── debian-archive-keyring.gpg
-│   └── ubuntu-archive-keyring.gpg
-└── keyrings/                 # Nouveau format de clés (deb822)
+```bash title="Bash — structure de configuration APT"
+# /etc/apt/
+# ├── sources.list              # Liste principale des dépôts
+# ├── sources.list.d/           # Dépôts supplémentaires (un fichier par source)
+# │   ├── docker.list
+# │   ├── vscode.list
+# │   └── kubernetes.list
+# ├── apt.conf.d/               # Configuration fragmentée
+# │   ├── 00-proxy              # Proxy
+# │   └── 50-unattended-upgrades
+# ├── preferences.d/            # Épinglage de versions (pinning)
+# ├── trusted.gpg.d/            # Clés GPG des dépôts (format legacy)
+# └── keyrings/                 # Clés GPG format moderne (recommandé)
 ```
 
-**Base de données et cache :**
+```bash title="Bash — cache et base de données APT"
+# /var/lib/apt/
+# ├── lists/                    # Index téléchargés des dépôts
+# └── extended_states           # États étendus (auto vs manuel)
+#
+# /var/cache/apt/
+# ├── archives/                 # Paquets .deb téléchargés
+# └── pkgcache.bin              # Cache binaire compilé
+#
+# /var/lib/dpkg/
+# ├── status                    # État de tous les paquets installés
+# ├── info/                     # Métadonnées des paquets
+# │   ├── nginx.list            # Fichiers installés par le paquet
+# │   ├── nginx.md5sums         # Sommes de contrôle
+# │   └── nginx.postinst        # Scripts post-installation
+# └── triggers/                 # Système de déclencheurs
 ```
-/var/lib/apt/
-├── lists/                    # Index téléchargés des dépôts
-│   ├── deb.debian.org_debian_dists_bookworm_main_binary-amd64_Packages
-│   └── security.debian.org_...
-├── periodic/                 # État des tâches périodiques
-└── extended_states           # États étendus (auto/manual)
 
-/var/cache/apt/
-├── archives/                 # Paquets .deb téléchargés
-│   ├── nginx_1.24.0-1_amd64.deb
-│   └── partial/             # Téléchargements en cours
-└── pkgcache.bin             # Cache binaire compilé
-```
+<br />
 
-**Base de données dpkg :**
-```
-/var/lib/dpkg/
-├── status                    # État de tous les paquets installés
-├── available                 # Paquets disponibles
-├── info/                     # Métadonnées des paquets installés
-│   ├── nginx.list           # Liste des fichiers installés
-│   ├── nginx.md5sums        # Sommes de contrôle
-│   ├── nginx.preinst        # Scripts d'installation
-│   └── nginx.postinst
-└── triggers/                 # Système de déclencheurs
-```
+---
 
 ## Gestion des dépôts
 
-### Format sources.list
+### Format sources.list et structure des branches
 
-Le fichier `/etc/apt/sources.list` définit les sources de paquets.
+!!! note "L'image ci-dessous cartographie la structure des dépôts Debian et Ubuntu — branches, composants et leur niveau de stabilité. C'est le point de départ pour comprendre ce qu'on active, ce qu'on commente et les implications en termes de sécurité."
 
-**Syntaxe générale :**
-```
-deb [options] uri distribution composants
-```
+![Structure des dépôts APT — branches main, security, updates, backports et composants par niveau de stabilité](../../../assets/images/paquets/apt-depots-composants.png)
 
-**Exemple Debian 12 (Bookworm) :**
-```bash
-# /etc/apt/sources.list
+<p><em>Un dépôt APT est organisé en branches (stable, security, updates, backports) et en composants (main, contrib, non-free). La branche security est la seule à recevoir des correctifs en continu — ne jamais la commenter. Les backports permettent d'installer des versions récentes de certains logiciels sans passer à la version suivante de la distribution.</em></p>
 
+```bash title="Bash — /etc/apt/sources.list Debian 12 (Bookworm)"
 # Dépôt principal
 deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
-deb-src http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
 
-# Mises à jour de sécurité (critique)
+# Mises à jour de sécurité — critique, ne jamais commenter
 deb http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
-deb-src http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
 
-# Mises à jour intermédiaires (recommandé)
+# Mises à jour intermédiaires — recommandé
 deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
-deb-src http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
 
-# Backports (optionnel - versions récentes de logiciels)
+# Backports — optionnel, versions récentes de certains logiciels
 # deb http://deb.debian.org/debian bookworm-backports main contrib non-free non-free-firmware
 ```
 
-**Exemple Ubuntu 24.04 (Noble) :**
-```bash
-# /etc/apt/sources.list
-
+```bash title="Bash — /etc/apt/sources.list Ubuntu 24.04 (Noble)"
 # Dépôts principaux
 deb http://archive.ubuntu.com/ubuntu noble main restricted universe multiverse
-deb-src http://archive.ubuntu.com/ubuntu noble main restricted universe multiverse
 
 # Mises à jour de sécurité
 deb http://security.ubuntu.com/ubuntu noble-security main restricted universe multiverse
-deb-src http://security.ubuntu.com/ubuntu noble-security main restricted universe multiverse
 
 # Mises à jour recommandées
 deb http://archive.ubuntu.com/ubuntu noble-updates main restricted universe multiverse
-deb-src http://archive.ubuntu.com/ubuntu noble-updates main restricted universe multiverse
 
-# Proposed (testing - déconseillé en production)
+# Proposed — déconseillé en production
 # deb http://archive.ubuntu.com/ubuntu noble-proposed main restricted universe multiverse
 ```
 
@@ -205,112 +173,80 @@ deb-src http://archive.ubuntu.com/ubuntu noble-updates main restricted universe 
 
 **Debian :**
 
-| Composant | Contenu | Licence | Support |
-|-----------|---------|---------|---------|
-| **main** | Logiciels libres conformes DFSG | Libre (GPL, BSD, etc.) | Officiel complet |
-| **contrib** | Logiciels libres dépendant de non-libre | Libre mais dépendances | Limité |
-| **non-free** | Logiciels propriétaires | Propriétaire | Communautaire |
-| **non-free-firmware** | Micrologiciels propriétaires (drivers) | Propriétaire | Nécessaire pour matériel moderne |
+| Composant | Contenu | Licence | Support sécurité |
+|---|---|---|---|
+| main | Logiciels libres conformes DFSG | Libre (GPL, BSD) | Complet et proactif |
+| contrib | Logiciels libres dépendant de non-libre | Libre — dépendances propriétaires | Limité |
+| non-free | Logiciels propriétaires | Propriétaire | Communautaire |
+| non-free-firmware | Micrologiciels propriétaires (drivers) | Propriétaire | Nécessaire pour matériel moderne |
 
 **Ubuntu :**
 
-| Composant | Contenu | Support | Mises à jour |
-|-----------|---------|---------|--------------|
-| **main** | Logiciels libres supportés officiellement | Canonical (5 ans LTS) | Sécurité + bugs |
-| **restricted** | Drivers propriétaires courants (Nvidia) | Canonical | Sécurité |
-| **universe** | Logiciels libres communautaires | Communauté | Sécurité |
-| **multiverse** | Logiciels propriétaires non supportés | Aucun | Aucune |
+| Composant | Contenu | Support | Mises à jour sécurité |
+|---|---|---|---|
+| main | Logiciels libres officiels | Canonical — 5 ans LTS | Complètes |
+| restricted | Drivers propriétaires courants | Canonical | Complètes |
+| universe | Logiciels libres communautaires | Communauté | Partielles |
+| multiverse | Logiciels propriétaires non supportés | Aucun | Aucune |
 
-!!! danger "Sécurité des dépôts"
-    **main** (Debian) et **main/restricted** (Ubuntu) sont les seuls composants recevant un support de sécurité complet et proactif. Les paquets dans **universe/multiverse** (Ubuntu) ou **contrib/non-free** (Debian) peuvent ne pas recevoir de correctifs de sécurité rapides. En production, limitez-vous autant que possible aux dépôts principaux.
+!!! danger "Sécurité des composants"
+    `main` (Debian) et `main`/`restricted` (Ubuntu) sont les seuls composants recevant un support de sécurité complet et proactif. Les paquets dans `universe`, `multiverse`, `contrib` et `non-free` peuvent ne pas recevoir de correctifs de sécurité rapides. En production, se limiter autant que possible aux dépôts principaux.
 
 ### Types de lignes
 
-**deb vs deb-src :**
-```bash
-# Paquets binaires compilés (nécessaire pour installation)
+```bash title="Bash — types de lignes dans sources.list"
+# Paquets binaires compilés — nécessaire pour l'installation
 deb http://deb.debian.org/debian bookworm main
 
-# Code source des paquets (optionnel, utile pour développement)
+# Code source — optionnel, utile pour le développement
 deb-src http://deb.debian.org/debian bookworm main
-```
 
-**Options avancées :**
-```bash
 # Restriction architecturale
 deb [arch=amd64,i386] http://archive.ubuntu.com/ubuntu noble main
 
-# Signature GPG spécifique
+# Signature GPG spécifique — méthode moderne recommandée
 deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] \
     https://download.docker.com/linux/ubuntu noble stable
-
-# Forcer HTTPS
-deb [trusted=no] https://deb.debian.org/debian bookworm main
 ```
 
 ### Ajout de dépôts tiers
 
-**Méthode moderne (recommandée) :**
-```bash
-# Exemple : Ajouter le dépôt Docker
-
+```bash title="Bash — ajouter le dépôt Docker (méthode moderne recommandée)"
 # 1. Installer les prérequis
 apt install -y ca-certificates curl gnupg lsb-release
 
-# 2. Ajouter la clé GPG officielle
+# 2. Ajouter la clé GPG officielle dans le répertoire dédié
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
     gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
-# 3. Créer le fichier de dépôt
+# 3. Créer le fichier de dépôt isolé dans sources.list.d/
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
   https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# 4. Mettre à jour et installer
+# 4. Mettre à jour l'index et installer
 apt update
 apt install docker-ce
 ```
 
-**Méthode legacy (déconseillée mais encore courante) :**
-```bash
-# Ajoute la clé dans le trousseau système global (moins sécurisé)
-curl -fsSL https://example.com/key.gpg | apt-key add -
-
-# Ajoute le dépôt
-add-apt-repository "deb https://example.com/ubuntu $(lsb_release -sc) main"
-
-# Mettre à jour
-apt update
-```
-
 !!! warning "Sécurité des dépôts tiers"
-    L'ajout de dépôts tiers expose votre système à des risques :
+    L'ajout de dépôts tiers expose le système à des risques réels : un dépôt compromis peut distribuer des paquets malveillants, des paquets incompatibles peuvent casser les dépendances système, et un dépôt abandonné laisse des vulnérabilités non patchées. Ne faire confiance qu'aux sources officielles reconnues — Docker, Kubernetes, PostgreSQL, HashiCorp.
 
-    - **Malwares** : Un dépôt compromis peut distribuer des paquets malveillants
-    - **Conflits** : Paquets incompatibles avec les versions système
-    - **Abandonnement** : Dépôt non maintenu avec vulnérabilités
-    
-    Ne faites confiance qu'aux sources officielles reconnues (Docker, Kubernetes, PostgreSQL, MongoDB, etc.).
+### PPA — Ubuntu uniquement
 
-### PPA (Personal Package Archives) - Ubuntu uniquement
+Les **PPA** sont des dépôts personnels hébergés sur Launchpad, maintenus par des individus.
 
-Les **PPA** sont des dépôts personnels hébergés sur Launchpad.
-
-```bash
+```bash title="Bash — gérer les PPA Ubuntu"
 # Ajouter un PPA
-add-apt-repository ppa:user/ppa-name
-apt update
-
-# Exemple : PPA avec version récente de Git
 add-apt-repository ppa:git-core/ppa
 apt update
 apt install git
 
 # Supprimer un PPA
-add-apt-repository --remove ppa:user/ppa-name
+add-apt-repository --remove ppa:git-core/ppa
 apt update
 
 # Lister les PPA actifs
@@ -318,169 +254,123 @@ ls /etc/apt/sources.list.d/
 ```
 
 !!! danger "Risques des PPA"
-    Les PPA sont maintenus par des **individus**, pas par Canonical. Risques :
+    Les PPA sont maintenus par des individus, pas par Canonical. La qualité du packaging est variable, ils peuvent casser le système lors de mises à jour et être abandonnés sans avertissement. Utiliser les PPA uniquement lorsque absolument nécessaire, en privilégiant ceux maintenus par des équipes reconnues.
 
-    - Qualité variable du packaging
-    - Peut casser le système lors de mises à jour
-    - Peut être abandonné sans avertissement
-    - Pas d'audit de sécurité
-    
-    Utilisez les PPA uniquement lorsque **absolument nécessaire** et privilégiez les PPA maintenus par des équipes reconnues.
+<br />
+
+---
 
 ## Commandes fondamentales
 
 ### Mise à jour de l'index
 
-```bash
-# Télécharge les listes de paquets depuis tous les dépôts configurés
+```bash title="Bash — synchroniser l'index des paquets"
+# Télécharger les métadonnées des paquets depuis tous les dépôts configurés
+# Aucune installation — uniquement les listes de versions et dépendances
+# A exécuter systématiquement avant toute installation ou mise à jour
 apt update
-
-# Équivalent verbeux (scripts)
-apt-get update
 ```
 
-Cette commande télécharge les **métadonnées** des paquets (versions, dépendances, descriptions) sans installer quoi que ce soit. À exécuter **systématiquement** avant toute installation ou mise à jour.
+### Recherche et information
 
-**Sortie typique :**
-```
-Hit:1 http://deb.debian.org/debian bookworm InRelease
-Get:2 http://security.debian.org/debian-security bookworm-security InRelease [48.0 kB]
-Get:3 http://deb.debian.org/debian bookworm-updates InRelease [52.1 kB]
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-5 packages can be upgraded. Run 'apt list --upgradable' to see them.
-```
-
-### Recherche de paquets
-
-```bash
-# Recherche par nom ou description
+```bash title="Bash — rechercher et inspecter des paquets"
+# Rechercher par nom ou description
 apt search nginx
 
-# Recherche exacte par nom
+# Recherche par nom uniquement
 apt search --names-only nginx
 
-# Afficher les détails d'un paquet
+# Afficher les détails complets d'un paquet
 apt show nginx
 
-# Lister tous les paquets disponibles
-apt list
-
-# Lister uniquement les paquets installés
+# Lister les paquets installés
 apt list --installed
 
 # Lister les paquets avec mises à jour disponibles
 apt list --upgradable
 
-# Lister toutes les versions disponibles d'un paquet
+# Afficher les versions disponibles et la version candidate
 apt policy nginx
 ```
 
-**Exemple de sortie détaillée :**
-```bash
-$ apt show nginx
-Package: nginx
-Version: 1.24.0-1
-Priority: optional
-Section: web
-Maintainer: Debian Nginx Maintainers <pkg-nginx-maintainers@alioth-lists.debian.net>
-Installed-Size: 1,568 kB
-Depends: nginx-core (= 1.24.0-1) | nginx-full (= 1.24.0-1) | nginx-light (= 1.24.0-1)
-Homepage: https://nginx.org/
-Description: small, powerful, scalable web/proxy server
- Nginx ("engine X") is a high-performance web and reverse proxy server
- created by Igor Sysoev. It can be used both as a standalone web server
- and as a proxy to reduce the load on back-end HTTP or mail servers.
-```
+### Installation
 
-### Installation de paquets
-
-**Installation basique :**
-```bash
+```bash title="Bash — installer des paquets"
 # Installer un paquet
 apt install nginx
 
 # Installer plusieurs paquets
 apt install nginx postgresql redis-server
 
-# Installer avec confirmation automatique (scripts)
+# Confirmer automatiquement — pour scripts
 apt install -y nginx
 
-# Installation interactive (aptitude)
-aptitude
-```
-
-**Installation avec version spécifique :**
-```bash
-# Installer version exacte
+# Installer une version exacte
 apt install nginx=1.24.0-1
 
 # Installer depuis un dépôt spécifique (backports)
 apt install -t bookworm-backports nginx
 
-# Télécharger le paquet sans l'installer
+# Télécharger le fichier .deb sans l'installer
 apt download nginx
 ```
 
-**Installation locale d'un fichier .deb :**
-```bash
-# Méthode moderne (résout les dépendances)
+```bash title="Bash — installer un fichier .deb local"
+# Méthode moderne — résout les dépendances automatiquement
 apt install ./paquet.deb
 
-# Méthode legacy (ne résout pas les dépendances)
+# Méthode legacy — ne résout pas les dépendances
 dpkg -i paquet.deb
-apt install -f  # Résoudre les dépendances après coup
+apt install -f  # Résoudre les dépendances manquantes après coup
 ```
 
 ### Suppression de paquets
 
-```bash
-# Supprimer un paquet (conserve les fichiers de configuration)
+!!! note "L'image ci-dessous montre exactement ce que chaque commande de suppression laisse ou efface sur le système de fichiers. La confusion entre remove, purge et autoremove est l'une des erreurs les plus fréquentes en administration Debian/Ubuntu."
+
+![Comparaison remove vs purge vs autoremove — fichiers conservés et supprimés sur le système](../../../assets/images/paquets/apt-remove-purge-autoremove.png)
+
+<p><em>remove supprime les binaires et bibliothèques mais conserve la configuration dans /etc/ — utile si on prévoit de réinstaller en gardant ses paramètres. purge supprime également la configuration — repartir d'une installation propre. autoremove cible les dépendances orphelines installées automatiquement et dont plus aucun paquet ne dépend. Les données dans /var/ (bases de données, logs) ne sont jamais supprimées automatiquement.</em></p>
+
+```bash title="Bash — supprimer des paquets"
+# Supprimer un paquet — conserve les fichiers de configuration dans /etc/
 apt remove nginx
 
-# Supprimer avec purge complète (configuration incluse)
+# Supprimer avec purge complète — configuration incluse
 apt purge nginx
 
 # Supprimer les dépendances devenues inutiles
 apt autoremove
 
-# Purger + autoremove en une commande
+# Purge et nettoyage des dépendances orphelines en une passe
 apt purge nginx && apt autoremove
 ```
 
-**Différence remove vs purge :**
+| Commande | Binaires | Bibliothèques | Configuration /etc | Données /var |
+|---|---|---|---|---|
+| remove | Supprimés | Supprimées | Conservée | Conservées |
+| purge | Supprimés | Supprimées | Supprimée | Conservées |
+| autoremove | Supprimés (orphelins) | Supprimées (orphelines) | Conservée | Conservées |
 
-| Commande | Binaires | Bibliothèques | Configuration `/etc` | Données `/var` |
-|----------|----------|---------------|----------------------|----------------|
-| **remove** | ✗ Supprimé | ✗ Supprimé | ✓ Conservé | ✓ Conservé |
-| **purge** | ✗ Supprimé | ✗ Supprimé | ✗ Supprimé | ✓ Conservé |
-
-!!! tip "Quand utiliser purge ?"
-    Utilisez **purge** lorsque vous voulez réinstaller proprement un paquet avec configuration par défaut, ou lorsque vous êtes certain de ne jamais réutiliser le logiciel. Utilisez **remove** si vous prévoyez une réinstallation future et voulez conserver votre configuration personnalisée.
+!!! tip "remove vs purge — règle de décision"
+    Utiliser `purge` pour réinstaller proprement un paquet avec sa configuration par défaut, ou lorsque le logiciel ne sera jamais réutilisé. Utiliser `remove` si une réinstallation future est envisagée et que la configuration personnalisée doit être conservée.
 
 ### Mise à jour du système
 
-```bash
-# Mettre à jour tous les paquets installés (sûr)
+```bash title="Bash — mettre à jour les paquets installés"
+# Mise à jour sûre — ne supprime aucun paquet existant
 apt upgrade
 
-# Mise à jour agressive (peut supprimer des paquets)
+# Mise à jour agressive — peut supprimer des paquets pour résoudre les conflits
 apt full-upgrade
-
-# Équivalent legacy (scripts)
-apt-get dist-upgrade
 ```
 
-**Différence upgrade vs full-upgrade :**
-
 | Commande | Comportement | Risque | Usage |
-|----------|--------------|--------|-------|
-| **upgrade** | Met à jour uniquement si aucun paquet ne doit être supprimé | Faible | Usage quotidien |
-| **full-upgrade** | Met à jour même si des paquets doivent être installés/supprimés | Moyen | Mises à jour majeures |
+|---|---|---|---|
+| upgrade | Met à jour uniquement sans supprimer de paquets | Faible | Usage quotidien |
+| full-upgrade | Met à jour même si des suppressions sont nécessaires | Moyen | Mises à jour majeures |
 
-**Workflow de mise à jour sécurisé :**
-```bash
+```bash title="Bash — workflow de mise à jour sécurisé"
 # 1. Sauvegarder la liste des paquets installés
 dpkg --get-selections > /backup/packages-$(date +%Y%m%d).txt
 
@@ -490,99 +380,93 @@ apt update
 # 3. Vérifier les paquets qui seront mis à jour
 apt list --upgradable
 
-# 4. Simuler la mise à jour
+# 4. Simuler la mise à jour sans l'appliquer
 apt upgrade --simulate
 
 # 5. Appliquer la mise à jour
 apt upgrade
 
-# 6. Redémarrer si nécessaire
+# 6. Vérifier si un redémarrage est nécessaire
 if [ -f /var/run/reboot-required ]; then
-    echo "Redémarrage nécessaire"
+    echo "Redemarrage requis pour :"
     cat /var/run/reboot-required.pkgs
 fi
 ```
 
 ### Gestion du cache
 
-```bash
-# Nettoyer le cache des paquets téléchargés
+```bash title="Bash — gérer le cache APT"
+# Supprimer tous les paquets téléchargés du cache
 apt clean
 
-# Nettoyer uniquement les anciennes versions
+# Supprimer uniquement les anciennes versions
 apt autoclean
 
 # Afficher la taille du cache
 du -sh /var/cache/apt/archives/
 
-# Afficher l'espace disque utilisé par catégorie
+# Statistiques globales
 apt-cache stats
 ```
 
-**Tailles typiques :**
-- Cache complet : 500 MB - 5 GB selon fréquence des mises à jour
-- Après `apt clean` : ~0 MB
-- Après `apt autoclean` : 50-200 MB
+<br />
+
+---
 
 ## Gestion avancée des dépendances
 
 ### Résolution de conflits
 
-**Scénario typique :** Installation impossible à cause de dépendances cassées.
-
-```bash
-# Afficher l'état détaillé des dépendances
+```bash title="Bash — diagnostiquer et résoudre les conflits de dépendances"
+# Afficher l'état détaillé des dépendances d'un paquet
 apt-cache policy paquet
 
-# Afficher la raison de l'installation d'un paquet
+# Afficher les paquets qui dépendent d'un paquet donné
 apt-cache rdepends paquet
 
-# Résoudre les dépendances cassées
+# Réparer les dépendances cassées
 apt install -f
 
 # Forcer la reconfiguration d'un paquet
 dpkg-reconfigure paquet
 
-# Simuler l'installation pour identifier les conflits
+# Simuler l'installation pour identifier les conflits avant d'agir
 apt install --simulate paquet
 ```
 
-**Exemple de conflit :**
-```
-The following packages have unmet dependencies:
- nginx : Depends: libssl3 (>= 3.0.0) but 1.1.1 is to be installed
-         Recommends: nginx-core but it is not going to be installed
-E: Unable to correct problems, you have held broken packages.
-```
-
-**Résolution :**
-```bash
-# Identifier les paquets bloqués
+```bash title="Bash — résoudre un conflit de version de dépendance"
+# Identifier les paquets bloqués (hold)
 apt-mark showhold
 
 # Débloquer si nécessaire
 apt-mark unhold libssl3
 
-# Installer manuellement la dépendance
+# Installer manuellement la version requise
 apt install libssl3
 
-# Réessayer l'installation
+# Réessayer l'installation initiale
 apt install nginx
 ```
 
 ### Épinglage de versions (Pinning)
 
-L'épinglage permet de **contrôler les priorités** entre dépôts et versions.
+!!! note "L'image ci-dessous représente l'échelle de priorités APT. Le pinning est l'un des concepts les plus mal compris d'APT — visualiser l'échelle numérique avec ses seuils de comportement rend la logique immédiatement lisible."
 
-**Fichier de configuration :**
-```bash
-# /etc/apt/preferences.d/custom-pinning
+![Échelle de priorités APT — comportements à 100, 500, 700, 900 et 1000](../../../assets/images/paquets/apt-pinning-priorites.png)
 
-# Priorité par défaut : 500
-# Priorité >= 1000 : downgrade autorisé
-# Priorité < 0 : paquet bloqué
+<p><em>APT attribue une priorité numérique à chaque source de paquet. En dessous de 100, le paquet est ignoré. Entre 100 et 499, il n'est installé que si demandé explicitement. Entre 500 et 989, c'est la priorité normale des dépôts stables. Au-dessus de 990, le paquet est préféré même si une version plus récente existe ailleurs. À 1000 ou plus, APT installe même si cela implique un downgrade.</em></p>
 
-# Exemple 1 : Préférer stable sauf pour un paquet spécifique
+L'épinglage contrôle la priorité d'un paquet ou d'un dépôt — utile pour mélanger stable et backports ou bloquer une version spécifique.
+
+```bash title="Bash — /etc/apt/preferences.d/custom-pinning"
+# Priorités APT :
+# >= 1000 : installation même si downgrade nécessaire
+# 990-999 : préféré à toute autre version
+# 500-989 : installé si pas de version supérieure disponible
+# 100-499 : installé uniquement si explicitement demandé
+# < 0     : paquet bloqué
+
+# Préférer stable pour tout, sauf nginx depuis backports
 Package: *
 Pin: release a=stable
 Pin-Priority: 700
@@ -591,40 +475,36 @@ Package: nginx
 Pin: release a=stable-backports
 Pin-Priority: 900
 
-# Exemple 2 : Bloquer une version spécifique
+# Bloquer une version spécifique
 Package: apache2
 Pin: version 2.4.50-1
 Pin-Priority: -1
 
-# Exemple 3 : Privilégier un dépôt spécifique
+# Priorité maximale pour un dépôt tiers spécifique
 Package: docker-ce
 Pin: origin download.docker.com
 Pin-Priority: 1000
 ```
 
-**Vérifier l'effet du pinning :**
-```bash
-apt-cache policy paquet
+```bash title="Bash — vérifier l'effet du pinning"
+apt-cache policy nginx
+
+# Sortie exemple :
+# nginx:
+#   Installed: 1.24.0-1
+#   Candidate: 1.25.0-1~bpo12+1
+#   Version table:
+#      1.25.0-1~bpo12+1 900    <- backports, priorité 900
+#         100 http://deb.debian.org/debian bookworm-backports/main
+#  *** 1.24.0-1 700            <- stable, priorité 700 (actuellement installé)
+#         500 http://deb.debian.org/debian bookworm/main
 ```
 
-**Sortie exemple :**
-```
-nginx:
-  Installed: 1.24.0-1
-  Candidate: 1.25.0-1~bpo12+1
-  Version table:
-     1.25.0-1~bpo12+1 900
-        100 http://deb.debian.org/debian bookworm-backports/main amd64 Packages
- *** 1.24.0-1 700
-        500 http://deb.debian.org/debian bookworm/main amd64 Packages
-        100 /var/lib/dpkg/status
-```
+### Paquets automatiques vs manuels
 
-### Paquets maintenus automatiquement vs manuellement
+APT distingue les paquets installés explicitement par l'utilisateur de ceux installés automatiquement comme dépendances.
 
-APT distingue les paquets installés **explicitement** par l'utilisateur de ceux installés **automatiquement** comme dépendances.
-
-```bash
+```bash title="Bash — gérer les marques auto/manuel"
 # Marquer un paquet comme installé manuellement
 apt-mark manual nginx
 
@@ -634,61 +514,59 @@ apt-mark auto libssl3
 # Lister les paquets installés manuellement
 apt-mark showmanual
 
-# Lister les paquets installés automatiquement
-apt-mark showauto
-
-# Afficher les paquets auto-installés devenus inutiles
+# Lister les paquets auto-installés devenus inutiles
 apt autoremove --simulate
 ```
 
-**Importance :** Les paquets marqués **auto** sont candidats à la suppression par `apt autoremove` si plus aucun paquet ne dépend d'eux.
+Les paquets marqués `auto` sont candidats à la suppression par `apt autoremove` dès qu'aucun autre paquet ne dépend d'eux.
 
 ### Blocage de mises à jour
 
-```bash
-# Bloquer un paquet à sa version actuelle
+```bash title="Bash — bloquer un paquet à sa version actuelle"
+# Bloquer
 apt-mark hold nginx
 
-# Lister les paquets bloqués
+# Vérifier les paquets bloqués
 apt-mark showhold
 
-# Débloquer un paquet
+# Débloquer
 apt-mark unhold nginx
 ```
 
-**Scénarios d'utilisation :**
-- Version spécifique testée et validée en production
-- Application incompatible avec nouvelle version
-- Environnement de développement nécessitant version fixe
+Le blocage est utile pour une version validée en production, une application incompatible avec une nouvelle version ou un environnement de développement nécessitant une version fixe.
 
-## Sécurité et signatures
+<br />
 
-### Vérification des signatures GPG
+---
 
-APT vérifie **systématiquement** l'authenticité des paquets via signatures GPG.
+## Sécurité et signatures GPG
+
+!!! note "L'image ci-dessous représente le flux de vérification GPG qu'APT applique systématiquement. Ce mécanisme est la garantie fondamentale que les paquets installés sont authentiques et n'ont pas été altérés en transit."
+
+![Flux de vérification GPG dans APT — téléchargement InRelease, vérification clé publique et contrôle de hachage](../../../assets/images/paquets/apt-gpg-verification.png)
+
+<p><em>APT vérifie l'authenticité en deux temps : d'abord la signature GPG du fichier InRelease du dépôt (qui garantit l'identité de la source), puis les hachages SHA256 de chaque paquet téléchargé (qui garantissent l'intégrité du fichier). Un paquet dont la signature ou le hachage ne correspond pas est rejeté avant toute installation.</em></p>
 
 ```mermaid
 sequenceDiagram
     participant APT
     participant Dépôt
     participant Keyring
-    
-    APT->>Dépôt: Téléchargement InRelease (signé)
+
+    APT->>Dépôt: Téléchargement InRelease (signé GPG)
     Dépôt-->>APT: Fichier InRelease + Signature
     APT->>Keyring: Vérifier signature avec clé publique
-    Keyring-->>APT: Signature valide ✓
-    APT->>Dépôt: Téléchargement paquets
+    Keyring-->>APT: Signature valide
+    APT->>Dépôt: Téléchargement paquets .deb
     Dépôt-->>APT: Paquets .deb
-    APT->>APT: Vérification hashes (SHA256)
+    APT->>APT: Vérification hachages SHA256
     APT->>APT: Installation
 ```
 
-**Gestion des clés :**
-```bash
-# Lister les clés GPG installées
-apt-key list  # Deprecated, utiliser gpg
+### Gestion des clés GPG
 
-# Nouveau format recommandé
+```bash title="Bash — gérer les clés GPG des dépôts"
+# Lister les clés installées (nouveau format)
 ls /etc/apt/keyrings/
 gpg --list-keys --keyring /etc/apt/keyrings/debian-archive-keyring.gpg
 
@@ -699,15 +577,12 @@ curl -fsSL https://example.com/key.gpg | gpg --dearmor -o /etc/apt/keyrings/exam
 rm /etc/apt/keyrings/example.gpg
 ```
 
-**Erreur de signature courante :**
-```
-W: GPG error: https://download.docker.com/linux/ubuntu noble InRelease:
-   The following signatures couldn't be verified because the public key is not available:
-   NO_PUBKEY 7EA0A9C3F273FCD8
-```
+```bash title="Bash — résoudre une erreur de clé GPG manquante"
+# Erreur typique :
+# W: GPG error: https://download.docker.com/linux/ubuntu noble InRelease:
+#    The following signatures couldn't be verified because the public key is not available:
+#    NO_PUBKEY 7EA0A9C3F273FCD8
 
-**Résolution :**
-```bash
 # Récupérer la clé manquante depuis un serveur de clés
 gpg --keyserver keyserver.ubuntu.com --recv-keys 7EA0A9C3F273FCD8
 gpg --export 7EA0A9C3F273FCD8 | tee /etc/apt/keyrings/docker.gpg > /dev/null
@@ -716,265 +591,170 @@ apt update
 
 ### Mises à jour de sécurité automatiques
 
-**Configuration unattended-upgrades :**
-```bash
+```bash title="Bash — configurer unattended-upgrades"
 # Installer le paquet
 apt install unattended-upgrades
 
-# Configurer
+# Configurer interactivement
 dpkg-reconfigure -plow unattended-upgrades
 ```
 
-**Fichier de configuration :**
-```bash
-# /etc/apt/apt.conf.d/50unattended-upgrades
-
+```bash title="Bash — /etc/apt/apt.conf.d/50unattended-upgrades"
 Unattended-Upgrade::Allowed-Origins {
     "${distro_id}:${distro_codename}-security";
     // "${distro_id}:${distro_codename}-updates";  // Décommenter pour mises à jour normales
 };
 
-// Paquets à exclure
+// Paquets à exclure des mises à jour automatiques
 Unattended-Upgrade::Package-Blacklist {
     // "nginx";
     // "postgresql-15";
 };
 
-// Supprimer les dépendances inutiles
+// Supprimer les dépendances devenues inutiles
 Unattended-Upgrade::Remove-Unused-Dependencies "true";
 
-// Redémarrage automatique si nécessaire (serveurs)
+// Redémarrage automatique si nécessaire (à activer avec prudence)
 Unattended-Upgrade::Automatic-Reboot "false";
 Unattended-Upgrade::Automatic-Reboot-Time "03:00";
 
-// Notifications email
+// Notifications par email
 Unattended-Upgrade::Mail "admin@example.com";
 Unattended-Upgrade::MailReport "only-on-error";
 ```
 
-**Tester la configuration :**
-```bash
-# Simulation
+```bash title="Bash — tester et surveiller unattended-upgrades"
+# Simulation sans application réelle
 unattended-upgrade --dry-run --debug
 
-# Vérifier les logs
+# Surveiller les logs
 tail -f /var/log/unattended-upgrades/unattended-upgrades.log
 ```
 
+<br />
+
+---
+
 ## Optimisation et performance
 
-### Utilisation d'apt-fast
+### apt-fast — téléchargements parallèles
 
-**apt-fast** parallélise les téléchargements pour accélérer les opérations.
+apt-fast parallélise les téléchargements pour accélérer les opérations sur connexion lente.
 
-```bash
-# Installation
+```bash title="Bash — installer et utiliser apt-fast"
 add-apt-repository ppa:apt-fast/stable
 apt update
 apt install apt-fast
-
-# Configuration : choisir le nombre de connexions parallèles (8-16)
 
 # Utilisation identique à apt
 apt-fast install nginx
 apt-fast upgrade
 ```
 
-**Gains typiques :**
+Gains typiques : 2 à 3 fois plus rapide sur connexion lente, 1,5 à 2 fois sur connexion rapide, 3 à 5 fois lors de mises à jour massives.
 
-- Connexion lente : 2-3× plus rapide
-- Connexion rapide : 1.5-2× plus rapide
-- Mises à jour massives : 3-5× plus rapide
+### Cache partagé avec Apt-Cacher-NG
 
-### Utilisation de miroirs locaux
+Utile dans un environnement avec plusieurs machines qui téléchargent les mêmes paquets.
 
-```bash
-# Installer apt-mirror
-apt install apt-mirror
-
-# Configurer /etc/apt/mirror.list
-# set base_path /var/spool/apt-mirror
-# deb http://deb.debian.org/debian bookworm main contrib non-free
-
-# Synchroniser (nécessite ~150-300 GB)
-apt-mirror
-
-# Servir via Nginx/Apache
-# Les clients pointent vers http://mirror.local/debian/
-```
-
-### Cache partagé Apt-Cacher-NG
-
-**Scénario :** Plusieurs machines téléchargent les mêmes paquets.
-
-```bash
+```bash title="Bash — configurer Apt-Cacher-NG"
 # Sur le serveur cache
 apt install apt-cacher-ng
 
-# Sur les clients
-echo 'Acquire::http::Proxy "http://cache-server:3142";' > /etc/apt/apt.conf.d/02proxy
+# Sur chaque machine cliente
+echo 'Acquire::http::Proxy "http://serveur-cache:3142";' > /etc/apt/apt.conf.d/02proxy
 
-# Statistiques cache
-http://cache-server:3142/acng-report.html
+# Statistiques disponibles via navigateur
+# http://serveur-cache:3142/acng-report.html
 ```
 
-**Économies typiques :**
+Sur 10 serveurs, Apt-Cacher-NG économise environ 90 % de la bande passante consommée par les mises à jour.
 
-- 10 serveurs : ~90% de bande passante économisée
-- Mises à jour hebdomadaires : ~70% de temps gagné
+<br />
 
-## Dépannage et résolution de problèmes
+---
 
-### Réparation du système APT
+## Comparaison apt vs apt-get vs aptitude
 
-**Base de données corrompue :**
-```bash
-# Nettoyer les verrous bloqués
-rm /var/lib/apt/lists/lock
-rm /var/cache/apt/archives/lock
-rm /var/lib/dpkg/lock*
+!!! note "L'image ci-dessous synthétise les cas d'usage des trois outils. Le choix entre eux n'est pas une question de préférence — c'est une question de contexte : interactif, script ou résolution de conflits."
 
-# Reconfigurer dpkg
-dpkg --configure -a
+![Comparaison apt vs apt-get vs aptitude — cas d'usage, stabilité d'interface et résolution de conflits](../../../assets/images/paquets/apt-vs-aptget-vs-aptitude.png)
 
-# Résoudre dépendances cassées
-apt install -f
+<p><em>apt offre une expérience interactive améliorée (barre de progression, couleurs, commandes groupées) mais son interface peut changer entre versions. apt-get garantit une interface stable pour les scripts. aptitude embarque un résolveur de dépendances plus avancé capable de proposer plusieurs solutions alternatives lors d'un conflit que apt ne sait pas résoudre.</em></p>
 
-# Mettre à jour l'index
-apt update
+| Fonctionnalité | apt | apt-get | aptitude |
+|---|---|---|---|
+| Interface | Moderne, colorée | Scriptable, stable | Ncurses et CLI |
+| Barre de progression | Oui | Non | Oui |
+| Résolution de conflits | Basique | Basique | Avancée — propose des alternatives |
+| Stabilité d'interface | Non garantie entre versions | Garantie | Garantie |
+| Usage recommandé | Interactif | Scripts automatisés | Résolution de problèmes |
 
-# Vérifier l'intégrité
-apt check
-```
+**Équivalences de commandes :**
 
-**Paquet semi-installé :**
-```bash
-# Identifier les paquets en état inconsistant
-dpkg --audit
+| Opération | apt | apt-get | aptitude |
+|---|---|---|---|
+| Installer | `apt install pkg` | `apt-get install pkg` | `aptitude install pkg` |
+| Supprimer | `apt remove pkg` | `apt-get remove pkg` | `aptitude remove pkg` |
+| Mettre à jour l'index | `apt update` | `apt-get update` | `aptitude update` |
+| Mettre à jour le système | `apt upgrade` | `apt-get upgrade` | `aptitude safe-upgrade` |
+| Rechercher | `apt search term` | `apt-cache search term` | `aptitude search term` |
+| Information | `apt show pkg` | `apt-cache show pkg` | `aptitude show pkg` |
 
-# Forcer la suppression
-dpkg --remove --force-remove-reinstreq paquet
+<br />
 
-# Nettoyer
-apt install -f
-```
-
-### Logs et diagnostic
-
-```bash
-# Logs APT
-/var/log/apt/history.log    # Historique des opérations
-/var/log/apt/term.log        # Sortie complète des commandes
-
-# Logs dpkg
-/var/log/dpkg.log            # Opérations bas niveau
-
-# Afficher les dernières installations
-grep " install " /var/log/dpkg.log | tail -20
-
-# Afficher les dernières mises à jour
-grep " upgrade " /var/log/dpkg.log | tail -20
-
-# Mode debug APT
-apt -o Debug::pkgProblemResolver=yes install paquet
-```
-
-### Erreurs courantes
-
-**"Could not get lock /var/lib/dpkg/lock" :**
-```bash
-# Cause : Une autre instance APT est en cours
-# Solution 1 : Attendre la fin du processus
-ps aux | grep apt
-
-# Solution 2 : Si processus bloqué, le tuer
-sudo kill -9 <PID>
-
-# Solution 3 : Supprimer les verrous
-sudo rm /var/lib/apt/lists/lock
-sudo rm /var/cache/apt/archives/lock
-sudo rm /var/lib/dpkg/lock*
-sudo dpkg --configure -a
-```
-
-**"The following packages have been kept back" :**
-```bash
-# Cause : upgrade refuse d'installer de nouvelles dépendances
-# Solution : Utiliser full-upgrade
-apt full-upgrade
-```
-
-**"Unable to fetch some archives" :**
-```bash
-# Cause : Dépôt inaccessible ou miroir défaillant
-# Solution 1 : Changer de miroir
-sed -i 's|deb.debian.org|ftp.fr.debian.org|g' /etc/apt/sources.list
-
-# Solution 2 : Nettoyer le cache
-apt clean
-apt update
-```
+---
 
 ## Bonnes pratiques
 
-### Pour serveurs de production
+### Serveurs de production
 
-**Stratégie de mise à jour :**
-```bash
-# 1. Tester sur environnement de staging identique
-# 2. Planifier la maintenance
-# 3. Sauvegarder la configuration système
+```bash title="Bash — stratégie de mise à jour sécurisée en production"
+# 1. Sauvegarder la configuration système
 tar -czf /backup/etc-$(date +%Y%m%d).tar.gz /etc/
 
-# 4. Sauvegarder la liste des paquets
+# 2. Sauvegarder la liste des paquets installés
 dpkg --get-selections > /backup/packages-$(date +%Y%m%d).txt
 
-# 5. Mettre à jour uniquement la sécurité en production
+# 3. Mettre à jour en conservant la configuration existante
 apt update
 apt upgrade -o Dpkg::Options::="--force-confold"
 
-# 6. Automatiser les mises à jour de sécurité uniquement
+# 4. Activer les mises à jour de sécurité automatiques
 echo 'APT::Periodic::Update-Package-Lists "1";' > /etc/apt/apt.conf.d/20auto-upgrades
 echo 'APT::Periodic::Unattended-Upgrade "1";' >> /etc/apt/apt.conf.d/20auto-upgrades
 ```
 
-**Éviter les interruptions de service :**
-```bash
-# Installer needrestart pour notifications intelligentes
+```bash title="Bash — needrestart — redémarrage intelligent des services"
+# Détecte les services nécessitant un redémarrage après mise à jour
+# des bibliothèques — sans redémarrer la machine entière
 apt install needrestart
-
-# Configurer le redémarrage automatique des services
-# /etc/needrestart/needrestart.conf
-$nrconf{restart} = 'a';  # Automatique
 ```
 
-### Pour environnements Docker
+### Images Docker
 
-**Image de base optimale :**
-```dockerfile
+```dockerfile title="Dockerfile — optimisation APT pour images Ubuntu"
 FROM ubuntu:24.04
 
-# Combiner update + install + clean en une seule couche
+# Combiner update + install + clean dans une seule couche RUN
+# --no-install-recommends réduit la taille de 30 à 50 %
 RUN apt update && \
     apt install -y --no-install-recommends \
         nginx \
         ca-certificates \
-        && \
+    && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
-
-# --no-install-recommends réduit la taille de 30-50%
 ```
 
-**Multi-stage build :**
-```dockerfile
-# Stage build
+```dockerfile title="Dockerfile — multi-stage avec APT"
+# Stage build — outils de compilation
 FROM ubuntu:24.04 AS builder
 RUN apt update && apt install -y build-essential
 COPY src/ /src/
 RUN make -C /src
 
-# Stage runtime
+# Stage runtime — uniquement les dépendances d'exécution
 FROM ubuntu:24.04
 RUN apt update && \
     apt install -y --no-install-recommends libssl3 && \
@@ -982,76 +762,117 @@ RUN apt update && \
 COPY --from=builder /src/binary /usr/local/bin/
 ```
 
-### Sécurité
+### Audit de sécurité
 
-**Auditer les dépôts tiers :**
-```bash
+```bash title="Bash — auditer les dépôts et les vulnérabilités"
 # Lister tous les dépôts actifs
 grep -r "^deb " /etc/apt/sources.list /etc/apt/sources.list.d/
 
-# Vérifier les clés GPG
-gpg --list-keys --keyring /etc/apt/trusted.gpg
+# Vérifier les clés GPG installées
 ls /etc/apt/keyrings/
 
-# Supprimer les dépôts suspects
-rm /etc/apt/sources.list.d/suspicious-repo.list
-rm /etc/apt/keyrings/suspicious.gpg
+# Supprimer un dépôt suspect
+rm /etc/apt/sources.list.d/depot-suspect.list
+rm /etc/apt/keyrings/depot-suspect.gpg
 apt update
-```
 
-**Scanner les vulnérabilités :**
-```bash
-# Installer debsecan
+# Scanner les vulnérabilités connues
 apt install debsecan
-
-# Scanner les vulnérabilités présentes
 debsecan
-
-# Mettre à jour les définitions de vulnérabilités
-debsecan --update-vuln
-
-# Filtrer par criticité
 debsecan | grep "remotely exploitable"
 ```
 
-## Comparaison apt vs apt-get vs aptitude
-
-| Fonctionnalité | apt | apt-get | aptitude |
-|----------------|-----|---------|----------|
-| **Interface** | Moderne, colorée | Scriptable, stable | Ncurses + CLI |
-| **Barre de progression** | ✓ | ✗ | ✓ |
-| **Résolution conflits** | Basique | Basique | Avancée |
-| **Commandes groupées** | ✓ | ✗ | ✓ |
-| **Stabilité API** | Non garantie | Garantie | Garantie |
-| **Usage recommandé** | Interactif | Scripts | Résolution problèmes |
-| **Affichage** | Concis | Verbeux | Personnalisable |
-
-**Commandes équivalentes :**
-
-| Opération | apt | apt-get | aptitude |
-|-----------|-----|---------|----------|
-| Installer | `apt install pkg` | `apt-get install pkg` | `aptitude install pkg` |
-| Supprimer | `apt remove pkg` | `apt-get remove pkg` | `aptitude remove pkg` |
-| Mise à jour | `apt update` | `apt-get update` | `aptitude update` |
-| Upgrade | `apt upgrade` | `apt-get upgrade` | `aptitude safe-upgrade` |
-| Recherche | `apt search term` | `apt-cache search term` | `aptitude search term` |
-| Info | `apt show pkg` | `apt-cache show pkg` | `aptitude show pkg` |
-
-## Le mot de la fin
-
-!!! quote
-    APT représente **plus de 25 ans d'évolution** dans la gestion de paquets Linux. Ce qui commençait comme un simple outil pour automatiser l'installation de logiciels est devenu un **écosystème complet** gérant des dizaines de milliers de paquets avec une fiabilité éprouvée sur des millions de systèmes critiques.
-    
-    La force d'APT réside dans sa **maturité**. Chaque comportement a été pensé, testé et raffiné au fil des années. La résolution de dépendances, bien que parfois frustrante pour les débutants, garantit la **cohérence du système**. Les mécanismes de signatures GPG assurent la **sécurité de la chaîne d'approvisionnement**. Le système de dépôts multiples permet la **flexibilité** sans compromettre la stabilité.
-    
-    Debian et Ubuntu dominent les **serveurs web** (40%+ de parts de marché), les **clouds publics** (AWS, GCP, Azure), les **superordinateurs** (Linux Top500), et constituent la base de **distributions spécialisées** comme Kali Linux (pentest), Raspberry Pi OS (embarqué), ou Pop!_OS (desktop). Maîtriser APT, c'est comprendre la fondation sur laquelle repose une part substantielle de l'infrastructure numérique mondiale.
-    
-    APT n'est pas le plus rapide (APK est plus léger), ni le plus moderne (dnf offre plus de fonctionnalités), mais il est le plus **fiable** et le plus **documenté**. Pour l'administration système professionnelle, cette fiabilité éprouvée est inestimable. Lorsqu'un système de production gère des millions d'euros de transactions, vous ne voulez pas d'expérimentation - vous voulez APT.
+<br />
 
 ---
 
-!!! abstract "Métadonnées"
-    **Version** : 1.1  
-    **Dernière mise à jour** : Novembre 2025  
-    **Durée de lecture** : 45-50 minutes  
-    **Niveau** : 🟡 Intermédiaire / 🔴 Avancé
+## Dépannage
+
+### Base de données corrompue ou verrou bloqué
+
+```bash title="Bash — réparer le système APT"
+# Supprimer les verrous laissés par une opération interrompue
+rm /var/lib/apt/lists/lock
+rm /var/cache/apt/archives/lock
+rm /var/lib/dpkg/lock*
+
+# Reconfigurer les paquets en état inconsistant
+dpkg --configure -a
+
+# Résoudre les dépendances cassées
+apt install -f
+
+# Vérifier l'intégrité du système APT
+apt check
+
+# Mettre à jour l'index
+apt update
+```
+
+### Paquet semi-installé
+
+```bash title="Bash — résoudre un paquet en état inconsistant"
+# Identifier les paquets en état inconsistant
+dpkg --audit
+
+# Forcer la suppression d'un paquet bloqué
+dpkg --remove --force-remove-reinstreq paquet
+
+# Nettoyer
+apt install -f
+```
+
+### Erreurs courantes
+
+```bash title="Bash — résoudre les erreurs APT les plus fréquentes"
+# Erreur : "Could not get lock /var/lib/dpkg/lock"
+# Cause : une autre instance APT est en cours ou s'est interrompue
+ps aux | grep apt                  # Vérifier si un processus est en cours
+kill -9 <PID>                      # Tuer si bloqué
+rm /var/lib/apt/lists/lock         # Supprimer le verrou
+rm /var/lib/dpkg/lock*
+dpkg --configure -a
+
+# Erreur : "The following packages have been kept back"
+# Cause : apt upgrade refuse d'installer de nouvelles dépendances
+apt full-upgrade                   # Autoriser les installations supplémentaires
+
+# Erreur : "Unable to fetch some archives"
+# Cause : dépôt inaccessible ou miroir défaillant
+sed -i 's|deb.debian.org|ftp.fr.debian.org|g' /etc/apt/sources.list
+apt clean
+apt update
+```
+
+### Logs et diagnostic
+
+```bash title="Bash — consulter les logs APT et dpkg"
+# Historique des opérations APT
+cat /var/log/apt/history.log
+
+# Sortie complète des commandes
+cat /var/log/apt/term.log
+
+# Opérations bas niveau dpkg
+cat /var/log/dpkg.log
+
+# Dernières installations
+grep " install " /var/log/dpkg.log | tail -20
+
+# Dernières mises à jour
+grep " upgrade " /var/log/dpkg.log | tail -20
+
+# Mode debug pour diagnostiquer un problème de dépendances
+apt -o Debug::pkgProblemResolver=yes install paquet
+```
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Conclusion"
+    _APT représente plus de 25 ans d'évolution dans la gestion de paquets Linux. Ce qui commençait comme un outil pour automatiser l'installation de logiciels est devenu un écosystème complet gérant des dizaines de milliers de paquets avec une fiabilité éprouvée sur des millions de systèmes critiques. La force d'APT réside dans sa maturité — chaque comportement a été pensé, testé et raffiné au fil des années. La résolution de dépendances garantit la cohérence du système. Les mécanismes de signature GPG assurent la sécurité de la chaîne d'approvisionnement. Le système de dépôts multiples permet la flexibilité sans compromettre la stabilité. Debian et Ubuntu dominent les serveurs web, les clouds publics et constituent la base de distributions spécialisées comme Kali Linux. Maîtriser APT, c'est comprendre la fondation sur laquelle repose une part substantielle de l'infrastructure numérique mondiale. APT n'est pas le plus rapide — APK est plus léger — ni le plus moderne — dnf offre plus de fonctionnalités — mais il est le plus fiable et le plus documenté. En administration système professionnelle, cette fiabilité éprouvée est non négociable._
+
+<br />

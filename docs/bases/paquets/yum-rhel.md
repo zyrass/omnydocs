@@ -1,88 +1,100 @@
 ---
-description: "Maîtriser la gestion de paquets sur RHEL/CentOS 7 avec YUM (et comprendre son héritage sur DNF)"
+description: "Maîtriser la gestion de paquets sur RHEL/CentOS 7 avec YUM et comprendre son héritage sur DNF"
 icon: lucide/book-open-check
 tags: ["YUM", "RHEL", "CENTOS", "RPM", "PAQUETS", "LINUX", "SYSTÈME"]
 ---
 
 # YUM — Yellowdog Updater, Modified
 
-
 <div
   class="omny-meta"
-  data-level="🟡 Intermédiaire / 🔴 Avancé"
+  data-level="🟡 Intermédiaire & 🔴 Avancé"
   data-version="1.0"
   data-time="35-45 minutes">
 </div>
 
-## Introduction au Gestionnaire pour Redhat (YUM RHEL)
+!!! quote "Analogie"
+    _Un entrepôt logistique. Le format RPM est la caisse — le colis — et YUM est le chef d'orchestre qui choisit le bon colis, vérifie l'étiquette d'authenticité, calcule ce qu'il faut livrer en plus (dépendances) et planifie une livraison cohérente sans casser l'inventaire. Moins "bibliothèque" qu'APK ou APT : ici, on gère une supply chain très industrielle._
 
-!!! quote "Analogie pédagogique"
-    *Imaginez un **entrepôt logistique**. Le format **RPM** est la **caisse** (le colis), et **YUM** est le **chef d’orchestre** qui choisit le bon colis, vérifie l’étiquette d’authenticité, calcule ce qu’il faut livrer en plus (dépendances), et planifie une livraison cohérente sans casser l’inventaire. C’est moins “bibliothèque” qu’APK/APT : ici, on gère une **supply chain** très industrielle.*
+**YUM (Yellowdog Updater, Modified)** est historiquement le gestionnaire de paquets des distributions RPM-based côté Red Hat : **RHEL 5/6/7**, **CentOS 5/6/7** et leurs dérivées. YUM n'installe pas "magiquement" des logiciels — il orchestre l'installation de **paquets RPM** en s'appuyant sur des **métadonnées de dépôts**, des **signatures GPG** et un mécanisme de **transactions**.
 
-> **YUM (Yellowdog Updater, Modified)** est historiquement le gestionnaire de paquets des distributions **RPM-based** côté Red Hat : **RHEL 5/6/7**, **CentOS 5/6/7**, et diverses dérivées. YUM n’installe pas “magiquement” des logiciels : il orchestre l’installation de **paquets RPM**, en s’appuyant sur des **métadonnées de dépôts**, des **signatures GPG**, et un mécanisme de **transactions**.
+Point crucial et souvent mal compris : sur RHEL 8 et 9, la commande `yum` existe encore mais elle s'appuie sur la technologie **DNF** (YUM v4) pour assurer la compatibilité. En pratique, YUM "moderne" est un alias vers DNF sur ces versions. Ce document couvre YUM "classique" (RHEL/CentOS 7) parce que c'est l'ancêtre toujours d'actualité en environnement legacy, et parce que ses concepts constituent la base mentale indispensable pour aborder DNF.
 
-Point crucial (et souvent mal compris) : sur **RHEL 8/9**, la commande `yum` existe encore, mais elle s’appuie sur la technologie **DNF** (YUM v4) pour compatibilité. En pratique, YUM “moderne” est un alias/compatibilité vers DNF sur ces versions. ([Red Hat Docs][1])
-Ce chapitre commence donc par **YUM “classique”** (RHEL/CentOS 7) parce que c’est l’ancêtre “toujours d’actualité” en environnement legacy, et parce que ses concepts restent la base mentale utile pour DNF.
+!!! info "Pourquoi c'est important"
+    Comprendre YUM, c'est comprendre la logique RPM enterprise : dépôts, GPG, priorités, exclusions, historique, rollback partiel, packaging propre et gestion des incidents — conflits, dépendances cassées, caches corrompus. C'est exactement ce que l'on retrouve ensuite avec DNF, mais modernisé.
 
-!!! info "Pourquoi c'est important ?"
-    Comprendre YUM, c’est comprendre la logique RPM “enterprise” : dépôts, GPG, priorités, exclusions, historique, rollback partiel, packaging propre, et surtout la gestion des incidents (conflits, dépendances cassées, caches corrompus). C’est exactement ce que vous retrouvez ensuite avec DNF, mais modernisé.
-
----
-
-## Philosophie côté Red Hat : stabilité et traçabilité
-
-Sur RHEL/CentOS, la priorité n’est pas “la dernière version”, mais la **stabilité**, les **backports**, et la **traçabilité**. La conséquence directe : vous verrez souvent des versions “anciennes” mais patchées sécurité.
-
-YUM reflète cette philosophie : il préfère une résolution cohérente et reproductible plutôt qu’un comportement “best effort” qui peut surprendre en production.
+<br />
 
 ---
 
-## Architecture YUM (RHEL/CentOS 7)
+## Philosophie Red Hat — stabilité et traçabilité
+
+Sur RHEL et CentOS, la priorité n'est pas la dernière version logicielle, mais la **stabilité**, les **backports** et la **traçabilité**. La conséquence directe : on voit souvent des versions apparemment anciennes, mais qui reçoivent des patches de sécurité backportés depuis les versions amont.
+
+YUM reflète cette philosophie : il préfère une résolution cohérente et reproductible plutôt qu'un comportement "best effort" susceptible de surprendre en production. Cette approche est le premier point de différenciation avec Arch Linux ou même Ubuntu.
+
+<br />
+
+---
+
+## Architecture YUM
+
+!!! note "L'image ci-dessous représente la chaîne complète RPM orchestrée par YUM — de la configuration des dépôts jusqu'à l'écriture dans la base de données RPM. Comprendre ce flux permet de diagnostiquer précisément à quelle étape une erreur se produit."
+
+![Architecture YUM — flux de la commande yum jusqu'à l'installation RPM en passant par la vérification GPG](../../assets/images/paquets/yum-architecture-rpmchain.png)
+
+<p><em>YUM commence par lire sa configuration et les fichiers .repo, télécharge les métadonnées des dépôts activés, résout les dépendances via son solver, vérifie les signatures GPG de chaque paquet, télécharge les RPM dans le cache local et les installe dans la base de données RPM. Chaque opération est enregistrée dans l'historique transactionnel — ce qui rend possible le rollback.</em></p>
 
 ```mermaid
-graph TB
-    U[Commande yum] --> C["Configuration<br/>/etc/yum.conf + /etc/yum.repos.d/*.repo"]
-    U --> M["Métadonnées dépôts<br/>repodata/ (primary, filelists, other)"]
-    U --> R["Résolution dépendances<br/>via rpm + solver"]
-    R --> T["Transaction"]
-    T --> G["Vérification GPG<br/>RPM-GPG-KEY*"]
-    T --> D["Téléchargement packages<br/>/var/cache/yum/"]
-    T --> I["Installation RPM<br/>rpmdb /var/lib/rpm"]
-    T --> H["Historique<br/>yum history"]
-    
-    style C fill:#e3e3f3
-    style G fill:#f3e3e3
-    style I fill:#e3f3e3
-    style H fill:#e3f3e3
+flowchart TB
+    U["Commande yum"]
+
+    U -->|Configuration| C["/etc/yum.conf + /etc/yum.repos.d/*.repo"]
+    U -->|Métadonnées dépôts| M["repodata/ — primary, filelists, other"]
+    U -->|Résolution dépendances| R["via rpm + solver"]
+
+    R --> T[/"Transaction"/]
+
+    T -->|Vérification GPG| G["RPM-GPG-KEY*"]
+    T -->|Téléchargement paquets| D["/var/cache/yum/"]
+    T -->|Installation RPM| I["rpmdb /var/lib/rpm"]
+    T -->|Historique| H["yum history"]
 ```
 
-### Composants clés
+### Structure des fichiers système
 
-**Configuration globale :**
+```bash title="Bash — configuration YUM"
+# /etc/yum.conf                 # Options globales — plugins, cache, exclusions
+# /etc/yum.repos.d/*.repo       # Définition des dépôts (BaseOS, Updates, EPEL, vendor)
+```
 
-* `/etc/yum.conf` : options globales, plugins, cache, exclusions.
-* `/etc/yum.repos.d/*.repo` : dépôts (BaseOS, Updates, EPEL, vendor, etc.).
+```bash title="Bash — base de données et cache"
+# /var/lib/rpm/                 # Base de données des paquets installés
+#                               # Ne jamais modifier à la main
 
-**Base de données RPM :**
+# /var/cache/yum/               # Métadonnées + RPM téléchargés
+#                               # Cache utile pour la performance
+#                               # Cause classique de bugs si corrompu
 
-* `/var/lib/rpm/` : base de données des paquets installés (ne pas “bricoler” à la main).
+# /etc/pki/rpm-gpg/             # Clés GPG importées localement
+#                               # Ou spécifiées par gpgkey= dans les .repo
+```
 
-**Cache YUM :**
-
-* `/var/cache/yum/` : métadonnées + RPM téléchargés (utile pour perf, mais cause classique de bugs si corrompu).
-
-**Clés GPG :**
-
-* souvent importées depuis `/etc/pki/rpm-gpg/` ou URL `gpgkey=` dans les `.repo`.
+<br />
 
 ---
 
 ## Gestion des dépôts
 
-### Format d’un dépôt `.repo`
+!!! note "L'image ci-dessous illustre la structure d'un fichier .repo et la chaîne de confiance qu'il implique. En environnement enterprise, chaque dépôt activé est une surface d'attaque potentielle — comprendre les paramètres critiques d'un .repo est indispensable."
 
-```ini
-# /etc/yum.repos.d/epel.repo
+![Structure d'un fichier .repo YUM — paramètres enabled, gpgcheck, baseurl et chaîne de confiance](../../assets/images/paquets/yum-depots-repo-format.png)
+
+<p><em>Un fichier .repo définit l'identifiant du dépôt, son nom lisible, l'URL des paquets (baseurl) ou la liste de miroirs (mirrorlist), l'activation (enabled=1 ou 0), la vérification de signature GPG (gpgcheck=1 — ne jamais désactiver en production) et l'URL ou le chemin local de la clé GPG (gpgkey=). Chaque dépôt activé est une autorité de distribution — s'il est compromis, le parc l'est potentiellement aussi.</em></p>
+
+### Format d'un fichier .repo
+
+```ini title="INI — /etc/yum.repos.d/epel.repo — exemple EPEL 7"
 [epel]
 name=Extra Packages for Enterprise Linux 7 - $basearch
 baseurl=https://download.fedoraproject.org/pub/epel/7/$basearch/
@@ -91,23 +103,25 @@ gpgcheck=1
 gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
 ```
 
-Ce qui compte vraiment en production : `enabled`, `gpgcheck`, la cohérence `baseurl/mirrorlist`, et la gouvernance des dépôts tiers.
+Les paramètres critiques en production sont `enabled`, `gpgcheck`, la cohérence de `baseurl` ou `mirrorlist`, et la gouvernance des dépôts tiers.
 
-!!! danger "Dépôts tiers : risque supply-chain"
-Chaque dépôt supplémentaire est une **autorité de distribution**. S’il est compromis, votre parc l’est potentiellement aussi. Limitez, auditez, et préférez des dépôts reconnus.
+!!! danger "Dépôts tiers — risque supply chain"
+    Chaque dépôt supplémentaire est une autorité de distribution. S'il est compromis, l'ensemble du parc l'est potentiellement. En environnement enterprise, limiter le nombre de dépôts tiers, les auditer régulièrement et préférer des sources reconnues (EPEL, SCL, dépôts éditeurs officiels).
 
-### Lister et diagnostiquer les dépôts
+### Diagnostiquer les dépôts
 
-```bash
-# Lister tous les dépôts et leur statut
+```bash title="Bash — lister et inspecter les dépôts"
+# Lister tous les dépôts et leur statut (activé, désactivé)
 yum repolist all
 
-# Afficher le détail d’un dépôt
+# Afficher le détail d'un dépôt spécifique
 yum repoinfo epel
 
-# Voir quelles sources sont réellement utilisées
+# Voir les sources réellement utilisées avec leur priorité
 yum -v repolist
 ```
+
+<br />
 
 ---
 
@@ -115,146 +129,180 @@ yum -v repolist
 
 ### Mise à jour des métadonnées et du système
 
-```bash
-# Reconstruire/actualiser le cache metadata (recommandé)
+```bash title="Bash — mettre à jour les métadonnées et le système"
+# Reconstruire et actualiser le cache des métadonnées
 yum makecache
+
+# Vérifier ce qui serait mis à jour sans exécuter
+yum check-update
 
 # Mettre à jour tout le système
 yum update
 
 # Mettre à jour un paquet spécifique
 yum update openssl
-
-# Voir ce qui serait mis à jour (sans exécuter)
-yum check-update
 ```
 
-En production, la logique est : d’abord visibilité (`check-update`), ensuite exécution (`update`), et ensuite validation (services, kernel, reboot planifié).
+En production, la logique est systématiquement : visibilité d'abord (`check-update`), exécution ensuite (`update`), puis validation — services, kernel, redémarrage planifié.
 
-### Installer et supprimer
+### Installation et suppression
 
-```bash
-# Installer
+```bash title="Bash — installer et supprimer des paquets"
+# Installer un paquet
 yum install nginx
 
 # Installer plusieurs paquets
 yum install nginx curl ca-certificates
 
-# Désinstaller
+# Installer une version spécifique si disponible dans les dépôts
+yum install nginx-1.20.1-10.el7
+
+# Désinstaller un paquet
 yum remove nginx
 
-# Nettoyer les dépendances inutiles (selon cas, pas aussi “automatique” qu’APT)
+# Supprimer les dépendances devenues inutiles
 yum autoremove
 ```
 
 ### Recherche et inspection
 
-```bash
-# Recherche par nom/description
+```bash title="Bash — rechercher et inspecter des paquets"
+# Rechercher par nom ou description
 yum search nginx
 
-# Infos détaillées
+# Informations détaillées sur un paquet
 yum info nginx
 
-# Lister fichiers d’un paquet (installé ou dispo)
+# Trouver quel paquet fournit un fichier ou une commande
 yum provides /usr/sbin/nginx
 yum whatprovides /usr/sbin/nginx
 
-# Dépendances (vue “RPM”)
+# Afficher l'arbre de dépendances d'un paquet
 yum deplist nginx
+
+# Lister toutes les versions disponibles d'un paquet
+yum list nginx --showduplicates
 ```
 
-### Gestion des groupes (très utilisé côté RHEL)
+### Gestion des groupes
 
-```bash
-# Lister groupes
+Les groupes de paquets sont très utilisés en environnement RHEL — ils permettent d'installer des ensembles logiciels cohérents en une seule commande.
+
+```bash title="Bash — gérer les groupes de paquets"
+# Lister les groupes disponibles
 yum grouplist
 
-# Installer un groupe
-yum groupinstall "Development Tools"
-
-# Infos groupe
+# Informations sur un groupe
 yum groupinfo "Development Tools"
+
+# Installer un groupe complet
+yum groupinstall "Development Tools"
 ```
+
+<br />
 
 ---
 
-## Historique, traçabilité, rollback partiel
+## Historique, traçabilité et rollback
 
-YUM garde un historique transactionnel qui aide énormément en incident.
+!!! note "L'image ci-dessous représente le mécanisme de rollback transactionnel de YUM. C'est l'une des fonctionnalités qui distinguent YUM des autres gestionnaires de paquets — et l'une des plus utiles en contexte d'incident production."
 
-```bash
-# Historique
+![Historique transactionnel YUM — consultation des transactions passées et rollback vers un état antérieur](../../assets/images/paquets/yum-history-rollback.png)
+
+<p><em>YUM enregistre chaque transaction dans un historique numéroté — installation, mise à jour, suppression. La commande yum history affiche la liste chronologique. yum history info N détaille les paquets concernés par une transaction. yum history undo N tente d'annuler la transaction N. yum history rollback N tente de ramener le système à l'état qui précédait la transaction N. Ces commandes sont puissantes mais pas infaillibles — si les dépôts ont évolué ou si des versions ne sont plus disponibles, le rollback peut échouer.</em></p>
+
+```bash title="Bash — consulter et exploiter l'historique YUM"
+# Afficher l'historique des transactions
 yum history
 
-# Détail d’une transaction
+# Détail d'une transaction spécifique
 yum history info 42
 
 # Annuler une transaction (quand possible)
 yum history undo 42
 
-# Revenir à un état précédent (rollback)
+# Revenir à l'état précédant une transaction
 yum history rollback 40
 ```
 
-Attention : `undo/rollback` ne sont pas une “machine à remonter le temps” parfaite. Si des dépôts ont changé, si des versions ne sont plus disponibles, ou si des dépendances ont évolué, ça peut échouer. En entreprise, on combine souvent ça avec des miroirs internes et des politiques de versions.
+!!! warning "Limites du rollback YUM"
+    `undo` et `rollback` ne sont pas une machine à remonter le temps parfaite. Si les dépôts ont changé, si des versions ne sont plus disponibles ou si des dépendances ont évolué entre-temps, la commande peut échouer. En environnement enterprise, cette fonctionnalité s'appuie sur des miroirs internes et des politiques de versions strictes pour être pleinement exploitable.
+
+<br />
 
 ---
 
-## Sécurité : signatures GPG et intégrité
+## Sécurité — signatures GPG et intégrité
 
 ```mermaid
 sequenceDiagram
     participant Y as YUM
-    participant R as Repo
+    participant R as Dépôt
     participant K as Keyring
     participant P as RPM
 
-    Y->>R: Récupère metadata (repodata)
-    Y->>R: Télécharge paquet .rpm
-    Y->>K: Vérifie clé GPG du dépôt/paquet
-    K-->>Y: Clé OK
-    Y->>P: Vérifie signature + hash
-    P-->>Y: Intégrité OK
-    Y->>Y: Transaction install
+    Y->>R: Récupère les métadonnées (repodata)
+    Y->>R: Télécharge le paquet .rpm
+    Y->>K: Vérifie la clé GPG du dépôt
+    K-->>Y: Clé valide
+    Y->>P: Vérifie la signature et le hachage du paquet
+    P-->>Y: Intégrité confirmée
+    Y->>Y: Transaction d'installation
 ```
 
-Bon réflexe : ne jamais désactiver `gpgcheck` en prod “parce que ça marche pas”. Si ça casse, on corrige la gestion des clés, on n’éteint pas l’alarme.
+```bash title="Bash — gérer les clés GPG"
+# Importer une clé GPG manuellement
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+# Lister les clés importées
+rpm -qa gpg-pubkey*
+
+# Vérifier la signature d'un RPM local
+rpm --checksig paquet.rpm
+```
+
+!!! danger "Ne jamais désactiver gpgcheck en production"
+    Si la vérification GPG échoue, la cause est à diagnostiquer — clé manquante, clé expirée, dépôt mal configuré. Désactiver `gpgcheck` pour "faire fonctionner" l'installation revient à éteindre l'alarme incendie plutôt qu'à éteindre le feu. Corriger la gestion des clés, pas le mécanisme de vérification.
+
+<br />
 
 ---
 
-## Bonnes pratiques production (RHEL/CentOS 7)
+## Bonnes pratiques production
 
-### 1) Contrôle de version et gel applicatif
+### Contrôle des versions et gel applicatif
 
-Pour éviter des surprises, vous pouvez fixer une version (ou au minimum contrôler les mises à jour).
-
-```bash
-# Installer une version spécifique (si disponible dans les repos)
+```bash title="Bash — contrôler les versions et geler des paquets"
+# Installer une version spécifique si disponible dans les dépôts
 yum install nginx-1.20.1-10.el7
 
-# Exclure un paquet des updates (dans yum.conf)
+# Simuler une mise à jour sans l'appliquer
+yum update --assumeno
+
+# Exclure des paquets des mises à jour dans /etc/yum.conf
 # exclude=nginx* kernel*
 ```
 
-### 2) Approche “staging -> prod”
+### Stratégie staging vers production
 
-Même logique que votre monde DevSecOps : staging identique, rollout contrôlé, vérification, puis prod.
+La même logique que le DevSecOps s'applique à la gestion des paquets : un environnement de staging identique à la production, un rollout contrôlé, une vérification des services, puis la production. Ne jamais appliquer directement une mise à jour en production sans validation préalable.
 
-### 3) Dépôts internes / miroirs
+### Miroirs internes et reproductibilité
 
-Pour la reproductibilité, un miroir interne (ou un proxy cache) évite l’effet “le dépôt externe a changé”.
+Pour garantir la reproductibilité et l'indépendance vis-à-vis des dépôts externes, un miroir interne ou un proxy cache évite l'effet "le dépôt externe a changé entre la validation et le déploiement". C'est une pratique standard dans les environnements enterprise RHEL.
+
+<br />
 
 ---
 
-## Dépannage : les erreurs typiques et leur logique
+## Dépannage
 
-### Cache corrompu / metadata incohérente
+### Cache corrompu ou métadonnées incohérentes
 
-Symptômes : erreurs bizarres de résolution, paquets introuvables alors que le repo est OK.
+```bash title="Bash — nettoyer et reconstruire le cache"
+# Symptômes : erreurs de résolution, paquets introuvables alors que le dépôt est accessible
 
-```bash
-# Nettoyage “safe”
+# Nettoyage complet
 yum clean all
 rm -rf /var/cache/yum
 yum makecache
@@ -262,47 +310,54 @@ yum makecache
 
 ### Conflits de dépendances
 
-```bash
-# Simuler et comprendre avant d’exécuter
+```bash title="Bash — diagnostiquer les conflits de dépendances"
+# Simuler et analyser avant d'exécuter
 yum update --assumeno
 
-# Voir les versions candidates
+# Lister toutes les versions disponibles pour identifier les candidats
 yum list nginx --showduplicates
 ```
 
-### Verrouillage RPM DB / transactions interrompues
+### Base de données RPM corrompue
 
-YUM/RPM n’aiment pas les interruptions. En cas de crash, on diagnostique avant de supprimer des fichiers de lock au hasard.
-
-```bash
-# Vérifier cohérence RPM
+```bash title="Bash — réparer la base de données RPM"
+# Vérifier la cohérence des paquets installés
 rpm -Va
 
-# Reconstruire la base RPM si corruption avérée (cas avancé)
+# Reconstruire la base de données RPM si corruption avérée
 rpm --rebuilddb
 ```
 
----
+!!! warning "Verrous et transactions interrompues"
+    YUM et RPM ne tolèrent pas les interruptions en cours de transaction. En cas de crash, diagnostiquer avant de supprimer des fichiers de verrou arbitrairement. Utiliser `rpm -Va` pour évaluer l'état réel du système avant toute action corrective.
 
-## Comparaison rapide : YUM “classique” vs DNF (pour préparer la suite)
-
-| Axe              | YUM (RHEL/CentOS 7) | DNF (RHEL 8/9, Fedora)                             |
-| ---------------- | ------------------- | -------------------------------------------------- |
-| Génération       | Historique          | Successeur officiel                                |
-| Performances     | Correctes           | Meilleures (solver, metadata)                      |
-| API / modularité | Plugins historiques | libdnf, plugins modernisés                         |
-| Commande `yum`   | Native              | Alias/compatibilité (RHEL 8/9) ([Red Hat Docs][1]) |
+<br />
 
 ---
 
-## Le mot de la fin
+## Comparaison YUM vs DNF
 
-!!! quote
-    YUM est la “grammaire” historique des systèmes RPM en entreprise. Même si DNF est la réalité moderne, YUM reste incontournable dès qu’on touche des environnements legacy (et surtout, dès qu’on doit comprendre des procédures, des runbooks, et des habitudes d’équipes ops qui datent de RHEL 6/7).
+!!! note "L'image ci-dessous synthétise la transition entre YUM classique et DNF. Comprendre cette ligne de continuité évite la confusion fréquente entre les deux outils — et explique pourquoi les commandes YUM continuent de fonctionner sur RHEL 8 et 9."
 
-> Si vous maîtrisez réellement YUM, vous maîtrisez surtout : la chaîne de confiance (GPG), la gouvernance des dépôts, la logique de résolution, et les mécaniques de diagnostic. C’est exactement ce qui vous rend solide quand “ça casse” en prod, pas le fait de connaître trois commandes par cœur.
+![Transition YUM vers DNF — héritage des commandes, différences de performance et de modularité](../../assets/images/paquets/yum-vs-dnf-transition.png)
 
+<p><em>Sur RHEL 8 et 9, la commande yum est un alias vers dnf — les deux sont interchangeables en surface. Sous le capot, DNF apporte un solver de dépendances plus rapide (libdnf), une meilleure gestion des modules (application streams), une API de plugins modernisée et de meilleures performances sur les métadonnées. Les commandes fondamentales restent identiques — la migration depuis YUM classique ne nécessite pas de réapprentissage complet.</em></p>
 
-[^1]: Lien officiel : [Chapter 7. Software managementn](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/software-management_considerations-in-adopting-rhel-8?utm_source=chatgpt.com)
-[^2]: Lien officiel : [Changes/SwitchToDnf5 - Fedora Project Wiki](https://fedoraproject.org/wiki/Changes/SwitchToDnf5?utm_source=chatgpt.com)
-[^3]: Lien officiel : [9.0 Release Notes | Red Hat Enterprise Linux | 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/9.0_release_notes/index?utm_source=chatgpt.com)
+| Axe | YUM — RHEL/CentOS 7 | DNF — RHEL 8/9, Fedora |
+|---|---|---|
+| Génération | Historique | Successeur officiel |
+| Performances | Correctes | Meilleures — solver et métadonnées optimisés |
+| API et modularité | Plugins historiques | libdnf, plugins modernisés |
+| Commande `yum` | Native | Alias de compatibilité vers dnf |
+| Modules applicatifs | Non disponibles | Application Streams (RHEL 8+) |
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Conclusion"
+    _YUM est la grammaire historique des systèmes RPM en environnement enterprise. Même si DNF est la réalité moderne, YUM reste incontournable dès qu'on intervient sur des environnements legacy — et surtout, dès qu'on doit comprendre des procédures, des runbooks et des habitudes d'équipes ops qui datent de RHEL 6 et 7. Maîtriser YUM, c'est maîtriser la chaîne de confiance GPG, la gouvernance des dépôts, la logique de résolution de dépendances et les mécaniques de diagnostic. C'est exactement ce qui rend solide quand ça casse en production — pas le fait de connaître trois commandes par cœur._
+
+<br />

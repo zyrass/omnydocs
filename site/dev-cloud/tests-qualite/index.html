@@ -1,0 +1,4654 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guide exhaustif des frameworks de testing modernes : de PHPUnit à Vitest, maîtrisez le testing dans tous les langages">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/dev-cloud/tests-qualite/">
+      
+      
+        <link rel="prev" href="../data/graphql/">
+      
+      
+        <link rel="next" href="./tdd/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.23">
+    
+    
+      
+        <title>Tests & Qualité - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/classic/main.d9d44b50.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tests-qualite" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em
+        >Cette documentation est en pleine conception, c'est normal qu'elle soit
+        encors si faible au niveau du contenu</em
+    >
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../assets/logo-dark.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tests &amp; Qualité
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cyber/governance/" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cyber/operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cyber/tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../assets/logo-dark.png" alt="logo">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infra
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Développement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../lang/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Langages & standards
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Langages & standards
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../lang/html-css/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML + CSS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../lang/javascript/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../lang/python/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../lang/php/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../frameworks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frameworks & bibliothèques
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Frameworks & bibliothèques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../frameworks/laravel/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../frameworks/alpine/chapitre/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alpine.js
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../frameworks/livewire/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Livewire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../stacks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stacks
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stacks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../stacks/tall/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stack TALL
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base de données
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Base de données
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/sqlite/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SQLite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/sql/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    MariaDB & MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/postgresql/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/nosql/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/graphql/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="././" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tests & Qualité
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tests & Qualité
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./tdd/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    TDD vs BDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./pyramide-tests/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Pyramide des tests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./coverage/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="./sast/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sécurité & Qualité avancée
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="./phpunit/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outils de tests PHP
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="./vitest/vitest/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outils de tests Front & E2E
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../devsecops/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DevSecOps
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DevSecOps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../devsecops/cicd/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../devsecops/containers/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conteneurs &amp; Orchestration
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../devsecops/secrets/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../cyber/governance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : GRC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../cyber/operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opé. &amp; SOC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../cyber/tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../glossaire/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-le-testing-fondation-de-la-qualite-logicielle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction : Le Testing, Fondation de la Qualité Logicielle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction : Le Testing, Fondation de la Qualité Logicielle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-ce-guide-exhaustif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi ce guide exhaustif ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vue-densemble-ecosysteme-du-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'Ensemble : Écosystème du Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vue d&#x27;Ensemble : Écosystème du Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagramme-classification-des-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagramme : Classification des Frameworks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyramide-du-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pyramide du Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-du-guide-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Guide Complet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture du Guide Complet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tableau-recapitulatif-des-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau Récapitulatif des Guides
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guide-1-phpunit-le-standard-industriel-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guide 1 : PHPUnit - Le Standard Industriel PHP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide 1 : PHPUnit - Le Standard Industriel PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Présentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-du-guide-phpunit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Guide PHPUnit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guide-2-pest-le-testing-php-moderne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guide 2 : Pest - Le Testing PHP Moderne
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide 2 : Pest - Le Testing PHP Moderne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presentation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Présentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-du-guide-pest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Guide Pest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guide-3-pytest-le-testing-pythonic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guide 3 : Pytest - Le Testing Pythonic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide 3 : Pytest - Le Testing Pythonic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presentation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Présentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-du-guide-pytest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Guide Pytest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guide-4-go-testing-le-minimalisme-performant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guide 4 : Go Testing - Le Minimalisme Performant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide 4 : Go Testing - Le Minimalisme Performant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presentation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Présentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-du-guide-go-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Guide Go Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guide-5-jest-luniversel-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guide 5 : Jest - L'Universel JavaScript
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide 5 : Jest - L&#x27;Universel JavaScript">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presentation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Présentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-du-guide-jest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Guide Jest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guide-6-vitest-le-jest-moderne-pour-vite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guide 6 : Vitest - Le Jest Moderne pour Vite
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide 6 : Vitest - Le Jest Moderne pour Vite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presentation_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Présentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-du-guide-vitest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Guide Vitest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guide-7-jasmine-le-bdd-testing-historique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guide 7 : Jasmine - Le BDD Testing Historique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide 7 : Jasmine - Le BDD Testing Historique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presentation_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Présentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-du-guide-jasmine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Guide Jasmine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guide-8-cypress-le-testing-e2e-nouvelle-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guide 8 : Cypress - Le Testing E2E Nouvelle Génération
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide 8 : Cypress - Le Testing E2E Nouvelle Génération">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presentation_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Présentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-du-guide-cypress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Guide Cypress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrice-de-decision-quel-framework-choisir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matrice de Décision : Quel Framework Choisir ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Matrice de Décision : Quel Framework Choisir ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e2e-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E2E Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-comparatif-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau Comparatif Global
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcours-dapprentissage-recommandes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours d'Apprentissage Recommandés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parcours d&#x27;Apprentissage Recommandés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parcours-1-backend-php-laravel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours 1 : Backend PHP (Laravel)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parcours-2-full-stack-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours 2 : Full-Stack JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parcours-3-polyglotte-multi-langages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours 3 : Polyglotte (Multi-langages)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistiques-industrie-adoption-des-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistiques Industrie : Adoption des Frameworks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-mot-de-la-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Mot de la Fin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation-des-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigation des Guides
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Bienvenue
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Développement
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Tests & Qualité
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="tests-qualite">Tests &amp; Qualité<a class="headerlink" href="#tests-qualite" title="Permanent link">&para;</a></h1>
+<p><div
+  class="omny-meta"
+  data-level="🟢 Débutant à 🔴 Avancé"
+  data-version="1.0"
+  data-time="400-500 heures">
+</div>
+</p>
+<h2 id="introduction-le-testing-fondation-de-la-qualite-logicielle">Introduction : Le Testing, Fondation de la Qualité Logicielle<a class="headerlink" href="#introduction-le-testing-fondation-de-la-qualite-logicielle" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>Imaginez un chirurgien qui opère à cœur ouvert. Avant l'intervention, il vérifie <strong>chaque instrument</strong>, teste <strong>chaque machine</strong>, simule <strong>chaque geste critique</strong>. Il ne laisse RIEN au hasard, car une erreur peut être fatale. Le développement logiciel professionnel fonctionne exactement pareil : vous <strong>testez systématiquement</strong> votre code avant qu'il n'atteigne la production, vous <strong>détectez les régressions</strong> avant qu'elles ne cassent des fonctionnalités, vous <strong>documentez le comportement</strong> pour que tout le monde comprenne ce que fait votre application.</em></p>
+</div>
+<p><strong>Le testing n'est pas optionnel.</strong> C'est la <strong>différence fondamentale</strong> entre un développeur amateur et un développeur professionnel. Dans l'industrie, le code sans tests est considéré comme du <strong>code legacy dès sa création</strong>.</p>
+<h3 id="pourquoi-ce-guide-exhaustif">Pourquoi ce guide exhaustif ?<a class="headerlink" href="#pourquoi-ce-guide-exhaustif" title="Permanent link">&para;</a></h3>
+<p>Ce guide couvre <strong>8 frameworks de testing majeurs</strong> répartis sur <strong>3 écosystèmes</strong> :</p>
+<p><strong>Backend :</strong>
+- <strong>PHPUnit</strong> (PHP - standard industriel depuis 20 ans)
+- <strong>Pest</strong> (PHP - syntaxe moderne construite sur PHPUnit)
+- <strong>Pytest</strong> (Python - testing pythonic par excellence)
+- <strong>Go Testing</strong> (Go - minimalisme et performance)</p>
+<p><strong>Frontend :</strong>
+- <strong>Jest</strong> (JavaScript - testing React/Node.js universel)
+- <strong>Vitest</strong> (JavaScript - Jest moderne pour Vite/Vue)
+- <strong>Jasmine</strong> (JavaScript - BDD testing historique)</p>
+<p><strong>End-to-End (E2E) :</strong>
+- <strong>Cypress</strong> (JavaScript - tests navigateur nouvelle génération)</p>
+<p>Chaque framework est couvert <strong>en profondeur</strong> avec la même philosophie pédagogique que la formation Laravel : théorie solide, pratique intensive, projet fil rouge réel.</p>
+<hr />
+<h2 id="vue-densemble-ecosysteme-du-testing">Vue d'Ensemble : Écosystème du Testing<a class="headerlink" href="#vue-densemble-ecosysteme-du-testing" title="Permanent link">&para;</a></h2>
+<h3 id="diagramme-classification-des-frameworks">Diagramme : Classification des Frameworks<a class="headerlink" href="#diagramme-classification-des-frameworks" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TB
+    Testing[Frameworks de Testing]
+
+    Backend[Backend Testing]
+    Frontend[Frontend Testing]
+    E2E[End-to-End Testing]
+
+    Testing --&gt; Backend
+    Testing --&gt; Frontend
+    Testing --&gt; E2E
+
+    Backend --&gt; PHP[PHP]
+    Backend --&gt; Python[Python]
+    Backend --&gt; Go[Go]
+
+    Frontend --&gt; JS[JavaScript]
+
+    PHP --&gt; PHPUnit[PHPUnit&lt;br/&gt;Standard industriel]
+    PHP --&gt; Pest[Pest&lt;br/&gt;Moderne &amp; élégant]
+
+    Python --&gt; Pytest[Pytest&lt;br/&gt;Pythonic testing]
+
+    Go --&gt; GoTest[Go Testing&lt;br/&gt;Stdlib natif]
+
+    JS --&gt; Jest[Jest&lt;br/&gt;React/Node universel]
+    JS --&gt; Vitest[Vitest&lt;br/&gt;Vite/Vue moderne]
+    JS --&gt; Jasmine[Jasmine&lt;br/&gt;BDD historique]
+
+    E2E --&gt; Cypress[Cypress&lt;br/&gt;Tests navigateur]
+
+    style PHPUnit fill:#ffe1e1
+    style Pest fill:#e1f5e1
+    style Pytest fill:#fff4e1
+    style GoTest fill:#e1f0ff
+    style Jest fill:#fff4e1
+    style Vitest fill:#e1f5e1
+    style Jasmine fill:#f0e1ff
+    style Cypress fill:#ffe1e1</code></pre>
+<h3 id="pyramide-du-testing">Pyramide du Testing<a class="headerlink" href="#pyramide-du-testing" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TB
+    subgraph "Pyramide de Testing (distribution idéale)"
+        E2E[E2E Tests&lt;br/&gt;10%&lt;br/&gt;Lents, fragiles, coûteux]
+        Integration[Tests Intégration&lt;br/&gt;20%&lt;br/&gt;Composants ensemble]
+        Unit[Tests Unitaires&lt;br/&gt;70%&lt;br/&gt;Rapides, isolés, nombreux]
+    end
+
+    Unit --&gt; Integration
+    Integration --&gt; E2E
+
+    style Unit fill:#e1f5e1
+    style Integration fill:#fff4e1
+    style E2E fill:#ffe1e1</code></pre>
+<p><strong>Principe de la pyramide :</strong></p>
+<ul>
+<li><strong>70% Tests Unitaires</strong> : Fonctions isolées, rapides (millisecondes), nombreux</li>
+<li><strong>20% Tests Intégration</strong> : Composants ensemble, moyens (secondes), sélectifs</li>
+<li><strong>10% Tests E2E</strong> : Interface utilisateur complète, lents (minutes), critiques seulement</li>
+</ul>
+<p><strong>Anti-pattern : Cône de glace inversé</strong> (trop de tests E2E, pas assez d'unitaires) → application lente à tester, fragile, coûteuse à maintenir.</p>
+<hr />
+<h2 id="architecture-du-guide-complet">Architecture du Guide Complet<a class="headerlink" href="#architecture-du-guide-complet" title="Permanent link">&para;</a></h2>
+<p>Ce guide est organisé en <strong>8 sections principales</strong>, une par framework. Chaque section est un guide complet indépendant mais suit la même structure pédagogique.</p>
+<h3 id="tableau-recapitulatif-des-guides">Tableau Récapitulatif des Guides<a class="headerlink" href="#tableau-recapitulatif-des-guides" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Guide</th>
+<th>Langage</th>
+<th>Type</th>
+<th>Modules</th>
+<th>Durée</th>
+<th>Niveau</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PHPUnit</strong></td>
+<td>PHP</td>
+<td>Backend Unitaire</td>
+<td>8 modules</td>
+<td>60-80h</td>
+<td>🟢→🔴</td>
+<td>✅ Disponible</td>
+</tr>
+<tr>
+<td><strong>Pest</strong></td>
+<td>PHP</td>
+<td>Backend Unitaire</td>
+<td>7 modules</td>
+<td>50-70h</td>
+<td>🟢→🔴</td>
+<td>✅ Disponible</td>
+</tr>
+<tr>
+<td><strong>Pytest</strong></td>
+<td>Python</td>
+<td>Backend Unitaire</td>
+<td>7 modules</td>
+<td>50-60h</td>
+<td>🟢→🔴</td>
+<td>📋 Planifié</td>
+</tr>
+<tr>
+<td><strong>Go Testing</strong></td>
+<td>Go</td>
+<td>Backend Unitaire</td>
+<td>6 modules</td>
+<td>40-50h</td>
+<td>🟢→🔴</td>
+<td>📋 Planifié</td>
+</tr>
+<tr>
+<td><strong>Jest</strong></td>
+<td>JavaScript</td>
+<td>Frontend Unitaire</td>
+<td>8 modules</td>
+<td>60-70h</td>
+<td>🟢→🔴</td>
+<td>📋 Planifié</td>
+</tr>
+<tr>
+<td><strong>Vitest</strong></td>
+<td>JavaScript</td>
+<td>Frontend Unitaire</td>
+<td>6 modules</td>
+<td>45-55h</td>
+<td>🟡→🔴</td>
+<td>📋 Planifié</td>
+</tr>
+<tr>
+<td><strong>Jasmine</strong></td>
+<td>JavaScript</td>
+<td>Frontend BDD</td>
+<td>5 modules</td>
+<td>35-45h</td>
+<td>🟢→🟡</td>
+<td>📋 Planifié</td>
+</tr>
+<tr>
+<td><strong>Cypress</strong></td>
+<td>JavaScript</td>
+<td>E2E Navigateur</td>
+<td>7 modules</td>
+<td>50-60h</td>
+<td>🟡→🔴</td>
+<td>📋 Planifié</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total : ~400-500 heures</strong> de contenu pédagogique exhaustif sur le testing logiciel.</p>
+<hr />
+<h2 id="guide-1-phpunit-le-standard-industriel-php">Guide 1 : PHPUnit - Le Standard Industriel PHP<a class="headerlink" href="#guide-1-phpunit-le-standard-industriel-php" title="Permanent link">&para;</a></h2>
+<h3 id="presentation">Présentation<a class="headerlink" href="#presentation" title="Permanent link">&para;</a></h3>
+<p><strong>PHPUnit</strong> est le framework de testing PHP <strong>le plus utilisé au monde</strong> depuis 2004. C'est le <strong>standard industriel</strong> : Laravel, Symfony, WordPress, Magento, Drupal... tous l'utilisent. Maîtriser PHPUnit, c'est avoir la clé du testing professionnel PHP.</p>
+<p><strong>Philosophie :</strong> Testing orienté objet (classes de tests), assertions explicites, architecture basée sur xUnit (pattern JUnit).</p>
+<h3 id="architecture-du-guide-phpunit">Architecture du Guide PHPUnit<a class="headerlink" href="#architecture-du-guide-phpunit" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    M1[Module 1&lt;br/&gt;Fondations]
+    M2[Module 2&lt;br/&gt;Tests Unitaires]
+    M3[Module 3&lt;br/&gt;Tests Feature]
+    M4[Module 4&lt;br/&gt;Database Testing]
+    M5[Module 5&lt;br/&gt;Mocking &amp; Fakes]
+    M6[Module 6&lt;br/&gt;TDD]
+    M7[Module 7&lt;br/&gt;Intégration]
+    M8[Module 8&lt;br/&gt;CI/CD]
+
+    M1 --&gt; M2 --&gt; M3 --&gt; M4 --&gt; M5 --&gt; M6 --&gt; M7 --&gt; M8
+
+    style M1 fill:#e1f5e1
+    style M8 fill:#ffd700</code></pre>
+<p><strong>Points forts :</strong>
+- ✅ Standard universel (20 ans d'existence)
+- ✅ Documentation exhaustive
+- ✅ Intégration Laravel native
+- ✅ Écosystème mature (plugins, outils)</p>
+<p><strong>Points faibles :</strong>
+- ❌ Syntaxe verbeuse (classes, méthodes longues)
+- ❌ Courbe d'apprentissage moyenne
+- ❌ Moins expressif que les frameworks modernes</p>
+<p><strong>Cas d'usage idéaux :</strong>
+- Applications Laravel/Symfony
+- Projets PHP legacy
+- Équipes habituées au pattern xUnit
+- Besoin de stabilité long-terme</p>
+<p><a href="./phpunit/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span> Accéder au Guide PHPUnit Complet</a></p>
+<hr />
+<h2 id="guide-2-pest-le-testing-php-moderne">Guide 2 : Pest - Le Testing PHP Moderne<a class="headerlink" href="#guide-2-pest-le-testing-php-moderne" title="Permanent link">&para;</a></h2>
+<h3 id="presentation_1">Présentation<a class="headerlink" href="#presentation_1" title="Permanent link">&para;</a></h3>
+<p><strong>Pest</strong> est construit <strong>au-dessus de PHPUnit</strong> mais avec une syntaxe fonctionnelle moderne. C'est le framework de testing <strong>officiel de Laravel</strong> depuis 2024. Pest réduit le boilerplate de 40% tout en gardant 100% de compatibilité PHPUnit.</p>
+<p><strong>Philosophie :</strong> Syntaxe minimaliste, expressivité maximale, lisibilité naturelle (BDD-style).</p>
+<h3 id="architecture-du-guide-pest">Architecture du Guide Pest<a class="headerlink" href="#architecture-du-guide-pest" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    M1[Module 1&lt;br/&gt;Fondations]
+    M2[Module 2&lt;br/&gt;Expectations API]
+    M3[Module 3&lt;br/&gt;Feature Tests]
+    M4[Module 4&lt;br/&gt;Datasets]
+    M5[Module 5&lt;br/&gt;Plugins]
+    M6[Module 6&lt;br/&gt;TDD]
+    M7[Module 7&lt;br/&gt;Migration PHPUnit]
+
+    M1 --&gt; M2 --&gt; M3 --&gt; M4 --&gt; M5 --&gt; M6 --&gt; M7
+
+    style M1 fill:#e1f5e1
+    style M7 fill:#ffd700</code></pre>
+<p><strong>Comparaison syntaxique :</strong></p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">// PHPUnit (8 lignes)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="x">class UserTest extends TestCase</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="x">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="x">    public function test_user_can_login(): void</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="x">    {</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="x">        $user = User::factory()-&gt;create();</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="x">        $this-&gt;actingAs($user);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="x">        $this-&gt;assertAuthenticatedAs($user);</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="x">    }</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="x">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="x">// Pest (4 lignes)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="x">test(&#39;user can login&#39;, function () {</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="x">    $user = User::factory()-&gt;create();</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="x">    actingAs($user);</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="x">    expect(auth()-&gt;user())-&gt;toBe($user);</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="x">});</span>
+</span></code></pre></div>
+<p><strong>Points forts :</strong>
+- ✅ Syntaxe concise et élégante
+- ✅ Courbe d'apprentissage rapide
+- ✅ Plugins Laravel puissants
+- ✅ Parallel testing natif (4x plus rapide)</p>
+<p><strong>Points faibles :</strong>
+- ❌ Écosystème récent (2020)
+- ❌ Moins universel (Laravel-centric)
+- ❌ Documentation moins exhaustive que PHPUnit</p>
+<p><strong>Cas d'usage idéaux :</strong>
+- Nouveaux projets Laravel
+- Équipes aimant la syntaxe fonctionnelle
+- Besoin de tests lisibles/maintenables
+- Projets avec énormément de tests (vitesse importante)</p>
+<p><a href="./pest/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span> Accéder au Guide Pest Complet</a></p>
+<hr />
+<h2 id="guide-3-pytest-le-testing-pythonic">Guide 3 : Pytest - Le Testing Pythonic<a class="headerlink" href="#guide-3-pytest-le-testing-pythonic" title="Permanent link">&para;</a></h2>
+<h3 id="presentation_2">Présentation<a class="headerlink" href="#presentation_2" title="Permanent link">&para;</a></h3>
+<p><strong>Pytest</strong> est le framework de testing Python le plus populaire. Il suit la philosophie Python : "simple is better than complex". Pytest utilise les <code>assert</code> natifs Python (pas de méthodes custom), découvre automatiquement les tests, et propose des fixtures puissantes.</p>
+<p><strong>Philosophie :</strong> Pythonic (utilise les mécanismes Python natifs), simplicité maximale, fixtures pour réutilisabilité.</p>
+<h3 id="architecture-du-guide-pytest">Architecture du Guide Pytest<a class="headerlink" href="#architecture-du-guide-pytest" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    M1[Module 1&lt;br/&gt;Fondations]
+    M2[Module 2&lt;br/&gt;Fixtures]
+    M3[Module 3&lt;br/&gt;Parametrize]
+    M4[Module 4&lt;br/&gt;Django/Flask]
+    M5[Module 5&lt;br/&gt;Mocking]
+    M6[Module 6&lt;br/&gt;Plugins]
+    M7[Module 7&lt;br/&gt;TDD Python]
+
+    M1 --&gt; M2 --&gt; M3 --&gt; M4 --&gt; M5 --&gt; M6 --&gt; M7
+
+    style M1 fill:#e1f5e1
+    style M7 fill:#ffd700</code></pre>
+<p><strong>Exemple syntaxe Pytest :</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># test_calculator.py</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_add_positive_numbers</span><span class="p">():</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="c1"># Arrange</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">calculator</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="c1"># Act</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="c1"># Assert (Python natif !)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">8</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1"># Parametrize : tester N cas avec 1 test</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;a, b, expected&quot;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">),</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">])</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_add_various_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="n">calculator</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="k">assert</span> <span class="n">calculator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+</span></code></pre></div>
+<p><strong>Points forts :</strong>
+- ✅ Syntaxe ultra-simple (assert natif)
+- ✅ Fixtures puissantes (réutilisabilité)
+- ✅ Parametrize (tester N cas facilement)
+- ✅ Écosystème riche (pytest-django, pytest-asyncio, etc.)</p>
+<p><strong>Points faibles :</strong>
+- ❌ Magie implicite (découverte auto peut surprendre)
+- ❌ Courbe d'apprentissage fixtures avancées
+- ❌ Moins structuré que xUnit (pas de classes obligatoires)</p>
+<p><strong>Cas d'usage idéaux :</strong>
+- Applications Django, Flask, FastAPI
+- Scripts Python, data science
+- APIs backend Python
+- Équipes Python pures</p>
+<p><a href="./pytest/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span> Accéder au Guide Pytest Complet</a></p>
+<hr />
+<h2 id="guide-4-go-testing-le-minimalisme-performant">Guide 4 : Go Testing - Le Minimalisme Performant<a class="headerlink" href="#guide-4-go-testing-le-minimalisme-performant" title="Permanent link">&para;</a></h2>
+<h3 id="presentation_3">Présentation<a class="headerlink" href="#presentation_3" title="Permanent link">&para;</a></h3>
+<p><strong>Go Testing</strong> fait partie de la <strong>standard library Go</strong> (<code>testing</code> package). Pas de framework externe : tout est natif. C'est le minimalisme absolu : pas de magie, pas d'abstraction, juste des fonctions et des assertions simples.</p>
+<p><strong>Philosophie :</strong> "Less is more". Pas de dépendances externes, performance maximale, simplicité brutale.</p>
+<h3 id="architecture-du-guide-go-testing">Architecture du Guide Go Testing<a class="headerlink" href="#architecture-du-guide-go-testing" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    M1[Module 1&lt;br/&gt;Fondations]
+    M2[Module 2&lt;br/&gt;Table-Driven Tests]
+    M3[Module 3&lt;br/&gt;Benchmarks]
+    M4[Module 4&lt;br/&gt;Mocking Interfaces]
+    M5[Module 5&lt;br/&gt;HTTP Testing]
+    M6[Module 6&lt;br/&gt;CI/CD Go]
+
+    M1 --&gt; M2 --&gt; M3 --&gt; M4 --&gt; M5 --&gt; M6
+
+    style M1 fill:#e1f5e1
+    style M6 fill:#ffd700</code></pre>
+<p><strong>Exemple syntaxe Go Testing :</strong></p>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// calculator_test.go</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">package</span><span class="w"> </span><span class="nx">calculator</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;testing&quot;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kd">func</span><span class="w"> </span><span class="nx">TestAddPositiveNumbers</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="c1">// Arrange</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nx">calculator</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewCalculator</span><span class="p">()</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="c1">// Act</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">calculator</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="c1">// Assert (if manuel)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;Expected 8, got %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="c1">// Table-driven test (idiomatique Go)</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="kd">func</span><span class="w"> </span><span class="nx">TestAddVariousNumbers</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="nx">tests</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">        </span><span class="nx">name</span><span class="w">     </span><span class="kt">string</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w">     </span><span class="kt">int</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="nx">expected</span><span class="w"> </span><span class="kt">int</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="p">}{</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="p">{</span><span class="s">&quot;positive&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">},</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">        </span><span class="p">{</span><span class="s">&quot;negative&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">8</span><span class="p">},</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="p">{</span><span class="s">&quot;zero&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">tt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">tests</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="nx">tt</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">            </span><span class="nx">calculator</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewCalculator</span><span class="p">()</span>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">            </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">calculator</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">tt</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">tt</span><span class="p">.</span><span class="nx">b</span><span class="p">)</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">tt</span><span class="p">.</span><span class="nx">expected</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">                </span><span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;got %d, want %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">tt</span><span class="p">.</span><span class="nx">expected</span><span class="p">)</span>
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">        </span><span class="p">})</span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Points forts :</strong>
+- ✅ Zéro dépendance (stdlib)
+- ✅ Performance native (compilation Go)
+- ✅ Simplicité extrême
+- ✅ Benchmarks intégrés (profiling)</p>
+<p><strong>Points faibles :</strong>
+- ❌ Assertions manuelles (if/else verbeux)
+- ❌ Pas de fixtures avancées
+- ❌ Moins expressif que frameworks modernes</p>
+<p><strong>Cas d'usage idéaux :</strong>
+- Applications Go (APIs, microservices)
+- Systèmes nécessitant performance maximale
+- Équipes aimant le minimalisme
+- Projets sans tolérance pour dépendances externes</p>
+<p><a href="./go-testing/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span> Accéder au Guide Go Testing Complet</a></p>
+<hr />
+<h2 id="guide-5-jest-luniversel-javascript">Guide 5 : Jest - L'Universel JavaScript<a class="headerlink" href="#guide-5-jest-luniversel-javascript" title="Permanent link">&para;</a></h2>
+<h3 id="presentation_4">Présentation<a class="headerlink" href="#presentation_4" title="Permanent link">&para;</a></h3>
+<p><strong>Jest</strong> est le framework de testing JavaScript le plus populaire (créé par Facebook/Meta). Il teste <strong>tout</strong> : React, Vue, Node.js, TypeScript. Jest est "batteries included" : assertions, mocking, coverage, tout est intégré.</p>
+<p><strong>Philosophie :</strong> Zero-config testing, tout intégré, focus sur developer experience.</p>
+<h3 id="architecture-du-guide-jest">Architecture du Guide Jest<a class="headerlink" href="#architecture-du-guide-jest" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    M1[Module 1&lt;br/&gt;Fondations]
+    M2[Module 2&lt;br/&gt;Matchers]
+    M3[Module 3&lt;br/&gt;React Testing]
+    M4[Module 4&lt;br/&gt;Async Testing]
+    M5[Module 5&lt;br/&gt;Mocking]
+    M6[Module 6&lt;br/&gt;Snapshots]
+    M7[Module 7&lt;br/&gt;Coverage]
+    M8[Module 8&lt;br/&gt;CI/CD]
+
+    M1 --&gt; M2 --&gt; M3 --&gt; M4 --&gt; M5 --&gt; M6 --&gt; M7 --&gt; M8
+
+    style M1 fill:#e1f5e1
+    style M8 fill:#ffd700</code></pre>
+<p><strong>Exemple syntaxe Jest :</strong></p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// calculator.test.js</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Calculator&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;adds two positive numbers&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="c1">// Arrange</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">calculator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Calculator</span><span class="p">();</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="c1">// Act</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calculator</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="c1">// Assert</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mf">8</span><span class="p">);</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBeGreaterThan</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="c1">// Test async (Promises)</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;fetches user from API&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetchUser</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="nx">expect</span><span class="p">(</span><span class="nx">user</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="nx">expect</span><span class="p">(</span><span class="nx">user</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="c1">// Snapshot testing (UI)</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">    </span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;renders button correctly&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Button</span><span class="o">&gt;</span><span class="nx">Click</span><span class="w"> </span><span class="nx">me</span><span class="o">&lt;</span><span class="err">/Button&gt;);</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">        </span><span class="nx">expect</span><span class="p">(</span><span class="nx">button</span><span class="p">).</span><span class="nx">toMatchSnapshot</span><span class="p">();</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="p">});</span>
+</span></code></pre></div>
+<p><strong>Points forts :</strong>
+- ✅ Zero-config (fonctionne immédiatement)
+- ✅ Écosystème énorme (React Testing Library, etc.)
+- ✅ Watch mode intelligent (reruns sélectif)
+- ✅ Snapshot testing (UI regression)</p>
+<p><strong>Points faibles :</strong>
+- ❌ Plus lent que Vitest (pas de Vite)
+- ❌ Configuration complexe pour projets avancés
+- ❌ Bugs occasionnels avec ESM modules</p>
+<p><strong>Cas d'usage idéaux :</strong>
+- Applications React, React Native
+- Projets Node.js backend
+- Monorepos JavaScript/TypeScript
+- Besoin de snapshot testing</p>
+<p><a href="./jest/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span> Accéder au Guide Jest Complet</a></p>
+<hr />
+<h2 id="guide-6-vitest-le-jest-moderne-pour-vite">Guide 6 : Vitest - Le Jest Moderne pour Vite<a class="headerlink" href="#guide-6-vitest-le-jest-moderne-pour-vite" title="Permanent link">&para;</a></h2>
+<h3 id="presentation_5">Présentation<a class="headerlink" href="#presentation_5" title="Permanent link">&para;</a></h3>
+<p><strong>Vitest</strong> est le "Jest killer" : même API que Jest mais <strong>10x plus rapide</strong> grâce à Vite. Compatible Jest (migration facile), mais optimisé pour les projets modernes (Vue, React avec Vite).</p>
+<p><strong>Philosophie :</strong> Vitesse extrême via Vite, API compatible Jest, DX optimale.</p>
+<h3 id="architecture-du-guide-vitest">Architecture du Guide Vitest<a class="headerlink" href="#architecture-du-guide-vitest" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    M1[Module 1&lt;br/&gt;Fondations]
+    M2[Module 2&lt;br/&gt;Vue Testing]
+    M3[Module 3&lt;br/&gt;UI Mode]
+    M4[Module 4&lt;br/&gt;Vite Integration]
+    M5[Module 5&lt;br/&gt;Migration Jest]
+    M6[Module 6&lt;br/&gt;Benchmarking]
+
+    M1 --&gt; M2 --&gt; M3 --&gt; M4 --&gt; M5 --&gt; M6
+
+    style M1 fill:#e1f5e1
+    style M6 fill:#ffd700</code></pre>
+<p><strong>Comparaison vitesse Jest vs Vitest :</strong></p>
+<pre class="mermaid"><code>graph LR
+    subgraph "Temps d'exécution (100 tests)"
+        Jest[Jest: 5.2s]
+        Vitest[Vitest: 0.6s]
+    end
+
+    style Vitest fill:#e1f5e1
+    style Jest fill:#ffe1e1</code></pre>
+<p><strong>Exemple syntaxe Vitest (identique à Jest) :</strong></p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// calculator.test.js (API Jest-compatible)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">describe</span><span class="p">,</span><span class="w"> </span><span class="nx">test</span><span class="p">,</span><span class="w"> </span><span class="nx">expect</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vitest&#39;</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Calculator</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./calculator&#39;</span><span class="p">;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Calculator&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;adds two numbers&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">calculator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Calculator</span><span class="p">();</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calculator</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mf">8</span><span class="p">);</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">});</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1">// Nouveauté Vitest : bench (benchmarking)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">bench</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vitest&#39;</span><span class="p">;</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="nx">bench</span><span class="p">(</span><span class="s1">&#39;add numbers&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">calculator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Calculator</span><span class="p">();</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="nx">calculator</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="p">});</span>
+</span></code></pre></div>
+<p><strong>Points forts :</strong>
+- ✅ 10x plus rapide que Jest (HMR Vite)
+- ✅ API compatible Jest (migration facile)
+- ✅ UI mode (interface graphique tests)
+- ✅ ESM natif (pas de transpilation)</p>
+<p><strong>Points faibles :</strong>
+- ❌ Écosystème récent (2021)
+- ❌ Moins de plugins que Jest
+- ❌ Documentation moins exhaustive</p>
+<p><strong>Cas d'usage idéaux :</strong>
+- Projets Vue 3, Nuxt 3
+- React avec Vite
+- Monorepos modernes
+- Besoin de vitesse d'exécution maximale</p>
+<p><a href="./vitest/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span> Accéder au Guide Vitest Complet</a></p>
+<hr />
+<h2 id="guide-7-jasmine-le-bdd-testing-historique">Guide 7 : Jasmine - Le BDD Testing Historique<a class="headerlink" href="#guide-7-jasmine-le-bdd-testing-historique" title="Permanent link">&para;</a></h2>
+<h3 id="presentation_6">Présentation<a class="headerlink" href="#presentation_6" title="Permanent link">&para;</a></h3>
+<p><strong>Jasmine</strong> est un framework de testing JavaScript historique (2008) qui a introduit la syntaxe BDD (<code>describe</code>, <code>it</code>) maintenant universelle. Plus maintenu activement mais toujours utilisé dans des projets legacy et Angular.</p>
+<p><strong>Philosophie :</strong> Behavior-Driven Development (BDD), syntaxe expressive, pas de dépendances.</p>
+<h3 id="architecture-du-guide-jasmine">Architecture du Guide Jasmine<a class="headerlink" href="#architecture-du-guide-jasmine" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    M1[Module 1&lt;br/&gt;Fondations BDD]
+    M2[Module 2&lt;br/&gt;Matchers]
+    M3[Module 3&lt;br/&gt;Spies]
+    M4[Module 4&lt;br/&gt;Angular Testing]
+    M5[Module 5&lt;br/&gt;Migration Jest]
+
+    M1 --&gt; M2 --&gt; M3 --&gt; M4 --&gt; M5
+
+    style M1 fill:#e1f5e1
+    style M5 fill:#ffd700</code></pre>
+<p><strong>Exemple syntaxe Jasmine :</strong></p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// calculator.spec.js</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Calculator&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">calculator</span><span class="p">;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nx">beforeEach</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="nx">calculator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Calculator</span><span class="p">();</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should add two positive numbers&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calculator</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mf">8</span><span class="p">);</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should handle negative numbers&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calculator</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="o">-</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">3</span><span class="p">);</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="o">-</span><span class="mf">8</span><span class="p">);</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="p">});</span>
+</span></code></pre></div>
+<p><strong>Points forts :</strong>
+- ✅ Syntaxe BDD élégante (a inspiré Jest/Mocha)
+- ✅ Zéro dépendance (standalone)
+- ✅ Intégration Angular native</p>
+<p><strong>Points faibles :</strong>
+- ❌ Moins maintenu (communauté réduite)
+- ❌ Moins de fonctionnalités que Jest/Vitest
+- ❌ Pas de snapshot testing natif</p>
+<p><strong>Cas d'usage idéaux :</strong>
+- Projets Angular legacy
+- Migration progressive vers Jest
+- Équipes habituées à la syntaxe BDD pure</p>
+<p><a href="./jasmine/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span> Accéder au Guide Jasmine Complet</a></p>
+<hr />
+<h2 id="guide-8-cypress-le-testing-e2e-nouvelle-generation">Guide 8 : Cypress - Le Testing E2E Nouvelle Génération<a class="headerlink" href="#guide-8-cypress-le-testing-e2e-nouvelle-generation" title="Permanent link">&para;</a></h2>
+<h3 id="presentation_7">Présentation<a class="headerlink" href="#presentation_7" title="Permanent link">&para;</a></h3>
+<p><strong>Cypress</strong> révolutionne le testing End-to-End. Contrairement à Selenium (ancien standard), Cypress s'exécute <strong>dans le navigateur</strong> (pas à distance), avec time-travel debugging et DX exceptionnelle.</p>
+<p><strong>Philosophie :</strong> Tests E2E fiables, debugging visuel, developer experience optimale.</p>
+<h3 id="architecture-du-guide-cypress">Architecture du Guide Cypress<a class="headerlink" href="#architecture-du-guide-cypress" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    M1[Module 1&lt;br/&gt;Fondations E2E]
+    M2[Module 2&lt;br/&gt;Selectors]
+    M3[Module 3&lt;br/&gt;Assertions]
+    M4[Module 4&lt;br/&gt;API Testing]
+    M5[Module 5&lt;br/&gt;CI/CD]
+    M6[Module 6&lt;br/&gt;Component Testing]
+    M7[Module 7&lt;br/&gt;Visual Regression]
+
+    M1 --&gt; M2 --&gt; M3 --&gt; M4 --&gt; M5 --&gt; M6 --&gt; M7
+
+    style M1 fill:#e1f5e1
+    style M7 fill:#ffd700</code></pre>
+<p><strong>Exemple syntaxe Cypress :</strong></p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// login.cy.js</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;User Login&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nx">beforeEach</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;http://localhost:8000/login&#39;</span><span class="p">);</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should login with valid credentials&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="c1">// Interact with page</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-test=&quot;email&quot;]&#39;</span><span class="p">).</span><span class="nx">type</span><span class="p">(</span><span class="s1">&#39;alice@example.com&#39;</span><span class="p">);</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-test=&quot;password&quot;]&#39;</span><span class="p">).</span><span class="nx">type</span><span class="p">(</span><span class="s1">&#39;password123&#39;</span><span class="p">);</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-test=&quot;submit&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="c1">// Assert navigation</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">url</span><span class="p">().</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;include&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/dashboard&#39;</span><span class="p">);</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">&#39;Welcome, Alice&#39;</span><span class="p">);</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should show error with invalid credentials&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-test=&quot;email&quot;]&#39;</span><span class="p">).</span><span class="nx">type</span><span class="p">(</span><span class="s1">&#39;wrong@example.com&#39;</span><span class="p">);</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-test=&quot;password&quot;]&#39;</span><span class="p">).</span><span class="nx">type</span><span class="p">(</span><span class="s1">&#39;wrongpass&#39;</span><span class="p">);</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-test=&quot;submit&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">&#39;Invalid credentials&#39;</span><span class="p">);</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="p">});</span>
+</span></code></pre></div>
+<p><strong>Points forts :</strong>
+- ✅ Time-travel debugging (vidéo chaque étape)
+- ✅ Attente automatique (pas de <code>sleep()</code> manuels)
+- ✅ Screenshots/vidéos automatiques sur échec
+- ✅ API Testing intégré (pas que UI)</p>
+<p><strong>Points faibles :</strong>
+- ❌ Coûteux (cloud payant pour parallélisation)
+- ❌ Limité à Chromium-based browsers (Edge, Chrome)
+- ❌ Tests plus lents que tests unitaires</p>
+<p><strong>Cas d'usage idéaux :</strong>
+- Tests critiques UI (login, checkout, etc.)
+- Smoke tests production
+- Tests de régression visuels
+- Applications web modernes (React, Vue, Angular)</p>
+<p><a href="./cypress/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span> Accéder au Guide Cypress Complet</a></p>
+<hr />
+<h2 id="matrice-de-decision-quel-framework-choisir">Matrice de Décision : Quel Framework Choisir ?<a class="headerlink" href="#matrice-de-decision-quel-framework-choisir" title="Permanent link">&para;</a></h2>
+<h3 id="backend-testing">Backend Testing<a class="headerlink" href="#backend-testing" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TB
+    Start{Langage backend ?}
+
+    PHP{Framework PHP ?}
+    Python{Framework Python ?}
+    Go[Go]
+
+    Start --&gt; PHP
+    Start --&gt; Python
+    Start --&gt; Go
+
+    PHP --&gt;|Laravel/Symfony| Laravel{Préférence syntaxe ?}
+    PHP --&gt;|Autre| PHPUnit[PHPUnit]
+
+    Laravel --&gt;|Verbeux OK| PHPUnit
+    Laravel --&gt;|Concis| Pest[Pest]
+
+    Python --&gt; Pytest[Pytest]
+
+    Go --&gt; GoTest[Go Testing]
+
+    style Pest fill:#e1f5e1
+    style Pytest fill:#e1f5e1
+    style GoTest fill:#e1f0ff
+    style PHPUnit fill:#fff4e1</code></pre>
+<h3 id="frontend-testing">Frontend Testing<a class="headerlink" href="#frontend-testing" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TB
+    Start{Type de projet ?}
+
+    React{Bundler ?}
+    Vue{Bundler ?}
+    Angular[Angular]
+
+    Start --&gt; React
+    Start --&gt; Vue
+    Start --&gt; Angular
+
+    React --&gt;|Webpack/CRA| Jest[Jest]
+    React --&gt;|Vite| Vitest[Vitest]
+
+    Vue --&gt;|Webpack| Jest
+    Vue --&gt;|Vite| Vitest
+
+    Angular --&gt; Jasmine[Jasmine]
+
+    style Vitest fill:#e1f5e1
+    style Jest fill:#fff4e1
+    style Jasmine fill:#f0e1ff</code></pre>
+<h3 id="e2e-testing">E2E Testing<a class="headerlink" href="#e2e-testing" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TB
+    Start{Besoin E2E ?}
+
+    Yes{Budget ?}
+    No[Seulement unitaires]
+
+    Start --&gt;|Oui| Yes
+    Start --&gt;|Non| No
+
+    Yes --&gt;|Cloud OK| Cypress[Cypress&lt;br/&gt;+Cloud parallèle]
+    Yes --&gt;|Self-hosted| CypressLocal[Cypress&lt;br/&gt;Local uniquement]
+
+    style Cypress fill:#e1f5e1
+    style CypressLocal fill:#fff4e1</code></pre>
+<hr />
+<h2 id="tableau-comparatif-global">Tableau Comparatif Global<a class="headerlink" href="#tableau-comparatif-global" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Langage</th>
+<th>Type</th>
+<th>Syntaxe</th>
+<th>Courbe</th>
+<th>Vitesse</th>
+<th>Écosystème</th>
+<th>Recommandation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PHPUnit</strong></td>
+<td>PHP</td>
+<td>Unitaire</td>
+<td>Classes</td>
+<td>Moyenne</td>
+<td>Moyenne</td>
+<td>Mature</td>
+<td>Legacy/Standard</td>
+</tr>
+<tr>
+<td><strong>Pest</strong></td>
+<td>PHP</td>
+<td>Unitaire</td>
+<td>Fonctionnel</td>
+<td>Facile</td>
+<td>Rapide</td>
+<td>Récent</td>
+<td>Nouveaux projets</td>
+</tr>
+<tr>
+<td><strong>Pytest</strong></td>
+<td>Python</td>
+<td>Unitaire</td>
+<td>Pythonic</td>
+<td>Facile</td>
+<td>Rapide</td>
+<td>Mature</td>
+<td>Python universel</td>
+</tr>
+<tr>
+<td><strong>Go Testing</strong></td>
+<td>Go</td>
+<td>Unitaire</td>
+<td>Minimaliste</td>
+<td>Moyenne</td>
+<td>Très rapide</td>
+<td>Stdlib</td>
+<td>Go natif</td>
+</tr>
+<tr>
+<td><strong>Jest</strong></td>
+<td>JavaScript</td>
+<td>Unitaire</td>
+<td>BDD</td>
+<td>Facile</td>
+<td>Moyenne</td>
+<td>Énorme</td>
+<td>React/Node</td>
+</tr>
+<tr>
+<td><strong>Vitest</strong></td>
+<td>JavaScript</td>
+<td>Unitaire</td>
+<td>BDD</td>
+<td>Facile</td>
+<td>Très rapide</td>
+<td>Récent</td>
+<td>Vite projects</td>
+</tr>
+<tr>
+<td><strong>Jasmine</strong></td>
+<td>JavaScript</td>
+<td>Unitaire</td>
+<td>BDD</td>
+<td>Facile</td>
+<td>Moyenne</td>
+<td>Mature</td>
+<td>Angular legacy</td>
+</tr>
+<tr>
+<td><strong>Cypress</strong></td>
+<td>JavaScript</td>
+<td>E2E</td>
+<td>Impératif</td>
+<td>Moyenne</td>
+<td>Lent</td>
+<td>Mature</td>
+<td>Tests critiques UI</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="parcours-dapprentissage-recommandes">Parcours d'Apprentissage Recommandés<a class="headerlink" href="#parcours-dapprentissage-recommandes" title="Permanent link">&para;</a></h2>
+<h3 id="parcours-1-backend-php-laravel">Parcours 1 : Backend PHP (Laravel)<a class="headerlink" href="#parcours-1-backend-php-laravel" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>gantt
+    title Backend PHP Testing Mastery
+    dateFormat YYYY-MM
+    section Formation
+    Guide PHPUnit        :php, 2025-01, 2M
+    Guide Pest          :pest, 2025-03, 1.5M
+    section Pratique
+    Projets perso testés :2025-05, 1M</code></pre>
+<p><strong>Durée totale :</strong> 4-5 mois<br />
+<strong>Compétences :</strong> Testing PHP professionnel, TDD, CI/CD</p>
+<h3 id="parcours-2-full-stack-javascript">Parcours 2 : Full-Stack JavaScript<a class="headerlink" href="#parcours-2-full-stack-javascript" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>gantt
+    title Full-Stack JS Testing Mastery
+    dateFormat YYYY-MM
+    section Frontend
+    Guide Jest          :jest, 2025-01, 2M
+    Guide Vitest        :vitest, 2025-03, 1.5M
+    section E2E
+    Guide Cypress       :cypress, 2025-05, 1.5M
+    section Pratique
+    App complète testée :2025-07, 1M</code></pre>
+<p><strong>Durée totale :</strong> 6-7 mois<br />
+<strong>Compétences :</strong> Testing frontend complet, E2E, visual regression</p>
+<h3 id="parcours-3-polyglotte-multi-langages">Parcours 3 : Polyglotte (Multi-langages)<a class="headerlink" href="#parcours-3-polyglotte-multi-langages" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>gantt
+    title Polyglot Testing Expert
+    dateFormat YYYY-MM
+    section PHP
+    Guide Pest          :pest, 2025-01, 1.5M
+    section Python
+    Guide Pytest        :pytest, 2025-03, 1.5M
+    section Go
+    Guide Go Testing    :go, 2025-05, 1M
+    section JavaScript
+    Guide Vitest        :vitest, 2025-06, 1.5M
+    section E2E
+    Guide Cypress       :cypress, 2025-08, 1.5M</code></pre>
+<p><strong>Durée totale :</strong> 8-9 mois<br />
+<strong>Compétences :</strong> Testing expert tous langages, architecte qualité</p>
+<hr />
+<h2 id="statistiques-industrie-adoption-des-frameworks">Statistiques Industrie : Adoption des Frameworks<a class="headerlink" href="#statistiques-industrie-adoption-des-frameworks" title="Permanent link">&para;</a></h2>
+<p><strong>Données 2024 (Stack Overflow Developer Survey) :</strong></p>
+<pre class="mermaid"><code>pie title Adoption Testing Frameworks JavaScript
+    "Jest" : 42
+    "Vitest" : 18
+    "Mocha" : 15
+    "Jasmine" : 12
+    "Autres" : 13</code></pre>
+<pre class="mermaid"><code>pie title Adoption Testing Frameworks PHP
+    "PHPUnit" : 78
+    "Pest" : 15
+    "Codeception" : 5
+    "Autres" : 2</code></pre>
+<p><strong>Tendances 2024-2025 :</strong></p>
+<ul>
+<li>📈 <strong>Pest</strong> : +300% croissance (Laravel adoption)</li>
+<li>📈 <strong>Vitest</strong> : +400% croissance (Vite momentum)</li>
+<li>📉 <strong>Jasmine</strong> : -20% déclin (migration Jest)</li>
+<li>➡️ <strong>PHPUnit</strong> : Stable (standard établi)</li>
+<li>📈 <strong>Cypress</strong> : +50% (E2E awareness)</li>
+</ul>
+<hr />
+<h2 id="le-mot-de-la-fin">Le Mot de la Fin<a class="headerlink" href="#le-mot-de-la-fin" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Philosophie finale</p>
+<p>Le testing n'est pas une <strong>perte de temps</strong> : c'est un <strong>investissement</strong>. Chaque test écrit aujourd'hui vous fait gagner des heures de debugging demain. Chaque régression détectée avant production est une catastrophe évitée.</p>
+<p><strong>Les développeurs juniors écrivent du code.</strong><br />
+<strong>Les développeurs seniors écrivent du code testé.</strong><br />
+<strong>Les développeurs experts conçoivent du code testable.</strong></p>
+<p>Ce guide exhaustif de 400-500 heures n'est pas "long" : c'est <strong>complet</strong>. À la fin, vous ne serez pas "quelqu'un qui a fait un tutoriel testing" : vous serez <strong>un expert qualité logicielle multi-langages</strong>, capable de choisir le bon outil selon le contexte, d'architecturer des applications testables, et de mettre en place des pipelines CI/CD robustes.</p>
+</div>
+<p><strong>Prêt à commencer ?</strong> Choisissez votre premier guide selon votre stack technique.</p>
+<hr />
+<h2 id="navigation-des-guides">Navigation des Guides<a class="headerlink" href="#navigation-des-guides" title="Permanent link">&para;</a></h2>
+<p><strong>Guides Backend :</strong></p>
+<ol>
+<li><a href="./phpunit/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-test-tube" viewBox="0 0 24 24"><path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5V2M8.5 2h7M14.5 16h-5"/></svg></span> PHPUnit - Standard PHP</a> — 60-80h, 8 modules</li>
+<li><a href="./pest/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-bug" viewBox="0 0 24 24"><path d="M12 20v-9M14 7a4 4 0 0 1 4 4v3a6 6 0 0 1-12 0v-3a4 4 0 0 1 4-4zM14.12 3.88 16 2"/><path d="M21 21a4 4 0 0 0-3.81-4M21 5a4 4 0 0 1-3.55 3.97M22 13h-4M3 21a4 4 0 0 1 3.81-4M3 5a4 4 0 0 0 3.55 3.97M6 13H2M8 2l1.88 1.88M9 7.13V6a3 3 0 1 1 6 0v1.13"/></svg></span> Pest - PHP Moderne</a> — 50-70h, 7 modules</li>
+<li><a href="./pytest/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-flask-conical" viewBox="0 0 24 24"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2M6.453 15h11.094M8.5 2h7"/></svg></span> Pytest - Python</a> — 50-60h, 7 modules</li>
+<li><a href="./go-testing/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></span> Go Testing - Go Natif</a> — 40-50h, 6 modules</li>
+</ol>
+<p><strong>Guides Frontend :</strong></p>
+<ol>
+<li><a href="./jest/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-coffee" viewBox="0 0 24 24"><path d="M10 2v2M14 2v2M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1M6 2v2"/></svg></span> Jest - JavaScript Universel</a> — 60-70h, 8 modules</li>
+<li><a href="./vitest/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span> Vitest - Vite Moderne</a> — 45-55h, 6 modules</li>
+<li><a href="./jasmine/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5M12 7.5V9M7.5 12H9M16.5 12H15M12 16.5V15M8 8l1.88 1.88M14.12 9.88 16 8M8 16l1.88-1.88M14.12 14.12 16 16"/></svg></span> Jasmine - BDD Historique</a> — 35-45h, 5 modules</li>
+</ol>
+<p><strong>Guide E2E :</strong></p>
+<ol>
+<li><a href="./cypress/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-mouse-pointer-click" viewBox="0 0 24 24"><path d="M14 4.1 12 6M5.1 8l-2.9-.8M6 12l-1.9 2M7.2 2.2 8 5.1M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></svg></span> Cypress - E2E Navigateur</a> — 50-60h, 7 modules</li>
+</ol>
+<hr />
+<p><strong>Formation Testing Complète</strong></p>
+<p><strong>400-500 heures | 8 frameworks | 3 écosystèmes</strong></p>
+<p><strong>Du débutant à l'expert qualité logicielle multi-langages</strong>
+```</p>
+<hr />
+<h1 id="index-general-termine">✅ Index Général Terminé<a class="headerlink" href="#index-general-termine" title="Permanent link">&para;</a></h1>
+<p>Voilà l'index complet qui présente les <strong>8 frameworks de testing</strong> avec :</p>
+<ul>
+<li><strong>Vue d'ensemble</strong> de l'écosystème testing</li>
+<li><strong>Présentation détaillée</strong> de chaque framework (philosophie, syntaxe, points forts/faibles)</li>
+<li><strong>Diagrammes Mermaid</strong> (classification, pyramide testing, comparaisons)</li>
+<li><strong>Matrices de décision</strong> (quel framework choisir selon contexte)</li>
+<li><strong>Tableau comparatif global</strong> des 8 frameworks</li>
+<li><strong>Parcours d'apprentissage</strong> recommandés</li>
+<li><strong>Statistiques industrie</strong> (adoption, tendances)</li>
+</ul>
+<p><strong>Caractéristiques :</strong>
+- ✅ Même philosophie pédagogique que la formation Laravel
+- ✅ 15+ diagrammes Mermaid explicatifs
+- ✅ Exemples de code pour chaque framework
+- ✅ Tableaux comparatifs exhaustifs
+- ✅ Recommandations concrètes selon use cases</p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">TESTING</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PHPUNIT</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PEST</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PYTEST</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">JEST</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VITEST</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CYPRESS</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">QUALITY</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../data/graphql/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: GraphQL">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                GraphQL
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="./tdd/" class="md-footer__link md-footer__link--next" aria-label="Suivant: TDD vs BDD">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                TDD vs BDD
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5fcf0de6.min.js"></script>
+      
+        <script src="../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

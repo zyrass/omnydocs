@@ -36,7 +36,7 @@ Microsoft a développé deux versions de WSL avec des architectures radicalement
 
 !!! note "L'image ci-dessous compare les deux architectures côte à côte. Comprendre la différence entre traduction d'appels système et kernel réel explique pourquoi WSL2 est le standard — et dans quels rares cas WSL1 reste pertinent."
 
-![Comparaison architecturale WSL1 émulation API versus WSL2 kernel Linux natif](../../assets/images/outils/wsl-architecture-comparaison.png)
+![Comparaison architecturale WSL1 émulation API versus WSL2 kernel Linux natif](../../../assets/images/outils/wsl-architecture-comparaison.png)
 
 <p><em>WSL1 traduit les appels système Linux en appels Windows — démarrage instantané, faible consommation mémoire, mais compatibilité partielle. WSL2 exécute un vrai kernel Linux dans une VM Hyper-V allégée — compatibilité totale, performances I/O natives dans le système Linux, mais accès cross-filesystem plus lent.</em></p>
 
@@ -362,7 +362,7 @@ systemctl status
 
 !!! note "L'image ci-dessous illustre les deux zones du système de fichiers WSL et leurs performances respectives. C'est la règle la plus importante à retenir pour éviter des ralentissements sur un projet actif."
 
-![Zones du système de fichiers WSL — ext4 natif rapide versus Windows monté via 9P lent](../../assets/images/outils/wsl-filesystem-zones.png)
+![Zones du système de fichiers WSL — ext4 natif rapide versus Windows monté via 9P lent](../../../assets/images/outils/wsl-filesystem-zones.png)
 
 <p><em>Le système de fichiers Linux (ext4) est accédé nativement — compilations, installations npm, opérations git y sont rapides. Les lecteurs Windows montés via /mnt/ passent par le protocole 9P — un projet Node.js dans /mnt/c/ peut être 5 à 10 fois plus lent qu'en /home/. Stocker les projets actifs dans le système Linux est non négociable.</em></p>
 
@@ -563,7 +563,7 @@ sudo openconnect vpn.entreprise.com
 
 !!! note "L'image ci-dessous représente les quatre axes d'interopérabilité WSL. Cette intégration bidirectionnelle est la principale différence avec une machine virtuelle classique — les deux systèmes coexistent sans friction."
 
-![Intégration WSL — fichiers partagés, commandes croisées, ports localhost et presse-papier](../../assets/images/outils/wsl-integration-windows-linux.png)
+![Intégration WSL — fichiers partagés, commandes croisées, ports localhost et presse-papier](../../../assets/images/outils/wsl-integration-windows-linux.png)
 
 <p><em>Contrairement à une VM isolée, WSL partage le système de fichiers (via /mnt/), les ports réseau (via localhost forwarding), le presse-papier et la capacité à lancer des exécutables dans les deux sens. Cette transparence rend le basculement Windows/Linux imperceptible au quotidien.</em></p>
 

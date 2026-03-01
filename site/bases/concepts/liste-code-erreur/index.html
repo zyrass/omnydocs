@@ -1,0 +1,5537 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprendre et gérer efficacement les codes de statut HTTP">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/bases/concepts/liste-code-erreur/">
+      
+      
+        <link rel="prev" href="../architecture-unix/">
+      
+      
+        <link rel="next" href="../../reseaux/http-methodes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.23">
+    
+    
+      
+        <title>Liste des Codes d'Erreur HTTP - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.d9d44b50.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#liste-des-codes-derreur-http" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em
+        >Cette documentation est en pleine conception, c'est normal qu'elle soit
+        encors si faible au niveau du contenu</em
+    >
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../assets/logo-dark.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Liste des Codes d'Erreur HTTP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cyber/governance/" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cyber/operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cyber/tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../assets/logo-dark.png" alt="logo">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fondamentaux IT
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../fondamentaux/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux techniques
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fondamentaux techniques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fondamentaux/types-primitifs/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Types Primitifs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fondamentaux/heap-stack-references/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Heap, Stack et Références
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fondamentaux/logique-booleenne/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Logique Booléenne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fondamentaux/logique-conditionnelle/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Logique Conditionnelle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fondamentaux/structure-iteratives/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Structures Itératives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fondamentaux/fonctions/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fonctions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../formats-serialisation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formats & Sérialisation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Formats & Sérialisation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../formats-serialisation/json/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../formats-serialisation/yaml/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../formats-serialisation/xml/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    XML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../formats-serialisation/csv/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    CSV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outils de Développement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outils de Développement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../outils/environnement-virtuel/wsl/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environnements virtuels
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../paquets/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestionnaires de paquets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../outils/markdown/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation & versionning
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modelisation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modélisation & Conception
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modélisation & Conception
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../modelisation/uml/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    uml
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../modelisation/merise/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Merise
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../projet/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion de projet
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestion de projet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projet/gantt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagramme de Gantt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts de programmation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts de programmation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-unix/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Unix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Liste des codes d'erreur
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Liste des codes d'erreur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-repartir-des-bases-vrais-debutants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour repartir des bases (vrais débutants)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-cinq-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les cinq catégories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les cinq catégories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrammes-de-flux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Diagrammes de flux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-informationnels-1xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes informationnels (1xx)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes informationnels (1xx)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#100-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 100 Continue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#101-switching-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 101 Switching Protocols
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-processing-webdav" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 102 Processing (WebDAV)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-de-succes-2xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes de succès (2xx)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes de succès (2xx)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#200-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 200 OK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#201-created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 201 Created
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#202-accepted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 202 Accepted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#204-no-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 204 No Content
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#206-partial-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 206 Partial Content
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-de-redirection-3xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes de redirection (3xx)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes de redirection (3xx)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#301-moved-permanently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 301 Moved Permanently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#302-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 302 Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#303-see-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 303 See Other
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#304-not-modified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 304 Not Modified
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#307-temporary-redirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 307 Temporary Redirect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#308-permanent-redirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 308 Permanent Redirect
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-derreur-client-4xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes d'erreur client (4xx)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes d&#x27;erreur client (4xx)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#400-bad-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 400 Bad Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#401-unauthorized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 401 Unauthorized
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#403-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 403 Forbidden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#404-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 404 Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#405-method-not-allowed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 405 Method Not Allowed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#406-not-acceptable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 406 Not Acceptable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#408-request-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 408 Request Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#409-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 409 Conflict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410-gone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 410 Gone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-payload-too-large" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 413 Payload Too Large
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#415-unsupported-media-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 415 Unsupported Media Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-unprocessable-entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 422 Unprocessable Entity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#429-too-many-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 429 Too Many Requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-derreur-serveur-5xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes d'erreur serveur (5xx)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes d&#x27;erreur serveur (5xx)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#500-internal-server-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 500 Internal Server Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#501-not-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 501 Not Implemented
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#502-bad-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 502 Bad Gateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#503-service-unavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 503 Service Unavailable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#504-gateway-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 504 Gateway Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-souvent-mal-utilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes souvent mal utilisés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommandations-api-rest-modernes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommandations API REST modernes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cycle-de-vie-dune-requete-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cycle de vie d’une requête API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selection-du-bon-code-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sélection du bon code HTTP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques-de-gestion-derreurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques de gestion d'erreurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bonnes pratiques de gestion d&#x27;erreurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-de-reponse-derreur-standardisee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Structure de réponse d'erreur standardisée
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codes-de-statut-selon-loperation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Codes de statut selon l'opération
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategies-de-retry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Stratégies de retry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-et-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Logging et monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-recapitulatif-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau récapitulatif complet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tableau récapitulatif complet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codes-les-plus-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Codes les plus courants
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-mot-de-la-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le mot de la fin
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réseaux et Protocoles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Réseaux et Protocoles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reseaux/http-methodes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP – Méthodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reseaux/dns-notions/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    DNS – Notions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reseaux/liste-protocoles/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Liste des protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reseaux/modele-osi/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèle OSI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reseaux/modele-tcp/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèle TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reseaux/sockets-serveurs/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Sockets & Serveurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cryptographie & PKI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_9" id="__nav_2_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cryptographie & PKI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/gpg/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    GPG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/openssl/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenSSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/pki/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    PKI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infra
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../cyber/governance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : GRC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../cyber/operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opé. &amp; SOC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../cyber/tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../glossaire/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-repartir-des-bases-vrais-debutants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour repartir des bases (vrais débutants)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-cinq-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les cinq catégories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les cinq catégories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrammes-de-flux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Diagrammes de flux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-informationnels-1xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes informationnels (1xx)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes informationnels (1xx)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#100-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 100 Continue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#101-switching-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 101 Switching Protocols
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-processing-webdav" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 102 Processing (WebDAV)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-de-succes-2xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes de succès (2xx)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes de succès (2xx)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#200-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 200 OK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#201-created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 201 Created
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#202-accepted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 202 Accepted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#204-no-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 204 No Content
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#206-partial-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 206 Partial Content
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-de-redirection-3xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes de redirection (3xx)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes de redirection (3xx)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#301-moved-permanently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 301 Moved Permanently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#302-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 302 Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#303-see-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 303 See Other
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#304-not-modified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 304 Not Modified
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#307-temporary-redirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 307 Temporary Redirect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#308-permanent-redirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 308 Permanent Redirect
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-derreur-client-4xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes d'erreur client (4xx)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes d&#x27;erreur client (4xx)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#400-bad-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 400 Bad Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#401-unauthorized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 401 Unauthorized
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#403-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 403 Forbidden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#404-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 404 Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#405-method-not-allowed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 405 Method Not Allowed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#406-not-acceptable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 406 Not Acceptable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#408-request-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 408 Request Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#409-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 409 Conflict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410-gone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 410 Gone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-payload-too-large" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 413 Payload Too Large
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#415-unsupported-media-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 415 Unsupported Media Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-unprocessable-entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 422 Unprocessable Entity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#429-too-many-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 429 Too Many Requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-derreur-serveur-5xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes d'erreur serveur (5xx)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes d&#x27;erreur serveur (5xx)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#500-internal-server-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 500 Internal Server Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#501-not-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 501 Not Implemented
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#502-bad-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 502 Bad Gateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#503-service-unavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 503 Service Unavailable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#504-gateway-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — 504 Gateway Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-souvent-mal-utilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes souvent mal utilisés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommandations-api-rest-modernes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommandations API REST modernes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cycle-de-vie-dune-requete-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cycle de vie d’une requête API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selection-du-bon-code-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sélection du bon code HTTP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques-de-gestion-derreurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques de gestion d'erreurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bonnes pratiques de gestion d&#x27;erreurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-de-reponse-derreur-standardisee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Structure de réponse d'erreur standardisée
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codes-de-statut-selon-loperation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Codes de statut selon l'opération
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategies-de-retry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Stratégies de retry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-et-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Logging et monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-recapitulatif-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau récapitulatif complet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tableau récapitulatif complet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codes-les-plus-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        — Codes les plus courants
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-mot-de-la-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le mot de la fin
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Bienvenue
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Fondamentaux IT
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../architecture-unix/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Concepts de programmation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="liste-des-codes-derreur-http">Liste des Codes d'Erreur HTTP<a class="headerlink" href="#liste-des-codes-derreur-http" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p><div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="1.4"
+  data-time="35-40 minutes">
+</div>
+</p>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>Imaginez un service postal qui vous envoie différents types de notifications : <strong>"Colis livré"</strong> (succès), <strong>"Adresse introuvable"</strong> (erreur client), <strong>"Centre de tri en panne"</strong> (erreur serveur), ou <strong>"Colis redirigé vers une nouvelle adresse"</strong> (redirection). <strong>Les codes de statut HTTP fonctionnent exactement ainsi</strong> : ils constituent un langage standardisé permettant au serveur de communiquer précisément ce qui s'est passé avec votre requête.</em></p>
+</div>
+<blockquote>
+<p>Chaque requête HTTP reçoit une <strong>réponse</strong> qui commence par un <strong>code de statut</strong> - un nombre à trois chiffres qui indique si l'opération a réussi, échoué, ou nécessite une action supplémentaire. Ces codes constituent le <strong>vocabulaire universel</strong> que tous les serveurs web et toutes les applications comprennent.</p>
+</blockquote>
+<p>Comprendre les codes de statut HTTP devient essentiel dès que vous développez des APIs, consommez des services web, diagnostiquez des problèmes de connectivité ou implémentez une gestion d'erreurs robuste. <strong>Chaque code transmet une information précise</strong> sur ce qui s'est passé et <strong>comment réagir</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Pourquoi c'est important ?</p>
+<p>Les codes de statut permettent le <strong>débogage rapide</strong>, la <strong>gestion d'erreurs appropriée</strong>, l'<strong>implémentation de retry logic</strong>, et la <strong>communication claire</strong> entre systèmes. Une mauvaise interprétation ou utilisation des codes peut créer des bugs subtils, des performances dégradées, ou des expériences utilisateur désastreuses.</p>
+</div>
+<h2 id="pour-repartir-des-bases-vrais-debutants">Pour repartir des bases (vrais débutants)<a class="headerlink" href="#pour-repartir-des-bases-vrais-debutants" title="Permanent link">&para;</a></h2>
+<p>Ce chapitre suppose que vous avez déjà une première exposition au protocole HTTP :<br />
+vous savez qu’un <strong>client</strong> envoie une <strong>requête</strong> à un <strong>serveur</strong>, et que le serveur répond avec un <strong>code de statut</strong> et éventuellement des <strong>données</strong> (JSON, HTML, etc.).</p>
+<blockquote>
+<p>Si vous n'avez pas encore lu le chapitre sur les <a href="../../reseaux/http-methodes/">méthodes HTTP</a>, consultez-le d'abord.</p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Les codes racontent une histoire !</p>
+<p>Chaque code de statut raconte ce qui s'est passé avec votre requête. Apprenez à les "lire" comme des messages :  </p>
+<ul>
+<li>un code <strong>2xx</strong> est une réussite,</li>
+<li>un code <strong>3xx</strong> demande une action supplémentaire,</li>
+<li>un code <strong>4xx</strong> nécessite une correction de la demande,</li>
+<li>un code <strong>5xx</strong> n’est pas votre faute mais celle du serveur.</li>
+</ul>
+</div>
+<h2 id="les-cinq-categories">Les cinq catégories<a class="headerlink" href="#les-cinq-categories" title="Permanent link">&para;</a></h2>
+<p>Les codes de statut HTTP sont organisés en <strong>cinq catégories</strong> identifiées par leur premier chiffre.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Catégorie</th>
+<th>Plage</th>
+<th style="text-align: center;">Signification générale</th>
+<th>Responsabilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>1xx</strong></td>
+<td>100-199</td>
+<td style="text-align: center;">Information</td>
+<td>Neutre - Traitement en cours</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2xx</strong></td>
+<td>200-299</td>
+<td style="text-align: center;">Succès</td>
+<td>✅ Requête réussie</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3xx</strong></td>
+<td>300-399</td>
+<td style="text-align: center;">Redirection</td>
+<td>⚠️ Action supplémentaire nécessaire</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4xx</strong></td>
+<td>400-499</td>
+<td style="text-align: center;">Erreur client</td>
+<td>❌ Problème dans la requête</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5xx</strong></td>
+<td>500-599</td>
+<td style="text-align: center;">Erreur serveur</td>
+<td>❌ Problème côté serveur</td>
+</tr>
+</tbody>
+</table>
+<h3 id="diagrammes-de-flux">— Diagrammes de flux<a class="headerlink" href="#diagrammes-de-flux" title="Permanent link">&para;</a></h3>
+<p>Le diagramme ci-dessous illustre la logique de décision liée aux codes de statut HTTP :<br />
+il montre <strong>ce qui arrive à la requête</strong>, <strong>quelle catégorie de code est renvoyée</strong> et <strong>quel type de réaction est attendu côté client</strong>.</p>
+<p>Ce schéma vous permet de comprendre d’un coup d’œil :</p>
+<ul>
+<li>quand l’exécution continue (1xx),</li>
+<li>quand l’opération est un succès (2xx),</li>
+<li>quand une redirection est obligatoire (3xx),</li>
+<li>quand la requête doit être corrigée (4xx),</li>
+<li>quand le problème vient du serveur (5xx).</li>
+</ul>
+<pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+graph TB
+    A[Requête HTTP] --&gt; B{Code de statut}
+    B --&gt;|1xx| C[Information&lt;br/&gt;Continuer le traitement]
+    B --&gt;|2xx| D[Succès&lt;br/&gt;Opération terminée]
+    B --&gt;|3xx| E[Redirection&lt;br/&gt;Aller vers nouvelle URL]
+    B --&gt;|4xx| F[Erreur Client&lt;br/&gt;Corriger la requête]
+    B --&gt;|5xx| G[Erreur Serveur&lt;br/&gt;Réessayer plus tard]</code></pre>
+<p>Ce diagramme synthétise les <strong>catégories de codes</strong> et la <strong>réaction attendue</strong> pour chacune.</p>
+<h2 id="codes-informationnels-1xx">Codes informationnels (1xx)<a class="headerlink" href="#codes-informationnels-1xx" title="Permanent link">&para;</a></h2>
+<p>Les codes <strong>1xx</strong> indiquent que la requête a été reçue et que le processus continue. Ces codes sont <strong>rarement utilisés</strong> dans les applications web modernes.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">100</label><label for="__tabbed_1_2">101</label><label for="__tabbed_1_3">102</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h3 id="100-continue">— 100 Continue<a class="headerlink" href="#100-continue" title="Permanent link">&para;</a></h3>
+<p>Indique que le client peut continuer avec le reste de la requête.</p>
+<p><strong>Cas d'usage :</strong> Upload de gros fichiers où le client demande d'abord si le serveur est prêt.</p>
+<p><strong>En-têtes associés :</strong>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">Expect: 100-continue</span>
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<h3 id="101-switching-protocols">— 101 Switching Protocols<a class="headerlink" href="#101-switching-protocols" title="Permanent link">&para;</a></h3>
+<p>Le serveur accepte de changer de protocole selon la demande du client.</p>
+<p><strong>Cas d'usage :</strong> Upgrade d'une connexion HTTP vers WebSocket.</p>
+<p><strong>Exemple de négociation WebSocket :</strong></p>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nf">GET</span> <span class="nn">/chat</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">Upgrade</span><span class="o">:</span> <span class="l">websocket</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">Connection</span><span class="o">:</span> <span class="l">Upgrade</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>HTTP/1.1 101 Switching Protocols
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Upgrade: websocket
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Connection: Upgrade
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<h3 id="102-processing-webdav">— 102 Processing (WebDAV)<a class="headerlink" href="#102-processing-webdav" title="Permanent link">&para;</a></h3>
+<p>Le serveur a reçu la requête mais n'a pas encore de réponse disponible.</p>
+<p><strong>Cas d'usage :</strong> Opérations longues sur serveurs WebDAV.</p>
+<div class="admonition note">
+<p class="admonition-title">Usage limité</p>
+<p>Les codes <strong>1xx</strong> sont principalement utilisés dans des <strong>protocoles spécifiques</strong> ou des <strong>optimisations de performance</strong>. La plupart des développeurs ne les rencontreront jamais dans leur utilisation quotidienne.</p>
+</div>
+</div>
+</div>
+</div>
+<h2 id="codes-de-succes-2xx">Codes de succès (2xx)<a class="headerlink" href="#codes-de-succes-2xx" title="Permanent link">&para;</a></h2>
+<p>Les codes <strong>2xx</strong> indiquent que la requête a été <strong>reçue, comprise et acceptée</strong> avec succès.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">200</label><label for="__tabbed_2_2">201</label><label for="__tabbed_2_3">202</label><label for="__tabbed_2_4">204</label><label for="__tabbed_2_5">206</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h3 id="200-ok">— 200 OK<a class="headerlink" href="#200-ok" title="Permanent link">&para;</a></h3>
+<p>La requête a <strong>réussi</strong>. C'est le code de succès standard.</p>
+<p><strong>Utilisation :</strong>
+- Réponse à GET avec contenu
+- Réponse à POST sans création de ressource
+- Réponse à PUT/PATCH avec contenu
+- Toute opération réussie avec données à retourner</p>
+<p><strong>Exemple de réponse :</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;nom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alice Dupont&quot;</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<h3 id="201-created">— 201 Created<a class="headerlink" href="#201-created" title="Permanent link">&para;</a></h3>
+<p>Une <strong>nouvelle ressource a été créée</strong> avec succès.</p>
+<p><strong>Utilisation :</strong>
+- Réponse à POST qui crée une ressource
+- Réponse à PUT qui crée une ressource (usage moins courant)</p>
+<p><strong>Bonnes pratiques :</strong>
+- Inclure l'en-tête <code>Location</code> avec l'URI de la nouvelle ressource
+- Retourner la ressource créée dans le corps</p>
+<p><strong>Exemple de réponse :</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">201</span><span class="w"> </span><span class="err">Crea</span><span class="kc">te</span><span class="err">d</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="err">Loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api.example.com/utilisateurs/456</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">{</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">&quot;nom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bob Martin&quot;</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bob@example.com&quot;</span><span class="p">,</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="nt">&quot;date_creation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-11-15T10:30:00Z&quot;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<h3 id="202-accepted">— 202 Accepted<a class="headerlink" href="#202-accepted" title="Permanent link">&para;</a></h3>
+<p>La requête a été <strong>acceptée pour traitement</strong>, mais le traitement <strong>n'est pas terminé</strong>.</p>
+<p><strong>Utilisation :</strong>
+- Opérations asynchrones longues
+- Jobs en arrière-plan
+- Traitement batch</p>
+<p><strong>Exemple de réponse :</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">Accep</span><span class="kc">te</span><span class="err">d</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">&quot;job_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc-123-def&quot;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="p">,</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="nt">&quot;status_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.example.com/jobs/abc-123-def&quot;</span><span class="p">,</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nt">&quot;estimated_completion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-11-15T11:00:00Z&quot;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<h3 id="204-no-content">— 204 No Content<a class="headerlink" href="#204-no-content" title="Permanent link">&para;</a></h3>
+<p>La requête a <strong>réussi</strong> mais il n'y a <strong>aucun contenu à retourner</strong>.</p>
+<p><strong>Utilisation :</strong>
+- Réponse à DELETE réussi
+- Réponse à PUT/PATCH sans besoin de retourner la ressource mise à jour
+- Actions réussies sans données de retour</p>
+<p><strong>Exemple de réponse :</strong>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</span></code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Économie de bande passante</p>
+<p><strong>204 No Content</strong> est idéal pour les opérations fréquentes où le client n'a pas besoin de confirmation détaillée, économisant ainsi de la bande passante.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<h3 id="206-partial-content">— 206 Partial Content<a class="headerlink" href="#206-partial-content" title="Permanent link">&para;</a></h3>
+<p>Le serveur retourne <strong>une partie du contenu</strong> demandé.</p>
+<p><strong>Utilisation :</strong>
+- Téléchargements avec reprise (resume)
+- Streaming de médias
+- Chargement progressif de gros fichiers</p>
+<p><strong>En-têtes associés :</strong>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">206</span> <span class="ne">Partial Content</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">Content-Range</span><span class="o">:</span> <span class="l">bytes 0-1023/5000</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">Content-Length</span><span class="o">:</span> <span class="l">1024</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">Content-Type</span><span class="o">:</span> <span class="l">video/mp4</span>
+</span></code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="codes-de-redirection-3xx">Codes de redirection (3xx)<a class="headerlink" href="#codes-de-redirection-3xx" title="Permanent link">&para;</a></h2>
+<p>Les codes <strong>3xx</strong> indiquent que le client doit effectuer <strong>une action supplémentaire</strong> pour compléter la requête, généralement suivre une redirection.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:6"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">301</label><label for="__tabbed_3_2">302</label><label for="__tabbed_3_3">303</label><label for="__tabbed_3_4">304</label><label for="__tabbed_3_5">307</label><label for="__tabbed_3_6">308</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h3 id="301-moved-permanently">— 301 Moved Permanently<a class="headerlink" href="#301-moved-permanently" title="Permanent link">&para;</a></h3>
+<p>La ressource a été <strong>déplacée définitivement</strong> vers une nouvelle URI.</p>
+<p><strong>Utilisation :</strong>
+- Migration de domaine
+- Restructuration d'URL permanente
+- SEO : transfert de ranking</p>
+<p><strong>Impact :</strong>
+- Les navigateurs et moteurs de recherche <strong>mettent en cache</strong> cette redirection
+- Les futures requêtes iront <strong>directement</strong> à la nouvelle URL</p>
+<p><strong>Exemple de réponse :</strong>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">301</span> <span class="ne">Moved Permanently</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">Location</span><span class="o">:</span> <span class="l">https://www.example.com/nouvelle-page</span>
+</span></code></pre></div></p>
+<div class="admonition warning">
+<p class="admonition-title">Permanent = Forever</p>
+<p>N'utilisez <strong>301</strong> que si vous êtes <strong>absolument certain</strong> que le déplacement est permanent. Une fois en cache, difficile de revenir en arrière.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<h3 id="302-found">— 302 Found<a class="headerlink" href="#302-found" title="Permanent link">&para;</a></h3>
+<p>La ressource est <strong>temporairement</strong> à une autre URI.</p>
+<p><strong>Utilisation :</strong>
+- Redirections temporaires
+- A/B testing
+- Maintenance</p>
+<p><strong>Impact :</strong>
+- <strong>Non mis en cache</strong> par défaut
+- Les futures requêtes continuent vers l'URL originale</p>
+<p><strong>Exemple de réponse :</strong>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="na">Location</span><span class="o">:</span> <span class="l">https://www.example.com/page-temporaire</span>
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<h3 id="303-see-other">— 303 See Other<a class="headerlink" href="#303-see-other" title="Permanent link">&para;</a></h3>
+<p>La réponse à la requête peut être trouvée à une autre URI via <strong>GET</strong>.</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>Après un POST réussi, rediriger vers une page de confirmation</li>
+<li>Pattern POST-Redirect-GET (PRG)</li>
+</ul>
+<p><strong>Exemple de flux :</strong></p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Client
+    participant Serveur
+
+    Client-&gt;&gt;Serveur: POST /formulaire (données)
+    Serveur-&gt;&gt;Serveur: Traitement et sauvegarde
+    Serveur--&gt;&gt;Client: 303 See Other&lt;br/&gt;Location: /confirmation
+    Client-&gt;&gt;Serveur: GET /confirmation
+    Serveur--&gt;&gt;Client: 200 OK (page de confirmation)</code></pre>
+<p><em>Ce diagramme de séquence représente <strong>l’échange chronologique</strong> entre <strong>un client</strong> et <strong>un serveur</strong> lors d’un scénario de type :</em>  <strong>POST</strong> → <strong>redirection</strong> → <strong>GET</strong> (<em>pattern <strong>POST-Redirect-GET</strong></em>).</p>
+<p>Ils aident à comprendre :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> qui parle à qui</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> dans quel ordre,</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> et à quel moment apparaît l’erreur ou la redirection.</li>
+</ul>
+<blockquote>
+<p>Ce diagramme facilite la lecture de protocoles qui, autrement, semblent linéaires mais masquent des allers-retours importants.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<h3 id="304-not-modified">— 304 Not Modified<a class="headerlink" href="#304-not-modified" title="Permanent link">&para;</a></h3>
+<p>La ressource <strong>n'a pas été modifiée</strong> depuis la dernière requête.</p>
+<p><strong>Utilisation :</strong>
+- Validation de cache
+- Économie de bande passante</p>
+<p><strong>En-têtes associés :</strong>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="err"># Requête du client</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nf">GET</span> <span class="nn">/resource</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="na">If-Modified-Since</span><span class="o">:</span> <span class="l">Wed, 15 Nov 2025 10:00:00 GMT</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="na">If-None-Match</span><span class="o">:</span> <span class="l">&quot;abc123def&quot;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a># Réponse du serveur
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>HTTP/1.1 304 Not Modified
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>ETag: &quot;abc123def&quot;
+</span></code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Optimisation majeure</p>
+<p><strong>304</strong> permet d'économiser <strong>énormément de bande passante</strong> en évitant de retransmettre des ressources inchangées. C'est crucial pour les performances web.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<h3 id="307-temporary-redirect">— 307 Temporary Redirect<a class="headerlink" href="#307-temporary-redirect" title="Permanent link">&para;</a></h3>
+<p>Similaire à <strong>302</strong>, mais <strong>garantit</strong> que la méthode HTTP ne changera pas lors de la redirection.</p>
+<div class="admonition info">
+<p class="admonition-title">Différence 302 vs 307</p>
+<ul>
+<li><strong>302</strong> : Peut transformer POST en GET (comportement historique)</li>
+<li><strong>307</strong> : Conserve strictement POST comme POST</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<h3 id="308-permanent-redirect">— 308 Permanent Redirect<a class="headerlink" href="#308-permanent-redirect" title="Permanent link">&para;</a></h3>
+<p>Similaire à <strong>301</strong>, mais <strong>garantit</strong> que la méthode HTTP ne changera pas lors de la redirection.</p>
+</div>
+</div>
+</div>
+<h2 id="codes-derreur-client-4xx">Codes d'erreur client (4xx)<a class="headerlink" href="#codes-derreur-client-4xx" title="Permanent link">&para;</a></h2>
+<p>Les codes <strong>4xx</strong> indiquent que le <strong>client a fait une erreur</strong> dans sa requête. Le serveur ne peut pas traiter la requête dans son état actuel.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:13"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><input id="__tabbed_4_8" name="__tabbed_4" type="radio" /><input id="__tabbed_4_9" name="__tabbed_4" type="radio" /><input id="__tabbed_4_10" name="__tabbed_4" type="radio" /><input id="__tabbed_4_11" name="__tabbed_4" type="radio" /><input id="__tabbed_4_12" name="__tabbed_4" type="radio" /><input id="__tabbed_4_13" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">400</label><label for="__tabbed_4_2">401</label><label for="__tabbed_4_3">403</label><label for="__tabbed_4_4">404</label><label for="__tabbed_4_5">405</label><label for="__tabbed_4_6">406</label><label for="__tabbed_4_7">408</label><label for="__tabbed_4_8">409</label><label for="__tabbed_4_9">410</label><label for="__tabbed_4_10">413</label><label for="__tabbed_4_11">415</label><label for="__tabbed_4_12">422</label><label for="__tabbed_4_13">429</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h3 id="400-bad-request">— 400 Bad Request<a class="headerlink" href="#400-bad-request" title="Permanent link">&para;</a></h3>
+<p>La requête contient <strong>une syntaxe invalide</strong> ou <strong>des données malformées</strong>.</p>
+<p><strong>Causes courantes :</strong></p>
+<ul>
+<li>JSON malformé</li>
+<li>Paramètres manquants</li>
+<li>Types de données incorrects</li>
+<li>Valeurs hors limites</li>
+</ul>
+<p><strong>Exemple de réponse :</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="err">Bad</span><span class="w"> </span><span class="err">Reques</span><span class="kc">t</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">{</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;validation_error&quot;</span><span class="p">,</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;La requête contient des erreurs de validation&quot;</span><span class="p">,</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">      </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email&quot;</span><span class="p">,</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">      </span><span class="nt">&quot;issue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Format d&#39;email invalide&quot;</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">      </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;age&quot;</span><span class="p">,</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">      </span><span class="nt">&quot;issue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Doit être un nombre positif&quot;</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<h3 id="401-unauthorized">— 401 Unauthorized<a class="headerlink" href="#401-unauthorized" title="Permanent link">&para;</a></h3>
+<p>L'<strong>authentification est requise</strong> et a échoué ou n'a pas été fournie.</p>
+<p><strong>Nom trompeur :</strong> Devrait s'appeler "Unauthenticated" (non authentifié).</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>Token manquant</li>
+<li>Token expiré</li>
+<li>Credentials invalides</li>
+</ul>
+<p><strong>En-têtes associés :</strong></p>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">401</span> <span class="ne">Unauthorized</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="na">WWW-Authenticate</span><span class="o">:</span> <span class="l">Bearer realm=&quot;example&quot;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">{</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;authentication_required&quot;</span><span class="p">,</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Token d&#39;authentification manquant ou invalide&quot;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<h3 id="403-forbidden">— 403 Forbidden<a class="headerlink" href="#403-forbidden" title="Permanent link">&para;</a></h3>
+<p>Le client est <strong>authentifié</strong> mais <strong>n'a pas les permissions</strong> nécessaires.</p>
+<div class="admonition info">
+<p class="admonition-title">Différence 401 vs 403</p>
+<ul>
+<li><strong>401</strong> : "Qui êtes-vous ?" → Problème d'authentification</li>
+<li><strong>403</strong> : "Je sais qui vous êtes, mais vous n'avez pas le droit" → Problème d'autorisation</li>
+</ul>
+</div>
+<p><strong>Exemple de réponse :</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">Forbidde</span><span class="kc">n</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">{</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;insufficient_permissions&quot;</span><span class="p">,</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Vous n&#39;avez pas les droits pour accéder à cette ressource&quot;</span><span class="p">,</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="nt">&quot;required_role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="nt">&quot;current_role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<h3 id="404-not-found">— 404 Not Found<a class="headerlink" href="#404-not-found" title="Permanent link">&para;</a></h3>
+<p>La ressource demandée <strong>n'existe pas</strong>.</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>URL incorrecte</li>
+<li>Ressource supprimée</li>
+<li>ID inexistant</li>
+</ul>
+<p><strong>Exemple de réponse :</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">404</span><span class="w"> </span><span class="err">No</span><span class="kc">t</span><span class="w"> </span><span class="err">Fou</span><span class="kc">n</span><span class="err">d</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">{</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;resource_not_found&quot;</span><span class="p">,</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L&#39;utilisateur avec l&#39;ID 999 n&#39;existe pas&quot;</span><span class="p">,</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">  </span><span class="nt">&quot;resource_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;utilisateur&quot;</span><span class="p">,</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span><span class="nt">&quot;resource_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">404 vs Soft Delete</p>
+<p>Pour les ressources "soft deleted" (marquées comme supprimées mais présentes en base), vous pouvez choisir entre :</p>
+<ul>
+<li><strong>404</strong> : Cache le fait que la ressource a existé</li>
+<li><strong>410 Gone</strong> : Indique que la ressource existait mais a été supprimée</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<h3 id="405-method-not-allowed">— 405 Method Not Allowed<a class="headerlink" href="#405-method-not-allowed" title="Permanent link">&para;</a></h3>
+<p>La <strong>méthode HTTP utilisée n'est pas supportée</strong> pour cette ressource.</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>GET sur une ressource qui n'accepte que POST</li>
+<li>DELETE sur une ressource en lecture seule</li>
+</ul>
+<p><strong>En-têtes requis :</strong></p>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">405</span> <span class="ne">Method Not Allowed</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="na">Allow</span><span class="o">:</span> <span class="l">GET, POST</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="p">{</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;method_not_allowed&quot;</span><span class="p">,</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;La méthode PUT n&#39;est pas autorisée pour cette ressource&quot;</span><span class="p">,</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span><span class="nt">&quot;allowed_methods&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">]</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<h3 id="406-not-acceptable">— 406 Not Acceptable<a class="headerlink" href="#406-not-acceptable" title="Permanent link">&para;</a></h3>
+<p>Le serveur ne peut pas produire une réponse <strong>dans le format demandé</strong> par le client.</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>Client demande XML mais serveur ne supporte que JSON</li>
+<li>Négociation de contenu échouée</li>
+</ul>
+<p><strong>En-têtes associés :</strong></p>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="err"># Requête</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="err">Accept: application/xml</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="err"># Réponse</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">406</span> <span class="ne">Not Acceptable</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="p">{</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not_acceptable&quot;</span><span class="p">,</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Format XML non supporté&quot;</span><span class="p">,</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">  </span><span class="nt">&quot;supported_formats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;application/json&quot;</span><span class="p">]</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<h3 id="408-request-timeout">— 408 Request Timeout<a class="headerlink" href="#408-request-timeout" title="Permanent link">&para;</a></h3>
+<p>Le serveur a <strong>expiré en attendant la requête</strong>.</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>Client trop lent à envoyer les données</li>
+<li>Connexion instable</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<h3 id="409-conflict">— 409 Conflict<a class="headerlink" href="#409-conflict" title="Permanent link">&para;</a></h3>
+<p>La requête <strong>entre en conflit</strong> avec l'état actuel de la ressource.</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>Tentative de création d'un doublon (email déjà utilisé)</li>
+<li>Conflit de version (concurrent update)</li>
+<li>Violation de contrainte d'intégrité</li>
+</ul>
+<p><strong>Exemple de réponse :</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">409</span><span class="w"> </span><span class="err">Co</span><span class="kc">nfl</span><span class="err">ic</span><span class="kc">t</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">{</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;conflict&quot;</span><span class="p">,</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Un utilisateur avec cet email existe déjà&quot;</span><span class="p">,</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">  </span><span class="nt">&quot;conflicting_field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email&quot;</span><span class="p">,</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">  </span><span class="nt">&quot;conflicting_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alice@example.com&quot;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<h3 id="410-gone">— 410 Gone<a class="headerlink" href="#410-gone" title="Permanent link">&para;</a></h3>
+<p>La ressource a existé mais a été <strong>définitivement supprimée</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Différence 404 vs 410</p>
+<ul>
+<li><strong>404</strong> : "Peut-être que ça n'a jamais existé"</li>
+<li><strong>410</strong> : "Ça existait, mais c'est définitivement parti"</li>
+</ul>
+</div>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>APIs versionnées obsolètes</li>
+<li>Contenu expiré volontairement</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<h3 id="413-payload-too-large">— 413 Payload Too Large<a class="headerlink" href="#413-payload-too-large" title="Permanent link">&para;</a></h3>
+<p>Le corps de la requête est <strong>trop volumineux</strong>.</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>Upload de fichier dépassant la limite</li>
+<li>JSON trop gros</li>
+</ul>
+<p><strong>Exemple de réponse :</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">413</span><span class="w"> </span><span class="err">Payload</span><span class="w"> </span><span class="err">Too</span><span class="w"> </span><span class="err">Large</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="p">{</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;payload_too_large&quot;</span><span class="p">,</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Le fichier dépasse la taille maximale autorisée&quot;</span><span class="p">,</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span><span class="nt">&quot;max_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10MB&quot;</span><span class="p">,</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">  </span><span class="nt">&quot;received_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;25MB&quot;</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<h3 id="415-unsupported-media-type">— 415 Unsupported Media Type<a class="headerlink" href="#415-unsupported-media-type" title="Permanent link">&para;</a></h3>
+<p>Le <strong>format du contenu</strong> n'est pas supporté.</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>Envoi de XML quand seul JSON est accepté</li>
+<li>Content-Type incorrect</li>
+</ul>
+<p><strong>Exemple de réponse :</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">415</span><span class="w"> </span><span class="err">U</span><span class="kc">nsu</span><span class="err">ppor</span><span class="kc">te</span><span class="err">d</span><span class="w"> </span><span class="err">Media</span><span class="w"> </span><span class="err">Type</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">{</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unsupported_media_type&quot;</span><span class="p">,</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Le type de contenu &#39;application/xml&#39; n&#39;est pas supporté&quot;</span><span class="p">,</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">  </span><span class="nt">&quot;supported_types&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;application/x-www-form-urlencoded&quot;</span><span class="p">]</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<h3 id="422-unprocessable-entity">— 422 Unprocessable Entity<a class="headerlink" href="#422-unprocessable-entity" title="Permanent link">&para;</a></h3>
+<p>La requête est <strong>syntaxiquement correcte</strong> mais <strong>sémantiquement invalide</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Différence 400 vs 422</p>
+<ul>
+<li><strong>400</strong> : Erreur de syntaxe (JSON malformé, paramètre manquant)</li>
+<li><strong>422</strong> : Syntaxe OK mais données invalides (email déjà pris, âge négatif)</li>
+</ul>
+</div>
+<p><strong>Exemple de réponse :</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">422</span><span class="w"> </span><span class="err">U</span><span class="kc">n</span><span class="err">processable</span><span class="w"> </span><span class="err">E</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">y</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">{</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;validation_error&quot;</span><span class="p">,</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Les données fournies ne respectent pas les règles métier&quot;</span><span class="p">,</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="nt">&quot;validation_errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">      </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date_naissance&quot;</span><span class="p">,</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2030-01-01&quot;</span><span class="p">,</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;La date de naissance ne peut pas être dans le futur&quot;</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">      </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;telephone&quot;</span><span class="p">,</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345&quot;</span><span class="p">,</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Le numéro de téléphone doit contenir 10 chiffres&quot;</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<h3 id="429-too-many-requests">— 429 Too Many Requests<a class="headerlink" href="#429-too-many-requests" title="Permanent link">&para;</a></h3>
+<p>Le client a envoyé <strong>trop de requêtes</strong> dans un temps donné (rate limiting).</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>Protection contre le spam</li>
+<li>Protection DDoS</li>
+<li>Limitation d'API</li>
+</ul>
+<p><strong>En-têtes associés :</strong></p>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">429</span> <span class="ne">Too Many Requests</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="na">Retry-After</span><span class="o">:</span> <span class="l">3600</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="na">X-RateLimit-Limit</span><span class="o">:</span> <span class="l">100</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="na">X-RateLimit-Remaining</span><span class="o">:</span> <span class="l">0</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="na">X-RateLimit-Reset</span><span class="o">:</span> <span class="l">1637000000</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="p">{</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rate_limit_exceeded&quot;</span><span class="p">,</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Limite de 100 requêtes par heure dépassée&quot;</span><span class="p">,</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">  </span><span class="nt">&quot;retry_after_seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">  </span><span class="nt">&quot;limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">  </span><span class="nt">&quot;reset_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-11-15T12:00:00Z&quot;</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="codes-derreur-serveur-5xx">Codes d'erreur serveur (5xx)<a class="headerlink" href="#codes-derreur-serveur-5xx" title="Permanent link">&para;</a></h2>
+<p>Les codes <strong>5xx</strong> indiquent que le <strong>serveur a rencontré une erreur</strong> ou est incapable de traiter la requête.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:5"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">500</label><label for="__tabbed_5_2">501</label><label for="__tabbed_5_3">502</label><label for="__tabbed_5_4">503</label><label for="__tabbed_5_5">504</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h3 id="500-internal-server-error">— 500 Internal Server Error<a class="headerlink" href="#500-internal-server-error" title="Permanent link">&para;</a></h3>
+<p>Le serveur a rencontré une <strong>erreur interne inattendue</strong>.</p>
+<p><strong>Causes courantes :</strong></p>
+<ul>
+<li>Exception non gérée</li>
+<li>Bug dans le code</li>
+<li>Ressource critique indisponible</li>
+</ul>
+<p><strong>Exemple de réponse :</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">500</span><span class="w"> </span><span class="err">I</span><span class="kc">nternal</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">Error</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="p">{</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;internal_server_error&quot;</span><span class="p">,</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Une erreur inattendue s&#39;est produite&quot;</span><span class="p">,</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="nt">&quot;request_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc-123-def&quot;</span><span class="p">,</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-11-15T10:30:00Z&quot;</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Ne jamais exposer les détails techniques</p>
+<p>En production, <strong>ne retournez JAMAIS</strong> de stack traces ou messages d'erreur détaillés au client. Loggez-les côté serveur avec un <strong>request_id</strong> pour le débogage.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<h3 id="501-not-implemented">— 501 Not Implemented<a class="headerlink" href="#501-not-implemented" title="Permanent link">&para;</a></h3>
+<p>Le serveur <strong>ne supporte pas</strong> la fonctionnalité requise.</p>
+<p><strong>Utilisation :</strong></p>
+<ul>
+<li>Méthode HTTP non implémentée</li>
+<li>Fonctionnalité en développement</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<h3 id="502-bad-gateway">— 502 Bad Gateway<a class="headerlink" href="#502-bad-gateway" title="Permanent link">&para;</a></h3>
+<p>Le serveur agissant comme <strong>gateway/proxy</strong> a reçu une <strong>réponse invalide</strong> du serveur amont.</p>
+<p><strong>Causes courantes :</strong></p>
+<ul>
+<li>Service backend down</li>
+<li>Timeout vers service amont</li>
+<li>Réponse corrompue</li>
+</ul>
+<p><strong>Architecture typique :</strong></p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Client
+    participant Proxy
+    participant Backend
+
+    Client-&gt;&gt;Proxy: GET /api/users
+    Proxy-&gt;&gt;Backend: GET /users
+    Backend--xProxy: Connection refused
+    Proxy--&gt;&gt;Client: 502 Bad Gateway</code></pre>
+</div>
+<div class="tabbed-block">
+<h3 id="503-service-unavailable">— 503 Service Unavailable<a class="headerlink" href="#503-service-unavailable" title="Permanent link">&para;</a></h3>
+<p>Le serveur est <strong>temporairement incapable</strong> de traiter la requête.</p>
+<p><strong>Causes courantes :</strong></p>
+<ul>
+<li>Maintenance planifiée</li>
+<li>Surcharge temporaire</li>
+<li>Service en redémarrage</li>
+</ul>
+<p><strong>En-têtes associés :</strong></p>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">503</span> <span class="ne">Service Unavailable</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="na">Retry-After</span><span class="o">:</span> <span class="l">120</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="p">{</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;service_unavailable&quot;</span><span class="p">,</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Service en maintenance&quot;</span><span class="p">,</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">  </span><span class="nt">&quot;retry_after_seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">  </span><span class="nt">&quot;estimated_recovery&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-11-15T11:00:00Z&quot;</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Retry-After est crucial</p>
+<p>Incluez toujours l'en-tête <strong>Retry-After</strong> avec <strong>503</strong> pour indiquer au client quand réessayer.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<h3 id="504-gateway-timeout">— 504 Gateway Timeout<a class="headerlink" href="#504-gateway-timeout" title="Permanent link">&para;</a></h3>
+<p>Le serveur agissant comme <strong>gateway/proxy</strong> n'a <strong>pas reçu de réponse à temps</strong> du serveur amont.</p>
+<div class="admonition info">
+<p class="admonition-title">Différence 502 vs 504</p>
+<ul>
+<li><strong>502</strong> : Réponse invalide reçue</li>
+<li><strong>504</strong> : Aucune réponse reçue (timeout)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<h2 id="codes-souvent-mal-utilises">Codes souvent mal utilisés<a class="headerlink" href="#codes-souvent-mal-utilises" title="Permanent link">&para;</a></h2>
+<p>Ces erreurs sont très courantes, même chez les développeurs confirmés.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mauvais usage</th>
+<th>Pourquoi c’est faux ?</th>
+<th>Code correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">200<br />sur erreur métier</td>
+<td>Le client croit que tout est OK : il n’affiche pas d’erreur, ne corrige pas la requête et ne loggue pas l’anomalie.</td>
+<td>400 / 422</td>
+</tr>
+<tr>
+<td style="text-align: center;">500<br />pour tout</td>
+<td>Mélange erreurs client et erreurs serveur : impossible d’analyser les causes, de prioriser les bugs ou de suivre des SLO/SLA.</td>
+<td>400/403/404/409/422</td>
+</tr>
+<tr>
+<td style="text-align: center;">204<br />mais avec body</td>
+<td>Les clients conformes à la RFC ignorent le corps : comportement non déterministe et très difficile à déboguer.</td>
+<td>200</td>
+</tr>
+<tr>
+<td style="text-align: center;">404<br />pour ressource protégée</td>
+<td>Fuite d’information : cela laisse deviner qu’une ressource existe mais est simplement inaccessible.</td>
+<td>403</td>
+</tr>
+<tr>
+<td style="text-align: center;">401<br />pour permission refusée</td>
+<td>Confond authentification et autorisation : le client tente de se ré-authentifier au lieu de traiter un refus d’accès.</td>
+<td>403</td>
+</tr>
+<tr>
+<td style="text-align: center;">409<br />utilisé comme "erreur générique"</td>
+<td>Dilue la sémantique du conflit d’état (concurrence, unicité, etc.) et rend impossible une gestion précise côté client.</td>
+<td>400/422</td>
+</tr>
+</tbody>
+</table>
+<p>En pratique, ces mauvais usages <strong>cassent le contrat implicite</strong> entre le client et l’API.<br />
+Le code HTTP n’est plus un indicateur fiable de l’état réel de l’opération. Résultat : les clients implémentent des contournements hasardeux, les dashboards d’erreurs deviennent bruités et les équipes de prod perdent du temps à diagnostiquer des problèmes qui auraient pu être évidents avec des codes correctement choisis.</p>
+<div class="admonition important">
+<p class="admonition-title">Pourquoi bien choisir le code HTTP n’est pas un détail</p>
+<p>Un code de statut HTTP n’est pas qu’un “nombre symbolique” :<br />
+il alimente vos <strong>logs</strong>, vos <strong>tableaux de bord</strong>, vos <strong>alertes</strong>, vos <strong>stratégies de retry</strong> et les <strong>comportements côté client</strong>.</p>
+<ul>
+<li>Utiliser <strong>200</strong> pour une erreur métier empêche l’UI d’afficher un message clair et bloque toute logique de récupération côté client.  </li>
+<li>Abuser de <strong>500</strong> masque les erreurs de validation ou de droits, ce qui fausse vos métriques de disponibilité et déclenche des alertes inutiles.  </li>
+<li>Détourner <strong>404</strong> ou <strong>401/403</strong> crée des failles de sécurité (fuite d’information, mauvais flux d’authentification).  </li>
+</ul>
+<p>À l’échelle d’un microservice isolé, cela peut sembler anodin.<br />
+À l’échelle d’un SI complet, <strong>c’est ce qui fait la différence entre une plateforme observable, maîtrisée, et un système opaque où chaque incident devient une enquête forensique.</strong></p>
+</div>
+<h2 id="recommandations-api-rest-modernes">Recommandations API REST modernes<a class="headerlink" href="#recommandations-api-rest-modernes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Toujours inclure un <code>Content-Type</code></li>
+</ul>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="err">Content-Type: application/json</span>
+</span></code></pre></div>
+<ul>
+<li>Ne jamais renvoyer de body sur 204</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Strictement interdit dans la RFC.</p>
+<p>Le code 204 interdit formellement tout corps de réponse.
+Si vous devez renvoyer du contenu, utilisez plutôt 200 OK.</p>
+</div>
+<ul>
+<li>
+<p>Préférer <strong>422 Unprocessable Entity</strong> pour les <strong>erreurs métier</strong><br />
+<em>Plus explicite pour le client qu’un simple <strong>400 Bad Request</strong>.</em></p>
+</li>
+<li>
+<p>Inclure systématiquement l’en-tête <code>Location</code> sur les réponses <strong>201 Created</strong><br />
+<em>Il doit pointer vers l’URI de la ressource nouvellement créée.</em></p>
+</li>
+<li>
+<p>Utiliser <code>Retry-After</code> sur <strong>429</strong> et <strong>503</strong><br />
+<em>Cela permet au client d'implémenter une stratégie de retry intelligente.</em></p>
+</li>
+</ul>
+<h2 id="cycle-de-vie-dune-requete-api">Cycle de vie d’une requête API<a class="headerlink" href="#cycle-de-vie-dune-requete-api" title="Permanent link">&para;</a></h2>
+<p>Pour choisir le bon code HTTP, il faut comprendre <strong>où</strong> la requête échoue dans la chaîne de traitement.<br />
+Le schéma ci-dessous montre comment une requête traverse :</p>
+<ul>
+<li>l’authentification,</li>
+<li>les permissions,</li>
+<li>la validation des données,</li>
+<li>la logique métier,</li>
+<li>les erreurs possibles,</li>
+<li>puis la réponse (succès ou échec).</li>
+</ul>
+<p><pre class="mermaid"><code>graph TD
+    A["Client (Navigateur)"] --&gt;|Requête envoyée| B["Protocole HTTP"]
+    B --&gt;|Middleware Auth| C["JWT / Session / Token"]
+    C --&gt;|Check Permissions| D["RBAC / ACL"]
+    D --&gt;|Contrôle d'accès| E["Validation des données"]
+    E --&gt; F{"Succès ?"}
+    F --&gt;|Oui| G["Code 2xx&lt;br/&gt;Retour JSON"]
+    F --&gt;|Non| H["Code 4xx&lt;br/&gt;Erreur client"]
+    E --&gt; I{"Erreur&lt;br /&gt;interne ?"}
+    I --&gt;|Oui| J["Code 5xx&lt;br/&gt;Erreur serveur"]</code></pre>
+<em>En somme, ce schéma vous permet de situer <strong>où se produit l’erreur</strong> et <strong>quel code renvoyer</strong>.</em></p>
+<h2 id="selection-du-bon-code-http">Sélection du bon code HTTP<a class="headerlink" href="#selection-du-bon-code-http" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    Start([Intentions côté API]) --&gt; A{Action prévue}
+
+    A --&gt;|Créer ressource| B[201 Created]
+    A --&gt;|Lire ressource| C[200 / 304]
+    A --&gt;|Mettre à jour| D[200 / 204]
+    A --&gt;|Supprimer| E[204]
+
+    A --&gt;|Erreur métier| F[422 / 409]
+    A --&gt;|Non authentifié| G[401]
+    A --&gt;|Pas permission| H[403]
+    A --&gt;|Ressource absente| I[404]
+
+    A --&gt;|Backend KO| J[502]
+    A --&gt;|Timeout| K[504]
+    A --&gt;|Maintenance| L[503]</code></pre>
+<h2 id="bonnes-pratiques-de-gestion-derreurs">Bonnes pratiques de gestion d'erreurs<a class="headerlink" href="#bonnes-pratiques-de-gestion-derreurs" title="Permanent link">&para;</a></h2>
+<h3 id="structure-de-reponse-derreur-standardisee">— Structure de réponse d'erreur standardisée<a class="headerlink" href="#structure-de-reponse-derreur-standardisee" title="Permanent link">&para;</a></h3>
+<p>Adoptez un <strong>format cohérent</strong> pour toutes vos réponses d'erreur.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Format recommandé (RFC 7807 - Problem Details)</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">{</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.example.com/errors/validation-error&quot;</span><span class="p">,</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Erreur de validation&quot;</span><span class="p">,</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">422</span><span class="p">,</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">  </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Les données soumises ne respectent pas le format attendu&quot;</span><span class="p">,</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">  </span><span class="nt">&quot;instance&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/utilisateurs/123&quot;</span><span class="p">,</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-11-15T10:30:00Z&quot;</span><span class="p">,</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">  </span><span class="nt">&quot;request_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc-123-def&quot;</span><span class="p">,</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">  </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="w">      </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email&quot;</span><span class="p">,</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="w">      </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;invalid_format&quot;</span><span class="p">,</span>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Format d&#39;email invalide&quot;</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<h3 id="codes-de-statut-selon-loperation">— Codes de statut selon l'opération<a class="headerlink" href="#codes-de-statut-selon-loperation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Succès</th>
+<th>Erreur client typique</th>
+<th>Erreur serveur typique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GET</strong></td>
+<td>200, 304</td>
+<td>404, 403, 401</td>
+<td>500, 503</td>
+</tr>
+<tr>
+<td><strong>POST</strong></td>
+<td>201, 200</td>
+<td>400, 422, 409, 401</td>
+<td>500, 503</td>
+</tr>
+<tr>
+<td><strong>PUT</strong></td>
+<td>200, 204</td>
+<td>400, 404, 409, 401</td>
+<td>500, 503</td>
+</tr>
+<tr>
+<td><strong>PATCH</strong></td>
+<td>200, 204</td>
+<td>400, 404, 422, 401</td>
+<td>500, 503</td>
+</tr>
+<tr>
+<td><strong>DELETE</strong></td>
+<td>204, 200</td>
+<td>404, 403, 401</td>
+<td>500, 503</td>
+</tr>
+</tbody>
+</table>
+<h3 id="strategies-de-retry">— Stratégies de retry<a class="headerlink" href="#strategies-de-retry" title="Permanent link">&para;</a></h3>
+<p>Selon le code de statut, adoptez des <strong>stratégies de retry</strong> différentes.
+<pre class="mermaid"><code>graph LR
+    A[Erreur reçue] --&gt; B{Code de statut}
+    B --&gt;|2xx| C[Succès - Continuer]
+    B --&gt;|3xx| D[Suivre redirection]
+    B --&gt;|401| E[Refresh token puis retry]
+    B --&gt;|408, 429, 503| F[Retry avec backoff exponentiel]
+    B --&gt;|500, 502, 504| G[Retry avec backoff limité]
+    B --&gt;|400, 404, 422| H[Ne PAS retry - Corriger requête]
+    B --&gt;|403, 405, 410| I[Ne PAS retry - Impossible]</code></pre></p>
+<p><strong>Tableau de décision retry :</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Code</th>
+<th style="text-align: center;">Retry ?</th>
+<th>Stratégie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>408</strong></td>
+<td style="text-align: center;">✅ Oui</td>
+<td>Exponentiel jusqu'à 3 tentatives</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>429</strong></td>
+<td style="text-align: center;">✅ Oui</td>
+<td>Attendre <code>Retry-After</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>500</strong></td>
+<td style="text-align: center;">✅ Oui</td>
+<td>Exponentiel limité (max 3×)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>502</strong></td>
+<td style="text-align: center;">✅ Oui</td>
+<td>Exponentiel limité (max 3×)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>503</strong></td>
+<td style="text-align: center;">✅ Oui</td>
+<td>Attendre <code>Retry-After</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>504</strong></td>
+<td style="text-align: center;">✅ Oui</td>
+<td>Exponentiel limité (max 2×)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>400-499</strong></td>
+<td style="text-align: center;">❌ Non</td>
+<td>Erreur client - corriger la requête</td>
+</tr>
+</tbody>
+</table>
+<h3 id="logging-et-monitoring">— Logging et monitoring<a class="headerlink" href="#logging-et-monitoring" title="Permanent link">&para;</a></h3>
+<p><strong>Loggez différemment</strong> selon la catégorie d'erreur.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Catégorie</th>
+<th style="text-align: center;">Niveau de log</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>2xx</strong></td>
+<td style="text-align: center;">INFO</td>
+<td>Log basique pour analytics</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3xx</strong></td>
+<td style="text-align: center;">INFO</td>
+<td>Log pour traçabilité</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4xx</strong></td>
+<td style="text-align: center;">WARNING</td>
+<td>Log + alertes si taux élevé</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5xx</strong></td>
+<td style="text-align: center;">ERROR</td>
+<td>Log détaillé + alerte immédiate</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tableau-recapitulatif-complet">Tableau récapitulatif complet<a class="headerlink" href="#tableau-recapitulatif-complet" title="Permanent link">&para;</a></h2>
+<h3 id="codes-les-plus-courants">— Codes les plus courants<a class="headerlink" href="#codes-les-plus-courants" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Code</th>
+<th>Nom</th>
+<th>Quand l'utiliser</th>
+<th>Peut retry ?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>200</strong></td>
+<td>OK</td>
+<td>GET/PUT/PATCH réussis avec contenu</td>
+<td>-</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>201</strong></td>
+<td>Created</td>
+<td>POST crée une ressource</td>
+<td>-</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>204</strong></td>
+<td>No Content</td>
+<td>DELETE/PUT/PATCH réussis sans contenu</td>
+<td>-</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>301</strong></td>
+<td>Moved Permanently</td>
+<td>Ressource déplacée définitivement</td>
+<td>Non</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>302</strong></td>
+<td>Found</td>
+<td>Redirection temporaire</td>
+<td>Non</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>304</strong></td>
+<td>Not Modified</td>
+<td>Cache valide</td>
+<td>-</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>400</strong></td>
+<td>Bad Request</td>
+<td>Requête malformée</td>
+<td>Non</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>401</strong></td>
+<td>Unauthorized</td>
+<td>Authentification requise</td>
+<td>Oui (après refresh)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>403</strong></td>
+<td>Forbidden</td>
+<td>Pas les permissions</td>
+<td>Non</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>404</strong></td>
+<td>Not Found</td>
+<td>Ressource inexistante</td>
+<td>Non</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>409</strong></td>
+<td>Conflict</td>
+<td>Conflit (doublon)</td>
+<td>Non</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>422</strong></td>
+<td>Unprocessable Entity</td>
+<td>Validation métier échouée</td>
+<td>Non</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>429</strong></td>
+<td>Too Many Requests</td>
+<td>Rate limit dépassé</td>
+<td>Oui (avec délai)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>500</strong></td>
+<td>Internal Server Error</td>
+<td>Erreur serveur</td>
+<td>Oui (limité)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>502</strong></td>
+<td>Bad Gateway</td>
+<td>Proxy reçoit erreur</td>
+<td>Oui (limité)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>503</strong></td>
+<td>Service Unavailable</td>
+<td>Service indisponible</td>
+<td>Oui (avec délai)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>504</strong></td>
+<td>Gateway Timeout</td>
+<td>Timeout vers backend</td>
+<td>Oui (limité)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="le-mot-de-la-fin">Le mot de la fin<a class="headerlink" href="#le-mot-de-la-fin" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>Les codes de statut HTTP constituent le <strong>langage universel</strong> de communication entre systèmes. Leur utilisation correcte transforme des APIs opaques en interfaces prévisibles et debuggables. Leur mauvaise utilisation crée des expériences utilisateur frustrantes et des bugs difficiles à diagnostiquer.</p>
+<p>Choisir le bon code de statut n'est pas un détail cosmétique - c'est une <strong>décision architecturale</strong> qui impacte la robustesse, la maintenabilité et l'expérience développeur de votre API. Un code <strong>400</strong> au lieu de <strong>422</strong> peut casser la logique de retry d'un client. Un code <strong>500</strong> au lieu de <strong>503</strong> peut déclencher des alertes inutiles.</p>
+<p>Maîtrisez ces codes, utilisez-les avec précision, et vos APIs deviendront des modèles de clarté et de fiabilité.</p>
+</div>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">HTTP</span>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">STATUT</span>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">ERREUR</span>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">API</span>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">REST</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../architecture-unix/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Architecture Unix">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Architecture Unix
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../reseaux/http-methodes/" class="md-footer__link md-footer__link--next" aria-label="Suivant: HTTP – Méthodes">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                HTTP – Méthodes
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5fcf0de6.min.js"></script>
+      
+        <script src="../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
