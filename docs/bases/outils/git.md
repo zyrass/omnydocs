@@ -6,8 +6,6 @@ tags: ["GIT", "VERSIONING", "VCS", "DÉVELOPPEMENT", "COLLABORATION"]
 
 # Git
 
-## Introduction
-
 <div
   class="omny-meta"
   data-level="🟢 Débutant & 🟡 Intermédiaire"
@@ -15,184 +13,158 @@ tags: ["GIT", "VERSIONING", "VCS", "DÉVELOPPEMENT", "COLLABORATION"]
   data-time="50-55 minutes">
 </div>
 
-!!! quote "Analogie pédagogique"
-    _Imaginez une **machine à remonter le temps** pour vos documents. À chaque modification importante, vous créez un **point de sauvegarde** avec une description. Vous pouvez revenir à n'importe quel point passé, comparer deux versions séparées de mois, ou même créer des **univers parallèles** où vous testez différentes approches sans affecter votre travail principal. **Git fonctionne exactement ainsi** : c'est un système de gestion de versions qui enregistre l'historique complet de vos fichiers et permet une collaboration sans conflit entre dizaines de développeurs._
+!!! quote "Analogie"
+    _Une machine à remonter le temps pour vos documents. À chaque modification importante, on crée un point de sauvegarde avec une description. On peut revenir à n'importe quel point passé, comparer deux versions séparées de mois, ou créer des univers parallèles pour tester différentes approches sans affecter le travail principal. Git fonctionne exactement ainsi : un système de gestion de versions qui enregistre l'historique complet des fichiers et permet une collaboration sans conflit entre des dizaines de développeurs._
 
-> **Git** est un système de **gestion de versions distribué** créé en 2005 par **Linus Torvalds** (créateur de Linux) pour gérer le développement du noyau Linux. Face à l'inefficacité des outils existants, Torvalds a conçu Git avec des objectifs radicaux : **vitesse extrême**, **architecture distribuée**, **intégrité cryptographique**, et capacité à gérer des projets massifs (Linux compte des millions de lignes de code avec des milliers de contributeurs).
+**Git** est un système de **gestion de versions distribué** créé en 2005 par **Linus Torvalds** pour gérer le développement du noyau Linux. Face à l'inefficacité des outils existants, Torvalds a conçu Git avec des objectifs radicaux : vitesse extrême, architecture distribuée, intégrité cryptographique et capacité à gérer des projets massifs. Aujourd'hui, Git alimente **GitHub, GitLab, Bitbucket** et constitue le standard industriel absolu pour le versioning de code.
 
-Git a révolutionné le développement logiciel. Avant Git, les systèmes centralisés (SVN, CVS) créaient des goulots d'étranglement et rendaient le travail hors ligne impossible. Git a introduit un modèle où **chaque développeur possède l'historique complet** du projet, permettant le travail autonome et la fusion sophistiquée de contributions parallèles. Aujourd'hui, Git alimente **GitHub, GitLab, Bitbucket** et constitue le standard industriel absolu pour le versioning de code.
+Git n'est pas un système de sauvegarde automatique comme Dropbox. On doit explicitement indiquer à Git quelles modifications sauvegarder et quand. Cette approche manuelle permet un contrôle total sur l'historique.
 
-!!! info "Pourquoi c'est important ?"
-    Git permet de **tracer chaque modification** du code (qui, quoi, quand, pourquoi), de **collaborer efficacement** en parallèle sans écraser le travail des autres, de **revenir en arrière** en cas d'erreur catastrophique, d'**expérimenter librement** dans des branches isolées, et de **maintenir plusieurs versions** du logiciel simultanément (production, développement, hotfixes).
-
-## Pour repartir des bases (vrais débutants)
-
-Si vous n'avez jamais utilisé de système de versioning, Git semblera d'abord complexe. Cette complexité apparente cache une puissance remarquable. Comprenez que Git n'est **pas** un système de sauvegarde automatique comme Dropbox. Vous devez **explicitement** dire à Git quelles modifications sauvegarder et quand. Cette approche manuelle permet un contrôle total sur l'historique.
+!!! info "Pourquoi c'est important"
+    Git permet de tracer chaque modification du code — qui, quoi, quand, pourquoi — de collaborer efficacement en parallèle sans écraser le travail des autres, de revenir en arrière en cas d'erreur catastrophique, d'expérimenter librement dans des branches isolées et de maintenir plusieurs versions du logiciel simultanément.
 
 !!! tip "Git n'est pas GitHub"
-    **Git** est l'outil de versioning qui fonctionne sur votre machine. **GitHub** est une plateforme web qui héberge des dépôts Git et ajoute des fonctionnalités sociales (pull requests, issues, wikis). GitLab et Bitbucket sont des alternatives similaires. Vous pouvez utiliser Git **sans GitHub**, mais pas l'inverse.
+    Git est l'outil de versioning qui fonctionne sur la machine locale. GitHub est une plateforme web qui héberge des dépôts Git et ajoute des fonctionnalités sociales — pull requests, issues, wikis. GitLab et Bitbucket sont des alternatives similaires. On peut utiliser Git sans GitHub, mais pas l'inverse.
+
+<br />
+
+---
 
 ## Architecture de Git
 
 ### Modèle distribué
 
-Contrairement aux systèmes centralisés (SVN, Perforce), Git adopte une architecture **distribuée**.
+Contrairement aux systèmes centralisés comme SVN ou Perforce, Git adopte une architecture **distribuée**.
 
-=== "Système Distribué (Git)"
+```mermaid
+flowchart TB
+    subgraph "Système distribué — Git"
+        direction TB
+        C1["Dépôt distant\nGitHub, GitLab"]
+        D1["Dev 1<br />Dépôt complet local"]
+        D2["Dev 2<br />Dépôt complet local"]
+        D3["Dev 3<br />Dépôt complet local"]
 
-    ```mermaid
-    graph TB    
-        subgraph "Système Distribué Git"
-            C1[Dépôt distant<br/>GitHub/GitLab]
-            D1[Dev 1<br/>Dépôt complet local]
-            D2[Dev 2<br/>Dépôt complet local]
-            D3[Dev 3<br/>Dépôt complet local]
-            
-            D1 <-->|push/pull| C1
-            D2 <-->|push/pull| C1
-            D3 <-->|push/pull| C1
-            
-            D1 <-.->|peer-to-peer| D2
-            D2 <-.->|peer-to-peer| D3
-        end
-        
-        style D1 fill:#e3f3e3
-        style D2 fill:#e3f3e3
-        style D3 fill:#e3f3e3
-    ```
-    
-    Dans un **système distribué** comme Git, chaque développeur possède un **clone complet** du dépôt incluant l'historique entier. Le dépôt distant (GitHub/GitLab) sert de point de synchronisation central, mais n'est pas indispensable au fonctionnement. Les développeurs peuvent travailler entièrement hors ligne, créer des commits, des branches, et même échanger directement entre eux (peer-to-peer) sans passer par le serveur central.
+        D1 <-->|push / pull| C1
+        D2 <-->|push / pull| C1
+        D3 <-->|push / pull| C1
 
-=== "Système Centralisé (SVN)"
+        D1 <-.->|peer-to-peer| D2
+        D2 <-.->|peer-to-peer| D3
+    end
+```
 
-    ```mermaid
-    graph TB
-        subgraph "Système Centralisé SVN"
-            A1[Serveur Central<br/>Historique complet]
-            B1[Dev 1<br/>Copie de travail]
-            B2[Dev 2<br/>Copie de travail]
-            B3[Dev 3<br/>Copie de travail]
-            
-            B1 -.->|commit| A1
-            B2 -.->|commit| A1
-            B3 -.->|commit| A1
-            
-            A1 -.->|update| B1
-            A1 -.->|update| B2
-            A1 -.->|update| B3
-        end
-    ```
-    
-    Dans un **système centralisé** comme SVN, seul le serveur central possède l'historique complet du projet. Les développeurs ne disposent que d'une **copie de travail** de la dernière version. Toute opération (commit, historique, branches) nécessite une connexion au serveur. Si le serveur central tombe en panne, tout le travail collaboratif s'arrête et l'historique peut être perdu définitivement.
+Dans un système distribué comme Git, chaque développeur possède un clone complet du dépôt incluant l'historique entier. Le dépôt distant sert de point de synchronisation central, mais n'est pas indispensable au fonctionnement. Les développeurs peuvent travailler entièrement hors ligne, créer des commits et des branches, et échanger directement entre eux sans passer par le serveur central.
 
-**Avantages du modèle distribué :**
+```mermaid
+flowchart LR
+    subgraph "Système centralisé — SVN"
+        direction LR
+        A1["Serveur central<br />Historique complet"]
+        B1["Dev 1<br />Copie de travail"]
+        B2["Dev 2<br />Copie de travail"]
+        B3["Dev 3<br />Copie de travail"]
 
-- [x] **Travail hors ligne** : Commit, branches, merge sans connexion réseau
-- [x] **Rapidité** : Toutes les opérations sont locales (sauf push/pull)
-- [x] **Redondance** : Chaque clone est une sauvegarde complète
-- [x] **Flexibilité** : Workflows complexes possibles (peer-to-peer)
-- [x] **Sécurité** : Perte du serveur central = aucune perte de données
+        B1 -.->|commit| A1
+        B2 -.->|commit| A1
+        B3 -.->|commit| A1
+
+        A1 -.->|update| B1
+        A1 -.->|update| B2
+        A1 -.->|update| B3
+    end
+```
+
+Dans un système centralisé comme SVN, seul le serveur possède l'historique complet. Les développeurs ne disposent que d'une copie de travail de la dernière version. Toute opération nécessite une connexion au serveur. Si ce dernier tombe, tout le travail collaboratif s'arrête et l'historique peut être perdu définitivement.
+
+| Critère | Git — distribué | SVN — centralisé |
+|---|---|---|
+| Travail hors ligne | Oui — commit, branches, merge sans réseau | Non |
+| Rapidité | Toutes les opérations sont locales sauf push/pull | Dépend du réseau |
+| Redondance | Chaque clone est une sauvegarde complète | Un seul point de défaillance |
+| Sécurité | Perte du serveur central sans perte de données | Perte du serveur = perte de l'historique |
 
 ### Les trois zones
 
-Git organise les fichiers en **trois zones** distinctes.
+!!! note "L'image ci-dessous représente les trois zones Git et les commandes qui transitent entre elles. C'est le concept fondamental le plus mal compris — comprendre ces zones supprime 80 % des confusions sur git add, git commit, git push et git restore."
+
+![Les trois zones Git — working directory, staging area, dépôt local et dépôt distant avec les commandes de transition](../../../assets/images/outils/git-trois-zones.png)
+
+<p><em>Git organise les fichiers en quatre zones distinctes. Le répertoire de travail (working directory) contient les fichiers modifiables sur le disque. La zone de staging (index) contient les modifications sélectionnées pour le prochain commit — c'est ici que l'on construit des commits logiques et atomiques. Le dépôt local contient l'historique permanent des commits dans le répertoire .git/. Le dépôt distant (GitHub, GitLab) est le point de synchronisation entre collaborateurs. Chaque commande Git déplace les modifications entre ces zones dans un sens précis.</em></p>
 
 ```mermaid
-graph LR
-    A[Répertoire de travail<br/>Working Directory<br/>Fichiers modifiables] -->|git add| B[Zone de staging<br/>Index<br/>Modifications préparées]
-    B -->|git commit| C[Dépôt local<br/>Repository<br/>Historique permanent]
-    C -->|git push| D[Dépôt distant<br/>Remote Repository<br/>GitHub/GitLab]
-    
-    D -->|git pull| A
-    C -->|git checkout| A
-    B -->|git restore --staged| A
-    C -->|git reset| B
-    
-    style A fill:#f3e3e3
-    style B fill:#f3f3e3
-    style C fill:#e3f3e3
-    style D fill:#e3e3f3
+flowchart TB
+    A["Répertoire de travail<br />Working Directory<br />Fichiers modifiables"]
+    B["Zone de staging<br />Index<br />Modifications préparées"]
+    C["Dépôt local<br />Repository<br />Historique permanent"]
+    D["Dépôt distant<br />Remote<br />GitHub, GitLab"]
+
+    A -->|"git add"| B
+    B -->|"git commit"| C
+    C -->|"git push"| D
+
+    D -->|"git pull"| A
+    C -->|"git checkout"| A
+    B -->|"git restore --staged"| A
+    C -->|"git reset"| B
 ```
-
-**Répertoire de travail (Working Directory) :**
-
-- Fichiers visibles et modifiables
-- État actuel des fichiers sur le disque
-- Zone de modification libre
-
-**Zone de staging (Index) :**
-
-- Modifications **sélectionnées** pour le prochain commit
-- Permet de construire des commits logiques et atomiques
-- Intermédiaire entre travail et historique
-
-**Dépôt local (Repository) :**
-
-- Historique complet des commits
-- Base de données Git (`.git/`)
-- Immuable et permanent
 
 ### Objets Git
 
-Git stocke l'information sous forme d'**objets** identifiés par hashes SHA-1.
+!!! note "L'image ci-dessous représente le modèle d'objets Git et la chaîne de hashes qui garantit l'intégrité de l'historique. Comprendre cette structure explique pourquoi Git est inviolable et comment fonctionne l'intégrité cryptographique."
+
+![Modèle d'objets Git — commit, tree, blob et la chaîne de hashes SHA-1](../../../assets/images/outils/git-objets-dag.png)
+
+<p><em>Git stocke l'information sous forme d'objets identifiés par des hashes SHA-1. Un commit contient les métadonnées (auteur, date, message) et pointe vers un tree. Le tree représente la structure de répertoires et pointe vers des blobs. Chaque blob contient le contenu binaire d'un fichier. Modifier un fichier change son hash (blob), ce qui change le hash du tree, ce qui change le hash du commit. Cette chaîne garantit l'intégrité totale de l'historique — toute falsification est immédiatement détectable.</em></p>
 
 ```mermaid
-graph TB
-    A[Commit<br/>SHA: a1b2c3d<br/>Message, Auteur, Date]
-    B[Tree<br/>SHA: e4f5g6h<br/>Structure répertoires]
-    C[Blob<br/>SHA: i7j8k9l<br/>Contenu fichier 1]
-    D[Blob<br/>SHA: m0n1o2p<br/>Contenu fichier 2]
-    E[Commit Parent<br/>SHA: q3r4s5t]
-    
-    A -->|pointe vers| B
-    A -->|parent| E
-    B -->|contient| C
-    B -->|contient| D
-    
-    style A fill:#e3f3e3
-    style B fill:#f3e3e3
-    style C fill:#e3e3f3
-    style D fill:#e3e3f3
+flowchart TB
+    A["Commit<br />SHA: a1b2c3d<br />Message, Auteur, Date"]
+    B["Tree<br />SHA: e4f5g6h<br />Structure répertoires"]
+    C["Blob<br />SHA: i7j8k9l<br />Contenu fichier 1"]
+    D["Blob<br />SHA: m0n1o2p<br />Contenu fichier 2"]
+    E["Commit parent<br />SHA: q3r4s5t"]
+
+    A -->|"pointe vers"| B
+    A -->|"parent"| E
+    B -->|"contient"| C
+    B -->|"contient"| D
 ```
 
-**Types d'objets :**
-
 | Type | Contenu | Rôle |
-|------|---------|------|
-| **Commit** | Métadonnées (auteur, date, message) + pointeur vers tree | Snapshot du projet |
-| **Tree** | Liste de blobs et sous-trees | Structure de répertoires |
-| **Blob** | Contenu binaire d'un fichier | Données brutes |
-| **Tag** | Référence annotée vers un commit | Marqueur de version |
-
-**Intégrité cryptographique :**
-
-Chaque objet est identifié par le **hash SHA-1** de son contenu. Modifier un fichier change son hash, ce qui change le hash du tree, qui change le hash du commit. Cette chaîne garantit l'**intégrité totale** de l'historique.
+|---|---|---|
+| Commit | Métadonnées (auteur, date, message) + pointeur vers tree | Snapshot du projet |
+| Tree | Liste de blobs et sous-trees | Structure de répertoires |
+| Blob | Contenu binaire d'un fichier | Données brutes |
+| Tag | Référence annotée vers un commit | Marqueur de version |
 
 !!! note "Similitude avec la blockchain"
-    Git utilise le même principe fondamental que la blockchain : chaque commit référence son parent par son hash, créant une **chaîne cryptographique** immuable. Toute tentative de modification d'un commit ancien invalide tous les commits suivants, rendant la falsification détectable immédiatement.
-    
-    **Différence importante** : Git utilise SHA-1, un algorithme aujourd'hui considéré comme **déprécié** pour des applications critiques de sécurité (collisions théoriquement possibles). Les blockchains modernes utilisent SHA-256 ou des algorithmes plus robustes. Git migre progressivement vers SHA-256, mais SHA-1 reste suffisant pour l'intégrité de versioning de code où les attaques par collision sont peu pertinentes.
+    Git utilise le même principe fondamental que la blockchain : chaque commit référence son parent par son hash, créant une chaîne cryptographique immuable. Toute tentative de modification d'un commit ancien invalide tous les commits suivants. Git utilise SHA-1, un algorithme aujourd'hui déprécié pour des applications critiques de sécurité. Git migre progressivement vers SHA-256, mais SHA-1 reste suffisant pour l'intégrité de versioning de code où les attaques par collision sont peu pertinentes.
+
+<br />
+
+---
 
 ## Configuration initiale
 
 ### Installation
 
-=== ":fontawesome-brands-ubuntu: Linux (Debian/Ubuntu)"
+=== ":fontawesome-brands-ubuntu: Linux Debian, Ubuntu"
 
-    ```bash
+    ```bash title="Bash — installation Git sur Debian et Ubuntu"
     apt update
     apt install git
     ```
 
-=== ":fontawesome-brands-fedora: Linux (Fedora/RHEL)"
+=== ":fontawesome-brands-fedora: Linux Fedora, RHEL"
 
-    ```bash
+    ```bash title="Bash — installation Git sur Fedora et RHEL"
     dnf install git
     ```
 
 === ":fontawesome-brands-apple: macOS"
 
-    ```bash
+    ```bash title="Bash — installation Git sur macOS"
     # Via Homebrew
     brew install git
 
@@ -202,51 +174,43 @@ Chaque objet est identifié par le **hash SHA-1** de son contenu. Modifier un fi
 
 === ":fontawesome-brands-windows: Windows"
 
-    - Télécharger depuis [git-scm.com](https://git-scm.com)
-    - Git pour Windows inclut Git Bash (terminal Unix-like)
+    Télécharger depuis [git-scm.com](https://git-scm.com). Git pour Windows inclut Git Bash, un terminal Unix-like.
 
-!!! note "Universalité des commandes Git"
-    Quel que soit votre système d'exploitation (Linux, macOS, Windows), les **commandes Git sont identiques**. Git est un outil en ligne de commande cross-platform. Une fois installé, `git commit`, `git push`, `git branch` fonctionnent exactement de la même manière partout. Cette uniformité permet de travailler sans friction sur différents environnements.
-
-**Vérification :**
-```bash
+```bash title="Bash — vérifier la version installée"
 git --version
 # git version 2.43.0
 ```
 
+!!! note "Universalité des commandes Git"
+    Quel que soit le système d'exploitation — Linux, macOS, Windows — les commandes Git sont identiques. `git commit`, `git push`, `git branch` fonctionnent exactement de la même manière partout. Cette uniformité permet de travailler sans friction sur différents environnements.
+
 ### Configuration utilisateur
 
-**Configuration globale (obligatoire avant premier commit) :**
-
-```bash
-# Identité (apparaîtra dans tous les commits)
+```bash title="Bash — configuration globale — obligatoire avant le premier commit"
+# Identité — apparaîtra dans tous les commits
 git config --global user.name "Alice Dupont"
 git config --global user.email "alice@example.com"
 
-# Éditeur par défaut
+# Éditeur par défaut pour les messages de commit
 git config --global core.editor "vim"
 git config --global core.editor "code --wait"  # VS Code
-git config --global core.editor "nano"         # Nano
+git config --global core.editor "nano"
 
-# Outil de diff/merge
+# Outil de merge
 git config --global merge.tool vimdiff
 
 # Couleurs dans le terminal
 git config --global color.ui auto
 ```
 
-**Niveaux de configuration :**
-
 | Niveau | Portée | Fichier | Priorité |
-|--------|--------|---------|----------|
-| **--system** | Tous les utilisateurs du système | `/etc/gitconfig` | Basse |
-| **--global** | Utilisateur actuel | `~/.gitconfig` | Moyenne |
-| **--local** | Dépôt actuel | `.git/config` | Haute |
+|---|---|---|---|
+| `--system` | Tous les utilisateurs du système | `/etc/gitconfig` | Basse |
+| `--global` | Utilisateur actuel | `~/.gitconfig` | Moyenne |
+| `--local` | Dépôt actuel uniquement | `.git/config` | Haute |
 
-**Visualiser la configuration :**
-
-```bash
-# Toute la configuration
+```bash title="Bash — visualiser la configuration"
+# Toute la configuration effective
 git config --list
 
 # Configuration globale uniquement
@@ -255,56 +219,51 @@ git config --global --list
 # Valeur d'une option spécifique
 git config user.name
 
-# Voir l'origine d'une option
+# Voir l'origine d'une option (quel fichier la définit)
 git config --show-origin user.email
 ```
 
 ### Alias utiles
 
-```bash
-# Raccourcis de commandes
+```bash title="Bash — configurer des alias Git"
+# Raccourcis de commandes courantes
 git config --global alias.st status
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.unstage 'reset HEAD --'
 
-# Log graphique élégant
+# Log graphique avec couleurs
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-# Voir les branches récentes
+# Branches récentes par date
 git config --global alias.recent 'for-each-ref --sort=-committerdate --format="%(committerdate:short) %(refname:short)" refs/heads/'
 ```
+
+<br />
+
+---
 
 ## Commandes fondamentales
 
 ### Initialisation d'un dépôt
 
-**Créer un nouveau dépôt :**
-
-```bash
-# Créer un répertoire de projet
+```bash title="Bash — créer un nouveau dépôt"
 mkdir mon-projet
 cd mon-projet
 
-# Initialiser Git
+# Initialiser Git — crée le répertoire .git/
 git init
-
-# Résultat : création du répertoire .git/
-ls -la
-# drwxr-xr-x  .git
 ```
 
-**Cloner un dépôt existant :**
-
-```bash
-# Clone depuis une URL
+```bash title="Bash — cloner un dépôt existant"
+# Clone complet depuis une URL
 git clone https://github.com/utilisateur/projet.git
 
-# Clone avec nom personnalisé
+# Clone avec nom de répertoire personnalisé
 git clone https://github.com/utilisateur/projet.git mon-nom
 
-# Clone avec profondeur limitée (historique partiel)
+# Clone avec historique partiel — utile pour les grands dépôts
 git clone --depth 1 https://github.com/utilisateur/projet.git
 
 # Clone d'une branche spécifique
@@ -313,37 +272,31 @@ git clone -b develop https://github.com/utilisateur/projet.git
 
 ### État du dépôt
 
-**Vérifier le statut :**
-
-```bash
+```bash title="Bash — inspecter l'état du dépôt"
 # Statut complet
 git status
 
 # Statut court
 git status -s
-# M  fichier-modifie.txt
-# A  fichier-ajoute.txt
-# D  fichier-supprime.txt
-# ?? fichier-non-suivi.txt
+# M  fichier-modifie.txt    → modifié dans staging
+#  M fichier-wd.txt         → modifié dans working directory
+# A  fichier-ajoute.txt     → ajouté au staging
+# ?? fichier-non-suivi.txt  → non suivi
 ```
 
-**Symboles du statut court :**
-
 | Code | Signification |
-|------|---------------|
+|---|---|
 | `??` | Non suivi (untracked) |
 | `A ` | Ajouté au staging |
 | `M ` | Modifié dans staging |
 | ` M` | Modifié dans working directory |
 | `MM` | Modifié dans staging et working directory |
 | `D ` | Supprimé dans staging |
-| ` D` | Supprimé dans working directory |
 | `R ` | Renommé |
-| `C ` | Copié |
 
 ### Ajouter des fichiers (staging)
 
-```bash
+```bash title="Bash — ajouter des fichiers au staging"
 # Ajouter un fichier spécifique
 git add fichier.txt
 
@@ -353,85 +306,77 @@ git add fichier1.txt fichier2.txt
 # Ajouter tous les fichiers modifiés et nouveaux
 git add .
 
-# Ajouter tous les fichiers (même supprimés)
+# Ajouter tous les fichiers y compris les suppressions
 git add -A
 
-# Ajouter interactivement (choix par fichier)
+# Ajouter interactivement — choix fichier par fichier
 git add -i
 
-# Ajouter par morceaux (patch)
+# Ajouter par morceaux — mode patch
 git add -p
 ```
 
-**Mode patch (git add -p) :**
-
-Git présente chaque modification et demande l'action :
-
-```
-Stage this hunk [y,n,q,a,d,s,e,?]?
-y - stage ce morceau
-n - ne pas stage ce morceau
-q - quitter
-a - stage ce morceau et tous les suivants
-d - ne stage pas ce morceau ni les suivants
-s - découper en morceaux plus petits
-e - éditer manuellement le morceau
-? - aide
+```bash title="Bash — réponses disponibles en mode patch (git add -p)"
+# Stage this hunk [y,n,q,a,d,s,e,?]?
+# y — stage ce morceau
+# n — ne pas stage ce morceau
+# q — quitter
+# a — stage ce morceau et tous les suivants
+# d — ne stage pas ce morceau ni les suivants
+# s — découper en morceaux plus petits
+# e — éditer manuellement le morceau
+# ? — aide
 ```
 
 ### Créer des commits
 
-```bash
+```bash title="Bash — créer des commits"
 # Commit avec message inline
 git commit -m "Ajout fonctionnalité authentification"
 
 # Commit avec éditeur pour message détaillé
 git commit
 
-# Commit avec staging automatique des fichiers modifiés
+# Commit avec staging automatique des fichiers modifiés (pas les nouveaux)
 git commit -a -m "Correction bug login"
 
-# Amender le dernier commit
+# Amender le dernier commit — modifier le message
 git commit --amend -m "Nouveau message"
 
-# Amender sans changer le message
+# Amender le dernier commit — ajouter des fichiers sans changer le message
 git commit --amend --no-edit
 ```
 
-**Structure d'un bon message de commit :**
-
-```
-Type: Résumé court (50 caractères max)
-
-Description détaillée optionnelle expliquant le pourquoi
-des changements, pas le comment (le code montre le comment).
-
-- Point spécifique 1
-- Point spécifique 2
-
-Refs: #123
+```bash title="Bash — structure d'un message de commit"
+# Type: Résumé court (50 caractères maximum)
+#
+# Description détaillée optionnelle expliquant le pourquoi
+# des changements, pas le comment (le code montre le comment).
+#
+# - Point spécifique 1
+# - Point spécifique 2
+#
+# Refs: #123
 ```
 
-**Types de commit conventionnels :**
-
-```
-feat:     Nouvelle fonctionnalité
-fix:      Correction de bug
-docs:     Documentation uniquement
-style:    Formatage (espaces, points-virgules)
-refactor: Refactoring sans changement fonctionnel
-perf:     Amélioration de performance
-test:     Ajout/correction de tests
-chore:    Tâches de maintenance (build, dépendances)
+```bash title="Bash — types de commit conventionnels"
+# feat:     Nouvelle fonctionnalité
+# fix:      Correction de bug
+# docs:     Documentation uniquement
+# style:    Formatage — espaces, points-virgules
+# refactor: Refactoring sans changement fonctionnel
+# perf:     Amélioration de performance
+# test:     Ajout ou correction de tests
+# chore:    Tâches de maintenance — build, dépendances
 ```
 
 ### Visualiser l'historique
 
-```bash
+```bash title="Bash — consulter l'historique des commits"
 # Log complet
 git log
 
-# Log avec graphe des branches
+# Log avec graphe des branches et hashes courts
 git log --graph --oneline --all
 
 # Log avec statistiques de modifications
@@ -440,42 +385,38 @@ git log --stat
 # Log avec diff complet
 git log -p
 
-# Log des N derniers commits
+# Les 5 derniers commits
 git log -5
 
-# Log depuis une date
+# Commits depuis une date
 git log --since="2 weeks ago"
 git log --after="2025-01-01"
 
-# Log par auteur
+# Commits par auteur
 git log --author="Alice"
 
-# Log avec recherche dans les messages
+# Commits dont le message contient une expression
 git log --grep="bug fix"
 
-# Log affichant les commits qui ont modifié un fichier
+# Commits ayant modifié un fichier spécifique
 git log -- fichier.txt
 
 # Format personnalisé
 git log --pretty=format:"%h - %an, %ar : %s"
 ```
 
-**Format personnalisé :**
-
 | Placeholder | Signification |
-|-------------|---------------|
+|---|---|
 | `%H` | Hash complet du commit |
 | `%h` | Hash court du commit |
 | `%an` | Nom de l'auteur |
 | `%ae` | Email de l'auteur |
-| `%ad` | Date d'auteur |
 | `%ar` | Date relative (il y a 2 semaines) |
-| `%s` | Message (sujet) |
-| `%b` | Corps du message |
+| `%s` | Message — sujet |
 
 ### Différences
 
-```bash
+```bash title="Bash — comparer des états du dépôt"
 # Différences working directory vs staging
 git diff
 
@@ -486,71 +427,63 @@ git diff --cached  # Équivalent
 # Différences entre deux commits
 git diff commit1 commit2
 
-# Différences d'un fichier spécifique
-git diff fichier.txt
-
 # Statistiques de différences
 git diff --stat
 
-# Différences entre branches
+# Différences entre deux branches
 git diff main..develop
 ```
 
 ### Annuler des modifications
 
-**Dans le working directory :**
-
-```bash
+```bash title="Bash — annuler des modifications dans le working directory"
 # Restaurer un fichier depuis le dernier commit
 git restore fichier.txt
 
 # Restaurer tous les fichiers
 git restore .
 
-# Ancienne syntaxe (toujours valide)
+# Ancienne syntaxe — toujours valide
 git checkout -- fichier.txt
 ```
 
-**Dans le staging :**
-
-```bash
-# Retirer un fichier du staging (sans modifier le fichier)
+```bash title="Bash — retirer des fichiers du staging"
+# Retirer un fichier du staging sans modifier le fichier
 git restore --staged fichier.txt
 
 # Ancienne syntaxe
 git reset HEAD fichier.txt
 ```
 
-**Annuler un commit :**
-
-```bash
-# Créer un commit qui annule un commit précédent
+```bash title="Bash — annuler des commits"
+# Créer un commit qui annule un commit précédent — non destructif
 git revert <commit-hash>
 
-# Revenir au commit précédent (destructif, perte des modifications)
-git reset --hard HEAD~1
-
-# Revenir au commit précédent (conserve les modifications dans working directory)
+# Revenir au commit précédent en conservant les modifications
 git reset --soft HEAD~1
+
+# Revenir au commit précédent en vidant le staging
+git reset --mixed HEAD~1
+
+# Revenir au commit précédent en effaçant tout (dangereux)
+git reset --hard HEAD~1
 ```
 
-**Options de git reset :**
-
 | Option | Staging | Working Directory | Usage |
-|--------|---------|-------------------|-------|
-| `--soft` | Conservé | Conservé | Défaire commit, garder tout le reste |
-| `--mixed` (défaut) | Réinitialisé | Conservé | Défaire commit + staging |
-| `--hard` | Réinitialisé | Réinitialisé | Tout effacer (dangereux) |
+|---|---|---|---|
+| `--soft` | Conservé | Conservé | Défaire un commit, garder tout le reste |
+| `--mixed` (défaut) | Réinitialisé | Conservé | Défaire commit et staging |
+| `--hard` | Réinitialisé | Réinitialisé | Tout effacer — irréversible |
+
+<br />
+
+---
 
 ## Branches
 
-Les branches sont le cœur de la puissance de Git. Elles permettent de **développer des fonctionnalités en isolation** sans affecter le code principal.
+Les branches permettent de **développer des fonctionnalités en isolation** sans affecter le code principal. Elles sont légères — une branche est simplement un pointeur vers un commit.
 
 ```mermaid
----
-config:
-  theme: "base"
----
 gitGraph
     commit id: "Initial"
     commit id: "Feature A"
@@ -571,14 +504,14 @@ gitGraph
 
 ### Gestion des branches
 
-```bash
+```bash title="Bash — créer, basculer et supprimer des branches"
 # Lister les branches locales
 git branch
 
-# Lister toutes les branches (locales + distantes)
+# Lister toutes les branches — locales et distantes
 git branch -a
 
-# Lister avec dernier commit
+# Lister avec le dernier commit de chaque branche
 git branch -v
 
 # Créer une branche
@@ -595,36 +528,19 @@ git switch nom-branche  # Syntaxe moderne
 # Renommer la branche actuelle
 git branch -m nouveau-nom
 
-# Renommer une autre branche
-git branch -m ancien-nom nouveau-nom
-
-# Supprimer une branche (fusionnée uniquement)
+# Supprimer une branche fusionnée
 git branch -d nom-branche
 
-# Forcer la suppression d'une branche (non fusionnée)
+# Forcer la suppression d'une branche non fusionnée
 git branch -D nom-branche
 
 # Supprimer une branche distante
 git push origin --delete nom-branche
 ```
 
-### Fusion de branches (merge)
-
-**Merge fast-forward :**
-
-```bash
-# Situation : main n'a pas avancé depuis la création de la branche
-git checkout main
-git merge feature-branch
-
-# Résultat : main avance simplement vers feature-branch
-```
+### Fusion de branches — Merge
 
 ```mermaid
----
-config:
-  theme: "base"
----
 gitGraph
     commit id: "A"
     commit id: "B"
@@ -636,21 +552,14 @@ gitGraph
     merge feature tag: "Fast-forward"
 ```
 
-**Merge three-way (avec commit de merge) :**
-
-```bash
-# Situation : main a avancé pendant le développement de la branche
+```bash title="Bash — fusion fast-forward"
+# main n'a pas avancé depuis la création de la branche
+# main avance simplement vers le dernier commit de feature
 git checkout main
 git merge feature-branch
-
-# Résultat : création d'un commit de merge avec deux parents
 ```
 
 ```mermaid
----
-config:
-  theme: "base"
----
 gitGraph
     commit id: "A"
     commit id: "B"
@@ -664,134 +573,94 @@ gitGraph
     merge feature
 ```
 
-**Désactiver le fast-forward :**
+```bash title="Bash — fusion three-way avec commit de merge"
+# main a avancé pendant le développement de la branche
+# Git crée un commit de merge avec deux parents
+git checkout main
+git merge feature-branch
 
-```bash
-# Toujours créer un commit de merge (traçabilité)
+# Toujours créer un commit de merge même si fast-forward possible
 git merge --no-ff feature-branch
 ```
 
 ### Résolution de conflits
 
-**Scénario typique :**
-
-```bash
-git checkout main
-git merge feature-branch
-
-# Sortie :
+```bash title="Bash — diagnostiquer et résoudre un conflit de merge"
+# Exemple de sortie lors d'un conflit
 # Auto-merging fichier.txt
 # CONFLICT (content): Merge conflict in fichier.txt
 # Automatic merge failed; fix conflicts and then commit the result.
-```
-
-**Marqueurs de conflit dans le fichier :**
-
-```
-<<<<<<< HEAD
-Contenu de la branche actuelle (main)
-=======
-Contenu de la branche à fusionner (feature-branch)
->>>>>>> feature-branch
-```
-
-**Résolution manuelle :**
-
-1. Éditer le fichier pour résoudre le conflit
-2. Supprimer les marqueurs `<<<<<<<`, `=======`, `>>>>>>>`
-3. Ajouter le fichier résolu au staging
-
-```bash
-# Éditer fichier.txt et résoudre manuellement
-git add fichier.txt
-
-# Finaliser le merge
-git commit -m "Merge feature-branch - résolution conflits"
-```
-
-**Outils de résolution :**
-
-```bash
-# Utiliser l'outil de merge configuré
-git mergetool
-
-# Abandonner le merge
-git merge --abort
 
 # Voir les fichiers en conflit
 git status
 git diff --name-only --diff-filter=U
 ```
 
+```bash title="Bash — marqueurs de conflit dans un fichier"
+# <<<<<<< HEAD
+# Contenu de la branche actuelle (main)
+# =======
+# Contenu de la branche à fusionner (feature-branch)
+# >>>>>>> feature-branch
+```
+
+```bash title="Bash — résolution manuelle d'un conflit"
+# 1. Éditer le fichier — supprimer les marqueurs et garder le bon contenu
+# 2. Ajouter le fichier résolu
+git add fichier.txt
+
+# 3. Finaliser le merge
+git commit -m "Merge feature-branch — résolution conflits"
+
+# Utiliser l'outil de merge configuré
+git mergetool
+
+# Abandonner le merge et revenir à l'état précédent
+git merge --abort
+```
+
 ### Rebase
 
-Le **rebase** réécrit l'historique en rejouant les commits sur une nouvelle base.
+!!! note "L'image ci-dessous compare le merge et le rebase sur un exemple concret. C'est la source de confusion la plus fréquente chez les utilisateurs Git intermédiaires — et la règle d'or du rebase est le point de sécurité le plus important à retenir."
 
-```bash
+![Merge versus Rebase — comparaison de l'historique résultant avec et sans commit de merge](../../assets/images/outils/git-merge-vs-rebase.png)
+
+<p><em>Le merge préserve l'historique exact avec un commit de merge visible — l'historique est non linéaire mais fidèle à la réalité. Le rebase réécrit l'historique en rejouant les commits sur une nouvelle base — l'historique est linéaire et propre mais les commits sont recréés avec de nouveaux hashes. Le rebase sur des branches déjà partagées crée des divergences catastrophiques pour les collaborateurs qui ont basé leur travail sur les anciens commits.</em></p>
+
+```bash title="Bash — rebase standard"
 # Rebaser la branche actuelle sur main
 git checkout feature-branch
 git rebase main
-
-# Rebaser interactivement (permet de modifier l'historique)
-git rebase -i HEAD~5
 ```
 
-**Différence merge vs rebase :**
-
-```mermaid
-graph LR
-    subgraph "Merge"
-        A1[A] --> B1[B]
-        B1 --> C1[C merge]
-        A1 --> D1[D]
-        D1 --> E1[E]
-        E1 --> C1
-    end
-    
-    subgraph "Rebase"
-        A2[A] --> B2[B]
-        B2 --> D2[D']
-        D2 --> E2[E']
-    end
-```
-
-**Merge :**
-- Préserve l'historique exact
-- Crée un commit de merge
-- Historique non linéaire mais fidèle
-
-**Rebase :**
-- Historique linéaire et propre
-- Pas de commit de merge
-- Réécrit l'historique (dangereux sur branches publiques)
-
-!!! danger "Règle d'or du rebase"
-    **Ne jamais rebaser des commits déjà poussés sur un dépôt public.** Le rebase réécrit l'historique, ce qui crée des divergences catastrophiques pour les collaborateurs qui ont basé leur travail sur les anciens commits.
-
-**Rebase interactif :**
-
-```bash
+```bash title="Bash — rebase interactif — modifier l'historique"
 git rebase -i HEAD~3
 
-# Éditeur s'ouvre avec :
-pick abc1234 Premier commit
-pick def5678 Deuxième commit
-pick ghi9012 Troisième commit
-
-# Options disponibles :
-# pick   = utiliser le commit
-# reword = utiliser le commit mais modifier le message
-# edit   = utiliser le commit mais s'arrêter pour amendement
-# squash = fusionner avec le commit précédent
-# fixup  = comme squash mais ignore le message
-# drop   = supprimer le commit
+# L'éditeur s'ouvre avec la liste des commits :
+# pick abc1234 Premier commit
+# pick def5678 Deuxième commit
+# pick ghi9012 Troisième commit
+#
+# pick   — utiliser le commit tel quel
+# reword — modifier le message
+# edit   — s'arrêter pour amendement
+# squash — fusionner avec le commit précédent
+# fixup  — comme squash mais ignore le message
+# drop   — supprimer le commit
 ```
+
+!!! danger "Règle absolue du rebase"
+    Ne jamais rebaser des commits déjà poussés sur un dépôt partagé. Le rebase réécrit l'historique et crée des divergences catastrophiques pour les collaborateurs qui ont basé leur travail sur les anciens commits.
+
+<br />
+
+---
 
 ## Dépôts distants
 
 ### Configuration des remotes
 
-```bash
+```bash title="Bash — gérer les dépôts distants"
 # Lister les remotes
 git remote
 git remote -v  # Avec URLs
@@ -799,28 +668,24 @@ git remote -v  # Avec URLs
 # Ajouter un remote
 git remote add origin https://github.com/user/repo.git
 
-# Renommer un remote
-git remote rename origin upstream
-
-# Supprimer un remote
-git remote remove origin
-
 # Voir les détails d'un remote
 git remote show origin
 
 # Changer l'URL d'un remote
 git remote set-url origin https://github.com/user/nouveau-repo.git
+
+# Supprimer un remote
+git remote remove origin
 ```
 
-### Push (envoyer vers remote)
+### Push — envoyer vers le remote
 
-```bash
+```bash title="Bash — pousser des commits vers le remote"
 # Push de la branche actuelle
 git push origin main
 
-# Push et créer la branche distante
+# Push et définir le tracking de la branche distante
 git push -u origin nouvelle-branche
-git push --set-upstream origin nouvelle-branche
 
 # Push de toutes les branches
 git push --all origin
@@ -828,45 +693,37 @@ git push --all origin
 # Push des tags
 git push --tags
 
-# Forcer le push (dangereux, écrase l'historique distant)
-git push --force origin main
-
-# Force push plus sûr (refuse si remote a avancé)
+# Force push plus sûr — refuse si le remote a avancé depuis le dernier fetch
 git push --force-with-lease origin main
 
 # Supprimer une branche distante
 git push origin --delete ancienne-branche
 ```
 
-### Pull (récupérer depuis remote)
+### Pull — récupérer depuis le remote
 
-```bash
+```bash title="Bash — récupérer et intégrer les commits distants"
 # Fetch + merge
 git pull origin main
 
-# Fetch + rebase
+# Fetch + rebase — historique plus linéaire
 git pull --rebase origin main
 
-# Fetch uniquement (sans merge)
+# Fetch uniquement — sans toucher au working directory
 git fetch origin
 
 # Fetch toutes les branches
 git fetch --all
 
-# Prune (supprimer les références distantes obsolètes)
+# Supprimer les références distantes obsolètes
 git fetch --prune
 ```
 
-**Différence fetch vs pull :**
-
-- **fetch** : Télécharge les commits distants dans `.git/` sans toucher au working directory
-- **pull** : Fetch + merge/rebase automatique
+`fetch` télécharge les commits distants sans toucher au working directory. `pull` enchaîne fetch et merge ou rebase automatiquement.
 
 ### Workflows courants
 
-**Workflow centralisé simple :**
-
-```bash
+```bash title="Bash — workflow centralisé simple"
 # 1. Récupérer les dernières modifications
 git pull origin main
 
@@ -878,20 +735,18 @@ git commit -m "Ajout fonctionnalité"
 git push origin main
 ```
 
-**Workflow avec branches de fonctionnalité :**
-
-```bash
+```bash title="Bash — workflow avec branches de fonctionnalité"
 # 1. Créer une branche pour la fonctionnalité
 git checkout -b feature/authentication
 
-# 2. Développer la fonctionnalité
+# 2. Développer et commiter
 git add .
 git commit -m "Implémenter login"
 
 # 3. Pousser la branche
 git push -u origin feature/authentication
 
-# 4. Créer une Pull Request sur GitHub/GitLab
+# 4. Créer une Pull Request sur GitHub ou GitLab
 
 # 5. Après review et merge, nettoyer
 git checkout main
@@ -899,13 +754,15 @@ git pull origin main
 git branch -d feature/authentication
 ```
 
-**Workflow Gitflow :**
+### Workflow Gitflow
+
+!!! note "L'image ci-dessous représente l'organisation des branches dans Gitflow. C'est le workflow de référence en environnement enterprise — comprendre le rôle de chaque type de branche évite les erreurs d'organisation courantes."
+
+![Workflow Gitflow — branches main, develop, feature, release et hotfix avec leurs cycles de vie](../../assets/images/outils/git-gitflow-branches.png)
+
+<p><em>Gitflow organise le développement autour de deux branches permanentes — main pour la production et develop pour l'intégration — et trois types de branches temporaires. Les branches feature/* partent de develop pour les nouvelles fonctionnalités. Les branches release/* partent de develop pour préparer une version et fusionnent dans main et develop. Les branches hotfix/* partent de main pour les corrections urgentes en production et fusionnent dans main et develop. Ce schéma garantit que main ne contient que du code stable et déployé.</em></p>
 
 ```mermaid
----
-config:
-  theme: "base"
----
 gitGraph
     commit id: "Initial"
     branch develop
@@ -932,25 +789,27 @@ gitGraph
     merge hotfix/critical
 ```
 
-**Branches dans Gitflow :**
-
 | Branche | Durée de vie | Rôle |
-|---------|--------------|------|
-| **main** | Permanente | Code production |
-| **develop** | Permanente | Intégration développement |
-| **feature/*** | Temporaire | Nouvelles fonctionnalités |
-| **release/*** | Temporaire | Préparation version |
-| **hotfix/*** | Temporaire | Corrections urgentes production |
+|---|---|---|
+| main | Permanente | Code de production |
+| develop | Permanente | Intégration du développement |
+| feature/* | Temporaire | Nouvelles fonctionnalités |
+| release/* | Temporaire | Préparation d'une version |
+| hotfix/* | Temporaire | Corrections urgentes production |
+
+<br />
+
+---
 
 ## Tags
 
-Les tags marquent des points spécifiques de l'historique (versions, releases).
+Les tags marquent des points spécifiques de l'historique pour identifier des versions ou des releases.
 
-```bash
-# Créer un tag léger
+```bash title="Bash — créer et gérer des tags"
+# Tag léger — simple pointeur vers un commit
 git tag v1.0.0
 
-# Créer un tag annoté (avec message)
+# Tag annoté — avec message et métadonnées
 git tag -a v1.0.0 -m "Version 1.0.0 stable"
 
 # Tagger un commit spécifique
@@ -960,10 +819,7 @@ git tag -a v0.9.0 abc1234 -m "Version 0.9.0"
 git tag
 git tag -l "v1.*"  # Filtrer par pattern
 
-# Voir les détails d'un tag
-git show v1.0.0
-
-# Pousser un tag
+# Pousser un tag spécifique
 git push origin v1.0.0
 
 # Pousser tous les tags
@@ -974,29 +830,23 @@ git tag -d v1.0.0
 
 # Supprimer un tag distant
 git push origin --delete v1.0.0
-
-# Checkout d'un tag (mode detached HEAD)
-git checkout v1.0.0
 ```
 
-**Conventions de versioning sémantique :**
-
+```bash title="Bash — versioning sémantique"
+# v{MAJOR}.{MINOR}.{PATCH}
+# v1.2.3
+# │ │ └─ PATCH : corrections de bugs
+# │ └─── MINOR : nouvelles fonctionnalités compatibles
+# └───── MAJOR : changements incompatibles
 ```
-v{MAJOR}.{MINOR}.{PATCH}
 
-v1.2.3
-│ │ └─ PATCH : Corrections de bugs
-│ └─── MINOR : Nouvelles fonctionnalités (compatible)
-└───── MAJOR : Changements incompatibles
-```
+<br />
+
+---
 
 ## Fichier .gitignore
 
-Le fichier `.gitignore` spécifie les fichiers que Git doit **ignorer**.
-
-**Syntaxe :**
-
-```gitignore
+```gitignore title="Gitignore — syntaxe et patterns courants"
 # Commentaire
 
 # Ignorer tous les fichiers .log
@@ -1005,11 +855,9 @@ Le fichier `.gitignore` spécifie les fichiers que Git doit **ignorer**.
 # Ignorer le répertoire node_modules/
 node_modules/
 
-# Ignorer tous les fichiers .env
+# Ignorer les fichiers .env sauf .env.example
 .env
 .env.*
-
-# Exception : ne pas ignorer .env.example
 !.env.example
 
 # Ignorer les fichiers de build
@@ -1022,104 +870,66 @@ __pycache__/
 .vscode/
 .idea/
 *.swp
-*.swo
 
 # Ignorer les fichiers système
 .DS_Store
 Thumbs.db
-
-# Ignorer dans tous les sous-répertoires
-**/logs/
-**/temp/
 ```
 
-**Patterns courants :**
-
-```gitignore
+```gitignore title="Gitignore — patterns par langage"
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-.Python
-env/
 venv/
 .env
 
 # Node.js
 node_modules/
 npm-debug.log*
-yarn-debug.log*
-.npm
 .eslintcache
 
 # Java
 *.class
 *.jar
-*.war
 target/
-
-# C/C++
-*.o
-*.a
-*.exe
-*.out
 
 # Rust
 target/
 Cargo.lock
 
-# Logs
-logs/
-*.log
-
-# Bases de données
-*.db
-*.sqlite
-*.sqlite3
-
-# Secrets
+# Secrets — ne jamais commiter
 .env
 secrets.yml
 *.pem
 *.key
-
-# Build
-dist/
-build/
-out/
 ```
 
-**Forcer l'ajout d'un fichier ignoré :**
-
-```bash
-# Ajouter malgré .gitignore
-git add -f fichier-ignore.txt
-```
-
-**Voir les fichiers ignorés :**
-
-```bash
+```bash title="Bash — diagnostiquer les fichiers ignorés"
 # Lister les fichiers ignorés
 git status --ignored
 
-# Vérifier si un fichier est ignoré
+# Vérifier si un fichier spécifique est ignoré et pourquoi
 git check-ignore -v fichier.txt
+
+# Forcer l'ajout d'un fichier ignoré
+git add -f fichier-ignore.txt
 ```
 
-**Templates .gitignore :**
+GitHub maintient des templates `.gitignore` pour chaque langage : [github.com/github/gitignore](https://github.com/github/gitignore)
 
-GitHub maintient des templates pour chaque langage : [github.com/github/gitignore](https://github.com/github/gitignore)
+<br />
 
-## Stash (mise de côté)
+---
 
-Le **stash** permet de sauvegarder temporairement des modifications non commitées.
+## Stash — mise de côté
 
-```bash
-# Sauvegarder les modifications
+Le stash permet de sauvegarder temporairement des modifications non commitées pour basculer rapidement sur une autre tâche.
+
+```bash title="Bash — sauvegarder et restaurer avec git stash"
+# Sauvegarder les modifications en cours
 git stash
 
-# Sauvegarder avec message
+# Sauvegarder avec un message descriptif
 git stash save "WIP: feature login"
 
 # Lister les stashes
@@ -1127,41 +937,33 @@ git stash list
 # stash@{0}: WIP on main: abc1234 Last commit
 # stash@{1}: On feature: def5678 Previous stash
 
-# Appliquer le dernier stash (sans le supprimer)
+# Appliquer le dernier stash sans le supprimer
 git stash apply
-
-# Appliquer un stash spécifique
-git stash apply stash@{1}
 
 # Appliquer et supprimer le dernier stash
 git stash pop
 
-# Supprimer un stash
-git stash drop stash@{0}
-
-# Supprimer tous les stashes
-git stash clear
+# Appliquer un stash spécifique
+git stash apply stash@{1}
 
 # Voir le contenu d'un stash
 git stash show -p stash@{0}
+
+# Supprimer tous les stashes
+git stash clear
 
 # Créer une branche depuis un stash
 git stash branch nouvelle-branche stash@{0}
 ```
 
-**Cas d'usage typique :**
-
-```bash
-# Vous travaillez sur une fonctionnalité
-git status
-# Fichiers modifiés : login.js, auth.js
-
+```bash title="Bash — cas d'usage typique du stash"
+# Travail en cours sur une fonctionnalité
 # Urgence : correction de bug sur main
+
 git stash save "WIP: authentication feature"
 
-# Basculer sur main et corriger
 git checkout main
-# ... corriger le bug ...
+# corriger le bug
 git commit -m "Fix critical bug"
 
 # Retour sur la fonctionnalité
@@ -1169,55 +971,57 @@ git checkout feature-branch
 git stash pop
 ```
 
+<br />
+
+---
+
 ## Recherche et navigation
 
 ### Recherche dans le code
 
-```bash
-# Rechercher dans les fichiers suivis
+```bash title="Bash — rechercher dans le code versionné"
+# Rechercher une expression dans les fichiers suivis
 git grep "function login"
 
-# Rechercher avec numéro de ligne
+# Avec numéro de ligne
 git grep -n "function login"
 
-# Rechercher dans un commit spécifique
+# Dans un commit spécifique
 git grep "function login" abc1234
 
 # Compter les occurrences
 git grep -c "TODO"
 
-# Rechercher en ignorant la casse
+# Sans distinction majuscules/minuscules
 git grep -i "password"
 ```
 
 ### Recherche dans l'historique
 
-```bash
-# Trouver qui a modifié chaque ligne d'un fichier
-git blame fichier.txt
-
-# Blame avec plage de lignes
-git blame -L 10,20 fichier.txt
-
-# Trouver le commit qui a introduit un bug (bisect)
+```bash title="Bash — retrouver l'origine d'un bug avec git bisect"
+# Identifier le commit qui a introduit un bug (dichotomie automatique)
 git bisect start
 git bisect bad              # Le commit actuel est mauvais
 git bisect good abc1234     # Ce commit était bon
 # Git checkout automatiquement des commits intermédiaires
-# Tester et marquer good/bad jusqu'à trouver le commit coupable
+# Tester et marquer good ou bad jusqu'à trouver le commit responsable
 git bisect reset            # Terminer la recherche
 
-# Trouver quand une ligne a été supprimée
+# Trouver qui a modifié chaque ligne d'un fichier
+git blame fichier.txt
+git blame -L 10,20 fichier.txt  # Plage de lignes
+
+# Trouver quand une ligne ou un texte a été supprimé
 git log -S "texte supprimé" -- fichier.txt
 
-# Voir l'historique d'un fichier (même renommé)
+# Voir l'historique d'un fichier y compris après renommage
 git log --follow fichier.txt
 ```
 
 ### Navigation dans l'historique
 
-```bash
-# Revenir à un commit spécifique (mode detached HEAD)
+```bash title="Bash — naviguer dans l'historique"
+# Revenir à un commit spécifique — mode detached HEAD
 git checkout abc1234
 
 # Revenir à la branche précédente
@@ -1230,40 +1034,80 @@ git checkout HEAD~3
 git checkout -b hotfix abc1234
 ```
 
+<br />
+
+---
+
 ## Nettoyage et maintenance
 
-```bash
-# Supprimer les fichiers non suivis
-git clean -n  # Dry-run (voir ce qui serait supprimé)
-git clean -f  # Forcer la suppression
+```bash title="Bash — nettoyage du dépôt"
+# Voir ce qui serait supprimé sans agir (dry-run)
+git clean -n
 
-# Supprimer aussi les répertoires
+# Supprimer les fichiers non suivis
+git clean -f
+
+# Supprimer aussi les répertoires non suivis
 git clean -fd
 
 # Supprimer aussi les fichiers ignorés
 git clean -fdx
 
-# Optimiser le dépôt local
+# Optimiser et compresser le dépôt
 git gc
 
 # Vérifier l'intégrité du dépôt
 git fsck
 
-# Nettoyer les références obsolètes
+# Nettoyer les références distantes obsolètes
 git remote prune origin
 
-# Voir la taille du dépôt
-du -sh .git
-
-# Compresser le dépôt
+# Compression agressive
 git gc --aggressive --prune=now
 ```
 
+<br />
+
+---
+
+## Hooks
+
+Les hooks sont des scripts exécutés automatiquement lors d'événements Git. Ils sont stockés dans `.git/hooks/`.
+
+| Hook | Événement | Usage typique |
+|---|---|---|
+| `pre-commit` | Avant commit | Linting, tests |
+| `prepare-commit-msg` | Avant édition message | Template de message |
+| `commit-msg` | Après édition message | Validation format message |
+| `post-commit` | Après commit | Notification |
+| `pre-push` | Avant push | Tests, validation |
+| `post-receive` | Après réception — serveur | Déploiement automatique |
+
+```bash title="Bash — hook pre-commit — bloquer si tests échouent"
+#!/bin/sh
+# .git/hooks/pre-commit
+
+npm test
+
+if [ $? -ne 0 ]; then
+    echo "Tests failed. Commit aborted."
+    exit 1
+fi
+```
+
+```bash title="Bash — rendre un hook exécutable"
+chmod +x .git/hooks/pre-commit
+```
+
+<br />
+
+---
+
 ## Sous-modules
 
-Les **sous-modules** permettent d'inclure un dépôt Git dans un autre.
+Les sous-modules permettent d'inclure un dépôt Git dans un autre — utile pour les dépendances partagées.
 
-```bash
+```bash title="Bash — gérer les sous-modules"
 # Ajouter un sous-module
 git submodule add https://github.com/user/lib.git libs/external-lib
 
@@ -1271,7 +1115,7 @@ git submodule add https://github.com/user/lib.git libs/external-lib
 git submodule init
 git submodule update
 
-# Clone avec sous-modules
+# Clone avec initialisation automatique des sous-modules
 git clone --recurse-submodules https://github.com/user/projet.git
 
 # Mettre à jour tous les sous-modules
@@ -1283,200 +1127,108 @@ git rm libs/external-lib
 rm -rf .git/modules/libs/external-lib
 ```
 
-## Hooks
+<br />
 
-Les **hooks** sont des scripts exécutés automatiquement lors d'événements Git.
-
-**Emplacement :** `.git/hooks/`
-
-**Hooks courants :**
-
-| Hook | Événement | Usage |
-|------|-----------|-------|
-| `pre-commit` | Avant commit | Linting, tests |
-| `prepare-commit-msg` | Avant édition message | Template de message |
-| `commit-msg` | Après édition message | Validation format message |
-| `post-commit` | Après commit | Notification |
-| `pre-push` | Avant push | Tests, validation |
-| `post-receive` | Après réception (serveur) | Déploiement automatique |
-
-**Exemple pre-commit :**
-
-```bash
-#!/bin/sh
-# .git/hooks/pre-commit
-
-# Exécuter les tests
-npm test
-
-# Si les tests échouent, bloquer le commit
-if [ $? -ne 0 ]; then
-    echo "Tests failed. Commit aborted."
-    exit 1
-fi
-```
-
-**Rendre le hook exécutable :**
-
-```bash
-chmod +x .git/hooks/pre-commit
-```
+---
 
 ## Bonnes pratiques
 
 ### Messages de commit
 
-**Règles :**
-
-1. **Ligne de sujet** : 50 caractères maximum
-2. **Ligne vide** entre sujet et corps
-3. **Corps du message** : 72 caractères par ligne
-4. **Impératif présent** : "Add feature" pas "Added feature"
-5. **Pourquoi**, pas comment (le code montre le comment)
-
-**Exemple complet :**
-
+```bash title="Bash — exemple de message de commit complet"
+# feat: Implémenter authentification JWT
+#
+# Ajout d'un système d'authentification basé sur JWT pour
+# sécuriser l'API REST. Les tokens expirent après 24h et
+# doivent être renouvelés via le endpoint /refresh.
+#
+# - Middleware de validation de token
+# - Génération de tokens avec claims personnalisés
+# - Tests unitaires des fonctions crypto
+# - Documentation API mise à jour
+#
+# Refs: #123
 ```
-feat: Implémenter authentification JWT
 
-Ajout d'un système d'authentification basé sur JWT pour
-sécuriser l'API REST. Les tokens expirent après 24h et
-doivent être renouvelés via le endpoint /refresh.
-
-- Middleware de validation de token
-- Génération de tokens avec claims personnalisés
-- Tests unitaires des fonctions crypto
-- Documentation API mise à jour
-
-Refs: #123
-```
+Règles fondamentales : ligne de sujet 50 caractères maximum, ligne vide entre sujet et corps, corps à 72 caractères par ligne, utiliser l'impératif présent ("Add feature" pas "Added feature"), expliquer le pourquoi et non le comment.
 
 ### Commits atomiques
 
-Chaque commit devrait représenter **une unité logique de changement**.
+```bash title="Bash — structure correcte versus incorrecte"
+# Correct — chaque commit est une unité logique
+# commit 1: feat: Add user registration endpoint
+# commit 2: test: Add tests for user registration
+# commit 3: docs: Update API documentation for registration
 
-**BON :**
-```
-commit 1: feat: Add user registration endpoint
-commit 2: test: Add tests for user registration
-commit 3: docs: Update API documentation for registration
-```
-
-**MAUVAIS :**
-```
-commit 1: WIP
-commit 2: fix stuff
-commit 3: final commit (contains registration, tests, docs, unrelated changes)
+# Incorrect — commits non atomiques
+# commit 1: WIP
+# commit 2: fix stuff
+# commit 3: final commit (registration + tests + docs + unrelated changes)
 ```
 
 ### Historique linéaire
 
-**Maintenir un historique propre :**
-
-```bash
-# Avant de merger, rebaser sur main
+```bash title="Bash — maintenir un historique propre avant merge"
+# Rebaser sur main avant de merger
 git checkout feature-branch
 git rebase main
 git checkout main
 git merge --no-ff feature-branch
-```
 
-**Squash des commits avant merge :**
-
-```bash
-# Fusionner tous les commits de la branche en un seul
+# Squash de tous les commits de la branche en un seul
 git checkout main
 git merge --squash feature-branch
 git commit -m "feat: Complete authentication system"
 ```
 
-### Sécurité
+### Sécurité — ne jamais commiter de secrets
 
-**Ne jamais commiter :**
+!!! note "L'image ci-dessous représente le pipeline de prévention des secrets dans un workflow Git. La sécurité doit être intégrée avant le commit — pas après."
 
-- Mots de passe
-- Clés API
-- Tokens d'accès
-- Certificats privés
-- Fichiers `.env`
-- Données sensibles
+![Pipeline de prévention des secrets Git — .gitignore, hooks pre-commit, détection automatique et procédure de remédiation](../../assets/images/outils/git-secrets-prevention.png)
 
-**Si secret committé par erreur :**
+<p><em>La prévention des secrets commitésrepose sur trois niveaux. En amont, le fichier .gitignore exclut les fichiers sensibles avant même qu'ils soient tracés. Au moment du commit, un hook pre-commit avec git-secrets ou gitleaks scanne les modifications et bloque le commit si un secret est détecté. En cas de secret déjà commité, la procédure de remédiation combine git filter-repo pour réécrire l'historique, un force push pour mettre à jour le remote, la rotation immédiate des credentials compromis et la notification de l'équipe.</em></p>
 
-```bash
-# Supprimer de l'historique (dangereux)
-git filter-branch --force --index-filter \
-  "git rm --cached --ignore-unmatch secrets.txt" \
-  --prune-empty --tag-name-filter cat -- --all
+```bash title="Bash — ne jamais commiter ces types de fichiers"
+# Mots de passe
+# Clés API
+# Tokens d'accès
+# Certificats privés (.pem, .key)
+# Fichiers .env avec valeurs réelles
+# Données sensibles
+```
 
-# Forcer le push (avertir l'équipe)
+```bash title="Bash — remédiation si secret committé par erreur"
+# Supprimer un fichier de tout l'historique — méthode moderne
+git filter-repo --path secrets.txt --invert-paths
+
+# Forcer le push — avertir toute l'équipe
 git push --force --all
 git push --force --tags
 
-# Alternative moderne
-git filter-repo --path secrets.txt --invert-paths
+# OBLIGATOIRE : rotation immédiate des credentials compromis
+# Un secret poussé même brièvement doit être considéré comme compromis
 ```
 
-**Prévention :**
+```bash title="Bash — prévention automatique avec hooks"
+# Scanner avec gitleaks en pre-commit
+# Installation
+brew install gitleaks
 
-1. Utiliser `.gitignore` dès le début
-2. Scanner avec `git-secrets` ou `gitleaks`
-3. Hooks pre-commit pour détecter les secrets
-4. Variables d'environnement pour configuration sensible
+# Détecter les secrets dans le dépôt
+gitleaks detect
 
-### Fréquence des commits
-
-**Recommendations :**
-
-- Commiter **fréquemment** (plusieurs fois par jour minimum)
-- Chaque commit doit **compiler/exécuter**
-- Pousser vers remote **au moins une fois par jour**
-- Ne pas accumuler des jours de travail non poussé
-
-### Revues de code
-
-**Workflow avec Pull Requests :**
-
-```bash
-# 1. Créer une branche de fonctionnalité
-git checkout -b feature/user-profile
-
-# 2. Développer et commiter
-git add .
-git commit -m "feat: Add user profile page"
-
-# 3. Pousser vers remote
-git push -u origin feature/user-profile
-
-# 4. Créer une Pull Request sur GitHub/GitLab
-# 5. Reviewers commentent le code
-# 6. Faire les modifications demandées
-git add .
-git commit -m "refactor: Address review comments"
-git push
-
-# 7. Après approbation, merge via l'interface web
-# 8. Nettoyer localement
-git checkout main
-git pull
-git branch -d feature/user-profile
+# Hook pre-commit
+# gitleaks protect --staged --redact
 ```
 
-## Le mot de la fin
-
-!!! quote
-    Git a transformé le développement logiciel en permettant une **collaboration massive et asynchrone** à une échelle jamais vue. Des milliers de développeurs peuvent contribuer simultanément au noyau Linux, à Kubernetes, ou à des projets open source sans coordination centralisée, grâce à l'architecture distribuée de Git.
-    
-    La courbe d'apprentissage de Git est réelle. Les concepts de staging area, de commits, de branches, de merge vs rebase, de remote tracking branches peuvent sembler abstraits au début. Mais cette complexité cache une **puissance remarquable**. Une fois maîtrisé, Git devient invisible - vous ne pensez plus à l'outil, vous pensez à votre code et à son évolution.
-    
-    Git n'est pas qu'un système de versioning. C'est un **système de gestion de l'historique** qui permet de tracer chaque décision, chaque modification, chaque bug introduit et corrigé. L'historique Git bien entretenu devient une **documentation vivante** du projet, expliquant pourquoi le code est ce qu'il est aujourd'hui.
-    
-    Les branches Git ont démocratisé l'**expérimentation sans risque**. Créer une branche pour tester une approche radicale prend 100 millisecondes. L'échec coûte un simple `git branch -D`. Cette liberté d'expérimentation accélère l'innovation et réduit la peur de casser le code existant.
-    
-    Maîtriser Git, c'est comprendre que le versioning est une **discipline**, pas une contrainte. C'est intégrer des pratiques qui semblent fastidieuses au début (messages de commit détaillés, commits atomiques, branches descriptives) mais qui deviennent naturelles et **multiplient l'efficacité** de toute l'équipe.
-    
-    Git est **omniprésent** : développement logiciel, rédaction technique, configuration système (GitOps), data science (versioning de datasets), infrastructure as code. Cette universalité en fait une compétence **transversale et pérenne**. Les concepts appris avec Git s'appliquent à tout système de versioning moderne.
-    
-    L'écosystème Git (GitHub, GitLab, Bitbucket) a créé une **culture de l'open source** où partager du code, collaborer avec des inconnus, et contribuer à des projets mondiaux est devenu trivial. Cette démocratisation du développement collaboratif a accéléré l'innovation logicielle de manière exponentielle.
+<br />
 
 ---
+
+## Conclusion
+
+!!! quote "Conclusion"
+    _Git a transformé le développement logiciel en permettant une collaboration massive et asynchrone à une échelle jamais vue. Des milliers de développeurs contribuent simultanément au noyau Linux ou à Kubernetes sans coordination centralisée, grâce à l'architecture distribuée de Git. La courbe d'apprentissage est réelle — staging area, commits, branches, merge versus rebase, remote tracking branches — mais cette complexité cache une puissance remarquable. Une fois maîtrisé, Git devient invisible : on ne pense plus à l'outil, on pense au code et à son évolution. Git n'est pas qu'un système de versioning — c'est un système de gestion de l'historique qui permet de tracer chaque décision, chaque modification, chaque bug introduit et corrigé. L'historique Git bien entretenu devient une documentation vivante du projet. Maîtriser Git, c'est comprendre que le versioning est une discipline, pas une contrainte. Les pratiques qui semblent fastidieuses au départ — messages de commit détaillés, commits atomiques, branches descriptives — deviennent naturelles et multiplient l'efficacité de toute l'équipe._
+
+<br />

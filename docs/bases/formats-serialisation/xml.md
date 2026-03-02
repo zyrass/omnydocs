@@ -33,7 +33,7 @@ XML a dominé l'échange de données dans les années 2000-2010, notamment avec 
 
 !!! note "L'image ci-dessous décompose la structure d'un document XML en zones annotées. Identifier visuellement la déclaration, les éléments, les attributs et la hiérarchie avant de lire les exemples de code évite de confondre ces trois niveaux lors de la manipulation programmatique."
 
-![Structure XML décomposée — déclaration, éléments, attributs et hiérarchie annotés](../../assets/images/formats-serialisation/xml-structure-elements.png)
+![Structure XML décomposée — déclaration, éléments, attributs et hiérarchie annotés](../../assets/images/formats/xml-structure-elements.png)
 
 <p><em>Un document XML est composé d'une déclaration optionnelle en tête, d'un unique élément racine qui contient tous les autres, et d'éléments enfants portant les données. Les attributs sont des métadonnées placées dans la balise ouvrante — ils ne remplacent pas les éléments pour les données structurées.</em></p>
 
@@ -84,7 +84,7 @@ Un seul élément racine — tout document XML doit avoir un unique élément en
 
 !!! note "L'image ci-dessous oppose visuellement les deux approches de structuration des données en XML. La frontière entre données et métadonnées est l'une des décisions de conception les plus fréquentes lors de la création d'un schéma XML."
 
-![Comparaison éléments XML versus attributs XML — données structurées vs métadonnées](../../assets/images/formats-serialisation/xml-elements-vs-attributs.png)
+![Comparaison éléments XML versus attributs XML — données structurées vs métadonnées](../../assets/images/formats/xml-elements-vs-attributs.png)
 
 <p><em>Les données qui ont une structure propre, des valeurs multiples ou qui pourraient évoluer appartiennent aux éléments. Les métadonnées identifiant un nœud ou qualifiant sa nature — comme un identifiant technique ou un type — appartiennent aux attributs. Un attribut ne peut pas contenir de sous-éléments et ne peut apparaître qu'une seule fois par balise.</em></p>
 
@@ -752,7 +752,7 @@ except etree.XMLSyntaxError as e:
 
 !!! note "L'image ci-dessous illustre le flux d'une attaque XXE. Comprendre comment le parser résout une entité externe avant toute validation est essentiel pour saisir pourquoi la protection doit être appliquée au niveau du parser lui-même, pas au niveau du contenu applicatif."
 
-![Flux d'attaque XXE — payload malveillant, résolution par le parser, lecture fichier système et contre-mesure](../../assets/images/formats-serialisation/xml-securite-xxe.png)
+![Flux d'attaque XXE — payload malveillant, résolution par le parser, lecture fichier système et contre-mesure](../../assets/images/formats/xml-securite-xxe.png)
 
 <p><em>L'attaque XXE exploite la résolution des entités externes par le parser XML avant toute validation applicative. Le payload déclare une entité pointant vers un fichier système — le parser lit le fichier et injecte son contenu dans la réponse. La protection consiste à désactiver cette résolution au niveau du parser, pas à filtrer le contenu en aval.</em></p>
 

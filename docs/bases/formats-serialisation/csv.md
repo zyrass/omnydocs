@@ -33,7 +33,7 @@ CSV est le format **universel d'échange de données** : exporté par Excel, Goo
 
 !!! note "L'image ci-dessous décompose la structure d'un fichier CSV en zones annotées et montre la correspondance avec un tableau. Voir les deux représentations côte à côte évite de perdre de vue qu'un CSV n'est qu'un tableau encodé en texte brut."
 
-![Structure CSV — en-têtes, valeurs et correspondance avec la représentation tabulaire](../../assets/images/formats-serialisation/csv-structure-base.png)
+![Structure CSV — en-têtes, valeurs et correspondance avec la représentation tabulaire](../../assets/images/formats/csv-structure-base.png)
 
 <p><em>La première ligne contient les noms des colonnes — les en-têtes. Chaque ligne suivante est un enregistrement. Chaque valeur est séparée du suivant par un délimiteur. La structure est strictement plate : pas d'imbrication, pas de hiérarchie, pas de types natifs.</em></p>
 
@@ -50,7 +50,7 @@ La première ligne contient les en-têtes — noms des colonnes. Les lignes suiv
 
 !!! note "L'image ci-dessous illustre les deux règles d'échappement CSV — valeur contenant un délimiteur et guillemet dans une valeur. Ce sont les seules règles syntaxiques spéciales du format, mais leur non-respect génère des fichiers impossibles à parser correctement."
 
-![Règles d'échappement CSV — guillemets autour des valeurs avec virgule et doublage pour guillemet interne](../../assets/images/formats-serialisation/csv-guillemets-escape.png)
+![Règles d'échappement CSV — guillemets autour des valeurs avec virgule et doublage pour guillemet interne](../../assets/images/formats/csv-guillemets-escape.png)
 
 <p><em>Toute valeur contenant un délimiteur doit être encadrée de guillemets doubles. Un guillemet double à l'intérieur d'une valeur encadrée est représenté par deux guillemets consécutifs. Il n'existe pas d'autre mécanisme d'échappement dans le standard CSV (RFC 4180).</em></p>
 
@@ -76,7 +76,7 @@ O'Brien,Seán,"Apostrophes et accents irlandais"
 
 !!! note "L'image ci-dessous présente les quatre délimiteurs les plus courants. Le choix du délimiteur n'est pas encodé dans le fichier — il doit être connu ou détecté par le programme qui lit le CSV."
 
-![Quatre délimiteurs CSV courants — virgule, point-virgule, tabulation et pipe](../../assets/images/formats-serialisation/csv-delimiteurs.png)
+![Quatre délimiteurs CSV courants — virgule, point-virgule, tabulation et pipe](../../assets/images/formats/csv-delimiteurs.png)
 
 <p><em>La virgule est le délimiteur standard, mais Excel dans les paramètres régionaux européens exporte avec des point-virgules (la virgule servant de séparateur décimal). Le TSV (tabulation) est courant dans les exports de bases de données. Le pipe est utilisé dans les logs et les systèmes Linux. Toujours vérifier le délimiteur avant de parser un fichier inconnu.</em></p>
 

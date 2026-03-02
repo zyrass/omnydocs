@@ -3394,7 +3394,7 @@
 <div class="admonition note">
 <p class="admonition-title">L'image ci-dessous décompose la structure d'un document XML en zones annotées. Identifier visuellement la déclaration, les éléments, les attributs et la hiérarchie avant de lire les exemples de code évite de confondre ces trois niveaux lors de la manipulation programmatique.</p>
 </div>
-<p><img alt="Structure XML décomposée — déclaration, éléments, attributs et hiérarchie annotés" src="../../../assets/images/formats-serialisation/xml-structure-elements.png" /></p>
+<p><img alt="Structure XML décomposée — déclaration, éléments, attributs et hiérarchie annotés" src="../../../assets/images/formats/xml-structure-elements.png" /></p>
 <p><em>Un document XML est composé d'une déclaration optionnelle en tête, d'un unique élément racine qui contient tous les autres, et d'éléments enfants portant les données. Les attributs sont des métadonnées placées dans la balise ouvrante — ils ne remplacent pas les éléments pour les données structurées.</em></p>
 
 <div class="language-xml highlight"><span class="filename">XML — document simple</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -3434,7 +3434,7 @@
 <div class="admonition note">
 <p class="admonition-title">L'image ci-dessous oppose visuellement les deux approches de structuration des données en XML. La frontière entre données et métadonnées est l'une des décisions de conception les plus fréquentes lors de la création d'un schéma XML.</p>
 </div>
-<p><img alt="Comparaison éléments XML versus attributs XML — données structurées vs métadonnées" src="../../../assets/images/formats-serialisation/xml-elements-vs-attributs.png" /></p>
+<p><img alt="Comparaison éléments XML versus attributs XML — données structurées vs métadonnées" src="../../../assets/images/formats/xml-elements-vs-attributs.png" /></p>
 <p><em>Les données qui ont une structure propre, des valeurs multiples ou qui pourraient évoluer appartiennent aux éléments. Les métadonnées identifiant un nœud ou qualifiant sa nature — comme un identifiant technique ou un type — appartiennent aux attributs. Un attribut ne peut pas contenir de sous-éléments et ne peut apparaître qu'une seule fois par balise.</em></p>
 
 <table>
@@ -4103,7 +4103,7 @@
 <div class="admonition note">
 <p class="admonition-title">L'image ci-dessous illustre le flux d'une attaque XXE. Comprendre comment le parser résout une entité externe avant toute validation est essentiel pour saisir pourquoi la protection doit être appliquée au niveau du parser lui-même, pas au niveau du contenu applicatif.</p>
 </div>
-<p><img alt="Flux d'attaque XXE — payload malveillant, résolution par le parser, lecture fichier système et contre-mesure" src="../../../assets/images/formats-serialisation/xml-securite-xxe.png" /></p>
+<p><img alt="Flux d'attaque XXE — payload malveillant, résolution par le parser, lecture fichier système et contre-mesure" src="../../../assets/images/formats/xml-securite-xxe.png" /></p>
 <p><em>L'attaque XXE exploite la résolution des entités externes par le parser XML avant toute validation applicative. Le payload déclare une entité pointant vers un fichier système — le parser lit le fichier et injecte son contenu dans la réponse. La protection consiste à désactiver cette résolution au niveau du parser, pas à filtrer le contenu en aval.</em></p>
 
 <div class="admonition danger">

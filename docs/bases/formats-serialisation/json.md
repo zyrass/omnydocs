@@ -33,7 +33,7 @@ JSON a supplanté XML comme format privilégié pour les **APIs REST**, les **fi
 
 !!! note "L'image ci-dessous présente les six types JSON avant d'entrer dans les détails syntaxiques. Avoir une vue d'ensemble des types disponibles aide à comprendre ce que JSON peut — et ne peut pas — représenter nativement."
 
-![Six types JSON représentés visuellement — String, Number, Boolean, Null, Array, Object](../../assets/images/formats-serialisation/json-structure-types.png)
+![Six types JSON représentés visuellement — String, Number, Boolean, Null, Array, Object](../../assets/images/formats/json-structure-types.png)
 
 <p><em>JSON ne dispose que de six types. Tout ce qu'un programme échange via JSON doit pouvoir s'exprimer avec ces six briques — pas de date native, pas de type binaire, pas d'entier distinct du décimal.</em></p>
 
@@ -126,7 +126,7 @@ JSON a supplanté XML comme format privilégié pour les **APIs REST**, les **fi
 
 !!! note "L'image ci-dessous présente les règles valides et invalides côte à côte. Les erreurs de syntaxe JSON sont silencieuses dans certains parsers — connaître les règles avant d'écrire évite des heures de débogage."
 
-![Règles syntaxiques JSON — colonne valide en vert, colonne invalide en rouge](../../assets/images/formats-serialisation/json-regles-syntaxe.png)
+![Règles syntaxiques JSON — colonne valide en vert, colonne invalide en rouge](../../assets/images/formats/json-regles-syntaxe.png)
 
 <p><em>JSON est strict. Une virgule finale, des guillemets simples ou une clé sans guillemets rendent l'intégralité du document invalide. Aucun parser conforme n'accepte ces erreurs.</em></p>
 
@@ -146,7 +146,7 @@ JSON a supplanté XML comme format privilégié pour les **APIs REST**, les **fi
 
 !!! note "L'image ci-dessous matérialise la hiérarchie d'un objet JSON imbriqué. Avant de lire l'exemple, visualiser les niveaux d'imbrication comme des étages aide à comprendre comment naviguer dans la structure."
 
-![Imbrication JSON représentée comme un immeuble à plusieurs niveaux — objet racine, sous-objets, tableaux](../../assets/images/formats-serialisation/json-imbrication.png)
+![Imbrication JSON représentée comme un immeuble à plusieurs niveaux — objet racine, sous-objets, tableaux](../../assets/images/formats/json-imbrication.png)
 
 <p><em>Chaque niveau d'imbrication est un objet ou un tableau contenu dans le niveau supérieur. Accéder à un téléphone mobile nécessite de traverser trois niveaux : utilisateur → contact → téléphones[0]. Plus l'imbrication est profonde, plus le chemin d'accès est long.</em></p>
 

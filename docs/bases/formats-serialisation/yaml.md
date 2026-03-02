@@ -63,7 +63,7 @@ roles:
 
 !!! note "L'image ci-dessous oppose une indentation valide par espaces à une indentation invalide par tabulations. Voir la différence visuellement avant de lire les exemples de code ancre la règle plus efficacement qu'un texte seul."
 
-![Comparaison indentation YAML valide par espaces versus invalide par tabulations](../../assets/images/formats-serialisation/yaml-indentation-espaces.png)
+![Comparaison indentation YAML valide par espaces versus invalide par tabulations](../../assets/images/formats/yaml-indentation-espaces.png)
 
 <p><em>À gauche, chaque niveau d'indentation est constitué de points représentant des espaces — la hiérarchie est lisible et le parser l'accepte. À droite, les flèches représentent des tabulations — un seul caractère tabulation dans le fichier suffit à provoquer une erreur fatale au parsing.</em></p>
 
@@ -133,7 +133,7 @@ datetime_tz:  2025-11-15T10:30:45+02:00
 
 !!! note "L'image ci-dessous illustre la différence de comportement entre `|` et `>` pour les chaînes multiligne. C'est l'un des points les plus source d'erreurs en YAML — voir le résultat final côte à côte évite de le découvrir en production."
 
-![Comparaison des opérateurs pipe et chevron pour les chaînes multiligne YAML](../../assets/images/formats-serialisation/yaml-chaines-multiligne.png)
+![Comparaison des opérateurs pipe et chevron pour les chaînes multiligne YAML](../../assets/images/formats/yaml-chaines-multiligne.png)
 
 <p><em>Avec `|` (pipe), chaque retour à la ligne dans le fichier source est préservé dans la valeur finale — utile pour du texte formaté, des scripts ou des blocs de configuration multilignes. Avec `>` (chevron), les retours à la ligne sont remplacés par des espaces et la chaîne devient une ligne continue — utile pour les longues descriptions destinées à être lues sans formatage.</em></p>
 
@@ -199,7 +199,7 @@ Les **ancres** (`&`) et **références** (`*`) permettent de réutiliser des blo
 
 !!! note "L'image ci-dessous matérialise le flux d'héritage entre une ancre et ses références. Comprendre que les références héritent de l'ancre mais peuvent surcharger des valeurs individuelles est la clé pour exploiter ce mécanisme sans créer de configurations imprévisibles."
 
-![Ancre YAML reliée par flèches à deux blocs production et staging qui héritent de ses valeurs](../../assets/images/formats-serialisation/yaml-ancres-references.png)
+![Ancre YAML reliée par flèches à deux blocs production et staging qui héritent de ses valeurs](../../assets/images/formats/yaml-ancres-references.png)
 
 <p><em>L'ancre `&defaults` est définie une fois en haut. Les blocs `production` et `staging` la référencent via `*defaults` — ils héritent de toutes ses valeurs. Une clé redéfinie dans le bloc fils (comme `log_level: warn` en production) surcharge silencieusement la valeur héritée sans modifier l'ancre.</em></p>
 
