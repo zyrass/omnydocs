@@ -308,72 +308,7 @@ nav = [
   ]},
 
   # ==========================================================================
-  # 1.4 — Modélisation & Conception
-  # ==========================================================================
-  # Objectif : raisonner avant d’implémenter.
-  # On y place les méthodes et notations permettant :
-  # - d’exprimer un besoin
-  # - de structurer un système
-  # - de communiquer une architecture
-  #
-  # Remarque : on reste sur des modèles et notations (fondamentaux),
-  # pas sur l’implémentation spécifique d’un framework.
-  # ==========================================================================
-  {"Modélisation & Conception" = [
-    "bases/modelisation/index.md",
-
-    {"UML" = [
-      "bases/modelisation/uml/index.md",
-      {"Introduction" = "bases/modelisation/uml/uml-intro.md"},
-
-      {"Diagrammes" = [
-        "bases/modelisation/uml/diagrammes/index.md",
-        {"UseCase"             = "bases/modelisation/uml/diagrammes/usecase.md"},
-        {"Classes"             = "bases/modelisation/uml/diagrammes/classes.md"},
-        {"Séquences"           = "bases/modelisation/uml/diagrammes/sequence.md"},
-        {"Activités"           = "bases/modelisation/uml/diagrammes/activity.md"},
-        {"États"               = "bases/modelisation/uml/diagrammes/state.md"},
-        {"Object"              = "bases/modelisation/uml/diagrammes/object.md"},
-        {"Composite Structure" = "bases/modelisation/uml/diagrammes/composite-structure.md"},
-        {"Deployment"          = "bases/modelisation/uml/diagrammes/deployment.md"},
-        {"Package"             = "bases/modelisation/uml/diagrammes/package.md"},
-        {"Timing"              = "bases/modelisation/uml/diagrammes/timing.md"},
-        {"Communication"       = "bases/modelisation/uml/diagrammes/communication.md"},
-        {"Architecture Avancée"= "bases/modelisation/uml/diagrammes/architecture-avancee.md"},
-        # {"Component" = "bases/modelisation/uml/diagrammes/component.md"},
-        # {"Profile"   = "bases/modelisation/uml/diagrammes/diag-profile.md"},
-        # {"Overview"  = "bases/modelisation/uml/diagrammes/vue-ensemble.md"},
-      ]},
-    ]},
-
-    {"Merise" = [
-      "bases/modelisation/merise/index.md",
-      {"Introduction" = "bases/modelisation/merise/intro.md"},
-      {"MCD"          = "bases/modelisation/merise/mcd.md"},
-      {"MLD"          = "bases/modelisation/merise/mld.md"},
-      {"MPD"          = "bases/modelisation/merise/mpd.md"},
-      {"MPD > SQL"    = "bases/modelisation/merise/mpd-to-sql.md"},
-    ]},
-  ]},
-
-  # ==========================================================================
-  # 1.5 — Gestion de projet
-  # ==========================================================================
-  # Objectif : structurer le travail et piloter un projet :
-  # - planification
-  # - jalons
-  # - dépendances
-  #
-  # Remarque : les méthodes “agiles” détaillées peuvent être ajoutées ici
-  # si tu veux garder une logique transverse (dev/infra/cyber).
-  # ==========================================================================
-  {"Gestion de projet" = [
-    "bases/projet/index.md",
-    {"Diagramme de Gantt" = "bases/projet/gantt.md"},
-  ]},
-
-  # ==========================================================================
-  # 1.6 — Concepts de programmation
+  # 1.4 — Concepts de programmation
   # ==========================================================================
   # Principes structurants et notions durables issues des systèmes et de l’ingénierie.
   # ==========================================================================
@@ -389,7 +324,7 @@ nav = [
   ]},
 
   # ==========================================================================
-  # 1.7 — Réseaux et Protocoles
+  # 1.5 — Réseaux et Protocoles
   # ==========================================================================
   # Partie conceptuelle : modèles en couches, grandes familles de protocoles,
   # mécanismes client-serveur. L’opérationnel est dans “Systèmes & Infrastructure”.
@@ -400,11 +335,10 @@ nav = [
     {"Liste des protocoles" = "bases/reseaux/liste-protocoles.md"},
     {"Modèle OSI"           = "bases/reseaux/modele-osi.md"},
     {"Modèle TCP/IP"        = "bases/reseaux/modele-tcp.md"},
-    {"Sockets & Serveurs"   = "bases/reseaux/sockets-serveurs.md"},
   ]},
 
   # ==========================================================================
-  # 1.8 — Cryptographie & PKI
+  # 1.6 — Cryptographie & PKI
   # ==========================================================================
   # Bases cryptographiques nécessaires avant d’aborder :
   # - sécurité applicative (auth, JWT, etc.)
@@ -918,7 +852,56 @@ nav = [
     ]},
 
     # ==========================================================================
-    # 3.5 — Tests & Qualité
+    # 3.5 — Modélisation & Conception
+    # ==========================================================================
+    # Objectif : raisonner avant d’implémenter.
+    # On y place les méthodes et notations permettant :
+    # - d’exprimer un besoin
+    # - de structurer un système
+    # - de communiquer une architecture
+    #
+    # Remarque : on reste sur des modèles et notations (fondamentaux),
+    # pas sur l’implémentation spécifique d’un framework.
+    # ==========================================================================
+    {"Modélisation & Conception" = [
+      "bases/modelisation/index.md",
+
+      {"UML" = [
+        "bases/modelisation/uml/index.md",
+        {"Introduction" = "bases/modelisation/uml/uml-intro.md"},
+
+        {"Diagrammes" = [
+          "bases/modelisation/uml/diagrammes/index.md",
+          {"UseCase"             = "bases/modelisation/uml/diagrammes/usecase.md"},
+          {"Classes"             = "bases/modelisation/uml/diagrammes/classes.md"},
+          {"Séquences"           = "bases/modelisation/uml/diagrammes/sequence.md"},
+          {"Activités"           = "bases/modelisation/uml/diagrammes/activity.md"},
+          {"États"               = "bases/modelisation/uml/diagrammes/state.md"},
+          {"Object"              = "bases/modelisation/uml/diagrammes/object.md"},
+          {"Composite Structure" = "bases/modelisation/uml/diagrammes/composite-structure.md"},
+          {"Deployment"          = "bases/modelisation/uml/diagrammes/deployment.md"},
+          {"Package"             = "bases/modelisation/uml/diagrammes/package.md"},
+          {"Timing"              = "bases/modelisation/uml/diagrammes/timing.md"},
+          {"Communication"       = "bases/modelisation/uml/diagrammes/communication.md"},
+          {"Architecture Avancée"= "bases/modelisation/uml/diagrammes/architecture-avancee.md"},
+          # {"Component" = "bases/modelisation/uml/diagrammes/component.md"},
+          # {"Profile"   = "bases/modelisation/uml/diagrammes/diag-profile.md"},
+          # {"Overview"  = "bases/modelisation/uml/diagrammes/vue-ensemble.md"},
+        ]},
+      ]},
+
+      {"Merise" = [
+        "bases/modelisation/merise/index.md",
+        {"Introduction" = "bases/modelisation/merise/intro.md"},
+        {"MCD"          = "bases/modelisation/merise/mcd.md"},
+        {"MLD"          = "bases/modelisation/merise/mld.md"},
+        {"MPD"          = "bases/modelisation/merise/mpd.md"},
+        {"MPD > SQL"    = "bases/modelisation/merise/mpd-to-sql.md"},
+      ]},
+    ]},
+
+    # ==========================================================================
+    # 3.6 — Tests & Qualité
     # ==========================================================================
     # Rôle :
     # - Définir les stratégies de tests et la démarche qualité.
@@ -976,7 +959,7 @@ nav = [
     ]},
 
     # ==========================================================================
-    # 3.6 — DevSecOps (version minimale)
+    # 3.7 — DevSecOps (version minimale)
     # ==========================================================================
     # Rôle :
     # - Automatiser la livraison applicative (build/test/deploy).
@@ -987,6 +970,22 @@ nav = [
     # - La cybersécurité outillage/attaque/défense n’est pas traitée ici.
     {"DevSecOps" = [
       "dev-cloud/devsecops/index.md",
+
+      # ==========================================================================
+      # Gestion de projet
+      # ==========================================================================
+      # Objectif : structurer le travail et piloter un projet :
+      # - planification
+      # - jalons
+      # - dépendances
+      #
+      # Remarque : les méthodes “agiles” détaillées peuvent être ajoutées ici
+      # si tu veux garder une logique transverse (dev/infra/cyber).
+      # ==========================================================================
+      {"Gestion de projet" = [
+        "bases/devsecops/gestion-projet/index.md",
+        {"Diagramme de Gantt" = "bases/devsecops/gestion-projet/gantt.md"},
+      ]},
 
       # ------------------------------------------------------------------------
       # CI/CD

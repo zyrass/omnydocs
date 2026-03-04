@@ -6,8 +6,6 @@ tags: ["RESEAU", "PROTOCOLES", "SECURITE", "TCP", "UDP"]
 
 # Liste des Protocoles
 
-## Introduction
-
 <div
   class="omny-meta"
   data-level="🟢 Débutant & 🟡 Intermédiaire"
@@ -15,65 +13,49 @@ tags: ["RESEAU", "PROTOCOLES", "SECURITE", "TCP", "UDP"]
   data-time="50-60 minutes">
 </div>
 
-!!! quote "Analogie pédagogique"
-    _Imaginez un service postal international. Pour qu'une lettre arrive à destination, tout le monde doit suivre les mêmes règles : **format des adresses**, **types d'envoi** (courrier standard, recommandé, express), **processus de tri**, **gestion des erreurs**. **Les protocoles réseau fonctionnent exactement ainsi** : ce sont des ensembles de règles standardisées qui permettent à des ordinateurs de communiquer efficacement, quel que soit leur fabricant ou leur système d'exploitation._
+!!! quote "Analogie"
+    _Un service postal international. Pour qu'une lettre arrive à destination, tout le monde doit suivre les mêmes règles : format des adresses, types d'envoi (courrier standard, recommandé, express), processus de tri, gestion des erreurs. Les protocoles réseau fonctionnent exactement ainsi : ce sont des ensembles de règles standardisées qui permettent à des ordinateurs de communiquer efficacement, quel que soit leur fabricant ou leur système d'exploitation._
 
-> Les protocoles réseau constituent le **langage commun** qui permet à des milliards d'appareils de communiquer à travers le monde. Chaque protocole répond à des **besoins spécifiques** en termes de **fiabilité**, **vitesse**, **sécurité** et **type de données** transmises.
+Les protocoles réseau constituent le **langage commun** qui permet à des milliards d'appareils de communiquer à travers le monde. Chaque protocole répond à des besoins spécifiques en termes de fiabilité, vitesse, sécurité et type de données transmises.
 
-Comprendre les protocoles réseau devient essentiel dès que vous développez des applications distribuées, sécurisez des systèmes, diagnostiquez des problèmes de connectivité ou concevez des architectures réseau. **Chaque protocole possède des caractéristiques uniques** concernant la **garantie de livraison**, la **gestion des erreurs**, le **chiffrement** et les **cas d'usage optimaux**.
+Comprendre les protocoles réseau devient indispensable dès que l'on développe des applications distribuées, sécurise des systèmes, diagnostique des problèmes de connectivité ou conçoit des architectures réseau. Chaque protocole possède des caractéristiques uniques concernant la garantie de livraison, la gestion des erreurs, le chiffrement et les cas d'usage optimaux.
 
-!!! info "Pourquoi c'est important ?"
-    Les protocoles déterminent **comment vos données voyagent**, **quelles garanties vous avez** sur leur livraison, **comment gérer la sécurité**, et **quelle performance attendre**. Choisir le mauvais protocole peut compromettre la fiabilité, la sécurité ou les performances de votre application.
+!!! info "Pourquoi c'est important"
+    Les protocoles déterminent comment les données voyagent, quelles garanties existent sur leur livraison, comment gérer la sécurité et quelle performance attendre. Choisir le mauvais protocole peut compromettre la fiabilité, la sécurité ou les performances d'une application.
 
-## Pour repartir des bases (vrais débutants)
+Ce document nécessite une compréhension basique du modèle OSI ou TCP/IP et des concepts d'adresse IP et de port. Si le mécanisme d'établissement d'une connexion réseau n'est pas encore acquis, consulter d'abord les bases des réseaux.
 
-Ce chapitre nécessite une compréhension basique du modèle OSI ou TCP/IP et du concept d'**adresse IP** et de **port**. Si vous ne savez pas comment deux ordinateurs établissent une connexion, consultez d'abord les bases des réseaux.
+<br />
 
-!!! tip "Pensez aux protocoles comme à des contrats de livraison !"
-    - **TCP** = Courrier recommandé avec accusé de réception (fiable mais plus lent)
-    - **UDP** = Courrier standard (rapide mais sans garantie)
-    - **HTTP/HTTPS** = Le formulaire de commande pour demander des pages web
-    - **DNS** = L'annuaire qui traduit les noms en adresses
+---
 
 ## Modèle en couches
 
-Les protocoles s'organisent selon un **modèle en couches** où chaque couche fournit des services à la couche supérieure.
+Les protocoles présentés dans ce document s'organisent selon deux modèles de référence — OSI (7 couches) et TCP/IP (4 couches) — qui définissent comment chaque protocole s'empile et interagit avec les couches adjacentes. Ces modèles sont traités en détail dans les chapitres dédiés.
 
-```mermaid
-graph TB
-    subgraph "Modèle TCP/IP"
-        A[Application<br/>HTTP, FTP, DNS, SSH, SMTP...]
-        B[Transport<br/>TCP, UDP]
-        C[Internet<br/>IP, ICMP, IPsec]
-        D[Accès réseau<br/>Ethernet, Wi-Fi, ARP]
-    end
-    
-    A --> B
-    B --> C
-    C --> D
-    
-    style A fill:#e3f3e3
-    style B fill:#e3e3f3
-    style C fill:#f3e3e3
-    style D fill:#f3f3d3
-```
+!!! info "Chapitres de référence"
+    Pour comprendre où chaque protocole se positionne dans la pile réseau, consulter [Modèle OSI](../reseaux/modele-osi.md) et [Modèle TCP/IP](../reseaux/modele-tcpip.md) avant d'approfondir les protocoles individuels.
 
-_Ce diagramme illustre les quatre couches du modèle TCP/IP. **Chaque couche ajoute ses propres en-têtes** et s'appuie sur les services de la couche inférieure._
+<br />
+
+---
 
 ## Couche Transport
 
-La couche transport gère **la communication de bout en bout** entre applications. Elle offre deux protocoles principaux aux caractéristiques radicalement différentes.
+La couche transport gère la **communication de bout en bout** entre applications. Elle offre deux protocoles aux caractéristiques radicalement différentes.
 
-### TCP (Transmission Control Protocol)
+!!! note "L'image ci-dessous compare TCP et UDP selon six critères — connexion, fiabilité, vitesse, overhead, contrôle et cas d'usage. C'est la décision architecturale la plus fréquente en développement réseau."
+
+![TCP vs UDP — comparaison connexion orientée vs sans connexion, fiabilité vs vitesse, handshake vs datagramme](../../assets/images/reseaux/protocoles-tcp-vs-udp.png)
+
+<p><em>TCP et UDP sont complémentaires et non interchangeables. TCP garantit la livraison et l'ordre au prix d'un overhead et d'une latence supplémentaires — indispensable pour les données critiques. UDP privilégie la vitesse en supprimant toutes les garanties — indispensable pour le temps réel où une retransmission serait pire qu'une perte. DNS utilise UDP pour les requêtes courtes mais bascule sur TCP pour les transferts de zone et les réponses dépassant 512 octets.</em></p>
+
+### TCP — Transmission Control Protocol
 
 TCP est un protocole **orienté connexion** qui garantit la **livraison fiable et ordonnée** des données.
 
-!!! quote "Caractéristiques TCP"
-    - **Orienté connexion** : Établissement via handshake à 3 voies
-    - **Fiable** : Garantit la livraison et l'ordre des paquets
-    - **Contrôle de flux** : Évite la saturation du récepteur
-    - **Contrôle de congestion** : Adapte le débit au réseau
-    - **Overhead** : En-têtes de 20 octets minimum + mécanismes de contrôle
+!!! info "Caractéristiques"
+    TCP est orienté connexion — établissement via handshake à 3 voies. Il garantit la livraison et l'ordre des paquets. Il implémente un contrôle de flux pour éviter la saturation du récepteur et un contrôle de congestion pour adapter le débit au réseau. Son en-tête minimal est de 20 octets.
 
 #### Handshake TCP à 3 voies
 
@@ -81,16 +63,16 @@ TCP est un protocole **orienté connexion** qui garantit la **livraison fiable e
 sequenceDiagram
     participant Client
     participant Serveur
-    
+
     Note over Client,Serveur: Établissement de connexion
     Client->>Serveur: SYN (seq=100)
     Serveur->>Client: SYN-ACK (seq=300, ack=101)
     Client->>Serveur: ACK (ack=301)
     Note over Client,Serveur: Connexion établie
-    
+
     Client->>Serveur: Données (seq=101)
     Serveur->>Client: ACK (ack=151)
-    
+
     Note over Client,Serveur: Fermeture de connexion
     Client->>Serveur: FIN
     Serveur->>Client: ACK
@@ -98,78 +80,74 @@ sequenceDiagram
     Client->>Serveur: ACK
 ```
 
-_Ce diagramme montre le cycle complet d'une connexion TCP : **établissement** (SYN, SYN-ACK, ACK), **transfert de données** avec accusés de réception, et **fermeture** propre._
+Le diagramme montre le cycle complet d'une connexion TCP : établissement en 3 échanges (SYN, SYN-ACK, ACK), transfert de données avec accusés de réception, et fermeture propre en 4 échanges (FIN, ACK, FIN, ACK).
 
-#### Utilisation de TCP
+#### Exemples par langage
 
 === ":fontawesome-brands-python: Python"
 
-    ```python
+    ```python title="Python — serveur et client TCP avec socket"
     import socket
-    
+
     # Serveur TCP
     def serveur_tcp():
         serveur = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         serveur.bind(('0.0.0.0', 8080))
         serveur.listen(5)
         print("Serveur TCP en écoute sur le port 8080")
-        
+
         while True:
             client, adresse = serveur.accept()
             print(f"Connexion depuis {adresse}")
-            
-            # Réception des données
+
             donnees = client.recv(1024)
             print(f"Reçu : {donnees.decode()}")
-            
-            # Envoi de réponse
+
             client.send(b"Message recu")
             client.close()
-    
+
     # Client TCP
     def client_tcp():
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect(('localhost', 8080))
-        
-        # Envoi de données
+
         client.send(b"Bonjour serveur")
-        
-        # Réception de réponse
+
         reponse = client.recv(1024)
         print(f"Réponse : {reponse.decode()}")
-        
+
         client.close()
     ```
 
 === ":fontawesome-brands-js: JavaScript"
 
-    ```javascript
-    // Node.js - Serveur TCP
+    ```javascript title="Node.js — serveur et client TCP avec net"
     const net = require('net');
-    
+
+    // Serveur TCP
     const serveur = net.createServer((socket) => {
         console.log('Client connecté');
-        
+
         socket.on('data', (data) => {
             console.log(`Reçu : ${data.toString()}`);
             socket.write('Message reçu');
         });
-        
+
         socket.on('end', () => {
             console.log('Client déconnecté');
         });
     });
-    
+
     serveur.listen(8080, () => {
         console.log('Serveur TCP en écoute sur le port 8080');
     });
-    
+
     // Client TCP
     const client = net.createConnection({ port: 8080 }, () => {
         console.log('Connecté au serveur');
         client.write('Bonjour serveur');
     });
-    
+
     client.on('data', (data) => {
         console.log(`Réponse : ${data.toString()}`);
         client.end();
@@ -178,35 +156,35 @@ _Ce diagramme montre le cycle complet d'une connexion TCP : **établissement** (
 
 === ":fontawesome-brands-php: PHP"
 
-    ```php
+    ```php title="PHP — serveur et client TCP avec socket_*"
     <?php
     // Serveur TCP
     function serveur_tcp() {
         $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
         socket_bind($socket, '0.0.0.0', 8080);
         socket_listen($socket, 5);
-        
+
         echo "Serveur TCP en écoute sur le port 8080\n";
-        
+
         while (true) {
-            $client = socket_accept($socket);
-            $donnees = socket_read($client, 1024);
+            $client   = socket_accept($socket);
+            $donnees  = socket_read($client, 1024);
             echo "Reçu : $donnees\n";
-            
+
             socket_write($client, "Message reçu");
             socket_close($client);
         }
     }
-    
+
     // Client TCP
     function client_tcp() {
         $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
         socket_connect($socket, 'localhost', 8080);
-        
+
         socket_write($socket, "Bonjour serveur");
         $reponse = socket_read($socket, 1024);
         echo "Réponse : $reponse\n";
-        
+
         socket_close($socket);
     }
     ?>
@@ -214,173 +192,124 @@ _Ce diagramme montre le cycle complet d'une connexion TCP : **établissement** (
 
 === ":fontawesome-brands-golang: Golang"
 
-    ```go
+    ```go title="Go — serveur TCP concurrent avec goroutine"
     package main
+
     import (
         "fmt"
         "net"
     )
-    
+
     // Serveur TCP
     func serveurTCP() {
         listener, _ := net.Listen("tcp", ":8080")
         defer listener.Close()
         fmt.Println("Serveur TCP en écoute sur le port 8080")
-        
+
         for {
             conn, _ := listener.Accept()
-            go handleConnection(conn)
+            go handleConnection(conn) // Goroutine par connexion
         }
     }
-    
+
     func handleConnection(conn net.Conn) {
         defer conn.Close()
-        
+
         buffer := make([]byte, 1024)
         n, _ := conn.Read(buffer)
         fmt.Printf("Reçu : %s\n", buffer[:n])
-        
+
         conn.Write([]byte("Message reçu"))
     }
-    
+
     // Client TCP
     func clientTCP() {
         conn, _ := net.Dial("tcp", "localhost:8080")
         defer conn.Close()
-        
+
         conn.Write([]byte("Bonjour serveur"))
-        
+
         buffer := make([]byte, 1024)
         n, _ := conn.Read(buffer)
         fmt.Printf("Réponse : %s\n", buffer[:n])
     }
     ```
 
-=== ":fontawesome-brands-rust: Rust"
+Cas d'usage TCP : applications nécessitant une livraison garantie (HTTP, HTTPS, FTP, SSH, SMTP), transferts de fichiers, bases de données, applications bancaires et financières.
 
-    ```rust
-    use std::net::{TcpListener, TcpStream};
-    use std::io::{Read, Write};
-    
-    // Serveur TCP
-    fn serveur_tcp() {
-        let listener = TcpListener::bind("0.0.0.0:8080").unwrap();
-        println!("Serveur TCP en écoute sur le port 8080");
-        
-        for stream in listener.incoming() {
-            match stream {
-                Ok(stream) => {
-                    std::thread::spawn(|| handle_client(stream));
-                }
-                Err(e) => eprintln!("Erreur: {}", e),
-            }
-        }
-    }
-    
-    fn handle_client(mut stream: TcpStream) {
-        let mut buffer = [0; 1024];
-        stream.read(&mut buffer).unwrap();
-        println!("Reçu : {}", String::from_utf8_lossy(&buffer));
-        
-        stream.write(b"Message recu").unwrap();
-    }
-    
-    // Client TCP
-    fn client_tcp() {
-        let mut stream = TcpStream::connect("localhost:8080").unwrap();
-        
-        stream.write(b"Bonjour serveur").unwrap();
-        
-        let mut buffer = [0; 1024];
-        stream.read(&mut buffer).unwrap();
-        println!("Réponse : {}", String::from_utf8_lossy(&buffer));
-    }
-    ```
+<br />
 
-**Cas d'usage TCP :**
-
-- Applications nécessitant une livraison garantie (HTTP, HTTPS, FTP, SSH, SMTP)
-- Transferts de fichiers
-- Bases de données
-- Applications bancaires et financières
-
-### UDP (User Datagram Protocol)
+### UDP — User Datagram Protocol
 
 UDP est un protocole **sans connexion** qui privilégie la **vitesse** au détriment de la fiabilité.
 
-!!! quote "Caractéristiques UDP"
-    - **Sans connexion** : Pas d'établissement préalable
-    - **Non fiable** : Aucune garantie de livraison ou d'ordre
-    - **Rapide** : Overhead minimal (8 octets d'en-tête)
-    - **Pas de contrôle** : Ni de flux ni de congestion
-    - **Broadcast/Multicast** : Support natif
+!!! info "Caractéristiques"
+    UDP est sans connexion — aucun établissement préalable. Il n'offre aucune garantie de livraison ni d'ordre. Son overhead est minimal — 8 octets d'en-tête contre 20 pour TCP. Il n'implémente ni contrôle de flux ni contrôle de congestion. Il supporte nativement le broadcast et le multicast.
 
-#### Utilisation de UDP
+#### Exemples par langage
 
 === ":fontawesome-brands-python: Python"
 
-    ```python
+    ```python title="Python — serveur et client UDP avec socket SOCK_DGRAM"
     import socket
-    
+
     # Serveur UDP
     def serveur_udp():
         serveur = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         serveur.bind(('0.0.0.0', 8080))
         print("Serveur UDP en écoute sur le port 8080")
-        
+
         while True:
             donnees, adresse = serveur.recvfrom(1024)
             print(f"Reçu de {adresse} : {donnees.decode()}")
-            
-            # Réponse directe sans connexion établie
+
+            # Réponse directe — pas de connexion établie
             serveur.sendto(b"Message recu", adresse)
-    
+
     # Client UDP
     def client_udp():
         client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        
+
         # Envoi sans connexion préalable
         client.sendto(b"Bonjour serveur", ('localhost', 8080))
-        
-        # Réception (avec timeout recommandé)
+
+        # Réception avec timeout recommandé
         client.settimeout(2)
         try:
             reponse, _ = client.recvfrom(1024)
             print(f"Réponse : {reponse.decode()}")
         except socket.timeout:
             print("Pas de réponse (timeout)")
-        
+
         client.close()
     ```
 
 === ":fontawesome-brands-js: JavaScript"
 
-    ```javascript
-    // Node.js - Serveur UDP
+    ```javascript title="Node.js — serveur et client UDP avec dgram"
     const dgram = require('dgram');
-    
+
+    // Serveur UDP
     const serveur = dgram.createSocket('udp4');
-    
+
     serveur.on('message', (msg, rinfo) => {
         console.log(`Reçu de ${rinfo.address}:${rinfo.port} : ${msg}`);
-        
-        // Réponse
         serveur.send('Message reçu', rinfo.port, rinfo.address);
     });
-    
+
     serveur.bind(8080, () => {
         console.log('Serveur UDP en écoute sur le port 8080');
     });
-    
+
     // Client UDP
-    const client = dgram.createSocket('udp4');
+    const client  = dgram.createSocket('udp4');
     const message = Buffer.from('Bonjour serveur');
-    
+
     client.send(message, 8080, 'localhost', (err) => {
         if (err) console.error(err);
         console.log('Message envoyé');
     });
-    
+
     client.on('message', (msg) => {
         console.log(`Réponse : ${msg}`);
         client.close();
@@ -389,33 +318,33 @@ UDP est un protocole **sans connexion** qui privilégie la **vitesse** au détri
 
 === ":fontawesome-brands-php: PHP"
 
-    ```php
+    ```php title="PHP — serveur et client UDP avec socket_recvfrom"
     <?php
     // Serveur UDP
     function serveur_udp() {
         $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
         socket_bind($socket, '0.0.0.0', 8080);
-        
+
         echo "Serveur UDP en écoute sur le port 8080\n";
-        
+
         while (true) {
             socket_recvfrom($socket, $buffer, 1024, 0, $ip, $port);
             echo "Reçu de $ip:$port : $buffer\n";
-            
+
             socket_sendto($socket, "Message reçu", strlen("Message reçu"), 0, $ip, $port);
         }
     }
-    
+
     // Client UDP
     function client_udp() {
-        $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
-        
+        $socket  = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
         $message = "Bonjour serveur";
+
         socket_sendto($socket, $message, strlen($message), 0, 'localhost', 8080);
-        
+
         socket_recvfrom($socket, $buffer, 1024, 0, $ip, $port);
         echo "Réponse : $buffer\n";
-        
+
         socket_close($socket);
     }
     ?>
@@ -423,96 +352,65 @@ UDP est un protocole **sans connexion** qui privilégie la **vitesse** au détri
 
 === ":fontawesome-brands-golang: Golang"
 
-    ```go
+    ```go title="Go — serveur et client UDP avec net.ListenUDP"
     package main
+
     import (
         "fmt"
         "net"
     )
-    
+
     // Serveur UDP
     func serveurUDP() {
         addr, _ := net.ResolveUDPAddr("udp", ":8080")
         conn, _ := net.ListenUDP("udp", addr)
         defer conn.Close()
-        
+
         fmt.Println("Serveur UDP en écoute sur le port 8080")
-        
+
         buffer := make([]byte, 1024)
         for {
             n, clientAddr, _ := conn.ReadFromUDP(buffer)
             fmt.Printf("Reçu de %v : %s\n", clientAddr, buffer[:n])
-            
+
             conn.WriteToUDP([]byte("Message reçu"), clientAddr)
         }
     }
-    
+
     // Client UDP
     func clientUDP() {
         addr, _ := net.ResolveUDPAddr("udp", "localhost:8080")
         conn, _ := net.DialUDP("udp", nil, addr)
         defer conn.Close()
-        
+
         conn.Write([]byte("Bonjour serveur"))
-        
+
         buffer := make([]byte, 1024)
         n, _ := conn.Read(buffer)
         fmt.Printf("Réponse : %s\n", buffer[:n])
     }
     ```
 
-=== ":fontawesome-brands-rust: Rust"
+Cas d'usage UDP : streaming vidéo et audio (perte de quelques paquets acceptable), jeux en ligne (latence critique), DNS (requêtes courtes), VoIP (temps réel prioritaire), IoT (overhead minimal).
 
-    ```rust
-    use std::net::UdpSocket;
-    
-    // Serveur UDP
-    fn serveur_udp() {
-        let socket = UdpSocket::bind("0.0.0.0:8080").unwrap();
-        println!("Serveur UDP en écoute sur le port 8080");
-        
-        let mut buffer = [0; 1024];
-        loop {
-            let (n, src) = socket.recv_from(&mut buffer).unwrap();
-            println!("Reçu de {} : {}", src, String::from_utf8_lossy(&buffer[..n]));
-            
-            socket.send_to(b"Message recu", src).unwrap();
-        }
-    }
-    
-    // Client UDP
-    fn client_udp() {
-        let socket = UdpSocket::bind("0.0.0.0:0").unwrap();
-        socket.connect("localhost:8080").unwrap();
-        
-        socket.send(b"Bonjour serveur").unwrap();
-        
-        let mut buffer = [0; 1024];
-        let n = socket.recv(&mut buffer).unwrap();
-        println!("Réponse : {}", String::from_utf8_lossy(&buffer[..n]));
-    }
-    ```
+<br />
 
-**Cas d'usage UDP :**
-
-- Streaming vidéo/audio (perte de quelques paquets acceptable)
-- Jeux en ligne (latence critique)
-- DNS (requêtes courtes)
-- VoIP (temps réel prioritaire)
-- IoT (overhead minimal)
-
-### TCP vs UDP : Comparaison
+### TCP vs UDP — Comparaison
 
 | Critère | TCP | UDP |
-|---------|-----|-----|
-| **Connexion** | Orienté connexion (handshake) | Sans connexion |
-| **Fiabilité** | Garantie de livraison et d'ordre | Aucune garantie |
-| **Vitesse** | Plus lent (overhead) | Très rapide |
-| **Overhead** | 20+ octets d'en-tête | 8 octets d'en-tête |
-| **Contrôle de flux** | Oui | Non |
-| **Détection d'erreurs** | Oui avec retransmission | Checksum basique |
-| **Ordre des paquets** | Garanti | Non garanti |
-| **Cas d'usage** | Données critiques | Temps réel |
+|---|---|---|
+| Connexion | Orienté connexion — handshake | Sans connexion |
+| Fiabilité | Garantie de livraison et d'ordre | Aucune garantie |
+| Vitesse | Plus lent — overhead | Très rapide |
+| Overhead | 20 octets minimum | 8 octets |
+| Contrôle de flux | Oui | Non |
+| Détection d'erreurs | Oui avec retransmission | Checksum basique |
+| Ordre des paquets | Garanti | Non garanti |
+| Cas d'usage | Données critiques | Temps réel |
+
+<br />
+
+---
 
 ## Couche Application
 
@@ -520,16 +418,15 @@ La couche application contient les protocoles de **haut niveau** utilisés direc
 
 ### HTTP / HTTPS
 
-Déjà couvert en détail dans le chapitre **HTTP - Méthodes**.
+Couvert en détail dans le chapitre [HTTP — Méthodes](../reseaux/http-methodes.md) et [Liste des codes d'erreur HTTP](../reseaux/http-codes.md).
 
-**Rappel des caractéristiques :**
+HTTP utilise le port 80 — non chiffré, vulnérable aux interceptions. HTTPS utilise le port 443 — chiffré via TLS, à utiliser systématiquement.
 
-- **HTTP** : Port 80, non chiffré, vulnérable aux interceptions
-- **HTTPS** : Port 443, chiffré via TLS/SSL, sécurisé
+### DNS — Domain Name System
 
-### DNS (Domain Name System)
+Le DNS est traité en détail dans le chapitre [DNS — Notions](../reseaux/dns-notions.md). Ce chapitre couvre la hiérarchie, les types d'enregistrements, la résolution récursive, le TTL et la sécurité DNS.
 
-DNS traduit les **noms de domaine** en **adresses IP**.
+Rappel rapide : DNS traduit les noms de domaine en adresses IP via une résolution hiérarchique — résolveur récursif, serveur racine, serveur TLD, serveur autoritaire. Port 53 UDP pour les requêtes standard, port 53 TCP pour les transferts de zone et les réponses dépassant 512 octets.
 
 ```mermaid
 sequenceDiagram
@@ -537,70 +434,71 @@ sequenceDiagram
     participant DNS Local
     participant DNS Racine
     participant DNS TLD
-    participant DNS Autorité
-    
+    participant DNS Autorite as DNS Autorité
+
     Client->>DNS Local: example.com ?
     DNS Local->>DNS Racine: example.com ?
     DNS Racine-->>DNS Local: Demande .com
     DNS Local->>DNS TLD: example.com ?
     DNS TLD-->>DNS Local: Serveur d'autorité
-    DNS Local->>DNS Autorité: example.com ?
-    DNS Autorité-->>DNS Local: 93.184.216.34
+    DNS Local->>DNS Autorite: example.com ?
+    DNS Autorite-->>DNS Local: 93.184.216.34
     DNS Local-->>Client: 93.184.216.34
 ```
 
-_Ce diagramme illustre la **résolution DNS hiérarchique** où la requête traverse plusieurs serveurs avant d'obtenir l'adresse IP finale._
+Résolution hiérarchique DNS — la requête traverse quatre acteurs avant d'obtenir l'adresse IP finale. Le résolveur met le résultat en cache selon le TTL de l'enregistrement.
 
-#### Utilisation de DNS
+!!! danger "Sécurité DNS"
+    Vulnérabilités principales : DNS Spoofing (injection de fausses réponses), DNS Cache Poisoning (corruption du cache), DNS Tunneling (exfiltration de données encodées dans des requêtes DNS), amplification DDoS (serveurs récursifs ouverts exploités pour multiplier le trafic). Protections : DNSSEC, DoH, DoT, rate limiting.
+
+#### Résolution DNS par langage
 
 === ":fontawesome-brands-python: Python"
 
-    ```python
+    ```python title="Python — résolution DNS avec socket et dnspython"
     import socket
     import dns.resolver  # pip install dnspython
-    
+
     # Résolution simple
     ip = socket.gethostbyname('example.com')
     print(f"IP : {ip}")
-    
-    # Résolution DNS détaillée
-    resolver = dns.resolver.Resolver()
-    
+
     # Enregistrements A (IPv4)
-    for rdata in resolver.resolve('example.com', 'A'):
+    for rdata in dns.resolver.resolve('example.com', 'A'):
         print(f"A : {rdata.address}")
-    
+
     # Enregistrements MX (Mail)
-    for rdata in resolver.resolve('example.com', 'MX'):
+    for rdata in dns.resolver.resolve('example.com', 'MX'):
         print(f"MX : {rdata.preference} {rdata.exchange}")
-    
+
     # Enregistrements TXT
-    for rdata in resolver.resolve('example.com', 'TXT'):
+    for rdata in dns.resolver.resolve('example.com', 'TXT'):
         print(f"TXT : {rdata.strings}")
     ```
 
 === ":fontawesome-brands-js: JavaScript"
 
-    ```javascript
-    // Node.js
+    ```javascript title="Node.js — résolution DNS avec le module dns"
     const dns = require('dns');
-    
+
     // Résolution simple
     dns.lookup('example.com', (err, address, family) => {
         console.log(`IP : ${address}`);
     });
-    
-    // Résolution détaillée
+
+    // Enregistrements IPv4
     dns.resolve4('example.com', (err, addresses) => {
         console.log(`IPv4 : ${addresses}`);
     });
-    
+
+    // Enregistrements MX
     dns.resolveMx('example.com', (err, addresses) => {
         addresses.forEach(mx => {
             console.log(`MX : ${mx.priority} ${mx.exchange}`);
         });
     });
-    
+
+    // Enregistrements TXT
     dns.resolveTxt('example.com', (err, records) => {
         console.log(`TXT : ${records}`);
     });
@@ -608,23 +506,25 @@ _Ce diagramme illustre la **résolution DNS hiérarchique** où la requête trav
 
 === ":fontawesome-brands-php: PHP"
 
-    ```php
+    ```php title="PHP — résolution DNS avec dns_get_record"
     <?php
     // Résolution simple
     $ip = gethostbyname('example.com');
     echo "IP : $ip\n";
-    
-    // Enregistrements DNS détaillés
+
+    // Enregistrements A
     $dns = dns_get_record('example.com', DNS_A);
     foreach ($dns as $record) {
         echo "A : {$record['ip']}\n";
     }
-    
+
+    // Enregistrements MX
     $mx = dns_get_record('example.com', DNS_MX);
     foreach ($mx as $record) {
         echo "MX : {$record['pri']} {$record['target']}\n";
     }
-    
+
+    // Enregistrements TXT
     $txt = dns_get_record('example.com', DNS_TXT);
     foreach ($txt as $record) {
         echo "TXT : {$record['txt']}\n";
@@ -634,26 +534,27 @@ _Ce diagramme illustre la **résolution DNS hiérarchique** où la requête trav
 
 === ":fontawesome-brands-golang: Golang"
 
-    ```go
+    ```go title="Go — résolution DNS avec net.LookupIP, LookupMX, LookupTXT"
     package main
+
     import (
         "fmt"
         "net"
     )
-    
+
     func main() {
         // Résolution simple
         ips, _ := net.LookupIP("example.com")
         for _, ip := range ips {
             fmt.Printf("IP : %s\n", ip)
         }
-        
+
         // Enregistrements MX
         mxs, _ := net.LookupMX("example.com")
         for _, mx := range mxs {
             fmt.Printf("MX : %d %s\n", mx.Pref, mx.Host)
         }
-        
+
         // Enregistrements TXT
         txts, _ := net.LookupTXT("example.com")
         for _, txt := range txts {
@@ -662,62 +563,19 @@ _Ce diagramme illustre la **résolution DNS hiérarchique** où la requête trav
     }
     ```
 
-=== ":fontawesome-brands-rust: Rust"
+<br />
 
-    ```rust
-    use std::net::ToSocketAddrs;
-    
-    fn main() {
-        // Résolution simple
-        let addrs = "example.com:80"
-            .to_socket_addrs()
-            .unwrap();
-        
-        for addr in addrs {
-            println!("IP : {}", addr.ip());
-        }
-        
-        // Pour des résolutions DNS plus avancées,
-        // utiliser la crate trust-dns-resolver
-    }
-    ```
-
-**Ports DNS :**
-
-- **Port 53 UDP** : Requêtes standard
-- **Port 53 TCP** : Transferts de zone, réponses >512 octets
-
-!!! danger "Sécurité DNS"
-    **Vulnérabilités DNS :**
-    
-    - **DNS Spoofing** : Injection de fausses réponses
-    - **DNS Cache Poisoning** : Corruption du cache
-    - **DNS Tunneling** : Exfiltration de données via DNS
-    - **DDoS par amplification DNS** : Utilisation de DNS pour amplifier des attaques
-    
-    **Protections :**
-    
-    - **DNSSEC** : Signatures cryptographiques des enregistrements
-    - **DNS over HTTPS (DoH)** : Chiffrement des requêtes
-    - **DNS over TLS (DoT)** : Alternative chiffrée
-    - **Limitation de taux** : Protection contre l'amplification
-
-### FTP (File Transfer Protocol)
+### FTP — File Transfer Protocol
 
 FTP permet le **transfert de fichiers** entre client et serveur.
 
-**Caractéristiques :**
-
-- **Port 21** : Contrôle (commandes)
-- **Port 20** : Données (transferts)
-- **Modes** : Actif ou Passif
-- **Non sécurisé** : Mot de passe en clair
+Port 21 pour le contrôle (commandes), port 20 pour les données (transferts actifs). Deux modes : actif et passif. Non sécurisé — le mot de passe circule en clair.
 
 ```mermaid
 sequenceDiagram
     participant Client
     participant Serveur
-    
+
     Client->>Serveur: Connexion port 21
     Serveur-->>Client: 220 Welcome
     Client->>Serveur: USER username
@@ -731,102 +589,94 @@ sequenceDiagram
     Serveur-->>Client: 226 Transfer complete
 ```
 
+Le mode passif (PASV) est nécessaire quand le client est derrière un NAT ou un pare-feu — c'est le client qui initie la connexion de données plutôt que le serveur.
+
 === ":fontawesome-brands-python: Python"
 
-    ```python
+    ```python title="Python — client FTP avec ftplib"
     from ftplib import FTP
-    
-    # Connexion FTP
+
     ftp = FTP('ftp.example.com')
     ftp.login('username', 'password')
-    
+
     # Lister les fichiers
     ftp.retrlines('LIST')
-    
+
     # Télécharger un fichier
     with open('fichier_local.txt', 'wb') as f:
         ftp.retrbinary('RETR fichier_distant.txt', f.write)
-    
-    # Upload un fichier
+
+    # Envoyer un fichier
     with open('fichier_local.txt', 'rb') as f:
         ftp.storbinary('STOR fichier_distant.txt', f)
-    
+
     ftp.quit()
     ```
 
 !!! danger "FTP vs SFTP vs FTPS"
-    - **FTP** : Non sécurisé, mot de passe en clair
-    - **FTPS** : FTP avec TLS/SSL (ports 990/989)
-    - **SFTP** : FTP sur SSH (port 22), recommandé
-    
-    **Utilisez toujours SFTP** pour les transferts sensibles !
+    FTP : non sécurisé — mot de passe en clair sur le réseau. FTPS : FTP avec TLS/SSL sur les ports 990/989. SFTP : transfert de fichiers sur SSH, port 22 — recommandé pour tous les transferts sensibles.
 
-### SSH (Secure Shell)
+<br />
+
+### SSH — Secure Shell
 
 SSH fournit un **accès distant sécurisé** et un **tunnel chiffré**.
 
-**Caractéristiques :**
-
-- **Port 22**
-- **Chiffrement fort** : Tout le trafic est chiffré
-- **Authentification** : Par mot de passe ou clé publique
-- **Tunneling** : Peut encapsuler d'autres protocoles
+Port 22. Tout le trafic est chiffré. Authentification par mot de passe ou clé publique. Peut encapsuler d'autres protocoles via le tunneling.
 
 === ":fontawesome-brands-python: Python"
 
-    ```python
+    ```python title="Python — connexion SSH et SFTP avec paramiko"
     import paramiko  # pip install paramiko
-    
-    # Connexion SSH
+
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    
+
     # Connexion avec mot de passe
     ssh.connect('example.com', username='user', password='pass')
-    
-    # Exécution de commande
+
+    # Exécution de commande distante
     stdin, stdout, stderr = ssh.exec_command('ls -la')
     print(stdout.read().decode())
-    
+
     # Connexion avec clé privée
     key = paramiko.RSAKey.from_private_key_file('/path/to/key')
     ssh.connect('example.com', username='user', pkey=key)
-    
-    # Transfert de fichier (SFTP)
+
+    # Transfert de fichier via SFTP
     sftp = ssh.open_sftp()
     sftp.put('local.txt', '/remote/path/file.txt')
     sftp.get('/remote/file.txt', 'local_copy.txt')
     sftp.close()
-    
+
     ssh.close()
     ```
 
 === ":fontawesome-brands-js: JavaScript"
 
-    ```javascript
-    // Node.js avec ssh2
+    ```javascript title="Node.js — connexion SSH avec ssh2"
     const { Client } = require('ssh2');
-    
+
     const conn = new Client();
     conn.on('ready', () => {
         console.log('Connexion SSH établie');
-        
-        // Exécution de commande
+
+        // Exécution de commande distante
         conn.exec('ls -la', (err, stream) => {
             stream.on('data', (data) => {
                 console.log(data.toString());
             });
         });
-        
-        // SFTP
+
+        // Transfert de fichier via SFTP
         conn.sftp((err, sftp) => {
             sftp.fastPut('local.txt', '/remote/file.txt', (err) => {
                 console.log('Upload terminé');
             });
         });
     }).connect({
-        host: 'example.com',
-        port: 22,
+        host:     'example.com',
+        port:     22,
         username: 'user',
         password: 'pass'
     });
@@ -834,13 +684,14 @@ SSH fournit un **accès distant sécurisé** et un **tunnel chiffré**.
 
 === ":fontawesome-brands-golang: Golang"
 
-    ```go
+    ```go title="Go — connexion SSH avec golang.org/x/crypto/ssh"
     package main
+
     import (
-        "golang.org/x/crypto/ssh"
         "fmt"
+        "golang.org/x/crypto/ssh"
     )
-    
+
     func main() {
         config := &ssh.ClientConfig{
             User: "user",
@@ -849,109 +700,98 @@ SSH fournit un **accès distant sécurisé** et un **tunnel chiffré**.
             },
             HostKeyCallback: ssh.InsecureIgnoreHostKey(),
         }
-        
+
         client, _ := ssh.Dial("tcp", "example.com:22", config)
         defer client.Close()
-        
-        // Exécution de commande
+
+        // Exécution de commande distante
         session, _ := client.NewSession()
         defer session.Close()
-        
+
         output, _ := session.CombinedOutput("ls -la")
         fmt.Println(string(output))
     }
     ```
 
 !!! tip "Bonnes pratiques SSH"
-    - **Désactivez l'authentification par mot de passe** : Utilisez uniquement les clés
-    - **Changez le port par défaut** : Réduisez les scans automatisés
-    - **Fail2Ban** : Bloquez les tentatives de brute-force
-    - **Clés ED25519** : Plus sûres et rapides que RSA
-    - **Authentification à deux facteurs** : Ajoutez une couche de sécurité
+    Désactiver l'authentification par mot de passe — utiliser exclusivement les clés. Changer le port par défaut pour réduire les scans automatisés. Déployer Fail2Ban pour bloquer les tentatives de brute-force. Préférer les clés ED25519 — plus sûres et plus rapides que RSA. Ajouter une authentification à deux facteurs pour les accès critiques.
+
+<br />
 
 ### SMTP / IMAP / POP3
 
 Protocoles pour l'**envoi et la réception d'emails**.
 
 | Protocole | Rôle | Port standard | Port SSL/TLS |
-|-----------|------|---------------|--------------|
-| **SMTP** | Envoi d'emails | 25, 587 | 465 |
-| **IMAP** | Réception avec sync | 143 | 993 |
-| **POP3** | Réception avec téléchargement | 110 | 995 |
+|---|---|---|---|
+| SMTP | Envoi d'emails | 25, 587 | 465 |
+| IMAP | Réception avec synchronisation | 143 | 993 |
+| POP3 | Réception avec téléchargement | 110 | 995 |
 
 === ":fontawesome-brands-python: Python"
 
-    ```python
+    ```python title="Python — envoi SMTP et réception IMAP"
     import smtplib
+    import imaplib
     from email.mime.text import MIMEText
     from email.mime.multipart import MIMEMultipart
-    
-    # Envoi d'email via SMTP
+
+    # Envoi d'email via SMTP avec STARTTLS
     def envoyer_email():
-        msg = MIMEMultipart()
-        msg['From'] = 'expediteur@example.com'
-        msg['To'] = 'destinataire@example.com'
+        msg            = MIMEMultipart()
+        msg['From']    = 'expediteur@example.com'
+        msg['To']      = 'destinataire@example.com'
         msg['Subject'] = 'Test Email'
-        
-        corps = "Ceci est un email de test"
-        msg.attach(MIMEText(corps, 'plain'))
-        
-        # Connexion SMTP avec TLS
+
+        msg.attach(MIMEText("Ceci est un email de test", 'plain'))
+
         server = smtplib.SMTP('smtp.example.com', 587)
         server.starttls()
         server.login('username', 'password')
-        
         server.send_message(msg)
         server.quit()
-    
-    # Réception via IMAP
-    import imaplib
-    
+
+    # Réception via IMAP SSL
     def recevoir_emails():
         mail = imaplib.IMAP4_SSL('imap.example.com', 993)
         mail.login('username', 'password')
-        
         mail.select('INBOX')
-        
-        # Recherche d'emails
+
         status, messages = mail.search(None, 'UNSEEN')
-        
+
         for num in messages[0].split():
             status, data = mail.fetch(num, '(RFC822)')
             print(data[0][1])
-        
+
         mail.close()
         mail.logout()
     ```
 
+<br />
+
 ### WebSocket
 
-WebSocket permet une **communication bidirectionnelle en temps réel** sur une seule connexion TCP.
+WebSocket permet une **communication bidirectionnelle en temps réel** sur une seule connexion TCP persistante.
 
-**Caractéristiques :**
-
-- **Port 80/443** : Upgrade depuis HTTP/HTTPS
-- **Full-duplex** : Communication simultanée dans les deux sens
-- **Persistant** : Connexion maintenue ouverte
-- **Faible latence** : Pas de overhead HTTP répété
+Port 80 ou 443 — upgrade depuis HTTP ou HTTPS. Full-duplex : communication simultanée dans les deux sens. La connexion reste ouverte — pas d'overhead HTTP répété à chaque échange.
 
 === ":fontawesome-brands-python: Python"
 
-    ```python
-    # Serveur WebSocket avec websockets
+    ```python title="Python — serveur et client WebSocket avec websockets"
     import asyncio
     import websockets
-    
+
+    # Serveur WebSocket
     async def handler(websocket, path):
         async for message in websocket:
             print(f"Reçu : {message}")
             await websocket.send(f"Echo: {message}")
-    
+
     start_server = websockets.serve(handler, "localhost", 8765)
-    
+
     asyncio.get_event_loop().run_until_complete(start_server)
     asyncio.get_event_loop().run_forever()
-    
+
     # Client WebSocket
     async def client():
         async with websockets.connect('ws://localhost:8765') as websocket:
@@ -962,28 +802,28 @@ WebSocket permet une **communication bidirectionnelle en temps réel** sur une s
 
 === ":fontawesome-brands-js: JavaScript"
 
-    ```javascript
-    // Serveur WebSocket avec ws
+    ```javascript title="Node.js — serveur WebSocket avec ws et client navigateur"
     const WebSocket = require('ws');
-    
+
+    // Serveur WebSocket
     const wss = new WebSocket.Server({ port: 8765 });
-    
+
     wss.on('connection', (ws) => {
         console.log('Client connecté');
-        
+
         ws.on('message', (message) => {
             console.log(`Reçu : ${message}`);
             ws.send(`Echo: ${message}`);
         });
     });
-    
-    // Client WebSocket (navigateur)
+
+    // Client WebSocket (navigateur natif)
     const ws = new WebSocket('ws://localhost:8765');
-    
+
     ws.onopen = () => {
         ws.send('Hello Server');
     };
-    
+
     ws.onmessage = (event) => {
         console.log(`Réponse : ${event.data}`);
     };
@@ -991,101 +831,105 @@ WebSocket permet une **communication bidirectionnelle en temps réel** sur une s
 
 === ":fontawesome-brands-golang: Golang"
 
-    ```go
+    ```go title="Go — serveur WebSocket avec gorilla/websocket"
     package main
+
     import (
         "github.com/gorilla/websocket"
         "net/http"
     )
-    
+
     var upgrader = websocket.Upgrader{}
-    
+
     func handler(w http.ResponseWriter, r *http.Request) {
         conn, _ := upgrader.Upgrade(w, r, nil)
         defer conn.Close()
-        
+
         for {
             msgType, msg, _ := conn.ReadMessage()
             conn.WriteMessage(msgType, []byte("Echo: "+string(msg)))
         }
     }
-    
+
     func main() {
         http.HandleFunc("/ws", handler)
         http.ListenAndServe(":8765", nil)
     }
     ```
 
-**Cas d'usage WebSocket :**
+Cas d'usage WebSocket : chat en temps réel, applications collaboratives, jeux multijoueurs, notifications push, streaming de données.
 
-- Chat en temps réel
-- Applications collaboratives
-- Jeux multijoueurs
-- Notifications push
-- Streaming de données
+<br />
+
+---
 
 ## Couche Internet
 
-### IP (Internet Protocol)
+### IP — Internet Protocol
 
-IP gère l'**adressage** et le **routage** des paquets.
+IP gère l'**adressage** et le **routage** des paquets entre les hôtes.
 
-**Versions :**
+IPv4 utilise 32 bits — environ 4,3 milliards d'adresses — sous la forme `192.168.1.1`. IPv6 utilise 128 bits — 340 undécillions d'adresses — sous la forme `2001:0db8:85a3::8a2e:0370:7334`. La pénurie d'adresses IPv4 est le moteur principal de la migration vers IPv6.
 
-- **IPv4** : 32 bits (4.3 milliards d'adresses) - ex: `192.168.1.1`
-- **IPv6** : 128 bits (340 undécillions d'adresses) - ex: `2001:0db8:85a3::8a2e:0370:7334`
+### ICMP — Internet Control Message Protocol
 
-### ICMP (Internet Control Message Protocol)
+ICMP gère les **messages d'erreur** et de **diagnostic** entre équipements réseau.
 
-ICMP gère les **messages d'erreur** et de **diagnostic**.
-
-**Commandes principales :**
-
-- **Ping** : Teste la connectivité (Echo Request/Reply)
-- **Traceroute** : Trace le chemin réseau
+Commandes principales : ping (Echo Request/Reply pour tester la connectivité), traceroute (trace le chemin réseau en exploitant le TTL IP).
 
 === ":fontawesome-brands-python: Python"
 
-    ```python
+    ```python title="Python — ping et traceroute via subprocess"
     import subprocess
-    
-    # Ping
+
+    # Ping — test de connectivité
     def ping(host):
-        response = subprocess.run(['ping', '-c', '4', host], 
-                                 capture_output=True, text=True)
+        response = subprocess.run(
+            ['ping', '-c', '4', host],
+            capture_output=True,
+            text=True
+        )
         print(response.stdout)
-    
+
     ping('example.com')
-    
-    # Traceroute
+
+    # Traceroute — chemin réseau
     def traceroute(host):
-        response = subprocess.run(['traceroute', host],
-                                 capture_output=True, text=True)
+        response = subprocess.run(
+            ['traceroute', host],
+            capture_output=True,
+            text=True
+        )
         print(response.stdout)
     ```
 
 ### IPsec
 
-IPsec sécurise les communications IP via **chiffrement** et **authentification**.
+IPsec sécurise les communications IP via chiffrement et authentification au niveau de la couche réseau.
 
-**Modes :**
+Mode Transport : chiffre uniquement la charge utile du paquet — utilisé entre deux hôtes. Mode Tunnel : chiffre tout le paquet IP original et l'encapsule dans un nouveau paquet — utilisé pour les VPN site-à-site.
 
-- **Transport** : Chiffre uniquement les données
-- **Tunnel** : Chiffre tout le paquet (VPN)
+<br />
+
+---
 
 ## Protocoles de sécurité
 
-### TLS/SSL (Transport Layer Security)
+### TLS/SSL — Transport Layer Security
 
-TLS chiffre les communications entre client et serveur.
+!!! note "L'image ci-dessous représente le handshake TLS en cinq étapes. C'est le mécanisme qui protège toutes les communications HTTPS, SMTPS, IMAPS et LDAPS."
 
-**Handshake TLS :**
+![Handshake TLS — ClientHello, ServerHello et certificat, vérification, échange de clé de session, communication chiffrée](../../assets/images/reseaux/protocoles-tls-handshake.png)
+
+<p><em>Le handshake TLS établit un canal chiffré en cinq étapes. Le client annonce ses capacités cryptographiques (ClientHello). Le serveur sélectionne les algorithmes et envoie son certificat (ServerHello). Le client vérifie le certificat contre une autorité de certification de confiance. Le client génère une clé de session et la chiffre avec la clé publique du serveur. Les deux parties confirment et toutes les communications suivantes sont chiffrées symétriquement. TLS 1.3 réduit ce processus à un seul aller-retour.</em></p>
+
+TLS chiffre les communications entre client et serveur — il remplace SSL, désormais obsolète.
 
 ```mermaid
 sequenceDiagram
     participant Client
     participant Serveur
-    
+
     Client->>Serveur: ClientHello
     Serveur->>Client: ServerHello + Certificat
     Client->>Serveur: Vérification certificat
@@ -1094,18 +938,16 @@ sequenceDiagram
     Note over Client,Serveur: Communication chiffrée établie
 ```
 
-**Versions :**
-
-- **SSL 2.0/3.0** : ❌ Obsolètes et vulnérables
-- **TLS 1.0/1.1** : ❌ Dépréciés
-- **TLS 1.2** : ✅ Supporté
-- **TLS 1.3** : ✅ Recommandé (plus rapide et sécurisé)
+| Version | Statut |
+|---|---|
+| SSL 2.0 / 3.0 | Obsolète et vulnérable — à désactiver impérativement |
+| TLS 1.0 / 1.1 | Déprécié — ne plus utiliser |
+| TLS 1.2 | Supporté — acceptable |
+| TLS 1.3 | Recommandé — plus rapide et plus sécurisé |
 
 ### OAuth 2.0 / OpenID Connect
 
-Protocoles d'**autorisation** et d'**authentification** pour les APIs.
-
-**Flux OAuth 2.0 :**
+Protocoles d'**autorisation** (OAuth 2.0) et d'**authentification** (OpenID Connect) pour les APIs et applications modernes.
 
 ```mermaid
 sequenceDiagram
@@ -1113,7 +955,7 @@ sequenceDiagram
     participant Client
     participant Auth
     participant API
-    
+
     User->>Client: Demande d'accès
     Client->>Auth: Redirection autorisation
     User->>Auth: Authentification
@@ -1124,80 +966,89 @@ sequenceDiagram
     API->>Client: Données
 ```
 
+OAuth 2.0 délègue l'autorisation sans partager les credentials. OpenID Connect ajoute une couche d'identité sur OAuth 2.0 via un ID Token JWT.
+
+<br />
+
+---
+
 ## Tableau récapitulatif des ports
 
+!!! note "L'image ci-dessous présente les ports les plus courants classés par catégorie. En audit et en pentesting, cette cartographie est le point de départ de toute reconnaissance réseau."
+
+![Référentiel des ports réseau courants — HTTP HTTPS SSH DNS FTP SMTP IMAP POP3 bases de données classés par chiffrement](../../assets/images/reseaux/protocoles-ports-referentiel.png)
+
+<p><em>Les ports inférieurs à 1024 sont les "well-known ports" — réservés aux protocoles système. Connaître le port d'un service permet de cibler un scan (nmap -p 443), de configurer des règles firewall précises, et d'identifier des services exposés involontairement. Les ports marqués "Partiel" indiquent que le chiffrement est optionnel ou configurable — ils représentent un risque si mal configurés.</em></p>
+
 | Protocole | Port(s) | Transport | Chiffré |
-|-----------|---------|-----------|---------|
-| **HTTP** | 80 | TCP | ❌ |
-| **HTTPS** | 443 | TCP | ✅ TLS |
-| **FTP** | 20-21 | TCP | ❌ |
-| **FTPS** | 989-990 | TCP | ✅ TLS |
-| **SSH/SFTP** | 22 | TCP | ✅ |
-| **Telnet** | 23 | TCP | ❌ Obsolète |
-| **SMTP** | 25, 587 | TCP | ⚠️ |
-| **SMTPS** | 465 | TCP | ✅ TLS |
-| **DNS** | 53 | UDP/TCP | ❌ |
-| **DHCP** | 67-68 | UDP | ❌ |
-| **POP3** | 110 | TCP | ❌ |
-| **POP3S** | 995 | TCP | ✅ TLS |
-| **IMAP** | 143 | TCP | ❌ |
-| **IMAPS** | 993 | TCP | ✅ TLS |
-| **SNMP** | 161-162 | UDP | ❌ |
-| **LDAP** | 389 | TCP | ❌ |
-| **LDAPS** | 636 | TCP | ✅ TLS |
-| **RDP** | 3389 | TCP | ⚠️ |
-| **MySQL** | 3306 | TCP | ⚠️ |
-| **PostgreSQL** | 5432 | TCP | ⚠️ |
-| **MongoDB** | 27017 | TCP | ⚠️ |
-| **Redis** | 6379 | TCP | ⚠️ |
+|---|---|:---:|:---:|
+| HTTP | 80 | TCP | Non |
+| HTTPS | 443 | TCP | Oui — TLS |
+| FTP | 20-21 | TCP | Non |
+| FTPS | 989-990 | TCP | Oui — TLS |
+| SSH / SFTP | 22 | TCP | Oui |
+| Telnet | 23 | TCP | Non — obsolète |
+| SMTP | 25, 587 | TCP | Partiel |
+| SMTPS | 465 | TCP | Oui — TLS |
+| DNS | 53 | UDP / TCP | Non |
+| DHCP | 67-68 | UDP | Non |
+| POP3 | 110 | TCP | Non |
+| POP3S | 995 | TCP | Oui — TLS |
+| IMAP | 143 | TCP | Non |
+| IMAPS | 993 | TCP | Oui — TLS |
+| SNMP | 161-162 | UDP | Non |
+| LDAP | 389 | TCP | Non |
+| LDAPS | 636 | TCP | Oui — TLS |
+| RDP | 3389 | TCP | Partiel |
+| MySQL | 3306 | TCP | Partiel |
+| PostgreSQL | 5432 | TCP | Partiel |
+| MongoDB | 27017 | TCP | Partiel |
+| Redis | 6379 | TCP | Partiel |
+
+<br />
+
+---
 
 ## Bonnes pratiques de sécurité
 
 ### Principe du moindre privilège
 
-N'ouvrez que les **ports strictement nécessaires** et **filtrez par source**.
+N'ouvrir que les **ports strictement nécessaires** et filtrer par adresse source.
 
-=== ":fontawesome-brands-linux: Bash :lucide-terminal:"
-    
-    ```bash
-    # Firwall Linux - (iptables)
-    # Accepter SSH uniquement depuis IP spécifique
+=== ":fontawesome-brands-linux: Bash"
+
+    ```bash title="Bash — règles iptables — restriction SSH par IP source"
+    # Accepter SSH uniquement depuis une IP spécifique
     iptables -A INPUT -p tcp -s 192.168.1.100 --dport 22 -j ACCEPT
     iptables -A INPUT -p tcp --dport 22 -j DROP
 
-    # Accepter HTTP/HTTPS depuis n'importe où
+    # Accepter HTTP et HTTPS depuis n'importe quelle source
     iptables -A INPUT -p tcp --dport 80 -j ACCEPT
     iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 
-    # Bloquer tout le reste
+    # Politique par défaut — bloquer tout le trafic entrant non autorisé
     iptables -P INPUT DROP
     ```
 
 ### Chiffrement systématique
 
-**Utilisez toujours les versions chiffrées** des protocoles :
-
-- ✅ HTTPS (pas HTTP)
-- ✅ SFTP/FTPS (pas FTP)
-- ✅ SMTPS/IMAPS (pas SMTP/IMAP non chiffré)
-- ✅ SSH (pas Telnet)
+Utiliser toujours les versions chiffrées des protocoles : HTTPS plutôt que HTTP, SFTP ou FTPS plutôt que FTP, SMTPS et IMAPS plutôt que SMTP et IMAP non chiffrés, SSH plutôt que Telnet.
 
 ### Surveillance et journalisation
 
-**Loggez toutes les connexions** pour détecter les activités suspectes.
+Loguer toutes les connexions pour détecter les activités suspectes et alimenter les outils SIEM.
 
 === ":fontawesome-brands-python: Python"
 
-    ```python
+    ```python title="Python — journalisation des connexions avec logging"
     import logging
-    
-    # Configuration des logs
+
     logging.basicConfig(
         filename='server.log',
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s'
     )
-    
+
     def handle_connection(addr):
         logging.info(f"Connexion depuis {addr}")
         # Traitement...
@@ -1205,13 +1056,15 @@ N'ouvrez que les **ports strictement nécessaires** et **filtrez par source**.
 
 ### Mise à jour régulière
 
-**Maintenez vos systèmes à jour** pour corriger les vulnérabilités.
+Maintenir les systèmes à jour pour corriger les vulnérabilités connues — CVE publiées régulièrement sur les implémentations de TLS, OpenSSH, OpenSSL et les stacks réseau des OS.
 
-## Le mot de la fin
-
-!!! quote
-    Les protocoles réseau constituent l'infrastructure invisible qui permet au monde numérique de fonctionner. Leur compréhension dépasse la simple mémorisation de ports et de noms pour englober une vision holistique de la communication réseau, de la sécurité, et des compromis entre performance et fiabilité.
-    
-    Chaque protocole a été conçu pour résoudre des problèmes spécifiques. Votre rôle en tant que développeur ou professionnel de la cybersécurité est de choisir le protocole adapté à votre contexte, de l'implémenter correctement, et de le sécuriser rigoureusement. Une mauvaise compréhension des protocoles expose vos systèmes à des vulnérabilités critiques.
+<br />
 
 ---
+
+## Conclusion
+
+!!! quote "Conclusion"
+    _Les protocoles réseau constituent l'infrastructure invisible qui permet au monde numérique de fonctionner. Leur compréhension dépasse la simple mémorisation de ports et de noms pour englober une vision holistique de la communication réseau, des compromis entre performance et fiabilité, et des implications de sécurité. TCP garantit la livraison au prix de la latence — UDP sacrifie la fiabilité pour la vitesse. TLS chiffre les échanges mais ne protège pas contre les erreurs de configuration. Chaque protocole a été conçu pour résoudre un problème précis. Choisir le protocole adapté, l'implémenter correctement et le sécuriser rigoureusement — c'est là que se joue la différence entre une infrastructure robuste et une surface d'attaque ouverte._
+
+<br />
