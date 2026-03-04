@@ -14,7 +14,7 @@ tags: ["GPG", "CRYPTOGRAPHIE", "CHIFFREMENT", "SIGNATURE", "SECURITE", "PGP"]
 </div>
 
 !!! quote "Analogie"
-    _Envoyer une lettre dans un coffre verrouillé. Tout le monde peut voir le coffre, mais seul le destinataire possède la clé pour l'ouvrir. Et s'il reçoit une lettre signée avec votre sceau personnel, il sait qu'elle vient bien de vous. GPG fait exactement cela — mais pour les données numériques._
+    _Envoyer une lettre dans un coffre verrouillé. Tout le monde peut voir le coffre, mais seul le destinataire possèdant la clé pourra l'ouvrir. Et s'il reçoit une lettre signée avec votre sceau personnel, il sait qu'elle vient bien de vous. GPG fait exactement cela — mais pour les données numériques._
 
 **GPG (GNU Privacy Guard)** est l'implémentation libre du standard **OpenPGP** (RFC 4880). Il permet de chiffrer des fichiers, signer des données, vérifier l'identité d'un expéditeur et garantir l'intégrité d'un contenu — sans dépendre d'une autorité centrale.
 

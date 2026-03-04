@@ -1,0 +1,4566 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Le référentiel français de qualification des services cloud de confiance">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/cyber/governance/refs-normes/referentiels/secnumcloud/">
+      
+      
+        <link rel="prev" href="../hds/">
+      
+      
+        <link rel="next" href="../pci-dss/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.23">
+    
+    
+      
+        <title>SecNumCloud - Référentiel de Sécurité Cloud de Confiance - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/classic/main.d9d44b50.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#secnumcloud-referentiel-de-securite-cloud-de-confiance" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em
+        >Cette documentation est en pleine conception, c'est normal qu'elle soit
+        encors si faible au niveau du contenu</em
+    >
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo-dark.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SecNumCloud - Référentiel de Sécurité Cloud de Confiance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo-dark.png" alt="logo">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infra
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Gouvernance
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cyber : Gouvernance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Référentiels & Normes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Référentiels & Normes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../autorites/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autorités françaises
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../reglementations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réglementations Euro.
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Référentiels & certifications sectoriel
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2_4" id="__nav_5_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Référentiels & certifications sectoriel
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hds/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    HDS (Santé)
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SecNumCloud
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SecNumCloud
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-repartir-des-bases-vrais-debutants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour repartir des bases (vrais débutants)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historique-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Historique et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Historique et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexte-de-creation-2016" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte de création (2016)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evolutions-du-referentiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Évolutions du référentiel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-du-referentiel-secnumcloud-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure du référentiel SecNumCloud 3.2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure du référentiel SecNumCloud 3.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organisation-des-chapitres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organisation des chapitres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exigences-differenciantes-de-secnumcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exigences différenciantes de SecNumCloud
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exigences différenciantes de SecNumCloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#localisation-des-donnees-chapitre-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Localisation des données (Chapitre 14)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immunite-extraterritoriale-chapitre-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Immunité extraterritoriale (Chapitre 15)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chiffrement-et-protection-des-donnees-chapitre-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chiffrement et protection des données (Chapitre 16)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracabilite-et-journalisation-chapitre-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traçabilité et journalisation (Chapitre 9)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processus-de-qualification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processus de qualification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processus de qualification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etapes-du-processus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes du processus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organismes-evaluateurs-passi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organismes évaluateurs (PASSI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#couts-de-la-qualification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coûts de la qualification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services-qualifies-secnumcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services qualifiés SecNumCloud
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Services qualifiés SecNumCloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iaas-infrastructure-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IaaS (Infrastructure as a Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paas-platform-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PaaS (Platform as a Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services-specialises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services spécialisés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites-des-hyperscalers-americains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limites des hyperscalers américains
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefices-de-secnumcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bénéfices de SecNumCloud
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bénéfices de SecNumCloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-clients-consommateurs-de-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les clients (consommateurs de cloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-fournisseurs-prestataires-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les fournisseurs (prestataires cloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparaison-avec-dautres-referentiels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparaison avec d'autres référentiels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparaison avec d&#x27;autres référentiels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secnumcloud-vs-iso-270012701727018" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SecNumCloud vs. ISO 27001/27017/27018
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secnumcloud-vs-soc-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SecNumCloud vs. SOC 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secnumcloud-vs-gaia-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SecNumCloud vs. Gaia-X
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-dusage-et-retours-dexperience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas d'usage et retours d'expérience
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cas d&#x27;usage et retours d&#x27;expérience">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secteur-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secteur public
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secteur-sante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secteur santé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secteur-financier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secteur financier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collectivites-territoriales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collectivités territoriales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perspectives-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perspectives et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perspectives et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extension-europeenne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension européenne
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptation-aux-nouvelles-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adaptation aux nouvelles technologies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#industrialisation-et-accessibilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Industrialisation et accessibilité
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-mot-de-la-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le mot de la fin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ressources complémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documents-officiels-anssi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documents officiels ANSSI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-associes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards associés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textes-reglementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Textes réglementaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organismes-et-initiatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organismes et initiatives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prestataires-qualifies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prestataires qualifiés
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pci-dss/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    PCI DSS
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nist-csf/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    NIST CSF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../isos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normes ISO
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../smsi/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Démarche SMSI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Démarche SMSI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/presentation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Présentation du SMSI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../smsi/risques/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyse de Risques
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/bia/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    BIA (Business Impact Analysis)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/sdsi/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SDSI (Schéma Directeur)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/pssi/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    PSSI (Politique de Sécurité)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../vuln/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des vulnérabilités
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestion des vulnérabilités
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/cve-cvss/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE & CVSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/owasp-top10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Top 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/patch-management/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Patch Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/scan-policy/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Politique de Scan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opé. &amp; SOC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../glossaire/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-repartir-des-bases-vrais-debutants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour repartir des bases (vrais débutants)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historique-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Historique et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Historique et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexte-de-creation-2016" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte de création (2016)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evolutions-du-referentiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Évolutions du référentiel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-du-referentiel-secnumcloud-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure du référentiel SecNumCloud 3.2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure du référentiel SecNumCloud 3.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organisation-des-chapitres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organisation des chapitres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exigences-differenciantes-de-secnumcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exigences différenciantes de SecNumCloud
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exigences différenciantes de SecNumCloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#localisation-des-donnees-chapitre-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Localisation des données (Chapitre 14)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immunite-extraterritoriale-chapitre-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Immunité extraterritoriale (Chapitre 15)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chiffrement-et-protection-des-donnees-chapitre-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chiffrement et protection des données (Chapitre 16)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracabilite-et-journalisation-chapitre-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traçabilité et journalisation (Chapitre 9)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processus-de-qualification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processus de qualification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processus de qualification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etapes-du-processus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes du processus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organismes-evaluateurs-passi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organismes évaluateurs (PASSI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#couts-de-la-qualification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coûts de la qualification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services-qualifies-secnumcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services qualifiés SecNumCloud
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Services qualifiés SecNumCloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iaas-infrastructure-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IaaS (Infrastructure as a Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paas-platform-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PaaS (Platform as a Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services-specialises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services spécialisés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites-des-hyperscalers-americains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limites des hyperscalers américains
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefices-de-secnumcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bénéfices de SecNumCloud
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bénéfices de SecNumCloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-clients-consommateurs-de-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les clients (consommateurs de cloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-fournisseurs-prestataires-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les fournisseurs (prestataires cloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparaison-avec-dautres-referentiels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparaison avec d'autres référentiels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparaison avec d&#x27;autres référentiels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secnumcloud-vs-iso-270012701727018" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SecNumCloud vs. ISO 27001/27017/27018
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secnumcloud-vs-soc-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SecNumCloud vs. SOC 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secnumcloud-vs-gaia-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SecNumCloud vs. Gaia-X
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-dusage-et-retours-dexperience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas d'usage et retours d'expérience
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cas d&#x27;usage et retours d&#x27;expérience">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secteur-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secteur public
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secteur-sante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secteur santé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secteur-financier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secteur financier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collectivites-territoriales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collectivités territoriales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perspectives-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perspectives et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perspectives et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extension-europeenne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension européenne
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptation-aux-nouvelles-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adaptation aux nouvelles technologies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#industrialisation-et-accessibilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Industrialisation et accessibilité
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-mot-de-la-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le mot de la fin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ressources complémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documents-officiels-anssi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documents officiels ANSSI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-associes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards associés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textes-reglementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Textes réglementaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organismes-et-initiatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organismes et initiatives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prestataires-qualifies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prestataires qualifiés
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Bienvenue
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cyber : Gouvernance
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Référentiels & Normes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Référentiels & certifications sectoriel
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="secnumcloud-referentiel-de-securite-cloud-de-confiance">SecNumCloud - Référentiel de Sécurité Cloud de Confiance<a class="headerlink" href="#secnumcloud-referentiel-de-securite-cloud-de-confiance" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p><div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="0.2"
+  data-time="50-60 minutes">
+</div>
+</p>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>Imaginez un <strong>label de qualité alimentaire comme Label Rouge</strong> qui garantit l'origine, la traçabilité et la qualité des produits. <strong>SecNumCloud fonctionne sur le même principe pour les services cloud</strong> : c'est une qualification délivrée par l'ANSSI qui atteste qu'un fournisseur cloud respecte des exigences strictes de sécurité, de souveraineté et de résilience. Utiliser un cloud SecNumCloud, c'est comme choisir un produit Label Rouge : vous savez exactement ce que vous obtenez.</em></p>
+</div>
+<blockquote>
+<p><strong>SecNumCloud</strong> constitue le <strong>référentiel de qualification</strong> des prestations de services d'informatique en nuage (cloud computing) développé par l'<strong>ANSSI</strong> (Agence Nationale de la Sécurité des Systèmes d'Information). Créé en 2016 et profondément remanié en 2022 (version 3.2), SecNumCloud définit les <strong>critères de sécurité et de confiance</strong> que doivent respecter les fournisseurs de services cloud pour obtenir une <strong>qualification</strong> reconnue par l'État français.</p>
+</blockquote>
+<p>Dans un contexte où <strong>80% des données d'entreprise migrent vers le cloud</strong>, où les <strong>souverainetés numériques</strong> deviennent des enjeux géopolitiques, et où les <strong>législations extraterritoriales</strong> (Cloud Act américain, lois chinoises sur la cybersécurité) menacent la confidentialité des données européennes, SecNumCloud représente une <strong>réponse technique et politique</strong> visant à garantir qu'un service cloud respecte les <strong>intérêts de sécurité nationale</strong> et offre des <strong>garanties de confiance</strong> maximales.</p>
+<div class="admonition info">
+<p class="admonition-title">Pourquoi c'est important ?</p>
+<p>SecNumCloud <strong>structure l'écosystème français et européen du cloud de confiance</strong>. Pour les entreprises et administrations manipulant des données sensibles, choisir un cloud SecNumCloud garantit un <strong>niveau de sécurité évalué</strong> par l'autorité nationale, une <strong>immunité aux législations extraterritoriales</strong>, et une <strong>souveraineté des données</strong>. Pour les fournisseurs cloud, obtenir la qualification SecNumCloud constitue un <strong>différenciateur concurrentiel majeur</strong> sur les marchés publics et privés exigeant des garanties de sécurité maximales.</p>
+</div>
+<h2 id="pour-repartir-des-bases-vrais-debutants">Pour repartir des bases (vrais débutants)<a class="headerlink" href="#pour-repartir-des-bases-vrais-debutants" title="Permanent link">&para;</a></h2>
+<p>Si vous découvrez SecNumCloud, il est essentiel de comprendre qu'il ne s'agit <strong>pas d'un label commercial</strong> auto-déclaratif mais d'une <strong>qualification délivrée par l'ANSSI</strong> après un processus d'évaluation rigoureux par des organismes indépendants. SecNumCloud n'est <strong>pas une certification ISO</strong> (bien qu'il intègre les exigences ISO 27001/27017/27018), mais un <strong>référentiel souverain</strong> développé par l'État français pour répondre à ses besoins spécifiques de sécurité et de confiance.</p>
+<p>SecNumCloud s'adresse principalement aux <strong>services IaaS (Infrastructure as a Service) et PaaS (Platform as a Service)</strong>. Les services SaaS (Software as a Service) peuvent également être qualifiés sous conditions. Le référentiel couvre l'<strong>hébergement de données</strong> (compute, stockage, réseau) mais aussi les <strong>services associés</strong> (sauvegarde, archivage, journalisation).</p>
+<div class="admonition tip">
+<p class="admonition-title">SecNumCloud et Cloud de confiance : quelle différence ?</p>
+<p><strong>Cloud de confiance</strong> est un terme marketing utilisé par certains acteurs. <strong>SecNumCloud</strong> est la qualification technique et juridique précise délivrée par l'ANSSI. Certains fournisseurs communiquent sur le "cloud de confiance" sans avoir la qualification SecNumCloud. <strong>Seule la mention explicite "Qualifié SecNumCloud par l'ANSSI"</strong> avec un numéro de qualification garantit la conformité au référentiel.</p>
+</div>
+<h2 id="historique-et-evolutions">Historique et évolutions<a class="headerlink" href="#historique-et-evolutions" title="Permanent link">&para;</a></h2>
+<h3 id="contexte-de-creation-2016">Contexte de création (2016)<a class="headerlink" href="#contexte-de-creation-2016" title="Permanent link">&para;</a></h3>
+<p>SecNumCloud a été créé dans un contexte de <strong>prise de conscience</strong> des risques liés à la dépendance aux fournisseurs cloud étrangers.</p>
+<p><strong>Facteurs déclencheurs :</strong></p>
+<ul>
+<li><strong>Révélations Snowden (2013)</strong> : Mise en lumière de la surveillance massive des communications par la NSA</li>
+<li><strong>Cloud Act américain (2018 en projet dès 2015)</strong> : Risque d'accès extraterritorial aux données hébergées par des entreprises américaines</li>
+<li><strong>Dépendance technologique</strong> : Domination quasi-monopolistique d'AWS, Azure, Google Cloud</li>
+<li><strong>Besoin souverain</strong> : Nécessité pour l'État français de garantir la confidentialité de données sensibles</li>
+</ul>
+<p><strong>Objectifs de SecNumCloud :</strong></p>
+<ol>
+<li>Définir un <strong>référentiel technique</strong> de haut niveau de sécurité</li>
+<li>Créer un <strong>écosystème français/européen</strong> de fournisseurs cloud souverains</li>
+<li>Offrir une <strong>alternative crédible</strong> aux hyperscalers américains pour les données sensibles</li>
+<li>Garantir l'<strong>immunité extraterritoriale</strong> des données</li>
+</ol>
+<h3 id="evolutions-du-referentiel">Évolutions du référentiel<a class="headerlink" href="#evolutions-du-referentiel" title="Permanent link">&para;</a></h3>
+<p><strong>SecNumCloud v1 (2016) :</strong></p>
+<ul>
+<li>Premier référentiel axé IaaS</li>
+<li>168 exigences de sécurité</li>
+<li>Focus sur la sécurité technique</li>
+</ul>
+<p><strong>SecNumCloud v2 (2018) :</strong></p>
+<ul>
+<li>Extension au PaaS</li>
+<li>Renforcement des exigences de souveraineté</li>
+<li>Introduction de critères sur la localisation des données</li>
+</ul>
+<p><strong>SecNumCloud v3.2 (2022) :</strong></p>
+<ul>
+<li><strong>Refonte majeure</strong> alignée sur les enjeux actuels</li>
+<li><strong>242 exigences</strong> (vs 168 en v1)</li>
+<li>Intégration des <strong>exigences ISO 27001/27017/27018</strong></li>
+<li>Critères renforcés sur l'<strong>immunité extraterritoriale</strong></li>
+<li>Exigences sur la <strong>résilience</strong> et la <strong>réversibilité</strong></li>
+<li>Prise en compte du <strong>SaaS</strong> sous conditions</li>
+<li>Alignement avec le <strong>règlement européen sur la libre circulation des données</strong></li>
+</ul>
+<p><strong>Chronologie des versions :</strong></p>
+<pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+graph LR
+    A[SecNumCloud v1&lt;br/&gt;2016&lt;br/&gt;168 exigences] --&gt; B[SecNumCloud v2&lt;br/&gt;2018&lt;br/&gt;Extension PaaS]
+    B --&gt; C[SecNumCloud v3.2&lt;br/&gt;2022&lt;br/&gt;242 exigences]
+    C --&gt; D[Évolutions continues&lt;br/&gt;2025+&lt;br/&gt;Adaptation IA, Edge]
+
+    A -.-&gt;|Focus| A1[Sécurité technique]
+    B -.-&gt;|Ajout| B1[Souveraineté données]
+    C -.-&gt;|Renforcement| C1[Immunité&lt;br/&gt;extraterritoriale]
+    D -.-&gt;|Anticipation| D1[Nouvelles&lt;br/&gt;technologies]
+
+    style A fill:#f3e3e3
+    style C fill:#e3f3e3
+    style D fill:#e3f3f3</code></pre>
+<h2 id="structure-du-referentiel-secnumcloud-32">Structure du référentiel SecNumCloud 3.2<a class="headerlink" href="#structure-du-referentiel-secnumcloud-32" title="Permanent link">&para;</a></h2>
+<p>Le référentiel SecNumCloud 3.2 s'articule autour de <strong>18 chapitres thématiques</strong> regroupant <strong>242 exigences</strong>.</p>
+<h3 id="organisation-des-chapitres">Organisation des chapitres<a class="headerlink" href="#organisation-des-chapitres" title="Permanent link">&para;</a></h3>
+<p><strong>Chapitres du référentiel :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Chapitre</th>
+<th>Thématique</th>
+<th>Nombre d'exigences</th>
+<th>Focus principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Organisation</strong></td>
+<td>Gouvernance et pilotage du service</td>
+<td>15</td>
+<td>Organisation interne, rôles et responsabilités</td>
+</tr>
+<tr>
+<td><strong>2. Protection du personnel</strong></td>
+<td>Sécurité RH</td>
+<td>12</td>
+<td>Vérifications, formations, confidentialité</td>
+</tr>
+<tr>
+<td><strong>3. Sécurité physique</strong></td>
+<td>Protection des infrastructures physiques</td>
+<td>18</td>
+<td>Datacenters, contrôle d'accès physique</td>
+</tr>
+<tr>
+<td><strong>4. Sécurité de la virtualisation</strong></td>
+<td>Isolation et cloisonnement</td>
+<td>14</td>
+<td>Hyperviseurs, conteneurs, segmentation</td>
+</tr>
+<tr>
+<td><strong>5. Administration</strong></td>
+<td>Gestion sécurisée du cloud</td>
+<td>25</td>
+<td>Comptes privilégiés, authentification, traçabilité</td>
+</tr>
+<tr>
+<td><strong>6. Gestion du réseau</strong></td>
+<td>Architecture et sécurité réseau</td>
+<td>22</td>
+<td>Segmentation, filtrage, chiffrement</td>
+</tr>
+<tr>
+<td><strong>7. Durcissement</strong></td>
+<td>Configuration sécurisée</td>
+<td>19</td>
+<td>Hardening des systèmes, réduction surface d'attaque</td>
+</tr>
+<tr>
+<td><strong>8. Gestion opérationnelle</strong></td>
+<td>Exploitation quotidienne sécurisée</td>
+<td>20</td>
+<td>Changements, mises à jour, sauvegardes</td>
+</tr>
+<tr>
+<td><strong>9. Journalisation</strong></td>
+<td>Traçabilité et détection</td>
+<td>16</td>
+<td>Logs, SIEM, conservation</td>
+</tr>
+<tr>
+<td><strong>10. Gestion des incidents</strong></td>
+<td>Détection et réponse</td>
+<td>15</td>
+<td>Incidents de sécurité, communication</td>
+</tr>
+<tr>
+<td><strong>11. Continuité d'activité</strong></td>
+<td>Résilience et PCA</td>
+<td>14</td>
+<td>Disponibilité, reprise, redondance</td>
+</tr>
+<tr>
+<td><strong>12. Gestion des vulnérabilités</strong></td>
+<td>Détection et correction</td>
+<td>10</td>
+<td>Veille, patch management, audits</td>
+</tr>
+<tr>
+<td><strong>13. Sécurité de la chaîne d'approvisionnement</strong></td>
+<td>Supply chain</td>
+<td>8</td>
+<td>Sous-traitants, équipements, logiciels</td>
+</tr>
+<tr>
+<td><strong>14. Localisation des données</strong></td>
+<td>Souveraineté géographique</td>
+<td>6</td>
+<td>Hébergement UE, interdiction transferts hors UE</td>
+</tr>
+<tr>
+<td><strong>15. Immunité du service</strong></td>
+<td>Protection contre ingérences</td>
+<td>7</td>
+<td>Absence de contrôle extraterritorial</td>
+</tr>
+<tr>
+<td><strong>16. Protection des données du client</strong></td>
+<td>Confidentialité et intégrité</td>
+<td>12</td>
+<td>Chiffrement, isolation, effacement sécurisé</td>
+</tr>
+<tr>
+<td><strong>17. Réversibilité</strong></td>
+<td>Portabilité et sortie</td>
+<td>5</td>
+<td>Export données, fin de service, documentation</td>
+</tr>
+<tr>
+<td><strong>18. Gestion de la conformité</strong></td>
+<td>Audits et certifications</td>
+<td>4</td>
+<td>ISO 27001, audits réguliers, amélioration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="exigences-differenciantes-de-secnumcloud">Exigences différenciantes de SecNumCloud<a class="headerlink" href="#exigences-differenciantes-de-secnumcloud" title="Permanent link">&para;</a></h3>
+<p>Certaines exigences constituent le <strong>cœur de la différenciation</strong> SecNumCloud par rapport aux standards internationaux classiques.</p>
+<h4 id="localisation-des-donnees-chapitre-14">Localisation des données (Chapitre 14)<a class="headerlink" href="#localisation-des-donnees-chapitre-14" title="Permanent link">&para;</a></h4>
+<p><strong>Exigence fondamentale :</strong></p>
+<p><em>"Les données du client (incluant les données en production, sauvegardes, journaux) doivent être stockées et traitées exclusivement au sein de l'Union européenne"</em></p>
+<p><strong>Interdictions strictes :</strong></p>
+<ul>
+<li>Aucun <strong>transfert hors UE</strong>, même temporaire</li>
+<li>Aucun <strong>traitement hors UE</strong> (calcul, analyse)</li>
+<li>Aucune <strong>sauvegarde hors UE</strong></li>
+<li>Aucun <strong>miroir ou réplication hors UE</strong></li>
+</ul>
+<p><strong>Exceptions :</strong></p>
+<p>Seules des exceptions <strong>explicitement demandées et validées par le client</strong> sont autorisées, avec documentation des garanties juridiques et techniques.</p>
+<p><strong>Conséquences pratiques :</strong></p>
+<ul>
+<li>Datacenters <strong>obligatoirement situés dans l'UE</strong></li>
+<li>Personnel d'exploitation <strong>basé dans l'UE</strong></li>
+<li>Aucun recours à des services tiers hors UE (CDN, DNS externes)</li>
+</ul>
+<h4 id="immunite-extraterritoriale-chapitre-15">Immunité extraterritoriale (Chapitre 15)<a class="headerlink" href="#immunite-extraterritoriale-chapitre-15" title="Permanent link">&para;</a></h4>
+<p><strong>Exigence clé :</strong></p>
+<p><em>"Le prestataire doit garantir que ni lui, ni ses sous-traitants, ni ses équipements ne sont soumis à une réglementation extra-européenne permettant un accès aux données sans consentement du client"</em></p>
+<p><strong>Critères d'immunité :</strong></p>
+<pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+graph TD
+    A[Immunité&lt;br/&gt;extraterritoriale]
+
+    A --&gt; B[Capital et&lt;br/&gt;gouvernance]
+    A --&gt; C[Personnel et&lt;br/&gt;sous-traitants]
+    A --&gt; D[Infrastructure et&lt;br/&gt;équipements]
+
+    B --&gt; B1[Contrôle européen&lt;br/&gt;du capital]
+    B --&gt; B2[Organes de direction&lt;br/&gt;dans l'UE]
+    B --&gt; B3[Pas de filiale de&lt;br/&gt;groupe non-UE]
+
+    C --&gt; C1[Personnel opérationnel&lt;br/&gt;dans l'UE]
+    C --&gt; C2[Sous-traitants&lt;br/&gt;UE uniquement]
+    C --&gt; C3[Pas d'accès distant&lt;br/&gt;hors UE]
+
+    D --&gt; D1[Équipements fabriqués&lt;br/&gt;sans backdoors]
+    D --&gt; D2[Logiciels sans&lt;br/&gt;contrôle étranger]
+    D --&gt; D3[Absence de composants&lt;br/&gt;à risque]
+
+    style A fill:#e3f3e3
+    style B fill:#f3e3e3
+    style C fill:#f3f3e3
+    style D fill:#fff3e3</code></pre>
+<p><strong>Exemples d'exclusion :</strong></p>
+<ul>
+<li>Une <strong>filiale française</strong> d'un groupe américain (AWS, Azure, Google) <strong>ne peut</strong> obtenir SecNumCloud car le groupe parent reste soumis au Cloud Act</li>
+<li>Un prestataire utilisant des équipements de marques américaines <strong>doit démontrer</strong> l'absence de backdoors ou de fonctionnalités de contrôle à distance</li>
+<li>Un fournisseur employant des administrateurs en <strong>télétravail depuis un pays hors UE</strong> ne satisfait pas les critères</li>
+</ul>
+<h4 id="chiffrement-et-protection-des-donnees-chapitre-16">Chiffrement et protection des données (Chapitre 16)<a class="headerlink" href="#chiffrement-et-protection-des-donnees-chapitre-16" title="Permanent link">&para;</a></h4>
+<p><strong>Exigences de chiffrement :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type de données</th>
+<th>Chiffrement obligatoire</th>
+<th>Gestion des clés</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Données au repos</strong></td>
+<td>OUI (AES-256 minimum)</td>
+<td>Clés maîtrisées par le client (option recommandée) ou par le prestataire avec isolation</td>
+</tr>
+<tr>
+<td><strong>Données en transit</strong></td>
+<td>OUI (TLS 1.2+ ou IPsec)</td>
+<td>Certificats validés, pas de clés partagées</td>
+</tr>
+<tr>
+<td><strong>Sauvegardes</strong></td>
+<td>OUI</td>
+<td>Mêmes exigences que données primaires</td>
+</tr>
+<tr>
+<td><strong>Logs contenant données client</strong></td>
+<td>OUI si logs externalisés</td>
+<td>Chiffrement bout en bout</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gestion des clés de chiffrement :</strong></p>
+<p>SecNumCloud impose une <strong>séparation stricte</strong> entre :</p>
+<ul>
+<li>L'infrastructure hébergeant les données chiffrées (IaaS)</li>
+<li>Le système de gestion des clés de chiffrement (KMS)</li>
+</ul>
+<p><strong>Option recommandée :</strong> Le client conserve le <strong>contrôle exclusif</strong> des clés de chiffrement via un KMS qu'il maîtrise, garantissant que le prestataire cloud <strong>ne peut accéder aux données en clair</strong>.</p>
+<h4 id="tracabilite-et-journalisation-chapitre-9">Traçabilité et journalisation (Chapitre 9)<a class="headerlink" href="#tracabilite-et-journalisation-chapitre-9" title="Permanent link">&para;</a></h4>
+<p><strong>Exigences de journalisation :</strong></p>
+<p>SecNumCloud impose la <strong>conservation d'au moins 6 mois de logs</strong> couvrant :</p>
+<ul>
+<li><strong>Accès administratifs</strong> : Tout accès aux systèmes de gestion du cloud</li>
+<li><strong>Opérations sur les données</strong> : Création, modification, lecture, suppression</li>
+<li><strong>Événements de sécurité</strong> : Tentatives d'intrusion, alertes SIEM</li>
+<li><strong>Modifications de configuration</strong> : Tout changement d'infrastructure</li>
+</ul>
+<p><strong>Mise à disposition au client :</strong></p>
+<p>Les logs doivent être <strong>accessibles au client</strong> via une interface sécurisée permettant :</p>
+<ul>
+<li>Consultation en temps réel</li>
+<li>Export pour analyse externe</li>
+<li>Corrélation avec les logs applicatifs du client</li>
+</ul>
+<p><strong>Protection de l'intégrité :</strong></p>
+<p>Les logs doivent être <strong>protégés contre la falsification</strong> :</p>
+<ul>
+<li>Horodatage certifié</li>
+<li>Signature cryptographique</li>
+<li>Stockage en append-only</li>
+<li>Conservation sur support WORM (Write Once Read Many) pour les durées longues</li>
+</ul>
+<h2 id="processus-de-qualification">Processus de qualification<a class="headerlink" href="#processus-de-qualification" title="Permanent link">&para;</a></h2>
+<p>L'obtention de la qualification SecNumCloud nécessite un <strong>processus rigoureux</strong> qui peut prendre <strong>12 à 24 mois</strong>.</p>
+<h3 id="etapes-du-processus">Étapes du processus<a class="headerlink" href="#etapes-du-processus" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+graph TD
+    A[Candidature du&lt;br/&gt;prestataire cloud] --&gt; B[Évaluation par&lt;br/&gt;organisme qualifié&lt;br/&gt;PASSI]
+
+    B --&gt; C[Audit documentaire&lt;br/&gt;et technique]
+    C --&gt; D[Tests d'intrusion&lt;br/&gt;et audits de code]
+    D --&gt; E[Rapport d'évaluation&lt;br/&gt;détaillé]
+
+    E --&gt; F{Conformité&lt;br/&gt;atteinte ?}
+    F --&gt;|NON| G[Demande de&lt;br/&gt;corrections]
+    G --&gt; C
+
+    F --&gt;|OUI| H[Transmission à&lt;br/&gt;l'ANSSI]
+    H --&gt; I[Analyse ANSSI et&lt;br/&gt;décision de qualification]
+
+    I --&gt; J{Qualification&lt;br/&gt;accordée ?}
+    J --&gt;|NON| K[Refus motivé]
+    J --&gt;|OUI| L[Publication au&lt;br/&gt;catalogue ANSSI]
+
+    L --&gt; M[Surveillance&lt;br/&gt;annuelle]
+    M --&gt; N[Renouvellement&lt;br/&gt;tous les 3 ans]
+
+    style A fill:#f3e3e3
+    style L fill:#e3f3e3
+    style K fill:#ffe3e3
+    style M fill:#fff3e3</code></pre>
+<p><strong>Description des étapes :</strong></p>
+<p><strong>1. Candidature (1-2 mois) :</strong></p>
+<p>Le prestataire candidate auprès de l'ANSSI en fournissant :</p>
+<ul>
+<li>Description détaillée du service</li>
+<li>Périmètre de qualification souhaité</li>
+<li>Documentation préliminaire de conformité</li>
+</ul>
+<p><strong>2. Sélection d'un organisme évaluateur (PASSI) :</strong></p>
+<p>Le prestataire <strong>choisit</strong> un PASSI (Prestataire d'Audit de la Sécurité des Systèmes d'Information) qualifié par l'ANSSI pour réaliser l'évaluation.</p>
+<p><strong>3. Évaluation complète (6-12 mois) :</strong></p>
+<p>L'organisme PASSI réalise :</p>
+<ul>
+<li><strong>Audit documentaire</strong> : Vérification des politiques, procédures, contrats</li>
+<li><strong>Audit technique</strong> : Tests de configuration, revue d'architecture</li>
+<li><strong>Tests d'intrusion</strong> : Pentests externes et internes</li>
+<li><strong>Audits de code</strong> : Si développements spécifiques (portails clients, API)</li>
+<li><strong>Vérifications physiques</strong> : Visite des datacenters</li>
+</ul>
+<p><strong>4. Rapport d'évaluation (1-2 mois) :</strong></p>
+<p>Le PASSI rédige un <strong>rapport exhaustif</strong> détaillant :</p>
+<ul>
+<li>Conformité à chacune des 242 exigences</li>
+<li>Écarts identifiés et leur criticité</li>
+<li>Recommandations de correction</li>
+<li>Niveau de confiance global</li>
+</ul>
+<p><strong>5. Corrections et retests (2-6 mois) :</strong></p>
+<p>Le prestataire corrige les non-conformités et soumet à un <strong>nouvel audit</strong> des points corrigés.</p>
+<p><strong>6. Décision ANSSI (2-4 mois) :</strong></p>
+<p>L'ANSSI analyse le rapport final et :</p>
+<ul>
+<li>Valide la conformité</li>
+<li>Peut demander des compléments d'information ou de tests</li>
+<li>Prend la <strong>décision de qualification</strong></li>
+</ul>
+<p><strong>7. Publication et surveillance :</strong></p>
+<ul>
+<li><strong>Publication</strong> au catalogue officiel ANSSI des prestataires qualifiés</li>
+<li><strong>Surveillance annuelle</strong> : Audits de maintien de la qualification</li>
+<li><strong>Renouvellement triennal</strong> : Réévaluation complète tous les 3 ans</li>
+</ul>
+<h3 id="organismes-evaluateurs-passi">Organismes évaluateurs (PASSI)<a class="headerlink" href="#organismes-evaluateurs-passi" title="Permanent link">&para;</a></h3>
+<p>Seuls les <strong>PASSI qualifiés par l'ANSSI</strong> peuvent réaliser les audits SecNumCloud.</p>
+<p><strong>Liste des PASSI qualifiés (exemples non exhaustifs) :</strong></p>
+<ul>
+<li>Wavestone</li>
+<li>Atos Cybersecurity</li>
+<li>Devoteam</li>
+<li>Orange Cyberdefense</li>
+<li>Thales</li>
+<li>Capgemini</li>
+<li>Sogeti</li>
+</ul>
+<p><strong>Critères de sélection d'un PASSI :</strong></p>
+<ul>
+<li><strong>Expertise technique</strong> : Compétences cloud, sécurité réseau, cryptographie</li>
+<li><strong>Expérience SecNumCloud</strong> : Nombre de qualifications déjà réalisées</li>
+<li><strong>Disponibilité</strong> : Délais d'intervention</li>
+<li><strong>Tarifs</strong> : Budget d'évaluation (généralement 100k€ à 300k€)</li>
+</ul>
+<h3 id="couts-de-la-qualification">Coûts de la qualification<a class="headerlink" href="#couts-de-la-qualification" title="Permanent link">&para;</a></h3>
+<p><strong>Budget total estimé pour un prestataire :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Poste</th>
+<th>Montant estimé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Évaluation PASSI</strong></td>
+<td>100 000 € - 300 000 €</td>
+</tr>
+<tr>
+<td><strong>Mise en conformité technique</strong></td>
+<td>500 000 € - 2 000 000 €</td>
+</tr>
+<tr>
+<td><strong>Consultants externes</strong></td>
+<td>50 000 € - 200 000 €</td>
+</tr>
+<tr>
+<td><strong>Formation et sensibilisation</strong></td>
+<td>20 000 € - 100 000 €</td>
+</tr>
+<tr>
+<td><strong>Frais de renouvellement (tous les 3 ans)</strong></td>
+<td>50 000 € - 150 000 €</td>
+</tr>
+<tr>
+<td><strong>Total première qualification</strong></td>
+<td><strong>700 000 € - 2 600 000 €</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Ces montants varient fortement selon :</p>
+<ul>
+<li>La <strong>taille du périmètre</strong> qualifié (nombre de datacenters, services)</li>
+<li>Le <strong>niveau de maturité initial</strong> du prestataire</li>
+<li>La <strong>complexité technique</strong> de l'infrastructure</li>
+</ul>
+<h2 id="services-qualifies-secnumcloud">Services qualifiés SecNumCloud<a class="headerlink" href="#services-qualifies-secnumcloud" title="Permanent link">&para;</a></h2>
+<p><strong>Prestataires qualifiés (liste non exhaustive au 2025) :</strong></p>
+<h3 id="iaas-infrastructure-as-a-service">IaaS (Infrastructure as a Service)<a class="headerlink" href="#iaas-infrastructure-as-a-service" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prestataire</th>
+<th>Nom commercial</th>
+<th>Qualification</th>
+<th>Particularités</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OVHcloud</strong></td>
+<td>Hosted Private Cloud</td>
+<td>SecNumCloud 3.2</td>
+<td>Leader français, souveraineté totale</td>
+</tr>
+<tr>
+<td><strong>Orange Business Services</strong></td>
+<td>Flexible Engine</td>
+<td>SecNumCloud 3.2</td>
+<td>Basé sur Huawei (controversé)</td>
+</tr>
+<tr>
+<td><strong>Atos</strong></td>
+<td>Atos Sovereign Cloud</td>
+<td>SecNumCloud</td>
+<td>Orienté secteur public</td>
+</tr>
+<tr>
+<td><strong>Outscale (Dassault Systèmes)</strong></td>
+<td>Outscale IaaS</td>
+<td>SecNumCloud</td>
+<td>Compatible AWS S3</td>
+</tr>
+<tr>
+<td><strong>Cloud Temple</strong></td>
+<td>Cloud Temple IaaS</td>
+<td>SecNumCloud 3.2</td>
+<td>Spécialiste cloud souverain</td>
+</tr>
+<tr>
+<td><strong>Numspot</strong></td>
+<td>Numspot IaaS</td>
+<td>En cours</td>
+<td>Joint-venture Dassault/Bouygues/Docaposte</td>
+</tr>
+<tr>
+<td><strong>S3NS</strong></td>
+<td>S3NS Compute</td>
+<td>SecNumCloud</td>
+<td>Orienté défense et OIV</td>
+</tr>
+</tbody>
+</table>
+<h3 id="paas-platform-as-a-service">PaaS (Platform as a Service)<a class="headerlink" href="#paas-platform-as-a-service" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prestataire</th>
+<th>Nom commercial</th>
+<th>Qualification</th>
+<th>Cas d'usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OVHcloud</strong></td>
+<td>Public Cloud PaaS</td>
+<td>SecNumCloud</td>
+<td>Kubernetes managé, bases de données</td>
+</tr>
+<tr>
+<td><strong>Outscale</strong></td>
+<td>Outscale PaaS</td>
+<td>SecNumCloud</td>
+<td>Orchestration, stockage objet</td>
+</tr>
+<tr>
+<td><strong>Atos</strong></td>
+<td>Atos Cloud Platform</td>
+<td>SecNumCloud</td>
+<td>Conteneurs, CI/CD</td>
+</tr>
+</tbody>
+</table>
+<h3 id="services-specialises">Services spécialisés<a class="headerlink" href="#services-specialises" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prestataire</th>
+<th>Service</th>
+<th>Qualification</th>
+<th>Domaine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Thales</strong></td>
+<td>Thales Trusted Cloud</td>
+<td>SecNumCloud</td>
+<td>Données hautement sensibles (défense)</td>
+</tr>
+<tr>
+<td><strong>IBM France</strong></td>
+<td>IBM Cloud France</td>
+<td>Partielle</td>
+<td>Orienté grands comptes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Services non encore qualifiés (work in progress) :</strong></p>
+<ul>
+<li><strong>Microsoft Azure</strong> : Démarche en cours via une filiale française dédiée (Bleu)</li>
+<li><strong>Google Cloud</strong> : Projet via une entité souveraine (abandon en 2021, relance discussions 2024)</li>
+<li><strong>AWS</strong> : Pas de démarche publique connue</li>
+</ul>
+<h3 id="limites-des-hyperscalers-americains">Limites des hyperscalers américains<a class="headerlink" href="#limites-des-hyperscalers-americains" title="Permanent link">&para;</a></h3>
+<p>Les <strong>géants américains</strong> (AWS, Microsoft Azure, Google Cloud) font face à un <strong>obstacle structurel</strong> pour obtenir SecNumCloud :</p>
+<p><strong>Incompatibilité avec l'exigence d'immunité extraterritoriale :</strong></p>
+<p>Même une filiale française d'un groupe américain reste soumise au <strong>Cloud Act</strong> (Clarifying Lawful Overseas Use of Data Act) qui permet aux autorités américaines d'exiger l'accès aux données hébergées par des entreprises américaines, <strong>quel que soit le lieu de stockage</strong>.</p>
+<p><strong>Stratégies de contournement tentées :</strong></p>
+<ol>
+<li><strong>Création de joint-ventures</strong> : Microsoft a tenté avec Capgemini et Orange (projet abandonné)</li>
+<li><strong>Filiales autonomes</strong> : Google Cloud a annoncé puis abandonné un projet de cloud souverain français</li>
+<li><strong>Partenariats technologiques</strong> : Fournir la technologie tandis qu'un acteur européen exploite (complexité opérationnelle)</li>
+</ol>
+<p><strong>Enjeu politique et économique :</strong></p>
+<p>L'obtention de SecNumCloud par les hyperscalers américains ferait <strong>perdre son sens au référentiel</strong>, dont l'objectif initial est précisément de créer une <strong>alternative souveraine</strong> à ces acteurs dominants.</p>
+<h2 id="benefices-de-secnumcloud">Bénéfices de SecNumCloud<a class="headerlink" href="#benefices-de-secnumcloud" title="Permanent link">&para;</a></h2>
+<h3 id="pour-les-clients-consommateurs-de-cloud">Pour les clients (consommateurs de cloud)<a class="headerlink" href="#pour-les-clients-consommateurs-de-cloud" title="Permanent link">&para;</a></h3>
+<p><strong>Garanties de sécurité :</strong></p>
+<ul>
+<li><strong>Niveau de sécurité certifié</strong> par une autorité indépendante (ANSSI)</li>
+<li><strong>Conformité</strong> aux standards internationaux (ISO 27001/27017/27018)</li>
+<li><strong>Traçabilité</strong> et transparence des opérations</li>
+<li><strong>Résilience</strong> et continuité d'activité garanties</li>
+</ul>
+<p><strong>Souveraineté et confiance :</strong></p>
+<ul>
+<li><strong>Immunité extraterritoriale</strong> : Protection contre les ingérences étrangères</li>
+<li><strong>Localisation garantie dans l'UE</strong> : Données jamais transférées hors Europe</li>
+<li><strong>Contrôle européen</strong> : Capital et gouvernance sous contrôle UE</li>
+<li><strong>Conformité RGPD</strong> facilitée : SecNumCloud intègre les exigences RGPD</li>
+</ul>
+<p><strong>Facilitation de la conformité réglementaire :</strong></p>
+<p>Pour les entités soumises à des obligations strictes, SecNumCloud simplifie la conformité :</p>
+<ul>
+<li><strong>Opérateurs d'Importance Vitale (OIV)</strong> : SecNumCloud répond aux exigences LPM</li>
+<li><strong>Opérateurs de Services Essentiels (OSE)</strong> : Alignement avec NIS2</li>
+<li><strong>Secteur santé</strong> : Hébergement de Données de Santé (HDS) facilité</li>
+<li><strong>Secteur public</strong> : Conformité RGS (Référentiel Général de Sécurité)</li>
+</ul>
+<p><strong>Réduction des risques :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Risque</th>
+<th>Sans SecNumCloud</th>
+<th>Avec SecNumCloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Accès gouvernemental étranger</strong></td>
+<td>Élevé (Cloud Act, lois chinoises)</td>
+<td>Quasi nul (immunité extraterritoriale)</td>
+</tr>
+<tr>
+<td><strong>Transfert de données hors UE</strong></td>
+<td>Possible (CDN, sauvegardes)</td>
+<td>Interdit</td>
+</tr>
+<tr>
+<td><strong>Faille de sécurité</strong></td>
+<td>Dépend du prestataire</td>
+<td>Niveau minimal garanti par qualification</td>
+</tr>
+<tr>
+<td><strong>Perte de données</strong></td>
+<td>Dépend du SLA</td>
+<td>Sauvegardes et PCA obligatoires</td>
+</tr>
+<tr>
+<td><strong>Enfermement propriétaire</strong></td>
+<td>Élevé (lock-in)</td>
+<td>Réversibilité garantie</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pour-les-fournisseurs-prestataires-cloud">Pour les fournisseurs (prestataires cloud)<a class="headerlink" href="#pour-les-fournisseurs-prestataires-cloud" title="Permanent link">&para;</a></h3>
+<p><strong>Différenciation concurrentielle :</strong></p>
+<ul>
+<li><strong>Accès aux marchés publics</strong> : De nombreux appels d'offres exigent SecNumCloud</li>
+<li><strong>Confiance clients</strong> : Qualification reconnue immédiatement</li>
+<li><strong>Positionnement premium</strong> : Justification de tarifs supérieurs</li>
+<li><strong>Référencement ANSSI</strong> : Visibilité institutionnelle</li>
+</ul>
+<p><strong>Structuration de l'organisation :</strong></p>
+<p>Le processus de qualification <strong>force une mise à niveau</strong> de l'ensemble de l'organisation :</p>
+<ul>
+<li>Documentation exhaustive des processus</li>
+<li>Amélioration continue de la sécurité</li>
+<li>Professionnalisation des équipes</li>
+<li>Culture de la conformité</li>
+</ul>
+<p><strong>Opportunités de marché :</strong></p>
+<p>Les secteurs régaliens et critiques <strong>exigent de plus en plus SecNumCloud</strong> :</p>
+<ul>
+<li>Défense et sécurité</li>
+<li>Santé (hôpitaux, laboratoires pharmaceutiques)</li>
+<li>Finance (données sensibles)</li>
+<li>Collectivités territoriales</li>
+<li>Recherche (données scientifiques)</li>
+</ul>
+<h2 id="comparaison-avec-dautres-referentiels">Comparaison avec d'autres référentiels<a class="headerlink" href="#comparaison-avec-dautres-referentiels" title="Permanent link">&para;</a></h2>
+<h3 id="secnumcloud-vs-iso-270012701727018">SecNumCloud vs. ISO 27001/27017/27018<a class="headerlink" href="#secnumcloud-vs-iso-270012701727018" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>ISO 27001/27017/27018</th>
+<th>SecNumCloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Portée géographique</strong></td>
+<td>Mondiale</td>
+<td>France (reconnaissance européenne en discussion)</td>
+</tr>
+<tr>
+<td><strong>Focus</strong></td>
+<td>Sécurité de l'information générique</td>
+<td>Cloud computing avec exigences souveraines</td>
+</tr>
+<tr>
+<td><strong>Immunité extraterritoriale</strong></td>
+<td>Non adressée</td>
+<td>Exigence centrale</td>
+</tr>
+<tr>
+<td><strong>Localisation données</strong></td>
+<td>Non contrainte</td>
+<td>UE exclusivement</td>
+</tr>
+<tr>
+<td><strong>Organisme certificateur</strong></td>
+<td>Multiples organismes internationaux</td>
+<td>ANSSI (autorité unique)</td>
+</tr>
+<tr>
+<td><strong>Reconnaissance</strong></td>
+<td>Universelle</td>
+<td>Forte en France, croissante en Europe</td>
+</tr>
+<tr>
+<td><strong>Niveau de détail technique</strong></td>
+<td>Modéré</td>
+<td>Très détaillé (242 exigences spécifiques cloud)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Complémentarité :</strong></p>
+<p>SecNumCloud <strong>intègre les exigences ISO 27001/27017/27018</strong> et y ajoute des critères de souveraineté. Un prestataire qualifié SecNumCloud est <strong>nécessairement conforme ISO</strong> mais l'inverse n'est pas vrai.</p>
+<h3 id="secnumcloud-vs-soc-2">SecNumCloud vs. SOC 2<a class="headerlink" href="#secnumcloud-vs-soc-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>SOC 2 (AICPA)</th>
+<th>SecNumCloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Origine</strong></td>
+<td>États-Unis (AICPA)</td>
+<td>France (ANSSI)</td>
+</tr>
+<tr>
+<td><strong>Focus</strong></td>
+<td>Contrôles internes génériques</td>
+<td>Sécurité cloud et souveraineté</td>
+</tr>
+<tr>
+<td><strong>Confidentialité rapport</strong></td>
+<td>Privé (NDA avec clients)</td>
+<td>Qualification publique</td>
+</tr>
+<tr>
+<td><strong>Périmètre</strong></td>
+<td>Flexible (5 principes Trust Services)</td>
+<td>Rigide (242 exigences obligatoires)</td>
+</tr>
+<tr>
+<td><strong>Immunité extraterritoriale</strong></td>
+<td>Non adressée</td>
+<td>Centrale</td>
+</tr>
+<tr>
+<td><strong>Reconnaissance Europe</strong></td>
+<td>Croissante mais non officielle</td>
+<td>Forte (autorité nationale)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="secnumcloud-vs-gaia-x">SecNumCloud vs. Gaia-X<a class="headerlink" href="#secnumcloud-vs-gaia-x" title="Permanent link">&para;</a></h3>
+<p><strong>Gaia-X</strong> est une <strong>initiative européenne</strong> visant à créer un écosystème de services cloud fédérés respectant les valeurs européennes.</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Gaia-X</th>
+<th>SecNumCloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nature</strong></td>
+<td>Initiative politique et framework</td>
+<td>Qualification technique opérationnelle</td>
+</tr>
+<tr>
+<td><strong>Périmètre</strong></td>
+<td>Europe (22 pays)</td>
+<td>France (extension européenne envisagée)</td>
+</tr>
+<tr>
+<td><strong>Stade</strong></td>
+<td>En construction (2019-)</td>
+<td>Opérationnel (depuis 2016)</td>
+</tr>
+<tr>
+<td><strong>Contraintes</strong></td>
+<td>Principes généraux (souveraineté, portabilité)</td>
+<td>242 exigences techniques précises</td>
+</tr>
+<tr>
+<td><strong>Certification</strong></td>
+<td>Labels Gaia-X (en cours de définition)</td>
+<td>Qualification ANSSI (processus établi)</td>
+</tr>
+<tr>
+<td><strong>Focus</strong></td>
+<td>Interopérabilité et fédération</td>
+<td>Sécurité et souveraineté</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Positionnement :</strong></p>
+<p>SecNumCloud pourrait devenir un <strong>des référentiels reconnus</strong> dans l'écosystème Gaia-X pour le niveau de confiance maximal.</p>
+<h2 id="cas-dusage-et-retours-dexperience">Cas d'usage et retours d'expérience<a class="headerlink" href="#cas-dusage-et-retours-dexperience" title="Permanent link">&para;</a></h2>
+<h3 id="secteur-public">Secteur public<a class="headerlink" href="#secteur-public" title="Permanent link">&para;</a></h3>
+<p><strong>Ministère des Armées :</strong></p>
+<p>Le <strong>Ministère des Armées</strong> impose SecNumCloud pour l'hébergement de données sensibles non classifiées (Diffusion Restreinte).</p>
+<p><strong>Bénéfices observés :</strong></p>
+<ul>
+<li>Garantie d'<strong>immunité</strong> face aux ingérences étrangères</li>
+<li><strong>Conformité</strong> avec les exigences de sécurité défense</li>
+<li><strong>Traçabilité</strong> totale des accès et opérations</li>
+<li><strong>Résilience</strong> garantie pour les applications critiques</li>
+</ul>
+<p><strong>Direction Interministérielle du Numérique (DINUM) :</strong></p>
+<p>Recommandation de SecNumCloud pour les <strong>Clouds Internes</strong> (CI) des ministères hébergeant des données sensibles.</p>
+<h3 id="secteur-sante">Secteur santé<a class="headerlink" href="#secteur-sante" title="Permanent link">&para;</a></h3>
+<p><strong>Hébergement de Données de Santé (HDS) :</strong></p>
+<p>La certification <strong>HDS</strong> (obligatoire pour héberger des données de santé à caractère personnel) peut être <strong>facilitée</strong> par SecNumCloud.</p>
+<p><strong>Exemple : Hôpitaux universitaires :</strong></p>
+<p>Plusieurs CHU ont migré leurs <strong>PACS</strong> (Picture Archiving and Communication System - imagerie médicale) vers des clouds SecNumCloud pour :</p>
+<ul>
+<li>Garantir la <strong>confidentialité</strong> des données patients</li>
+<li>Respecter l'<strong>exigence HDS</strong></li>
+<li>Bénéficier de la <strong>résilience</strong> (PCA)</li>
+<li>Éviter le risque de <strong>ransomware</strong> (isolation et sauvegardes sécurisées)</li>
+</ul>
+<h3 id="secteur-financier">Secteur financier<a class="headerlink" href="#secteur-financier" title="Permanent link">&para;</a></h3>
+<p><strong>Banques et assurances :</strong></p>
+<p>Les établissements financiers manipulant des <strong>données hautement sensibles</strong> (transactions, données clients, scoring) privilégient SecNumCloud pour :</p>
+<ul>
+<li><strong>Conformité DORA</strong> : Le règlement européen DORA (Digital Operational Resilience Act) impose des exigences de résilience que SecNumCloud facilite</li>
+<li><strong>Protection contre l'espionnage économique</strong></li>
+<li><strong>Conformité RGPD</strong> renforcée</li>
+</ul>
+<h3 id="collectivites-territoriales">Collectivités territoriales<a class="headerlink" href="#collectivites-territoriales" title="Permanent link">&para;</a></h3>
+<p><strong>Cloud souverain pour les communes :</strong></p>
+<p>Des <strong>régions</strong> et <strong>métropoles</strong> migrent vers SecNumCloud pour :</p>
+<ul>
+<li>Héberger les <strong>données citoyens</strong> (état civil, fiscalité locale)</li>
+<li>Respecter les <strong>exigences de souveraineté</strong> imposées par l'État</li>
+<li><strong>Réduire les risques</strong> de cyberattaques (protection mutualisée)</li>
+</ul>
+<h2 id="perspectives-et-evolutions">Perspectives et évolutions<a class="headerlink" href="#perspectives-et-evolutions" title="Permanent link">&para;</a></h2>
+<h3 id="extension-europeenne">Extension européenne<a class="headerlink" href="#extension-europeenne" title="Permanent link">&para;</a></h3>
+<p><strong>Discussions en cours</strong> au niveau européen pour :</p>
+<ul>
+<li><strong>Reconnaissance mutuelle</strong> : Qualification SecNumCloud reconnue dans d'autres États membres</li>
+<li><strong>Harmonisation</strong> : Création d'un référentiel européen inspiré de SecNumCloud</li>
+<li><strong>Alignment avec Gaia-X</strong> : Intégration de SecNumCloud comme label de confiance Gaia-X</li>
+</ul>
+<p><strong>Initiatives nationales similaires :</strong></p>
+<ul>
+<li><strong>Allemagne</strong> : Bundescloud, critères similaires à SecNumCloud</li>
+<li><strong>Italie</strong> : Strategia Cloud Italia, niveau di servizio strategico</li>
+<li><strong>Espagne</strong> : ENS (Esquema Nacional de Seguridad)</li>
+</ul>
+<h3 id="adaptation-aux-nouvelles-technologies">Adaptation aux nouvelles technologies<a class="headerlink" href="#adaptation-aux-nouvelles-technologies" title="Permanent link">&para;</a></h3>
+<p><strong>Intelligence Artificielle :</strong></p>
+<p>SecNumCloud devra intégrer des exigences spécifiques pour :</p>
+<ul>
+<li><strong>Entraînement de modèles IA</strong> dans le cloud</li>
+<li><strong>Protection de la propriété intellectuelle</strong> des algorithmes</li>
+<li><strong>Explicabilité</strong> et traçabilité des décisions IA</li>
+<li><strong>Sécurité des GPU</strong> et infrastructures de calcul intensif</li>
+</ul>
+<p><strong>Edge Computing :</strong></p>
+<p>L'extension de SecNumCloud au <strong>edge computing</strong> (calcul en périphérie) nécessitera :</p>
+<ul>
+<li>Adaptation des critères de <strong>sécurité physique</strong> (datacenters distribués)</li>
+<li><strong>Chiffrement</strong> adapté aux contraintes de latence</li>
+<li><strong>Traçabilité</strong> dans des environnements déconnectés temporairement</li>
+</ul>
+<p><strong>Quantum Computing :</strong></p>
+<p>Anticiper l'impact du <strong>calcul quantique</strong> sur :</p>
+<ul>
+<li><strong>Cryptographie</strong> : Migration vers algorithmes post-quantiques</li>
+<li><strong>Sécurisation</strong> des infrastructures quantiques</li>
+<li><strong>Nouveaux modèles de menaces</strong></li>
+</ul>
+<h3 id="industrialisation-et-accessibilite">Industrialisation et accessibilité<a class="headerlink" href="#industrialisation-et-accessibilite" title="Permanent link">&para;</a></h3>
+<p><strong>Réduction des coûts de qualification :</strong></p>
+<ul>
+<li><strong>Outillage</strong> : Développement de solutions d'automatisation de la conformité</li>
+<li><strong>Mutualisation</strong> : Audits groupés pour prestataires de taille moyenne</li>
+<li><strong>Formation</strong> : Programmes de montée en compétence des PASSI</li>
+</ul>
+<p><strong>Ouverture aux PME :</strong></p>
+<p>Actuellement, SecNumCloud est <strong>accessible principalement aux grands acteurs</strong> (OVHcloud, Orange, Atos) du fait des coûts. Des initiatives visent à :</p>
+<ul>
+<li>Créer des <strong>offres SecNumCloud mutualisées</strong> pour PME</li>
+<li><strong>Simplifier</strong> certaines exigences pour services à faible criticité</li>
+<li><strong>Accompagner financièrement</strong> les candidats (subventions, BPI France)</li>
+</ul>
+<h2 id="le-mot-de-la-fin">Le mot de la fin<a class="headerlink" href="#le-mot-de-la-fin" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>SecNumCloud incarne une <strong>vision politique de la souveraineté numérique</strong> autant qu'une excellence technique en matière de sécurité cloud. En imposant des critères stricts d'immunité extraterritoriale et de localisation des données, SecNumCloud affirme que la <strong>confiance numérique</strong> ne peut se construire qu'avec des garanties juridiques et techniques robustes, hors de portée des législations étrangères potentiellement contraires aux intérêts européens.</p>
+<p>Pour les professionnels du cloud, SecNumCloud représente le <strong>référentiel le plus exigeant au monde</strong> en matière de cloud de confiance. Ses 242 exigences couvrent l'ensemble du spectre sécuritaire, de la sécurité physique des datacenters à la cryptographie, en passant par la gestion des incidents et la résilience. Aucun autre référentiel ne combine ce niveau de détail technique avec des exigences souveraines aussi strictes.</p>
+<p>L'exclusion de facto des hyperscalers américains (AWS, Azure, Google Cloud) du périmètre SecNumCloud n'est pas un protectionnisme naïf mais une <strong>réponse rationnelle</strong> à une menace réelle : le Cloud Act américain permet aux autorités US d'accéder aux données hébergées par des entreprises américaines sans contrôle judiciaire européen. Cette réalité géopolitique justifie l'existence d'alternatives souveraines crédibles.</p>
+<p>Les organisations manipulant des <strong>données sensibles</strong> (défense, santé, finance, administration) doivent impérativement privilégier SecNumCloud. Le surcoût éventuel par rapport à un cloud non qualifié est <strong>dérisoire</strong> face au risque d'exposition de données stratégiques ou au coût d'une violation de données (sanctions RGPD, perte de confiance, espionnage économique).</p>
+<p>SecNumCloud structure un <strong>écosystème français et européen</strong> de cloud de confiance qui, bien qu'encore modeste face aux géants américains, constitue une <strong>alternative viable et crédible</strong>. OVHcloud, Cloud Temple, Outscale, Atos démontrent qu'il est possible de fournir des services cloud performants, résilients et souverains.</p>
+<p>L'avenir de SecNumCloud se jouera à l'échelle <strong>européenne</strong>. L'harmonisation des critères de confiance à travers l'UE, la reconnaissance mutuelle des qualifications nationales, et l'intégration dans Gaia-X détermineront si SecNumCloud devient un <strong>standard continental</strong> ou reste un référentiel national.</p>
+<p><strong>Maîtriser SecNumCloud</strong>, c'est comprendre que la sécurité technique ne suffit pas sans souveraineté juridique. C'est reconnaître que dans un monde où les données sont le nouveau pétrole, la maîtrise de leur localisation et de leur accès constitue un <strong>enjeu de souveraineté nationale</strong> au même titre que l'énergie ou la défense.</p>
+</div>
+<hr />
+<h2 id="ressources-complementaires">Ressources complémentaires<a class="headerlink" href="#ressources-complementaires" title="Permanent link">&para;</a></h2>
+<h3 id="documents-officiels-anssi">Documents officiels ANSSI<a class="headerlink" href="#documents-officiels-anssi" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Référentiel SecNumCloud 3.2</strong> : <a href="https://cyber.gouv.fr/produits-certifies/secnumcloud">https://cyber.gouv.fr/produits-certifies/secnumcloud</a></li>
+<li><strong>Catalogue des prestataires qualifiés</strong> : <a href="https://cyber.gouv.fr/produits-certifies">https://cyber.gouv.fr/produits-certifies</a></li>
+<li><strong>Guide de mise en œuvre</strong> : Documentation technique pour candidats</li>
+</ul>
+<h3 id="standards-associes">Standards associés<a class="headerlink" href="#standards-associes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ISO/IEC 27001:2022</strong> : Systèmes de management de la sécurité de l'information</li>
+<li><strong>ISO/IEC 27017:2015</strong> : Code de pratiques pour les contrôles de sécurité de l'information pour les services cloud</li>
+<li><strong>ISO/IEC 27018:2019</strong> : Protection des données personnelles dans le cloud computing</li>
+</ul>
+<h3 id="textes-reglementaires">Textes réglementaires<a class="headerlink" href="#textes-reglementaires" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>RGPD</strong> : Règlement (UE) 2016/679</li>
+<li><strong>Loi de Programmation Militaire (LPM)</strong> : Articles sur les OIV</li>
+<li><strong>Directive NIS2</strong> : (UE) 2022/2555</li>
+<li><strong>Règlement DORA</strong> : (UE) 2022/2554 (secteur financier)</li>
+</ul>
+<h3 id="organismes-et-initiatives">Organismes et initiatives<a class="headerlink" href="#organismes-et-initiatives" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ANSSI</strong> : <a href="https://cyber.gouv.fr">https://cyber.gouv.fr</a></li>
+<li><strong>Gaia-X</strong> : <a href="https://gaia-x.eu">https://gaia-x.eu</a></li>
+<li><strong>CEPD (Comité Européen de la Protection des Données)</strong> : <a href="https://edpb.europa.eu">https://edpb.europa.eu</a></li>
+</ul>
+<h3 id="prestataires-qualifies">Prestataires qualifiés<a class="headerlink" href="#prestataires-qualifies" title="Permanent link">&para;</a></h3>
+<p>Consulter la liste officielle à jour sur le site de l'ANSSI, car les qualifications évoluent régulièrement (nouvelles qualifications, renouvellements, extensions de périmètre).</p>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">Métadonnées</p>
+<p><strong>Version</strong> : 0.1<br />
+<strong>Dernière mise à jour</strong> : Novembre 2025<br />
+<strong>Durée de lecture</strong> : 50-60 minutes<br />
+<strong>Niveau</strong> : Débutant &amp; Intermédiaire</p>
+</div>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">SECNUMCLOUD</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CLOUD</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">ANSSI</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">QUALIFICATION</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">SOUVERAINETÉ</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../hds/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: HDS (Santé)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                HDS (Santé)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../pci-dss/" class="md-footer__link md-footer__link--next" aria-label="Suivant: PCI DSS">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                PCI DSS
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.5fcf0de6.min.js"></script>
+      
+        <script src="../../../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
