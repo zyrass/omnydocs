@@ -12,50 +12,40 @@
         "dev-cloud/lang/index.md",
 
         # ------------------------------------------------------------------------
-        # HTML5 & CSS3
+        # HTML
         # ------------------------------------------------------------------------
-        # Rôle :
-        # - Établir les bases de l’intégration frontend (structure, style, mise en page).
-        # - Préparer l’utilisation de frameworks UI et de composants.
-        {"HTML5 & CSS3" = [
-
-        # Index HTML/CSS : plan global et acquis attendus.
-        "dev-cloud/lang/html-css/index.md",
-
-        # HTML — Fondamentaux :
-        # - Structure de document, sémantique, formulaires, bonnes pratiques.
-        {"HTML - Fondamentaux" = [
-            "dev-cloud/lang/html-css/html-fondamental/module1.md",
-            "dev-cloud/lang/html-css/html-fondamental/module2.md",
-            "dev-cloud/lang/html-css/html-fondamental/module3.md",
-            "dev-cloud/lang/html-css/html-fondamental/module4.md",
-            "dev-cloud/lang/html-css/html-fondamental/module5.md",
-            "dev-cloud/lang/html-css/html-fondamental/module6.md",
+        {"HTML" = [
+            "dev-cloud/lang/html/index.md",
+            {"HTML - Fondamentaux" = [
+                "dev-cloud/lang/html/module1.md",
+                "dev-cloud/lang/html/module2.md",
+                "dev-cloud/lang/html/module3.md",
+                "dev-cloud/lang/html/module4.md",
+                "dev-cloud/lang/html/module5.md",
+                "dev-cloud/lang/html/module6.md",
+            ]},
         ]},
 
-        # CSS — Fondamentaux :
-        # - Sélecteurs, box model, typographie, cascade, héritage, variables.
-        {"CSS - Fondamentaux" = [
-            "dev-cloud/lang/html-css/css-fondamental/module7.md",
-            "dev-cloud/lang/html-css/css-fondamental/module8.md",
-            "dev-cloud/lang/html-css/css-fondamental/module9.md",
-        ]},
-
-        # CSS — Layout Moderne :
-        # - Flexbox/Grid, patterns de layout, alignements, contraintes.
-        {"CSS - Layout Moderne" = [
-            "dev-cloud/lang/html-css/layout-modern/module10.md",
-            "dev-cloud/lang/html-css/layout-modern/module11.md",
-        ]},
-
-        # CSS — Responsive :
-        # - Media queries, mobile-first, breakpoints, design fluide.
-        {"CSS - Responsive" = [
-            "dev-cloud/lang/html-css/responsive/module12.md",
-            "dev-cloud/lang/html-css/responsive/module13.md",
-            "dev-cloud/lang/html-css/responsive/module14.md",
-            "dev-cloud/lang/html-css/responsive/module15.md",
-        ]},
+        # ------------------------------------------------------------------------
+        # CSS
+        # ------------------------------------------------------------------------
+        {"CSS" = [
+        "dev-cloud/lang/css/index.md",
+            {"CSS - Fondamentaux" = [
+                "dev-cloud/lang/css/fondamental/module7.md",
+                "dev-cloud/lang/css/fondamental/module8.md",
+                "dev-cloud/lang/css/fondamental/module9.md",
+            ]},
+            {"CSS - Layout Moderne" = [
+                "dev-cloud/lang/css/layout/module10.md",
+                "dev-cloud/lang/css/layout/module11.md",
+            ]},
+            {"CSS - Responsive" = [
+                "dev-cloud/lang/css/responsive/module12.md",
+                "dev-cloud/lang/css/responsive/module13.md",
+                "dev-cloud/lang/css/responsive/module14.md",
+                "dev-cloud/lang/css/responsive/module15.md",
+            ]},
         ]},
 
         # ------------------------------------------------------------------------

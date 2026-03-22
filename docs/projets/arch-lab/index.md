@@ -1,11 +1,9 @@
 ---
 description: "Arch-Lab : laboratoire complet multi-OS sous VirtualBox pour l'apprentissage professionnel de Linux, des réseaux et de la cybersécurité. Sept modules progressifs de la théorie à la pratique."
-icon: lucide/home
 tags: ["LAB", "ARCH", "VIRTUALBOX", "MULTI-OS", "FORMATION", "CYBER", "DEVSECOPS"]
-status: beta
 ---
 
-# Arch-Lab — Laboratoire Multi-OS sous VirtualBox
+# Linux (Arch Lab)
 
 <div
   class="omny-meta"

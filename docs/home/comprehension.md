@@ -159,8 +159,8 @@ Une progression cohérente repose toujours sur un socle technique solide. **La s
 
 Pour visualiser précisément les niveaux de maîtrise attendus par domaine, consultez :
 
-- la [Matrice de compétences](./matrice.md)
-- la [Heatmap de compétences](./heatmap.md)
-- le [Diagramme radar des compétences](./radar.md)
+- la [Matrice de compétences](./competences/matrice.md)
+- la [Heatmap de compétences](./competences/heatmap.md)
+- le [Diagramme radar des compétences](./competences/radar.md)
 
 <br />

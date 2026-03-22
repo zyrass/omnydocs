@@ -16,6 +16,9 @@ tags: ["OPENSSL", "TLS", "SSL", "CERTIFICAT", "CRYPTOGRAPHIE", "SECURITE"]
 !!! quote "Analogie"
     _Si la cryptographie est une science, OpenSSL est le laboratoire. C'est l'outil avec lequel on fabrique des clés, on forge des certificats, on teste des connexions sécurisées et on analyse les échanges chiffrés._
 
+!!! abstract "Résumé"
+    Ce guide vous rendra opérationnel sur OpenSSL. Vous apprendrez à générer des paires de clés (RSA/ECC), forger des CSR, émettre ou inspecter des certificats X.509, et utiliser `s_client` pour diagnostiquer instantanément toute connexion TLS en ligne de commande.
+
 **OpenSSL** est à la fois une bibliothèque cryptographique et un outil CLI permettant de manipuler directement les primitives cryptographiques utilisées par HTTPS, les VPN, SSH, les signatures logicielles, les certificats X.509 et les PKI internes. C'est l'outil de référence des administrateurs systèmes, ingénieurs sécurité, DevSecOps et pentesters.
 
 À la fin de ce document, vous serez capable de générer des clés privées et publiques, créer des CSR et des certificats, inspecter un certificat X.509, tester et diagnostiquer une connexion TLS, et convertir entre les formats de certificats courants.

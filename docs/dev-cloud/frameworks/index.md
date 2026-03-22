@@ -1,7 +1,7 @@
-# Frameworks & bibliothèques
+# Frameworks & Librairies
 
     # ==========================================================================
-    # 3.2 — Frameworks & bibliothèques
+    # 3.2 — Frameworks & Librairies (Bibliothèque)
     # ==========================================================================
     # Rôle :
     # - Structurer le développement applicatif via conventions et composants.

@@ -16,6 +16,9 @@ tags: ["PKI", "CERTIFICATS", "TLS", "CRYPTOGRAPHIE", "SECURITE", "INFRASTRUCTURE
 !!! quote "Analogie"
     _Un système mondial de passeports. Chaque citoyen possède une identité, mais seule une autorité reconnue peut confirmer qu'elle est authentique. Une PKI fonctionne exactement ainsi : elle certifie que les identités numériques sont dignes de confiance._
 
+!!! abstract "Résumé"
+    Ce chapitre décrypte le fonctionnement des architectures de confiance à l'échelle d'Internet et des réseaux d'entreprise. Vous découvrirez comment fonctionnent les Root CA et les Intermediate CA, comment vérifier une chaîne de confiance, comment gérer les révocations (CRL/OCSP) et quelles sont les vulnérabilités classiques de ces environnements.
+
 Une **PKI (Infrastructure à Clé Publique)** est l'ensemble des autorités de certification, des certificats, des clés cryptographiques et des politiques de confiance qui permettent d'établir une **confiance cryptographique vérifiable** entre entités. C'est le socle invisible sur lequel repose HTTPS, les VPN, la signature logicielle, l'authentification Wi-Fi d'entreprise et les échanges inter-serveurs sécurisés.
 
 Sans PKI, il n'y a pas de HTTPS fiable, pas de signature logicielle vérifiable, pas d'authentification forte et pas de chiffrement inter-serveurs sécurisé. À la fin de ce document, vous serez capable de comprendre une chaîne de confiance, concevoir une PKI interne, différencier CA racine et intermédiaire, diagnostiquer un problème de certificat et auditer une architecture PKI.

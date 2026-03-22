@@ -723,11 +723,95 @@ L'opérateur ternaire permet d'écrire une condition IF/ELSE simple sur une seul
 
 ### Erreurs courantes à éviter
 
-- Confondre `=` (affectation) et `==` (comparaison) — bug silencieux difficile à détecter
-- Omettre le cas `else` — certains scénarios restent non traités
-- Imbriquer plus de trois niveaux de conditions — code illisible et difficile à maintenir
-- Tester les conditions dans le mauvais ordre — conditions générales avant les spécifiques
-- Oublier `break` en JavaScript et PHP dans les switch/case
+!!! example "❌ Confondre `=` (affectation) et `==` (comparaison)"
+
+    ```python
+    # ❌ Bug silencieux — assignation au lieu de comparaison
+    if role = "admin":      # SyntaxError en Python, bug silencieux dans d'autres langages
+        print("Accès")
+
+    # ✅ Correct
+    if role == "admin":
+        print("Accès")
+    ```
+
+!!! example "❌ Omettre le cas `else` et laisser des scénarios non traités"
+
+    ```python
+    # ❌ Que se passe-t-il si note < 10 ?
+    if note >= 14:
+        mention = "Bien"
+    elif note >= 10:
+        mention = "Passable"
+    # mention peut ne jamais être définie → NameError plus tard
+
+    # ✅ Correct — toujours un cas par défaut
+    else:
+        mention = "Insuffisant"
+    ```
+
+!!! example "❌ Imbriquer plus de trois niveaux de conditions"
+
+    ```python
+    # ❌ Illisible et difficile à maintenir
+    if connecte:
+        if badge_valide:
+            if heures_bureau:
+                if stock > 0:
+                    traiter()
+
+    # ✅ Extraire des variables intermédiaires ou des fonctions
+    acces_autorise = connecte and badge_valide and heures_bureau
+    if acces_autorise and stock > 0:
+        traiter()
+    ```
+
+!!! example "❌ Placer les conditions générales avant les spécifiques"
+
+    ```python
+    # ❌ La condition note >= 10 capture les mentions Bien et Très bien aussi
+    if note >= 10:
+        print("Passable")
+    elif note >= 14:
+        print("Bien")       # Ce bloc n'est jamais atteint
+    elif note >= 18:
+        print("Très bien")  # Ce bloc n'est jamais atteint
+
+    # ✅ Du plus spécifique au plus général
+    if note >= 18:
+        print("Très bien")
+    elif note >= 14:
+        print("Bien")
+    elif note >= 10:
+        print("Passable")
+    ```
+
+!!! example "❌ Oublier `break` dans les switch/case JavaScript et PHP"
+
+    ```javascript
+    // ❌ Fall-through involontaire — les trois blocs s'exécutent
+    switch (role) {
+        case "admin":
+            console.log("Admin");   // Exécuté
+        case "moderateur":
+            console.log("Modo");    // Exécuté aussi !
+        default:
+            console.log("User");    // Exécuté aussi !
+    }
+
+    // ✅ Correct — break stoppe l'évaluation
+    switch (role) {
+        case "admin":
+            console.log("Admin");
+            break;
+        case "moderateur":
+            console.log("Modo");
+            break;
+        default:
+            console.log("User");
+    }
+    ```
+
 
 <br />
 

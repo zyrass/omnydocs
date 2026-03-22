@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.23">
+      <meta name="generator" content="zensical-0.0.28">
     
     
       
@@ -36,7 +36,7 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/classic/main.d9d44b50.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/classic/main.5b14e6eb.min.css">
       
         
           
@@ -134,7 +134,7 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
     <div data-md-component="skip">
       
         
@@ -179,10 +179,10 @@
   <nav class="md-header__inner md-grid" aria-label="En-tête">
     <a href="../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
       
-  <img src="../../assets/logo-dark.png" alt="logo">
+  <img src="../../assets/logo-dark.png" alt="OmnyDocs">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
@@ -236,7 +236,7 @@
     
       
       
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         </label>
@@ -426,6 +426,13 @@
   
     
     
+      
+  
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
         <a href="../../projets/arch-lab/" class="md-tabs__link">
           
@@ -434,6 +441,9 @@
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -471,7 +481,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
       
-  <img src="../../assets/logo-dark.png" alt="logo">
+  <img src="../../assets/logo-dark.png" alt="OmnyDocs">
 
     </a>
     OmnyDocs
@@ -1983,6 +1993,8 @@
       
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></svg>
+  
   <span class="md-ellipsis">
     
   
@@ -2055,6 +2067,8 @@
     <a href="../../dev-cloud/" class="md-nav__link">
       
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
   
   <span class="md-ellipsis">
     
@@ -2328,6 +2342,8 @@
       
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
   <span class="md-ellipsis">
     
   
@@ -2363,6 +2379,18 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2380,6 +2408,10 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
+  
+  
+  
+    
   
   
   
@@ -2406,6 +2438,8 @@
         <span class="md-nav__icon md-icon"></span>
       
     </a>
+  
+
   
 
   
@@ -2635,9 +2669,9 @@
 </table>
 <div class="admonition quote">
 <p class="admonition-title">Note</p>
-<p>Sans entrer dans les détails, en cybersécurité et plus particulièrement en gouvernance, ces trois piliers sont connus sous le triptique <strong>CIA</strong> — <strong>C**onfidentiality, **I**ntegrity, **A**vailability — soit en français **Confidentialité, Intégrité, Disponibilité</strong>. Vous le retrouverez dans les référentiels ISO 27001, ANSSI, NIST et RGPD. La <strong>Disponibilité</strong> (Availability) remplace ici l'Authenticité — cette dernière est généralement traitée comme une propriété dérivée de l'Intégrité dans les modèles de gouvernance, ou ajoutée comme quatrième pilier (modèle CIAA) dans les contextes applicatifs.</p>
+<p>Sans entrer dans les détails, en cybersécurité et plus particulièrement en gouvernance, ces trois piliers sont connus sous le triptique <strong>CIA</strong> — <strong>C</strong>onfidentiality, <strong>I</strong>ntegrity, <strong>A</strong>vailability — soit en français <strong>Confidentialité, Intégrité, Disponibilité</strong>. Vous le retrouverez dans les référentiels ISO 27001, ANSSI, NIST et RGPD. La <strong>Disponibilité</strong> (Availability) remplace ici l'Authenticité — cette dernière est généralement traitée comme une propriété dérivée de l'Intégrité dans les modèles de gouvernance, ou ajoutée comme quatrième pilier (modèle CIAA) dans les contextes applicatifs.</p>
 </div>
-<p><img alt="CIA vs CIAA — distinction entre Authenticité et Disponibilité selon le contexte gouvernance ou cryptographie" src="../../assets/images/crypto/cia-vs-ciaa-authenticite-disponibilite.png" /></p>
+<p><img alt="CIA vs CIAA — distinction entre Authenticité et Disponibilité selon le contexte gouvernance ou cryptographie" src="../../assets/images/crypto/cia-vs-ciaa-authenticite-disponibilite.jpg" /></p>
 <p><em>Le modèle CIA (gouvernance) pose la Disponibilité comme pilier fondamental — un système inaccessible est un système compromis, quelle que soit la solidité de sa cryptographie. Le modèle CIAA (sécurité applicative et cryptographie) ajoute l'Authenticité comme quatrième pilier — la capacité à vérifier qu'un message provient bien de l'entité déclarée. Ces deux modèles ne s'opposent pas : CIA s'applique à l'architecture système, CIAA s'applique aux mécanismes cryptographiques.</em></p>
 
 <p><br /></p>
@@ -2650,17 +2684,34 @@
     Crypto --&gt;|Chiffrement asymétrique| Asym["RSA — ECDSA — ECC&lt;br /&gt;Paire clé publique / clé privée&lt;br /&gt;Lent — échange de clés, signatures"]
     Crypto --&gt;|Hachage| Hash["SHA-256 — SHA-512&lt;br /&gt;Empreinte à sens unique&lt;br /&gt;Intégrité — stockage mots de passe"]
 
-    Asym --&gt; GPG["GPG&lt;br /&gt;Chiffrement fichiers&lt;br /&gt;Signature e-mails&lt;br /&gt;Web of Trust"]
-    Asym --&gt; TLS["TLS / HTTPS&lt;br /&gt;Handshake asymétrique&lt;br /&gt;Session symétrique&lt;br /&gt;Certificats X.509"]
-    TLS --&gt; PKI["PKI&lt;br /&gt;Root CA — Intermediate CA&lt;br /&gt;Chaînes de confiance&lt;br /&gt;Révocation CRL / OCSP"]</code></pre>
+    Asym --&gt;|GPG| GPG["Chiffrement fichiers&lt;br /&gt;Signature e-mails&lt;br /&gt;Web of Trust"]
+    Asym --&gt;|TLS / HTTPS| TLS["Handshake asymétrique&lt;br /&gt;Session symétrique&lt;br /&gt;Certificats X.509"]
+    TLS --&gt;|PKI| PKI["Root CA — Intermediate CA&lt;br /&gt;Chaînes de confiance&lt;br /&gt;Révocation CRL / OCSP"]</code></pre>
+<p><em>La <strong>cryptographie</strong> repose sur trois piliers fondamentaux. Le <strong>chiffrement symétrique</strong> (AES-256-GCM, ChaCha20) utilise une clé unique partagée entre les parties : rapide et efficace, il est privilégié pour chiffrer des volumes importants de données. Le <strong>chiffrement asymétrique</strong> (RSA, ECDSA, ECC) repose sur une paire de clés publique/privée : plus lent, il est réservé à l'échange de clés et aux signatures numériques. Le <strong>hachage</strong> (SHA-256, SHA-512) produit une empreinte à sens unique, garantissant l'intégrité des données et le stockage sécurisé des mots de passe.</em></p>
+
+<p><em>Le chiffrement asymétrique se décline en deux usages majeurs. <strong>GPG</strong> permet le chiffrement de fichiers et la signature d'e-mails, en reposant sur un modèle de confiance distribué appelé <strong>Web of Trust</strong>. <strong>TLS/HTTPS</strong>, quant à lui, combine un handshake asymétrique pour l'authentification initiale avec une session symétrique pour la performance, en s'appuyant sur des certificats <strong>X.509</strong>.</em></p>
+
+<p><em>TLS s'inscrit dans une <strong>PKI</strong> (Infrastructure à Clés Publiques), une hiérarchie de confiance structurée autour d'autorités de certification racines et intermédiaires. La validité des certificats y est vérifiable à tout moment via les mécanismes de révocation <strong>CRL</strong> et <strong>OCSP</strong>.</em></p>
+
 <p><br /></p>
 <hr />
 <h2 id="ordre-dapprentissage-recommande">Ordre d'apprentissage recommandé<a class="headerlink" href="#ordre-dapprentissage-recommande" title="Permanent link">&para;</a></h2>
 <p>La progression ci-dessous respecte les dépendances conceptuelles — chaque étape s'appuie sur la précédente.</p>
-<pre class="mermaid"><code>flowchart LR
-    O["OpenSSL&lt;br /&gt;Primitives cryptographiques&lt;br /&gt;Clés, CSR, certificats X.509&lt;br /&gt;Diagnostic TLS"]
-    G["GPG&lt;br /&gt;Cryptographie asymétrique appliquée&lt;br /&gt;Signature, chiffrement fichiers&lt;br /&gt;Web of Trust — sans autorité centrale"]
-    P["PKI&lt;br /&gt;Architecture de confiance globale&lt;br /&gt;Root CA, Intermediate CA&lt;br /&gt;Révocation, Zero Trust"]
+<pre class="mermaid"><code>flowchart TB
+    subgraph OpenSSL
+        DetailOpenSSL[/"Primitives cryptographiques"/]
+        O["Clés, CSR,&lt;br /&gt;certificats X.509&lt;br /&gt;Diagnostic TLS"]
+    end
+
+    subgraph GPG
+        DetailGPG[/"Cryptographie asymétrique appliquée"/]
+        G["Signature,&lt;br /&gt;chiffrement fichiers&lt;br /&gt;Web of Trust — sans autorité centrale"]
+    end
+
+    subgraph PKI
+        DetailPKI[/"&lt;small&gt;Architecture de confiance globale&lt;/small&gt;"/]
+        P["Root CA, Intermediate CA&lt;br /&gt;Révocation, Zero Trust"]
+    end
 
     O --&gt; G --&gt; P</code></pre>
 <p>OpenSSL est le point d'entrée — il rend visibles les objets cryptographiques (clés, CSR, certificats) et permet de diagnostiquer TLS directement en CLI. GPG applique la cryptographie asymétrique sans infrastructure centralisée — un modèle de confiance alternatif aux PKI. La PKI est l'architecture qui gouverne HTTPS, les VPN, la signature logicielle et l'authentification d'entreprise à l'échelle.</p>
@@ -2910,11 +2961,10 @@
     
       
       
-      
       <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5fcf0de6.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c2b142ea.min.js"></script>
       
         <script src="../../assets/javascripts/extra.js"></script>
       

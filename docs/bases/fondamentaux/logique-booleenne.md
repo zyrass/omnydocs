@@ -370,6 +370,36 @@ if compte_actif:  # "compte actif" — lecture directe
 
 ---
 
+## Évaluation en court-circuit
+
+Les opérateurs `and`/`&&` et `or`/`||` n'évaluent pas systématiquement toutes leurs conditions — ils s'arrêtent dès que le résultat est déterminé. Ce comportement, appelé **court-circuit** (_short-circuit evaluation_), a des implications importantes sur les performances et la sécurité du code.
+
+| Opérateur | Court-circuit si… | Explication |
+|:---:|---|---|
+| `A and B` (`A && B`) | `A` est **faux** | `B` n'est jamais évalué — le résultat est déjà `false` |
+| `A or B` (`A \|\| B`) | `A` est **vrai** | `B` n'est jamais évalué — le résultat est déjà `true` |
+
+!!! tip "Pourquoi c'est utile"
+    Le court-circuit permet de **protéger des opérations coûteuses ou risquées** en les plaçant en deuxième position. Si la première condition échoue, la seconde n'est jamais exécutée — ce qui évite des erreurs ou des traitements inutiles.
+
+```python title="Python — court-circuit en pratique"
+utilisateur = None
+
+# Sans court-circuit, accéder à utilisateur.role planterait avec une AttributeError
+# Grâce au court-circuit, la seconde condition n'est jamais évaluée si la première est fausse
+if utilisateur is not None and utilisateur.role == "admin":
+    print("Accès administrateur accordé")
+
+# Même logique avec or — valeur par défaut si la première est falsy
+nom = utilisateur or "Invité"  # Retourne "Invité" si utilisateur est None/falsy
+print(f"Bonjour {nom}")
+```
+
+!!! warning "Attention aux effets de bord"
+    Ne pas placer une opération avec un **effet de bord** (modification d'une variable, appel API, écriture en base…) dans la partie qui peut être court-circuitée — elle ne s'exécuterait pas dans tous les cas, ce qui créerait un comportement imprévisible.
+
+---
+
 ## Conclusion
 
 !!! quote "Conclusion"

@@ -45,13 +45,15 @@ Les professionnels accomplis reconnaissent que la maîtrise de plusieurs langage
 !!! quote "Réflexion finale"
     Un environnement technique bienveillant ne forme pas seulement de meilleurs développeurs, il crée une culture d'excellence durable où chacun peut s'épanouir et contribuer pleinement à son potentiel. **La technique s'oublie et se renouvelle, mais les valeurs humaines restent le socle de toute réussite collective**.
 
+Cette ouverture intellectuelle mène naturellement à une question plus personnelle : quelle direction prendre dans un domaine aussi vaste ?
+
 ## Choisir sa voie, pas la nôtre
 
 Personne ne peut tout maîtriser, et ce n'est pas l'objectif. L'informatique est un domaine d'une largeur telle qu'un professionnel entier ne couvre jamais l'intégralité de ses territoires — et c'est précisément ce qui en fait la richesse.
 
 La stack technique présentée dans cette documentation est un choix parmi d'autres, motivé par des convictions pédagogiques et des contextes professionnels spécifiques. **Si vous avez déjà trouvé un écosystème qui vous correspond, qui nourrit votre curiosité et dans lequel vous vous épanouissez : gardez-le**.
 
-!!! danger "Ne sacrifiez jamais votre plaisir d'apprendre sur l'autel d'une tendance ou d'un contenu en particulier, y compris celui-ci."
+!!! important "Ne sacrifiez jamais votre plaisir d'apprendre sur l'autel d'une tendance ou d'un contenu en particulier, y compris celui-ci."
 
 Ce qui compte, c'est que vous progressiez dans une direction qui a du sens pour vous. Un développeur passionné par son outil sera toujours plus efficace et plus fiable qu'un technicien contraint de travailler avec une technologie qui ne lui convient pas.
 

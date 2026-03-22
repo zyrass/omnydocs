@@ -16,6 +16,9 @@ tags: ["GPG", "CRYPTOGRAPHIE", "CHIFFREMENT", "SIGNATURE", "SECURITE", "PGP"]
 !!! quote "Analogie"
     _Envoyer une lettre dans un coffre verrouillé. Tout le monde peut voir le coffre, mais seul le destinataire possèdant la clé pourra l'ouvrir. Et s'il reçoit une lettre signée avec votre sceau personnel, il sait qu'elle vient bien de vous. GPG fait exactement cela — mais pour les données numériques._
 
+!!! abstract "Résumé"
+    À travers ce guide, vous maîtriserez l'usage de GPG pour la création de clés, le chiffrement de fichiers, et la signature numérique de vos données (documents, commits Git). Vous comprendrez également le modèle de confiance décentralisé (Web of Trust).
+
 **GPG (GNU Privacy Guard)** est l'implémentation libre du standard **OpenPGP** (RFC 4880). Il permet de chiffrer des fichiers, signer des données, vérifier l'identité d'un expéditeur et garantir l'intégrité d'un contenu — sans dépendre d'une autorité centrale.
 
 C'est un outil fondamental en cybersécurité : signatures de packages logiciels, vérification d'ISO Linux, échanges sécurisés, authentification technique et supply-chain security. À la fin de ce document, vous serez capable de générer et gérer une paire de clés, chiffrer et déchiffrer des fichiers, signer et vérifier des données, et comprendre le modèle de confiance distribué sur lequel GPG repose.

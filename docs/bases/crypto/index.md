@@ -35,9 +35,9 @@ Toute sécurité cryptographique repose sur trois propriétés fondamentales. Un
 | Authenticité<br /><small>Authenticity</small> | Vérifier l'identité de l'émetteur ou du serveur | Signature numérique, certificat X.509, GPG |
 
 !!! quote "Note"
-    Sans entrer dans les détails, en cybersécurité et plus particulièrement en gouvernance, ces trois piliers sont connus sous le triptique **CIA** — **C**onfidentiality, **I**ntegrity, **A**vailability — soit en français **Confidentialité, Intégrité, Disponibilité**. Vous le retrouverez dans les référentiels ISO 27001, ANSSI, NIST et RGPD. La **Disponibilité** (Availability) remplace ici l'Authenticité — cette dernière est généralement traitée comme une propriété dérivée de l'Intégrité dans les modèles de gouvernance, ou ajoutée comme quatrième pilier (modèle CIAA) dans les contextes applicatifs.
+    Sans entrer dans les détails, en cybersécurité et plus particulièrement en gouvernance, ces trois piliers sont connus sous le triptique <strong>CIA</strong> — <strong>C</strong>onfidentiality, <strong>I</strong>ntegrity, <strong>A</strong>vailability — soit en français <strong>Confidentialité, Intégrité, Disponibilité</strong>. Vous le retrouverez dans les référentiels ISO 27001, ANSSI, NIST et RGPD. La <strong>Disponibilité</strong> (Availability) remplace ici l'Authenticité — cette dernière est généralement traitée comme une propriété dérivée de l'Intégrité dans les modèles de gouvernance, ou ajoutée comme quatrième pilier (modèle CIAA) dans les contextes applicatifs.
 
-![CIA vs CIAA — distinction entre Authenticité et Disponibilité selon le contexte gouvernance ou cryptographie](../../assets/images/crypto/cia-vs-ciaa-authenticite-disponibilite.png)
+![CIA vs CIAA — distinction entre Authenticité et Disponibilité selon le contexte gouvernance ou cryptographie](../../assets/images/crypto/cia-vs-ciaa-authenticite-disponibilite.jpg)
 
 <p><em>Le modèle CIA (gouvernance) pose la Disponibilité comme pilier fondamental — un système inaccessible est un système compromis, quelle que soit la solidité de sa cryptographie. Le modèle CIAA (sécurité applicative et cryptographie) ajoute l'Authenticité comme quatrième pilier — la capacité à vérifier qu'un message provient bien de l'entité déclarée. Ces deux modèles ne s'opposent pas : CIA s'applique à l'architecture système, CIAA s'applique aux mécanismes cryptographiques.</em></p>
 
@@ -55,10 +55,16 @@ flowchart TB
     Crypto -->|Chiffrement asymétrique| Asym["RSA — ECDSA — ECC<br />Paire clé publique / clé privée<br />Lent — échange de clés, signatures"]
     Crypto -->|Hachage| Hash["SHA-256 — SHA-512<br />Empreinte à sens unique<br />Intégrité — stockage mots de passe"]
 
-    Asym --> GPG["GPG<br />Chiffrement fichiers<br />Signature e-mails<br />Web of Trust"]
-    Asym --> TLS["TLS / HTTPS<br />Handshake asymétrique<br />Session symétrique<br />Certificats X.509"]
-    TLS --> PKI["PKI<br />Root CA — Intermediate CA<br />Chaînes de confiance<br />Révocation CRL / OCSP"]
+    Asym -->|GPG| GPG["Chiffrement fichiers<br />Signature e-mails<br />Web of Trust"]
+    Asym -->|TLS / HTTPS| TLS["Handshake asymétrique<br />Session symétrique<br />Certificats X.509"]
+    TLS -->|PKI| PKI["Root CA — Intermediate CA<br />Chaînes de confiance<br />Révocation CRL / OCSP"]
 ```
+
+<p><em>La <strong>cryptographie</strong> repose sur trois piliers fondamentaux. Le <strong>chiffrement symétrique</strong> (AES-256-GCM, ChaCha20) utilise une clé unique partagée entre les parties : rapide et efficace, il est privilégié pour chiffrer des volumes importants de données. Le <strong>chiffrement asymétrique</strong> (RSA, ECDSA, ECC) repose sur une paire de clés publique/privée : plus lent, il est réservé à l'échange de clés et aux signatures numériques. Le <strong>hachage</strong> (SHA-256, SHA-512) produit une empreinte à sens unique, garantissant l'intégrité des données et le stockage sécurisé des mots de passe.</em></p>
+
+<p><em>Le chiffrement asymétrique se décline en deux usages majeurs. <strong>GPG</strong> permet le chiffrement de fichiers et la signature d'e-mails, en reposant sur un modèle de confiance distribué appelé <strong>Web of Trust</strong>. <strong>TLS/HTTPS</strong>, quant à lui, combine un handshake asymétrique pour l'authentification initiale avec une session symétrique pour la performance, en s'appuyant sur des certificats <strong>X.509</strong>.</em></p>
+
+<p><em>TLS s'inscrit dans une <strong>PKI</strong> (Infrastructure à Clés Publiques), une hiérarchie de confiance structurée autour d'autorités de certification racines et intermédiaires. La validité des certificats y est vérifiable à tout moment via les mécanismes de révocation <strong>CRL</strong> et <strong>OCSP</strong>.</em></p>
 
 <br />
 
@@ -69,10 +75,21 @@ flowchart TB
 La progression ci-dessous respecte les dépendances conceptuelles — chaque étape s'appuie sur la précédente.
 
 ```mermaid
-flowchart LR
-    O["OpenSSL<br />Primitives cryptographiques<br />Clés, CSR, certificats X.509<br />Diagnostic TLS"]
-    G["GPG<br />Cryptographie asymétrique appliquée<br />Signature, chiffrement fichiers<br />Web of Trust — sans autorité centrale"]
-    P["PKI<br />Architecture de confiance globale<br />Root CA, Intermediate CA<br />Révocation, Zero Trust"]
+flowchart TB
+    subgraph OpenSSL
+        DetailOpenSSL[/"Primitives cryptographiques"/]
+        O["Clés, CSR,<br />certificats X.509<br />Diagnostic TLS"]
+    end
+
+    subgraph GPG
+        DetailGPG[/"Cryptographie asymétrique appliquée"/]
+        G["Signature,<br />chiffrement fichiers<br />Web of Trust — sans autorité centrale"]
+    end
+
+    subgraph PKI
+        DetailPKI[/"<small>Architecture de confiance globale</small>"/]
+        P["Root CA, Intermediate CA<br />Révocation, Zero Trust"]
+    end
 
     O --> G --> P
 ```

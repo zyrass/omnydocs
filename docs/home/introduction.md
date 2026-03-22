@@ -140,6 +140,9 @@ Nous utilisons des blocs visuels distincts tout au long de la documentation pour
 !!! example "Exemple"
     Illustration concrète d'un concept, utilisée principalement dans les projets guidés et les modules pratiques.
 
+!!! abstract "Abstract"
+    Résumé, introduction d'une philosophie ou appel à l'action orientant le lecteur avant d'entrer dans le guide.
+
 Les blocs de code sont systématiquement commentés pour expliquer chaque instruction, sans supposer que le contexte est évident.
 
 <br />

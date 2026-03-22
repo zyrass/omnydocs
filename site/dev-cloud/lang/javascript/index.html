@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="à éditer">
+        <meta name="description" content="Le langage universel du navigateur. Donner vie et intelligence à vos interfaces web.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -15,17 +15,17 @@
         <link rel="canonical" href="https://omnydocs.netlify.app/dev-cloud/lang/javascript/">
       
       
-        <link rel="prev" href="../html-css/responsive/module15/">
+        <link rel="prev" href="../css/responsive/01-responsive-design/">
       
       
-        <link rel="next" href="./javascript/">
+        <link rel="next" href="./socle/01-hello-et-console/">
       
       
         
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.23">
+      <meta name="generator" content="zensical-0.0.28">
     
     
       
@@ -36,7 +36,7 @@
       
         
       
-      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.d9d44b50.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.5b14e6eb.min.css">
       
         
           
@@ -134,7 +134,7 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
     <div data-md-component="skip">
       
         
@@ -179,10 +179,10 @@
   <nav class="md-header__inner md-grid" aria-label="En-tête">
     <a href="../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
       
-  <img src="../../../assets/logo-dark.png" alt="logo">
+  <img src="../../../assets/logo-dark.png" alt="OmnyDocs">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
@@ -236,7 +236,7 @@
     
       
       
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         </label>
@@ -426,6 +426,13 @@
   
     
     
+      
+  
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
         <a href="../../../projets/arch-lab/" class="md-tabs__link">
           
@@ -434,6 +441,9 @@
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -471,7 +481,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
       
-  <img src="../../../assets/logo-dark.png" alt="logo">
+  <img src="../../../assets/logo-dark.png" alt="OmnyDocs">
 
     </a>
     OmnyDocs
@@ -668,6 +678,8 @@
       
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></svg>
+  
   <span class="md-ellipsis">
     
   
@@ -745,6 +757,8 @@
               
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
   <span class="md-ellipsis">
     
   
@@ -791,6 +805,8 @@
       
         
           
+        
+      
         
       
         
@@ -881,6 +897,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -901,14 +921,80 @@
   
   
   
-    <a href="../html-css/" class="md-nav__link">
+    <a href="../html/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    HTML + CSS
+    HTML
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../css/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSS
   
 
     
@@ -945,6 +1031,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -960,7 +1050,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -982,14 +1072,14 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_2_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1007,56 +1097,13 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="./javascript/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M0 32v448h448V32zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6"/></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    JavaScript Vanilla
-  
-
-    
-  </span>
-  
-  
-    
-  
-  
-    <span class="md-status md-status--production"></span>
-  
-
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
     
     
       
         
-          
+      
+        
+      
         
       
     
@@ -1079,14 +1126,14 @@
   
   
   
-    <a href="../python/" class="md-nav__link">
+    <a href="./socle/01-hello-et-console/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    Python
+    Socle & Algorithmique
   
 
     
@@ -1100,6 +1147,136 @@
     </a>
   
 
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="./moteur/04-environnement-modules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moteur & Architecture
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="./application/06-dom-manipulation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Navigateur & Temps
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -1151,6 +1328,66 @@
     
   
     PHP
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../python/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
   
 
     
@@ -2609,14 +2846,16 @@
   
   
   
-    <a href="../../../bases/devsecops/gestion-projet/index.md" class="md-nav__link">
+    <a href="../../../bases/devsecops/gestion-projet/" class="md-nav__link">
       
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-text" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 9H8M16 13H8M16 17H8"/></svg>
   
   <span class="md-ellipsis">
     
   
-    none
+    Gestion Projet
   
 
     
@@ -3093,6 +3332,8 @@
       
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
   <span class="md-ellipsis">
     
   
@@ -3128,6 +3369,18 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -3145,6 +3398,10 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
+  
+  
+  
+    
   
   
   
@@ -3171,6 +3428,8 @@
         <span class="md-nav__icon md-icon"></span>
       
     </a>
+  
+
   
 
   
@@ -3208,10 +3467,199 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction-au-projet-portfolio-professionnel-responsive" class="md-nav__link">
+  <a href="#objectif" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction au Projet Portfolio Professionnel Responsive
+        Objectif
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socle-algorithmique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Socle &amp; Algorithmique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Socle &amp; Algorithmique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-intro-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01. Intro &amp; Console
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-bases-algorithmiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02. Bases Algorithmiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-fonctions-et-objets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03. Fonctions et Objets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moteur-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moteur &amp; Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Moteur &amp; Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#04-environnement-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04. Environnement &amp; Modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-moteur-et-es6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05. Moteur et ES6+
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigateur-temps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigateur &amp; Temps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigateur &amp; Temps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#06-le-dom-interactivite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06. Le DOM + Interactivité
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-persistance-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07. Persistance Locale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-lasynchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08. L'Asynchrone
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travaux-pratiques-projets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Travaux Pratiques (Projets)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Travaux Pratiques (Projets)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#projet-1-la-vitrine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Projet 1 — La Vitrine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projet-2-le-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Projet 2 — Le Hub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progression-de-carriere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progression de carrière
       
     </span>
   </a>
@@ -3320,13 +3768,170 @@
 <h1 id="javascript">JavaScript<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 Débutant & 🟡 Intermédiaire"
-  data-version="HTML5 & CSS3 Modern"
-  data-time="16-18 heures">
+  data-level="Débutant → Avancé"
+  data-version="2.0"
+  data-time="20-25 heures">
 </div>
 </p>
-<h2 id="introduction-au-projet-portfolio-professionnel-responsive">Introduction au Projet Portfolio Professionnel Responsive<a class="headerlink" href="#introduction-au-projet-portfolio-professionnel-responsive" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie Pédagogique</p>
+<p><em>Si le HTML est le squelette de la maison, et le CSS la plomberie et les couleurs... alors le <strong>JavaScript</strong> est l'électricité de la maison. C'est l'étage de l'intelligence artificielle de votre interface, celui qui réagit aux actions humaines (Allumer, éteindre, stocker, animer au clic).</em></p>
+</div>
+<h2 id="objectif">Objectif<a class="headerlink" href="#objectif" title="Permanent link">&para;</a></h2>
+<p>Le JavaScript (souvent abrégé "JS") est le <strong>langage de programmation n°1 en demande dans le monde</strong>. Il s'est étendu bien au-delà des navigateurs (NodeJS, applications mobiles, desktop). Ce curriculum se concentre sur <strong>le Javascript Frontend Moderne et Applicatif</strong>.</p>
+<p><br /></p>
+<hr />
+<h2 id="socle-algorithmique">Socle &amp; Algorithmique<a class="headerlink" href="#socle-algorithmique" title="Permanent link">&para;</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<h3 id="01-intro-console"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg></span> 01. Intro &amp; Console<a class="headerlink" href="#01-intro-console" title="Permanent link">&para;</a></h3>
+<hr />
+<p>Comprenez où vit la machine, comment interagir avec le navigateur en secret pour diagnostiquer vos erreurs de code sans rien casser visuellement.</p>
+<p><a href="./socle/01-hello-et-console/">01 - Hello World</a></p>
+</li>
+<li>
+<h3 id="02-bases-algorithmiques"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg></span> 02. Bases Algorithmiques<a class="headerlink" href="#02-bases-algorithmiques" title="Permanent link">&para;</a></h3>
+<hr />
+<p>Un rappel bref mais intense de l'usage des <code>variables</code> (Tiroirs), des embranchements (Conditions <code>if/else</code>) et de la Répétition ultime (Boucles).</p>
+<p><a href="./socle/02-bases-algorithmiques/">02 - La Base Algorithmique</a></p>
+</li>
+<li>
+<h3 id="03-fonctions-et-objets"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg></span> 03. Fonctions et Objets<a class="headerlink" href="#03-fonctions-et-objets" title="Permanent link">&para;</a></h3>
+<hr />
+<p>Organisez votre chaos : empaquetez votre code réutilisable dans des usines, et modelez le monde réel (un joueur, une voiture) dans des Dictionnaires JS.</p>
+<p><a href="./socle/03-fonctions-et-objets/">03 - Fonctions et Objets</a></p>
+</li>
+</ul>
+</div>
+<p><br /></p>
+<h2 id="moteur-architecture">Moteur &amp; Architecture<a class="headerlink" href="#moteur-architecture" title="Permanent link">&para;</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<h3 id="04-environnement-modules"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg></span> 04. Environnement &amp; Modules<a class="headerlink" href="#04-environnement-modules" title="Permanent link">&para;</a></h3>
+<hr />
+<p>Oubliez la balise <code>&lt;script src&gt;</code>. Bienvenue dans le monde industriel de <strong>Vite.js</strong>, du Hot-Reload fantastique et des imports/exports (<code>.mjs</code>).</p>
+<p><a href="./moteur/04-environnement-modules/">04 - Tooling &amp; Vite.js</a></p>
+</li>
+<li>
+<h3 id="05-moteur-et-es6"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg></span> 05. Moteur et ES6+<a class="headerlink" href="#05-moteur-et-es6" title="Permanent link">&para;</a></h3>
+<hr />
+<p>L'évolution vitale : Destructuration magique, l'opérateur Rest/Spread, les flèches <code>=&gt;</code>, les <strong>Classes</strong> et les <strong>Méthodes de Tableaux</strong> modernes.</p>
+<p><a href="./moteur/05-syntaxe-modern-es6/">05 - Le miracle de l'ES6</a></p>
+</li>
+</ul>
+</div>
+<p><br /></p>
+<h2 id="navigateur-temps">Navigateur &amp; Temps<a class="headerlink" href="#navigateur-temps" title="Permanent link">&para;</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<h3 id="06-le-dom-interactivite"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg></span> 06. Le DOM + Interactivité<a class="headerlink" href="#06-le-dom-interactivite" title="Permanent link">&para;</a></h3>
+<hr />
+<p>Sélectionnez des éléments HTML, modifiez leur texte, changez leurs couleurs CSS, et écoutez les actions d'un utilisateur au clic et au clavier.</p>
+<p><a href="./application/06-dom-manipulation/">06 - L'Interface DOM</a></p>
+</li>
+<li>
+<h3 id="07-persistance-locale"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg></span> 07. Persistance Locale<a class="headerlink" href="#07-persistance-locale" title="Permanent link">&para;</a></h3>
+<hr />
+<p>Sauvegardez les préférences d'un visiteur physiquement dans son ordinateur (LocalStorage). Ne perdez jamais la mémoire au <code>F5</code>, sans aucune base de données.</p>
+<p><a href="./application/07-persistance-locale/">07 - Le Web Storage API</a></p>
+</li>
+<li>
+<h3 id="08-lasynchrone"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg></span> 08. L'Asynchrone<a class="headerlink" href="#08-lasynchrone" title="Permanent link">&para;</a></h3>
+<hr />
+<p>L'<strong>Event Loop</strong> dévoilée : comprenez enfin pourquoi Chrome ne "freeze" jamais. Voyagez dans le temps avec les objets Promises et le fabuleux standard <code>async/await</code>.</p>
+<p><a href="./application/08-logique-asynchrone/">08 - Maîtriser le Temps</a></p>
+</li>
+</ul>
+</div>
+<p><br /></p>
+<hr />
+<h2 id="travaux-pratiques-projets">🛠️ Travaux Pratiques (Projets)<a class="headerlink" href="#travaux-pratiques-projets" title="Permanent link">&para;</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<h3 id="projet-1-la-vitrine"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg></span> Projet 1 — La Vitrine<a class="headerlink" href="#projet-1-la-vitrine" title="Permanent link">&para;</a></h3>
+<hr />
+<p>Dynamisez la vitrine DigitalCraft Agency avec Vite.js, le mode sombre et Fetch API.</p>
+<p><a href="../../projets/javascript-vitrine/">Voir le sujet</a></p>
+</li>
+<li>
+<h3 id="projet-2-le-hub"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg></span> Projet 2 — Le Hub<a class="headerlink" href="#projet-2-le-hub" title="Permanent link">&para;</a></h3>
+<hr />
+<p>Construisez un tableau de bord regroupant Todo-List, Météo et Blagues.</p>
+<p><a href="../../projets/javascript-hub/">Voir le sujet</a></p>
+</li>
+</ul>
+</div>
+<p><br /></p>
+<hr />
+<h2 id="progression-de-carriere">Progression de carrière<a class="headerlink" href="#progression-de-carriere" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TD
+  Start([Démarrage De Zéro])
 
+  subgraph Algorithmique Pure["Socle &amp; Algorithmique"]
+    C01["1. Console"] --&gt; C02["2. Bases &amp; Boucles"] --&gt; C03["3. Fonctions &amp; Objets"]
+  end
+
+  subgraph Écosystème Moderne["Moteur &amp; Architecture"]
+    C03 --&gt; C04["4. Environnement Vite"] --&gt; C05["5. Moteur ES6+"]
+  end
+
+  subgraph Application["Navigateur &amp; Temps"]
+    C05 --&gt; C06["6. Manipulation DOM"] --&gt; C07["7. Persistance Web\n(LocalStorage)"] --&gt; C08["8. Asynchrone\n(Fetch &amp; Promesses)"]
+  end
+
+  C08 --&gt; End([Prêt pour React / Alpine / Vue])</code></pre>
+<p><br /></p>
+<p><strong>Point d'entrée de votre carrière : <a href="./socle/01-hello-et-console/">01. Introduction &amp; Console</a></strong></p>
+<p><br /></p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">JAVASCRIPT</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">DÉVELOPPEMENT WEB</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">LOGIQUE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">ASYNCHRONE</span>
+      
+    
+  </nav>
 
 
 
@@ -3368,7 +3973,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../html-css/responsive/module15/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: XV - Projet Final Intégral">
+          <a href="../css/responsive/01-responsive-design/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Responsive Design">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
@@ -3378,20 +3983,20 @@
                 Précédent
               </span>
               <div class="md-ellipsis">
-                XV - Projet Final Intégral
+                Responsive Design
               </div>
             </div>
           </a>
         
         
           
-          <a href="./javascript/" class="md-footer__link md-footer__link--next" aria-label="Suivant: JavaScript Vanilla">
+          <a href="./socle/01-hello-et-console/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Introduction et Console">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                JavaScript Vanilla
+                Introduction et Console
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3449,11 +4054,10 @@
     
       
       
-      
       <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.5fcf0de6.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c2b142ea.min.js"></script>
       
         <script src="../../../assets/javascripts/extra.js"></script>
       

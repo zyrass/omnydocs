@@ -1,5 +1,5 @@
 ---
-description: "Laboratoire d'expertise technique et plateforme pédagogique francophone"
+description: "Laboratoire d'expertise technique et plateforme pédagogique francophone."
 ---
 
 ![Image title](../assets/images/home/double-logo-dark.svg#only-light)
@@ -110,6 +110,9 @@ Les formations vidéo suivent une **progression pédagogique cohérente**, débu
 
 ---
 
-Pour comprendre la philosophie et la posture qui guident cette documentation avant d'entrer dans le contenu technique, consultez le [Préambule](./home/preambule.md).
+!!! abstract ":lucide-book-open: Par où commencer ?"
+    Avant d'entrer dans le vif du contenu technique, nous vous recommandons de parcourir le **Préambule** : il pose la philosophie, la posture éditoriale et les principes qui guident l'ensemble de cette documentation.
+
+    [Lire le Préambule :lucide-arrow-right:](./home/preambule.md){ .md-button .md-button--primary }
 
 <br />

@@ -369,7 +369,7 @@ def exemple_nettoyage():
 
 ## Outil de débogage — détecter les références partagées
 
-Chaque langage expose un mécanisme pour vérifier si deux variables partagent le même emplacement mémoire. Cette vérification est le premier réflexe à avoir face à un bug de modification inattendue.
+??? tip "Chaque langage expose un mécanisme pour vérifier si deux variables partagent le même emplacement mémoire. Cette vérification est le premier réflexe à avoir face à un bug de modification inattendue."
 
 === ":fontawesome-brands-python: Python"
 

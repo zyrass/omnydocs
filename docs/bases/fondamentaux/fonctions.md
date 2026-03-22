@@ -21,7 +21,7 @@ Les types primitifs constituent les briques de base des données, la mémoire le
 !!! info "Pourquoi c'est important"
     Les fonctions permettent la **réutilisation du code**, la **décomposition de problèmes complexes**, la **facilitation du débogage** et la **collaboration efficace** entre développeurs. Sans elles, le même code doit être dupliqué à chaque utilisation — multipliant les risques d'erreurs et rendant la maintenance impossible à l'échelle.
 
-!!! note "Cette fiche fait suite aux [Structures Itératives](./structures-iteratives.md). Les fonctions encapsulent fréquemment des conditions et des boucles — leur maîtrise préalable est un prérequis."
+!!! note "Cette fiche fait suite aux [Structures Itératives](./structure-iteratives.md). Les fonctions encapsulent fréquemment des conditions et des boucles — leur maîtrise préalable est un prérequis."
 
 <br />
 
@@ -126,6 +126,9 @@ Le **nom** identifie l'opération effectuée et permet de l'invoquer. Les **para
         fmt.Printf("L'aire est %.0f\n", resultat)  // 50
     }
     ```
+
+    !!! tip "Go — convention `godoc`"
+        Le commentaire placé directement au-dessus d'une fonction (`// nomFonction ...`) n'est pas seulement un commentaire : il alimente **`godoc`**, l'outil de documentation officiel Go. En respectant cette convention, la signature et la description de chaque fonction sont automatiquement indexées et consultables via `go doc` ou `pkg.go.dev`. C'est l'équivalent Go de JSDoc ou des docstrings Python.
 
 _Quatre composants essentiels : nom descriptif, paramètres, corps qui effectue le calcul, valeur de retour qui communique le résultat._
 
@@ -711,11 +714,29 @@ Les langages adoptent des philosophies distinctes concernant l'explicité des in
 
 === ":fontawesome-brands-python: Python"
 
-    ```python title="Python — typage implicite"
+    ```python title="Python — typage implicite de base"
     # Pas de types dans la signature
     def calculer_somme(a, b):   # Types non déclarés
         return a + b            # Type de retour non spécifié
     ```
+
+    !!! tip "Annotations de type Python — le meilleur des deux mondes"
+        Python 3.5+ introduit les **annotations de type** : elles restent optionnelles mais permettent de documenter l'intention sans sacrifier la flexibilité. Les outils comme `mypy` ou les IDE les utilisent pour détecter les incohérences avant l'exécution.
+
+    ```python title="Python — annotations de type (Python 3.5+)"
+    # Annotations optionnelles — syntaxe : paramètre: type -> type_retour
+    def calculer_somme(a: int, b: int) -> int:
+        return a + b
+
+    def valider_email(adresse: str) -> bool:
+        return "@" in adresse and "." in adresse
+
+    def analyser_log(fichier: str, niveau: str = "INFO") -> list[str]:
+        """Les valeurs par défaut se combinent naturellement avec les annotations."""
+        ...
+    ```
+
+    _Les annotations ne modifient pas le comportement du programme — Python les ignore à l'exécution. Elles servent de **documentation vivante** et sont de plus en plus répandues dans le code Python professionnel._
 
 === ":fontawesome-brands-js: JavaScript"
 

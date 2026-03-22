@@ -1,221 +1,94 @@
+---
+description: "Mise en œuvre, administration, durcissement et supervision des infrastructures informatiques locales et réseaux."
+icon: lucide/server
+tags: ["SYTEME", "LINUX", "WINDOWS", "RESEAU", "INFRASTRUCTURE"]
+---
+
 # Systèmes & Infra
 
-    # ============================================================================
-    # 2 — SYSTÈMES & INFRASTRUCTURE
-    # ============================================================================
-    # Cette section couvre l’exploitation opérationnelle des systèmes
-    # informatiques et des infrastructures réseau.
-    #
-    # Elle se concentre sur la mise en œuvre, l’administration, le durcissement
-    # et la supervision des environnements techniques en production.
-    #
-    # Contrairement aux Fondamentaux IT (conceptuels) et au Développement
-    # (applicatif), cette partie adopte une approche orientée exploitation.
-    #
-    # Périmètre couvert :
-    # - administration systèmes Linux et Windows
-    # - gestion des services réseau
-    # - sécurité hôte et périmétrique
-    # - virtualisation et isolation
-    # - stockage et continuité d’activité
-    # - supervision et observabilité
-    #
-    # PUBLIC CIBLE :
-    # - Administrateurs systèmes
-    # - Ingénieurs infrastructure
-    # - SRE / DevOps orientés plateforme
-    # ============================================================================
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant à 🔴 Avancé"
+  data-version="1.0"
+  data-time="10-15 minutes">
+</div>
 
-    {"Systèmes & Infra" = [
+!!! quote "Analogie"
+    _Le développeur construit les bâtiments; l'administrateur système et opérations prépare le terrain, pose les fondations, construit les routes de communication (les réseaux), installe les caméras de vidéosurveillance (monitoring) et sécurise les portes (firewalls)._
 
+!!! abstract "Résumé"
+    Contrairement aux Fondamentaux IT (conceptuels) et au Développement Web (applicatif), cette vaste partie adopte une approche 100% orientée **exploitation**. Y sont traités l'administration de systèmes **Linux** et **Windows**, le déploiement et maintien des **Réseaux**, et l'ensemble des piliers modernes de l'infrastructure que sont la virtualisation, le stockage et l'observabilité.
 
-      # -------------------------------------------------------------------------
-      # Page d’introduction
-      # -------------------------------------------------------------------------
-      # Présente :
-      # - le périmètre de l’administration systèmes & réseaux
-      # - les prérequis recommandés
-      # - l’organisation de la section
-      # -------------------------------------------------------------------------
-      "sys-reseau/index.md",
+!!! info "Prérequis : Fondamentaux IT"
+    L'administration de systèmes et réseaux exige une compréhension des modèles conceptuels (OSI, TCP/IP) ou du rôle d'un OS (Kernel vs User-space). Il est très fortement recommandé d'avoir assimilé la section **Bases & IT** avant d'appliquer des configurations dans cette partie.
 
-      # ========================================================================
-      # Linux
-      # ========================================================================
-      # Administration des systèmes Linux en environnement serveur.
-      # Cette section couvre :
-      # - l’utilisation du shell
-      # - l’administration système
-      # - la gestion des services
-      # - le durcissement de l’hôte
-      # ========================================================================
-      {"Linux" = [
-        "sys-reseau/linux/index.md",
+<br />
 
-        # ---------------------------------------------------------------------
-        # Shell & scripting
-        # ---------------------------------------------------------------------
-        # Utilisation de Bash pour l’automatisation et l’exploitation système.
-        {"Bash" = "sys-reseau/linux/bash.md"},
+---
 
-        # ---------------------------------------------------------------------
-        # Administration système
-        # ---------------------------------------------------------------------
-        # Gestion des utilisateurs, permissions, tâches planifiées, etc.
-        {"Administration" = "sys-reseau/linux/admin.md"},  
+## Les piliers de l'exploitation
 
-        # ---------------------------------------------------------------------
-        # Services & Daemons
-        # ---------------------------------------------------------------------
-        # Gestion des services via systemd, journalisation et cycle de vie
-        # des processus système.
-        {"Services & Daemons" = "sys-reseau/linux/services-daemons.md"},              
+Cette macro-section s'articule autour de six compétences et domaines incontournables pour les ingénieurs infrastructure, administrateurs et SRE (Site Reliability Engineers).
 
-        # ---------------------------------------------------------------------
-        # Sécurité de l’hôte Linux
-        # ---------------------------------------------------------------------
-        # Outils de durcissement, d’audit et de détection d’intrusion
-        # au niveau du système d’exploitation.
-        {"Sécurité (host)" = [
-          "sys-reseau/linux/security/index.md",
+<div class="grid cards" markdown>
 
-          # Audit de configuration et de conformité
-          {"Lynis" = "sys-reseau/linux/security/lynis.md"},
+-   :simple-linux:{ .lg .middle } **Systèmes Linux**
 
-          # Pare-feu simplifié basé sur iptables/nftables
-          {"ufw" = "sys-reseau/linux/security/ufw.md"},
+    ---
 
-          # Protection contre les attaques par force brute
-          {"fail2ban" = "sys-reseau/linux/security/fail2ban.md"},
+    **Périmètre** : Le moteur du web. Automatisation par shell (`Bash`), gestion fine de l'OS (`systemd`, permissions), et son **durcissement profond** (`ufw`, `fail2ban`, `lynis`, auditing).
 
-          # Scanner de vulnérabilités système
-          {"Vuls" = "sys-reseau/linux/security/vuls.md"},
+    [:octicons-arrow-right-24: Entrer dans l'univers Linux](./linux/index.md)
 
-          # Antivirus open source
-          {"ClamAV" = "sys-reseau/linux/security/clamav.md"},
+-   :simple-windows:{ .lg .middle } **Systèmes Windows**
 
-          # Détection de malwares Linux
-          {"Linux Malware Detect" = "sys-reseau/linux/security/linux_malware_detect.md"},
+    ---
 
-          # Détection de rootkits
-          {"Chkrootkit" = "sys-reseau/linux/security/chkrootkit.md"}
-        ]}
+    **Périmètre** : Au cœur des environnements d'entreprise. Administration poussée en ligne de commande via **PowerShell**, structuration de domaines avec l'**Active Directory (AD)** et sécurisation serveur (GPO/Hardening).
 
-      ]},
+    [:octicons-arrow-right-24: Découvrir l'administration Windows](./windows/index.md)
 
-      # ========================================================================
-      # Windows
-      # ========================================================================
-      # Administration des environnements Windows Server et Active Directory.
-      # ========================================================================
-      {"Windows" = [
-        "sys-reseau/windows/index.md",
+-   :lucide-network:{ .lg .middle } **Services Réseau & Périphéries**
 
-        # Automatisation et administration via PowerShell
-        {"Powershell" = "sys-reseau/windows/powershell.md"},
+    ---
 
-        # Gestion d’annuaire et stratégies de groupe
-        {"AD & GPO" = "sys-reseau/windows/ad-gpo.md"},
+    **Périmètre** : Les outils d'analyse vitaux (tcpdump, scapy, nslookup), les services DNS, SSH, LDAP... sans oublier les briques de **sécurité périmétrique** indispensables (pfSense, WAF, proxy et VPN).
 
-        # Bonnes pratiques de sécurisation Windows Server
-        {"Durcissement" = "sys-reseau/windows/hardening.md"}
+    [:octicons-arrow-right-24: Analyser et protéger les flux](./network/index.md)
 
-      ]},
+-   :lucide-cpu:{ .lg .middle } **Virtualisation (Hyperviseurs)**
 
-      # ========================================================================
-      # Réseaux
-      # ========================================================================
-      # Mise en œuvre opérationnelle des services réseau et outils de diagnostic.
-      # ========================================================================
-      {"Réseaux" = [
-        "sys-reseau/network/index.md",
+    ---
 
-        # ---------------------------------------------------------------------
-        # Outils d’analyse réseau
-        # ---------------------------------------------------------------------
-        # Outils de diagnostic, capture et inspection du trafic.
-        {"Outils & Analyse" = [
-          "sys-reseau/network/outils/index.md",
+    **Périmètre** : Comprendre et appliquer les briques permettant l'isolation, du simple l'émulateur (**QEMU**) à l'hyperviseur bare-metal de Type 1 ultra performant en production (**KVM / Proxmox**).
 
-          {"nslookup" = "sys-reseau/network/outils/nslookup.md"},
-          {"netstat"  = "sys-reseau/network/outils/netstat.md"},
-          {"tcpdump"  = "sys-reseau/network/outils/tcpdump.md"},
-          {"scapy"    = "sys-reseau/network/outils/scapy.md"}
-        ]},
+    [:octicons-arrow-right-24: Isoler et virtualiser](./virtualisation/index.md)
 
-        # ---------------------------------------------------------------------
-        # Services réseau
-        # ---------------------------------------------------------------------
-        # Déploiement et administration des services d’infrastructure.
-        {"Services réseau" = [
-          "sys-reseau/network/services/index.md",
+-   :lucide-hard-drive:{ .lg .middle } **Stockage & PRA**
 
-          {"DNS"        = "sys-reseau/network/services/dns.md"},
-          {"SSH"        = "sys-reseau/network/services/ssh.md"},
-          {"FTP"        = "sys-reseau/network/services/ftp.md"},
-          {"Samba"      = "sys-reseau/network/services/samba.md"},
-          {"LDAP & PAM" = "sys-reseau/network/services/ldap-pam.md"}
-        ]},
+    ---
 
-        # ---------------------------------------------------------------------
-        # Sécurité périmétrique
-        # ---------------------------------------------------------------------
-        # Protection du périmètre réseau et contrôle des flux.
-        {"Sécurité périmétrique" = [
-          "sys-reseau/network/security/index.md",
+    **Périmètre** : Assurer la continuité d'activité à tout prix et sans erreur. Les systèmes de fichiers, les architectures **RAID**, et les plans de reprise d'activité (**PRA** / Sauvegardes / Amanda).
 
-          {"pfSense" = "sys-reseau/network/security/pfsense.md"},
-          {"WAF"     = "sys-reseau/network/security/waf.md"},
-          {"OpenVPN" = "sys-reseau/network/security/openvpn.md"},
-          {"HAProxy" = "sys-reseau/network/security/haproxy.md"}
-        ]}
-      ]},
+    [:octicons-arrow-right-24: Sauvegarder et organiser](./storage/index.md)
 
-      # ========================================================================
-      # Virtualisation
-      # ========================================================================
-      # Technologies d’isolation et d’exécution d’environnements virtualisés.
-      # ========================================================================
-      {"Virtualisation (Hyperviseurs)" = [
-        "sys-reseau/virtualisation/index.md",
+-   :lucide-activity:{ .lg .middle } **Supervision (Observabilité)**
 
-        # Panorama des approches de virtualisation
-        {"Panorama Virtualisation" = "sys-reseau/virtualisation/panorama-hyperviseurs.md"},
+    ---
 
-        # Émulation et virtualisation légère
-        {"QEMU - (Émulateur)" = "sys-reseau/virtualisation/qemu.md"},
+    **Périmètre** : Vous ne pouvez pas défendre ou réparer ce que vous ne voyez pas. L'étude des Logs (systèmes & composants) et le monitoring réseau avec `ntop`/`ntopng`.
 
-        # Hyperviseur type 1 basé sur KVM
-        {"KVM / Proxmox" = "sys-reseau/virtualisation/kvm-proxmox.md"}
-      ]},
+    [:octicons-arrow-right-24: Garder un œil sur les systèmes](./supervision/index.md)
 
+</div>
 
-      # ========================================================================
-      # Stockage & Sauvegarde
-      # ========================================================================
-      # Gestion de la persistance des données et continuité d’activité.
-      # ========================================================================
-      {"Stockage & Sauvegarde" = [
-        "sys-reseau/storage/index.md",
+<br />
 
-        {"RAID & Filesystems" = "sys-reseau/storage/raid-fs.md"},
-        {"Sauvegarde & PRA"   = "sys-reseau/storage/backup-pra.md"},
-        {"Amanda"             = "sys-reseau/storage/amanda.md"}
-      ]},
+---
 
-      # ========================================================================
-      # Supervision & Observabilité
-      # ========================================================================
-      # Surveillance de l’état des systèmes, collecte des métriques
-      # et analyse des journaux.
-      # ========================================================================
-      {"Supervision" = [
-        "sys-reseau/supervision/index.md",
+## Conclusion
 
-        {"Logs & Journaux"     = "sys-reseau/supervision/logs.md"},
-        {"Monitoring (intro)"  = "sys-reseau/supervision/monitoring.md"},
-        {"ntop/ntopng"         = "sys-reseau/supervision/ntop.md"}
-      ]}
-    ]},
+!!! quote "Conclusion"
+    _Maintenir une infrastructure va bien au-delà de l'installation du système d'exploitation de base. Il s'agit d'orchestrer sa résilience face aux corruptions (Virtualisation/PRA), de prévenir ou repérer les failles béantes (Supervision/Durcissement) et de distribuer les ressources de manière adéquate via des briques réseaux robustes. Un bon administrateur ne règle pas les problèmes en urgence ; il bâtit des systèmes conçus pour ne jamais s'effondrer._
 
 <br />
