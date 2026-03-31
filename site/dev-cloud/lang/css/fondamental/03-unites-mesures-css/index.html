@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Démystifier les unités de mesures CSS. Comprendre les unités absolues (px) et dominer le Web élastique avec les unités relatives (rem, em, vw, vh, cqw).">
+        <meta name="description" content="Démystifier les unités de mesures CSS : absolues (px), relatives (rem, em, %), viewport (vw, vh, dvh) et fonctions de comparaison (clamp, min, max).">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -156,10 +156,7 @@
             
 <!-- Add announcement here, including arbitrary HTML -->
 <small>
-    <em
-        >Cette documentation est en pleine conception, c'est normal qu'elle soit
-        encors si faible au niveau du contenu</em
-    >
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
 </small>
 
           </div>
@@ -731,6 +728,8 @@
       
         
       
+        
+      
     
     
     
@@ -901,6 +900,8 @@
       
         
       
+        
+      
     
     
     
@@ -1035,6 +1036,8 @@
   
     
     
+      
+        
       
         
       
@@ -1240,10 +1243,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lancienne-ecole-lunite-absolue-px" class="md-nav__link">
+  <a href="#lunite-absolue-px" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'Ancienne École : L'Unité Absolue (px)
+        L'Unité Absolue : px
       
     </span>
   </a>
@@ -1251,27 +1254,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-unites-relatives-de-base" class="md-nav__link">
+  <a href="#les-unites-relatives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Unités Relatives de Base
+        Les Unités Relatives
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Les Unités Relatives de Base">
+    <nav class="md-nav" aria-label="Les Unités Relatives">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unites-absolues-vs-relatives" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unités absolues vs relatives
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#le-pourcentage" class="md-nav__link">
@@ -1285,10 +1277,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-rem-root-em" class="md-nav__link">
+  <a href="#le-rem-lunite-universelle-de-laccessibilite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le rem (Root EM)
+        Le rem — l'unité universelle de l'accessibilité
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-em-relatif-au-parent-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le em — relatif au parent local
       
     </span>
   </a>
@@ -1301,10 +1304,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lunite-em" class="md-nav__link">
+  <a href="#le-viewport-saligner-sur-lecran" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'unité em
+        Le Viewport : s'aligner sur l'écran
       
     </span>
   </a>
@@ -1312,13 +1315,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-viewport-la-fenetre-du-navigateur" class="md-nav__link">
+  <a href="#les-fonctions-de-comparaison-min-max-clamp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Viewport (La fenêtre du Navigateur)
+        Les Fonctions de Comparaison : min(), max(), clamp()
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Les Fonctions de Comparaison : min(), max(), clamp()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#min-et-max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        min() et max()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clamp-la-typographie-fluide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clamp() — la typographie fluide
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1326,7 +1357,7 @@
   <a href="#les-container-queries-cqw-cqh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Container Queries (cqw / cqh)
+        Les Container Queries (cqw, cqh)
       
     </span>
   </a>
@@ -1334,10 +1365,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
+  <a href="#tableau-recapitulatif-des-unites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion et Synthèse
+        Tableau récapitulatif des unités
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -1460,6 +1502,36 @@
     
   
     Pour aller plus loin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-positionnement-flux/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Positionnement et Flux
   
 
     
@@ -2300,6 +2372,176 @@
       
         
       
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mobile/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement Mobile
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Développement Mobile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../mobile/swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift — Le Langage
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
         
       
         
@@ -2328,7 +2570,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2350,14 +2592,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2564,7 +2806,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2586,14 +2828,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2792,7 +3034,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2814,14 +3056,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3160,7 +3402,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3182,14 +3424,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3868,10 +4110,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lancienne-ecole-lunite-absolue-px" class="md-nav__link">
+  <a href="#lunite-absolue-px" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'Ancienne École : L'Unité Absolue (px)
+        L'Unité Absolue : px
       
     </span>
   </a>
@@ -3879,27 +4121,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-unites-relatives-de-base" class="md-nav__link">
+  <a href="#les-unites-relatives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Unités Relatives de Base
+        Les Unités Relatives
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Les Unités Relatives de Base">
+    <nav class="md-nav" aria-label="Les Unités Relatives">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unites-absolues-vs-relatives" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unités absolues vs relatives
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#le-pourcentage" class="md-nav__link">
@@ -3913,10 +4144,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-rem-root-em" class="md-nav__link">
+  <a href="#le-rem-lunite-universelle-de-laccessibilite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le rem (Root EM)
+        Le rem — l'unité universelle de l'accessibilité
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-em-relatif-au-parent-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le em — relatif au parent local
       
     </span>
   </a>
@@ -3929,10 +4171,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lunite-em" class="md-nav__link">
+  <a href="#le-viewport-saligner-sur-lecran" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'unité em
+        Le Viewport : s'aligner sur l'écran
       
     </span>
   </a>
@@ -3940,13 +4182,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-viewport-la-fenetre-du-navigateur" class="md-nav__link">
+  <a href="#les-fonctions-de-comparaison-min-max-clamp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Viewport (La fenêtre du Navigateur)
+        Les Fonctions de Comparaison : min(), max(), clamp()
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Les Fonctions de Comparaison : min(), max(), clamp()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#min-et-max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        min() et max()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clamp-la-typographie-fluide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clamp() — la typographie fluide
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3954,7 +4224,7 @@
   <a href="#les-container-queries-cqw-cqh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Container Queries (cqw / cqh)
+        Les Container Queries (cqw, cqh)
       
     </span>
   </a>
@@ -3962,10 +4232,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
+  <a href="#tableau-recapitulatif-des-unites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion et Synthèse
+        Tableau récapitulatif des unités
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -4093,192 +4374,338 @@
 <p><div
   class="omny-meta"
   data-level="🟢 Débutant"
-  data-version="1.0"
+  data-version="1.1"
   data-time="2-3 heures">
 </div>
 </p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
-<p class="admonition-title">Analogie pédagogique - Le mètre ruban vs La loupe magique</p>
-<p>Imaginez qu'on vous demande de construire une maison. Vous utilisez un décamètre classique en laiton : <em>1 mètre vaudra toujours 1 mètre</em>. Que vous regardiez votre maison à l'œil nu, ou à travers des jumelles, le mur de la maison fait 1 mètre. Ce sont les unités <strong>absolues</strong> (comme le pixel <code>px</code>). </p>
-<p>Imaginez maintenant que vous êtes dans Alice au Pays des Merveilles. Vous possédez une "<strong>loupe magique de croissance</strong>". Si vous appliquez une unité "<strong>loupe magique</strong>" sur une chaise, la taille de cette chaise dépendra désormais de la taille de la grande pièce dans laquelle elle est rangée ! Si la pièce grandit par magie de 20%, la chaise à l'intérieur grossit à son tour mathématiquement de 20% pour préserver l'harmonie. Ce sont les unités <strong>relatives</strong> (comme le <code>rem</code> ou les <code>%</code>).</p>
-<p>En développement web moderne, créer un site avec uniquement des mètres-rubans rigides (<code>px</code>) est une faute professionnelle grave. Pourquoi ? Parce que l'internaute consultera votre travail sur un gigantesque écran d'ordinateur de 42 pouces, ou sur le minuscule écran d'une montre connectée !</p>
+<p class="admonition-title">Analogie pédagogique - Le Mètre Ruban contre la Loupe Magique</p>
+<p>Imaginez construire une maison. Vous utilisez un décamètre en laiton : 1 mètre vaudra toujours 1 mètre, que vous regardiez la maison à l'œil nu ou à travers des jumelles. Ce sont les unités <strong>absolues</strong> comme le pixel <code>px</code>.</p>
+<p>Imaginez maintenant que vous êtes dans Alice au Pays des Merveilles. Vous possédez une loupe magique de croissance. Si vous l'appliquez sur une chaise, sa taille dépendra désormais de la pièce qui la contient. Si la pièce grandit de 20%, la chaise grossit automatiquement de 20%. Ce sont les unités <strong>relatives</strong> comme <code>rem</code> ou <code>%</code>.</p>
+<p>En développement web moderne, construire un site uniquement avec des pixels rigides est une faute professionnelle. Votre visiteur consulte votre travail sur un écran de 42 pouces, sur le minuscule écran d'un téléphone, ou sur une montre connectée.</p>
 </div>
-<p>Si vous ne comprenez pas intimement la différence entre <code>px</code>, <code>rem</code>, <code>em</code> et <code>vw</code> <strong>AVANT</strong> d'aborder des architectures complexes comme <strong>Flexbox</strong> ou <strong>Grid</strong>, votre design finira toujours par "<strong>déborder</strong>" ou "<strong>se casser</strong>" sur un téléphone mobile. </p>
-<div class="admonition tip">
-<p class="admonition-title">Ce module est fondamental pour garantir la souveraineté numérique de votre interface sur tous les profils d'appareils existants.</p>
-</div>
-<p><br /></p>
+<p>Si vous ne maîtrisez pas la différence entre <code>px</code>, <code>rem</code>, <code>em</code> et <code>vw</code> <strong>avant</strong> Flexbox ou Grid, votre design finira toujours par déborder ou se casser sur mobile.</p>
+<p><br></p>
 <hr />
-<h2 id="lancienne-ecole-lunite-absolue-px">L'Ancienne École : L'Unité Absolue (<code>px</code>)<a class="headerlink" href="#lancienne-ecole-lunite-absolue-px" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Le <strong>pixel</strong> (<code>px</code>) est l'unité de base historique. Il est statique, immuable et "dur".</p>
-</div>
-<div class="language-css highlight"><span class="filename">Code CSS - La rigidité mortelle</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">.</span><span class="nc">boite-rigide</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Permet de définir la largeur en pixels */</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Permet de définir la taille de la police en pixels */</span>
+<h2 id="lunite-absolue-px">L'Unité Absolue : <code>px</code><a class="headerlink" href="#lunite-absolue-px" title="Permanent link">&para;</a></h2>
+<p>Le pixel est l'unité historique du CSS. Il est statique et ne s'adapte à aucun contexte.</p>
+<div class="language-css highlight"><span class="filename">CSS - Unité absolue px</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">.</span><span class="nc">boite-rigide</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span><span class="w">  </span><span class="c">/* Largeur fixe, identique sur tous les écrans */</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Taille de texte figée */</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition danger">
-<p class="admonition-title">L'ennemi juré de l'ergonomie</p>
-<p>En code moderne, <strong>n’utilisez JAMAIS les pixels pour la taille des textes (<code>font-size</code>)</strong>. </p>
-<p><strong>Pourquoi ?</strong> : Les utilisateurs malvoyants ont tous réglé leur navigateur (<em>Chrome</em>, <em>Firefox</em>, <em>Safari</em>) avec un paramètre système spécifiant d'<em>agrandir les textes par défaut à 150%</em>. Si votre texte est codé en dur à <code>16px</code>, il restera bloqué bêtement et <strong>infiniment</strong> à <code>16px</code>, ignorant ainsi les besoins médicaux de votre visiteur.</p>
-<p>L'accessibilité<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> (<strong>a11y</strong>) numérique de votre site vient de sombrer à <strong>0/100</strong>.</p>
+<p class="admonition-title">Ne jamais utiliser <code>px</code> pour la taille des textes</p>
+<p>Les utilisateurs malvoyants configurent leur navigateur pour agrandir les textes à 150% ou 200%. Si votre texte est codé en <code>px</code>, il reste figé à cette valeur et <strong>ignore les paramètres d'accessibilité</strong> de l'utilisateur. Le score d'accessibilité de votre site tombe à zéro.</p>
+<p>Réservez le pixel exclusivement aux éléments qui ne doivent <strong>jamais</strong> varier : bordures (<code>border: 1px solid</code>), ombres (<code>box-shadow</code>), marges microscopiques décoratives.</p>
 </div>
-<p><strong>Quand utiliser le <code>px</code> alors ?</strong></p>
-<blockquote>
-<p>Exclusivement pour de la <strong>micro-intégration décorative inaltérable</strong> : une petite bordure de boîte (<code>border: 1px solid black</code>), l'épaisseur d'une ombre portée (<code>box-shadow</code>), ou un très fin interstice fixe.</p>
-</blockquote>
-<p><br /></p>
+<p><img alt="Concept des unités absolues versus relatives en CSS" src="../../../../../assets/images/dev/css-fondamental/css_units_absolute_relative.png" /></p>
+<p><em>Cette illustration schématise l'opposition entre une unité physique rigide comme le pixel, face aux unités relatives qui gonflent et se rétractent élastiquement selon leur environnement.</em></p>
+<p><br></p>
 <hr />
-<h2 id="les-unites-relatives-de-base">Les Unités Relatives de Base<a class="headerlink" href="#les-unites-relatives-de-base" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">L'importance des illustrations visuelles</p>
-<p>Afin d'éclaircir ces concepts d'échelles de grandeurs qui peuvent sembler abstraits ou difficiles à concevoir mentalement (comme l'héritage arborescent), ce module regorge d'illustrations schématiques générées pour vous. Chaque concept majeur est accompagné d'un visuel explicatif de style cartoon pour démystifier le comportement du navigateur.</p>
-</div>
-<h3 id="unites-absolues-vs-relatives">Unités absolues vs relatives<a class="headerlink" href="#unites-absolues-vs-relatives" title="Permanent link">&para;</a></h3>
-<p>Les unités de mesures en CSS sont divisées en deux grandes familles fondamentales : les unités <strong>absolues</strong> et les unités <strong>relatives</strong>.</p>
-<p><img alt="Concept des unités de mesures Absolues versus Relatives" src="../../../../../assets/images/dev/css_units_absolute_relative.png" /></p>
-<p><em>Cette illustration schématise l'opposition entre une unité physique de marbre comme le Pixel (PX), parfaitement rigide, face aux unités fantastiques qui gonflent et se rétractent élastiquement en fonction de leur environnement (REM et Pourcentages).</em></p>
-
+<h2 id="les-unites-relatives">Les Unités Relatives<a class="headerlink" href="#les-unites-relatives" title="Permanent link">&para;</a></h2>
+<p><br></p>
 <h3 id="le-pourcentage">Le Pourcentage (<code>%</code>)<a class="headerlink" href="#le-pourcentage" title="Permanent link">&para;</a></h3>
-<div class="admonition quote">
-<p class="admonition-title">Le pourcentage demande toujours : <em>"<strong>Qui est mon parent direct ?</strong>"</em>.</p>
-</div>
-<p>Si une boîte mère (Parent) fait <code>1000px</code> de large, et que vous donnez <code>width: 50%</code> à l'Enfant qui est dedans, cet enfant mesurera obligatoirement <code>500px</code>.
-Sauf que si l'écran de l'utilisateur rétrécit le parent à <code>200px</code> (sur un téléphone), l'enfant rétrecira à <code>100px</code> en temps réel, sans que vous n'ayez pu coder quoi que ce soit d'autre !</p>
-<h3 id="le-rem-root-em">Le <code>rem</code> (Root EM)<a class="headerlink" href="#le-rem-root-em" title="Permanent link">&para;</a></h3>
-<p>C'est l'unité de mesure <strong>OBLIGATOIRE ET UNIVERSELLE</strong> pour la fluidité d'un design moderne. « REM » signifie « Elément relatif à la Racine (Root) ». La « Racine », c'est la balise suprême fondamentale <code>&lt;html&gt;</code> elle-même de votre fichier.</p>
-<div class="admonition abstract">
-<p class="admonition-title">Le pont technique : <code>&lt;html&gt;</code> et <code>:root</code></p>
-<p>Dans le module précédent, vous avez appris à utiliser <code>:root</code> pour stocker vos variables globales. Ici, on vous parle de la balise <code>&lt;html&gt;</code>. <strong>C'est normal : ce sont les deux faces d'une même pièce !</strong> 
-En CSS, la pseudo-classe <code>:root</code> cible spécifiquement l'élément racine absolu du document, qui s'avère être la fameuse balise <code>&lt;html&gt;</code>. L'unité relative <code>rem</code> s'appuie donc mathématiquement sur la taille de police définie dans ce composant originel commun.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Par convention mondiale sur tous les ordinateurs, la balise <code>&lt;html&gt;</code> a une taille de texte interne fixée par le système à <strong><code>16px</code></strong>. (<em>Sauf si le fameux visiteur malvoyant l'a boosté dans ses paramètres système</em>). Donc, le navigateur déduit de lui-même que : <strong><code>1 rem = 16px</code></strong>.</p>
-</div>
-<div class="language-css highlight"><span class="filename">Code CSS - La propreté du REM</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">h1</span><span class="p">.</span><span class="nc">grand-titre</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="c">/* Je veux que le titre fasse 32px visuellement, </span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c">       donc je dis à l&#39;ordinateur : &quot;Fais deux fois la taille de la Racine de l&#39;internaute !&quot; */</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">p</span><span class="p">.</span><span class="nc">texte-normal</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="c">/* 1.5 multiplier par la racine (16) = 24px perçus par un œil valide ! */</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
+<p>Le pourcentage se base toujours sur la <strong>taille de l'élément parent direct</strong>.</p>
+<div class="language-css highlight"><span class="filename">CSS - Comportement du pourcentage</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">.</span><span class="nc">conteneur</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Le parent fait 1000px */</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">.</span><span class="nc">enfant</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c">/* 50% de 1000px = 500px */</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="c">/* Si le parent rétrécit à 400px sur mobile, l&#39;enfant passe automatiquement à 200px */</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Pourquoi ce détour de langage ?</p>
-<p>Si cet utilisateur malvoyant a forcé sa racine système à <code>24px</code> dans Chrome.
-Le calcul s'adapte Merveilleusement. L'ordinateur lira votre code CSS sans que vous ne deviez le modifier : "<strong>Ah le site de OmnyDocs demande <code>2rem</code> ! Or la Racine Médicale du visiteur vaut 24px. Donc je lui affiche un Titre géant adapté à ses yeux de 48px !</strong>". La souveraineté de l'information pour tous !</p>
-</div>
-<p><br /></p>
-<hr />
-<h2 id="lunite-em">L'unité <code>em</code><a class="headerlink" href="#lunite-em" title="Permanent link">&para;</a></h2>
+<p><em>Le pourcentage crée une liaison mathématique directe avec le parent. C'est l'unité idéale pour les mises en page fluides où les éléments doivent occuper une fraction de leur conteneur.</em></p>
+<p><br></p>
+<h3 id="le-rem-lunite-universelle-de-laccessibilite">Le <code>rem</code> — l'unité universelle de l'accessibilité<a class="headerlink" href="#le-rem-lunite-universelle-de-laccessibilite" title="Permanent link">&para;</a></h3>
+<p><code>rem</code> signifie <strong>Root EM</strong> — il est relatif à la taille de police de l'élément racine <code>&lt;html&gt;</code>.</p>
+<p>Par convention, tous les navigateurs fixent <code>&lt;html&gt;</code> à <strong>16px</strong> par défaut — sauf si l'utilisateur a modifié ce paramètre dans ses réglages d'accessibilité.</p>
 <div class="admonition info">
-<p class="admonition-title">Le <strong>EM</strong> est une unité de mesure relative qui dépend de la taille de police de son élément parent et non de l'élément racine.</p>
+<p class="admonition-title">La connexion entre <code>:root</code> et <code>rem</code></p>
+<p>Dans le module précédent, vous avez utilisé <code>:root</code> pour stocker vos variables CSS. En CSS, <code>:root</code> cible précisément l'élément <code>&lt;html&gt;</code>. L'unité <code>rem</code> s'appuie donc sur la même source. Ce sont deux faces de la même pièce.</p>
 </div>
-<p>Cette unité est fondamentale et comprendre son fonctionnement est nécessaire afin d'éviter toute problématique de débordement et comprendre pourquoi les éléments se comportent de manière inappropriée. L'illustration ci-dessous vous aidera à visualiser le fonctionnement de l'unité EM.</p>
+<div class="language-css highlight"><span class="filename">CSS - Calcul avec rem</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">h1</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="c">/* 2 × 16px (racine par défaut) = 32px pour un œil valide */</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c">/* Si l&#39;utilisateur a réglé son navigateur à 24px : 2 × 24 = 48px automatiquement */</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="c">/* 1.125 × 16px = 18px */</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.125</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">.</span><span class="nc">carte</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="c">/* Le padding s&#39;adapte aussi à la racine */</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em>Si un utilisateur malvoyant a configuré son navigateur à 24px, <code>2rem</code> donnera 48px sans que vous n'ayez modifié une seule ligne de code. C'est l'accessibilité automatique.</em></p>
+<p><br></p>
+<h3 id="le-em-relatif-au-parent-local">Le <code>em</code> — relatif au parent local<a class="headerlink" href="#le-em-relatif-au-parent-local" title="Permanent link">&para;</a></h3>
+<p><code>em</code> est relatif à la taille de police de <strong>l'élément parent direct</strong>, pas de la racine. C'est sa différence fondamentale avec <code>rem</code>.</p>
 <p><img alt="Concept en arbre généalogique REM vs EM" src="../../../../../assets/images/dev/css-fondamental/css_units_rem_vs_em.png" /></p>
-<p><em>Le REM (Root EM) agit comme la source d'eau connectée au tronc majestueux absolu de l'arbre (La racine Html). Quiconque y fait appel puise à la source principale de 16px. Le EM classique, très capricieux, est relatif à la toute petite branche (Le Parent local) qui le soutient, ce qui crééra des cascades de tailles terrifiantes s'il y a trop d'enfants imbriqués !</em></p>
-
-<div class="admonition warning">
-<p class="admonition-title">L'unité <code>em</code> ne regarde <strong>JAMAIS</strong> la racine globale du site. L'<code>em</code> multiplie sa valeur visuellement par <strong>la taille de la police appliquée sur l'Enveloppe PARENTE DIRECTE où un composant se trouve</strong>.</p>
-</div>
-<p>Observez le cauchemar des développeurs juniors qui n'ont pas compris la subtilitée de l'unité <code>em</code> :</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Des conteneurs imbriqués</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;boite-grand-pere&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;boite-parent&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;texte-enfant&quot;</span><span class="p">&gt;</span>Je suis un texte cassé<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<p><em>Le <code>rem</code> puise directement à la racine <code>&lt;html&gt;</code> comme source unique. Le <code>em</code> se base sur son parent direct, ce qui peut créer des cascades de multiplication incontrôlables sur des éléments imbriqués.</em></p>
+<div class="language-html highlight"><span class="filename">HTML - Conteneurs imbriqués pour la démonstration</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;boite-grand-pere&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;boite-parent&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;texte-enfant&quot;</span><span class="p">&gt;</span>Je suis un texte cassé<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<div class="language-css highlight"><span class="filename">Code CSS - L'effet boule de neige du EM</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">.</span><span class="nc">boite-grand-pere</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">.</span><span class="nc">boite-parent</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="c">/* Ici, 2em demande &quot;Multiplier par la taille du grand-père direct&quot;. Donc 2 * 20 = 40px ! */</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">em</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">.</span><span class="nc">texte-enfant</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="c">/* Et ici le texte final demande &quot;Multiplier par le parent direct&quot;. Donc 2 * 40px du parent = 80px !! */</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c">/* Le texte final explose l&#39;écran ! */</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">em</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
-</span></code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title"><strong>La règle d'or de l'industrie :</strong> N'utilisez <strong>JAMAIS</strong> <code>em</code> pour définir la taille des textes (Sauf de rarissimes micro-compositions dans des boutons complexes) ! Restez sur le très sécurisant <code>rem</code> qui consulte la racine inaltérable plutôt que les multiples éléments parents.</p>
-</div>
-<p><br /></p>
-<hr />
-<h2 id="le-viewport-la-fenetre-du-navigateur">Le Viewport (La fenêtre du Navigateur)<a class="headerlink" href="#le-viewport-la-fenetre-du-navigateur" title="Permanent link">&para;</a></h2>
-<div class="admonition quote">
-<p class="admonition-title">Un pourcentage (<code>%</code>) demande sa taille à un container-Parent. Mais parfois, nous voulons ordonner : <em>"Je veux que cet élément remplisse l'intégralité physique de l'écran de l'utilisateur, indépendamment des restrictions de son conteneur parent."</em></p>
-</div>
-<p>Pour s'affranchir de cette hiérarchie et s'aligner exactement sur les bords de l'écran du visiteur, on utilise les unités du <strong>Viewport</strong> (<code>vw</code> = Viewport Width "<em>largeur</em>", <code>vh</code> = Viewport Height "<em>hauteur</em>").</p>
-<p><img alt="Concept des mètres-rubans de la Fenêtre Viewport VW et VH" src="../../../../../assets/images/dev/css-fondamental/css_units_viewport.png" /></p>
-<p><em>Les unités du Viewport agissent comme des mètres-rubans de chantier qui viennent mesurer d'un bord métallique à l'autre bord métallique de vote écran physique. 100vw = 100% absolu de cette dimension vitrée perçue, écrasant toutes règles parentales précédentes.</em></p>
-
-<p>1 unité Viewport correspond simplement à <strong>1% de la taille formelle de la vitre du navigateur</strong>.</p>
-<div class="language-css highlight"><span class="filename">Code CSS - Le header monumental</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">.</span><span class="nc">section-ecran-accueil</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="c">/* &quot;Je veux prendre exactement 100% de la largeur totale du navigateur !&quot; */</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vw</span><span class="p">;</span>
+<div class="language-css highlight"><span class="filename">CSS - L'effet boule de neige du em</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">.</span><span class="nc">boite-grand-pere</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="c">/* &quot;Et je veux recouvrir d&#39;en-haut en bas toute la hauteur de ce que le téléphone voit en un coup d&#39;oeil sans scroller !&quot; */</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">.</span><span class="nc">boite-parent</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="c">/* 2em × 20px (grand-père) = 40px */</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">.</span><span class="nc">texte-enfant</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="c">/* 2em × 40px (parent direct) = 80px — le texte explose l&#39;écran */</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">L'Arnaque des téléphones (Et le sauveur DVH)</p>
-<p>Pendant 10 ans, utiliser <code>100vh</code> sur les téléphones mobiles était synonyme de drame (le célèbre bug "Safari iOS bar"). Le navigateur cachait sa propre "Bande de recherche d'URL" qui venait empiéter "par-dessus" votre beau panneau Web.</p>
-<p>La modernité ultime a créé récemment la parade parfaite, en incluant dynamiquement le calcul de rentrée d'interface système d'un mobile : <strong><code>dvh</code></strong> (Dynamic Viewport Height). </p>
-<p><strong>En production professionnelle, préférez de loin <code>height: 100dvh;</code> pour vos interfaces mobile formelle !</strong></p>
+<p class="admonition-title">Règle d'or : <code>rem</code> pour les textes, <code>em</code> pour les composants isolés</p>
+<p>N'utilisez <strong>jamais</strong> <code>em</code> pour les <code>font-size</code> dans une hiérarchie d'éléments imbriqués. L'effet multiplicatif est imprévisible. Utilisez <code>rem</code> pour toutes les tailles de texte. L'<code>em</code> reste utile dans un composant <strong>isolé et autonome</strong> (un bouton, une étiquette) pour que son padding s'adapte proportionnellement à sa propre taille de texte.</p>
 </div>
-<p><br /></p>
-<hr />
-<h2 id="les-container-queries-cqw-cqh">Les Container Queries (<code>cqw</code> / <code>cqh</code>)<a class="headerlink" href="#les-container-queries-cqw-cqh" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Vous savez maintenant que les unités du Viewport se basent sur la fenêtre globale du navigateur. Cependant, dans le web moderne basé sur des composants indépendants, un nouveau paradigme émerge : <strong>dimensionner un élément non plus par rapport à l'écran global, mais par rapport à l'intérieur de son conteneur direct !</strong></p>
-</div>
-<p>Ce nouveau phénomène se nomme les <strong>Container Queries</strong> (<strong>À ne pas confondre avec les Media Queries classiques</strong> <em>que l'on verra plus tard</em>). Il a introduit de nouvelles dimensions relatives : les unités <strong><code>cqw</code></strong> et <strong><code>cqh</code></strong>.</p>
-<ul>
-<li><strong>1 cqw</strong> (Container Query Width) = 1% de la largeur totale de <strong>la section Conteneur immédiate</strong> (Et non plus de tout l'écran complet).</li>
-</ul>
-<div class="language-css highlight"><span class="filename">Code CSS - La nouvelle norme des Cartes Dynamiques</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c">/* Déclaration d&#39;un contexte &quot;Container&quot; spatial pour l&#39;environnement */</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">.</span><span class="nc">wrapper-de-carte-de-blog</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">container-type</span><span class="p">:</span><span class="w"> </span><span class="kc">inline</span><span class="o">-</span><span class="n">size</span><span class="p">;</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c">/**</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c"> * À l&#39;intérieur du composant fils, c&#39;est ce repère local formel &quot;cqw&quot; qui est utilisé, pas vw.</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c"> * Si la carte se tasse ou est jetée dans une mini colonne de l&#39;interface, la taille de texte se</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c"> * recalcule harmonieusement peu importe sa position sur le grand écran général ! </span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c"> */</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">.</span><span class="nc">texte-titre-de-cette-carte</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="mi">10</span><span class="n">cqw</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">);</span>
+<p><strong>L'unité <code>ch</code> — largeur d'un caractère</strong></p>
+<div class="language-css highlight"><span class="filename">CSS - Unité ch pour la typographie</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c">/*</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c">    1ch = largeur du caractère &quot;0&quot; dans la police actuelle.</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c">    Idéale pour limiter la largeur des paragraphes à un nombre optimal de caractères</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c">    (65-75ch est la plage de lisibilité recommandée par la typographie).</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c">*/</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="kt">ch</span><span class="p">;</span><span class="w"> </span><span class="c">/* Le texte ne dépassera jamais 70 caractères de large */</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c">/* Utile aussi pour les champs de saisie de codes */</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="o">]</span><span class="p">.</span><span class="nc">code-postal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">ch</span><span class="p">;</span><span class="w"> </span><span class="c">/* Exactement 5 caractères */</span>
 </span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title"><em><strong>Note</strong>: Les containers Queries sont des mécanismes "<strong>très avancés</strong>". N'essayez pas de les dompter pour vos premiers sites, le combo Flexbox central, pourcentage (%) et rem, couplé à de bons vieux Media Queries classiques, suffit à bâtir 99% du parc d'applications dans le monde.</em></p>
-</div>
-<p><br /></p>
+<p><br></p>
 <hr />
-<h2 id="conclusion-et-synthese">Conclusion et Synthèse<a class="headerlink" href="#conclusion-et-synthese" title="Permanent link">&para;</a></h2>
-<p>Les unités de mesure sont le sol linguistique du développement frontal. Pour qu'une page Web soit "<strong>Réactive</strong> / <strong>Elastique</strong> / <strong>Responsive</strong>", vous ne pouvez plus coller des blocs monolithiques en pixels rigides sur le mur virtuel de façon mortifère.  L’intelligence du design repose sur une syntaxe dimensionnelle relative simple:</p>
+<h2 id="le-viewport-saligner-sur-lecran">Le Viewport : s'aligner sur l'écran<a class="headerlink" href="#le-viewport-saligner-sur-lecran" title="Permanent link">&para;</a></h2>
+<p>Les unités Viewport ne dépendent pas du parent — elles se calent sur <strong>les dimensions physiques de la fenêtre du navigateur</strong>.</p>
+<ul>
+<li><code>vw</code> = 1% de la <strong>largeur</strong> de la fenêtre</li>
+<li><code>vh</code> = 1% de la <strong>hauteur</strong> de la fenêtre</li>
+</ul>
+<div class="language-css highlight"><span class="filename">CSS - Section plein écran avec vw et vh</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">.</span><span class="nc">hero-accueil</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="c">/* Prend exactement 100% de la largeur visible du navigateur */</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vw</span><span class="p">;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="c">/* Prend exactement 100% de la hauteur visible du navigateur */</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="c">/* Centrer le contenu dans ce bloc */</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><img alt="Concept des unités viewport vw et vh" src="../../../../../assets/images/dev/css-fondamental/css_units_viewport.png" /></p>
+<p><em>Les unités viewport mesurent directement la fenêtre du navigateur, indépendamment de tout parent. 100vw = largeur complète de la vitre, 100vh = hauteur complète.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Le piège de <code>100vh</code> sur mobile (et son correctif <code>dvh</code>)</p>
+<p>Sur iOS et Android, la barre d'URL du navigateur se superpose au contenu. <code>100vh</code> inclut la zone masquée par cette barre, provoquant un débordement visible. Les unités dynamiques corrigent ce comportement.</p>
+</div>
+<p><strong>Tableau des variantes viewport modernes :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Unité</th>
+<th>Signification</th>
+<th>Usage recommandé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vw</code> / <code>vh</code></td>
+<td>Viewport statique</td>
+<td>Mise en page desktop</td>
+</tr>
+<tr>
+<td><code>svh</code></td>
+<td>Small Viewport Height — viewport <strong>avec</strong> les barres UI</td>
+<td>Interface mobile avec barres visibles</td>
+</tr>
+<tr>
+<td><code>lvh</code></td>
+<td>Large Viewport Height — viewport <strong>sans</strong> les barres UI</td>
+<td>Interface mobile sans barres</td>
+</tr>
+<tr>
+<td><code>dvh</code></td>
+<td>Dynamic Viewport Height — s'ajuste dynamiquement</td>
+<td><strong>Standard recommandé en production mobile</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="language-css highlight"><span class="filename">CSS - dvh pour les interfaces mobiles</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">.</span><span class="nc">page-mobile</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="c">/* dvh s&#39;ajuste quand la barre d&#39;URL apparaît ou disparaît */</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="n">dvh</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="les-fonctions-de-comparaison-min-max-clamp">Les Fonctions de Comparaison : <code>min()</code>, <code>max()</code>, <code>clamp()</code><a class="headerlink" href="#les-fonctions-de-comparaison-min-max-clamp" title="Permanent link">&para;</a></h2>
+<p>Ces trois fonctions CSS permettent de créer des valeurs <strong>fluides qui s'adaptent automatiquement</strong> entre des bornes définies — sans media queries.</p>
+<p><br></p>
+<h3 id="min-et-max"><code>min()</code> et <code>max()</code><a class="headerlink" href="#min-et-max" title="Permanent link">&para;</a></h3>
+<div class="language-css highlight"><span class="filename">CSS - Fonctions min et max</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">.</span><span class="nc">conteneur</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c">        min() retourne la valeur la plus petite.</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c">        Ici : la largeur sera 100% SAUF si 800px est plus petit — alors 800px s&#39;applique.</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c">        Effet : le conteneur ne dépasse jamais 800px mais peut se réduire en dessous.</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c">    */</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="mi">100</span><span class="kt">%</span><span class="p">,</span><span class="w"> </span><span class="mi">800</span><span class="kt">px</span><span class="p">);</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">.</span><span class="nc">texte-adaptatif</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="c">        max() retourne la valeur la plus grande.</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c">        Ici : la taille est 4vw SAUF si 1rem est plus grand — alors 1rem s&#39;applique.</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="c">        Effet : le texte ne descend jamais en dessous de 1rem même sur petit écran.</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c">    */</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="mi">1</span><span class="kt">rem</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="kt">vw</span><span class="p">);</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><br></p>
+<h3 id="clamp-la-typographie-fluide"><code>clamp()</code> — la typographie fluide<a class="headerlink" href="#clamp-la-typographie-fluide" title="Permanent link">&para;</a></h3>
+<p><code>clamp(minimum, valeur-idéale, maximum)</code> est la fonction la plus puissante du trio. Elle définit une <strong>valeur qui grandit entre deux bornes</strong> sans jamais dépasser les limites.</p>
+<div class="language-css highlight"><span class="filename">CSS - clamp pour une typographie parfaitement fluide</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">h1</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c">        clamp(valeur-min, valeur-fluide, valeur-max)</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c">        - Ne descend jamais sous 1.5rem (24px)</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c">        - Grandit proportionnellement à 5% de la largeur du viewport</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c">        - Ne dépasse jamais 3rem (48px)</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c">        Sur mobile (375px) : 5vw = 18.75px → plancher à 24px</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c">        Sur tablette (768px) : 5vw = 38.4px → 38.4px</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="c">        Sur desktop (1440px) : 5vw = 72px → plafonné à 48px</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c">    */</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="nf">clamp</span><span class="p">(</span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="kt">vw</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="kt">rem</span><span class="p">);</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="p">}</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="p">.</span><span class="nc">texte-corps</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="c">/* Taille de texte fluide entre 1rem et 1.25rem */</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="nf">clamp</span><span class="p">(</span><span class="mi">1</span><span class="kt">rem</span><span class="p">,</span><span class="w"> </span><span class="mf">2.5</span><span class="kt">vw</span><span class="p">,</span><span class="w"> </span><span class="mf">1.25</span><span class="kt">rem</span><span class="p">);</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="p">}</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="p">.</span><span class="nc">carte</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">    </span><span class="c">/* Padding qui s&#39;adapte entre 1rem et 2.5rem */</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="nf">clamp</span><span class="p">(</span><span class="mi">1</span><span class="kt">rem</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="kt">vw</span><span class="p">,</span><span class="w"> </span><span class="mf">2.5</span><span class="kt">rem</span><span class="p">);</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em><code>clamp()</code> remplace des dizaines de media queries pour la typographie et les espacements fluides. C'est la technique de référence pour un design véritablement adaptatif.</em></p>
+<p><br></p>
+<hr />
+<h2 id="les-container-queries-cqw-cqh">Les Container Queries (<code>cqw</code>, <code>cqh</code>)<a class="headerlink" href="#les-container-queries-cqw-cqh" title="Permanent link">&para;</a></h2>
+<p>Les unités viewport se basent sur la fenêtre du navigateur. Mais dans une architecture par composants, un même composant peut être utilisé dans une colonne étroite ou dans un conteneur large. C'est le problème que les Container Queries résolvent.</p>
+<div class="language-css highlight"><span class="filename">CSS - Container queries pour les composants adaptatifs</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c">/*</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c">    Étape 1 : Déclarer un contexte de conteneur sur l&#39;élément parent.</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c">    Le navigateur mesurera maintenant ce conteneur comme référence pour ses enfants.</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c">*/</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">.</span><span class="nc">wrapper-carte</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="k">container-type</span><span class="p">:</span><span class="w"> </span><span class="kc">inline</span><span class="o">-</span><span class="n">size</span><span class="p">;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="k">container-name</span><span class="p">:</span><span class="w"> </span><span class="n">carte</span><span class="p">;</span><span class="w"> </span><span class="c">/* Optionnel : nommer le conteneur */</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">}</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c">/*</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c">    Étape 2 : Dans l&#39;enfant, utiliser cqw au lieu de vw.</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="c">    1cqw = 1% de la largeur du conteneur déclaré, pas de la fenêtre.</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="c">*/</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="p">.</span><span class="nc">titre-carte</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="c">/* Le titre s&#39;adapte à la largeur du conteneur, pas de l&#39;écran */</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="nf">clamp</span><span class="p">(</span><span class="mi">1</span><span class="kt">rem</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="n">cqw</span><span class="p">,</span><span class="w"> </span><span class="mf">1.75</span><span class="kt">rem</span><span class="p">);</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Container Queries et architecture de composants</p>
+<p>Les Container Queries sont particulièrement puissantes dans l'écosystème TALL Stack (Livewire, Alpine.js). Un composant Livewire réutilisable dans différentes zones de mise en page s'adapte automatiquement à son contexte. Le support navigateur atteint 93% en 2025 — utilisables en production.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="tableau-recapitulatif-des-unites">Tableau récapitulatif des unités<a class="headerlink" href="#tableau-recapitulatif-des-unites" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Unité</th>
+<th>Base de référence</th>
+<th>Cas d'usage prioritaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>px</code></td>
+<td>Absolue (fixe)</td>
+<td>Bordures, ombres, micro-détails décoratifs</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Parent direct</td>
+<td>Largeurs fluides, mise en page en colonnes</td>
+</tr>
+<tr>
+<td><code>rem</code></td>
+<td>Racine <code>&lt;html&gt;</code></td>
+<td><strong>Tailles de texte, espacements</strong> — unité principale</td>
+</tr>
+<tr>
+<td><code>em</code></td>
+<td>Parent direct</td>
+<td>Composants isolés autonomes (bouton, badge)</td>
+</tr>
+<tr>
+<td><code>ch</code></td>
+<td>Largeur du caractère <code>0</code></td>
+<td>Largeur de colonnes de texte, champs de saisie</td>
+</tr>
+<tr>
+<td><code>vw</code> / <code>vh</code></td>
+<td>Fenêtre du navigateur</td>
+<td>Sections plein écran</td>
+</tr>
+<tr>
+<td><code>dvh</code></td>
+<td>Fenêtre dynamique</td>
+<td>Interfaces mobiles (correctif iOS/Android)</td>
+</tr>
+<tr>
+<td><code>cqw</code> / <code>cqh</code></td>
+<td>Conteneur déclaré</td>
+<td>Composants adaptatifs réutilisables</td>
+</tr>
+<tr>
+<td><code>clamp()</code></td>
+<td>Fonction fluide</td>
+<td>Typographie et espacements adaptatifs</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
-<p class="admonition-title"><strong>Utilisez prioritairement les <code>rem</code> pour l'accessibilité textuelle et la grandeur micro-typographique, le <code>%</code> ou la famille du <code>viewport</code> (et des <code>cq</code>) pour étirer de force les grands espaces matriciels ("Layout"), et abandonnez le pixel totalitaire <code>px</code> exclusivement aux bordures microscopiques fixes insensibles au vent et marées technologiques.</strong></p>
+<p class="admonition-title">Ce qu'il faut retenir de ce module</p>
+<p>Utilisez <code>rem</code> pour toute taille de texte et espacement — c'est l'unité de l'accessibilité. Utilisez <code>%</code> et <code>vw</code>/<code>dvh</code> pour les grandes zones de mise en page. Utilisez <code>clamp()</code> pour des tailles fluides entre deux bornes sans media queries. Évitez <code>px</code> pour les textes — cela brise les réglages d'accessibilité des utilisateurs. Réservez <code>em</code> aux composants isolés et autonomes.</p>
 </div>
 <blockquote>
-<p>Maintenant que vous savez doser et dimensionner virtuellement ces éléments relatifs, il est temps de comprendre l'espace intérieur profond des objets physiques qui fabrique le volume 3D secret de TOUTE boite Html du monde sur internet : <strong>Le Box Model (Margin &amp; Padding)</strong>, votre prochain module incontournable !</p>
+<p>Maintenant que vous savez dimensionner vos éléments, il est temps de comprendre comment un élément HTML occupe l'espace autour de lui : <strong>le Box Model</strong> — margin, padding, border et la propriété <code>box-sizing</code>.</p>
 </blockquote>
-<p><br /></p>
+<p><br></p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>L'accessibilité web désigne l'ensemble des pratiques visant à rendre les services de communication au public en ligne accessibles à tous, notamment aux personnes handicapées, en garantissant que le code et le design respectent les réglages de l'utilisateur (comme le zoom ou la taille de police).&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>L'<strong>accessibilité web</strong> (a11y) désigne l'ensemble des pratiques visant à rendre les services numériques accessibles à tous, notamment aux personnes handicapées. En France, la conformité au <strong>RGAA</strong> (Référentiel Général d'Amélioration de l'Accessibilité) est obligatoire pour les services publics et fortement recommandée pour le secteur privé.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -4334,6 +4761,16 @@ Le calcul s'adapte Merveilleusement. L'ordinateur lira votre code CSS sans que v
       
       
         <span class="md-tag md-tag-icon">VIEWPORT</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CLAMP</span>
       
     
   </nav>

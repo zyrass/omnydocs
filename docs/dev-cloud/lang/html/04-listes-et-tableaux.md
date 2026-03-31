@@ -1,5 +1,5 @@
 ---
-description: "Structurer la donnée : listes complexes (attribut type), tableaux matriciels (caption, thead/tbody/tfoot, colspan, rowspan)."
+description: "Structurer la donnée : listes complexes, imbriquées, tableaux matriciels avec caption, thead/tbody/tfoot, colspan et rowspan."
 icon: lucide/book-open-check
 tags: ["HTML", "LISTES", "TABLEAUX", "STRUCTURE", "DONNÉES"]
 ---
@@ -9,227 +9,471 @@ tags: ["HTML", "LISTES", "TABLEAUX", "STRUCTURE", "DONNÉES"]
 <div
   class="omny-meta"
   data-level="🟢 Débutant"
-  data-version="1.0"
+  data-version="1.1"
   data-time="2-3 heures">
 </div>
-
 
 ## Introduction
 
 !!! quote "Analogie pédagogique - Ranger et Organiser"
-    _Imaginez un **supermarché**. Sans allées ni panneaux d'indications, ce serait le chaos total : les produits seraient jetés en vrac au sol. Les **listes** sont comme les rayons d'un magasin ("Fruits et légumes" via une liste à puces, ou les étapes chronologiques d'une recette via une liste ordonnée)._
+    Imaginez un **supermarché**. Sans allées ni panneaux d'indications, ce serait le chaos total : les produits seraient jetés en vrac au sol. Les **listes** sont comme les rayons d'un magasin ("Fruits et légumes" via une liste à puces, ou les étapes chronologiques d'une recette via une liste ordonnée).
 
-!!! abstract "Structurer l'Information Complexe"
-    L'organisation visuelle d'un document brut passe par le rangement de ses données sérielles. 
-    Les **listes** ne sont pas que de simples entassements de paragraphes : elles permettent de numéroter de manière stricte (_avec l'attribut de style matriciel `type` comme l'alphabet ou les chiffres romains_), de créer des sous-menus, ou des lexiques métiers avancés (_listes de définitions_). 
-    
-    Les **tableaux** sont de puissantes matrices dimensionnelles. Un tableau de données ce n'est pas juste d'écrire à la hâte des lignes (`<tr>`) et des cellules (`<td>`). Un tableau de qualité professionnelle possède des attributs sémantiques stricts : un titre officiel ancré (`<caption>`), une structure corporelle explicite qui ne dépend pas de l'ordre dont vous codez le HTML (`<thead>`, `<tbody>`, `<tfoot>`), et la faculté géométrique de fusionner des cellules de haut en bas (`rowspan`) ou de gauche à droite (`colspan`). 
+!!! info "Structurer l'information complexe"
+    Les **listes** ne sont pas que de simples entassements de paragraphes : elles permettent de numéroter avec différents systèmes (alphabet, chiffres romains), de créer des sous-menus imbriqués, ou des glossaires métiers avancés.
 
-Ce module va dans la profondeur technique des tableaux et des listes en HTML. On ne survole pas. On décortique chaque mécanisme de fusion et de comportement du navigateur.
+    Les **tableaux** sont des matrices dimensionnelles. Un tableau professionnel possède un titre officiel (`<caption>`), une structure corporelle explicite (`<thead>`, `<tbody>`, `<tfoot>`), des en-têtes accessibles (`scope` sur `<th>`), et la faculté géométrique de fusionner des cellules (`colspan`, `rowspan`).
 
-<br />
+Ce module décortique chaque mécanisme de liste et de tableau HTML. On ne survole pas.
+
+<br>
 
 ---
 
-## Les Listes (Non-Odonnées et Ordonnées)
+## Les Listes
 
-### La Liste à puces (`<ul>`) et l'attribut Type
-L'Acronyme UL signifie *Unordered List*. L'ordre de ses enfants *List Item* (`<li>`) n'a pas d'importance sémantique. 
-Historiquement et visuellement, on peut modifier la forme de la puce directement en HTML avec l'attribut `type`. 
+<br>
 
-!!! info "**Bien qu'aujourd'hui, pour des raisons de séparation des pouvoirs, c'est le langage CSS qui gère le design visuel des puces**."
+### La Liste à puces (`<ul>`)
 
-```html
-<!-- `type="circle"` rend la puce vide, `square` la rend carrée, `disc` est le défaut (point plein). -->
-<ul type="square">
-    <li>Des Pommes de Terre</li>
-    <li>Des Bananes</li>
+L'acronyme UL signifie *Unordered List*. L'ordre de ses éléments `<li>` (*List Item*) n'a pas d'importance sémantique. On l'utilise pour des énumérations dont les éléments sont interchangeables.
+
+!!! info "L'attribut `type` sur `<ul>` est obsolète depuis HTML5"
+    L'attribut `type="circle"`, `type="square"` ou `type="disc"` sur `<ul>` était la méthode HTML4 pour changer la forme des puces. En HTML5, cette responsabilité appartient exclusivement au CSS via la propriété `list-style-type`. Ne l'utilisez plus dans le code HTML.
+
+```html title="HTML - Liste à puces non ordonnée"
+<ul>
+    <li>Pommes de terre</li>
+    <li>Carottes</li>
+    <li>Oignons</li>
 </ul>
 ```
 
-### La Liste Numérotée (`<ol>`) et les valeurs du Type
-Acronyme de *Ordered List*. L'ordre est sémantiquement vital (_une recette par étape, un classement des 100 meilleures entreprises_). L'attribut `type` prend ici tout son sens pour changer le système numéraire de la liste selon vos besoins d'affichage. L'ordinateur incrémentera la suite mathématique automatiquement à chaque nouvel élément `<li>`.
+<br>
 
-```html
-<!-- 
-     Le type change la logique de lecture de la liste par le navigateur :
-     type="I" imposera des chiffres romains majuscules (I, II, III, IV...)
-     type="A" imposera l'alphabet majuscule ordonné (A, B, C...)
-     type="a" imposera l'alphabet minuscule (a, b, c...)
-     type="1" est le système décimal de base par défaut (1, 2, 3...) 
+### La Liste Numérotée (`<ol>`)
+
+Acronyme de *Ordered List*. L'ordre est sémantiquement vital : une recette par étape, un classement, une procédure technique. Le navigateur incrémente automatiquement la numérotation.
+
+```html title="HTML - Liste ordonnée avec système de numérotation personnalisé"
+<!--
+    L'attribut type change le système de numérotation :
+    type="1" → décimal par défaut (1, 2, 3...)
+    type="A" → alphabet majuscule (A, B, C...)
+    type="a" → alphabet minuscule (a, b, c...)
+    type="I" → chiffres romains majuscules (I, II, III...)
+    type="i" → chiffres romains minuscules (i, ii, iii...)
 -->
 <ol type="A">
-    <li>Préchauffer le four.</li>
-    <li>Mélanger la farine.</li>
-    <li>Cuire la préparation à 150 degrés.</li>
+    <li>Préchauffer le four à 180°C.</li>
+    <li>Mélanger la farine et les œufs.</li>
+    <li>Cuire 25 minutes.</li>
 </ol>
 ```
-!!! warning "*Si vous inversez l'ordre des `<li>` de la recette : c'est un échec cuilinaire total (vous ne pouvez pas cuire un oeuf et verser de la farine froide dessus).*"
 
-### Les Listes de définition (`<dl>`)
-Totalement méconnues et pourtant vitales en SEO Sémantique. Elles sont spécialement conçues pour créer un **Glossaire**. Le bloc est composé du parent `<dl>` (_Definition List_), du terme ou mot-clé `<dt>` (_Definition Term_), et de la définition stricte du ce mot `<dd>` (_Definition Description_).
+*L'attribut `type` sur `<ol>` reste valide en HTML5 — contrairement à `<ul>`. Il modifie le système de numérotation affiché sans affecter la valeur sémantique ordinale des éléments.*
 
-```html
+!!! warning "Respecter l'ordre dans une liste ordonnée"
+    Inverser l'ordre des `<li>` d'une procédure technique ou d'une recette produit un résultat incorrect. L'ordre des éléments dans un `<ol>` est porteur de sens : le navigateur les numérotera dans l'ordre où ils sont écrits dans le code.
+
+**Attributs complémentaires de `<ol>` :**
+
+| Attribut | Rôle | Exemple |
+| --- | --- | --- |
+| `start="X"` | Démarre la numérotation à partir de X | `<ol start="5">` commence à 5 |
+| `reversed` | Numérote en ordre décroissant | `<ol reversed>` : 3, 2, 1 |
+| `type` | Définit le système de numérotation | `type="I"` pour les chiffres romains |
+
+```html title="HTML - Liste ordonnée avec start et reversed"
+<!-- Un classement qui commence au rang 4, numéroté à rebours -->
+<ol start="6" reversed type="1">
+    <li>Bronze — Mathieu DUPONT</li>  <!-- Affiché : 6 -->
+    <li>Argent — Sophie MARTIN</li>   <!-- Affiché : 5 -->
+    <li>Or — Laura BERNARD</li>       <!-- Affiché : 4 -->
+</ol>
+```
+
+<br>
+
+### Les Listes de Définition (`<dl>`)
+
+Méconnues mais puissantes. La balise `<dl>` (*Definition List*) est conçue pour deux usages complémentaires : les glossaires, et les interfaces présentant des paires clé/valeur.
+
+```html title="HTML - Glossaire technique avec dl, dt, dd"
+<!-- Glossaire : chaque terme (dt) est suivi de sa définition (dd) -->
 <dl>
     <dt>HTML</dt>
-    <dd>Langage de balisage utilisé pour structurer la colonne vertébrale des pages web.</dd>
+    <dd>Langage de balisage structurant la colonne vertébrale des pages web.</dd>
+
     <dt>CSS</dt>
-    <dd>Feuilles de style visant à maquiller et animer les balisages.</dd>
+    <dd>Feuilles de style en cascade gérant l'apparence visuelle des éléments HTML.</dd>
+
+    <dt>JavaScript</dt>
+    <dd>Langage de programmation apportant l'interactivité et le comportement dynamique.</dd>
 </dl>
 ```
 
-<br />
+*`<dl>` est le parent de la liste. `<dt>` (*Definition Term*) porte le terme ou la clé. `<dd>` (*Definition Description*) porte sa valeur ou explication.*
+
+!!! tip "Usage interface : paires clé/valeur"
+    `<dl>` est particulièrement adapté pour afficher les métadonnées d'un article, les caractéristiques d'un produit, ou le résumé d'un formulaire soumis — tous ces contextes où on présente des paires "libellé : valeur".
+
+    ```html title="HTML - Fiche produit avec dl (paires clé/valeur)"
+    <!-- Fiche produit : usage dl pour les caractéristiques -->
+    <dl>
+        <dt>Référence</dt>
+        <dd>PRD-2024-0472</dd>
+
+        <dt>Poids</dt>
+        <dd>1,4 kg</dd>
+
+        <dt>Disponibilité</dt>
+        <dd>En stock (23 unités)</dd>
+    </dl>
+    ```
+
+<br>
+
+### Les Listes Imbriquées
+
+Une liste peut contenir une autre liste. C'est le mécanisme fondamental des menus de navigation multi-niveaux et des structures hiérarchiques.
+
+```html title="HTML - Listes imbriquées multi-niveaux"
+<!-- Menu de navigation principal avec sous-menus -->
+<ul>
+    <li>Accueil</li>
+
+    <li>Nos Services
+        <!-- Sous-liste imbriquée directement dans le li parent -->
+        <ul>
+            <li>Développement Web</li>
+            <li>Cybersécurité
+                <!-- Troisième niveau -->
+                <ul>
+                    <li>Audit de sécurité</li>
+                    <li>Tests d'intrusion</li>
+                    <li>Formation GRC</li>
+                </ul>
+            </li>
+            <li>Conseil en architecture</li>
+        </ul>
+    </li>
+
+    <li>Contact</li>
+</ul>
+```
+
+*La sous-liste doit être placée **à l'intérieur** du `<li>` parent, jamais après lui. Le navigateur considère que le contenu d'un `<li>` inclut tout ce qui se trouve entre son ouverture et sa fermeture.*
+
+!!! warning "Imbriquer différents types de listes"
+    Il est tout à fait valide d'imbriquer un `<ol>` dans un `<ul>` et inversement. Les technologies d'assistance et les moteurs de recherche respectent la hiérarchie sémantique quelle que soit la combinaison de types.
+
+    ```html title="HTML - Imbrication ol dans ul"
+    <ul>
+        <li>Recettes salées
+            <ol>
+                <li>Préparer les légumes</li>
+                <li>Faire revenir à feu vif</li>
+                <li>Assaisonner</li>
+            </ol>
+        </li>
+    </ul>
+    ```
+
+<br>
 
 ---
 
-## Construire un Tableau matriciel
+## Construire un Tableau Matriciel
 
-La grande loi du codeur Web des années 2020 : **Il est formellement interdit d'utiliser un tableau HTML pour faire du design visuel** (Comme mettre vos images côtes à côtes). Un Tableau HTML est **exclusivement** réservé à des tableaux croisés de données (Un tarif horaire croisé à des jours, une base de données de résultats bancaires).
+**Règle absolue du développement web moderne :** un tableau HTML est réservé exclusivement à l'affichage de **données tabulaires** (tarifs croisés avec des dates, résultats financiers, comparatifs techniques). Il est formellement interdit de l'utiliser pour mettre en page des éléments visuels — c'est le rôle de CSS Flexbox et Grid.
 
-### Le Squelette simple et le tag unique `<caption>`
-Contrairement à la croyance populaire, un tableau n'a pas l'obligation d'avoir une arborescence complexe en 3 blocs. Il peut très bien n'être constitué que d'une simple balise mère `<table>`, constituée de lignes (`<tr>`) et de cellules de données brutes (`<td>` ou cellules de têtes en gras `<th>`).
+<br>
 
-Cependant, **pour que votre tableau ne soit pas rejeté par l'accessibilité Web**, le tout premier enfant direct de `<table>` doit impérativement être la balise orpheline `<caption>`. Il s'agit du **Titre** officiel et sémantique du tableau (_Lu par les synthèses vocales pour résumer_).
+### Le squelette minimal et la balise `<caption>`
 
-```html
+Un tableau peut n'être composé que d'une balise `<table>` avec des lignes `<tr>` et des cellules `<td>` ou `<th>`. Mais pour être **conforme aux normes d'accessibilité**, le premier enfant direct de `<table>` doit impérativement être `<caption>` — le titre officiel et sémantique du tableau, lu par les synthèses vocales.
+
+```html title="HTML - Tableau minimal accessible avec caption"
 <table>
-    <!-- Le `caption` se positionne obligatoirement EN PREMIER dans un `table` -->
-    <caption>Horaires d'ouverture de la Bibliothèque</caption>
-    
+    <!-- Le caption se positionne OBLIGATOIREMENT en premier dans table -->
+    <caption>Horaires d'ouverture de la Bibliothèque municipale</caption>
+
     <tr>
-        <th>Lundi</th> <!-- En-tête : affiché en Gras et Centré par le navigateur par défaut-->
-        <td>Fermé au public</td> 
+        <!-- th : cellule d'en-tête (gras et centré par défaut) -->
+        <th>Jour</th>
+        <th>Horaires</th>
     </tr>
     <tr>
-        <th>Mardi</th>
-        <td>09h00 - 18h30</td>
+        <td>Lundi</td>
+        <td>Fermé</td>
+    </tr>
+    <tr>
+        <td>Mardi</td>
+        <td>09h00 – 18h30</td>
     </tr>
 </table>
 ```
 
-### La Super-Structure Métier (Thead, Tbody, Tfoot)
+<br>
 
-Lorsque le tableau contient des centaines de données, on le fragmente en 3 blocs stricts à la manière d'un corps humain. Cela permet au navigateur (_ou à l'imprimante_) de répéter perpétuellement son "En-Tête" sur plusieurs pages imprimées pendant qu'on scrolle le corps.
+### L'attribut `scope` sur `<th>` (accessibilité)
 
-Le détail fascinant de l'ingénierie du W3C[^1] c'est le comportement illogique à première vue de l'ordre du `<tfoot>` :
-Historiquement (HTML4), le Pied de Tableau (`<tfoot>`) **devait** être écrit juste après le `<thead>` (donc, avant même le contenu corporel du `<tbody>` !), pour que le petit processeur du navigateur sache visuellement quoi prévoir de dessiner tout en bas avant d'être englouti par des milliers de lignes de textes qu'on téléchargeait sur des modems lents de 56k.
-Aujourd'hui, quoi qu'il arrive et quel que soit l'endroit où vous l'écrivez dans votre fichier source (avant, au beau milieu, ou après le TBody), **le navigateur HTML le propulsera visuellement toujours tout en bas du tableau à votre écran**. Vous n'avez pas à vous soucier de son ordre dans le code pour peu qui'l soit dans le `<table>` !
+Pour les tableaux comportant plusieurs colonnes, l'attribut `scope` indique aux lecteurs d'écran si un `<th>` est l'en-tête d'une **colonne** (`scope="col"`) ou d'une **ligne** (`scope="row"`). Sans lui, un lecteur d'écran ne peut pas associer correctement les données à leurs en-têtes.
 
-```html
+```html title="HTML - Tableau avec scope pour l'accessibilité"
 <table>
-    <caption>Tableau de bord comptable provisoire de Q2</caption>
-    
-    <!-- 1. L'en-tête fixe -->
+    <caption>Résultats trimestriels par département</caption>
     <thead>
         <tr>
-            <th>Employé</th>
-            <th>Ventes du Mois</th>
+            <!-- scope="col" : cet en-tête s'applique à toute la colonne en dessous -->
+            <th scope="col">Département</th>
+            <th scope="col">T1</th>
+            <th scope="col">T2</th>
+            <th scope="col">T3</th>
         </tr>
     </thead>
-    
-    <!-- 2. La masse énorme de données courantes -->
     <tbody>
         <tr>
-            <td>Jeanne</td>
-            <td>4000 €</td>
+            <!-- scope="row" : cet en-tête s'applique à toute la ligne à droite -->
+            <th scope="row">Commercial</th>
+            <td>48 000 €</td>
+            <td>53 200 €</td>
+            <td>61 400 €</td>
         </tr>
-        <!-- (...) Des dizaines et centaines d'autres lignes ici (...) -->
+        <tr>
+            <th scope="row">Marketing</th>
+            <td>12 000 €</td>
+            <td>15 800 €</td>
+            <td>14 200 €</td>
+        </tr>
     </tbody>
-    
-    <!-- 3. Le Pied de page de bilan. -->
+</table>
+```
+
+*Un lecteur d'écran lisant la cellule "61 400 €" annoncera "Commercial, T3, 61 400 euros" grâce aux attributs `scope`. Sans `scope`, il lirait seulement le contenu brut de la cellule sans contexte.*
+
+<br>
+
+### La Super-Structure Métier (`<thead>`, `<tbody>`, `<tfoot>`)
+
+Lorsque le tableau contient de nombreuses données, on le fragmente en trois blocs sémantiques. Cela permet au navigateur et à l'imprimante de répéter l'en-tête sur chaque page lors d'une impression de tableau long.
+
+!!! info "L'ordre historique du `<tfoot>` en HTML4"
+    En HTML4, le `<tfoot>` **devait** être écrit juste après le `<thead>`, avant le `<tbody>`. La raison : sur des modems 56k, le navigateur commençait à afficher le tableau avant d'avoir fini de le télécharger. En connaissant le pied de tableau à l'avance, il pouvait le positionner en bas pendant que le corps se chargeait.
+
+    En HTML5, cette contrainte a disparu. Quel que soit l'endroit où vous écrivez le `<tfoot>` dans votre code, **le navigateur le positionnera toujours visuellement en bas du tableau**.
+
+```html title="HTML - Tableau complet avec thead, tbody, tfoot et scope"
+<table>
+    <caption>Tableau de bord comptable — Q2 2024</caption>
+
+    <!-- En-tête fixe, répété à l'impression sur chaque page -->
+    <thead>
+        <tr>
+            <th scope="col">Employé</th>
+            <th scope="col">Ventes du mois</th>
+        </tr>
+    </thead>
+
+    <!-- Corps : la masse des données -->
+    <tbody>
+        <tr>
+            <th scope="row">Jeanne DUPONT</th>
+            <td>4 000 €</td>
+        </tr>
+        <tr>
+            <th scope="row">Marc LEFEBVRE</th>
+            <td>6 200 €</td>
+        </tr>
+    </tbody>
+
+    <!-- Pied : toujours affiché en bas quel que soit sa position dans le code -->
     <tfoot>
         <tr>
-            <th>TOTAL GENERAL</th>
-            <td>4000 €</td>
+            <th scope="row">TOTAL GÉNÉRAL</th>
+            <td>10 200 €</td>
         </tr>
     </tfoot>
 </table>
 ```
 
-<br />
+<br>
 
----
+### Styliser des colonnes entières avec `<colgroup>` et `<col>`
 
-## Fusionner la matrice : Colspan & Rowspan
+Par défaut, il est impossible d'appliquer un style CSS à une colonne entière sans styler chaque cellule individuellement. La balise `<colgroup>` avec ses enfants `<col>` résout ce problème.
 
-Si vous travaillez sur Excel, vous savez qu'un simple damier régulier ne suffit pas toujours à rendre une donnée pertinente (_Un total prend généralement toute la largeur de sa dernière ligne !_). Le HTML propose deux "absorptions" dimensionnelles.
-
-### Étendre Horizontalement (L'arme `colspan`)
-
-!!! note "L'attribut `colspan="X"` indique à la cellule ordonnée : "Étale-toi physiquement et mange goulument l'espace destiné aux X prochaines colonnes"."
-
-```html
+```html title="HTML - Colgroup et col pour styler des colonnes"
 <table>
-    <tr>
-        <th>Produit</th>
-        <th>Quantité</th>
-        <th>Prix Unitaire</th>
-    </tr>
-    <tr>
-        <!-- Cette cellule s'étend vers la DROITE pour 2 colonnes au total... 
-             Elle écrase l'espace "Quantité" sous ses pieds virtuellement. -->
-        <td colspan="2">**TOTAL DE LA FACTURE COURANTE**</td>
-        <td>150 €</td>
-    </tr>
+    <caption>Planning hebdomadaire de l'équipe</caption>
+
+    <!--
+        colgroup définit les colonnes du tableau.
+        L'attribut span indique combien de colonnes successives ce col représente.
+        On peut appliquer une classe CSS ou un style directement sur chaque col.
+    -->
+    <colgroup>
+        <col style="width: 150px;">              <!-- Colonne 1 : noms -->
+        <col class="col-weekend" span="2">        <!-- Colonnes 2-3 : lundi-mardi -->
+        <col class="col-semaine" span="3">        <!-- Colonnes 4-6 : mer-jeu-ven -->
+        <col class="col-weekend" span="2">        <!-- Colonnes 7-8 : sam-dim -->
+    </colgroup>
+
+    <thead>
+        <tr>
+            <th scope="col">Employé</th>
+            <th scope="col">Lun</th>
+            <th scope="col">Mar</th>
+            <th scope="col">Mer</th>
+            <th scope="col">Jeu</th>
+            <th scope="col">Ven</th>
+            <th scope="col">Sam</th>
+            <th scope="col">Dim</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Alice</th>
+            <td>Présente</td>
+            <td>Présente</td>
+            <td>Présente</td>
+            <td>Télétravail</td>
+            <td>Présente</td>
+            <td>—</td>
+            <td>—</td>
+        </tr>
+    </tbody>
 </table>
 ```
 
-**Représentation schématique du Colspan (Étirement à l'horizontale Axe-X) :**
+*`<colgroup>` doit se placer **après** `<caption>` et **avant** `<thead>`. L'attribut `span` sur `<col>` permet de regrouper plusieurs colonnes consécutives sous une même règle CSS.*
+
+!!! warning "Propriétés CSS limitées sur `<col>`"
+    Seules quatre propriétés CSS s'appliquent directement sur `<col>` : `background`, `border`, `visibility` et `width`. Les autres propriétés comme `color`, `padding` ou `font-size` sont ignorées — elles doivent être appliquées directement sur les cellules via une classe partagée.
+
+<br>
+
+---
+
+## Fusionner la Matrice : `colspan` et `rowspan`
+
+Un damier régulier ne suffit pas toujours pour représenter des données complexes. HTML propose deux attributs de fusion dimensionnelle.
+
+<br>
+
+### Étendre horizontalement : `colspan`
+
+`colspan="X"` ordonne à une cellule de s'étendre vers la droite en occupant l'espace de X colonnes.
+
+```html title="HTML - Fusion horizontale avec colspan"
+<table>
+    <caption>Facture de prestation — Mars 2024</caption>
+    <thead>
+        <tr>
+            <th scope="col">Prestation</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Prix unitaire</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Audit de sécurité</td>
+            <td>3 jours</td>
+            <td>1 200 €</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <!--
+                Cette cellule s'étend sur 2 colonnes (Prestation + Quantité).
+                La ligne ne contient donc plus que 2 cellules au lieu de 3.
+            -->
+            <td colspan="2">TOTAL DE LA FACTURE</td>
+            <td>3 600 €</td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+*Lorsqu'une cellule utilise `colspan="2"`, la ligne concernée ne doit contenir que N-1 cellules (où N est le nombre total de colonnes). La cellule fusionnée compte déjà pour deux.*
 
 ```mermaid
-graph TD
-    subgraph Ligne_Normale ["Ligne Standard parfaite : 3 cellules pour 3 colonnes"]
+flowchart TD
+    subgraph Ligne_Normale ["Ligne standard : 3 cellules pour 3 colonnes"]
         direction LR
         C1[Cellule 1] --- C2[Cellule 2] --- C3[Cellule 3]
     end
-    
-    subgraph Ligne_Fusionnee ["Ligne avec Colspan=2 : 2 Cellules pour 3 Colonnes !"]
+
+    subgraph Ligne_Fusionnee ["Ligne avec colspan=2 : 2 cellules pour 3 colonnes"]
         direction LR
-        F1["Cellule Énorme Fusionnée (colspan=2)<br>(Couvre l'espace 1 et 2 en même temps)"] --- F2["Cellule 3 (Restée intacte)"]
+        F1["Cellule fusionnée (colspan=2)"] --- F2["Cellule 3"]
     end
-    
-    Ligne_Normale -.->|"Application de la fusion (Colspan par dessus les colonnes)"| Ligne_Fusionnee
-    
-    style C1 fill:#fff4e1,stroke:#333
-    style C2 fill:#fff4e1,stroke:#333
-    style C3 fill:#fff4e1,stroke:#333
-    style F1 fill:#e1f5e1,stroke:#333
-    style F2 fill:#fff4e1,stroke:#333
+
+    Ligne_Normale -.->|"fusion horizontale"| Ligne_Fusionnee
 ```
 
-### Étendre Verticalement (L'arme délicate `rowspan`)
+<br>
 
-!!! note "L'attribut `rowspan="X"` est plus technique à maitriser à l'aveugle dans son code. Il ordonne à une cellule de "glisser vers le bas", de transpercer la matrice et de traverser littéralement les Lignes (`<tr>`) suivantes du code."
+### Étendre verticalement : `rowspan`
 
-```html
+`rowspan="X"` ordonne à une cellule de s'étendre vers le bas en traversant les X lignes suivantes.
+
+```html title="HTML - Fusion verticale avec rowspan"
 <table>
-    <tr>
-        <!-- Cette case fond vers le sous-sol... et s'étale sur la 2ème ligne qui suivra. -->
-        <th rowspan="2">Région Ouest de la France</th>
-        <td>Boutique Nantes</td>
-        <td>+10%</td>
-    </tr>
-    <tr>
-        <!-- ATTENTION VITAL : On n'écrit pas de cellule 'Région Ouest' ici... ! 
-             La case th du dessus a dégoulinée et pris l'espace physique du vide à gauche ! -->
-        <td>Boutique Brest</td>
-        <td>-2%</td>
-    </tr>
+    <caption>Boutiques par région — Évolution mensuelle</caption>
+    <thead>
+        <tr>
+            <th scope="col">Région</th>
+            <th scope="col">Boutique</th>
+            <th scope="col">Évolution</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <!--
+                Cette cellule s'étend sur 2 lignes vers le bas.
+                La ligne suivante ne doit PAS répéter cet en-tête :
+                la cellule fusionnée occupe déjà sa place.
+            -->
+            <th scope="rowgroup" rowspan="2">Région Ouest</th>
+            <td>Boutique Nantes</td>
+            <td>+10 %</td>
+        </tr>
+        <tr>
+            <!--
+                AUCUNE cellule "Région Ouest" ici.
+                La cellule du dessus a coulé et occupe l'espace de gauche.
+            -->
+            <td>Boutique Brest</td>
+            <td>−2 %</td>
+        </tr>
+        <tr>
+            <th scope="rowgroup" rowspan="2">Région Sud</th>
+            <td>Boutique Marseille</td>
+            <td>+18 %</td>
+        </tr>
+        <tr>
+            <td>Boutique Nice</td>
+            <td>+7 %</td>
+        </tr>
+    </tbody>
 </table>
 ```
-*Le secret du codeur : Quand vous utilisez un `rowspan=2`, la Ligne Suivante dans votre code source de la page `04-index.html` DOIT contenir une cellule en moins que la normale, car la grosse case supérieure à coulée pour occuper sa place vide !*
 
-<br />
+!!! warning "La cellule manquante obligatoire avec rowspan"
+    Lorsque vous utilisez `rowspan="2"`, la ligne **suivante** dans votre code source doit contenir **une cellule de moins** que la normale. La cellule fusionnée du dessus a déjà pris l'espace de cette position. Si vous écrivez quand même une cellule à cet endroit, le tableau déborde et la mise en page est corrompue.
+
+<br>
 
 ---
 
-## Conclusion et Synthèse
+## Conclusion
 
-Les listes et les tableaux sont des outils purement sémantiques et structurels. Une liste bien formée permet une navigation claire, tandis qu'un tableau matriciel doté de `<caption>`, `<thead>`, `<tbody>` et `<tfoot>` est impératif pour une donnée statistique respectueuse des normes d'accessibilité.
+!!! quote "Ce qu'il faut retenir de ce module"
+    Les listes (`<ul>`, `<ol>`, `<dl>`) et les listes imbriquées structurent les données sérielles avec une sémantique précise. Les tableaux (`<table>`) sont réservés exclusivement aux données tabulaires croisées — jamais au design visuel. Un tableau accessible exige impérativement un `<caption>`, des `<th>` avec `scope`, et une structure `<thead>` / `<tbody>` / `<tfoot>`. `<colgroup>` et `<col>` permettent de styler des colonnes entières. `colspan` et `rowspan` fusionnent les cellules horizontalement et verticalement.
 
-> Dans le module suivant, nous apprendrons à doter nos pages de la mécanique la plus complexe du HTML pour échanger de la donnée avec l'utilisateur final : **Les Formulaires et leurs dizaines d'états temporels de soumissions.**
+> Dans le module suivant, nous apprendrons à doter nos pages de la mécanique la plus complexe du HTML pour échanger de la donnée avec l'utilisateur final : **les Formulaires**, avec leurs champs de saisie, leurs validations natives et leurs méthodes d'envoi.
 
-<br />
+<br>
 
-
-[^1]: Le **W3C (World Wide Web Consortium)** est une organisation internationale qui définit et standardise les technologies fondamentales du Web — comme HTML, CSS ou les normes d’accessibilité — afin de garantir l’interopérabilité, la compatibilité et l’évolution ouverte du Web.
+[^1]: Le **W3C (World Wide Web Consortium)** est une organisation internationale qui définit et standardise les technologies fondamentales du Web — comme HTML, CSS ou les normes d'accessibilité — afin de garantir l'interopérabilité, la compatibilité et l'évolution ouverte du Web.

@@ -581,7 +581,7 @@ Pour les professionnels de la cybersécurité en entreprise, l'ANSSI constitue u
 **Workflow type de traitement d'une alerte critique :**
 
 ```mermaid
-graph TD
+flowchart TD
     A[Réception alerte<br/>CERT-FR] --> B{Concerne nos<br/>systèmes ?}
     B -->|NON| C[Classement pour<br/>information]
     B -->|OUI| D{Correctif<br/>disponible ?}
@@ -680,7 +680,7 @@ L'ANSSI s'inscrit dans un **écosystème coordonné** d'acteurs publics et priv�
 **Processus de signalement :**
 
 ```mermaid
-graph TD
+flowchart TD
     A[Victime de<br/>cyberattaque] --> B{Type de<br/>victime ?}
     B -->|Particulier, TPE/PME| C[Signalement sur<br/>cybermalveillance.gouv.fr]
     B -->|OIV, OSE, État| D[Signalement au<br/>CERT-FR]

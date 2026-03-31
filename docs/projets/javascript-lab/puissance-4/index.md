@@ -27,7 +27,7 @@ Ce projet est la parfaite illustration du motif algorithmique MVC (Modèle, Vue,
 Contrairement au projet Todolist, le Cerveau (La matrice 6x7) va piloter intensément la Vue (Le Flex/Grid CSS des trous bleus).
 
 ```mermaid
-graph TD
+flowchart TD
     A[Joueur Clique (Colonne 3)] --> B(Vérifier si colonne pleine)
     B -->|Oui| C[Ignorer]
     B -->|Non| D(Trouver ligne la plus basse Y)

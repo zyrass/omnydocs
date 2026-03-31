@@ -156,10 +156,7 @@
             
 <!-- Add announcement here, including arbitrary HTML -->
 <small>
-    <em
-        >Cette documentation est en pleine conception, c'est normal qu'elle soit
-        encors si faible au niveau du contenu</em
-    >
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
 </small>
 
           </div>
@@ -731,6 +728,8 @@
       
         
       
+        
+      
     
     
     
@@ -889,6 +888,8 @@
       
         
           
+        
+      
         
       
         
@@ -1135,16 +1136,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#le-chargement-differe-natif-loadinglazy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le chargement différé natif (loading="lazy")
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-choix-cornelien-des-formats-dimages" class="md-nav__link">
+  <a href="#le-choix-des-formats-dimages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le choix cornélien des Formats d'images
+        Le choix des Formats d'Images
       
     </span>
   </a>
@@ -1152,22 +1164,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-responsive-et-la-picture-art-direction" class="md-nav__link">
+  <a href="#le-responsive-et-lart-direction-srcset-et-picture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Responsive et la "Picture Art Direction"
+        Le Responsive et l'Art Direction (srcset et &lt;picture&gt;)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Le Responsive et la &quot;Picture Art Direction&quot;">
+    <nav class="md-nav" aria-label="Le Responsive et l&#x27;Art Direction (srcset et &lt;picture&gt;)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#proposer-un-buffet-dimages-au-navigateur" class="md-nav__link">
+  <a href="#proposer-des-tailles-adaptees-avec-srcset" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Proposer un buffet d'images au navigateur
+        Proposer des tailles adaptées avec srcset
       
     </span>
   </a>
@@ -1175,10 +1187,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-balise-experte-picture" class="md-nav__link">
+  <a href="#controle-total-avec-picture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La balise experte &lt;picture&gt;
+        Contrôle total avec &lt;picture&gt;
       
     </span>
   </a>
@@ -1191,10 +1203,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#legender-officiellement-une-image-figure" class="md-nav__link">
+  <a href="#legender-une-image" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Légender officiellement une image (&lt;figure&gt;)
+        Légender une image
       
     </span>
   </a>
@@ -1202,15 +1214,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#la-revolution-multimedia-audio-video" class="md-nav__link">
+  <a href="#les-images-cliquables-et-les-cartes-map-et-area" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Révolution Multimédia (Audio &amp; Vidéo)
+        Les Images Cliquables et les Cartes (&lt;map&gt; et &lt;area&gt;)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="La Révolution Multimédia (Audio &amp; Vidéo)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-revolution-multimedia-audio-et-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Révolution Multimédia : Audio et Vidéo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La Révolution Multimédia : Audio et Vidéo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1225,10 +1248,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-puissant-lecteur-video-video" class="md-nav__link">
+  <a href="#le-lecteur-video-video" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le puissant lecteur Vidéo (&lt;video&gt;)
+        Le lecteur Vidéo (&lt;video&gt;)
       
     </span>
   </a>
@@ -1241,10 +1264,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion et Synthèse
+        Conclusion
       
     </span>
   </a>
@@ -1337,6 +1360,36 @@
     
   
     Sémantique HTML5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-elements-interactifs-natifs/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Éléments Interactifs Natifs
   
 
     
@@ -2117,6 +2170,176 @@
       
         
       
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mobile/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement Mobile
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Développement Mobile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../mobile/swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift — Le Langage
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
         
       
         
@@ -2145,7 +2368,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2167,14 +2390,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2381,7 +2604,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2403,14 +2626,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2609,7 +2832,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2631,14 +2854,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2977,7 +3200,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2999,14 +3222,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3718,16 +3941,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#le-chargement-differe-natif-loadinglazy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le chargement différé natif (loading="lazy")
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-choix-cornelien-des-formats-dimages" class="md-nav__link">
+  <a href="#le-choix-des-formats-dimages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le choix cornélien des Formats d'images
+        Le choix des Formats d'Images
       
     </span>
   </a>
@@ -3735,22 +3969,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-responsive-et-la-picture-art-direction" class="md-nav__link">
+  <a href="#le-responsive-et-lart-direction-srcset-et-picture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Responsive et la "Picture Art Direction"
+        Le Responsive et l'Art Direction (srcset et &lt;picture&gt;)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Le Responsive et la &quot;Picture Art Direction&quot;">
+    <nav class="md-nav" aria-label="Le Responsive et l&#x27;Art Direction (srcset et &lt;picture&gt;)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#proposer-un-buffet-dimages-au-navigateur" class="md-nav__link">
+  <a href="#proposer-des-tailles-adaptees-avec-srcset" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Proposer un buffet d'images au navigateur
+        Proposer des tailles adaptées avec srcset
       
     </span>
   </a>
@@ -3758,10 +3992,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-balise-experte-picture" class="md-nav__link">
+  <a href="#controle-total-avec-picture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La balise experte &lt;picture&gt;
+        Contrôle total avec &lt;picture&gt;
       
     </span>
   </a>
@@ -3774,10 +4008,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#legender-officiellement-une-image-figure" class="md-nav__link">
+  <a href="#legender-une-image" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Légender officiellement une image (&lt;figure&gt;)
+        Légender une image
       
     </span>
   </a>
@@ -3785,15 +4019,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#la-revolution-multimedia-audio-video" class="md-nav__link">
+  <a href="#les-images-cliquables-et-les-cartes-map-et-area" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Révolution Multimédia (Audio &amp; Vidéo)
+        Les Images Cliquables et les Cartes (&lt;map&gt; et &lt;area&gt;)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="La Révolution Multimédia (Audio &amp; Vidéo)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-revolution-multimedia-audio-et-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Révolution Multimédia : Audio et Vidéo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La Révolution Multimédia : Audio et Vidéo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3808,10 +4053,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-puissant-lecteur-video-video" class="md-nav__link">
+  <a href="#le-lecteur-video-video" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le puissant lecteur Vidéo (&lt;video&gt;)
+        Le lecteur Vidéo (&lt;video&gt;)
       
     </span>
   </a>
@@ -3824,10 +4069,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion et Synthèse
+        Conclusion
       
     </span>
   </a>
@@ -3937,166 +4182,341 @@
 <p><div
   class="omny-meta"
   data-level="🟢 Débutant"
-  data-version="1.0"
+  data-version="1.1"
   data-time="2-3 heures">
 </div>
 </p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">Analogie pédagogique - Le Web Devient Visuel</p>
-<p>Imaginez un <strong>magazine</strong> : sans photos, sans illustrations, juste du texte noir sur blanc. Ennuyeux, non ? Sur le web, c'est pareil : une page sans images est comme un livre sans illustrations. </p>
-<p>Cependant, intégrer une image sur le web, ce n'est pas comme copier-coller dans Word ! Il va falloir aborder les <strong>formats</strong> (JPEG, WebP, SVG), <strong>les résolutions</strong> adaptatives pour mobile, et le concept <strong>d'accessibilité</strong> pour que les logiciels de synthèse vocale puissent littéralement "lire" vos images aux non-voyants.</p>
+<p>Imaginez un <strong>magazine</strong> : sans photos, sans illustrations, juste du texte noir sur blanc. Ennuyeux, non ? Sur le web, c'est pareil : une page sans images est comme un livre sans illustrations.</p>
+<p>Cependant, intégrer une image sur le web, ce n'est pas comme copier-coller dans Word. Il faut aborder les <strong>formats</strong> (JPEG, WebP, AVIF, SVG), <strong>les résolutions adaptatives</strong> pour mobile, et le concept <strong>d'accessibilité</strong> pour que les logiciels de synthèse vocale puissent littéralement "lire" vos images aux personnes malvoyantes.</p>
 </div>
-<p>Ce module vous apprend à intégrer images, audio et vidéo comme un véritable professionnel : de manière rapide, attrayante et accessible.</p>
-<p><br /></p>
+<p>Ce module vous apprend à intégrer images, audio et vidéo comme un professionnel : de manière performante, attrayante et accessible.</p>
+<p><br></p>
 <hr />
 <h2 id="lintegration-classique-dimages">L'intégration classique d'Images<a class="headerlink" href="#lintegration-classique-dimages" title="Permanent link">&para;</a></h2>
-<p>La balise ultime pour appeler une photo est la célèbre orpheline <code>&lt;img&gt;</code>. Elle a absoluement besoin d'un attribut source (<code>src</code>) pour pointer vers le bon fichier sur votre disque ou sur le web, et d'un attribut de texte alternatif (<code>alt</code>) pour la description vocale de sécurité.</p>
+<p>La balise de référence pour afficher une image est la balise orpheline <code>&lt;img&gt;</code>. Elle requiert obligatoirement un attribut source (<code>src</code>) pour pointer vers le fichier, et un attribut de texte alternatif (<code>alt</code>) pour l'accessibilité.</p>
+<p><br></p>
 <h3 id="la-structure-de-base">La structure de base<a class="headerlink" href="#la-structure-de-base" title="Permanent link">&para;</a></h3>
-<div class="language-html highlight"><span class="filename">Code HTML - Intégration d'une image simple</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">&lt;!-- Une image minimale, mais accessible --&gt;</span>
+<div class="language-html highlight"><span class="filename">HTML - Intégration d'une image accessible</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">&lt;!-- Une image minimale conforme aux standards d&#39;accessibilité --&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;photo-vacances.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Coucher de soleil écarlate sur la plage de Nice&quot;</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <ul>
-<li><strong><code>src="..."</code></strong> : Le chemin vers votre fichier. </li>
-<li><strong><code>alt="..."</code></strong> : Si l'image ne charge pas, ou si le visiteur est malvoyant, le navigateur affichera ou lira ce texte alternatif à la place de l'image. (⚠️ S'orienter vers une description contextuelle, n'écrivez jamais <em>alt="Image"</em>).</li>
+<li><strong><code>src="..."</code></strong> : Le chemin vers votre fichier image (relatif ou absolu).</li>
+<li><strong><code>alt="..."</code></strong> : Si l'image ne charge pas, ou si le visiteur utilise un lecteur d'écran, ce texte est lu ou affiché à la place. Toujours écrire une description contextuelle — jamais <code>alt="Image"</code> ou <code>alt=""</code> sur une image porteuse de sens.</li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Quand laisser l'attribut <code>alt</code> vide ?</p>
+<p>Si l'image est <strong>purement décorative</strong> (un séparateur visuel, un fond, une bordure graphique), vous devez quand même écrire l'attribut <code>alt</code>, mais avec une valeur vide : <code>alt=""</code>. Cela indique au lecteur d'écran d'ignorer complètement l'élément. Omettre l'attribut <code>alt</code> est une erreur d'accessibilité.</p>
+</div>
+<p><br></p>
 <h3 id="la-gestion-du-layout-shift">La gestion du Layout Shift<a class="headerlink" href="#la-gestion-du-layout-shift" title="Permanent link">&para;</a></h3>
-<p>Lorsqu'un réseau est lent, le navigateur télécharge le texte très vite, puis le texte est d'un coup poussé vers le bas quand la lourde image finit par s'afficher. Pour éviter ce "saut" très dérangent, on doit explicitement réserver le bon espace visuel à l'avance grâce à  <code>width</code> et <code>height</code>.</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Prévention du Layout Shift</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">&lt;!-- Le navigateur réservera un encart vide de 800x600px en attendant l&#39;image ! --&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">&lt;</span><span class="nt">img</span> 
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="na">src</span><span class="o">=</span><span class="s">&quot;photo.jpg&quot;</span> 
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Photo de paysage&quot;</span>
+<p>Lorsqu'un réseau est lent, le navigateur télécharge le texte très rapidement, puis le contenu est brutalement repoussé vers le bas quand l'image finit par s'afficher. Pour prévenir ce "saut" désagréable, on réserve l'espace visuel à l'avance grâce à <code>width</code> et <code>height</code>.</p>
+<div class="language-html highlight"><span class="filename">HTML - Prévention du Layout Shift avec dimensions explicites</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">&lt;!-- Le navigateur réservera un encart vide de 800x600px en attendant l&#39;image --&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">&lt;</span><span class="nt">img</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="na">src</span><span class="o">=</span><span class="s">&quot;photo.jpg&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Vue panoramique du Mont-Blanc depuis Chamonix&quot;</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="na">width</span><span class="o">=</span><span class="s">&quot;800&quot;</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="na">height</span><span class="o">=</span><span class="s">&quot;600&quot;</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">&gt;</span>
 </span></code></pre></div>
+<p><em>Les attributs <code>width</code> et <code>height</code> permettent au navigateur de calculer le ratio de l'image avant même de l'avoir téléchargée, et de réserver l'espace correspondant dans la mise en page.</em></p>
 <div class="admonition info">
-<p class="admonition-title">Prévenir les 'sauts' de page</p>
-<p>Si vous ne spécifiez pas <code>width</code> et <code>height</code>, le navigateur Web ne connaîtra l'encombrement de l'image <strong>qu'après l'avoir téléchargée</strong>. Résultat : le texte sera brutalement repoussé vers le bas pendant la lecture de votre utilisateur. Renseigner les dimensions permet de créer un "fantôme invisible" de la bonne taille dès la première seconde.</p>
+<p class="admonition-title">Layout Shift et score de performance</p>
+<p>Le Layout Shift (déplacement de mise en page) est mesuré par la métrique <strong>CLS (Cumulative Layout Shift)</strong> des Core Web Vitals de Google. Un CLS élevé pénalise directement le référencement naturel de votre site. Renseigner systématiquement <code>width</code> et <code>height</code> est l'une des corrections les plus simples pour améliorer ce score.</p>
 </div>
-<p><br /></p>
+<p><br></p>
+<h3 id="le-chargement-differe-natif-loadinglazy">Le chargement différé natif (<code>loading="lazy"</code>)<a class="headerlink" href="#le-chargement-differe-natif-loadinglazy" title="Permanent link">&para;</a></h3>
+<p>Par défaut, le navigateur télécharge <strong>toutes</strong> les images d'une page au chargement, même celles en bas de page que l'utilisateur ne verra peut-être jamais. L'attribut <code>loading="lazy"</code> remédie à cela nativement, sans aucune bibliothèque JavaScript.</p>
+<div class="language-html highlight"><span class="filename">HTML - Chargement différé avec loading lazy</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- Le navigateur ne télécharge cette image que lorsqu&#39;elle approche du viewport --&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">img</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="na">src</span><span class="o">=</span><span class="s">&quot;photo.jpg&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Portrait de l&#39;équipe lors du séminaire 2024&quot;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="na">width</span><span class="o">=</span><span class="s">&quot;800&quot;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="na">height</span><span class="o">=</span><span class="s">&quot;600&quot;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="na">loading</span><span class="o">=</span><span class="s">&quot;lazy&quot;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em><code>loading="lazy"</code> indique au navigateur de différer le téléchargement de l'image jusqu'à ce qu'elle soit sur le point d'entrer dans la zone visible de l'écran. Le résultat : un chargement initial de la page nettement plus rapide.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Ne pas utiliser <code>loading=\"lazy\"</code> sur les images critiques</p>
+<p>Les images situées <strong>au-dessus de la ligne de flottaison</strong> (visibles immédiatement à l'ouverture de la page, comme le logo ou le hero banner) ne doivent <strong>pas</strong> avoir <code>loading="lazy"</code>. Le navigateur les téléchargerait trop tard, créant un effet de retard visible. Réservez cet attribut aux images situées dans la partie basse de la page.</p>
+</div>
+<p><br></p>
 <hr />
-<h2 id="le-choix-cornelien-des-formats-dimages">Le choix cornélien des Formats d'images<a class="headerlink" href="#le-choix-cornelien-des-formats-dimages" title="Permanent link">&para;</a></h2>
-<p>Un mauvais format = un site web extrêmement lent. Choisir judicieusement va sauver la bande passante de vos internautes sur mobile. </p>
+<h2 id="le-choix-des-formats-dimages">Le choix des Formats d'Images<a class="headerlink" href="#le-choix-des-formats-dimages" title="Permanent link">&para;</a></h2>
+<p>Un mauvais format de fichier équivaut à un site excessivement lent. Choisir correctement le format en fonction du contenu visuel est une décision d'architecture qui impacte directement les performances.</p>
 <table>
 <thead>
 <tr>
 <th>Format</th>
-<th>Poids</th>
-<th>Typologie Idéale</th>
+<th>Poids relatif</th>
+<th>Transparence</th>
+<th>Cas d'usage idéal</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>JPEG</strong></td>
-<td>Classique</td>
-<td>Photographies réalistes (sans transparence).</td>
+<td>Moyen</td>
+<td>Non</td>
+<td>Photographies réalistes sans fond transparent.</td>
 </tr>
 <tr>
 <td><strong>PNG</strong></td>
 <td>Lourd</td>
-<td>Logos, illustrations simples, <em>fonds transparents</em>.</td>
+<td>Oui</td>
+<td>Logos, captures d'écran, illustrations avec transparence.</td>
 </tr>
 <tr>
 <td><strong>WebP</strong></td>
-<td><strong>Ultra Léger</strong></td>
-<td>Format Google moderne optimal pour <strong>absoluement tout</strong>.</td>
+<td>Léger</td>
+<td>Oui</td>
+<td>Remplacement moderne du JPEG et du PNG pour le web.</td>
+</tr>
+<tr>
+<td><strong>AVIF</strong></td>
+<td>Très léger</td>
+<td>Oui</td>
+<td>Format nouvelle génération : compression supérieure à WebP, support navigateur en progression.</td>
 </tr>
 <tr>
 <td><strong>SVG</strong></td>
-<td>KiloBites</td>
-<td>Illustrations vectorielles parfaites, code mathématique tracé par le navigateur (Infini zoom sans pixel).</td>
+<td>Minimal (kB)</td>
+<td>Oui</td>
+<td>Illustrations vectorielles, icônes, logos : qualité infinie quel que soit le zoom.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>L'Arbre de décision Web moderne :</strong></p>
-<pre class="mermaid"><code>graph TD
-    A[Type d'illustration] --&gt; B{Est-ce une Photo complexe ?}
-    B -- OUI --&gt; C(WebP ou JPEG)
-    B -- NON --&gt; D{Avez-vous besoin de transparence ?}
-    D -- OUI --&gt; E(WebP ou PNG)
-    D -- NON --&gt; F{Est-ce un Logo ultra simple ?}
+<p><strong>Arbre de décision pour le choix de format :</strong></p>
+<pre class="mermaid"><code>flowchart TD
+    A[Quel type d'image ?] --&gt; B{Photo réaliste ?}
+    B -- OUI --&gt; C{Transparence requise ?}
+    C -- OUI --&gt; D(AVIF ou WebP)
+    C -- NON --&gt; E(AVIF ou WebP ou JPEG)
+    B -- NON --&gt; F{Illustration vectorielle ?}
     F -- OUI --&gt; G(SVG)
-
-    style A fill:#e1f5e1,stroke:#333
-    style C fill:#fff4e1,stroke:#333
-    style E fill:#e1f0ff,stroke:#333
-    style G fill:#ffede1,stroke:#333</code></pre>
-<p><br /></p>
+    F -- NON --&gt; H{Transparence requise ?}
+    H -- OUI --&gt; I(AVIF ou WebP ou PNG)
+    H -- NON --&gt; J(AVIF ou WebP)</code></pre>
+<p><em>En 2025, AVIF offre la meilleure compression disponible. Pour une compatibilité maximale, combinez AVIF, WebP et JPEG en format de repli via la balise <code>&lt;picture&gt;</code> présentée ci-dessous.</em></p>
+<p><br></p>
 <hr />
-<h2 id="le-responsive-et-la-picture-art-direction">Le Responsive et la "Picture Art Direction"<a class="headerlink" href="#le-responsive-et-la-picture-art-direction" title="Permanent link">&para;</a></h2>
-<p>De nos jours un écran 4K Retina de Mac et un petit écran d'iPhone vieux de 5 ans visualisent la même page. Est-ce pertinent de la part de notre serveur distant d'envoyer l'ultralourde image 4K sur le téléphone ? Non. C'est l'Art du <code>srcset</code>.</p>
-<h3 id="proposer-un-buffet-dimages-au-navigateur">Proposer un buffet d'images au navigateur<a class="headerlink" href="#proposer-un-buffet-dimages-au-navigateur" title="Permanent link">&para;</a></h3>
-<div class="language-html highlight"><span class="filename">Code HTML - Attribut srcset</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- On compile différentes tailles, et le navigateur prendra SEUL celle qu&#39;il trouve adaptée à son écran ! --&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">img</span> 
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="na">src</span><span class="o">=</span><span class="s">&quot;photo-400.jpg&quot;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s">        photo-400.jpg 400w,</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s">        photo-800.jpg 800w,</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s">        photo-1200.jpg 1200w</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s">    &quot;</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Photo de paysage&quot;</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">&gt;</span>
+<h2 id="le-responsive-et-lart-direction-srcset-et-picture">Le Responsive et l'Art Direction (<code>srcset</code> et <code>&lt;picture&gt;</code>)<a class="headerlink" href="#le-responsive-et-lart-direction-srcset-et-picture" title="Permanent link">&para;</a></h2>
+<p>Un écran 4K Retina et un iPhone d'entrée de gamme consultent la même page. Envoyer une image 4K sur un téléphone avec une connexion limitée est un gaspillage de bande passante considérable. HTML5 fournit deux mécanismes natifs pour y remédier.</p>
+<p><br></p>
+<h3 id="proposer-des-tailles-adaptees-avec-srcset">Proposer des tailles adaptées avec <code>srcset</code><a class="headerlink" href="#proposer-des-tailles-adaptees-avec-srcset" title="Permanent link">&para;</a></h3>
+<p>L'attribut <code>srcset</code> propose <strong>plusieurs versions de la même image</strong> au navigateur, qui choisit automatiquement la plus appropriée selon la densité d'écran et la résolution disponible.</p>
+<div class="language-html highlight"><span class="filename">HTML - Attribut srcset avec plusieurs résolutions</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">&lt;!-- Le navigateur choisit seul la version la plus adaptée à l&#39;écran --&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">&lt;</span><span class="nt">img</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="na">src</span><span class="o">=</span><span class="s">&quot;photo-800.jpg&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s">        photo-400.jpg  400w,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s">        photo-800.jpg  800w,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s">        photo-1200.jpg 1200w</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="s">    &quot;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="na">sizes</span><span class="o">=</span><span class="s">&quot;(max-width: 600px) 100vw, 800px&quot;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Vue aérienne du port de Marseille&quot;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="na">width</span><span class="o">=</span><span class="s">&quot;800&quot;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="na">height</span><span class="o">=</span><span class="s">&quot;533&quot;</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="na">loading</span><span class="o">=</span><span class="s">&quot;lazy&quot;</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">&gt;</span>
 </span></code></pre></div>
+<p><em>Le <code>w</code> (pour *width</em>) indique la largeur réelle de chaque fichier. L'attribut <code>sizes</code> précise quelle largeur l'image occupera dans la mise en page selon le viewport — le navigateur combine ces deux informations pour choisir le fichier optimal.*</p>
 <div class="admonition note">
-<p class="admonition-title">Fonctionnement du <code>srcset</code></p>
-<p>Le <code>w</code> (pour <em>width</em>) indique au navigateur la largeur réelle de l'image disponible sur le serveur. Il calculera lui-même s'il est plus malin de télécharger la version 400px pour un iPhone ou la 1200px pour un grand moniteur 4K !</p>
+<p class="admonition-title">La différence entre <code>srcset</code> et <code>&lt;picture&gt;</code></p>
+<p><code>srcset</code> laisse le navigateur décider seul de la version à télécharger en fonction des caractéristiques de l'écran. <code>&lt;picture&gt;</code> vous donne un <strong>contrôle total</strong> sur cette décision, en vous permettant d'imposer un format ou un cadrage selon le contexte.</p>
 </div>
-<h3 id="la-balise-experte-picture">La balise experte <code>&lt;picture&gt;</code><a class="headerlink" href="#la-balise-experte-picture" title="Permanent link">&para;</a></h3>
-<p>Si vous souhaitez aller plus loin, c'est-à-dire carrément forcer une image "Portrait" recadrée pour le mobile et "Paysage" pour le PC (Art Direction) :</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Balise picture</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="cm">&lt;!-- Si l&#39;écran fait moins de 600px, on impose l&#39;image serrée du visage --&gt;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width: 600px)&quot;</span> <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;visage-serre-mobile.jpg&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="cm">&lt;!-- Sinon par defaut (sur grand PC PC) : --&gt;</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;bureau-complet-desktop.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Un grand bureau complet&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
+<p><br></p>
+<h3 id="controle-total-avec-picture">Contrôle total avec <code>&lt;picture&gt;</code><a class="headerlink" href="#controle-total-avec-picture" title="Permanent link">&para;</a></h3>
+<p>La balise <code>&lt;picture&gt;</code> permet deux usages distincts et complémentaires.</p>
+<p><strong>Usage 1 — Format switching (recommandé en production)</strong></p>
+<p>C'est l'usage le plus courant : proposer un format moderne (AVIF, WebP) avec un repli gracieux vers JPEG pour les navigateurs plus anciens.</p>
+<div class="language-html highlight"><span class="filename">HTML - Format switching AVIF → WebP → JPEG</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="cm">&lt;!-- Format nouvelle génération : téléchargé si le navigateur le supporte --&gt;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;photo.avif&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/avif&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="cm">&lt;!-- Format moderne : second choix si AVIF non supporté --&gt;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;photo.webp&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="cm">&lt;!-- Repli universel : toujours en dernier, supporté par 100% des navigateurs --&gt;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;photo.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Vue du Vieux-Port de Marseille au coucher du soleil&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;800&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;533&quot;</span> <span class="na">loading</span><span class="o">=</span><span class="s">&quot;lazy&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<p><br /></p>
-<hr />
-<h2 id="legender-officiellement-une-image-figure">Légender officiellement une image (<code>&lt;figure&gt;</code>)<a class="headerlink" href="#legender-officiellement-une-image-figure" title="Permanent link">&para;</a></h2>
-<p>Pendant longtemps on mettait des paragraphes en italique sous les images pour les légender. HTML5 a introduit une vraie structure sémantique professionnelle, idéale pour des articles de blog ou de presse.</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Image avec légende sémantique</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">&lt;!-- L&#39;image --&gt;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;chart.png&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Graphique de croissance trimestrielle 2024&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="cm">&lt;!-- La légende : paragraphe avec mention explicite --&gt;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Figure 1 :<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> Évolution des ventes trimestrielles en 2024.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<p><em>Le navigateur lit les <code>&lt;source&gt;</code> dans l'ordre et utilise le premier format qu'il supporte. La balise <code>&lt;img&gt;</code> finale est indispensable : elle sert à la fois de repli pour les navigateurs très anciens et porte les attributs <code>alt</code>, <code>width</code>, <code>height</code> et <code>loading</code>.</em></p>
+<p><strong>Usage 2 — Art Direction (cadrage adaptatif selon l'écran)</strong></p>
+<p>On impose une composition différente de l'image selon le type d'appareil — un plan serré sur mobile, un plan large sur desktop.</p>
+<div class="language-html highlight"><span class="filename">HTML - Art direction avec cadrage différent selon le viewport</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="cm">&lt;!-- Sur mobile (moins de 600px) : image recadrée verticalement sur le sujet --&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width: 600px)&quot;</span> <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;portrait-serre-mobile.jpg&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="cm">&lt;!-- Sur tablette et desktop : image paysage complète --&gt;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;paysage-large-desktop.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Équipe lors du lancement du produit&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;1200&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;600&quot;</span> <span class="na">loading</span><span class="o">=</span><span class="s">&quot;lazy&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<p><em>La légende est un simple paragraphe placé immédiatement après l'image. Le texte <code>alt</code> reste indispensable pour les lecteurs d'écran, tandis que le paragraphe visible fournit le contexte éditorial.</em></p>
-<p><br /></p>
+<p><br></p>
 <hr />
-<h2 id="la-revolution-multimedia-audio-video">La Révolution Multimédia (Audio &amp; Vidéo)<a class="headerlink" href="#la-revolution-multimedia-audio-video" title="Permanent link">&para;</a></h2>
-<p>Oubliez la terrible époque où il fallait installer <em>Adobe Flash Player</em>. HTML5 sait lire des médias nativement depuis tous les navigateurs avec un lecteur intégré digne de YouTube ou Spotify.</p>
+<h2 id="legender-une-image">Légender une image<a class="headerlink" href="#legender-une-image" title="Permanent link">&para;</a></h2>
+<p>Pour associer une légende visible à une image, la bonne pratique est de placer un paragraphe immédiatement après la balise <code>&lt;img&gt;</code>.</p>
+<div class="language-html highlight"><span class="filename">HTML - Image avec légende éditoriale</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">img</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="na">src</span><span class="o">=</span><span class="s">&quot;graphique-ventes-q3.png&quot;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Graphique en barres montrant une croissance de 23% des ventes au troisième trimestre 2024&quot;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="na">width</span><span class="o">=</span><span class="s">&quot;900&quot;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="na">height</span><span class="o">=</span><span class="s">&quot;500&quot;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="na">loading</span><span class="o">=</span><span class="s">&quot;lazy&quot;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">&gt;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Figure 1 — Évolution des ventes trimestrielles en 2024. Source : rapport interne Q3.<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>Le texte <code>alt</code> décrit le contenu factuel de l'image pour les lecteurs d'écran. La légende visible apporte le contexte éditorial pour les lecteurs voyants. Ces deux informations sont complémentaires et non redondantes.</em></p>
+<p><br></p>
+<hr />
+<h2 id="les-images-cliquables-et-les-cartes-map-et-area">Les Images Cliquables et les Cartes (<code>&lt;map&gt;</code> et <code>&lt;area&gt;</code>)<a class="headerlink" href="#les-images-cliquables-et-les-cartes-map-et-area" title="Permanent link">&para;</a></h2>
+<p>Une <strong>image map</strong> permet de définir plusieurs <strong>zones cliquables</strong> sur une seule et même image. Chaque zone est un lien indépendant pointant vers une destination différente. C'est une technique HTML native, sans JavaScript.</p>
+<p>L'association se fait via l'attribut <code>usemap</code> sur <code>&lt;img&gt;</code>, qui pointe vers l'<code>id</code> d'un élément <code>&lt;map&gt;</code>. Chaque zone est définie par une balise <code>&lt;area&gt;</code>.</p>
+<div class="language-html highlight"><span class="filename">HTML - Image map avec zones cliquables</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">&lt;!-- L&#39;image avec son usemap pointant vers la carte définie ci-dessous --&gt;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">&lt;</span><span class="nt">img</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="na">src</span><span class="o">=</span><span class="s">&quot;carte-france-regions.png&quot;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Carte de France avec les régions cliquables&quot;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="na">width</span><span class="o">=</span><span class="s">&quot;600&quot;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="na">height</span><span class="o">=</span><span class="s">&quot;700&quot;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="na">usemap</span><span class="o">=</span><span class="s">&quot;#carte-france&quot;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">&gt;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="cm">&lt;!-- La carte : l&#39;id doit correspondre à l&#39;usemap (sans le #) --&gt;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">&lt;</span><span class="nt">map</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;carte-france&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;carte-france&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="cm">&lt;!-- Zone rectangulaire : coords = x_gauche, y_haut, x_droite, y_bas --&gt;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="p">&lt;</span><span class="nt">area</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        <span class="na">shape</span><span class="o">=</span><span class="s">&quot;rect&quot;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="na">coords</span><span class="o">=</span><span class="s">&quot;120,80,280,200&quot;</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        <span class="na">href</span><span class="o">=</span><span class="s">&quot;/regions/bretagne&quot;</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Bretagne&quot;</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="p">&gt;</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="cm">&lt;!-- Zone circulaire : coords = x_centre, y_centre, rayon --&gt;</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="p">&lt;</span><span class="nt">area</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>        <span class="na">shape</span><span class="o">=</span><span class="s">&quot;circle&quot;</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>        <span class="na">coords</span><span class="o">=</span><span class="s">&quot;310,340,60&quot;</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>        <span class="na">href</span><span class="o">=</span><span class="s">&quot;/regions/auvergne-rhone-alpes&quot;</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>        <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Auvergne-Rhône-Alpes&quot;</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>    <span class="p">&gt;</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>    <span class="cm">&lt;!-- Zone polygonale : liste de paires x,y définissant le périmètre --&gt;</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>    <span class="p">&lt;</span><span class="nt">area</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>        <span class="na">shape</span><span class="o">=</span><span class="s">&quot;poly&quot;</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>        <span class="na">coords</span><span class="o">=</span><span class="s">&quot;200,420,260,390,310,430,270,480,200,460&quot;</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>        <span class="na">href</span><span class="o">=</span><span class="s">&quot;/regions/occitanie&quot;</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>        <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Occitanie&quot;</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>    <span class="p">&gt;</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="p">&lt;/</span><span class="nt">map</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>Les trois formes disponibles sont <code>rect</code> (rectangle), <code>circle</code> (cercle) et <code>poly</code> (polygone libre). L'attribut <code>alt</code> sur chaque <code>&lt;area&gt;</code> est obligatoire pour l'accessibilité — il joue le même rôle que le <code>alt</code> d'une image.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Les coordonnées d'une image map</p>
+<p>Les coordonnées sont exprimées en pixels à partir du coin supérieur gauche de l'image. L'outil le plus pratique pour les calculer est l'extension <strong>Image Map Generator</strong> disponible pour les principaux éditeurs de code, ou des outils en ligne comme <code>image-map.net</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Image maps et responsive design</p>
+<p>Les coordonnées d'une image map sont définies en pixels fixes et ne s'adaptent pas automatiquement si l'image est redimensionnée via CSS. En production responsive, il faut soit maintenir une taille d'image fixe, soit recalculer les coordonnées proportionnellement via JavaScript. Pour les interfaces modernes, les image maps sont souvent remplacées par des <code>&lt;div&gt;</code> positionnés en absolu sur l'image.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="la-revolution-multimedia-audio-et-video">La Révolution Multimédia : Audio et Vidéo<a class="headerlink" href="#la-revolution-multimedia-audio-et-video" title="Permanent link">&para;</a></h2>
+<p>HTML5 permet de lire des médias nativement dans le navigateur, sans plugin externe.</p>
+<p><br></p>
 <h3 id="le-lecteur-audio-audio">Le lecteur Audio (<code>&lt;audio&gt;</code>)<a class="headerlink" href="#le-lecteur-audio-audio" title="Permanent link">&para;</a></h3>
-<p>La balise possède le fameux attribut <code>controls</code> pour faire apparaître le lecteur visuel interactif (lecture, pause, volume).</p>
-<div class="language-html highlight"><span class="filename">Code HTML - balise audio</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">&lt;!-- Lecteur musical Mp3 hyper basique --&gt;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">&lt;</span><span class="nt">audio</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;mon-podcast.mp3&quot;</span> <span class="na">controls</span><span class="p">&gt;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    Votre vieux navigateur ne supporte pas l&#39;audio HTML5.
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">&lt;/</span><span class="nt">audio</span><span class="p">&gt;</span>
+<p>L'attribut <code>controls</code> déclenche l'affichage du lecteur visuel natif du navigateur (lecture, pause, volume, progression).</p>
+<div class="language-html highlight"><span class="filename">HTML - Lecteur audio avec sources multiples</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">&lt;</span><span class="nt">audio</span> <span class="na">controls</span><span class="p">&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="cm">&lt;!-- Format OGG Vorbis : meilleure compression, supporté par Firefox et Chrome --&gt;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;podcast-episode-12.ogg&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;audio/ogg&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="cm">&lt;!-- Format MP3 : repli universel supporté par tous les navigateurs modernes --&gt;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;podcast-episode-12.mp3&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;audio/mpeg&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="cm">&lt;!-- Message de repli pour les navigateurs très anciens --&gt;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Votre navigateur ne supporte pas la lecture audio HTML5.
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>       <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;podcast-episode-12.mp3&quot;</span><span class="p">&gt;</span>Télécharger le fichier MP3.<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">&lt;/</span><span class="nt">audio</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<h3 id="le-puissant-lecteur-video-video">Le puissant lecteur Vidéo (<code>&lt;video&gt;</code>)<a class="headerlink" href="#le-puissant-lecteur-video-video" title="Permanent link">&para;</a></h3>
-<p>Identique à l'audio, mais avec la gestion gracieuse de l'image d'attente/couverture (<code>poster</code>).</p>
-<div class="language-html highlight"><span class="filename">Code HTML - balise video</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">&lt;!-- Une vidéo qui présente une couverture avant clic --&gt;</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">&lt;</span><span class="nt">video</span> <span class="na">controls</span> <span class="na">poster</span><span class="o">=</span><span class="s">&quot;couverture-video.jpg&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;800&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;presentation.mp4&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;presentation.webm&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/webm&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    Désolé, votre navigateur est trop archaïque.
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+<p><em>Comme pour <code>&lt;video&gt;</code>, proposer plusieurs formats garantit une compatibilité maximale. Le navigateur utilise le premier <code>&lt;source&gt;</code> qu'il sait lire.</em></p>
+<p><strong>Attributs importants de <code>&lt;audio&gt;</code> :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Attribut</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>controls</code></td>
+<td>Affiche le lecteur visuel natif du navigateur.</td>
+</tr>
+<tr>
+<td><code>autoplay</code></td>
+<td>Lance la lecture automatiquement (désactivé par les navigateurs mobiles sans <code>muted</code>).</td>
+</tr>
+<tr>
+<td><code>loop</code></td>
+<td>Relance la lecture en boucle à la fin du fichier.</td>
+</tr>
+<tr>
+<td><code>muted</code></td>
+<td>Démarre le son coupé.</td>
+</tr>
+<tr>
+<td><code>preload</code></td>
+<td><code>auto</code>, <code>metadata</code> ou <code>none</code> — contrôle le préchargement du fichier.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="le-lecteur-video-video">Le lecteur Vidéo (<code>&lt;video&gt;</code>)<a class="headerlink" href="#le-lecteur-video-video" title="Permanent link">&para;</a></h3>
+<p>Identique à <code>&lt;audio&gt;</code> dans sa logique, enrichi de l'attribut <code>poster</code> pour afficher une image de couverture avant le démarrage de la lecture.</p>
+<div class="language-html highlight"><span class="filename">HTML - Lecteur vidéo avec sources multiples et poster</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">&lt;</span><span class="nt">video</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="na">controls</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="na">poster</span><span class="o">=</span><span class="s">&quot;couverture-presentation.jpg&quot;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="na">width</span><span class="o">=</span><span class="s">&quot;800&quot;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="na">height</span><span class="o">=</span><span class="s">&quot;450&quot;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">&gt;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="cm">&lt;!-- Format WebM : meilleure compression, natif dans Chrome et Firefox --&gt;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;presentation.webm&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/webm&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="cm">&lt;!-- Format MP4/H.264 : repli universel supporté partout --&gt;</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;presentation.mp4&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    <span class="cm">&lt;!-- Repli textuel avec lien de téléchargement --&gt;</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Votre navigateur ne supporte pas la lecture vidéo HTML5.
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>       <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;presentation.mp4&quot;</span> <span class="na">download</span><span class="p">&gt;</span>Télécharger la vidéo MP4.<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
 </span></code></pre></div>
+<p><em>L'attribut <code>poster</code> définit l'image affichée avant que l'utilisateur lance la lecture. Si omis, le navigateur affiche la première image du fichier vidéo.</em></p>
 <div class="admonition tip">
-<p class="admonition-title">Astuce de Pro (Le faux GIF)</p>
-<p>Pour simuler le comportement d'un bon vieux <code>GIF</code> animé ultra fluide, on place en réalité une vidéo mp4 très légère assourdie avec les attributs <code>autoplay</code>, <code>loop</code> et <code>muted</code>. 
-C'est environ <strong>90% moins lourd</strong> à télécharger pour vos visiteurs qu'un véritable format image <code>.gif</code> !</p>
+<p class="admonition-title">La technique du faux GIF animé</p>
+<p>Pour simuler un GIF animé avec une qualité et un poids bien supérieurs, on utilise une vidéo courte sans son avec les attributs <code>autoplay</code>, <code>loop</code>, <code>muted</code> et <code>playsinline</code> (indispensable sur iOS).</p>
+<div class="language-html highlight"><span class="filename">HTML - Remplacement performant d'un GIF animé</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">&lt;!-- Une vidéo mp4 courte pèse environ 90% moins qu&#39;un GIF équivalent --&gt;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">&lt;</span><span class="nt">video</span> <span class="na">autoplay</span> <span class="na">loop</span> <span class="na">muted</span> <span class="na">playsinline</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;600&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;400&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;animation-hero.webm&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/webm&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;animation-hero.mp4&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em><code>playsinline</code> est obligatoire sur iOS pour que la vidéo se lance dans la page sans passer en plein écran automatiquement.</em></p>
 </div>
-<p><br /></p>
+<p><br></p>
 <hr />
-<h2 id="conclusion-et-synthese">Conclusion et Synthèse<a class="headerlink" href="#conclusion-et-synthese" title="Permanent link">&para;</a></h2>
-<p>Intégrer une image ou une vidéo est d'une grande simplicité en HTML, mais le faire avec professionnalisme demande d'anticiper son "poids" web, sa "résolution mobile" (<code>srcset</code>, <code>picture</code>) et son "accessibilité" (<code>alt</code>). </p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir de ce module</p>
+<p>Intégrer des médias avec professionnalisme requiert de maîtriser trois dimensions simultanément : les <strong>performances</strong> (<code>loading="lazy"</code>, choix du format, <code>srcset</code>), l'<strong>accessibilité</strong> (attribut <code>alt</code> descriptif, <code>alt=""</code> sur les décoratifs, <code>alt</code> sur les <code>&lt;area&gt;</code>), et la <strong>compatibilité</strong> (sources multiples sur <code>&lt;audio&gt;</code> et <code>&lt;video&gt;</code>, format switching via <code>&lt;picture&gt;</code>). AVIF et WebP sont les formats de référence en 2025 — JPEG et PNG ne servent plus que de repli universel.</p>
+</div>
 <blockquote>
-<p>Dans le module suivant, nous aborderons une des structures de données les plus denses : <strong>les Listes (<code>ul</code>, <code>ol</code>) et les Tableaux (<code>table</code>)</strong>.</p>
+<p>Dans le module suivant, nous aborderons une des structures de données les plus denses du HTML : <strong>les Listes (<code>ul</code>, <code>ol</code>, <code>dl</code>) et les Tableaux matriciels</strong> (<code>caption</code>, <code>thead</code>, <code>tbody</code>, <code>tfoot</code>, <code>colspan</code>, <code>rowspan</code>).</p>
 </blockquote>
-<p><br /></p>
+<p><br></p>
 
 
   <nav class="md-tags" >

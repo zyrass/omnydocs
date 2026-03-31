@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Maîtriser les formulaires HTML : input, label, textarea, select et les types de données modernes.">
+        <meta name="description" content="Maîtriser les formulaires HTML : input, label, fieldset, datalist, validation native, textarea, select et les types modernes.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -156,10 +156,7 @@
             
 <!-- Add announcement here, including arbitrary HTML -->
 <small>
-    <em
-        >Cette documentation est en pleine conception, c'est normal qu'elle soit
-        encors si faible au niveau du contenu</em
-    >
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
 </small>
 
           </div>
@@ -731,6 +728,8 @@
       
         
       
+        
+      
     
     
     
@@ -889,6 +888,8 @@
       
         
           
+        
+      
         
       
         
@@ -1177,7 +1178,18 @@
   <a href="#get-vs-post-la-methode-denvoi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GET vs POST (La méthode d'envoi)
+        GET vs POST : la méthode d'envoi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-attributs-essentiels-de-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les attributs essentiels de &lt;form&gt;
       
     </span>
   </a>
@@ -1190,22 +1202,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-duo-indispensable-label-et-input" class="md-nav__link">
+  <a href="#le-duo-fondamental-label-et-input" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le duo indispensable : Label et Input
+        Le duo fondamental : &lt;label&gt; et &lt;input&gt;
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Le duo indispensable : Label et Input">
+    <nav class="md-nav" aria-label="Le duo fondamental : &lt;label&gt; et &lt;input&gt;">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#comment-lier-un-label-a-un-input" class="md-nav__link">
+  <a href="#lier-un-label-a-un-input" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comment lier un Label à un Input ?
+        Lier un label à un input
       
     </span>
   </a>
@@ -1213,10 +1225,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-role-crucial-de-lattribut-name" class="md-nav__link">
+  <a href="#lattribut-name-la-variable-cote-serveur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le rôle crucial de l'attribut name
+        L'attribut name : la variable côté serveur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-champs-caches-input-typehidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les champs cachés (&lt;input type="hidden"&gt;)
       
     </span>
   </a>
@@ -1229,13 +1252,113 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-types-dinput-magiques-du-html5" class="md-nav__link">
+  <a href="#les-types-dinput-html5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les types d'Input magiques du HTML5
+        Les types d'&lt;input&gt; HTML5
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Les types d&#x27;&lt;input&gt; HTML5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tableau-complet-des-types-dinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau complet des types d'input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemples-des-types-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemples des types courants
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-validation-native-html5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Validation Native HTML5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouper-et-structurer-fieldset-et-legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grouper et structurer : &lt;fieldset&gt; et &lt;legend&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autocompletion-avancee-datalist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autocomplétion avancée : &lt;datalist&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicateurs-detat-meter-et-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indicateurs d'état : &lt;meter&gt; et &lt;progress&gt;
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Indicateurs d&#x27;état : &lt;meter&gt; et &lt;progress&gt;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meter-une-mesure-dans-une-plage-connue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;meter&gt; : une mesure dans une plage connue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#progress-une-tache-en-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;progress&gt; : une tâche en cours
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1252,10 +1375,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#les-checkbox-choix-multiple" class="md-nav__link">
+  <a href="#les-cases-a-cocher-checkbox-choix-multiple" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Checkbox (Choix Multiple)
+        Les Cases à cocher (checkbox) — Choix multiple
       
     </span>
   </a>
@@ -1266,7 +1389,7 @@
   <a href="#les-boutons-radio-choix-exclusif" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Boutons Radio (Choix Exclusif)
+        Les Boutons Radio — Choix exclusif
       
     </span>
   </a>
@@ -1279,22 +1402,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-zones-de-textes-geantes-et-listes-deroulantes" class="md-nav__link">
+  <a href="#les-zones-de-texte-et-listes-deroulantes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les zones de textes géantes et listes déroulantes
+        Les Zones de Texte et Listes Déroulantes
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Les zones de textes géantes et listes déroulantes">
+    <nav class="md-nav" aria-label="Les Zones de Texte et Listes Déroulantes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-textarea" class="md-nav__link">
+  <a href="#le-textarea-zone-de-texte-multiligne" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Textarea
+        Le &lt;textarea&gt; — Zone de texte multiligne
       
     </span>
   </a>
@@ -1302,10 +1425,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-liste-deroulante-le-select" class="md-nav__link">
+  <a href="#le-select-liste-deroulante" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Liste Déroulante (Le &lt;select&gt;)
+        Le &lt;select&gt; — Liste déroulante
       
     </span>
   </a>
@@ -1318,10 +1441,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
+  <a href="#les-boutons-button" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion et Synthèse
+        Les boutons (&lt;button&gt;)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -1354,6 +1488,36 @@
     
   
     Sémantique HTML5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-elements-interactifs-natifs/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Éléments Interactifs Natifs
   
 
     
@@ -2134,6 +2298,176 @@
       
         
       
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mobile/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement Mobile
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Développement Mobile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../mobile/swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift — Le Langage
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
         
       
         
@@ -2162,7 +2496,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2184,14 +2518,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2398,7 +2732,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2420,14 +2754,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2626,7 +2960,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2648,14 +2982,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2994,7 +3328,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3016,14 +3350,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3717,7 +4051,18 @@
   <a href="#get-vs-post-la-methode-denvoi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GET vs POST (La méthode d'envoi)
+        GET vs POST : la méthode d'envoi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-attributs-essentiels-de-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les attributs essentiels de &lt;form&gt;
       
     </span>
   </a>
@@ -3730,22 +4075,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-duo-indispensable-label-et-input" class="md-nav__link">
+  <a href="#le-duo-fondamental-label-et-input" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le duo indispensable : Label et Input
+        Le duo fondamental : &lt;label&gt; et &lt;input&gt;
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Le duo indispensable : Label et Input">
+    <nav class="md-nav" aria-label="Le duo fondamental : &lt;label&gt; et &lt;input&gt;">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#comment-lier-un-label-a-un-input" class="md-nav__link">
+  <a href="#lier-un-label-a-un-input" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comment lier un Label à un Input ?
+        Lier un label à un input
       
     </span>
   </a>
@@ -3753,10 +4098,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-role-crucial-de-lattribut-name" class="md-nav__link">
+  <a href="#lattribut-name-la-variable-cote-serveur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le rôle crucial de l'attribut name
+        L'attribut name : la variable côté serveur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-champs-caches-input-typehidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les champs cachés (&lt;input type="hidden"&gt;)
       
     </span>
   </a>
@@ -3769,13 +4125,113 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-types-dinput-magiques-du-html5" class="md-nav__link">
+  <a href="#les-types-dinput-html5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les types d'Input magiques du HTML5
+        Les types d'&lt;input&gt; HTML5
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Les types d&#x27;&lt;input&gt; HTML5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tableau-complet-des-types-dinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau complet des types d'input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemples-des-types-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemples des types courants
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-validation-native-html5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Validation Native HTML5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouper-et-structurer-fieldset-et-legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grouper et structurer : &lt;fieldset&gt; et &lt;legend&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autocompletion-avancee-datalist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autocomplétion avancée : &lt;datalist&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicateurs-detat-meter-et-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indicateurs d'état : &lt;meter&gt; et &lt;progress&gt;
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Indicateurs d&#x27;état : &lt;meter&gt; et &lt;progress&gt;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meter-une-mesure-dans-une-plage-connue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;meter&gt; : une mesure dans une plage connue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#progress-une-tache-en-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;progress&gt; : une tâche en cours
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3792,10 +4248,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#les-checkbox-choix-multiple" class="md-nav__link">
+  <a href="#les-cases-a-cocher-checkbox-choix-multiple" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Checkbox (Choix Multiple)
+        Les Cases à cocher (checkbox) — Choix multiple
       
     </span>
   </a>
@@ -3806,7 +4262,7 @@
   <a href="#les-boutons-radio-choix-exclusif" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Boutons Radio (Choix Exclusif)
+        Les Boutons Radio — Choix exclusif
       
     </span>
   </a>
@@ -3819,22 +4275,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-zones-de-textes-geantes-et-listes-deroulantes" class="md-nav__link">
+  <a href="#les-zones-de-texte-et-listes-deroulantes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les zones de textes géantes et listes déroulantes
+        Les Zones de Texte et Listes Déroulantes
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Les zones de textes géantes et listes déroulantes">
+    <nav class="md-nav" aria-label="Les Zones de Texte et Listes Déroulantes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-textarea" class="md-nav__link">
+  <a href="#le-textarea-zone-de-texte-multiligne" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Textarea
+        Le &lt;textarea&gt; — Zone de texte multiligne
       
     </span>
   </a>
@@ -3842,10 +4298,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-liste-deroulante-le-select" class="md-nav__link">
+  <a href="#le-select-liste-deroulante" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Liste Déroulante (Le &lt;select&gt;)
+        Le &lt;select&gt; — Liste déroulante
       
     </span>
   </a>
@@ -3858,10 +4314,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
+  <a href="#les-boutons-button" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion et Synthèse
+        Les boutons (&lt;button&gt;)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -3971,165 +4438,659 @@
 <p><div
   class="omny-meta"
   data-level="🟡 Intermédiaire"
-  data-version="1.0"
-  data-time="2-3 heures">
+  data-version="1.1"
+  data-time="3-4 heures">
 </div>
 </p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">Analogie pédagogique - La Communication Bidirectionnelle</p>
-<p>Jusqu'à présent, vos sites Web étaient des monuments statiques : l'utilisateur consomme ce que vous lui donnez, sans jamais pouvoir interagir. Le <strong>Formulaire HTML</strong> casse ce mur. C'est l'outil universel qui permet à votre visiteur de vous <strong>envoyer</strong> de la donnée (un mail de contact, une création de compte, un paiement bancaire).</p>
-<p>Cependant, la création d'un formulaire exige une rigueur militaire côté développeur. Si vos étiquettes (<code>&lt;label&gt;</code>) sont mal configurées, les visiteurs aveugles ne sauront pas quoi remplir. Si vous choisissez le mauvais type de champ (<code>type="text"</code> au lieu de <code>type="email"</code>), les smartphones de vos lecteurs n'afficheront pas le raccourci <code>@</code> sur leur clavier natif, ruinant l'ergonomie (UX).</p>
+<p>Jusqu'à présent, vos sites Web étaient des monuments statiques : l'utilisateur consomme ce que vous lui donnez, sans jamais pouvoir interagir. Le <strong>Formulaire HTML</strong> casse ce mur. C'est l'outil universel qui permet à votre visiteur de vous <strong>envoyer</strong> de la donnée — un mail de contact, une création de compte, un paiement bancaire.</p>
+<p>La création d'un formulaire exige une rigueur technique précise. Des <code>&lt;label&gt;</code> mal configurés rendent le formulaire inutilisable pour les personnes malvoyantes. Le mauvais <code>type</code> sur un <code>&lt;input&gt;</code> prive les utilisateurs mobiles du bon clavier natif. Une validation absente côté HTML expose votre serveur à des données invalides.</p>
 </div>
-<p>Ce module vous apprend à créer des formulaires professionnels, hautement accessibles, clairs et exploitables.</p>
-<p><br /></p>
+<p>Ce module vous apprend à créer des formulaires professionnels, accessibles, validés et exploitables.</p>
+<p><br></p>
 <hr />
 <h2 id="la-balise-maitresse-form">La balise maîtresse <code>&lt;form&gt;</code><a class="headerlink" href="#la-balise-maitresse-form" title="Permanent link">&para;</a></h2>
-<p>Tout formulaire doit être enveloppé dans la balise englobante <code>&lt;form&gt;</code>. Elle agit comme une grosse enveloppe postale destinée à votre serveur Web : c'est elle qui contient les <strong>champs</strong> et décide <strong>comment</strong> envoyer le tout.</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Structure fondamentale d'un formulaire</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">&lt;!-- Un formulaire de recherche archétypique --&gt;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/recherche-produit&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;GET&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="cm">&lt;!-- C&#39;est ici que l&#39;on placera nos boutons et champs de texte ! --&gt;</span>
+<p>Tout formulaire doit être enveloppé dans la balise <code>&lt;form&gt;</code>. Elle définit <strong>comment</strong> et <strong>vers où</strong> les données seront envoyées au serveur.</p>
+<div class="language-html highlight"><span class="filename">HTML - Structure fondamentale d'un formulaire</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">&lt;!-- Un formulaire de recherche simple --&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/recherche&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;GET&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="cm">&lt;!-- Les champs et boutons se placent ici --&gt;</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<h3 id="get-vs-post-la-methode-denvoi">GET vs POST (La méthode d'envoi)<a class="headerlink" href="#get-vs-post-la-methode-denvoi" title="Permanent link">&para;</a></h3>
-<p>L'attribut <code>method</code> est vital. Il dicte comment les données vont transiter de l'ordinateur du client vers votre serveur distant.</p>
+<p><br></p>
+<h3 id="get-vs-post-la-methode-denvoi">GET vs POST : la méthode d'envoi<a class="headerlink" href="#get-vs-post-la-methode-denvoi" title="Permanent link">&para;</a></h3>
+<p>L'attribut <code>method</code> dicte comment les données transitent du navigateur vers le serveur.</p>
 <table>
 <thead>
 <tr>
 <th>Méthode</th>
 <th>Visibilité</th>
-<th>Usage strict</th>
+<th>Usage correct</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>GET</code></td>
-<td><strong>Visible</strong> dans l'URL (<code>?recherche=chaussure</code>)</td>
-<td>Uniquement pour des <strong>Filtres</strong> ou de la <strong>Recherche</strong>.</td>
+<td>Visible dans l'URL (<code>?q=chaussure</code>)</td>
+<td>Recherche, filtres, navigation — jamais pour des données sensibles.</td>
 </tr>
 <tr>
 <td><code>POST</code></td>
-<td><strong>Invisible</strong> et sécurisé (Dans le corps de requête)</td>
-<td>Données sensibles (Mots de passe, Inscriptions, Paiements).</td>
+<td>Dans le corps de la requête HTTP</td>
+<td>Mots de passe, inscriptions, paiements, tout envoi de fichier.</td>
 </tr>
 </tbody>
 </table>
-<p><br /></p>
-<hr />
-<h2 id="le-duo-indispensable-label-et-input">Le duo indispensable : Label et Input<a class="headerlink" href="#le-duo-indispensable-label-et-input" title="Permanent link">&para;</a></h2>
-<p>Une immense erreur de débutant consiste à jeter un champ de saisie vide sur l'écran en le précédant d'un simple paragraphe de texte. L'accessibilité est alors de zéro.
-Chaque champ de saisie (<code>&lt;input&gt;</code>) <strong>doit</strong> avoir une étiquette officielle associable formellement (<code>&lt;label&gt;</code>).</p>
-<h3 id="comment-lier-un-label-a-un-input">Comment lier un Label à un Input ?<a class="headerlink" href="#comment-lier-un-label-a-un-input" title="Permanent link">&para;</a></h3>
-<p>L'astuce consiste à donner un identifiant unique <code>id="X"</code> à l'Input, puis de dire au Label "Tu représentes le champ X" via <code>for="X"</code>.</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Laison Label et Input via l'ID</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/contact&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="cm">&lt;!-- 1. L&#39;étiquette officielle, liée au champ &#39;email_user&#39; --&gt;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;email_user&quot;</span><span class="p">&gt;</span>Votre Adresse E-mail :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="cm">&lt;!-- 2. Le vrai champ de saisie --&gt;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;email_user&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email_user&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="cm">&lt;!-- 3. Le bouton de validation obligatoire --&gt;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>S&#39;inscrire<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<p><br></p>
+<h3 id="les-attributs-essentiels-de-form">Les attributs essentiels de <code>&lt;form&gt;</code><a class="headerlink" href="#les-attributs-essentiels-de-form" title="Permanent link">&para;</a></h3>
+<div class="language-html highlight"><span class="filename">HTML - Attributs complets de la balise form</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">&lt;!--</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cm">    action  : URL de destination des données (chemin absolu ou relatif).</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cm">    method  : GET ou POST.</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cm">    enctype : Type d&#39;encodage. Obligatoire si le formulaire contient un input type=&quot;file&quot;.</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="cm">    novalidate : Désactive la validation native HTML5 (utile quand on gère la</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="cm">                 validation côté JavaScript ou framework).</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="cm">    autocomplete : &quot;on&quot; ou &quot;off&quot; — contrôle le remplissage automatique du navigateur.</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="cm">--&gt;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">&lt;</span><span class="nt">form</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="na">action</span><span class="o">=</span><span class="s">&quot;/profil/modifier&quot;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;off&quot;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">&gt;</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="cm">&lt;!-- Champs du formulaire --&gt;</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Bonus UX (Expérience Utilisateur)</p>
-<p>Si un visiteur clique ou tapote avec son doigt sur le texte du label "Votre Adresse E-mail", son curseur va instantanément se verrouiller <strong>sur le champ de saisie associé</strong> ! La zone de clic est ainsi décuplée et l'expérience mobile sublimée.</p>
+<div class="admonition warning">
+<p class="admonition-title">L'oubli fatal de <code>enctype</code> sur les formulaires avec fichiers</p>
+<p>Sans <code>enctype="multipart/form-data"</code>, les fichiers sélectionnés via <code>&lt;input type="file"&gt;</code> <strong>ne sont jamais envoyés au serveur</strong>. Le formulaire envoie uniquement le nom du fichier en texte, pas son contenu. C'est l'une des erreurs les plus fréquentes des développeurs débutants.</p>
 </div>
-<h3 id="le-role-crucial-de-lattribut-name">Le rôle crucial de l'attribut <code>name</code><a class="headerlink" href="#le-role-crucial-de-lattribut-name" title="Permanent link">&para;</a></h3>
-<p>Dans l'exemple ci-dessus, remarquez l'attribut <code>name="email_user"</code>. 
-L'<code>id</code> sert uniquement au design CSS et au Label. Le <code>name</code>, lui, est le <strong>nom de la variable</strong> que votre serveur PHP ou Python va recevoir ! Si vous oubliez d'écrire l'attribut <code>name</code>, l'input sera purement ignoré lors de l'envoi du formulaire par le navigateur.</p>
-<p><br /></p>
+<div class="admonition info">
+<p class="admonition-title">L'attribut <code>novalidate</code></p>
+<p>Par défaut, le navigateur valide les champs avant soumission (champs <code>required</code>, format <code>email</code>, etc.). L'attribut <code>novalidate</code> sur <code>&lt;form&gt;</code> désactive entièrement cette validation native. À utiliser uniquement quand vous prenez en charge la validation vous-même — via JavaScript, Alpine.js, ou Laravel Form Requests.</p>
+</div>
+<p><br></p>
 <hr />
-<h2 id="les-types-dinput-magiques-du-html5">Les types d'Input magiques du HTML5<a class="headerlink" href="#les-types-dinput-magiques-du-html5" title="Permanent link">&para;</a></h2>
-<p>Autrefois, tout était du stupide texte. Le HTML5 a apporté des "Types" de champs spécialisés qui déclenchent des interfaces natives selon si l'utilisateur est sur PC, Mac, iOS ou Android !</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Les nouveaux types HTML5</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- Saisie de mot de passe (les caractères se transforment en ••••) --&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;pwd&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="cm">&lt;!-- Saisie téléphonique (Ouvre le énorme clavier &#39;Chiffres&#39; sur Smartphone) --&gt;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;tel&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;telephone&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;06 12 34 56 78&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="cm">&lt;!-- Saisie de Date (Ouvre un vrai Calendrier visuel cliquable) --&gt;</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;date&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;naissance&quot;</span> <span class="na">min</span><span class="o">=</span><span class="s">&quot;1900-01-01&quot;</span> <span class="na">max</span><span class="o">=</span><span class="s">&quot;2024-12-31&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="cm">&lt;!-- Saisie numérique avec limites (Empêche l&#39;humain d&#39;entrer des lettres) --&gt;</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;age&quot;</span> <span class="na">min</span><span class="o">=</span><span class="s">&quot;18&quot;</span> <span class="na">max</span><span class="o">=</span><span class="s">&quot;100&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="cm">&lt;!-- Ouvre l&#39;explorateur de fichier natif du système pour envoyer une image --&gt;</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;avatar&quot;</span> <span class="na">accept</span><span class="o">=</span><span class="s">&quot;image/png, image/jpeg&quot;</span><span class="p">&gt;</span>
+<h2 id="le-duo-fondamental-label-et-input">Le duo fondamental : <code>&lt;label&gt;</code> et <code>&lt;input&gt;</code><a class="headerlink" href="#le-duo-fondamental-label-et-input" title="Permanent link">&para;</a></h2>
+<p>Chaque champ de saisie doit avoir une étiquette officielle. Placer un paragraphe avant un champ n'est pas une étiquette — c'est du texte décoratif sans lien sémantique.</p>
+<p><br></p>
+<h3 id="lier-un-label-a-un-input">Lier un label à un input<a class="headerlink" href="#lier-un-label-a-un-input" title="Permanent link">&para;</a></h3>
+<p>La liaison s'effectue par correspondance entre l'attribut <code>for</code> du label et l'attribut <code>id</code> de l'input.</p>
+<div class="language-html highlight"><span class="filename">HTML - Liaison label et input via id et for</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/contact&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="cm">&lt;!-- for=&quot;email_user&quot; lie ce label à l&#39;input dont l&#39;id est &quot;email_user&quot; --&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;email_user&quot;</span><span class="p">&gt;</span>Votre adresse e-mail :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="cm">&lt;!-- id=&quot;email_user&quot; reçoit le focus au clic sur le label --&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="cm">&lt;!-- name=&quot;email_user&quot; est la variable reçue par le serveur PHP/Python --&gt;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;email_user&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email_user&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>S&#39;inscrire<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<p><br /></p>
+<p><em>Cliquer sur le texte du <code>&lt;label&gt;</code> déplace le focus directement sur le champ associé. La zone de clic est ainsi élargie — particulièrement précieux sur mobile.</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Liaison implicite par imbrication</p>
+<p>Placer le <code>&lt;input&gt;</code> <strong>à l'intérieur</strong> du <code>&lt;label&gt;</code> crée une liaison automatique sans nécessiter <code>id</code> et <code>for</code>. C'est une technique valide mais qui rend le ciblage CSS moins précis.</p>
+<div class="language-html highlight"><span class="filename">HTML - Liaison implicite par imbrication</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="cm">&lt;!-- Le navigateur lie automatiquement ce label à l&#39;input qu&#39;il contient --&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    Accepter les CGU
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;cgu&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;yes&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+<p><br></p>
+<h3 id="lattribut-name-la-variable-cote-serveur">L'attribut <code>name</code> : la variable côté serveur<a class="headerlink" href="#lattribut-name-la-variable-cote-serveur" title="Permanent link">&para;</a></h3>
+<p>L'attribut <code>id</code> ne sert qu'au CSS et au <code>label</code>. C'est l'attribut <code>name</code> qui détermine le nom de la variable transmise au serveur. <strong>Sans <code>name</code>, le champ est ignoré lors de l'envoi.</strong></p>
+<div class="language-html highlight"><span class="filename">HTML - Distinction id et name</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">&lt;!--</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cm">    id=&quot;prenom&quot;   → utilisé par label for=&quot;prenom&quot; et le CSS</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cm">    name=&quot;prenom&quot; → reçu côté serveur comme $_POST[&#39;prenom&#39;] en PHP</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="cm">                    ou request(&#39;prenom&#39;) en Laravel</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="cm">--&gt;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;prenom&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;prenom&quot;</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><br></p>
+<h3 id="les-champs-caches-input-typehidden">Les champs cachés (<code>&lt;input type="hidden"&gt;</code>)<a class="headerlink" href="#les-champs-caches-input-typehidden" title="Permanent link">&para;</a></h3>
+<p>Les champs cachés transmettent des données au serveur sans les afficher à l'utilisateur. Ils sont fondamentaux en PHP et Laravel — notamment pour les tokens CSRF<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> et les identifiants d'enregistrements.</p>
+<div class="language-html highlight"><span class="filename">HTML - Champs cachés pour les tokens et identifiants</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/articles/modifier&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="cm">&lt;!-- Transmis au serveur mais invisible à l&#39;écran --&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="cm">&lt;!-- En Laravel, @csrf génère automatiquement ce type de champ --&gt;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;_token&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;abc123xyz...&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="cm">&lt;!-- L&#39;ID de l&#39;article à modifier, invisible mais transmis --&gt;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;article_id&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;42&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;titre&quot;</span><span class="p">&gt;</span>Titre de l&#39;article :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;titre&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;titre&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Enregistrer<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>Un champ <code>type="hidden"</code> est <strong>visible dans le code source</strong> de la page. Il ne convient pas pour des données réellement confidentielles — uniquement pour des identifiants techniques non sensibles.</em></p>
+<p><br></p>
+<hr />
+<h2 id="les-types-dinput-html5">Les types d'<code>&lt;input&gt;</code> HTML5<a class="headerlink" href="#les-types-dinput-html5" title="Permanent link">&para;</a></h2>
+<p>HTML5 a introduit des types de champs spécialisés qui déclenchent des interfaces natives adaptées à chaque appareil et chaque type de donnée.</p>
+<p><br></p>
+<h3 id="tableau-complet-des-types-dinput">Tableau complet des types d'input<a class="headerlink" href="#tableau-complet-des-types-dinput" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Comportement</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text</code></td>
+<td>Texte libre une ligne</td>
+<td>Nom, prénom, titre</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>Clavier avec <code>@</code> sur mobile, validation format</td>
+<td>Adresse e-mail</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>Caractères masqués en <code>••••</code></td>
+<td>Mots de passe</td>
+</tr>
+<tr>
+<td><code>tel</code></td>
+<td>Clavier numérique sur mobile</td>
+<td>Numéro de téléphone</td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td>Flèches d'incrément, valeurs min/max</td>
+<td>Âge, quantité</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>Sélecteur de calendrier natif</td>
+<td>Date de naissance, rendez-vous</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td>Sélecteur d'heure natif</td>
+<td>Heure de rendez-vous</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td>Valide le format d'URL</td>
+<td>Sites web, liens</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>Champ avec bouton d'effacement natif</td>
+<td>Barre de recherche</td>
+</tr>
+<tr>
+<td><code>range</code></td>
+<td>Curseur glissant entre min et max</td>
+<td>Volume, niveau, budget</td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td>Sélecteur de couleur natif</td>
+<td>Personnalisation</td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td>Explorateur de fichiers système</td>
+<td>Upload d'image, document</td>
+</tr>
+<tr>
+<td><code>checkbox</code></td>
+<td>Case à cocher</td>
+<td>Options multiples</td>
+</tr>
+<tr>
+<td><code>radio</code></td>
+<td>Bouton radio</td>
+<td>Choix exclusif dans un groupe</td>
+</tr>
+<tr>
+<td><code>hidden</code></td>
+<td>Invisible à l'écran</td>
+<td>Tokens, identifiants techniques</td>
+</tr>
+<tr>
+<td><code>submit</code></td>
+<td>Bouton de soumission</td>
+<td>Valider le formulaire</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="exemples-des-types-courants">Exemples des types courants<a class="headerlink" href="#exemples-des-types-courants" title="Permanent link">&para;</a></h3>
+<div class="language-html highlight"><span class="filename">HTML - Types d'input HTML5 essentiels</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">&lt;!-- Mot de passe masqué --&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;current-password&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="cm">&lt;!-- Téléphone : déclenche le clavier numérique sur mobile --&gt;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;tel&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;telephone&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;06 12 34 56 78&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="cm">&lt;!-- Date avec limites min et max --&gt;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;date&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;naissance&quot;</span> <span class="na">min</span><span class="o">=</span><span class="s">&quot;1900-01-01&quot;</span> <span class="na">max</span><span class="o">=</span><span class="s">&quot;2009-12-31&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="cm">&lt;!-- Nombre avec contraintes --&gt;</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;quantite&quot;</span> <span class="na">min</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">max</span><span class="o">=</span><span class="s">&quot;99&quot;</span> <span class="na">step</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="cm">&lt;!-- Curseur glissant --&gt;</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;range&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;budget&quot;</span> <span class="na">min</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">max</span><span class="o">=</span><span class="s">&quot;10000&quot;</span> <span class="na">step</span><span class="o">=</span><span class="s">&quot;500&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;2500&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="cm">&lt;!-- Sélecteur de couleur natif --&gt;</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;color&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;couleur_theme&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;#3b82f6&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="cm">&lt;!-- Upload de fichier avec filtre de type MIME --&gt;</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;avatar&quot;</span> <span class="na">accept</span><span class="o">=</span><span class="s">&quot;image/png, image/jpeg, image/webp&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="cm">&lt;!-- Upload multiple --&gt;</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;documents[]&quot;</span> <span class="na">accept</span><span class="o">=</span><span class="s">&quot;.pdf,.docx&quot;</span> <span class="na">multiple</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>L'attribut <code>autocomplete="current-password"</code> sur un champ mot de passe est recommandé par l'OWASP<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> : il permet aux gestionnaires de mots de passe de remplir correctement le champ, ce qui favorise l'utilisation de mots de passe forts et uniques.</em></p>
+<p><br></p>
+<hr />
+<h2 id="la-validation-native-html5">La Validation Native HTML5<a class="headerlink" href="#la-validation-native-html5" title="Permanent link">&para;</a></h2>
+<p>HTML5 offre un système de validation côté client intégré au navigateur, sans aucun JavaScript. Cette validation ne remplace pas la validation côté serveur — elle la complète.</p>
+<div class="language-html highlight"><span class="filename">HTML - Attributs de validation natifs</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/inscription&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;pseudo&quot;</span><span class="p">&gt;</span>Pseudo (3 à 20 caractères) :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="cm">&lt;!--</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="cm">        required    : le champ ne peut pas être vide à la soumission.</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="cm">        minlength   : longueur minimale autorisée.</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="cm">        maxlength   : longueur maximale autorisée.</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="cm">        pattern     : expression régulière que la valeur doit respecter.</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="cm">        title       : message affiché dans la bulle d&#39;aide native du navigateur.</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="cm">    --&gt;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="p">&lt;</span><span class="nt">input</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        <span class="na">id</span><span class="o">=</span><span class="s">&quot;pseudo&quot;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        <span class="na">name</span><span class="o">=</span><span class="s">&quot;pseudo&quot;</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        <span class="na">required</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="na">minlength</span><span class="o">=</span><span class="s">&quot;3&quot;</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;20&quot;</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        <span class="na">pattern</span><span class="o">=</span><span class="s">&quot;[a-zA-Z0-9_\-]+&quot;</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        <span class="na">title</span><span class="o">=</span><span class="s">&quot;Lettres, chiffres, tirets et underscores uniquement&quot;</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="p">&gt;</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="p">&gt;</span>E-mail :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    <span class="cm">&lt;!--</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="cm">        autocomplete=&quot;email&quot; : aide les gestionnaires de mots de passe</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="cm">        et le navigateur à proposer la bonne valeur sauvegardée.</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="cm">    --&gt;</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>    <span class="p">&lt;</span><span class="nt">input</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>        <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>        <span class="na">id</span><span class="o">=</span><span class="s">&quot;email&quot;</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>        <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>        <span class="na">required</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>        <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;email&quot;</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>    <span class="p">&gt;</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="p">&gt;</span>Mot de passe (8 caractères minimum) :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>    <span class="cm">&lt;!--</span>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="cm">        Le pattern impose : au moins une majuscule, une minuscule, un chiffre.</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="cm">    --&gt;</span>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>    <span class="p">&lt;</span><span class="nt">input</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>        <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>        <span class="na">id</span><span class="o">=</span><span class="s">&quot;password&quot;</span>
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>        <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span>
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>        <span class="na">required</span>
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>        <span class="na">minlength</span><span class="o">=</span><span class="s">&quot;8&quot;</span>
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>        <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;new-password&quot;</span>
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>    <span class="p">&gt;</span>
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Créer mon compte<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">La validation HTML5 ne remplace pas la validation serveur</p>
+<p>La validation native peut être contournée en quelques secondes par n'importe quel utilisateur (suppression de l'attribut <code>required</code> via la console du navigateur, requête HTTP directe). Elle améliore l'expérience utilisateur mais <strong>n'assure aucune sécurité</strong>. Toute donnée reçue côté serveur doit être validée indépendamment — via PHP, Laravel Form Requests, ou tout autre mécanisme serveur.</p>
+</div>
+<p><strong>Tableau des attributs de validation :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Attribut</th>
+<th>Champs concernés</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>required</code></td>
+<td>Tous</td>
+<td>Empêche la soumission si vide</td>
+</tr>
+<tr>
+<td><code>minlength</code></td>
+<td><code>text</code>, <code>password</code>, <code>textarea</code></td>
+<td>Longueur minimale</td>
+</tr>
+<tr>
+<td><code>maxlength</code></td>
+<td><code>text</code>, <code>password</code>, <code>textarea</code></td>
+<td>Longueur maximale</td>
+</tr>
+<tr>
+<td><code>min</code></td>
+<td><code>number</code>, <code>date</code>, <code>range</code></td>
+<td>Valeur minimale</td>
+</tr>
+<tr>
+<td><code>max</code></td>
+<td><code>number</code>, <code>date</code>, <code>range</code></td>
+<td>Valeur maximale</td>
+</tr>
+<tr>
+<td><code>pattern</code></td>
+<td><code>text</code>, <code>email</code>, <code>tel</code>, <code>url</code></td>
+<td>Expression régulière à respecter</td>
+</tr>
+<tr>
+<td><code>step</code></td>
+<td><code>number</code>, <code>range</code>, <code>date</code></td>
+<td>Incrément autorisé</td>
+</tr>
+<tr>
+<td><code>autocomplete</code></td>
+<td>La plupart</td>
+<td>Contrôle le remplissage automatique</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="grouper-et-structurer-fieldset-et-legend">Grouper et structurer : <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code><a class="headerlink" href="#grouper-et-structurer-fieldset-et-legend" title="Permanent link">&para;</a></h2>
+<p>La balise <code>&lt;fieldset&gt;</code> regroupe des champs liés sémantiquement et visuellement. La balise <code>&lt;legend&gt;</code> en est le titre officiel, lu en premier par les lecteurs d'écran.</p>
+<div class="language-html highlight"><span class="filename">HTML - Fieldset et legend pour structurer un formulaire complexe</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/inscription&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="cm">&lt;!-- Groupe 1 : informations personnelles --&gt;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Informations personnelles<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;prenom&quot;</span><span class="p">&gt;</span>Prénom :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;prenom&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;prenom&quot;</span> <span class="na">required</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;given-name&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nom&quot;</span><span class="p">&gt;</span>Nom :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nom&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nom&quot;</span> <span class="na">required</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;family-name&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;naissance&quot;</span><span class="p">&gt;</span>Date de naissance :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;date&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;naissance&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;naissance&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    <span class="cm">&lt;!-- Groupe 2 : informations de connexion --&gt;</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    <span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>        <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Identifiants de connexion<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;email_reg&quot;</span><span class="p">&gt;</span>E-mail :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;email_reg&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">required</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;password_reg&quot;</span><span class="p">&gt;</span>Mot de passe :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;password_reg&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">required</span> <span class="na">minlength</span><span class="o">=</span><span class="s">&quot;8&quot;</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;new-password&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>    <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>    <span class="cm">&lt;!-- Groupe 3 : préférences (fieldset peut être désactivé globalement) --&gt;</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>    <span class="p">&lt;</span><span class="nt">fieldset</span> <span class="na">disabled</span><span class="p">&gt;</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>        <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Options premium (abonnement requis)<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;theme&quot;</span><span class="p">&gt;</span>Thème favori :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;color&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;theme&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;theme&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;#3b82f6&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>    <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Créer mon compte<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>L'attribut <code>disabled</code> sur <code>&lt;fieldset&gt;</code> désactive <strong>tous</strong> les champs qu'il contient en une seule instruction. Le <code>&lt;legend&gt;</code> est annoncé par les lecteurs d'écran avant la lecture de chaque champ du groupe : "Identifiants de connexion — E-mail".</em></p>
+<p><br></p>
+<hr />
+<h2 id="autocompletion-avancee-datalist">Autocomplétion avancée : <code>&lt;datalist&gt;</code><a class="headerlink" href="#autocompletion-avancee-datalist" title="Permanent link">&para;</a></h2>
+<p>La balise <code>&lt;datalist&gt;</code> propose des suggestions à l'utilisateur pendant sa saisie, tout en lui laissant la liberté de taper une valeur non listée. C'est un hybride entre <code>&lt;input&gt;</code> et <code>&lt;select&gt;</code>.</p>
+<div class="language-html highlight"><span class="filename">HTML - Datalist pour les suggestions de saisie</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;technologie&quot;</span><span class="p">&gt;</span>Technologie principale :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="cm">&lt;!--</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="cm">    L&#39;attribut list sur l&#39;input fait le lien avec l&#39;id du datalist.</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="cm">    L&#39;utilisateur peut choisir une suggestion OU taper autre chose.</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="cm">--&gt;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">&lt;</span><span class="nt">input</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="na">id</span><span class="o">=</span><span class="s">&quot;technologie&quot;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="na">name</span><span class="o">=</span><span class="s">&quot;technologie&quot;</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="na">list</span><span class="o">=</span><span class="s">&quot;suggestions-technos&quot;</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Commencez à taper...&quot;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;off&quot;</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="p">&gt;</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="cm">&lt;!-- Les options sont les suggestions, pas des choix obligatoires --&gt;</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="p">&lt;</span><span class="nt">datalist</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;suggestions-technos&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Laravel&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Alpine.js&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Livewire&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Tailwind CSS&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Go / Gin&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Flutter / Dart&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Python&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="p">&lt;/</span><span class="nt">datalist</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>Contrairement à <code>&lt;select&gt;</code>, <code>&lt;datalist&gt;</code> ne contraint pas l'utilisateur. Si la valeur saisie ne correspond à aucune suggestion, elle est envoyée telle quelle. La validation doit donc être gérée côté serveur.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Différence fondamentale entre datalist et select</p>
+<p><code>&lt;select&gt;</code> impose un choix parmi une liste fermée. <code>&lt;datalist&gt;</code> propose des suggestions mais accepte n'importe quelle valeur libre. Pour une liste de choix obligatoire, utilisez toujours <code>&lt;select&gt;</code>.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="indicateurs-detat-meter-et-progress">Indicateurs d'état : <code>&lt;meter&gt;</code> et <code>&lt;progress&gt;</code><a class="headerlink" href="#indicateurs-detat-meter-et-progress" title="Permanent link">&para;</a></h2>
+<p>Ces deux balises affichent des valeurs numériques sous forme visuelle native, sans CSS ni JavaScript.</p>
+<p><br></p>
+<h3 id="meter-une-mesure-dans-une-plage-connue"><code>&lt;meter&gt;</code> : une mesure dans une plage connue<a class="headerlink" href="#meter-une-mesure-dans-une-plage-connue" title="Permanent link">&para;</a></h3>
+<p><code>&lt;meter&gt;</code> représente une valeur scalaire dans une plage définie — un niveau de remplissage, un score, une jauge.</p>
+<div class="language-html highlight"><span class="filename">HTML - Meter pour les jauges et mesures</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">&lt;!--</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="cm">    value  : valeur actuelle.</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="cm">    min    : valeur minimale de la plage (défaut : 0).</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="cm">    max    : valeur maximale de la plage (défaut : 1).</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="cm">    low    : seuil en dessous duquel la valeur est considérée basse.</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="cm">    high   : seuil au-dessus duquel la valeur est considérée haute.</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="cm">    optimum : valeur idéale (influence la couleur affichée par le navigateur).</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="cm">--&gt;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    Espace disque utilisé :
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="p">&lt;</span><span class="nt">meter</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        <span class="na">value</span><span class="o">=</span><span class="s">&quot;75&quot;</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>        <span class="na">min</span><span class="o">=</span><span class="s">&quot;0&quot;</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>        <span class="na">max</span><span class="o">=</span><span class="s">&quot;100&quot;</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>        <span class="na">low</span><span class="o">=</span><span class="s">&quot;50&quot;</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>        <span class="na">high</span><span class="o">=</span><span class="s">&quot;80&quot;</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        <span class="na">optimum</span><span class="o">=</span><span class="s">&quot;20&quot;</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        <span class="na">title</span><span class="o">=</span><span class="s">&quot;75 Go utilisés sur 100 Go&quot;</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    <span class="p">&gt;</span>75 Go sur 100 Go<span class="p">&lt;/</span><span class="nt">meter</span><span class="p">&gt;</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>75 %<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>    Score de sécurité du mot de passe :
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>    <span class="p">&lt;</span><span class="nt">meter</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;3&quot;</span> <span class="na">min</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">max</span><span class="o">=</span><span class="s">&quot;5&quot;</span> <span class="na">low</span><span class="o">=</span><span class="s">&quot;2&quot;</span> <span class="na">high</span><span class="o">=</span><span class="s">&quot;4&quot;</span> <span class="na">optimum</span><span class="o">=</span><span class="s">&quot;5&quot;</span><span class="p">&gt;</span>3/5<span class="p">&lt;/</span><span class="nt">meter</span><span class="p">&gt;</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>Le contenu entre les balises <code>&lt;meter&gt;</code> est le texte de repli pour les navigateurs ne supportant pas la balise. <code>optimum</code> et <code>high</code>/<code>low</code> influencent la couleur rendue par le navigateur : vert si la valeur est proche de <code>optimum</code>, orange ou rouge si elle dépasse <code>high</code> ou passe sous <code>low</code>.</em></p>
+<p><br></p>
+<h3 id="progress-une-tache-en-cours"><code>&lt;progress&gt;</code> : une tâche en cours<a class="headerlink" href="#progress-une-tache-en-cours" title="Permanent link">&para;</a></h3>
+<p><code>&lt;progress&gt;</code> représente l'avancement d'une tâche en cours — un upload, une installation, une progression dans un formulaire multi-étapes.</p>
+<div class="language-html highlight"><span class="filename">HTML - Progress pour les barres de progression</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">&lt;!--</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="cm">    Sans value : affiche une barre d&#39;animation &quot;indéterminée&quot; (chargement infini).</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="cm">    Avec value et max : affiche le pourcentage d&#39;avancement.</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="cm">--&gt;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="cm">&lt;!-- Progression déterminée : étape 2 sur 4 --&gt;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;etape&quot;</span><span class="p">&gt;</span>Progression :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">&lt;</span><span class="nt">progress</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;etape&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;2&quot;</span> <span class="na">max</span><span class="o">=</span><span class="s">&quot;4&quot;</span><span class="p">&gt;</span>Étape 2 sur 4<span class="p">&lt;/</span><span class="nt">progress</span><span class="p">&gt;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="cm">&lt;!-- Progression indéterminée : chargement en cours, durée inconnue --&gt;</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="p">&lt;</span><span class="nt">progress</span><span class="p">&gt;</span>Chargement en cours...<span class="p">&lt;/</span><span class="nt">progress</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Différence entre <code>&lt;meter&gt;</code> et <code>&lt;progress&gt;</code></p>
+<p><code>&lt;meter&gt;</code> représente une <strong>mesure statique</strong> dans une plage connue (un niveau, une jauge). <code>&lt;progress&gt;</code> représente <strong>l'avancement d'une tâche</strong> vers un objectif. Si la valeur peut baisser (comme un niveau de batterie), utilisez <code>&lt;meter&gt;</code>. Si elle ne peut qu'augmenter vers un objectif, utilisez <code>&lt;progress&gt;</code>.</p>
+</div>
+<p><br></p>
 <hr />
 <h2 id="les-choix-cases-a-cocher-et-boutons-radio">Les Choix : Cases à cocher et Boutons Radio<a class="headerlink" href="#les-choix-cases-a-cocher-et-boutons-radio" title="Permanent link">&para;</a></h2>
-<p>Comment faire quand on veut offrir un choix strict ou multiple aux utilisateurs sans qu'ils aient à écrire ?</p>
-<h3 id="les-checkbox-choix-multiple">Les Checkbox (Choix Multiple)<a class="headerlink" href="#les-checkbox-choix-multiple" title="Permanent link">&para;</a></h3>
-<p>Utiles quand on peut tout cocher à la fois (Ou ne rien cocher du tout).</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Cases à cocher multiples</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;newsletter&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;yes&quot;</span> <span class="na">checked</span><span class="p">&gt;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    M&#39;inscrire à votre newsletter mensuelle
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;cgu&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;yes&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    J&#39;indique avoir lu les CGU (Obligatoire !)
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<p><br></p>
+<h3 id="les-cases-a-cocher-checkbox-choix-multiple">Les Cases à cocher (<code>checkbox</code>) — Choix multiple<a class="headerlink" href="#les-cases-a-cocher-checkbox-choix-multiple" title="Permanent link">&para;</a></h3>
+<p>Utilisées quand l'utilisateur peut sélectionner plusieurs options simultanément ou n'en cocher aucune.</p>
+<div class="language-html highlight"><span class="filename">HTML - Cases à cocher avec fieldset et legend</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Centres d&#39;intérêt<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;interets[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;securite&quot;</span> <span class="na">checked</span><span class="p">&gt;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>        Cybersécurité
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;interets[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;dev_web&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>        Développement Web
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>    <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;interets[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;devsecops&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>        DevSecOps
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>    <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Raccourci de structuration</p>
-<p>Inverser et placer le <code>&lt;input&gt;</code> <strong>à l'intérieur</strong> du <code>&lt;label&gt;</code> est une excellente technique pour lier automatiquement l'étiquette au champ sans avoir à utiliser les fameux attributs <code>id</code> et <code>for</code>. Le navigateur comprend la fusion de lui-même !</p>
+<p><em>Notez <code>name="interets[]"</code> avec des crochets : cette convention indique au serveur PHP que plusieurs valeurs peuvent être envoyées sous le même nom, sous forme de tableau.</em></p>
+<p><br></p>
+<h3 id="les-boutons-radio-choix-exclusif">Les Boutons Radio — Choix exclusif<a class="headerlink" href="#les-boutons-radio-choix-exclusif" title="Permanent link">&para;</a></h3>
+<p>Utilisés quand une seule option est possible parmi plusieurs. Le même <code>name</code> sur tous les radio du groupe garantit l'exclusivité.</p>
+<div class="language-html highlight"><span class="filename">HTML - Boutons radio groupés avec fieldset</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Niveau d&#39;expérience<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;niveau&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;debutant&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>        Débutant
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;niveau&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;intermediaire&quot;</span> <span class="na">checked</span><span class="p">&gt;</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>        Intermédiaire
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>    <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;niveau&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;avance&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>        Avancé
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>    <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="les-zones-de-texte-et-listes-deroulantes">Les Zones de Texte et Listes Déroulantes<a class="headerlink" href="#les-zones-de-texte-et-listes-deroulantes" title="Permanent link">&para;</a></h2>
+<p><br></p>
+<h3 id="le-textarea-zone-de-texte-multiligne">Le <code>&lt;textarea&gt;</code> — Zone de texte multiligne<a class="headerlink" href="#le-textarea-zone-de-texte-multiligne" title="Permanent link">&para;</a></h3>
+<p>Contrairement à <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code> est une balise avec fermeture. Son contenu initial est le texte entre les balises d'ouverture et de fermeture.</p>
+<div class="language-html highlight"><span class="filename">HTML - Textarea multiligne avec dimensions et contraintes</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;message&quot;</span><span class="p">&gt;</span>Décrivez votre problème :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="cm">&lt;!--</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="cm">    rows    : nombre de lignes visibles (hauteur initiale).</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="cm">    cols    : nombre de colonnes visibles (largeur initiale).</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="cm">    minlength / maxlength : validation native du nombre de caractères.</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="cm">    placeholder : texte indicatif affiché quand le champ est vide.</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="cm">--&gt;</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="p">&lt;</span><span class="nt">textarea</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="na">id</span><span class="o">=</span><span class="s">&quot;message&quot;</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    <span class="na">name</span><span class="o">=</span><span class="s">&quot;message&quot;</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="na">rows</span><span class="o">=</span><span class="s">&quot;6&quot;</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    <span class="na">cols</span><span class="o">=</span><span class="s">&quot;60&quot;</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>    <span class="na">minlength</span><span class="o">=</span><span class="s">&quot;20&quot;</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;2000&quot;</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>    <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Décrivez votre situation en quelques lignes...&quot;</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>    <span class="na">required</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>La balise de fermeture <code>&lt;/textarea&gt;</code> doit être immédiatement après l'ouverture si vous ne voulez pas de texte pré-rempli. Tout espace ou retour à la ligne entre les balises apparaît dans le champ.</em></p>
+<p><br></p>
+<h3 id="le-select-liste-deroulante">Le <code>&lt;select&gt;</code> — Liste déroulante<a class="headerlink" href="#le-select-liste-deroulante" title="Permanent link">&para;</a></h3>
+<p>Idéal pour les listes fermées de nombreux choix.</p>
+<div class="language-html highlight"><span class="filename">HTML - Select avec optgroup et option sélectionnée par défaut</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;pays&quot;</span><span class="p">&gt;</span>Votre pays :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">&lt;</span><span class="nt">select</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;pays&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;pays&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="cm">&lt;!-- Option vide initiale pour forcer un choix conscient --&gt;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">disabled</span> <span class="na">selected</span><span class="p">&gt;</span>-- Choisissez votre pays --<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="p">&lt;</span><span class="nt">optgroup</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Europe&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;fr&quot;</span><span class="p">&gt;</span>France<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;be&quot;</span><span class="p">&gt;</span>Belgique<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;ch&quot;</span><span class="p">&gt;</span>Suisse<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;lu&quot;</span><span class="p">&gt;</span>Luxembourg<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>    <span class="p">&lt;/</span><span class="nt">optgroup</span><span class="p">&gt;</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>    <span class="p">&lt;</span><span class="nt">optgroup</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Amériques&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;ca&quot;</span><span class="p">&gt;</span>Canada<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;us&quot;</span><span class="p">&gt;</span>États-Unis<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>    <span class="p">&lt;/</span><span class="nt">optgroup</span><span class="p">&gt;</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>L'option <code>disabled selected</code> en tête de liste avec une valeur vide est une bonne pratique pour forcer l'utilisateur à faire un choix explicite. Sans elle, le premier pays serait sélectionné par défaut.</em></p>
+<p><strong><code>&lt;select&gt;</code> avec sélection multiple :</strong></p>
+<div class="language-html highlight"><span class="filename">HTML - Select multiple avec taille visible</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">&lt;!--</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="cm">    multiple : permet de sélectionner plusieurs options (Ctrl+clic ou Cmd+clic).</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="cm">    size     : nombre d&#39;options visibles simultanément sans scroll.</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="cm">    name[]   : notation tableau pour recevoir plusieurs valeurs côté serveur.</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="cm">--&gt;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;competences&quot;</span><span class="p">&gt;</span>Compétences (plusieurs choix possibles) :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="p">&lt;</span><span class="nt">select</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;competences&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;competences[]&quot;</span> <span class="na">multiple</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;5&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;html&quot;</span><span class="p">&gt;</span>HTML<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;css&quot;</span><span class="p">&gt;</span>CSS<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;js&quot;</span><span class="p">&gt;</span>JavaScript<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;php&quot;</span><span class="p">&gt;</span>PHP<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;go&quot;</span><span class="p">&gt;</span>Go<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="les-boutons-button">Les boutons (<code>&lt;button&gt;</code>)<a class="headerlink" href="#les-boutons-button" title="Permanent link">&para;</a></h2>
+<p>La balise <code>&lt;button&gt;</code> a trois comportements distincts selon son attribut <code>type</code>.</p>
+<div class="language-html highlight"><span class="filename">HTML - Les trois types de boutons</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">&lt;!--</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="cm">    type=&quot;submit&quot;  : (défaut) soumet le formulaire.</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="cm">    type=&quot;reset&quot;   : réinitialise tous les champs à leur valeur initiale.</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="cm">    type=&quot;button&quot;  : ne fait rien nativement — utilisé pour les actions JavaScript.</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="cm">--&gt;</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="cm">&lt;!-- Soumet le formulaire vers action/method de la balise form parente --&gt;</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Envoyer le formulaire<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="cm">&lt;!-- Remet tous les champs à leur valeur initiale --&gt;</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;reset&quot;</span><span class="p">&gt;</span>Effacer tout<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="cm">&lt;!-- Déclenche une action JavaScript sans soumettre le formulaire --&gt;</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;verifierDisponibilite()&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>    Vérifier la disponibilité
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Le piège du <code>type</code> par défaut</p>
+<p>Un <code>&lt;button&gt;</code> sans attribut <code>type</code> a le comportement <code>type="submit"</code> par défaut. Tout bouton placé à l'intérieur d'un <code>&lt;form&gt;</code>, même pour une action secondaire (afficher un aperçu, valider un champ), <strong>soumettra le formulaire</strong> si vous oubliez <code>type="button"</code>. C'est une source d'erreurs fréquente dans les formulaires Laravel avec des actions multiples.</p>
 </div>
-<h3 id="les-boutons-radio-choix-exclusif">Les Boutons Radio (Choix Exclusif)<a class="headerlink" href="#les-boutons-radio-choix-exclusif" title="Permanent link">&para;</a></h3>
-<p>Utiles quand on ne peut choisir qu'une <strong>seule</strong> option possible à l'exclusion de toutes les autres. Toute la ruse consiste à leur donner le <strong>même attribut <code>name</code></strong>.</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Choix exclusif avec les radios</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Quelle est votre taille de T-Shirt ?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cm">&lt;!-- Le navigateur comprend que ce groupe s&#39;appelle &quot;taille&quot;, </span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="cm">     cliquer sur &quot;S&quot; décochera &quot;M&quot; automatiquement. --&gt;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;taille&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;S&quot;</span><span class="p">&gt;</span> Petit (S)
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;taille&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;M&quot;</span> <span class="na">checked</span><span class="p">&gt;</span> Moyen (M)
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-</span></code></pre></div>
-<p><br /></p>
+<p><br></p>
 <hr />
-<h2 id="les-zones-de-textes-geantes-et-listes-deroulantes">Les zones de textes géantes et listes déroulantes<a class="headerlink" href="#les-zones-de-textes-geantes-et-listes-deroulantes" title="Permanent link">&para;</a></h2>
-<p>Pour offrir la possibilité d'écrire un énorme paragraphe (Un formulaire de Contact ou un Commentaire de Blog), l'<code>input</code> classique n'est pas taillé pour cela. On utilise le monstre <code>&lt;textarea&gt;</code>.</p>
-<h3 id="le-textarea">Le Textarea<a class="headerlink" href="#le-textarea" title="Permanent link">&para;</a></h3>
-<p>Contrairement à un input, le <code>textarea</code> n'est pas une balise orpheline. L'espace entre son ouverture et sa fermeture constitue sa valeur originelle à l'écran.</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Bloc de texte multi-lignes</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;message&quot;</span><span class="p">&gt;</span>Décrivez votre problème :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;message&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;message&quot;</span> <span class="na">rows</span><span class="o">=</span><span class="s">&quot;5&quot;</span> <span class="na">cols</span><span class="o">=</span><span class="s">&quot;50&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Ceci est un texte pré-rempli sur 5 lignes par défaut.
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
-</span></code></pre></div>
-<h3 id="la-liste-deroulante-le-select">La Liste Déroulante (Le <code>&lt;select&gt;</code>)<a class="headerlink" href="#la-liste-deroulante-le-select" title="Permanent link">&para;</a></h3>
-<p>Parfaite pour faire choisir un pays de résidence parmi 200 choix sans exploser la page avec 200 Boutons Radios !</p>
-<div class="language-html highlight"><span class="filename">Code HTML - Liste déroulante avec groupes</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;pays&quot;</span><span class="p">&gt;</span>Votre pays :<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">&lt;</span><span class="nt">select</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;pays&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;pays&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="cm">&lt;!-- Un regroupement de choix logique visuellement sur le menu --&gt;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="p">&lt;</span><span class="nt">optgroup</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Europe&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;fr&quot;</span><span class="p">&gt;</span>France<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;be&quot;</span><span class="p">&gt;</span>Belgique<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;ch&quot;</span><span class="p">&gt;</span>Suisse<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="p">&lt;/</span><span class="nt">optgroup</span><span class="p">&gt;</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="p">&lt;</span><span class="nt">optgroup</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Amériques&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;ca&quot;</span><span class="p">&gt;</span>Canada<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;us&quot;</span><span class="p">&gt;</span>États-Unis<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="p">&lt;/</span><span class="nt">optgroup</span><span class="p">&gt;</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
-</span></code></pre></div>
-<p><br /></p>
-<hr />
-<h2 id="conclusion-et-synthese">Conclusion et Synthèse<a class="headerlink" href="#conclusion-et-synthese" title="Permanent link">&para;</a></h2>
-<p>Les formulaires propulsent votre page Web du statut de document passif à celui de véritable application interactive. Gardez toujours en mémoire le trio de tête : la balise <code>&lt;form&gt;</code> pour encadrer, les balises <code>&lt;label&gt;</code> pour l'accessibilité humaine, et l'attribut <code>name</code> pour la liaison avec votre serveur.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir de ce module</p>
+<p>Un formulaire professionnel repose sur plusieurs couches complémentaires. La balise <code>&lt;form&gt;</code> définit la destination et la méthode d'envoi — <code>enctype="multipart/form-data"</code> est obligatoire dès qu'un fichier est attendu. Chaque champ doit avoir un <code>&lt;label&gt;</code> lié et un <code>name</code> explicite. <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> structurent les groupes de champs et améliorent l'accessibilité. La validation native HTML5 (<code>required</code>, <code>pattern</code>, <code>minlength</code>, <code>autocomplete</code>) améliore l'expérience utilisateur mais ne remplace jamais la validation côté serveur. <code>&lt;datalist&gt;</code> propose des suggestions non contraignantes. <code>&lt;meter&gt;</code> et <code>&lt;progress&gt;</code> affichent des données scalaires et d'avancement nativement.</p>
+</div>
 <blockquote>
-<p>Dans le module suivant, nous apprendrons à donner enfin un véritable sens robotique à l'intégralité du code de notre page avec <strong>L'Art du HTML5 Sémantique (<code>&lt;main&gt;</code>, <code>&lt;header&gt;</code>, etc.)</strong>.</p>
+<p>Dans le module suivant, nous donnerons enfin un sens sémantique profond à l'architecture complète de la page avec <strong>HTML5 Sémantique</strong> — les balises <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code> et <code>&lt;footer&gt;</code>.</p>
 </blockquote>
-<p><br /></p>
+<p><br></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><strong>CSRF (Cross-Site Request Forgery)</strong> : attaque par laquelle un site malveillant trompe le navigateur d'un utilisateur authentifié pour lui faire envoyer une requête non souhaitée vers un autre site. Les tokens CSRF, régénérés à chaque formulaire, permettent au serveur de vérifier que la requête provient bien d'un formulaire qu'il a lui-même généré.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><strong>OWASP (Open Web Application Security Project)</strong> : organisation internationale à but non lucratif qui publie des référentiels, outils et bonnes pratiques pour la sécurité des applications web. L'OWASP Top 10 liste les dix risques de sécurité les plus critiques des applications web.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
   <nav class="md-tags" >
@@ -4182,6 +5143,16 @@ L'<code>id</code> sert uniquement au design CSS et au Label. Le <code>name</code
       
       
         <span class="md-tag md-tag-icon">ACCESSIBILITÉ</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VALIDATION</span>
       
     
   </nav>

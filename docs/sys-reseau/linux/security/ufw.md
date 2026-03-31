@@ -216,7 +216,7 @@ Exemple serveur web :
 ### 1.4 Flux Décision UFW
 
 ```mermaid
-graph TD
+flowchart TD
     A[Paquet réseau arrive] --> B{Interface}
     B -->|INPUT| C[Règles user INPUT]
     B -->|OUTPUT| D[Règles user OUTPUT]

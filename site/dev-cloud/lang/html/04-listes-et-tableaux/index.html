@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Structurer la donnée : listes complexes (attribut type), tableaux matriciels (caption, thead/tbody/tfoot, colspan, rowspan).">
+        <meta name="description" content="Structurer la donnée : listes complexes, imbriquées, tableaux matriciels avec caption, thead/tbody/tfoot, colspan et rowspan.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -156,10 +156,7 @@
             
 <!-- Add announcement here, including arbitrary HTML -->
 <small>
-    <em
-        >Cette documentation est en pleine conception, c'est normal qu'elle soit
-        encors si faible au niveau du contenu</em
-    >
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
 </small>
 
           </div>
@@ -731,6 +728,8 @@
       
         
       
+        
+      
     
     
     
@@ -889,6 +888,8 @@
       
         
           
+        
+      
         
       
         
@@ -1132,22 +1133,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-listes-non-odonnees-et-ordonnees" class="md-nav__link">
+  <a href="#les-listes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Listes (Non-Odonnées et Ordonnées)
+        Les Listes
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Les Listes (Non-Odonnées et Ordonnées)">
+    <nav class="md-nav" aria-label="Les Listes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#la-liste-a-puces-ul-et-lattribut-type" class="md-nav__link">
+  <a href="#la-liste-a-puces-ul" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Liste à puces (&lt;ul&gt;) et l'attribut Type
+        La Liste à puces (&lt;ul&gt;)
       
     </span>
   </a>
@@ -1155,10 +1156,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-liste-numerotee-ol-et-les-valeurs-du-type" class="md-nav__link">
+  <a href="#la-liste-numerotee-ol" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Liste Numérotée (&lt;ol&gt;) et les valeurs du Type
+        La Liste Numérotée (&lt;ol&gt;)
       
     </span>
   </a>
@@ -1169,7 +1170,18 @@
   <a href="#les-listes-de-definition-dl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Listes de définition (&lt;dl&gt;)
+        Les Listes de Définition (&lt;dl&gt;)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-listes-imbriquees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les Listes Imbriquées
       
     </span>
   </a>
@@ -1185,19 +1197,30 @@
   <a href="#construire-un-tableau-matriciel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Construire un Tableau matriciel
+        Construire un Tableau Matriciel
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Construire un Tableau matriciel">
+    <nav class="md-nav" aria-label="Construire un Tableau Matriciel">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-squelette-simple-et-le-tag-unique-caption" class="md-nav__link">
+  <a href="#le-squelette-minimal-et-la-balise-caption" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Squelette simple et le tag unique &lt;caption&gt;
+        Le squelette minimal et la balise &lt;caption&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lattribut-scope-sur-th-accessibilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'attribut scope sur &lt;th&gt; (accessibilité)
       
     </span>
   </a>
@@ -1208,7 +1231,18 @@
   <a href="#la-super-structure-metier-thead-tbody-tfoot" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Super-Structure Métier (Thead, Tbody, Tfoot)
+        La Super-Structure Métier (&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#styliser-des-colonnes-entieres-avec-colgroup-et-col" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Styliser des colonnes entières avec &lt;colgroup&gt; et &lt;col&gt;
       
     </span>
   </a>
@@ -1221,22 +1255,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fusionner-la-matrice-colspan-rowspan" class="md-nav__link">
+  <a href="#fusionner-la-matrice-colspan-et-rowspan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fusionner la matrice : Colspan &amp; Rowspan
+        Fusionner la Matrice : colspan et rowspan
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Fusionner la matrice : Colspan &amp; Rowspan">
+    <nav class="md-nav" aria-label="Fusionner la Matrice : colspan et rowspan">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etendre-horizontalement-larme-colspan" class="md-nav__link">
+  <a href="#etendre-horizontalement-colspan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étendre Horizontalement (L'arme colspan)
+        Étendre horizontalement : colspan
       
     </span>
   </a>
@@ -1244,10 +1278,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#etendre-verticalement-larme-delicate-rowspan" class="md-nav__link">
+  <a href="#etendre-verticalement-rowspan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étendre Verticalement (L'arme délicate rowspan)
+        Étendre verticalement : rowspan
       
     </span>
   </a>
@@ -1260,10 +1294,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion et Synthèse
+        Conclusion
       
     </span>
   </a>
@@ -1326,6 +1360,36 @@
     
   
     Sémantique HTML5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-elements-interactifs-natifs/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Éléments Interactifs Natifs
   
 
     
@@ -2106,6 +2170,176 @@
       
         
       
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mobile/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement Mobile
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Développement Mobile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../mobile/swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift — Le Langage
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
         
       
         
@@ -2134,7 +2368,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2156,14 +2390,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2370,7 +2604,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2392,14 +2626,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2598,7 +2832,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2620,14 +2854,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2966,7 +3200,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2988,14 +3222,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3674,22 +3908,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-listes-non-odonnees-et-ordonnees" class="md-nav__link">
+  <a href="#les-listes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Listes (Non-Odonnées et Ordonnées)
+        Les Listes
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Les Listes (Non-Odonnées et Ordonnées)">
+    <nav class="md-nav" aria-label="Les Listes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#la-liste-a-puces-ul-et-lattribut-type" class="md-nav__link">
+  <a href="#la-liste-a-puces-ul" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Liste à puces (&lt;ul&gt;) et l'attribut Type
+        La Liste à puces (&lt;ul&gt;)
       
     </span>
   </a>
@@ -3697,10 +3931,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-liste-numerotee-ol-et-les-valeurs-du-type" class="md-nav__link">
+  <a href="#la-liste-numerotee-ol" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Liste Numérotée (&lt;ol&gt;) et les valeurs du Type
+        La Liste Numérotée (&lt;ol&gt;)
       
     </span>
   </a>
@@ -3711,7 +3945,18 @@
   <a href="#les-listes-de-definition-dl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Listes de définition (&lt;dl&gt;)
+        Les Listes de Définition (&lt;dl&gt;)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-listes-imbriquees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les Listes Imbriquées
       
     </span>
   </a>
@@ -3727,19 +3972,30 @@
   <a href="#construire-un-tableau-matriciel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Construire un Tableau matriciel
+        Construire un Tableau Matriciel
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Construire un Tableau matriciel">
+    <nav class="md-nav" aria-label="Construire un Tableau Matriciel">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-squelette-simple-et-le-tag-unique-caption" class="md-nav__link">
+  <a href="#le-squelette-minimal-et-la-balise-caption" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Squelette simple et le tag unique &lt;caption&gt;
+        Le squelette minimal et la balise &lt;caption&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lattribut-scope-sur-th-accessibilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'attribut scope sur &lt;th&gt; (accessibilité)
       
     </span>
   </a>
@@ -3750,7 +4006,18 @@
   <a href="#la-super-structure-metier-thead-tbody-tfoot" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Super-Structure Métier (Thead, Tbody, Tfoot)
+        La Super-Structure Métier (&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#styliser-des-colonnes-entieres-avec-colgroup-et-col" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Styliser des colonnes entières avec &lt;colgroup&gt; et &lt;col&gt;
       
     </span>
   </a>
@@ -3763,22 +4030,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fusionner-la-matrice-colspan-rowspan" class="md-nav__link">
+  <a href="#fusionner-la-matrice-colspan-et-rowspan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fusionner la matrice : Colspan &amp; Rowspan
+        Fusionner la Matrice : colspan et rowspan
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Fusionner la matrice : Colspan &amp; Rowspan">
+    <nav class="md-nav" aria-label="Fusionner la Matrice : colspan et rowspan">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etendre-horizontalement-larme-colspan" class="md-nav__link">
+  <a href="#etendre-horizontalement-colspan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étendre Horizontalement (L'arme colspan)
+        Étendre horizontalement : colspan
       
     </span>
   </a>
@@ -3786,10 +4053,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#etendre-verticalement-larme-delicate-rowspan" class="md-nav__link">
+  <a href="#etendre-verticalement-rowspan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étendre Verticalement (L'arme délicate rowspan)
+        Étendre verticalement : rowspan
       
     </span>
   </a>
@@ -3802,10 +4069,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion et Synthèse
+        Conclusion
       
     </span>
   </a>
@@ -3915,193 +4182,424 @@
 <p><div
   class="omny-meta"
   data-level="🟢 Débutant"
-  data-version="1.0"
+  data-version="1.1"
   data-time="2-3 heures">
 </div>
 </p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">Analogie pédagogique - Ranger et Organiser</p>
-<p><em>Imaginez un <strong>supermarché</strong>. Sans allées ni panneaux d'indications, ce serait le chaos total : les produits seraient jetés en vrac au sol. Les <strong>listes</strong> sont comme les rayons d'un magasin ("Fruits et légumes" via une liste à puces, ou les étapes chronologiques d'une recette via une liste ordonnée).</em></p>
+<p>Imaginez un <strong>supermarché</strong>. Sans allées ni panneaux d'indications, ce serait le chaos total : les produits seraient jetés en vrac au sol. Les <strong>listes</strong> sont comme les rayons d'un magasin ("Fruits et légumes" via une liste à puces, ou les étapes chronologiques d'une recette via une liste ordonnée).</p>
 </div>
-<div class="admonition abstract">
-<p class="admonition-title">Structurer l'Information Complexe</p>
-<p>L'organisation visuelle d'un document brut passe par le rangement de ses données sérielles. 
-Les <strong>listes</strong> ne sont pas que de simples entassements de paragraphes : elles permettent de numéroter de manière stricte (<em>avec l'attribut de style matriciel <code>type</code> comme l'alphabet ou les chiffres romains</em>), de créer des sous-menus, ou des lexiques métiers avancés (<em>listes de définitions</em>). </p>
-<p>Les <strong>tableaux</strong> sont de puissantes matrices dimensionnelles. Un tableau de données ce n'est pas juste d'écrire à la hâte des lignes (<code>&lt;tr&gt;</code>) et des cellules (<code>&lt;td&gt;</code>). Un tableau de qualité professionnelle possède des attributs sémantiques stricts : un titre officiel ancré (<code>&lt;caption&gt;</code>), une structure corporelle explicite qui ne dépend pas de l'ordre dont vous codez le HTML (<code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>), et la faculté géométrique de fusionner des cellules de haut en bas (<code>rowspan</code>) ou de gauche à droite (<code>colspan</code>). </p>
-</div>
-<p>Ce module va dans la profondeur technique des tableaux et des listes en HTML. On ne survole pas. On décortique chaque mécanisme de fusion et de comportement du navigateur.</p>
-<p><br /></p>
-<hr />
-<h2 id="les-listes-non-odonnees-et-ordonnees">Les Listes (Non-Odonnées et Ordonnées)<a class="headerlink" href="#les-listes-non-odonnees-et-ordonnees" title="Permanent link">&para;</a></h2>
-<h3 id="la-liste-a-puces-ul-et-lattribut-type">La Liste à puces (<code>&lt;ul&gt;</code>) et l'attribut Type<a class="headerlink" href="#la-liste-a-puces-ul-et-lattribut-type" title="Permanent link">&para;</a></h3>
-<p>L'Acronyme UL signifie <em>Unordered List</em>. L'ordre de ses enfants <em>List Item</em> (<code>&lt;li&gt;</code>) n'a pas d'importance sémantique. 
-Historiquement et visuellement, on peut modifier la forme de la puce directement en HTML avec l'attribut <code>type</code>. </p>
 <div class="admonition info">
-<p class="admonition-title"><strong>Bien qu'aujourd'hui, pour des raisons de séparation des pouvoirs, c'est le langage CSS qui gère le design visuel des puces</strong>.</p>
+<p class="admonition-title">Structurer l'information complexe</p>
+<p>Les <strong>listes</strong> ne sont pas que de simples entassements de paragraphes : elles permettent de numéroter avec différents systèmes (alphabet, chiffres romains), de créer des sous-menus imbriqués, ou des glossaires métiers avancés.</p>
+<p>Les <strong>tableaux</strong> sont des matrices dimensionnelles. Un tableau professionnel possède un titre officiel (<code>&lt;caption&gt;</code>), une structure corporelle explicite (<code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>), des en-têtes accessibles (<code>scope</code> sur <code>&lt;th&gt;</code>), et la faculté géométrique de fusionner des cellules (<code>colspan</code>, <code>rowspan</code>).</p>
 </div>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">&lt;!-- `type=&quot;circle&quot;` rend la puce vide, `square` la rend carrée, `disc` est le défaut (point plein). --&gt;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;square&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Des Pommes de Terre<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Des Bananes<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<p>Ce module décortique chaque mécanisme de liste et de tableau HTML. On ne survole pas.</p>
+<p><br></p>
+<hr />
+<h2 id="les-listes">Les Listes<a class="headerlink" href="#les-listes" title="Permanent link">&para;</a></h2>
+<p><br></p>
+<h3 id="la-liste-a-puces-ul">La Liste à puces (<code>&lt;ul&gt;</code>)<a class="headerlink" href="#la-liste-a-puces-ul" title="Permanent link">&para;</a></h3>
+<p>L'acronyme UL signifie <em>Unordered List</em>. L'ordre de ses éléments <code>&lt;li&gt;</code> (<em>List Item</em>) n'a pas d'importance sémantique. On l'utilise pour des énumérations dont les éléments sont interchangeables.</p>
+<div class="admonition info">
+<p class="admonition-title">L'attribut <code>type</code> sur <code>&lt;ul&gt;</code> est obsolète depuis HTML5</p>
+<p>L'attribut <code>type="circle"</code>, <code>type="square"</code> ou <code>type="disc"</code> sur <code>&lt;ul&gt;</code> était la méthode HTML4 pour changer la forme des puces. En HTML5, cette responsabilité appartient exclusivement au CSS via la propriété <code>list-style-type</code>. Ne l'utilisez plus dans le code HTML.</p>
+</div>
+<div class="language-html highlight"><span class="filename">HTML - Liste à puces non ordonnée</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Pommes de terre<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Carottes<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Oignons<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<h3 id="la-liste-numerotee-ol-et-les-valeurs-du-type">La Liste Numérotée (<code>&lt;ol&gt;</code>) et les valeurs du Type<a class="headerlink" href="#la-liste-numerotee-ol-et-les-valeurs-du-type" title="Permanent link">&para;</a></h3>
-<p>Acronyme de <em>Ordered List</em>. L'ordre est sémantiquement vital (<em>une recette par étape, un classement des 100 meilleures entreprises</em>). L'attribut <code>type</code> prend ici tout son sens pour changer le système numéraire de la liste selon vos besoins d'affichage. L'ordinateur incrémentera la suite mathématique automatiquement à chaque nouvel élément <code>&lt;li&gt;</code>.</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">&lt;!-- </span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cm">     Le type change la logique de lecture de la liste par le navigateur :</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cm">     type=&quot;I&quot; imposera des chiffres romains majuscules (I, II, III, IV...)</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cm">     type=&quot;A&quot; imposera l&#39;alphabet majuscule ordonné (A, B, C...)</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="cm">     type=&quot;a&quot; imposera l&#39;alphabet minuscule (a, b, c...)</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="cm">     type=&quot;1&quot; est le système décimal de base par défaut (1, 2, 3...) </span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="cm">--&gt;</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;A&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Préchauffer le four.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Mélanger la farine.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Cuire la préparation à 150 degrés.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+<p><br></p>
+<h3 id="la-liste-numerotee-ol">La Liste Numérotée (<code>&lt;ol&gt;</code>)<a class="headerlink" href="#la-liste-numerotee-ol" title="Permanent link">&para;</a></h3>
+<p>Acronyme de <em>Ordered List</em>. L'ordre est sémantiquement vital : une recette par étape, un classement, une procédure technique. Le navigateur incrémente automatiquement la numérotation.</p>
+<div class="language-html highlight"><span class="filename">HTML - Liste ordonnée avec système de numérotation personnalisé</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">&lt;!--</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cm">    L&#39;attribut type change le système de numérotation :</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cm">    type=&quot;1&quot; → décimal par défaut (1, 2, 3...)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cm">    type=&quot;A&quot; → alphabet majuscule (A, B, C...)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="cm">    type=&quot;a&quot; → alphabet minuscule (a, b, c...)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="cm">    type=&quot;I&quot; → chiffres romains majuscules (I, II, III...)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="cm">    type=&quot;i&quot; → chiffres romains minuscules (i, ii, iii...)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="cm">--&gt;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;A&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Préchauffer le four à 180°C.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Mélanger la farine et les œufs.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Cuire 25 minutes.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
 </span></code></pre></div>
+<p><em>L'attribut <code>type</code> sur <code>&lt;ol&gt;</code> reste valide en HTML5 — contrairement à <code>&lt;ul&gt;</code>. Il modifie le système de numérotation affiché sans affecter la valeur sémantique ordinale des éléments.</em></p>
 <div class="admonition warning">
-<p class="admonition-title"><em>Si vous inversez l'ordre des <code>&lt;li&gt;</code> de la recette : c'est un échec cuilinaire total (vous ne pouvez pas cuire un oeuf et verser de la farine froide dessus).</em></p>
+<p class="admonition-title">Respecter l'ordre dans une liste ordonnée</p>
+<p>Inverser l'ordre des <code>&lt;li&gt;</code> d'une procédure technique ou d'une recette produit un résultat incorrect. L'ordre des éléments dans un <code>&lt;ol&gt;</code> est porteur de sens : le navigateur les numérotera dans l'ordre où ils sont écrits dans le code.</p>
 </div>
-<h3 id="les-listes-de-definition-dl">Les Listes de définition (<code>&lt;dl&gt;</code>)<a class="headerlink" href="#les-listes-de-definition-dl" title="Permanent link">&para;</a></h3>
-<p>Totalement méconnues et pourtant vitales en SEO Sémantique. Elles sont spécialement conçues pour créer un <strong>Glossaire</strong>. Le bloc est composé du parent <code>&lt;dl&gt;</code> (<em>Definition List</em>), du terme ou mot-clé <code>&lt;dt&gt;</code> (<em>Definition Term</em>), et de la définition stricte du ce mot <code>&lt;dd&gt;</code> (<em>Definition Description</em>).</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>HTML<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>Langage de balisage utilisé pour structurer la colonne vertébrale des pages web.<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>CSS<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>Feuilles de style visant à maquiller et animer les balisages.<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
+<p><strong>Attributs complémentaires de <code>&lt;ol&gt;</code> :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Attribut</th>
+<th>Rôle</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>start="X"</code></td>
+<td>Démarre la numérotation à partir de X</td>
+<td><code>&lt;ol start="5"&gt;</code> commence à 5</td>
+</tr>
+<tr>
+<td><code>reversed</code></td>
+<td>Numérote en ordre décroissant</td>
+<td><code>&lt;ol reversed&gt;</code> : 3, 2, 1</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Définit le système de numérotation</td>
+<td><code>type="I"</code> pour les chiffres romains</td>
+</tr>
+</tbody>
+</table>
+<div class="language-html highlight"><span class="filename">HTML - Liste ordonnée avec start et reversed</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- Un classement qui commence au rang 4, numéroté à rebours --&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">start</span><span class="o">=</span><span class="s">&quot;6&quot;</span> <span class="na">reversed</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Bronze — Mathieu DUPONT<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>  <span class="cm">&lt;!-- Affiché : 6 --&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Argent — Sophie MARTIN<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>   <span class="cm">&lt;!-- Affiché : 5 --&gt;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Or — Laura BERNARD<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>       <span class="cm">&lt;!-- Affiché : 4 --&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<p><br /></p>
-<hr />
-<h2 id="construire-un-tableau-matriciel">Construire un Tableau matriciel<a class="headerlink" href="#construire-un-tableau-matriciel" title="Permanent link">&para;</a></h2>
-<p>La grande loi du codeur Web des années 2020 : <strong>Il est formellement interdit d'utiliser un tableau HTML pour faire du design visuel</strong> (Comme mettre vos images côtes à côtes). Un Tableau HTML est <strong>exclusivement</strong> réservé à des tableaux croisés de données (Un tarif horaire croisé à des jours, une base de données de résultats bancaires).</p>
-<h3 id="le-squelette-simple-et-le-tag-unique-caption">Le Squelette simple et le tag unique <code>&lt;caption&gt;</code><a class="headerlink" href="#le-squelette-simple-et-le-tag-unique-caption" title="Permanent link">&para;</a></h3>
-<p>Contrairement à la croyance populaire, un tableau n'a pas l'obligation d'avoir une arborescence complexe en 3 blocs. Il peut très bien n'être constitué que d'une simple balise mère <code>&lt;table&gt;</code>, constituée de lignes (<code>&lt;tr&gt;</code>) et de cellules de données brutes (<code>&lt;td&gt;</code> ou cellules de têtes en gras <code>&lt;th&gt;</code>).</p>
-<p>Cependant, <strong>pour que votre tableau ne soit pas rejeté par l'accessibilité Web</strong>, le tout premier enfant direct de <code>&lt;table&gt;</code> doit impérativement être la balise orpheline <code>&lt;caption&gt;</code>. Il s'agit du <strong>Titre</strong> officiel et sémantique du tableau (<em>Lu par les synthèses vocales pour résumer</em>).</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="cm">&lt;!-- Le `caption` se positionne obligatoirement EN PREMIER dans un `table` --&gt;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>Horaires d&#39;ouverture de la Bibliothèque<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Lundi<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span> <span class="cm">&lt;!-- En-tête : affiché en Gras et Centré par le navigateur par défaut--&gt;</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Fermé au public<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span> 
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Mardi<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>09h00 - 18h30<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<p><br></p>
+<h3 id="les-listes-de-definition-dl">Les Listes de Définition (<code>&lt;dl&gt;</code>)<a class="headerlink" href="#les-listes-de-definition-dl" title="Permanent link">&para;</a></h3>
+<p>Méconnues mais puissantes. La balise <code>&lt;dl&gt;</code> (<em>Definition List</em>) est conçue pour deux usages complémentaires : les glossaires, et les interfaces présentant des paires clé/valeur.</p>
+<div class="language-html highlight"><span class="filename">HTML - Glossaire technique avec dl, dt, dd</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">&lt;!-- Glossaire : chaque terme (dt) est suivi de sa définition (dd) --&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>HTML<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>Langage de balisage structurant la colonne vertébrale des pages web.<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>CSS<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>Feuilles de style en cascade gérant l&#39;apparence visuelle des éléments HTML.<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>JavaScript<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>Langage de programmation apportant l&#39;interactivité et le comportement dynamique.<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<h3 id="la-super-structure-metier-thead-tbody-tfoot">La Super-Structure Métier (Thead, Tbody, Tfoot)<a class="headerlink" href="#la-super-structure-metier-thead-tbody-tfoot" title="Permanent link">&para;</a></h3>
-<p>Lorsque le tableau contient des centaines de données, on le fragmente en 3 blocs stricts à la manière d'un corps humain. Cela permet au navigateur (<em>ou à l'imprimante</em>) de répéter perpétuellement son "En-Tête" sur plusieurs pages imprimées pendant qu'on scrolle le corps.</p>
-<p>Le détail fascinant de l'ingénierie du W3C<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> c'est le comportement illogique à première vue de l'ordre du <code>&lt;tfoot&gt;</code> :
-Historiquement (HTML4), le Pied de Tableau (<code>&lt;tfoot&gt;</code>) <strong>devait</strong> être écrit juste après le <code>&lt;thead&gt;</code> (donc, avant même le contenu corporel du <code>&lt;tbody&gt;</code> !), pour que le petit processeur du navigateur sache visuellement quoi prévoir de dessiner tout en bas avant d'être englouti par des milliers de lignes de textes qu'on téléchargeait sur des modems lents de 56k.
-Aujourd'hui, quoi qu'il arrive et quel que soit l'endroit où vous l'écrivez dans votre fichier source (avant, au beau milieu, ou après le TBody), <strong>le navigateur HTML le propulsera visuellement toujours tout en bas du tableau à votre écran</strong>. Vous n'avez pas à vous soucier de son ordre dans le code pour peu qui'l soit dans le <code>&lt;table&gt;</code> !</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>Tableau de bord comptable provisoire de Q2<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="cm">&lt;!-- 1. L&#39;en-tête fixe --&gt;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Employé<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Ventes du Mois<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="cm">&lt;!-- 2. La masse énorme de données courantes --&gt;</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Jeanne<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>4000 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>        <span class="cm">&lt;!-- (...) Des dizaines et centaines d&#39;autres lignes ici (...) --&gt;</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="cm">&lt;!-- 3. Le Pied de page de bilan. --&gt;</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    <span class="p">&lt;</span><span class="nt">tfoot</span><span class="p">&gt;</span>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>TOTAL GENERAL<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>4000 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="p">&lt;/</span><span class="nt">tfoot</span><span class="p">&gt;</span>
-</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<p><em><code>&lt;dl&gt;</code> est le parent de la liste. <code>&lt;dt&gt;</code> (*Definition Term</em>) porte le terme ou la clé. <code>&lt;dd&gt;</code> (<em>Definition Description</em>) porte sa valeur ou explication.*</p>
+<div class="admonition tip">
+<p class="admonition-title">Usage interface : paires clé/valeur</p>
+<p><code>&lt;dl&gt;</code> est particulièrement adapté pour afficher les métadonnées d'un article, les caractéristiques d'un produit, ou le résumé d'un formulaire soumis — tous ces contextes où on présente des paires "libellé : valeur".</p>
+<div class="language-html highlight"><span class="filename">HTML - Fiche produit avec dl (paires clé/valeur)</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">&lt;!-- Fiche produit : usage dl pour les caractéristiques --&gt;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Référence<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>PRD-2024-0472<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Poids<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>1,4 kg<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Disponibilité<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>En stock (23 unités)<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<p><br /></p>
-<hr />
-<h2 id="fusionner-la-matrice-colspan-rowspan">Fusionner la matrice : Colspan &amp; Rowspan<a class="headerlink" href="#fusionner-la-matrice-colspan-rowspan" title="Permanent link">&para;</a></h2>
-<p>Si vous travaillez sur Excel, vous savez qu'un simple damier régulier ne suffit pas toujours à rendre une donnée pertinente (<em>Un total prend généralement toute la largeur de sa dernière ligne !</em>). Le HTML propose deux "absorptions" dimensionnelles.</p>
-<h3 id="etendre-horizontalement-larme-colspan">Étendre Horizontalement (L'arme <code>colspan</code>)<a class="headerlink" href="#etendre-horizontalement-larme-colspan" title="Permanent link">&para;</a></h3>
-<div class="admonition note">
-<p class="admonition-title">L'attribut <code>colspan="X"</code> indique à la cellule ordonnée : "Étale-toi physiquement et mange goulument l'espace destiné aux X prochaines colonnes".</p>
 </div>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Produit<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Quantité<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Prix Unitaire<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="cm">&lt;!-- Cette cellule s&#39;étend vers la DROITE pour 2 colonnes au total... </span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="cm">             Elle écrase l&#39;espace &quot;Quantité&quot; sous ses pieds virtuellement. --&gt;</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="p">&lt;</span><span class="nt">td</span> <span class="na">colspan</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">&gt;</span>**TOTAL DE LA FACTURE COURANTE**<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>150 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<p><br></p>
+<h3 id="les-listes-imbriquees">Les Listes Imbriquées<a class="headerlink" href="#les-listes-imbriquees" title="Permanent link">&para;</a></h3>
+<p>Une liste peut contenir une autre liste. C'est le mécanisme fondamental des menus de navigation multi-niveaux et des structures hiérarchiques.</p>
+<div class="language-html highlight"><span class="filename">HTML - Listes imbriquées multi-niveaux</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">&lt;!-- Menu de navigation principal avec sous-menus --&gt;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Accueil<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Nos Services
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        <span class="cm">&lt;!-- Sous-liste imbriquée directement dans le li parent --&gt;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Développement Web<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Cybersécurité
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>                <span class="cm">&lt;!-- Troisième niveau --&gt;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>                <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>                    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Audit de sécurité<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>                    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Tests d&#39;intrusion<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>                    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Formation GRC<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>                <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>            <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Conseil en architecture<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Contact<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<p><strong>Représentation schématique du Colspan (Étirement à l'horizontale Axe-X) :</strong></p>
-<pre class="mermaid"><code>graph TD
-    subgraph Ligne_Normale ["Ligne Standard parfaite : 3 cellules pour 3 colonnes"]
+<p><em>La sous-liste doit être placée <strong>à l'intérieur</strong> du <code>&lt;li&gt;</code> parent, jamais après lui. Le navigateur considère que le contenu d'un <code>&lt;li&gt;</code> inclut tout ce qui se trouve entre son ouverture et sa fermeture.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Imbriquer différents types de listes</p>
+<p>Il est tout à fait valide d'imbriquer un <code>&lt;ol&gt;</code> dans un <code>&lt;ul&gt;</code> et inversement. Les technologies d'assistance et les moteurs de recherche respectent la hiérarchie sémantique quelle que soit la combinaison de types.</p>
+<div class="language-html highlight"><span class="filename">HTML - Imbrication ol dans ul</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Recettes salées
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Préparer les légumes<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Faire revenir à feu vif<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Assaisonner<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="construire-un-tableau-matriciel">Construire un Tableau Matriciel<a class="headerlink" href="#construire-un-tableau-matriciel" title="Permanent link">&para;</a></h2>
+<p><strong>Règle absolue du développement web moderne :</strong> un tableau HTML est réservé exclusivement à l'affichage de <strong>données tabulaires</strong> (tarifs croisés avec des dates, résultats financiers, comparatifs techniques). Il est formellement interdit de l'utiliser pour mettre en page des éléments visuels — c'est le rôle de CSS Flexbox et Grid.</p>
+<p><br></p>
+<h3 id="le-squelette-minimal-et-la-balise-caption">Le squelette minimal et la balise <code>&lt;caption&gt;</code><a class="headerlink" href="#le-squelette-minimal-et-la-balise-caption" title="Permanent link">&para;</a></h3>
+<p>Un tableau peut n'être composé que d'une balise <code>&lt;table&gt;</code> avec des lignes <code>&lt;tr&gt;</code> et des cellules <code>&lt;td&gt;</code> ou <code>&lt;th&gt;</code>. Mais pour être <strong>conforme aux normes d'accessibilité</strong>, le premier enfant direct de <code>&lt;table&gt;</code> doit impérativement être <code>&lt;caption&gt;</code> — le titre officiel et sémantique du tableau, lu par les synthèses vocales.</p>
+<div class="language-html highlight"><span class="filename">HTML - Tableau minimal accessible avec caption</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="cm">&lt;!-- Le caption se positionne OBLIGATOIREMENT en premier dans table --&gt;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>Horaires d&#39;ouverture de la Bibliothèque municipale<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        <span class="cm">&lt;!-- th : cellule d&#39;en-tête (gras et centré par défaut) --&gt;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Jour<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Horaires<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Lundi<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Fermé<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Mardi<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>09h00 – 18h30<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><br></p>
+<h3 id="lattribut-scope-sur-th-accessibilite">L'attribut <code>scope</code> sur <code>&lt;th&gt;</code> (accessibilité)<a class="headerlink" href="#lattribut-scope-sur-th-accessibilite" title="Permanent link">&para;</a></h3>
+<p>Pour les tableaux comportant plusieurs colonnes, l'attribut <code>scope</code> indique aux lecteurs d'écran si un <code>&lt;th&gt;</code> est l'en-tête d'une <strong>colonne</strong> (<code>scope="col"</code>) ou d'une <strong>ligne</strong> (<code>scope="row"</code>). Sans lui, un lecteur d'écran ne peut pas associer correctement les données à leurs en-têtes.</p>
+<div class="language-html highlight"><span class="filename">HTML - Tableau avec scope pour l'accessibilité</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>Résultats trimestriels par département<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>            <span class="cm">&lt;!-- scope=&quot;col&quot; : cet en-tête s&#39;applique à toute la colonne en dessous --&gt;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Département<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>T1<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>T2<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>T3<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>            <span class="cm">&lt;!-- scope=&quot;row&quot; : cet en-tête s&#39;applique à toute la ligne à droite --&gt;</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>Commercial<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>48 000 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>53 200 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>61 400 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>Marketing<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>12 000 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>15 800 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>14 200 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>Un lecteur d'écran lisant la cellule "61 400 €" annoncera "Commercial, T3, 61 400 euros" grâce aux attributs <code>scope</code>. Sans <code>scope</code>, il lirait seulement le contenu brut de la cellule sans contexte.</em></p>
+<p><br></p>
+<h3 id="la-super-structure-metier-thead-tbody-tfoot">La Super-Structure Métier (<code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>)<a class="headerlink" href="#la-super-structure-metier-thead-tbody-tfoot" title="Permanent link">&para;</a></h3>
+<p>Lorsque le tableau contient de nombreuses données, on le fragmente en trois blocs sémantiques. Cela permet au navigateur et à l'imprimante de répéter l'en-tête sur chaque page lors d'une impression de tableau long.</p>
+<div class="admonition info">
+<p class="admonition-title">L'ordre historique du <code>&lt;tfoot&gt;</code> en HTML4</p>
+<p>En HTML4, le <code>&lt;tfoot&gt;</code> <strong>devait</strong> être écrit juste après le <code>&lt;thead&gt;</code>, avant le <code>&lt;tbody&gt;</code>. La raison : sur des modems 56k, le navigateur commençait à afficher le tableau avant d'avoir fini de le télécharger. En connaissant le pied de tableau à l'avance, il pouvait le positionner en bas pendant que le corps se chargeait.</p>
+<p>En HTML5, cette contrainte a disparu. Quel que soit l'endroit où vous écrivez le <code>&lt;tfoot&gt;</code> dans votre code, <strong>le navigateur le positionnera toujours visuellement en bas du tableau</strong>.</p>
+</div>
+<div class="language-html highlight"><span class="filename">HTML - Tableau complet avec thead, tbody, tfoot et scope</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>Tableau de bord comptable — Q2 2024<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="cm">&lt;!-- En-tête fixe, répété à l&#39;impression sur chaque page --&gt;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Employé<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Ventes du mois<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    <span class="cm">&lt;!-- Corps : la masse des données --&gt;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>Jeanne DUPONT<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>4 000 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>Marc LEFEBVRE<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>6 200 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>    <span class="cm">&lt;!-- Pied : toujours affiché en bas quel que soit sa position dans le code --&gt;</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>    <span class="p">&lt;</span><span class="nt">tfoot</span><span class="p">&gt;</span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>TOTAL GÉNÉRAL<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>10 200 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>    <span class="p">&lt;/</span><span class="nt">tfoot</span><span class="p">&gt;</span>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><br></p>
+<h3 id="styliser-des-colonnes-entieres-avec-colgroup-et-col">Styliser des colonnes entières avec <code>&lt;colgroup&gt;</code> et <code>&lt;col&gt;</code><a class="headerlink" href="#styliser-des-colonnes-entieres-avec-colgroup-et-col" title="Permanent link">&para;</a></h3>
+<p>Par défaut, il est impossible d'appliquer un style CSS à une colonne entière sans styler chaque cellule individuellement. La balise <code>&lt;colgroup&gt;</code> avec ses enfants <code>&lt;col&gt;</code> résout ce problème.</p>
+<div class="language-html highlight"><span class="filename">HTML - Colgroup et col pour styler des colonnes</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>Planning hebdomadaire de l&#39;équipe<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="cm">&lt;!--</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="cm">        colgroup définit les colonnes du tableau.</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="cm">        L&#39;attribut span indique combien de colonnes successives ce col représente.</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="cm">        On peut appliquer une classe CSS ou un style directement sur chaque col.</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="cm">    --&gt;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="p">&lt;</span><span class="nt">colgroup</span><span class="p">&gt;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>        <span class="p">&lt;</span><span class="nt">col</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 150px;&quot;</span><span class="p">&gt;</span>              <span class="cm">&lt;!-- Colonne 1 : noms --&gt;</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>        <span class="p">&lt;</span><span class="nt">col</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-weekend&quot;</span> <span class="na">span</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">&gt;</span>        <span class="cm">&lt;!-- Colonnes 2-3 : lundi-mardi --&gt;</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        <span class="p">&lt;</span><span class="nt">col</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-semaine&quot;</span> <span class="na">span</span><span class="o">=</span><span class="s">&quot;3&quot;</span><span class="p">&gt;</span>        <span class="cm">&lt;!-- Colonnes 4-6 : mer-jeu-ven --&gt;</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>        <span class="p">&lt;</span><span class="nt">col</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-weekend&quot;</span> <span class="na">span</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">&gt;</span>        <span class="cm">&lt;!-- Colonnes 7-8 : sam-dim --&gt;</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="p">&lt;/</span><span class="nt">colgroup</span><span class="p">&gt;</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Employé<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Lun<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Mar<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Mer<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Jeu<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Ven<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Sam<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Dim<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>Alice<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Présente<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Présente<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Présente<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Télétravail<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Présente<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>—<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>—<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em><code>&lt;colgroup&gt;</code> doit se placer <strong>après</strong> <code>&lt;caption&gt;</code> et <strong>avant</strong> <code>&lt;thead&gt;</code>. L'attribut <code>span</code> sur <code>&lt;col&gt;</code> permet de regrouper plusieurs colonnes consécutives sous une même règle CSS.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Propriétés CSS limitées sur <code>&lt;col&gt;</code></p>
+<p>Seules quatre propriétés CSS s'appliquent directement sur <code>&lt;col&gt;</code> : <code>background</code>, <code>border</code>, <code>visibility</code> et <code>width</code>. Les autres propriétés comme <code>color</code>, <code>padding</code> ou <code>font-size</code> sont ignorées — elles doivent être appliquées directement sur les cellules via une classe partagée.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="fusionner-la-matrice-colspan-et-rowspan">Fusionner la Matrice : <code>colspan</code> et <code>rowspan</code><a class="headerlink" href="#fusionner-la-matrice-colspan-et-rowspan" title="Permanent link">&para;</a></h2>
+<p>Un damier régulier ne suffit pas toujours pour représenter des données complexes. HTML propose deux attributs de fusion dimensionnelle.</p>
+<p><br></p>
+<h3 id="etendre-horizontalement-colspan">Étendre horizontalement : <code>colspan</code><a class="headerlink" href="#etendre-horizontalement-colspan" title="Permanent link">&para;</a></h3>
+<p><code>colspan="X"</code> ordonne à une cellule de s'étendre vers la droite en occupant l'espace de X colonnes.</p>
+<div class="language-html highlight"><span class="filename">HTML - Fusion horizontale avec colspan</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>Facture de prestation — Mars 2024<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Prestation<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Quantité<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Prix unitaire<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Audit de sécurité<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>3 jours<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>1 200 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    <span class="p">&lt;</span><span class="nt">tfoot</span><span class="p">&gt;</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>            <span class="cm">&lt;!--</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="cm">                Cette cellule s&#39;étend sur 2 colonnes (Prestation + Quantité).</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="cm">                La ligne ne contient donc plus que 2 cellules au lieu de 3.</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="cm">            --&gt;</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>            <span class="p">&lt;</span><span class="nt">td</span> <span class="na">colspan</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">&gt;</span>TOTAL DE LA FACTURE<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>3 600 €<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>    <span class="p">&lt;/</span><span class="nt">tfoot</span><span class="p">&gt;</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><em>Lorsqu'une cellule utilise <code>colspan="2"</code>, la ligne concernée ne doit contenir que N-1 cellules (où N est le nombre total de colonnes). La cellule fusionnée compte déjà pour deux.</em></p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Ligne_Normale ["Ligne standard : 3 cellules pour 3 colonnes"]
         direction LR
         C1[Cellule 1] --- C2[Cellule 2] --- C3[Cellule 3]
     end
 
-    subgraph Ligne_Fusionnee ["Ligne avec Colspan=2 : 2 Cellules pour 3 Colonnes !"]
+    subgraph Ligne_Fusionnee ["Ligne avec colspan=2 : 2 cellules pour 3 colonnes"]
         direction LR
-        F1["Cellule Énorme Fusionnée (colspan=2)&lt;br&gt;(Couvre l'espace 1 et 2 en même temps)"] --- F2["Cellule 3 (Restée intacte)"]
+        F1["Cellule fusionnée (colspan=2)"] --- F2["Cellule 3"]
     end
 
-    Ligne_Normale -.-&gt;|"Application de la fusion (Colspan par dessus les colonnes)"| Ligne_Fusionnee
-
-    style C1 fill:#fff4e1,stroke:#333
-    style C2 fill:#fff4e1,stroke:#333
-    style C3 fill:#fff4e1,stroke:#333
-    style F1 fill:#e1f5e1,stroke:#333
-    style F2 fill:#fff4e1,stroke:#333</code></pre>
-<h3 id="etendre-verticalement-larme-delicate-rowspan">Étendre Verticalement (L'arme délicate <code>rowspan</code>)<a class="headerlink" href="#etendre-verticalement-larme-delicate-rowspan" title="Permanent link">&para;</a></h3>
-<div class="admonition note">
-<p class="admonition-title">L'attribut <code>rowspan="X"</code> est plus technique à maitriser à l'aveugle dans son code. Il ordonne à une cellule de "glisser vers le bas", de transpercer la matrice et de traverser littéralement les Lignes (<code>&lt;tr&gt;</code>) suivantes du code.</p>
-</div>
-<p><div class="language-html highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="cm">&lt;!-- Cette case fond vers le sous-sol... et s&#39;étale sur la 2ème ligne qui suivra. --&gt;</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="p">&lt;</span><span class="nt">th</span> <span class="na">rowspan</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">&gt;</span>Région Ouest de la France<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Boutique Nantes<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>+10%<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="cm">&lt;!-- ATTENTION VITAL : On n&#39;écrit pas de cellule &#39;Région Ouest&#39; ici... ! </span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="cm">             La case th du dessus a dégoulinée et pris l&#39;espace physique du vide à gauche ! --&gt;</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Boutique Brest<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>-2%<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+    Ligne_Normale -.-&gt;|"fusion horizontale"| Ligne_Fusionnee</code></pre>
+<p><br></p>
+<h3 id="etendre-verticalement-rowspan">Étendre verticalement : <code>rowspan</code><a class="headerlink" href="#etendre-verticalement-rowspan" title="Permanent link">&para;</a></h3>
+<p><code>rowspan="X"</code> ordonne à une cellule de s'étendre vers le bas en traversant les X lignes suivantes.</p>
+<div class="language-html highlight"><span class="filename">HTML - Fusion verticale avec rowspan</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span>Boutiques par région — Évolution mensuelle<span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Région<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Boutique<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;col&quot;</span><span class="p">&gt;</span>Évolution<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>            <span class="cm">&lt;!--</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="cm">                Cette cellule s&#39;étend sur 2 lignes vers le bas.</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="cm">                La ligne suivante ne doit PAS répéter cet en-tête :</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="cm">                la cellule fusionnée occupe déjà sa place.</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="cm">            --&gt;</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;rowgroup&quot;</span> <span class="na">rowspan</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">&gt;</span>Région Ouest<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Boutique Nantes<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>+10 %<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>            <span class="cm">&lt;!--</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="cm">                AUCUNE cellule &quot;Région Ouest&quot; ici.</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="cm">                La cellule du dessus a coulé et occupe l&#39;espace de gauche.</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="cm">            --&gt;</span>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Boutique Brest<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>−2 %<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>            <span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;rowgroup&quot;</span> <span class="na">rowspan</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">&gt;</span>Région Sud<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Boutique Marseille<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>+18 %<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-12-35"><a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Boutique Nice<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-12-36"><a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>+7 %<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span><span id="__span-12-37"><a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span><span id="__span-12-38"><a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a>    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span><span id="__span-12-39"><a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<em>Le secret du codeur : Quand vous utilisez un <code>rowspan=2</code>, la Ligne Suivante dans votre code source de la page <code>04-index.html</code> DOIT contenir une cellule en moins que la normale, car la grosse case supérieure à coulée pour occuper sa place vide !</em></p>
-<p><br /></p>
+<div class="admonition warning">
+<p class="admonition-title">La cellule manquante obligatoire avec rowspan</p>
+<p>Lorsque vous utilisez <code>rowspan="2"</code>, la ligne <strong>suivante</strong> dans votre code source doit contenir <strong>une cellule de moins</strong> que la normale. La cellule fusionnée du dessus a déjà pris l'espace de cette position. Si vous écrivez quand même une cellule à cet endroit, le tableau déborde et la mise en page est corrompue.</p>
+</div>
+<p><br></p>
 <hr />
-<h2 id="conclusion-et-synthese">Conclusion et Synthèse<a class="headerlink" href="#conclusion-et-synthese" title="Permanent link">&para;</a></h2>
-<p>Les listes et les tableaux sont des outils purement sémantiques et structurels. Une liste bien formée permet une navigation claire, tandis qu'un tableau matriciel doté de <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> et <code>&lt;tfoot&gt;</code> est impératif pour une donnée statistique respectueuse des normes d'accessibilité.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir de ce module</p>
+<p>Les listes (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;dl&gt;</code>) et les listes imbriquées structurent les données sérielles avec une sémantique précise. Les tableaux (<code>&lt;table&gt;</code>) sont réservés exclusivement aux données tabulaires croisées — jamais au design visuel. Un tableau accessible exige impérativement un <code>&lt;caption&gt;</code>, des <code>&lt;th&gt;</code> avec <code>scope</code>, et une structure <code>&lt;thead&gt;</code> / <code>&lt;tbody&gt;</code> / <code>&lt;tfoot&gt;</code>. <code>&lt;colgroup&gt;</code> et <code>&lt;col&gt;</code> permettent de styler des colonnes entières. <code>colspan</code> et <code>rowspan</code> fusionnent les cellules horizontalement et verticalement.</p>
+</div>
 <blockquote>
-<p>Dans le module suivant, nous apprendrons à doter nos pages de la mécanique la plus complexe du HTML pour échanger de la donnée avec l'utilisateur final : <strong>Les Formulaires et leurs dizaines d'états temporels de soumissions.</strong></p>
+<p>Dans le module suivant, nous apprendrons à doter nos pages de la mécanique la plus complexe du HTML pour échanger de la donnée avec l'utilisateur final : <strong>les Formulaires</strong>, avec leurs champs de saisie, leurs validations natives et leurs méthodes d'envoi.</p>
 </blockquote>
-<p><br /></p>
+<p><br></p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Le <strong>W3C (World Wide Web Consortium)</strong> est une organisation internationale qui définit et standardise les technologies fondamentales du Web — comme HTML, CSS ou les normes d’accessibilité — afin de garantir l’interopérabilité, la compatibilité et l’évolution ouverte du Web.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Le <strong>W3C (World Wide Web Consortium)</strong> est une organisation internationale qui définit et standardise les technologies fondamentales du Web — comme HTML, CSS ou les normes d'accessibilité — afin de garantir l'interopérabilité, la compatibilité et l'évolution ouverte du Web.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

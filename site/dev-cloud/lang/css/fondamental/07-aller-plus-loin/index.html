@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Astuces CSS modernes et fonctionnalités bonus : drop-shadow vs box-shadow, compteurs CSS, tooltips 100% CSS, animations au scroll et typographie avancée.">
+        <meta name="description" content="Astuces CSS modernes : drop-shadow, compteurs, tooltips, scroll animations, scroll-snap, aspect-ratio, object-fit et typographie avancée.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../06-css-avance/">
       
       
-        <link rel="next" href="../../layout/01-flexbox-css/">
+        <link rel="next" href="../08-positionnement-flux/">
       
       
         
@@ -156,10 +156,7 @@
             
 <!-- Add announcement here, including arbitrary HTML -->
 <small>
-    <em
-        >Cette documentation est en pleine conception, c'est normal qu'elle soit
-        encors si faible au niveau du contenu</em
-    >
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
 </small>
 
           </div>
@@ -731,6 +728,8 @@
       
         
       
+        
+      
     
     
     
@@ -901,6 +900,8 @@
       
         
       
+        
+      
     
     
     
@@ -1035,6 +1036,8 @@
   
     
     
+      
+        
       
         
       
@@ -1368,34 +1371,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="La battle des ombres : box-shadow vs drop-shadow()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#box-shadow-lombre-de-la-boite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        box-shadow (L'ombre de la "boîte")
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filter-drop-shadow-lombre-du-moule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        filter: drop-shadow() (L'ombre du "Moule")
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1411,10 +1386,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tooltip-bulle-dinfo-100-css-via-attr" class="md-nav__link">
+  <a href="#tooltip-100-css-avec-attr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tooltip (Bulle d'info) 100% CSS via attr()
+        Tooltip 100% CSS avec attr()
       
     </span>
   </a>
@@ -1438,10 +1413,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-animations-au-scroll" class="md-nav__link">
+  <a href="#animations-au-scroll" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Animations au Scroll
+        Animations au Scroll
       
     </span>
   </a>
@@ -1449,22 +1424,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#typographie-avancee-fins-de-ligne" class="md-nav__link">
+  <a href="#scroll-snap-defilement-magnetique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Typographie Avancée (Fins de ligne)
+        Scroll Snap — défilement magnétique
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Typographie Avancée (Fins de ligne)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aspect-ratio-conserver-les-proportions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aspect-ratio — conserver les proportions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-fit-et-object-position-controler-les-medias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        object-fit et object-position — contrôler les médias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typographie-avancee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typographie Avancée
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Typographie Avancée">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lequilibre-visuel-text-wrap" class="md-nav__link">
+  <a href="#equilibre-visuel-text-wrap-balance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'Équilibre visuel : text-wrap
+        Équilibre visuel : text-wrap: balance
       
     </span>
   </a>
@@ -1472,10 +1480,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-tronquage-line-clamp" class="md-nav__link">
+  <a href="#tronquage-de-texte-line-clamp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Tronquage : line-clamp
+        Tronquage de texte : line-clamp
       
     </span>
   </a>
@@ -1484,6 +1492,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-recapitulatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau récapitulatif
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1502,6 +1521,36 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-positionnement-flux/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Positionnement et Flux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2334,6 +2383,176 @@
       
         
       
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mobile/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement Mobile
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Développement Mobile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../mobile/swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift — Le Langage
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
         
       
         
@@ -2362,7 +2581,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2384,14 +2603,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2598,7 +2817,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2620,14 +2839,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2826,7 +3045,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2848,14 +3067,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3194,7 +3413,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3216,14 +3435,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3910,34 +4129,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="La battle des ombres : box-shadow vs drop-shadow()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#box-shadow-lombre-de-la-boite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        box-shadow (L'ombre de la "boîte")
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filter-drop-shadow-lombre-du-moule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        filter: drop-shadow() (L'ombre du "Moule")
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -3953,10 +4144,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tooltip-bulle-dinfo-100-css-via-attr" class="md-nav__link">
+  <a href="#tooltip-100-css-avec-attr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tooltip (Bulle d'info) 100% CSS via attr()
+        Tooltip 100% CSS avec attr()
       
     </span>
   </a>
@@ -3980,10 +4171,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-animations-au-scroll" class="md-nav__link">
+  <a href="#animations-au-scroll" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Animations au Scroll
+        Animations au Scroll
       
     </span>
   </a>
@@ -3991,22 +4182,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#typographie-avancee-fins-de-ligne" class="md-nav__link">
+  <a href="#scroll-snap-defilement-magnetique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Typographie Avancée (Fins de ligne)
+        Scroll Snap — défilement magnétique
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Typographie Avancée (Fins de ligne)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aspect-ratio-conserver-les-proportions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aspect-ratio — conserver les proportions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-fit-et-object-position-controler-les-medias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        object-fit et object-position — contrôler les médias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typographie-avancee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typographie Avancée
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Typographie Avancée">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lequilibre-visuel-text-wrap" class="md-nav__link">
+  <a href="#equilibre-visuel-text-wrap-balance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'Équilibre visuel : text-wrap
+        Équilibre visuel : text-wrap: balance
       
     </span>
   </a>
@@ -4014,10 +4238,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-tronquage-line-clamp" class="md-nav__link">
+  <a href="#tronquage-de-texte-line-clamp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Tronquage : line-clamp
+        Tronquage de texte : line-clamp
       
     </span>
   </a>
@@ -4026,6 +4250,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-recapitulatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau récapitulatif
+      
+    </span>
+  </a>
   
 </li>
       
@@ -4161,153 +4396,334 @@
 <p><div
   class="omny-meta"
   data-level="🔴 Avancé"
-  data-version="1.0"
+  data-version="1.1"
   data-time="2-3 heures">
 </div>
 </p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">Analogie pédagogique - L'Art de la Finition</p>
-<p><em>Un menuisier crée une bonne table avec du bois massif, des clous et de la colle (HTML et CSS Fondamental). Un <strong>maître ébéniste</strong>, lui, ajoute les finitions invisibles qui transforment un meuble fonctionnel en chef-d'œuvre : un ponçage au millimètre, un vernis qui reflète la lumière selon sa courbure, et des tiroirs massifs qui coulissent en douceur avec un frein de butée.</em></p>
-<p><em>Cette section bonus regroupe les "finitions de l'ébéniste" du Web de 2026. Des fonctionnalités subtiles, souvent méconnues des développeurs moyens, qui font dire à un utilisateur final : "Ouah, ce site est vraiment haut de gamme."</em></p>
+<p>Un menuisier crée une bonne table avec du bois massif, des clous et de la colle. Un <strong>maître ébéniste</strong>, lui, ajoute les finitions invisibles qui transforment un meuble fonctionnel en chef-d'œuvre : un ponçage au millimètre, un vernis qui reflète la lumière selon sa courbure, des tiroirs qui coulissent avec un frein de butée.</p>
+<p>Cette section regroupe les "finitions de l'ébéniste" du Web moderne — des fonctionnalités subtiles, souvent méconnues, qui font dire à un utilisateur : "Ce site est vraiment haut de gamme."</p>
 </div>
-<p>Ces astuces natives permettent d'accomplir en pur CSS des miracles qui nécessitaient des dizaines de lignes de JavaScript complexes il y a encore quelques années.</p>
-<p><br /></p>
+<p>Ces techniques natives permettent d'accomplir en pur CSS des effets qui nécessitaient des dizaines de lignes de JavaScript il y a encore quelques années.</p>
+<p><br></p>
 <hr />
 <h2 id="la-battle-des-ombres-box-shadow-vs-drop-shadow">La battle des ombres : <code>box-shadow</code> vs <code>drop-shadow()</code><a class="headerlink" href="#la-battle-des-ombres-box-shadow-vs-drop-shadow" title="Permanent link">&para;</a></h2>
-<p>Il existe une confusion très courante en intégration : pourquoi utiliser le filtre <code>drop-shadow()</code> alors que la propriété classique <code>box-shadow</code> existe depuis les débuts du CSS3 ?</p>
-<h3 id="box-shadow-lombre-de-la-boite"><code>box-shadow</code> (L'ombre de la "boîte")<a class="headerlink" href="#box-shadow-lombre-de-la-boite" title="Permanent link">&para;</a></h3>
-<p>Le <em>Box Model</em> stipule que chaque élément est un bloc rectangulaire. <code>box-shadow</code> créera <strong>toujours</strong> une ombre projetée à partir des strictes limites de ce rectangle transparent, peu importe ce qu'il y a à l'intérieur de la boîte (exemple : un visage détouré en PNG).</p>
-<h3 id="filter-drop-shadow-lombre-du-moule"><code>filter: drop-shadow()</code> (L'ombre du "Moule")<a class="headerlink" href="#filter-drop-shadow-lombre-du-moule" title="Permanent link">&para;</a></h3>
-<p>Ce filtre analyse les <strong>pixels optiquement opaques</strong> à l'intérieur de la balise, et dessine l'ombre exacte sur leur contour. C'est magique pour des images sans fond matérialisé (PNG transparent, SVG, Emoji géant), ou des formes découpées au <code>clip-path</code>.</p>
-<div class="language-css highlight"><span class="filename">CSS — La différence en code</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c">/* Créera un énorme CARRÉ d&#39;ombre gris et sale derrière la photo de profil... */</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">.</span><span class="nc">avatar-png-detoure-malheureux</span><span class="w"> </span><span class="p">{</span>
+<p>Il existe une confusion fréquente entre ces deux approches. Leur différence fondamentale tient au contour qu'elles analysent.</p>
+<p><code>box-shadow</code> projette une ombre depuis les <strong>limites rectangulaires</strong> de la boîte CSS — le Box Model. Peu importe si l'image à l'intérieur est un PNG avec fond transparent : l'ombre sera toujours un rectangle.</p>
+<p><code>filter: drop-shadow()</code> analyse les <strong>pixels optiquement opaques</strong> de l'élément et dessine l'ombre exactement sur leur contour. C'est la solution pour les images PNG détourées, les SVG et les formes découpées au <code>clip-path</code>.</p>
+<div class="language-css highlight"><span class="filename">CSS - box-shadow vs drop-shadow</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c">/* Produit un carré d&#39;ombre derrière le PNG, ignorant sa transparence */</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">.</span><span class="nc">avatar-png-boite</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">box-shadow</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c">/* Créera une aura d&#39;ombre parfaite épousant l&#39;arrondi du visage du PNG ! */</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">.</span><span class="nc">avatar-png-detoure-masterclass</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c">/* Produit une ombre épousant exactement la silhouette opaque du PNG */</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">.</span><span class="nc">avatar-png-silhouette</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">filter</span><span class="p">:</span><span class="w"> </span><span class="nb">drop-shadow</span><span class="p">(</span><span class="mi">0</span><span class="kt">px</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">));</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><br /></p>
+<p><em><code>drop-shadow()</code> est également l'ombre correcte pour les éléments découpés avec <code>clip-path</code> : <code>box-shadow</code> est découpé avec le clip, <code>drop-shadow()</code> s'applique après.</em></p>
+<p><br></p>
 <hr />
 <h2 id="contenu-genere-dynamiquement">Contenu généré dynamiquement<a class="headerlink" href="#contenu-genere-dynamiquement" title="Permanent link">&para;</a></h2>
-<p>Le CSS n'est pas limité à la coloration. Les pseudo-éléments <code>::before</code> et <code>::after</code> (reliés à la propriété absolue <code>content:""</code>), permettent au CSS <strong>de créer physiquement du texte ou des formes qui ne figurent pas dans le code HTML d'origine de la page</strong>.</p>
-<h3 id="tooltip-bulle-dinfo-100-css-via-attr">Tooltip (Bulle d'info) 100% CSS via <code>attr()</code><a class="headerlink" href="#tooltip-bulle-dinfo-100-css-via-attr" title="Permanent link">&para;</a></h3>
-<p>En récupérant la valeur d'un attribut de données injecté par le serveur HTML sur votre balise mère, le CSS peut afficher un Tooltip élégant au survol, sans <code>div</code> cachée.</p>
-<div class="language-html highlight"><span class="filename">HTML — Préparation d'attribut de données</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn-tooltip&quot;</span> <span class="na">data-message</span><span class="o">=</span><span class="s">&quot;Votre dossier sera supprimé !&quot;</span><span class="p">&gt;</span>
+<p>Les pseudo-éléments <code>::before</code> et <code>::after</code> avec la propriété <code>content</code> permettent au CSS de créer du texte ou des formes absents du HTML d'origine.</p>
+<p><br></p>
+<h3 id="tooltip-100-css-avec-attr">Tooltip 100% CSS avec <code>attr()</code><a class="headerlink" href="#tooltip-100-css-avec-attr" title="Permanent link">&para;</a></h3>
+<p>En lisant la valeur d'un attribut HTML via <code>attr()</code>, le CSS peut afficher une bulle d'information au survol sans aucun JavaScript ni <code>&lt;div&gt;</code> cachée.</p>
+<div class="language-html highlight"><span class="filename">HTML - Attribut de données pour le tooltip</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn-tooltip&quot;</span> <span class="na">data-message</span><span class="o">=</span><span class="s">&quot;Ce dossier sera supprimé définitivement.&quot;</span><span class="p">&gt;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    Supprimer
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<div class="language-css highlight"><span class="filename">CSS — Extraction dynamique de la donnée</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">.</span><span class="nc">btn-tooltip</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"> </span>
+<div class="language-css highlight"><span class="filename">CSS - Tooltip via attr() et ::after</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">.</span><span class="nc">btn-tooltip</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c">/* On prépare une bulle noire fantôme au-dessus du bouton, totalement invisible (opacity 0) */</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c">/* Bulle invisible par défaut, positionnée au-dessus du bouton */</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">.</span><span class="nc">btn-tooltip</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="c">/* Magie : On aspire le texte HTML ! */</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="nb">attr</span><span class="p">(</span><span class="n">data</span><span class="nv">-message</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="c">/* Lit dynamiquement la valeur de l&#39;attribut data-message */</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="nb">attr</span><span class="p">(</span><span class="n">data</span><span class="nv">-message</span><span class="p">);</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="kt">%</span><span class="p">;</span><span class="w"> </span><span class="c">/* Placée au dessus */</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">opacity</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="k">opacity</span><span class="w"> </span><span class="mf">0.3</span><span class="kt">s</span><span class="w"> </span><span class="kc">ease</span><span class="p">;</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="c">/* Au survol du bouton, la bulle d&#39;info liée au boutton apparaitra ! */</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">.</span><span class="nc">btn-tooltip</span><span class="p">:</span><span class="nd">hover</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">opacity</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="p">}</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="nb">calc</span><span class="p">(</span><span class="mi">100</span><span class="kt">%</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">);</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">translateX</span><span class="p">(</span><span class="mi">-50</span><span class="kt">%</span><span class="p">);</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">white-space</span><span class="p">:</span><span class="w"> </span><span class="kc">nowrap</span><span class="p">;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#1a1a2e</span><span class="p">;</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">opacity</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="k">opacity</span><span class="w"> </span><span class="mf">0.2</span><span class="kt">s</span><span class="w"> </span><span class="kc">ease</span><span class="p">;</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="k">pointer-events</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="c">/* Le tooltip ne bloque pas les clics */</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="p">}</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="c">/* Au survol, la bulle devient visible */</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="p">.</span><span class="nc">btn-tooltip</span><span class="p">:</span><span class="nd">hover</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span><span class="k">opacity</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="p">}</span>
 </span></code></pre></div>
+<p><br></p>
 <h3 id="les-compteurs-css">Les Compteurs CSS<a class="headerlink" href="#les-compteurs-css" title="Permanent link">&para;</a></h3>
-<p>Besoin de numéroter des dizaines de chapitres ou étapes de progression dynamiquement ? Aucun besoin de taper des "1.", "2.", "3." de vos propres mains dans le HTML.</p>
-<div class="language-css highlight"><span class="filename">CSS — Compteurs infinis automatiques</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">/* 1. J&#39;initialise un nouveau compteur &quot;chapitre&quot; à 0 sur la page */</span>
+<p>Les compteurs CSS permettent de numéroter automatiquement des éléments répétitifs sans écrire manuellement "1.", "2.", "3." dans le HTML.</p>
+<div class="language-css highlight"><span class="filename">CSS - Compteurs automatiques pour les chapitres</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">/* 1. Initialiser le compteur à 0 sur le conteneur parent */</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">counter-reset</span><span class="p">:</span><span class="w"> </span><span class="n">chapitre</span><span class="p">;</span><span class="w"> </span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">counter-reset</span><span class="p">:</span><span class="w"> </span><span class="n">chapitre</span><span class="p">;</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c">/* 2. Pour chaque h2, j&#39;incrémente le compteur de +1 */</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c">/* 2. Incrémenter le compteur à chaque h2 rencontré */</span>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nt">h2</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="k">counter-increment</span><span class="p">:</span><span class="w"> </span><span class="n">chapitre</span><span class="p">;</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c">/* 3. Et avant mon titre, j&#39;affiche ce nombre ! */</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c">/* 3. Afficher la valeur courante avant chaque titre */</span>
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="nt">h2</span><span class="p">::</span><span class="nd">before</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Étape &quot;</span><span class="w"> </span><span class="nb">counter</span><span class="p">(</span><span class="n">chapitre</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot; : &quot;</span><span class="p">;</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chapitre &quot;</span><span class="w"> </span><span class="nb">counter</span><span class="p">(</span><span class="n">chapitre</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot; — &quot;</span><span class="p">;</span>
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--color-primary</span><span class="p">);</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><br /></p>
+<p><em>Les compteurs CSS sont utiles pour les documentations techniques, les tables des matières, les étapes de formulaire et les listes de références bibliographiques.</em></p>
+<p><br></p>
 <hr />
-<h2 id="les-animations-au-scroll">Les Animations au Scroll<a class="headerlink" href="#les-animations-au-scroll" title="Permanent link">&para;</a></h2>
-<p>C'est <strong>LA</strong> révolution des performances depuis son support massif en 2024.
-Traditionnellement, lier une animation à l'avancement "physique" d'un visiteur qui descendaient dans votre page requérait de lourdes bibliothèques JavaScript écoutant les tremblements de roulette. Désormais, le CSS lie naturellement une animation <code>@keyframes</code> à l'axe de défilement matériel global ou local !</p>
-<div class="language-css highlight"><span class="filename">CSS — Barre de lecture en haut de la page</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">@</span><span class="k">keyframes</span><span class="w"> </span><span class="nt">avancement-lecture</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="c">/* La barre part de la gauche (0%) pour recouvrir tout l&#39;écran en largeur virtuellement */</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">0</span><span class="o">%</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">scaleX</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">100</span><span class="o">%</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">scaleX</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">.</span><span class="nc">scroll-watcher</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="c">/* On place une ligne rouge fixée à la bordure haute absolue de l&#39;écran navigateur */</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--color-danger</span><span class="p">);</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="k">transform-origin</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="c">/* Et on lance magiquement la clé d&#39;animation non plus sur une durée (3s), </span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="c">       mais calquée linéairement sur la longueur de la barre verticale de défilement (scroll) ! */</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="k">animation</span><span class="p">:</span><span class="w"> </span><span class="n">avancement-lecture</span><span class="w"> </span><span class="kc">linear</span><span class="p">;</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="n">animation-timeline</span><span class="p">:</span><span class="w"> </span><span class="nf">scroll</span><span class="p">();</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="p">}</span>
+<h2 id="animations-au-scroll">Animations au Scroll<a class="headerlink" href="#animations-au-scroll" title="Permanent link">&para;</a></h2>
+<p>Disponible nativement depuis 2024, <code>animation-timeline: scroll()</code> lie une animation <code>@keyframes</code> à l'avancement du défilement de la page, sans une ligne de JavaScript.</p>
+<div class="language-css highlight"><span class="filename">CSS - Barre de progression de lecture</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">@</span><span class="k">keyframes</span><span class="w"> </span><span class="nt">avancement-lecture</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nt">0</span><span class="o">%</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">scaleX</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">100</span><span class="o">%</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">scaleX</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">.</span><span class="nc">scroll-watcher</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--color-primary</span><span class="p">);</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="k">transform-origin</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c">        L&#39;animation n&#39;est plus pilotée par une durée (3s),</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c">        mais par la position du défilement vertical de la page.</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="c">        scroll() sans argument cible le défilement de la fenêtre.</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="c">    */</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="k">animation</span><span class="p">:</span><span class="w"> </span><span class="n">avancement-lecture</span><span class="w"> </span><span class="kc">linear</span><span class="p">;</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="n">animation-timeline</span><span class="p">:</span><span class="w"> </span><span class="nf">scroll</span><span class="p">();</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><br /></p>
+<p><em><code>animation-timeline</code> supporte aussi <code>view()</code> pour déclencher une animation quand un élément entre dans le viewport — alternative native aux bibliothèques comme AOS.</em></p>
+<div class="admonition info">
+<p class="admonition-title">Support navigateurs</p>
+<p><code>animation-timeline</code> est disponible dans Chrome 115+, Firefox 110+, Safari 17.2+. En 2025, le support dépasse 88% des utilisateurs. Un polyfill JavaScript reste disponible pour les projets nécessitant une couverture plus large.</p>
+</div>
+<p><br></p>
 <hr />
-<h2 id="typographie-avancee-fins-de-ligne">Typographie Avancée (Fins de ligne)<a class="headerlink" href="#typographie-avancee-fins-de-ligne" title="Permanent link">&para;</a></h2>
-<p>Gérer des longs textes organiques de multiples rédacteurs sans casser le design est une source inépuisable de drames d'intégration Web. Ces deux propriétés sauvent les carrières de développeurs confirmés :</p>
-<h3 id="lequilibre-visuel-text-wrap">L'Équilibre visuel : <code>text-wrap</code><a class="headerlink" href="#lequilibre-visuel-text-wrap" title="Permanent link">&para;</a></h3>
-<p>Historiquement, un gros titre h1 de blog s'adapte, pour se briser en un retour à la ligne si la boîte à côté est trop compressive. Le titre affichait souvent : </p>
-<blockquote>
-<p><em>"Comment intégrer par- *(ligne 1)</em>
-<em>faitement"</em> <em>(ligne 2 en dessous toute seule)</em></p>
-</blockquote>
-<p>Le <strong>"veuvage"</strong> typographique d'un mot orphelin tout seul en fin de titre est considéré très repoussant visuellement.</p>
-<div class="language-css highlight"><span class="filename">CSS — text-wrap: balance;</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">h1</span><span class="p">.</span><span class="nc">titre-article</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="c">/* Le navigateur divise mathématiquement le bloc en calculant les espaces, </span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c">       équilibrant sur les deux lignes de manière parfaitement homogène votre grand texte. */</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">text-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">balance</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+<h2 id="scroll-snap-defilement-magnetique">Scroll Snap — défilement magnétique<a class="headerlink" href="#scroll-snap-defilement-magnetique" title="Permanent link">&para;</a></h2>
+<p><code>scroll-snap</code> force le défilement à s'aligner sur des points définis, créant un effet "magnétique" entre les sections — sans JavaScript.</p>
+<div class="language-css highlight"><span class="filename">CSS - Galerie avec scroll snap horizontal</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c">/* Conteneur : déclarer le contexte de snapping */</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">.</span><span class="nc">galerie-scroll</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">overflow-x</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">scroll-snap-type</span><span class="p">:</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kc">mandatory</span><span class="p">;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c">        x         : défilement horizontal</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c">        mandatory : le snapping est forcé après chaque interaction</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c">        proximity : snapping déclenché seulement si l&#39;élément est &quot;proche&quot;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c">    */</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="kp">-webkit-</span><span class="n">overflow-scrolling</span><span class="p">:</span><span class="w"> </span><span class="n">touch</span><span class="p">;</span><span class="w"> </span><span class="c">/* Fluidité iOS */</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">}</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="c">/* Enfants : définir le point d&#39;accrochage */</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">.</span><span class="nc">galerie-scroll</span><span class="w"> </span><span class="p">.</span><span class="nc">diapo</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="k">scroll-snap-align</span><span class="p">:</span><span class="w"> </span><span class="kc">start</span><span class="p">;</span><span class="w"> </span><span class="c">/* start | center | end */</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="k">flex-shrink</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="le-tronquage-line-clamp">Le Tronquage : <code>line-clamp</code><a class="headerlink" href="#le-tronquage-line-clamp" title="Permanent link">&para;</a></h3>
-<p>Lorsque vous affichez un "Résumé d'article" sur une petite carte (Card de portfolio), il y a un fort risque qu'un long résumé étire votre carte vers le bas, déséquilibrant ses voisines. Vous décidez d'y mettre une hauteur limite... Le texte dépasse par le bas et empiète sur les boutons (<em>Overflow</em>) ! </p>
-<div class="language-css highlight"><span class="filename">CSS — Tronquer proprement</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">p</span><span class="p">.</span><span class="nc">extrait-article</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="c">/* Les 3 propriétés vitales couplées pour la magie */</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="bp">-webkit-</span><span class="n">box</span><span class="p">;</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kp">-webkit-</span><span class="n">box-orient</span><span class="p">:</span><span class="w"> </span><span class="kc">vertical</span><span class="p">;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="c">/* Coupera proprement la ligne 4, puis mettra trois &quot;...&quot; de suspense officiels à la fin du texte sur la 3ème ! */</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="kp">-webkit-</span><span class="k">line-clamp</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">}</span>
+<div class="language-css highlight"><span class="filename">CSS - Sections plein écran avec scroll snap vertical</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c">/* Défilement &quot;full-page scroll&quot; sans JavaScript */</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">.</span><span class="nc">site-wrapper</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="n">dvh</span><span class="p">;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">overflow-y</span><span class="p">:</span><span class="w"> </span><span class="kc">scroll</span><span class="p">;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">scroll-snap-type</span><span class="p">:</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kc">mandatory</span><span class="p">;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">.</span><span class="nc">section-plein-ecran</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="n">dvh</span><span class="p">;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="k">scroll-snap-align</span><span class="p">:</span><span class="w"> </span><span class="kc">start</span><span class="p">;</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="k">scroll-snap-stop</span><span class="p">:</span><span class="w"> </span><span class="kc">always</span><span class="p">;</span><span class="w"> </span><span class="c">/* Empêche de sauter plusieurs sections d&#39;un coup */</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><br /></p>
+<p><br></p>
+<hr />
+<h2 id="aspect-ratio-conserver-les-proportions"><code>aspect-ratio</code> — conserver les proportions<a class="headerlink" href="#aspect-ratio-conserver-les-proportions" title="Permanent link">&para;</a></h2>
+<p><code>aspect-ratio</code> force un élément à maintenir un ratio largeur/hauteur défini, quelle que soit la taille de son conteneur.</p>
+<div class="language-css highlight"><span class="filename">CSS - Aspect ratio pour les médias et composants</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c">/* Ratio 16/9 pour les vidéos et images embarquées */</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">.</span><span class="nc">video-wrapper</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">aspect-ratio</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">}</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c">/* Ratio 1/1 pour les avatars et vignettes carrées */</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">.</span><span class="nc">avatar</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="k">aspect-ratio</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">      </span><span class="c">/* Équivalent à 1 / 1 */</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">}</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="c">/* Ratio pour les cartes produit */</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="p">.</span><span class="nc">carte-produit-image</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="k">aspect-ratio</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f0f4f8</span><span class="p">;</span><span class="w"> </span><span class="c">/* Fond pendant le chargement */</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em>Avant <code>aspect-ratio</code>, la technique du "padding-top hack" (<code>padding-top: 56.25%</code> pour le 16/9) était la seule solution. <code>aspect-ratio</code> remplace entièrement ce hack.</em></p>
+<p><br></p>
+<hr />
+<h2 id="object-fit-et-object-position-controler-les-medias"><code>object-fit</code> et <code>object-position</code> — contrôler les médias<a class="headerlink" href="#object-fit-et-object-position-controler-les-medias" title="Permanent link">&para;</a></h2>
+<p><code>object-fit</code> définit comment un média (<code>&lt;img&gt;</code>, <code>&lt;video&gt;</code>) remplit son conteneur quand leurs proportions diffèrent.</p>
+<div class="language-css highlight"><span class="filename">CSS - object-fit pour les images dans des conteneurs fixes</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">.</span><span class="nc">carte-image</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">220</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c">        object-fit contrôle le redimensionnement du média dans le conteneur :</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c">        cover    : remplit le conteneur en coupant si nécessaire (le plus courant)</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c">        contain  : affiche l&#39;image entière en ajoutant des bandes si nécessaire</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c">        fill     : étire l&#39;image pour remplir (distorsion possible)</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c">        none     : conserve la taille originale sans redimensionnement</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="c">        scale-down : prend le plus petit entre none et contain</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="c">    */</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="k">object-fit</span><span class="p">:</span><span class="w"> </span><span class="kc">cover</span><span class="p">;</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="c">/* object-position : définit le point focal de l&#39;image (comme background-position) */</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="k">object-position</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="w"> </span><span class="kc">top</span><span class="p">;</span><span class="w"> </span><span class="c">/* Privilégie le haut de l&#39;image */</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="c">/* Galerie de portraits : recadrer sur les visages */</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="p">.</span><span class="nc">photo-portrait</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="k">object-fit</span><span class="p">:</span><span class="w"> </span><span class="kc">cover</span><span class="p">;</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="k">object-position</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="w"> </span><span class="mi">20</span><span class="kt">%</span><span class="p">;</span><span class="w"> </span><span class="c">/* Focus sur le tiers supérieur */</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em><code>object-fit: cover</code> est la propriété la plus utilisée en production pour les images dans des grilles ou des cards — elle garantit que toutes les cartes ont la même hauteur sans déformation.</em></p>
+<p><br></p>
+<hr />
+<h2 id="typographie-avancee">Typographie Avancée<a class="headerlink" href="#typographie-avancee" title="Permanent link">&para;</a></h2>
+<p><br></p>
+<h3 id="equilibre-visuel-text-wrap-balance">Équilibre visuel : <code>text-wrap: balance</code><a class="headerlink" href="#equilibre-visuel-text-wrap-balance" title="Permanent link">&para;</a></h3>
+<p>Un titre long peut se casser sur une deuxième ligne avec un seul mot orphelin. <code>text-wrap: balance</code> équilibre mathématiquement les lignes pour éviter ce veuvage typographique.</p>
+<div class="language-css highlight"><span class="filename">CSS - Equilibrage des titres avec text-wrap</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">h1</span><span class="o">,</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nt">h2</span><span class="o">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">.</span><span class="nc">titre-carte</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c">        Le navigateur divise le bloc en calculant les espaces</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c">        pour équilibrer les longueurs de ligne.</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c">        Impact sur les performances : réservez aux titres courts,</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c">        pas aux longs blocs de texte.</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c">    */</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="k">text-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">balance</span><span class="p">;</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">}</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="c">/* text-wrap: pretty : pour les corps de texte */</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="c">/* Évite les mots orphelins sans recalcul complet du bloc */</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="k">text-wrap</span><span class="p">:</span><span class="w"> </span><span class="n">pretty</span><span class="p">;</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><br></p>
+<h3 id="tronquage-de-texte-line-clamp">Tronquage de texte : <code>line-clamp</code><a class="headerlink" href="#tronquage-de-texte-line-clamp" title="Permanent link">&para;</a></h3>
+<p>Pour les cards avec des résumés de longueur variable, <code>line-clamp</code> tronque proprement le texte après N lignes et ajoute des points de suspension.</p>
+<div class="language-css highlight"><span class="filename">CSS - Tronquage sur 3 lignes avec line-clamp</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">.</span><span class="nc">extrait-article</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c">        Ces trois propriétés sont indissociables pour le tronquage multilignes.</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c">        -webkit-line-clamp : nombre de lignes affichées avant tronquage</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c">    */</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="bp">-webkit-</span><span class="n">box</span><span class="p">;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="kp">-webkit-</span><span class="n">box-orient</span><span class="p">:</span><span class="w"> </span><span class="kc">vertical</span><span class="p">;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="kp">-webkit-</span><span class="k">line-clamp</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">}</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="c">/* Version récente : line-clamp sans préfixe (support progressif) */</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="p">.</span><span class="nc">extrait-article-moderne</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="bp">-webkit-</span><span class="n">box</span><span class="p">;</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="kp">-webkit-</span><span class="n">box-orient</span><span class="p">:</span><span class="w"> </span><span class="kc">vertical</span><span class="p">;</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="k">line-clamp</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">          </span><span class="c">/* Propriété standard (Chrome 125+, Firefox 126+) */</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="kp">-webkit-</span><span class="k">line-clamp</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">  </span><span class="c">/* Préfixe maintenu pour compatibilité */</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em><code>line-clamp</code> est le seul mécanisme CSS natif pour les tronquages multilignes. La propriété standard sans préfixe devient progressivement disponible en 2024-2025.</em></p>
+<p><br></p>
+<hr />
+<h2 id="tableau-recapitulatif">Tableau récapitulatif<a class="headerlink" href="#tableau-recapitulatif" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Utilité principale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filter: drop-shadow()</code></td>
+<td>Ombre épousant la silhouette d'un PNG ou SVG</td>
+</tr>
+<tr>
+<td><code>content: attr(data-*)</code></td>
+<td>Tooltip 100% CSS depuis les attributs HTML</td>
+</tr>
+<tr>
+<td><code>counter-reset</code> / <code>counter-increment</code></td>
+<td>Numérotation automatique sans HTML</td>
+</tr>
+<tr>
+<td><code>animation-timeline: scroll()</code></td>
+<td>Animations pilotées par le défilement</td>
+</tr>
+<tr>
+<td><code>scroll-snap-type</code></td>
+<td>Défilement magnétique sans JavaScript</td>
+</tr>
+<tr>
+<td><code>aspect-ratio</code></td>
+<td>Ratios d'affichage sans hacks padding</td>
+</tr>
+<tr>
+<td><code>object-fit: cover</code></td>
+<td>Images dans des conteneurs de taille fixe</td>
+</tr>
+<tr>
+<td><code>text-wrap: balance</code></td>
+<td>Titres sans mots orphelins</td>
+</tr>
+<tr>
+<td><code>-webkit-line-clamp</code></td>
+<td>Tronquage propre sur N lignes</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 <hr />
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
-<p class="admonition-title">Ce qu'il faut retenir</p>
-<p>Avoir un code propre et structuré est important, mais la différence professionnelle ultime repose à 90% dans l'art de l'ergonomie perçue (<em>les transitions de bulle d'info CSS pure, la fluidité des compteurs, le tronquage des résumés d'interface, une ombre portée bien ciselée sur une icone détourée...</em>). Ce sont de petits investissements qui octroient un "effet Wow" direct au ressenti visuel pour l'utilisateur.</p>
+<p class="admonition-title">Ce qu'il faut retenir de ce module</p>
+<p>Ces techniques sont les finitions qui distinguent un site correct d'un site professionnel. <code>drop-shadow()</code> sur les PNGs, <code>attr()</code> pour les tooltips, <code>scroll-snap</code> pour les galeries, <code>aspect-ratio</code> pour les médias, <code>object-fit: cover</code> pour les images dans des grilles, <code>text-wrap: balance</code> pour les titres — toutes sont 100% CSS natif, sans dépendance externe.</p>
 </div>
 <blockquote>
-<p>À présent, vous avez un arsenal complet de connaissances sur la cascade stylisée. Le prochain pan structurel consistera à ne plus empiler des objets de façon chaotique, mais à mettre en scène le composant le plus puissant de l'Alignement FrontEnd du Web : <a href="../../layout/01-flexbox-css/"><strong>Le Module de Layout Moderne Flexbox !</strong></a>.</p>
+<p>Vous maîtrisez maintenant l'ensemble de la chaîne CSS fondamentale. L'étape suivante est de structurer des layouts complets avec <strong>Flexbox</strong> — le système d'alignement unidimensionnel du web moderne.</p>
 </blockquote>
 <p><br></p>
 
@@ -4361,7 +4777,7 @@ Traditionnellement, lier une animation à l'avancement "physique" d'un visiteur 
         
       
       
-        <span class="md-tag md-tag-icon">SCROLL-ANIMATION</span>
+        <span class="md-tag md-tag-icon">SCROLL</span>
       
     
       
@@ -4372,6 +4788,16 @@ Traditionnellement, lier une animation à l'avancement "physique" d'un visiteur 
       
       
         <span class="md-tag md-tag-icon">TYPOGRAPHY</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">OBJECT-FIT</span>
       
     
   </nav>
@@ -4433,13 +4859,13 @@ Traditionnellement, lier une animation à l'avancement "physique" d'un visiteur 
         
         
           
-          <a href="../../layout/01-flexbox-css/" class="md-footer__link md-footer__link--next" aria-label="Suivant: CSS Flexbox">
+          <a href="../08-positionnement-flux/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Positionnement et Flux">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                CSS Flexbox
+                Positionnement et Flux
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -170,7 +170,7 @@ _"Le prestataire doit garantir que ni lui, ni ses sous-traitants, ni ses équipe
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Immunité<br/>extraterritoriale]
     
     A --> B[Capital et<br/>gouvernance]
@@ -260,7 +260,7 @@ L'obtention de la qualification SecNumCloud nécessite un **processus rigoureux*
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Candidature du<br/>prestataire cloud] --> B[Évaluation par<br/>organisme qualifié<br/>PASSI]
     
     B --> C[Audit documentaire<br/>et technique]

@@ -1,7 +1,7 @@
 ---
-description: "Astuces CSS modernes et fonctionnalités bonus : drop-shadow vs box-shadow, compteurs CSS, tooltips 100% CSS, animations au scroll et typographie avancée."
+description: "Astuces CSS modernes : drop-shadow, compteurs, tooltips, scroll animations, scroll-snap, aspect-ratio, object-fit et typographie avancée."
 icon: lucide/book-open-check
-tags: ["CSS", "BONUS", "DROP-SHADOW", "COUNTERS", "SCROLL-ANIMATION", "TYPOGRAPHY"]
+tags: ["CSS", "BONUS", "DROP-SHADOW", "COUNTERS", "SCROLL", "TYPOGRAPHY", "OBJECT-FIT"]
 ---
 
 # Pour aller plus loin
@@ -9,194 +9,373 @@ tags: ["CSS", "BONUS", "DROP-SHADOW", "COUNTERS", "SCROLL-ANIMATION", "TYPOGRAPH
 <div
   class="omny-meta"
   data-level="🔴 Avancé"
-  data-version="1.0"
+  data-version="1.1"
   data-time="2-3 heures">
 </div>
 
 ## Introduction
 
 !!! quote "Analogie pédagogique - L'Art de la Finition"
-    _Un menuisier crée une bonne table avec du bois massif, des clous et de la colle (HTML et CSS Fondamental). Un **maître ébéniste**, lui, ajoute les finitions invisibles qui transforment un meuble fonctionnel en chef-d'œuvre : un ponçage au millimètre, un vernis qui reflète la lumière selon sa courbure, et des tiroirs massifs qui coulissent en douceur avec un frein de butée._
-    
-    _Cette section bonus regroupe les "finitions de l'ébéniste" du Web de 2026. Des fonctionnalités subtiles, souvent méconnues des développeurs moyens, qui font dire à un utilisateur final : "Ouah, ce site est vraiment haut de gamme."_
+    Un menuisier crée une bonne table avec du bois massif, des clous et de la colle. Un **maître ébéniste**, lui, ajoute les finitions invisibles qui transforment un meuble fonctionnel en chef-d'œuvre : un ponçage au millimètre, un vernis qui reflète la lumière selon sa courbure, des tiroirs qui coulissent avec un frein de butée.
 
-Ces astuces natives permettent d'accomplir en pur CSS des miracles qui nécessitaient des dizaines de lignes de JavaScript complexes il y a encore quelques années.
+    Cette section regroupe les "finitions de l'ébéniste" du Web moderne — des fonctionnalités subtiles, souvent méconnues, qui font dire à un utilisateur : "Ce site est vraiment haut de gamme."
 
-<br />
+Ces techniques natives permettent d'accomplir en pur CSS des effets qui nécessitaient des dizaines de lignes de JavaScript il y a encore quelques années.
+
+<br>
 
 ---
 
 ## La battle des ombres : `box-shadow` vs `drop-shadow()`
 
-Il existe une confusion très courante en intégration : pourquoi utiliser le filtre `drop-shadow()` alors que la propriété classique `box-shadow` existe depuis les débuts du CSS3 ?
+Il existe une confusion fréquente entre ces deux approches. Leur différence fondamentale tient au contour qu'elles analysent.
 
-### `box-shadow` (L'ombre de la "boîte")
-Le *Box Model* stipule que chaque élément est un bloc rectangulaire. `box-shadow` créera **toujours** une ombre projetée à partir des strictes limites de ce rectangle transparent, peu importe ce qu'il y a à l'intérieur de la boîte (exemple : un visage détouré en PNG).
+`box-shadow` projette une ombre depuis les **limites rectangulaires** de la boîte CSS — le Box Model. Peu importe si l'image à l'intérieur est un PNG avec fond transparent : l'ombre sera toujours un rectangle.
 
-### `filter: drop-shadow()` (L'ombre du "Moule")
-Ce filtre analyse les **pixels optiquement opaques** à l'intérieur de la balise, et dessine l'ombre exacte sur leur contour. C'est magique pour des images sans fond matérialisé (PNG transparent, SVG, Emoji géant), ou des formes découpées au `clip-path`.
+`filter: drop-shadow()` analyse les **pixels optiquement opaques** de l'élément et dessine l'ombre exactement sur leur contour. C'est la solution pour les images PNG détourées, les SVG et les formes découpées au `clip-path`.
 
-```css title="CSS — La différence en code"
-/* Créera un énorme CARRÉ d'ombre gris et sale derrière la photo de profil... */
-.avatar-png-detoure-malheureux {
+```css title="CSS - box-shadow vs drop-shadow"
+/* Produit un carré d'ombre derrière le PNG, ignorant sa transparence */
+.avatar-png-boite {
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Créera une aura d'ombre parfaite épousant l'arrondi du visage du PNG ! */
-.avatar-png-detoure-masterclass {
+/* Produit une ombre épousant exactement la silhouette opaque du PNG */
+.avatar-png-silhouette {
     filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.5));
 }
 ```
 
-<br />
+*`drop-shadow()` est également l'ombre correcte pour les éléments découpés avec `clip-path` : `box-shadow` est découpé avec le clip, `drop-shadow()` s'applique après.*
+
+<br>
 
 ---
 
 ## Contenu généré dynamiquement
 
-Le CSS n'est pas limité à la coloration. Les pseudo-éléments `::before` et `::after` (reliés à la propriété absolue `content:""`), permettent au CSS **de créer physiquement du texte ou des formes qui ne figurent pas dans le code HTML d'origine de la page**.
+Les pseudo-éléments `::before` et `::after` avec la propriété `content` permettent au CSS de créer du texte ou des formes absents du HTML d'origine.
 
-### Tooltip (Bulle d'info) 100% CSS via `attr()`
+<br>
 
-En récupérant la valeur d'un attribut de données injecté par le serveur HTML sur votre balise mère, le CSS peut afficher un Tooltip élégant au survol, sans `div` cachée.
+### Tooltip 100% CSS avec `attr()`
 
-```html title="HTML — Préparation d'attribut de données"
-<button class="btn-tooltip" data-message="Votre dossier sera supprimé !">
+En lisant la valeur d'un attribut HTML via `attr()`, le CSS peut afficher une bulle d'information au survol sans aucun JavaScript ni `<div>` cachée.
+
+```html title="HTML - Attribut de données pour le tooltip"
+<button class="btn-tooltip" data-message="Ce dossier sera supprimé définitivement.">
     Supprimer
 </button>
 ```
 
-```css title="CSS — Extraction dynamique de la donnée"
-.btn-tooltip { 
-    position: relative; 
+```css title="CSS - Tooltip via attr() et ::after"
+.btn-tooltip {
+    position: relative;
 }
 
-/* On prépare une bulle noire fantôme au-dessus du bouton, totalement invisible (opacity 0) */
+/* Bulle invisible par défaut, positionnée au-dessus du bouton */
 .btn-tooltip::after {
-    /* Magie : On aspire le texte HTML ! */
-    content: attr(data-message); 
-    
+    /* Lit dynamiquement la valeur de l'attribut data-message */
+    content: attr(data-message);
+
     position: absolute;
-    bottom: 120%; /* Placée au dessus */
-    background: black;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+
+    background: #1a1a2e;
     color: white;
-    padding: 4px 8px;
+    font-size: 0.8rem;
+    padding: 4px 10px;
     border-radius: 4px;
+
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
+    pointer-events: none; /* Le tooltip ne bloque pas les clics */
 }
 
-/* Au survol du bouton, la bulle d'info liée au boutton apparaitra ! */
+/* Au survol, la bulle devient visible */
 .btn-tooltip:hover::after {
     opacity: 1;
 }
 ```
 
+<br>
+
 ### Les Compteurs CSS
 
-Besoin de numéroter des dizaines de chapitres ou étapes de progression dynamiquement ? Aucun besoin de taper des "1.", "2.", "3." de vos propres mains dans le HTML.
+Les compteurs CSS permettent de numéroter automatiquement des éléments répétitifs sans écrire manuellement "1.", "2.", "3." dans le HTML.
 
-```css title="CSS — Compteurs infinis automatiques"
-/* 1. J'initialise un nouveau compteur "chapitre" à 0 sur la page */
+```css title="CSS - Compteurs automatiques pour les chapitres"
+/* 1. Initialiser le compteur à 0 sur le conteneur parent */
 body {
-    counter-reset: chapitre; 
+    counter-reset: chapitre;
 }
 
-/* 2. Pour chaque h2, j'incrémente le compteur de +1 */
+/* 2. Incrémenter le compteur à chaque h2 rencontré */
 h2 {
     counter-increment: chapitre;
 }
 
-/* 3. Et avant mon titre, j'affiche ce nombre ! */
+/* 3. Afficher la valeur courante avant chaque titre */
 h2::before {
-    content: "Étape " counter(chapitre) " : ";
+    content: "Chapitre " counter(chapitre) " — ";
     color: var(--color-primary);
+    font-weight: 500;
 }
 ```
 
-<br />
+*Les compteurs CSS sont utiles pour les documentations techniques, les tables des matières, les étapes de formulaire et les listes de références bibliographiques.*
+
+<br>
 
 ---
 
-## Les Animations au Scroll 
+## Animations au Scroll
 
-C'est **LA** révolution des performances depuis son support massif en 2024.
-Traditionnellement, lier une animation à l'avancement "physique" d'un visiteur qui descendaient dans votre page requérait de lourdes bibliothèques JavaScript écoutant les tremblements de roulette. Désormais, le CSS lie naturellement une animation `@keyframes` à l'axe de défilement matériel global ou local !
+Disponible nativement depuis 2024, `animation-timeline: scroll()` lie une animation `@keyframes` à l'avancement du défilement de la page, sans une ligne de JavaScript.
 
-```css title="CSS — Barre de lecture en haut de la page"
+```css title="CSS - Barre de progression de lecture"
 @keyframes avancement-lecture {
-    /* La barre part de la gauche (0%) pour recouvrir tout l'écran en largeur virtuellement */
-    0% { transform: scaleX(0); }
+    0%   { transform: scaleX(0); }
     100% { transform: scaleX(1); }
 }
 
 .scroll-watcher {
-    /* On place une ligne rouge fixée à la bordure haute absolue de l'écran navigateur */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 6px;
-    background-color: var(--color-danger);
+    height: 4px;
+    background-color: var(--color-primary);
     transform-origin: left;
-    
-    /* Et on lance magiquement la clé d'animation non plus sur une durée (3s), 
-       mais calquée linéairement sur la longueur de la barre verticale de défilement (scroll) ! */
+
+    /*
+        L'animation n'est plus pilotée par une durée (3s),
+        mais par la position du défilement vertical de la page.
+        scroll() sans argument cible le défilement de la fenêtre.
+    */
     animation: avancement-lecture linear;
     animation-timeline: scroll();
 }
 ```
 
-<br />
+*`animation-timeline` supporte aussi `view()` pour déclencher une animation quand un élément entre dans le viewport — alternative native aux bibliothèques comme AOS.*
+
+!!! info "Support navigateurs"
+    `animation-timeline` est disponible dans Chrome 115+, Firefox 110+, Safari 17.2+. En 2025, le support dépasse 88% des utilisateurs. Un polyfill JavaScript reste disponible pour les projets nécessitant une couverture plus large.
+
+<br>
 
 ---
 
-## Typographie Avancée (Fins de ligne)
+## Scroll Snap — défilement magnétique
 
-Gérer des longs textes organiques de multiples rédacteurs sans casser le design est une source inépuisable de drames d'intégration Web. Ces deux propriétés sauvent les carrières de développeurs confirmés :
+`scroll-snap` force le défilement à s'aligner sur des points définis, créant un effet "magnétique" entre les sections — sans JavaScript.
 
-### L'Équilibre visuel : `text-wrap`
+```css title="CSS - Galerie avec scroll snap horizontal"
+/* Conteneur : déclarer le contexte de snapping */
+.galerie-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    /*
+        x         : défilement horizontal
+        mandatory : le snapping est forcé après chaque interaction
+        proximity : snapping déclenché seulement si l'élément est "proche"
+    */
+    gap: 1rem;
+    padding: 1rem;
+    -webkit-overflow-scrolling: touch; /* Fluidité iOS */
+}
 
-Historiquement, un gros titre h1 de blog s'adapte, pour se briser en un retour à la ligne si la boîte à côté est trop compressive. Le titre affichait souvent : 
-> *"Comment intégrer par- *(ligne 1)*
-> *faitement"* *(ligne 2 en dessous toute seule)*
-
-Le **"veuvage"** typographique d'un mot orphelin tout seul en fin de titre est considéré très repoussant visuellement.
-
-```css title="CSS — text-wrap: balance;"
-h1.titre-article {
-    /* Le navigateur divise mathématiquement le bloc en calculant les espaces, 
-       équilibrant sur les deux lignes de manière parfaitement homogène votre grand texte. */
-    text-wrap: balance; 
+/* Enfants : définir le point d'accrochage */
+.galerie-scroll .diapo {
+    scroll-snap-align: start; /* start | center | end */
+    flex-shrink: 0;
+    width: 80%;
+    border-radius: 8px;
 }
 ```
 
-### Le Tronquage : `line-clamp`
+```css title="CSS - Sections plein écran avec scroll snap vertical"
+/* Défilement "full-page scroll" sans JavaScript */
+.site-wrapper {
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
 
-Lorsque vous affichez un "Résumé d'article" sur une petite carte (Card de portfolio), il y a un fort risque qu'un long résumé étire votre carte vers le bas, déséquilibrant ses voisines. Vous décidez d'y mettre une hauteur limite... Le texte dépasse par le bas et empiète sur les boutons (*Overflow*) ! 
+.section-plein-ecran {
+    height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always; /* Empêche de sauter plusieurs sections d'un coup */
+}
+```
 
-```css title="CSS — Tronquer proprement"
-p.extrait-article {
-    /* Les 3 propriétés vitales couplées pour la magie */
+<br>
+
+---
+
+## `aspect-ratio` — conserver les proportions
+
+`aspect-ratio` force un élément à maintenir un ratio largeur/hauteur défini, quelle que soit la taille de son conteneur.
+
+```css title="CSS - Aspect ratio pour les médias et composants"
+/* Ratio 16/9 pour les vidéos et images embarquées */
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Ratio 1/1 pour les avatars et vignettes carrées */
+.avatar {
+    width: 48px;
+    aspect-ratio: 1;      /* Équivalent à 1 / 1 */
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* Ratio pour les cartes produit */
+.carte-produit-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #f0f4f8; /* Fond pendant le chargement */
+}
+```
+
+*Avant `aspect-ratio`, la technique du "padding-top hack" (`padding-top: 56.25%` pour le 16/9) était la seule solution. `aspect-ratio` remplace entièrement ce hack.*
+
+<br>
+
+---
+
+## `object-fit` et `object-position` — contrôler les médias
+
+`object-fit` définit comment un média (`<img>`, `<video>`) remplit son conteneur quand leurs proportions diffèrent.
+
+```css title="CSS - object-fit pour les images dans des conteneurs fixes"
+.carte-image {
+    width: 100%;
+    height: 220px;
+
+    /*
+        object-fit contrôle le redimensionnement du média dans le conteneur :
+        cover    : remplit le conteneur en coupant si nécessaire (le plus courant)
+        contain  : affiche l'image entière en ajoutant des bandes si nécessaire
+        fill     : étire l'image pour remplir (distorsion possible)
+        none     : conserve la taille originale sans redimensionnement
+        scale-down : prend le plus petit entre none et contain
+    */
+    object-fit: cover;
+
+    /* object-position : définit le point focal de l'image (comme background-position) */
+    object-position: center top; /* Privilégie le haut de l'image */
+}
+
+/* Galerie de portraits : recadrer sur les visages */
+.photo-portrait {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    object-position: 50% 20%; /* Focus sur le tiers supérieur */
+}
+```
+
+*`object-fit: cover` est la propriété la plus utilisée en production pour les images dans des grilles ou des cards — elle garantit que toutes les cartes ont la même hauteur sans déformation.*
+
+<br>
+
+---
+
+## Typographie Avancée
+
+<br>
+
+### Équilibre visuel : `text-wrap: balance`
+
+Un titre long peut se casser sur une deuxième ligne avec un seul mot orphelin. `text-wrap: balance` équilibre mathématiquement les lignes pour éviter ce veuvage typographique.
+
+```css title="CSS - Equilibrage des titres avec text-wrap"
+h1,
+h2,
+.titre-carte {
+    /*
+        Le navigateur divise le bloc en calculant les espaces
+        pour équilibrer les longueurs de ligne.
+        Impact sur les performances : réservez aux titres courts,
+        pas aux longs blocs de texte.
+    */
+    text-wrap: balance;
+}
+
+/* text-wrap: pretty : pour les corps de texte */
+/* Évite les mots orphelins sans recalcul complet du bloc */
+p {
+    text-wrap: pretty;
+}
+```
+
+<br>
+
+### Tronquage de texte : `line-clamp`
+
+Pour les cards avec des résumés de longueur variable, `line-clamp` tronque proprement le texte après N lignes et ajoute des points de suspension.
+
+```css title="CSS - Tronquage sur 3 lignes avec line-clamp"
+.extrait-article {
+    /*
+        Ces trois propriétés sont indissociables pour le tronquage multilignes.
+        -webkit-line-clamp : nombre de lignes affichées avant tronquage
+    */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    
-    /* Coupera proprement la ligne 4, puis mettra trois "..." de suspense officiels à la fin du texte sur la 3ème ! */
-    -webkit-line-clamp: 3; 
-    
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+/* Version récente : line-clamp sans préfixe (support progressif) */
+.extrait-article-moderne {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;          /* Propriété standard (Chrome 125+, Firefox 126+) */
+    -webkit-line-clamp: 3;  /* Préfixe maintenu pour compatibilité */
     overflow: hidden;
 }
 ```
 
-<br />
+*`line-clamp` est le seul mécanisme CSS natif pour les tronquages multilignes. La propriété standard sans préfixe devient progressivement disponible en 2024-2025.*
+
+<br>
+
+---
+
+## Tableau récapitulatif
+
+| Technique | Utilité principale |
+| --- | --- |
+| `filter: drop-shadow()` | Ombre épousant la silhouette d'un PNG ou SVG |
+| `content: attr(data-*)` | Tooltip 100% CSS depuis les attributs HTML |
+| `counter-reset` / `counter-increment` | Numérotation automatique sans HTML |
+| `animation-timeline: scroll()` | Animations pilotées par le défilement |
+| `scroll-snap-type` | Défilement magnétique sans JavaScript |
+| `aspect-ratio` | Ratios d'affichage sans hacks padding |
+| `object-fit: cover` | Images dans des conteneurs de taille fixe |
+| `text-wrap: balance` | Titres sans mots orphelins |
+| `-webkit-line-clamp` | Tronquage propre sur N lignes |
+
+<br>
 
 ---
 
 ## Conclusion
 
-!!! quote "Ce qu'il faut retenir"
-    Avoir un code propre et structuré est important, mais la différence professionnelle ultime repose à 90% dans l'art de l'ergonomie perçue (*les transitions de bulle d'info CSS pure, la fluidité des compteurs, le tronquage des résumés d'interface, une ombre portée bien ciselée sur une icone détourée...*). Ce sont de petits investissements qui octroient un "effet Wow" direct au ressenti visuel pour l'utilisateur.
+!!! quote "Ce qu'il faut retenir de ce module"
+    Ces techniques sont les finitions qui distinguent un site correct d'un site professionnel. `drop-shadow()` sur les PNGs, `attr()` pour les tooltips, `scroll-snap` pour les galeries, `aspect-ratio` pour les médias, `object-fit: cover` pour les images dans des grilles, `text-wrap: balance` pour les titres — toutes sont 100% CSS natif, sans dépendance externe.
 
->  À présent, vous avez un arsenal complet de connaissances sur la cascade stylisée. Le prochain pan structurel consistera à ne plus empiler des objets de façon chaotique, mais à mettre en scène le composant le plus puissant de l'Alignement FrontEnd du Web : [**Le Module de Layout Moderne Flexbox !**](../layout/01-flexbox-css.md).
+> Vous maîtrisez maintenant l'ensemble de la chaîne CSS fondamentale. L'étape suivante est de structurer des layouts complets avec **Flexbox** — le système d'alignement unidimensionnel du web moderne.
 
 <br>

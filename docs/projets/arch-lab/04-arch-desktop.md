@@ -781,7 +781,7 @@ Lorsque tout est fonctionnel :
 ## Récapitulatif : Architecture Desktop finale
 
 ```mermaid
-graph TD
+flowchart TD
     UEFI[UEFI Firmware] --> BOOT[systemd-boot]
     BOOT --> KERNEL[Noyau Linux]
     KERNEL --> SYSTEMD["systemd (PID 1)"]

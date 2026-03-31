@@ -193,7 +193,7 @@ La CNIL dispose de **pouvoirs d'investigation étendus** et peut prononcer des *
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Déclenchement du<br/>contrôle CNIL]
     
     B[Sur plainte<br/>d'un citoyen]
@@ -548,7 +548,7 @@ Tout traitement de données doit reposer sur **au moins une des six bases légal
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Quel traitement de<br/>données ?]
     
     B{Imposé par<br/>une loi ?}

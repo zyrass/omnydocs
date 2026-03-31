@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Le cours exhaustif sur CSS Grid Layout. Reprenez le contrôle total de vos interfaces 2D avec l'architecture de grille formelle, grid-template-areas et le placement absolu.">
+        <meta name="description" content="Le cours exhaustif sur CSS Grid Layout : grille formelle, grid-template-areas, placement absolu, subgrid et auto-fit/minmax.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -156,10 +156,7 @@
             
 <!-- Add announcement here, including arbitrary HTML -->
 <small>
-    <em
-        >Cette documentation est en pleine conception, c'est normal qu'elle soit
-        encors si faible au niveau du contenu</em
-    >
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
 </small>
 
           </div>
@@ -731,6 +728,8 @@
       
         
       
+        
+      
     
     
     
@@ -901,6 +900,8 @@
       
         
       
+        
+      
     
     
     
@@ -1033,6 +1034,8 @@
   
     
     
+      
+        
       
         
       
@@ -1270,10 +1273,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flexbox-vs-grid" class="md-nav__link">
+  <a href="#flexbox-vs-grid-les-deux-sont-complementaires" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flexbox vs Grid
+        Flexbox vs Grid : les deux sont complémentaires
       
     </span>
   </a>
@@ -1292,15 +1295,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#declaration-et-structure-grid-template" class="md-nav__link">
+  <a href="#declaration-et-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Déclaration et structure : (grid-template)
+        Déclaration et structure
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Déclaration et structure : (grid-template)">
+    <nav class="md-nav" aria-label="Déclaration et structure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1315,10 +1318,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-decoupage-structurel-grid-template-columns-et-grid-template-rows" class="md-nav__link">
+  <a href="#grid-template-columns-et-grid-template-rows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le découpage structurel : (grid-template-columns) et (grid-template-rows)
+        grid-template-columns et grid-template-rows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-fonction-repeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La fonction repeat()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grid-auto-rows-et-grid-auto-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grid-auto-rows et grid-auto-columns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grid-auto-flow-controler-le-remplissage-automatique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grid-auto-flow — contrôler le remplissage automatique
       
     </span>
   </a>
@@ -1334,7 +1370,7 @@
   <a href="#le-placement-absolu-grid-column-et-grid-row" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le placement absolu : (grid-column) et (grid-row)
+        Le placement absolu : grid-column et grid-row
       
     </span>
   </a>
@@ -1345,7 +1381,7 @@
   <a href="#les-zones-nommees-grid-template-areas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les zones nommées : (grid-template-areas)
+        Les zones nommées : grid-template-areas
       
     </span>
   </a>
@@ -1353,22 +1389,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lelasticite-intelligente-minmax-auto-fit-et-auto-fill" class="md-nav__link">
+  <a href="#lelasticite-intelligente-minmax-auto-fit-auto-fill" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'élasticité intelligente : (minmax()), (auto-fit) et (auto-fill)
+        L'élasticité intelligente : minmax(), auto-fit, auto-fill
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="L&#x27;élasticité intelligente : (minmax()), (auto-fit) et (auto-fill)">
+    <nav class="md-nav" aria-label="L&#x27;élasticité intelligente : minmax(), auto-fit, auto-fill">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#securiser-les-dimensions-avec-minmax" class="md-nav__link">
+  <a href="#minmax-securiser-les-dimensions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sécuriser les dimensions avec minmax()
+        minmax() — sécuriser les dimensions
       
     </span>
   </a>
@@ -1376,10 +1412,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-comportement-fluide-algorithmique-auto-fit" class="md-nav__link">
+  <a href="#auto-fit-grille-responsive-sans-media-query" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le comportement fluide algorithmique (auto-fit)
+        auto-fit — grille responsive sans media query
       
     </span>
   </a>
@@ -1392,10 +1428,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resume-et-bonnes-pratiques" class="md-nav__link">
+  <a href="#subgrid-heriter-de-la-grille-parente" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Résumé et Bonnes Pratiques
+        Subgrid — hériter de la grille parente
       
     </span>
   </a>
@@ -2189,6 +2225,176 @@
       
         
       
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mobile/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement Mobile
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Développement Mobile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../mobile/swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift — Le Langage
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
         
       
         
@@ -2217,7 +2423,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2239,14 +2445,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2453,7 +2659,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2475,14 +2681,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2681,7 +2887,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2703,14 +2909,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3049,7 +3255,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3071,14 +3277,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3757,10 +3963,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flexbox-vs-grid" class="md-nav__link">
+  <a href="#flexbox-vs-grid-les-deux-sont-complementaires" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flexbox vs Grid
+        Flexbox vs Grid : les deux sont complémentaires
       
     </span>
   </a>
@@ -3779,15 +3985,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#declaration-et-structure-grid-template" class="md-nav__link">
+  <a href="#declaration-et-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Déclaration et structure : (grid-template)
+        Déclaration et structure
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Déclaration et structure : (grid-template)">
+    <nav class="md-nav" aria-label="Déclaration et structure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3802,10 +4008,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-decoupage-structurel-grid-template-columns-et-grid-template-rows" class="md-nav__link">
+  <a href="#grid-template-columns-et-grid-template-rows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le découpage structurel : (grid-template-columns) et (grid-template-rows)
+        grid-template-columns et grid-template-rows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-fonction-repeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La fonction repeat()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grid-auto-rows-et-grid-auto-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grid-auto-rows et grid-auto-columns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grid-auto-flow-controler-le-remplissage-automatique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grid-auto-flow — contrôler le remplissage automatique
       
     </span>
   </a>
@@ -3821,7 +4060,7 @@
   <a href="#le-placement-absolu-grid-column-et-grid-row" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le placement absolu : (grid-column) et (grid-row)
+        Le placement absolu : grid-column et grid-row
       
     </span>
   </a>
@@ -3832,7 +4071,7 @@
   <a href="#les-zones-nommees-grid-template-areas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les zones nommées : (grid-template-areas)
+        Les zones nommées : grid-template-areas
       
     </span>
   </a>
@@ -3840,22 +4079,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lelasticite-intelligente-minmax-auto-fit-et-auto-fill" class="md-nav__link">
+  <a href="#lelasticite-intelligente-minmax-auto-fit-auto-fill" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'élasticité intelligente : (minmax()), (auto-fit) et (auto-fill)
+        L'élasticité intelligente : minmax(), auto-fit, auto-fill
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="L&#x27;élasticité intelligente : (minmax()), (auto-fit) et (auto-fill)">
+    <nav class="md-nav" aria-label="L&#x27;élasticité intelligente : minmax(), auto-fit, auto-fill">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#securiser-les-dimensions-avec-minmax" class="md-nav__link">
+  <a href="#minmax-securiser-les-dimensions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sécuriser les dimensions avec minmax()
+        minmax() — sécuriser les dimensions
       
     </span>
   </a>
@@ -3863,10 +4102,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-comportement-fluide-algorithmique-auto-fit" class="md-nav__link">
+  <a href="#auto-fit-grille-responsive-sans-media-query" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le comportement fluide algorithmique (auto-fit)
+        auto-fit — grille responsive sans media query
       
     </span>
   </a>
@@ -3879,10 +4118,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resume-et-bonnes-pratiques" class="md-nav__link">
+  <a href="#subgrid-heriter-de-la-grille-parente" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Résumé et Bonnes Pratiques
+        Subgrid — hériter de la grille parente
       
     </span>
   </a>
@@ -4021,234 +4260,339 @@
 <p><div
   class="omny-meta"
   data-level="🔴 Avancé"
-  data-version="2.0"
-  data-time="5-7 heures"
-></div>
+  data-version="2.1"
+  data-time="5-7 heures">
+</div>
 </p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Jusqu'à l'arrivée de Grid en 2017, la structuration globale d'une page Web complète (en-tête, menu latéral, contenu central et pied de page) reposait sur des détournements de propriétés comme <code>float</code> ou des imbrications complexes de Flexbox.</p>
-<p><strong>CSS Grid</strong> est le premier système natif de mise en page <strong>bi-dimensionnel</strong> du web. Il permet de définir simultanément des lignes et des colonnes, créant ainsi une grille formelle invisible sur laquelle les éléments peuvent être placés avec une précision absolue.</p>
-<p>Grid est l'outil privilégié pour le design <strong>macroscopique</strong> (<em>la structure globale de la page</em>), tandis que Flexbox excelle dans le design <strong>microscopique</strong> (<em>'alignement des éléments à l'intérieur de ces zones</em>).</p>
+<p>Jusqu'à l'arrivée de Grid en 2017, la structuration globale d'une page Web (en-tête, sidebar, contenu, pied de page) reposait sur des détournements de <code>float</code> ou des imbrications complexes de Flexbox.</p>
+<p><strong>CSS Grid</strong> est le premier système natif de mise en page <strong>bidimensionnel</strong> du web. Il permet de définir simultanément des lignes et des colonnes, créant une grille formelle invisible sur laquelle les éléments se placent avec une précision absolue.</p>
+<p>Grid est l'outil du design <strong>macroscopique</strong> — la structure globale de la page. Flexbox excelle dans le design <strong>microscopique</strong> — l'alignement des éléments à l'intérieur de ces zones.</p>
 <div class="admonition quote">
-<p class="admonition-title">Analogie pédagogique — Le plan d'architecte</p>
-<p>Si Flexbox s'apparente à un élastique unidimensionnel où les éléments s'alignent et réagissent en chaîne, CSS Grid ressemble davantage à un <strong>plan d'architecte</strong>.
-Vous dessinez virtuellement les pièces de la maison (<em>la grille formelle</em>), et vous assignez chaque meuble (<em>vos éléments HTML</em>) à une pièce précise. La structure globale prime sur le contenu individuel.</p>
+<p class="admonition-title">Analogie pédagogique - Le Plan d'Architecte</p>
+<p>Si Flexbox ressemble à un élastique unidimensionnel où les éléments s'alignent en chaîne, CSS Grid ressemble davantage à un <strong>plan d'architecte</strong>. Vous dessinez virtuellement les pièces de la maison (la grille formelle), puis vous assignez chaque meuble (vos éléments HTML) à une pièce précise. La structure globale prime sur le contenu individuel.</p>
 </div>
-<p><br /></p>
+<p><br></p>
 <hr />
-<h2 id="flexbox-vs-grid">Flexbox vs Grid<a class="headerlink" href="#flexbox-vs-grid" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Il est essentiel de comprendre que <strong>ces deux systèmes sont totalement complémentaires</strong> et conçus pour fonctionner ensemble.</p>
-</div>
+<h2 id="flexbox-vs-grid-les-deux-sont-complementaires">Flexbox vs Grid : les deux sont complémentaires<a class="headerlink" href="#flexbox-vs-grid-les-deux-sont-complementaires" title="Permanent link">&para;</a></h2>
+<p>Ces deux systèmes ne sont pas en compétition — ils sont conçus pour fonctionner ensemble.</p>
 <p><img alt="Concept de base 2D du CSS Grid" src="../../../../../assets/images/dev/layout-modern/css_grid_2d_concept.png" /></p>
-<p style="text-align: center;"><em>Flexbox gère l'alignement sur un seul axe (ligne ou colonne).<br>Grid structure l'espace sur deux axes simultanés (lignes et colonnes croisées).</em></p>
-
-<div class="admonition success">
+<p><em>Flexbox gère l'alignement sur un seul axe (ligne ou colonne). Grid structure l'espace sur deux axes simultanés (lignes et colonnes croisées).</em></p>
+<div class="admonition tip">
 <p class="admonition-title">La règle d'or de l'intégrateur</p>
-<ul>
-<li>
-<p>Utilisez <strong>Grid</strong> sur le conteneur principal (ex: <code>&lt;main&gt;</code>, <code>&lt;body&gt;</code>) pour définir les grandes "zones" figées de la page<br>(<strong>En-tête</strong>, <strong>Sidebar</strong>, <strong>Contenu</strong>, <strong>Footer</strong>).</p>
-</li>
-<li>
-<p>Utilisez <strong>Flexbox</strong> à l'intérieur de ces zones pour fluidifier et aligner les éléments de détail<br>(<strong>navigation</strong>, <strong>icônes</strong>, <strong>textes</strong>).</p>
-</li>
-</ul>
+<p>Utilisez <strong>Grid</strong> sur le conteneur principal pour définir les grandes zones fixes de la page (en-tête, sidebar, contenu, footer). Utilisez <strong>Flexbox</strong> à l'intérieur de ces zones pour fluidifier et aligner les éléments de détail (navigation, icônes, boutons).</p>
 </div>
-<p><br /></p>
+<p><br></p>
 <hr />
 <h2 id="lanatomie-du-systeme-grid">L'anatomie du système Grid<a class="headerlink" href="#lanatomie-du-systeme-grid" title="Permanent link">&para;</a></h2>
-<p>Une grille repose sur un vocabulaire technique strict en anglais qu'il faut mémoriser, car ce sont ces termes précis que vous utiliserez dans votre code CSS.</p>
+<p>Une grille repose sur un vocabulaire technique précis.</p>
 <p><img alt="Anatomie complète des composants CSS Grid" src="../../../../../assets/images/dev/layout-modern/css_grid_anatomy.png" /></p>
-<p style="text-align: center;"><em>L'architecture visuelle simplifiée d'un système Grid (Line, Track, Cell et Area).</em></p>
-
+<p><em>Architecture visuelle d'un système Grid : ligne, piste, cellule et zone.</em></p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Terme CSS (Anglais)</th>
-<th style="text-align: left;">Explication simplifiée</th>
+<th style="text-align: left;">Terme</th>
+<th style="text-align: left;">Explication</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Grid Container</strong></td>
-<td style="text-align: left;">La boîte géante. L'élément parent principal (ex: <code>&lt;main&gt;</code>) sur lequel vous écrivez <code>display: grid;</code>.</td>
+<td style="text-align: left;">L'élément parent sur lequel s'écrit <code>display: grid</code></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Grid Item</strong></td>
-<td style="text-align: left;">Les boîtes intérieures. Ce sont les enfants <em>directs</em> du <code>Grid Container</code>.</td>
+<td style="text-align: left;">Les enfants <strong>directs</strong> du Grid Container</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Grid Line</strong></td>
-<td style="text-align: left;">Les "lignes de découpe" invisibles. Il s'agit des traits métalliques verticaux et horizontaux qui tranchent votre grille. Par exemple, une grille de 3 colonnes possède 4 lignes de découpe verticales !</td>
+<td style="text-align: left;">Les traits de découpe invisibles. Une grille de 3 colonnes possède 4 lignes verticales</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Grid Track</strong></td>
+<td style="text-align: left;">L'espace entre deux Grid Lines (une colonne ou une rangée)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Grid Cell</strong></td>
+<td style="text-align: left;">L'intersection d'une colonne et d'une rangée (la plus petite unité)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Grid Area</strong></td>
-<td style="text-align: left;">Une "zone" rectangulaire. Il s'agit d'un regroupement de plusieurs dalles adjacentes entre elles. C'est la cible finale où vous encastrerez vos composants.</td>
+<td style="text-align: left;">Un regroupement rectangulaire de plusieurs cellules adjacentes</td>
 </tr>
 </tbody>
 </table>
-<p><br /></p>
+<p><br></p>
 <hr />
-<h2 id="declaration-et-structure-grid-template">Déclaration et structure : (<code>grid-template</code>)<a class="headerlink" href="#declaration-et-structure-grid-template" title="Permanent link">&para;</a></h2>
+<h2 id="declaration-et-structure">Déclaration et structure<a class="headerlink" href="#declaration-et-structure" title="Permanent link">&para;</a></h2>
+<p><br></p>
 <h3 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h3>
-<p>L'activation du contexte s'effectue sur l'élément parent.</p>
-<p><div class="language-css highlight"><span class="filename">Code CSS - Naissance de la grille</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">.</span><span class="nc">plan-de-travail</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+<div class="language-css highlight"><span class="filename">CSS - Activation du contexte Grid</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">.</span><span class="nc">plan-de-travail</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="c">/* Active le contexte Grid sur ce conteneur */</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<em>Sans instructions supplémentaires, Grid empilera simplement les enfants dans une colonne unique par défaut.</em></p>
-<h3 id="le-decoupage-structurel-grid-template-columns-et-grid-template-rows">Le découpage structurel : (<code>grid-template-columns</code>) et (<code>grid-template-rows</code>)<a class="headerlink" href="#le-decoupage-structurel-grid-template-columns-et-grid-template-rows" title="Permanent link">&para;</a></h3>
-<p>La puissance de Grid réside dans la définition explicite de sa structure. Plutôt que de laisser les enfants dicter leur taille, c'est le conteneur (<em>Grid Container</em>) qui tranche l'espace.</p>
-<ul>
-<li><strong><code>grid-template-columns</code></strong> : Définit le nombre exact de colonnes (verticales) et la largeur de chacune.</li>
-<li><strong><code>grid-template-rows</code></strong> : Définit le nombre exact de lignes (horizontales) et la hauteur de chacune.</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Pour gérer l'élasticité de la grille de manière fluide et éviter les pourcentages infernaux, le W3C a introduit une unité spécifique très puissante : la <strong>fraction</strong> (<code>fr</code>). Elle représente une part mathématique de l'espace vidé restant.</p>
-</div>
-<p><img alt="Découpage en lignes et colonnes" src="../../../../../assets/images/dev/layout-modern/css_grid_template_columns_rows.png" /></p>
-<p style="text-align: center;"><em>L'utilisation conjointe de pixels fixes pour des éléments précis (comme une barre latérale) et de fractions (fr) pour le contenu fluide permet un contrôle architectural absolu.</em></p>
-
-<div class="language-css highlight"><span class="filename">Code CSS - Découpe des axes</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">.</span><span class="nc">architecture-container</span><span class="w"> </span><span class="p">{</span>
+<p><em>Sans instructions supplémentaires, Grid empile les enfants dans une colonne unique par défaut.</em></p>
+<p><br></p>
+<h3 id="grid-template-columns-et-grid-template-rows"><code>grid-template-columns</code> et <code>grid-template-rows</code><a class="headerlink" href="#grid-template-columns-et-grid-template-rows" title="Permanent link">&para;</a></h3>
+<p>Ces deux propriétés découpent l'espace du conteneur en colonnes et en rangées.</p>
+<p>L'unité <code>fr</code> (fraction) représente une part de l'espace restant après déduction des tailles fixes.</p>
+<p><img alt="Découpage en lignes et colonnes avec fr" src="../../../../../assets/images/dev/layout-modern/css_grid_template_columns_rows.png" /></p>
+<p><em>L'association de pixels fixes (pour les sidebars) et de fractions <code>fr</code> (pour le contenu fluide) permet un contrôle architectural absolu.</em></p>
+<div class="language-css highlight"><span class="filename">CSS - Découpe des colonnes et rangées</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">.</span><span class="nc">architecture-container</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c">/* 1. TRANCHAGE VERTICAL (Les Colonnes) */</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="w"> </span><span class="mi">2</span><span class="n">fr</span><span class="p">;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c">/* La colonne 1 fait 100px fixes.</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c">     * La colonne 2 prend 1 part du vide.</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c">     * La colonne 3 prend 2 parts du vide (le double de la 2). */</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="c">/* 2. TRANCHAGE HORIZONTAL (Les Lignes/Rangées) */</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="w"> </span><span class="kc">auto</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="c">/* La ligne 1 fait 80px fixes.</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c">     * La ligne 2 s&#39;adapte à son contenu.</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c">     * La ligne 3 prend 1 part du vide. */</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="c">/* 3. L&#39;ESPACEMENT (Gouttière) */</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c">        3 colonnes :</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c">        - Colonne 1 : 100px fixes</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c">        - Colonne 2 : 1 fraction du vide restant</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c">        - Colonne 3 : 2 fractions du vide restant (le double de la 2)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c">    */</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="w"> </span><span class="mi">2</span><span class="n">fr</span><span class="p">;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c">        3 rangées :</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c">        - Rangée 1 : 80px fixes (en-tête)</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c">        - Rangée 2 : s&#39;adapte à son contenu</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c">        - Rangée 3 : prend l&#39;espace restant</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c">    */</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="w"> </span><span class="kc">auto</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="c">/* Gouttière entre toutes les cellules */</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">La répétition avec <code>repeat()</code></p>
-<p>Pour éviter la redondance dans les grandes grilles paramétriques, la fonction <code>repeat()</code> simplifie le code :
-<code>grid-template-columns: repeat(12, 1fr);</code> (Génère 12 colonnes égales).
-<code>grid-template-columns: repeat(3, 100px 2fr);</code> (Génère une alternance : 100px, 2fr, 100px, 2fr, 100px, 2fr).</p>
+<p><br></p>
+<h3 id="la-fonction-repeat">La fonction <code>repeat()</code><a class="headerlink" href="#la-fonction-repeat" title="Permanent link">&para;</a></h3>
+<div class="language-css highlight"><span class="filename">CSS - repeat() pour les grilles régulières</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c">/* 12 colonnes égales (grille Bootstrap-style) */</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">.</span><span class="nc">grille-12</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">);</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c">/* Alternance : 100px fixe, 2fr fluide, répétée 3 fois */</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">.</span><span class="nc">grille-alternee</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="w"> </span><span class="mi">2</span><span class="n">fr</span><span class="p">);</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c">/* Génère : 100px 2fr 100px 2fr 100px 2fr */</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><br></p>
+<h3 id="grid-auto-rows-et-grid-auto-columns"><code>grid-auto-rows</code> et <code>grid-auto-columns</code><a class="headerlink" href="#grid-auto-rows-et-grid-auto-columns" title="Permanent link">&para;</a></h3>
+<p>Ces propriétés définissent la taille des rangées ou colonnes créées <strong>implicitement</strong> — celles que Grid génère automatiquement quand les éléments dépassent la grille déclarée.</p>
+<div class="language-css highlight"><span class="filename">CSS - Lignes et colonnes implicites</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">.</span><span class="nc">galerie</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">);</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c">        Toute rangée créée automatiquement (au-delà des grid-template-rows déclarées)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c">        aura une hauteur minimale de 200px et s&#39;étendra si le contenu est plus grand.</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c">    */</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">grid-auto-rows</span><span class="p">:</span><span class="w"> </span><span class="nf">minmax</span><span class="p">(</span><span class="mi">200</span><span class="kt">px</span><span class="p">,</span><span class="w"> </span><span class="kc">auto</span><span class="p">);</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em><code>grid-auto-rows</code> est particulièrement utile pour les galeries dynamiques dont le nombre d'éléments n'est pas connu à l'avance.</em></p>
+<p><br></p>
+<h3 id="grid-auto-flow-controler-le-remplissage-automatique"><code>grid-auto-flow</code> — contrôler le remplissage automatique<a class="headerlink" href="#grid-auto-flow-controler-le-remplissage-automatique" title="Permanent link">&para;</a></h3>
+<div class="language-css highlight"><span class="filename">CSS - Ordre de placement automatique des éléments</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">.</span><span class="nc">layout</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">);</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c">        row (défaut) : remplit de gauche à droite, ligne par ligne</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c">        column       : remplit de haut en bas, colonne par colonne</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c">        dense        : algorithme de remplissage compact (comble les trous)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c">    */</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="k">grid-auto-flow</span><span class="p">:</span><span class="w"> </span><span class="kc">row</span><span class="w"> </span><span class="n">dense</span><span class="p">;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em><code>grid-auto-flow: row dense</code> est utile pour les mosaïques d'éléments de tailles variées — Grid tentera de combler les espaces vides laissés par des éléments plus grands.</em></p>
+<p><br></p>
+<hr />
+<h2 id="le-placement-absolu-grid-column-et-grid-row">Le placement absolu : <code>grid-column</code> et <code>grid-row</code><a class="headerlink" href="#le-placement-absolu-grid-column-et-grid-row" title="Permanent link">&para;</a></h2>
+<p>Par défaut, Grid place les éléments séquentiellement. Ces propriétés forcent la position d'un enfant en l'ancrant sur des <strong>Grid Lines</strong> numérotées.</p>
+<div class="language-css highlight"><span class="filename">CSS - Placement par numéros de lignes</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">.</span><span class="nc">banniere</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c">        L&#39;élément démarre à la Grid Line verticale 1</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c">        et s&#39;étend jusqu&#39;à la Grid Line 4 (couvre 3 colonnes)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c">    */</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">grid-column</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="c">/* L&#39;élément occupe la première rangée */</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="k">grid-row</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">.</span><span class="nc">footer</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c">        -1 cible toujours la toute dernière ligne de la grille déclarée</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c">        Utile pour s&#39;étirer jusqu&#39;au bord sans connaître le nombre exact de colonnes</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="c">    */</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="k">grid-column</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">}</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="p">.</span><span class="nc">element-large</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="c">/* span : s&#39;étale sur 2 colonnes à partir de sa position courante */</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="k">grid-column</span><span class="p">:</span><span class="w"> </span><span class="n">span</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="k">grid-row</span><span class="p">:</span><span class="w"> </span><span class="n">span</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="les-zones-nommees-grid-template-areas">Les zones nommées : <code>grid-template-areas</code><a class="headerlink" href="#les-zones-nommees-grid-template-areas" title="Permanent link">&para;</a></h2>
+<p>S'appuyer sur des numéros de lignes invisibles devient difficile à maintenir sur des mises en page complexes. <code>grid-template-areas</code> permet de dessiner une représentation visuelle de l'architecture.</p>
+<p><img alt="Explication visuelle de grid-template-areas" src="../../../../../assets/images/dev/layout-modern/css_grid_template_areas.png" /></p>
+<p><em>La définition par mots-clés permet aux enfants de s'encastrer automatiquement sur leurs zones désignées.</em></p>
+<div class="language-css highlight"><span class="filename">CSS - Architecture complète avec grid-template-areas</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c">/* LE CONTENEUR PARENT */</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">.</span><span class="nc">layout-page</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="kt">px</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="w"> </span><span class="mi">180</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="kt">px</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="w"> </span><span class="mi">56</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="n">dvh</span><span class="p">;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c">        Chaque chaîne de caractères représente une rangée.</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c">        Chaque mot représente une zone nommée.</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="c">        Un point &quot;.&quot; représente une cellule vide.</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c">    */</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="k">grid-template-areas</span><span class="p">:</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">        </span><span class="s2">&quot;en-tete    en-tete     en-tete&quot;</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">        </span><span class="s2">&quot;navigation zone-centre pub-droite&quot;</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="s2">&quot;pied-page  pied-page   pied-page&quot;</span><span class="p">;</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="p">}</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="c">/* LES ENFANTS : s&#39;assignent à leur zone par nom */</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="p">.</span><span class="nc">header</span><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="n">en-tete</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="p">.</span><span class="nc">sidebar-nav</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="n">navigation</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="p">.</span><span class="nc">contenu</span><span class="w">       </span><span class="p">{</span><span class="w"> </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="n">zone-centre</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="p">.</span><span class="nc">sidebar-pub</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="n">pub-droite</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="p">.</span><span class="nc">footer</span><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="n">pied-page</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><em>Les enfants peuvent être déclarés dans n'importe quel ordre dans le HTML — Grid les place selon les zones, indépendamment de l'ordre source.</em></p>
+<p><strong>Responsive avec <code>grid-template-areas</code> :</strong></p>
+<div class="language-css highlight"><span class="filename">CSS - Réorganisation du layout sur mobile</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c">/*</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c">    Sur mobile, on redessine simplement l&#39;ASCII art.</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c">    Aucune modification du HTML nécessaire.</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c">*/</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span><span class="w"> </span><span class="nt">768px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">.</span><span class="nc">layout-page</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="k">grid-template-areas</span><span class="p">:</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">            </span><span class="s2">&quot;en-tete&quot;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">            </span><span class="s2">&quot;zone-centre&quot;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">            </span><span class="s2">&quot;navigation&quot;</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">            </span><span class="s2">&quot;pub-droite&quot;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="s2">&quot;pied-page&quot;</span><span class="p">;</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em>C'est l'avantage majeur de <code>grid-template-areas</code> : réorganiser complètement une mise en page complexe en quelques lignes, sans toucher au HTML.</em></p>
+<p><br></p>
+<hr />
+<h2 id="lelasticite-intelligente-minmax-auto-fit-auto-fill">L'élasticité intelligente : <code>minmax()</code>, <code>auto-fit</code>, <code>auto-fill</code><a class="headerlink" href="#lelasticite-intelligente-minmax-auto-fit-auto-fill" title="Permanent link">&para;</a></h2>
+<p><br></p>
+<h3 id="minmax-securiser-les-dimensions"><code>minmax()</code> — sécuriser les dimensions<a class="headerlink" href="#minmax-securiser-les-dimensions" title="Permanent link">&para;</a></h3>
+<div class="language-css highlight"><span class="filename">CSS - Colonnes avec plancher et plafond</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">.</span><span class="nc">galerie</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c">        Chaque colonne a un minimum de 250px et peut s&#39;étirer sur l&#39;espace restant.</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c">        Si la fenêtre est trop étroite pour 3 colonnes de 250px, Grid passe à 2, puis 1.</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c">    */</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nf">minmax</span><span class="p">(</span><span class="mi">250</span><span class="kt">px</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">));</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><br></p>
+<h3 id="auto-fit-grille-responsive-sans-media-query"><code>auto-fit</code> — grille responsive sans media query<a class="headerlink" href="#auto-fit-grille-responsive-sans-media-query" title="Permanent link">&para;</a></h3>
+<div class="language-css highlight"><span class="filename">CSS - Grille fluide algorithmique avec auto-fit</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">.</span><span class="nc">catalogue</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c">        auto-fit crée autant de colonnes élastiques (1fr, minimum 300px)</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c">        qu&#39;il est physiquement possible d&#39;en faire tenir dans le conteneur.</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c">        Si l&#39;écran rétrécit, les colonnes passent à 2, puis à 1 automatiquement.</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c">        Aucune media query n&#39;est nécessaire.</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c">    */</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="kc">auto</span><span class="nv">-fit</span><span class="p">,</span><span class="w"> </span><span class="nf">minmax</span><span class="p">(</span><span class="mi">300</span><span class="kt">px</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">));</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Différence entre <code>auto-fit</code> et <code>auto-fill</code> :</strong></p>
+<div class="language-css highlight"><span class="filename">CSS - auto-fit vs auto-fill</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c">/*</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c">    auto-fill : crée autant de pistes que possible, même vides.</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c">    Sur un écran de 900px avec minmax(300px, 1fr) :</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c">    → crée 3 colonnes (300px chacune), même si seulement 1 élément existe.</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c">    → les colonnes vides sont visibles comme de l&#39;espace blanc.</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c">*/</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="p">.</span><span class="nc">avec-auto-fill</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="kc">auto</span><span class="nv">-fill</span><span class="p">,</span><span class="w"> </span><span class="nf">minmax</span><span class="p">(</span><span class="mi">300</span><span class="kt">px</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">));</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">}</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c">/*</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="c">    auto-fit : crée les pistes, puis réduit les vides à zéro.</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="c">    Sur le même écran avec 1 seul élément :</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c">    → l&#39;élément s&#39;étire pour remplir les 900px.</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="c">    → pas de colonnes vides visibles.</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="c">*/</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="p">.</span><span class="nc">avec-auto-fit</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="kc">auto</span><span class="nv">-fit</span><span class="p">,</span><span class="w"> </span><span class="nf">minmax</span><span class="p">(</span><span class="mi">300</span><span class="kt">px</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">));</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em><code>auto-fit</code> est généralement préféré pour les galeries d'articles. <code>auto-fill</code> est utile quand on veut réserver visuellement des emplacements pour de futurs éléments.</em></p>
+<p><br></p>
+<hr />
+<h2 id="subgrid-heriter-de-la-grille-parente">Subgrid — hériter de la grille parente<a class="headerlink" href="#subgrid-heriter-de-la-grille-parente" title="Permanent link">&para;</a></h2>
+<p><code>subgrid</code> est l'une des fonctionnalités CSS les plus attendues depuis des années. Disponible nativement depuis 2023.</p>
+<p>Le problème qu'il résout : dans une grille de cards, les éléments internes (titre, contenu, bouton) ne s'alignent pas entre les cards si elles ont des hauteurs de contenu différentes.</p>
+<div class="language-css highlight"><span class="filename">CSS - Subgrid pour l'alignement interne des cards</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c">/* La grille principale : 3 colonnes de cards */</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">.</span><span class="nc">grille-cards</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">);</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">}</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c">/* Chaque card hérite des rangées de la grille parente */</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c">        subgrid sur grid-row indique que cet enfant utilise</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="c">        les rangées de son parent Grid comme référence.</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c">        Les éléments internes de chaque card s&#39;aligneront</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="c">        automatiquement avec leurs équivalents dans les autres cards.</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="c">    */</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="k">grid-row</span><span class="p">:</span><span class="w"> </span><span class="n">span</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="n">subgrid</span><span class="p">;</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="p">}</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="c">/* Les éléments internes s&#39;alignent sur les mêmes lignes dans toutes les cards */</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="p">.</span><span class="nc">card-header</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="c">/* Rangée 1 de la grille parente */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="p">.</span><span class="nc">card-content</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c">/* Rangée 2 de la grille parente */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="p">.</span><span class="nc">card-footer</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="c">/* Rangée 3 de la grille parente */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><em>Sans <code>subgrid</code>, les boutons de chaque card étaient à des hauteurs différentes selon la longueur du texte. Avec <code>subgrid</code>, toutes les cards partagent les mêmes lignes de grille — les boutons sont parfaitement alignés horizontalement.</em></p>
+<div class="admonition info">
+<p class="admonition-title">Support navigateurs</p>
+<p><code>subgrid</code> est disponible dans Chrome 117+, Firefox 71+, Safari 16+, Edge 117+. En 2025, le support dépasse 91% des utilisateurs. C'est la solution définitive au problème classique d'alignement interne des cards.</p>
 </div>
-<p><br /></p>
+<p><br></p>
 <hr />
-<h2 id="le-placement-absolu-grid-column-et-grid-row">Le placement absolu : (<code>grid-column</code>) et (<code>grid-row</code>)<a class="headerlink" href="#le-placement-absolu-grid-column-et-grid-row" title="Permanent link">&para;</a></h2>
-<p>Par défaut, l'algorithme de Grid place les éléments séquentiellement dans les cellules disponibles de gauche à droite, de haut en bas (régi par <code>grid-auto-flow</code>). Mais il est possible de forcer la position d'un enfant en l'ancrant sur les <strong>Grid Lines</strong>.</p>
-<p>Ces propriétés s'appliquent directement à l'<strong>Enfant</strong>.</p>
-<div class="language-css highlight"><span class="filename">Code CSS - Étirement sur les lignes</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">.</span><span class="nc">element-banniere</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="c">/* L&#39;élément commence à la ligne verticale 1 et s&#39;étend jusqu&#39;à la ligne 4 */</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">grid-column</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="c">/* L&#39;élément occupe la première ligne horizontale (entre la ligne 1 et 2) */</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">grid-row</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">.</span><span class="nc">element-footer</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="c">/* Astuce : -1 cible toujours la toute dernière ligne de la grille */</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="k">grid-column</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">.</span><span class="nc">element-large</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="c">/* Alternative avec span : </span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c">     * l&#39;élément s&#39;étale sur 2 colonnes à partir de sa position actuelle */</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="k">grid-column</span><span class="p">:</span><span class="w"> </span><span class="n">span</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span>
-</span></code></pre></div>
-<p><br /></p>
-<hr />
-<h2 id="les-zones-nommees-grid-template-areas">Les zones nommées : (<code>grid-template-areas</code>)<a class="headerlink" href="#les-zones-nommees-grid-template-areas" title="Permanent link">&para;</a></h2>
-<p>S'appuyer sur des numéros de lignes invisibles peut devenir difficile à maintenir sur des grilles complexes. La propriété <code>grid-template-areas</code> permet de dessiner une représentation visuelle ("ASCII art") de l'architecture.</p>
-<p><img alt="Explication visuelle du css grid-template-areas" src="../../../../../assets/images/dev/layout-modern/css_grid_template_areas.png" /></p>
-<p style="text-align: center;"><em>La définition de la grille par mots-clés permet aux éléments HTML enfants de s'encastrer automatiquement sur les territoires désignés.</em></p>
-
-<div class="language-css highlight"><span class="filename">Code CSS - Structure par ASCII Layout</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">/* LE CONTENEUR PARENT */</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">.</span><span class="nc">layout-page</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="kt">px</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="w"> </span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="p">;</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="k">grid-template-areas</span><span class="p">:</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="s2">&quot;en-tete    en-tete     en-tete&quot;</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="s2">&quot;navigation zone-centre pub-droite&quot;</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="s2">&quot;pied-page  pied-page   pied-page&quot;</span><span class="p">;</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c">/* LES ENFANTS (Indépendants de l&#39;ordre HTML) */</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">.</span><span class="nc">header</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="n">en-tete</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">.</span><span class="nc">main-content</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">grid-area</span><span class="p">:</span><span class="w"> </span><span class="n">zone-centre</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-</span></code></pre></div>
-<div class="admonition example">
-<p class="admonition-title">Responsive Design et Media Queries (Aperçu futur !)</p>
-<p><strong>Ne vous inquiétez pas si vous ne maîtrisez pas encore la syntaxe <code>@media</code> ci-dessous !</strong> Le concept du <em>Responsive Design</em> fera l'objet d'un module entier à la suite de ce cours. 
-Cet exemple est juste là pour vous prouver la puissance de l'ASCII art en production.</p>
-<p>L'avantage majeur de <code>grid-template-areas</code> est sa flexibilité redoutable. Sous un point de rupture (sur un petit écran Mobile), il n'est <strong>absolument pas nécessaire</strong> d'ajouter ou de modifier les classes sur vos balises HTML. Il suffit simplement de redessiner l'organisation du Pochoir Parent !</p>
-<div class="language-css highlight"><span class="filename">Code CSS - Responsive Design et Media Queries (Aperçu futur !)</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c">/* Sur un écran de téléphone (quand la largeur est au maximum de 768px) */</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span><span class="w"> </span><span class="nt">768px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="p">.</span><span class="nc">layout-page</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="k">grid-template-areas</span><span class="p">:</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span><span class="s2">&quot;en-tete&quot;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">            </span><span class="s2">&quot;zone-centre&quot;</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="s2">&quot;navigation&quot;</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="s2">&quot;pub-droite&quot;</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="s2">&quot;pied-page&quot;</span><span class="p">;</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
-</span></code></pre></div>
-</div>
-<p><br /></p>
-<hr />
-<h2 id="lelasticite-intelligente-minmax-auto-fit-et-auto-fill">L'élasticité intelligente : (<code>minmax()</code>), (<code>auto-fit</code>) et (<code>auto-fill</code>)<a class="headerlink" href="#lelasticite-intelligente-minmax-auto-fit-et-auto-fill" title="Permanent link">&para;</a></h2>
-<p>Fixer une grille en pixels absolus rend le comportement rigide. La véritable puissance de Grid repose sur ses fonctions calculatoires.</p>
-<h3 id="securiser-les-dimensions-avec-minmax">Sécuriser les dimensions avec <code>minmax()</code><a class="headerlink" href="#securiser-les-dimensions-avec-minmax" title="Permanent link">&para;</a></h3>
-<p>Cette fonction permet de définir un plancher de survie (<em>minimum absolu</em>) tout en autorisant une expansion élastique (<em>maximum</em>).</p>
-<div class="language-css highlight"><span class="filename">Code CSS - Intervalles sécurisés</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">.</span><span class="nc">galerie</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c">/* La colonne ne tombera jamais en dessous de 250px, </span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c">       mais s&#39;étirera sur le vide restant grâce à la fraction 1fr. */</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nf">minmax</span><span class="p">(</span><span class="mi">250</span><span class="kt">px</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">));</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
-</span></code></pre></div>
-<h3 id="le-comportement-fluide-algorithmique-auto-fit">Le comportement fluide algorithmique (<code>auto-fit</code>)<a class="headerlink" href="#le-comportement-fluide-algorithmique-auto-fit" title="Permanent link">&para;</a></h3>
-<p>Définir un nombre fixe de colonnes (ex: <code>repeat(3)</code>) oblige inévitablement à utiliser des <code>@media query</code>. L'utilisation du mot-clé <code>auto-fit</code> <strong>permet de responsabiliser le navigateur sur le nombre de colonnes nécessaires</strong>, sans aucun point de rupture.</p>
-<p><div class="language-css highlight"><span class="filename">Code CSS - Grille fluide algorithmique</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">.</span><span class="nc">catalogue-articles</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="c">/* Génère autant de colonnes élastiques (1fr) de minimum 300px </span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c">       qu&#39;il est physiquement possible de faire tenir dans la fenêtre. */</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="kc">auto</span><span class="nv">-fit</span><span class="p">,</span><span class="w"> </span><span class="nf">minmax</span><span class="p">(</span><span class="mi">300</span><span class="kt">px</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">));</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<em>Si l'écran mesure moins de 600px, les éléments "sauteront" mécaniquement à la ligne et la grille passera naturellement sur moins de colonnes.</em></p>
-<p><br /></p>
-<hr />
-<h2 id="resume-et-bonnes-pratiques">Résumé et Bonnes Pratiques<a class="headerlink" href="#resume-et-bonnes-pratiques" title="Permanent link">&para;</a></h2>
-<div class="admonition success">
-<p class="admonition-title">Les Standards de l'Industrie</p>
-<ul>
-<li><strong>Le Macro et le Micro</strong> : Utilisez Grid pour positionner vos blocs géants de page (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>), et utilisez Flexbox à l'intérieur pour les détails.</li>
-<li><strong>L'unité fr</strong> : Privilégiez systématiquement la fraction (<code>fr</code>) aux pourcentages pour répartir l'espace résiduel.</li>
-<li><strong>Nommez vos zones</strong> : Utilisez <code>grid-template-areas</code> dès que votre grille dépasse les 4 ou 5 éléments ; c'est indispensable pour la maintenance.</li>
-<li><strong>Le responsive fluide</strong> : Maîtrisez <code>auto-fit</code> et <code>minmax()</code> pour réduire presque totalement le besoin de <code>@media query</code> pour vos grilles d'articles.</li>
-</ul>
-</div>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
-<p class="admonition-title">Le système CSS Grid s'impose aujourd'hui comme la fondation inébranlable de la macro-architecture front-end moderne. Il permet de bâtir des structures fiables en deux dimensions (<em>lignes et colonnes</em>) sans bricolage ni hacks CSS.</p>
+<p class="admonition-title">Ce qu'il faut retenir de ce module</p>
+<p>CSS Grid est la fondation inébranlable de la macro-architecture front-end moderne. <code>grid-template-columns</code> et <code>grid-template-rows</code> découpent l'espace avec l'unité <code>fr</code>. <code>grid-template-areas</code> dessine l'architecture en ASCII lisible et maintenable. <code>minmax()</code> avec <code>auto-fit</code> crée des grilles responsive sans media query. <code>grid-auto-rows</code> gère les rangées implicites. <code>subgrid</code> aligne les éléments internes des cards avec précision. Utilisez Grid pour le macro, Flexbox pour le micro.</p>
 </div>
 <blockquote>
-<p>C'est une excellente fondation pour comprendre les enjeux d'adaptabilité qui caractérisent les projets contemporains. Dans la suite du programme, les chapitres sur le <strong>Responsive Design</strong> avancé (unités de fluidités telles que <code>rem</code>, ou l'utilisation de <code>clamp()</code>) vous permettront de créer des interfaces parfaitement universelles, quel que soit le périphérique.</p>
+<p>Dans le module suivant, nous aborderons le <strong>Responsive Design</strong> — Media Queries, méthode mobile-first et adaptation complète à tous les écrans.</p>
 </blockquote>
+<p><br></p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>W3C : World Wide Web Consortium, l'organisme de standardisation responsable de la validation des spécifications liées au web (HTML, CSS).&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><strong>W3C</strong> (World Wide Web Consortium) : organisme international responsable de la standardisation des technologies web (HTML, CSS, SVG, etc.).&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -4293,7 +4637,7 @@ Cet exemple est juste là pour vous prouver la puissance de l'ASCII art en produ
         
       
       
-        <span class="md-tag md-tag-icon">ARCHITECT</span>
+        <span class="md-tag md-tag-icon">2D</span>
       
     
       
@@ -4303,7 +4647,17 @@ Cet exemple est juste là pour vous prouver la puissance de l'ASCII art en produ
         
       
       
-        <span class="md-tag md-tag-icon">2D</span>
+        <span class="md-tag md-tag-icon">SUBGRID</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">TEMPLATE-AREAS</span>
       
     
   </nav>

@@ -1,7 +1,7 @@
 ---
-description: "Désenclaver l'enfer CSS : Modèle de la Boite (The Box Model). Maîtriser margin, padding, border, en utilisant impérativement le box-sizing modern."
+description: "Maîtriser le Box Model CSS : margin, padding, border, outline, overflow, box-sizing et les modes d'affichage block/inline."
 icon: lucide/book-open-check
-tags: ["CSS", "BOX-MODEL", "MARGIN", "PADDING", "BORDER", "SIZING"]
+tags: ["CSS", "BOX-MODEL", "MARGIN", "PADDING", "BORDER", "OVERFLOW", "DISPLAY"]
 ---
 
 # Modèle de Boîte
@@ -9,153 +9,98 @@ tags: ["CSS", "BOX-MODEL", "MARGIN", "PADDING", "BORDER", "SIZING"]
 <div
   class="omny-meta"
   data-level="🟡 Intermédiaire"
-  data-version="1.0"
+  data-version="1.1"
   data-time="2-3 heures">
 </div>
 
 ## Introduction
 
-!!! quote "Analogie pédagogique - Le Mystère des Blocs Révélé"
-    Imaginez une **œuvre d'art inestimable encadrée** reposant sur le mur blanc d'un musée de Paris. Le **Box Model CSS**, c'est intrinsèquement l'analyse de cette vision de l'espace vitale : 
+!!! quote "Analogie pédagogique - L'Œuvre d'Art au Musée"
+    Imaginez une œuvre d'art inestimable accrochée au mur blanc d'un musée parisien. Le Box Model CSS, c'est l'analyse de cet espace vital autour d'elle :
 
-    1. L'œuvre ou la toile elle-même : **Le Contenu Textuel (`Width`)**
-    2. La zone de passe-partout blanc entre la toile et le cadre  : **Le Rembourrage (`Padding`)**
-    3. Le gros contour massif physique en or de Louis XIV : **La Bordure (`Border`)**
-    4. La distance repoussoir de sécurité nécessaire qui écarte cette œuvre du grand tableau voisin d'à côté pour éviter de polluer notre regard ! : **La Marge extérieure (`Margin`)** 
-    
-Avant de savoir mettre en place une belle ligne responsive via Flexbox en CSS, vous **devez** absorber comment une simple malheureuse balise carrée en HTML vit sa propre proportion sur votre page et envahit l'espace. Sinon, vous passerez la semaine complète à pleurer sans comprendre pourquoi *"ça sort de l'écran mon chef !"*.
+    1. La toile elle-même — c'est le **Contenu** (`width` / `height`).
+    2. Le passe-partout blanc entre la toile et le cadre — c'est le **Padding** (espace intérieur).
+    3. Le cadre doré qui encadre l'ensemble — c'est la **Border** (bordure).
+    4. La distance de sécurité qui éloigne cette œuvre du tableau voisin — c'est la **Margin** (marge extérieure).
 
-!!! note "Ce module désamorce définitivement le Box Model pour vous offrir des blocs sains au pixel près."
+    Avant de maîtriser Flexbox ou Grid, vous **devez** comprendre comment une simple balise HTML occupe et envahit l'espace sur votre page. Sinon, vous passerez des heures à ne pas comprendre pourquoi "ça sort de l'écran".
 
-<br />
+<br>
 
 ---
 
-## Les trois composants fondamentaux du Box Model
+## Les quatre zones du Box Model
 
-Chaque élément HTML est structurellement un objet rectangulaire (une "boîte") généré par le navigateur. Cette boîte est constituée de 4 zones concentriques : le contenu lui-même, entouré de 3 niveaux d'emballages paramétrables.
+Chaque élément HTML est représenté par le navigateur comme une boîte rectangulaire constituée de quatre zones concentriques.
 
-![Le Modèle de Boîte CSS (Box Model)](../../../../assets/images/dev/css-fondamental/css_box_model.png)
+![Le Modèle de Boîte CSS](../../../../assets/images/dev/css-fondamental/css_box_model.png)
 
-### Padding : (Espace Intérieur)
+*Chaque élément HTML est une boîte avec quatre zones : contenu au centre, entouré du padding, puis de la border, puis de la margin à l'extérieur.*
 
-!!! info "Le **Padding** est l'espace de respiration interne situé entre votre contenu (ex: le texte) et la bordure de la boîte."
+<br>
 
-Le padding repousse le contenu vers l'intérieur pour éviter qu'il ne s'écrase contre les limites physiques de l'élément.
-*(Particularité : Le Padding est vide de contenu, mais il affiche la couleur de fond `background-color` de l'élément).*
+### Padding — l'espace intérieur
 
-```css title="Code CSS - Le Padding"
-.card {
-    background-color: lightgreen;
-    
-    /* Repousse le mot tout nu de 40 pixels par rapport aux bordures de 'card' */
-    padding: 40px; 
-    /* (Même en haut, en bas, à gauche, à droite simultanément) */
+Le padding est l'espace entre le **contenu** et la **bordure**. Il fait partie de la zone colorée de l'élément : il hérite du `background-color`.
+
+```css title="CSS - Padding intérieur"
+.carte {
+    background-color: #f0f4f8;
+
+    /*
+        padding: valeur-uniforme
+        Repousse le contenu de 24px par rapport aux quatre bords de la carte.
+        La zone colorée inclut le padding.
+    */
+    padding: 24px;
 }
 ```
 
-### Border : (Bordure réelle)
+<br>
 
-La bordure est la ligne visible qui encadre physiquement la zone de Padding et le Contenu. C'est la limite matérielle de votre boîte.
+### Border — la bordure visible
 
-```css title="Code CSS - La Bordure"
-.card {
-     /* Epaisseur massive (3 pixels), Design ligne droite dure (solid), Noir total */
-    border: 3px solid black;
-    
-    /* Astuce magique : je rogne informatiquement les angles avec radius ! */
+La bordure est la ligne physique qui encadre le padding et le contenu. Elle se définit avec trois valeurs : épaisseur, style, couleur.
+
+```css title="CSS - Border avec les styles disponibles"
+.carte {
+    /* Epaisseur | Style | Couleur */
+    border: 2px solid #2c3e50;
+
+    /* Arrondir les angles */
     border-radius: 8px;
 }
-```
 
-### Margin : (Espace Extérieur)
-
-!!! quote "La **Marge extérieure** (`Margin`) est la distance de sécurité invisible qui sépare votre composant de ses voisins."
-
-La Marge s'applique à l'extérieur de la bordure. Elle repousse les autres éléments HTML environnants pour aérer la mise en page.
-
-```css title="Code CSS - La Margin"
-.card {
-    /* Repousse les éléments voisins de 50 pixels dans toutes les directions */
-    margin: 50px;
-    /* Cet espace est 100% VISUELLEMENT INVISIBLE : la margin n'a PAS de couleur de fond, elle dévoile l'arrière-plan de la page entière. */
+/* Styler chaque côté indépendamment */
+.separateur {
+    border-top: 1px solid #e2e8f0;  /* Seulement le bord supérieur */
+    border-bottom: none;             /* Supprimer un bord */
 }
 ```
 
+**Les styles de bordure disponibles :**
 
-<br />
+| Valeur | Rendu |
+| --- | --- |
+| `solid` | Ligne pleine continue |
+| `dashed` | Tirets |
+| `dotted` | Points |
+| `double` | Double ligne |
+| `none` | Aucune bordure |
 
----
+<br>
 
-## Les valeurs raccourcies (Shorthand)
+### Margin — la marge extérieure
 
-Il est redondant d'écrire `margin-top`, `margin-bottom`, `margin-right`, `margin-left` sur plusieurs lignes lorsqu'il est possible de compresser l'instruction.
+La marge s'applique **à l'extérieur** de la bordure. Elle repousse les éléments voisins. Contrairement au padding, la margin est **totalement transparente** — elle révèle l'arrière-plan de la page.
 
-!!! info "Mémorisez la **règle de l'horloge** pour déchiffrer les blocs de 4 paramètres : la lecture commence toujours à midi et tourne dans le sens des aiguilles d'une montre : **Haut, Droite, Bas, Gauche**."
-
-```css title="Code CSS - Valeurs raccourcies"
-/* Cas 1 : Uniforme global absolu */
-.box { margin: 20px; } /* => Haut:20, Bas:20, Droite:20, Gauche:20 */
-
-/* Cas 2 : Le système d'Axe Horizontal vs Axe Vertical */
-.box { margin: 10px 40px; } /* => Vértical en Haut/Bas = 10px , et Horizontal Gauche/Droite = 40px */
-
-/* Cas 3 : La rotation comme le sens des aiguilles d'une montre */
-.box { margin: 10px 20px 30px 40px; } /* => Top:10px, Right:20px, Bottom:30px, Left:40px */
-```
-
-!!! tip "Astuce mémotechnique"
-    Cette mécanique horlogère (Haut, Droite, Bas, Gauche) fonctionne exactement de la même manière pour l'instruction `padding` !
-
-<br />
-
----
-
-## Contrôler les mathématiques du navigateur : `box-sizing`
-
-!!! warning "Le piège de la taille totale par défaut (`content-box`)"
-    Si vous assignez une largeur fixe `width: 300px` à un élément, puis que vous lui ajoutez un `padding: 20px` et une `border: 2px`...
-    La logique humaine voudrait que l'élément fasse au total 300px de large. **Ce n'est pas le cas par défaut sur le web.**
-    
-    Le navigateur calcule mathématiquement :
-    `300px (contenu)` + `20px (padding-left)` + `20px (padding-right)` + `2px (border-left)` + `2px (border-right)` = **344px de largeur visuelle réelle !**
-    Résultat : Vos composants sont systématiquement trop grands et font déborder l'écran.
-
-### Le Standard de l'Industrie : `border-box`
-
-Pour forcer le navigateur à emboîter le `padding` et la `border` à **l'intérieur** de la limite exacte de la largeur définie (`width`), on utilise la propriété `box-sizing: border-box;`. La boîte ne grossira plus jamais vers l'extérieur : son contenu se compressera naturellement au centre pour laisser la place au rembourrage interne.
-
-!!! abstract "La Fusion des Marges (Margin Collapsing)"
-    Un autre piège fréquent du Box Model concerne l'axe vertical. Si une boîte possède un `margin-bottom: 30px` et que la boîte physiquement en-dessous (son frère) possède un `margin-top: 20px`, la distance entre les deux boîtes ne sera **pas** de 50px ! Le navigateur superpose les marges verticales et ne conserve que la plus grande (ici 30px). Ce phénomène contre-intuitif s'appelle la **fusion des marges** (ou Margin Collapsing).
-
-```css title="Code CSS - Reset Universel"
-/* LA commande de base à Mettre A TOUT PRIX au haut des CSS modernes sur le Sélecteur universel Étoile * ! */
-* {
-    /* Toute balise existante suivra la consigne ! */
-    box-sizing: border-box; 
-    /* width: 300px RESTERA ETERNELLEMENT à 300px visuel !! La paix intérieure.*/
-}
-```
-
-<br />
-
----
-
-## Le Centrage horizontal classique (`margin: auto`)
-
-Une problématique très courante en intégration : "Comment centrer parfaitement le bloc principal au milieu de l'écran horizontalement ?"
-La solution mathématique la plus propre, avant l'arrivée de Flexbox, consistait à combiner une limite de largeur (`max-width`) avec des marges latérales définies sur la valeur **`auto`**.
-
-```css title="Code CSS - Centrage pur"
-.banniere-milieu {
-    /* 1. On donne des limites à l'objet pour qu'il ne s'étire pas à 100% de l'écran */
-    max-width: 800px;
-    
-    /* 2. Le miracle de la marge automatique ! */
-    /* Marge Haute et Basse à Zéro. Marge Gauche et Droite définies sur `auto`. 
-       Le navigateur va diviser l'espace vide restant en deux parts parfaitement égales, 
-       suspendant ainsi la boîte exactement au centre. */
-    margin: 0 auto; 
+```css title="CSS - Margin extérieure"
+.carte {
+    /*
+        La marge repousse les éléments adjacents de 32px dans toutes les directions.
+        Cette zone est transparente : pas de background-color.
+    */
+    margin: 32px;
 }
 ```
 
@@ -163,10 +108,284 @@ La solution mathématique la plus propre, avant l'arrivée de Flexbox, consistai
 
 ---
 
-## Conclusion et Synthèse
+## Les valeurs raccourcies (shorthand)
 
-!!! quote "Le Box Model est le battement de cœur de toute intégration Web. Sans lui, le design n'est que hasard. La maîtrise stricte de la marge (pour séparer), du padding (pour faire respirer) et de la bordure, le tout protégé par la déclaration universelle `box-sizing: border-box`, vous assure des composants stables."
+Padding et margin acceptent de 1 à 4 valeurs selon la règle de l'horloge : **Haut, Droite, Bas, Gauche** (sens des aiguilles, en partant de midi).
 
-> Dans le module suivant, nous apprendrons à faire danser tous nos nouveaux composants créés ensemble par le concept inouï de flux directionnel : **Flexbox CSS**.
+```css title="CSS - Syntaxes raccourcies padding et margin"
+/* 1 valeur : uniforme sur les quatre côtés */
+.box { padding: 20px; }
+/* → Haut: 20px  Droite: 20px  Bas: 20px  Gauche: 20px */
 
-<br />
+/* 2 valeurs : vertical | horizontal */
+.box { margin: 10px 40px; }
+/* → Haut/Bas: 10px  Droite/Gauche: 40px */
+
+/* 3 valeurs : haut | horizontal | bas */
+.box { padding: 10px 20px 30px; }
+/* → Haut: 10px  Droite/Gauche: 20px  Bas: 30px */
+
+/* 4 valeurs : haut | droite | bas | gauche (sens horaire depuis midi) */
+.box { margin: 10px 20px 30px 40px; }
+/* → Haut: 10px  Droite: 20px  Bas: 30px  Gauche: 40px */
+```
+
+*La même syntaxe s'applique identiquement à `padding` et à `margin`.*
+
+<br>
+
+---
+
+## `box-sizing` : contrôler le calcul de la largeur
+
+C'est le piège le plus fréquent du CSS débutant. Par défaut, `width` ne définit que le **contenu** — padding et border s'ajoutent par-dessus.
+
+```css title="CSS - Le piège de content-box par défaut"
+/*
+    Par défaut (content-box) :
+    width: 300px + padding: 20px (×2) + border: 2px (×2) = 344px réels
+
+    La boîte dépasse sa largeur déclarée de 44px.
+    Résultat sur l'écran : débordement.
+*/
+.boite-cassee {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid black;
+    /* Largeur réelle : 344px — pas 300px */
+}
+```
+
+### La solution : `border-box`
+
+`box-sizing: border-box` force le navigateur à inclure padding et border **dans** la largeur déclarée. Le contenu se compresse au centre, mais la boîte respecte exactement `width`.
+
+```css title="CSS - Reset universel avec border-box"
+/*
+    À placer en tout début de fichier CSS, avant toute autre règle.
+    Cette déclaration sauve des centaines d'heures de débogage.
+*/
+*,
+*::before,
+*::after {
+    /*
+        Toutes les balises + leurs pseudo-éléments before/after
+        respecteront la même convention de calcul.
+        width: 300px restera visuellement 300px, quels que soient
+        le padding et la border ajoutés.
+    */
+    box-sizing: border-box;
+}
+```
+
+*Notez l'inclusion de `*::before` et `*::after` — les pseudo-éléments ont leurs propres boîtes et doivent aussi être couverts par le reset.*
+
+<br>
+
+---
+
+## `outline` — la bordure fantôme
+
+`outline` ressemble à `border` mais a un comportement fondamentalement différent : **il ne modifie pas le box model**. Il se dessine **autour** de la boîte sans en modifier les dimensions ni déplacer les éléments voisins.
+
+```css title="CSS - Différence border et outline"
+.bouton {
+    border: 2px solid #3498db;    /* Fait partie du box model : occupe de l'espace */
+    padding: 12px 24px;
+}
+
+/*
+    :focus-visible cible les éléments focalisés via le clavier (pas la souris).
+    C'est la pseudo-classe recommandée pour styliser le focus sans affecter
+    les utilisateurs de souris.
+*/
+.bouton:focus-visible {
+    outline: 3px solid #f39c12;   /* NE modifie pas le box model */
+    outline-offset: 2px;          /* Espace entre la border et l'outline */
+}
+
+/*
+    NE PAS supprimer outline sans alternative !
+    outline: none sur :focus est une erreur d'accessibilité grave.
+    Les utilisateurs naviguant au clavier perdent tout repère visuel.
+*/
+```
+
+!!! warning "Ne jamais supprimer `outline` sans le remplacer"
+    `outline: none` sur `:focus` (ou `:focus-visible`) est une violation d'accessibilité WCAG 2.1 Critère 2.4.7. Les utilisateurs naviguant uniquement au clavier ne peuvent plus voir quel élément est actif. Si le style par défaut ne vous convient pas, remplacez-le par un outline personnalisé — ne le supprimez pas.
+
+<br>
+
+---
+
+## `overflow` — gérer le dépassement de contenu
+
+Quand le contenu d'une boîte dépasse ses dimensions définies, `overflow` contrôle le comportement.
+
+```css title="CSS - Les valeurs d'overflow"
+.carte {
+    width: 300px;
+    height: 200px;
+
+    /*
+        overflow: visible (défaut) — le contenu dépasse visuellement la boîte.
+        overflow: hidden  — le contenu dépassant est coupé et invisible.
+        overflow: scroll  — ajoute une barre de défilement permanente.
+        overflow: auto    — ajoute une barre de défilement seulement si nécessaire.
+        overflow: clip    — coupe sans créer de contexte de formatage de bloc.
+    */
+    overflow: hidden;
+}
+
+/* Contrôler les axes indépendamment */
+.tableau-defilant {
+    overflow-x: auto;   /* Défilement horizontal si nécessaire */
+    overflow-y: hidden; /* Pas de défilement vertical */
+}
+
+/* Cas classique : rogner les images qui débordent */
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden; /* L'image carrée est rognée dans le cercle */
+}
+```
+
+*`overflow: hidden` est aussi couramment utilisé pour créer un **Block Formatting Context** — un contexte d'isolation qui empêche les marges de fusionner et force un parent à englober ses enfants flottants.*
+
+<br>
+
+---
+
+## Modes d'affichage : `block`, `inline`, `inline-block`
+
+La propriété `display` détermine comment un élément occupe l'espace et interagit avec ses voisins. C'est essentiel pour comprendre pourquoi `margin` et `padding` se comportent différemment selon les éléments.
+
+```css title="CSS - Les trois modes d'affichage fondamentaux"
+/*
+    display: block
+    - Prend toute la largeur disponible (même si le contenu est plus court).
+    - Force un retour à la ligne avant et après lui.
+    - Accepte width, height, margin et padding sur les quatre côtés.
+    - Éléments block natifs : div, p, h1-h6, section, article, ul, li...
+*/
+.bloc {
+    display: block;
+    width: 500px;     /* Respecté */
+    margin: 20px 0;   /* Respecté sur tous les côtés */
+}
+
+/*
+    display: inline
+    - S'insère dans le flux du texte, comme un mot dans une phrase.
+    - Ne force PAS de retour à la ligne.
+    - Ignore width et height.
+    - margin et padding gauche/droite fonctionnent, mais haut/bas n'affectent PAS
+      l'espacement avec les lignes adjacentes (ils débordent visuellement).
+    - Éléments inline natifs : span, a, strong, em, code, img...
+*/
+.inline {
+    display: inline;
+    width: 500px;     /* Ignoré */
+    margin-top: 20px; /* Ignoré — n'affecte pas l'espacement vertical */
+}
+
+/*
+    display: inline-block
+    - S'insère dans le flux du texte comme un inline.
+    - Mais accepte width, height, margin et padding sur TOUS les côtés.
+    - Utile pour les badges, boutons inline, icônes avec dimensions.
+*/
+.badge {
+    display: inline-block;
+    width: 80px;      /* Respecté */
+    padding: 4px 8px; /* Respecté sur tous les côtés */
+    margin: 0 4px;    /* Respecté sur tous les côtés */
+}
+```
+
+**Tableau comparatif des modes d'affichage :**
+
+| Propriété | `block` | `inline` | `inline-block` |
+| --- | --- | --- | --- |
+| Retour à la ligne | Oui | Non | Non |
+| `width` / `height` | Respectés | Ignorés | Respectés |
+| `margin` vertical | Respecté | Non appliqué | Respecté |
+| `padding` vertical | Respecté | Déborde | Respecté |
+
+<br>
+
+---
+
+## La fusion des marges (Margin Collapsing)
+
+C'est le comportement le plus contre-intuitif du Box Model. Deux marges verticales adjacentes ne s'**additionnent pas** — elles **fusionnent** : seule la plus grande s'applique.
+
+```css title="CSS - Fusion des marges verticales"
+.titre {
+    margin-bottom: 30px;
+}
+
+.paragraphe {
+    margin-top: 20px;
+}
+
+/*
+    Distance réelle entre .titre et .paragraphe : 30px (pas 50px).
+    La plus grande marge l'emporte. C'est la fusion des marges.
+
+    La fusion se produit :
+    - Entre frères et sœurs adjacents (verticalement)
+    - Entre un parent et son premier/dernier enfant (si pas de border/padding entre eux)
+
+    La fusion NE se produit PAS :
+    - Pour les marges horizontales
+    - Sur les éléments flex ou grid
+    - Si un overflow autre que visible est défini
+*/
+```
+
+<br>
+
+## Le centrage horizontal avec `margin: auto`
+
+Avant l'arrivée de Flexbox, la technique canonique pour centrer un bloc dans sa page était de combiner `max-width` avec `margin: auto`.
+
+```css title="CSS - Centrage horizontal classique avec margin auto"
+.contenu-principal {
+    /*
+        max-width limite la largeur maximale.
+        Sans cette limite, l'élément s'étirerait à 100% de la page.
+    */
+    max-width: 900px;
+
+    /*
+        margin: 0 auto
+        → Marge verticale (haut/bas) : 0
+        → Marge horizontale (gauche/droite) : auto
+
+        Le navigateur divise l'espace horizontal restant en deux parts égales,
+        suspendant ainsi le bloc exactement au centre.
+    */
+    margin: 0 auto;
+
+    /* Padding interne pour que le contenu ne touche pas les bords */
+    padding: 0 1.5rem;
+}
+```
+
+*`margin: auto` ne fonctionne que sur les éléments `display: block` avec une `width` ou `max-width` définie. Sans limite de largeur, l'élément occupant déjà 100% de la largeur, il n'y a pas d'espace vide à distribuer.*
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir de ce module"
+    Le Box Model est le battement de cœur de toute intégration Web. Chaque élément est une boîte avec quatre zones : contenu, padding (intérieur coloré), border (contour visible) et margin (espace extérieur transparent). `box-sizing: border-box` dans le reset universel garantit que `width` reste la largeur réelle. `outline` se dessine autour de la boîte sans affecter le layout — ne jamais le supprimer sans alternative accessible. `overflow` contrôle ce qui dépasse. Les éléments `block` respectent toutes les dimensions, les éléments `inline` ignorent `width`/`height` et les marges verticales.
+
+> Dans le module suivant, nous apprendrons à faire bouger nos éléments avec **les Transitions et Animations CSS** — transformer des interfaces statiques en expériences visuelles dynamiques.
+
+<br>

@@ -691,7 +691,7 @@ Cette structure commune facilite l'**intégration** en un **SMSI (Système de Ma
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Phase 1 :<br/>Évaluation<br/>2-3 mois] --> B[Phase 2 :<br/>Gap analysis<br/>1-2 mois]
     B --> C[Phase 3 :<br/>Planification<br/>1 mois]
     C --> D[Phase 4 :<br/>Mise en œuvre<br/>6-12 mois]

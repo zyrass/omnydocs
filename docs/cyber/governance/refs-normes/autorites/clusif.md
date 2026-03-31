@@ -113,7 +113,7 @@ Le CLUSIF fonctionne selon les **principes d'une association loi 1901**, avec un
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Assemblée Générale<br/>Tous les adhérents]
     
     B[Conseil d'Administration<br/>Membres élus]
@@ -522,7 +522,7 @@ Les **études statistiques du CLUSIF** constituent des **arguments factuels** po
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Besoin de budget<br/>cybersécurité] --> B[Préparation du<br/>business case]
     B --> C[Extraction de<br/>données CLUSIF]
     

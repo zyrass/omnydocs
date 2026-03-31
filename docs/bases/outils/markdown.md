@@ -415,7 +415,7 @@ Au survol, l'abréviation affiche sa définition complète.
 
 ````markdown title="Markdown — diagramme de flux Mermaid"
 ```mermaid
-graph TD
+flowchart TD
     A[Début] --> B{Décision}
     B -->|Oui| C[Action 1]
     B -->|Non| D[Action 2]

@@ -297,7 +297,7 @@ _"Toute manifestation de volonté, libre, spécifique, éclairée et univoque pa
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Demande de<br/>consentement]
     
     A --> B[Information claire :<br/>Qui, Quoi, Pourquoi,<br/>Combien de temps]
@@ -429,7 +429,7 @@ C'est la base légale la plus **flexible** mais aussi la plus **complexe** à ju
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Intérêt légitime<br/>envisagé]
     
     A --> B[Étape 1 :<br/>Identifier l'intérêt<br/>légitime]

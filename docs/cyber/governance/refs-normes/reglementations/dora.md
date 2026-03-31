@@ -529,7 +529,7 @@ Ces standards sont en cours de finalisation (2023-2024) et entreront en applicat
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Gap Analysis DORA] --> B[Gouvernance et<br/>organisation]
     A --> C[Gestion des<br/>risques TIC]
     A --> D[Gestion des<br/>incidents]

@@ -156,10 +156,7 @@
             
 <!-- Add announcement here, including arbitrary HTML -->
 <small>
-    <em
-        >Cette documentation est en pleine conception, c'est normal qu'elle soit
-        encors si faible au niveau du contenu</em
-    >
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
 </small>
 
           </div>
@@ -713,6 +710,8 @@
       
         
           
+        
+      
         
       
         
@@ -4017,7 +4016,7 @@
 <li><strong>Intégration des IoC</strong> (Indicateurs de Compromission) dans les solutions de détection</li>
 </ol>
 <p><strong>Workflow type de traitement d'une alerte critique :</strong></p>
-<pre class="mermaid"><code>graph TD
+<pre class="mermaid"><code>flowchart TD
     A[Réception alerte&lt;br/&gt;CERT-FR] --&gt; B{Concerne nos&lt;br/&gt;systèmes ?}
     B --&gt;|NON| C[Classement pour&lt;br/&gt;information]
     B --&gt;|OUI| D{Correctif&lt;br/&gt;disponible ?}
@@ -4130,7 +4129,7 @@
 <li><strong>ANSSI (CERT-FR)</strong> : Traitement des incidents majeurs affectant les OIV, OSE et systèmes d'importance nationale</li>
 </ul>
 <p><strong>Processus de signalement :</strong></p>
-<pre class="mermaid"><code>graph TD
+<pre class="mermaid"><code>flowchart TD
     A[Victime de&lt;br/&gt;cyberattaque] --&gt; B{Type de&lt;br/&gt;victime ?}
     B --&gt;|Particulier, TPE/PME| C[Signalement sur&lt;br/&gt;cybermalveillance.gouv.fr]
     B --&gt;|OIV, OSE, État| D[Signalement au&lt;br/&gt;CERT-FR]

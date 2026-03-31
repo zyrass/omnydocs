@@ -496,7 +496,7 @@ host -T example.com
 ### Quand utiliser quel outil ?
 
 ```mermaid
-graph TD
+flowchart TD
     A[Besoin DNS ?] --> B{Quel système ?}
     
     B -->|Windows| C[nslookup]

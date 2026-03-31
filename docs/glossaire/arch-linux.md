@@ -76,7 +76,7 @@ Avant le step-by-step, un schéma global.
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Préparer la clé USB Arch] --> B[Booster sur l'ISO]
     B --> C[Configurer clavier & réseau]
     C --> D[Partitionner le disque<br/>GPT + EFI + swap + root]

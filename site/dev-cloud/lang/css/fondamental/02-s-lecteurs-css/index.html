@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Maîtriser le ciblage CSS : classes, IDs, sélecteurs d'attributs, pseudo-classes interactives (hover) et pseudo-éléments.">
+        <meta name="description" content="Maîtriser le ciblage CSS : classes, IDs, sélecteurs d'attributs, pseudo-classes interactives et pseudo-éléments.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -156,10 +156,7 @@
             
 <!-- Add announcement here, including arbitrary HTML -->
 <small>
-    <em
-        >Cette documentation est en pleine conception, c'est normal qu'elle soit
-        encors si faible au niveau du contenu</em
-    >
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
 </small>
 
           </div>
@@ -731,6 +728,8 @@
       
         
       
+        
+      
     
     
     
@@ -901,6 +900,8 @@
       
         
       
+        
+      
     
     
     
@@ -1035,6 +1036,8 @@
   
     
     
+      
+        
       
         
       
@@ -1233,10 +1236,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-super-racine-root" class="md-nav__link">
+  <a href="#la-pseudo-racine-root" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Super-Racine (:root)
+        La Pseudo-Racine (:root)
       
     </span>
   </a>
@@ -1261,10 +1264,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#la-classe-machin" class="md-nav__link">
+  <a href="#la-classe-nom" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Classe (.machin)
+        La Classe (.nom)
       
     </span>
   </a>
@@ -1272,10 +1275,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lidentifiant-machin" class="md-nav__link">
+  <a href="#lidentifiant-nom" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'identifiant (#machin)
+        L'Identifiant (#nom)
       
     </span>
   </a>
@@ -1300,10 +1303,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-tableau-des-scores-des-selecteurs" class="md-nav__link">
+  <a href="#tableau-des-scores-de-specificite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Tableau des scores des Sélecteurs
+        Tableau des scores de spécificité
       
     </span>
   </a>
@@ -1316,22 +1319,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#visee-de-precision-via-les-attributs" class="md-nav__link">
+  <a href="#selecteurs-dattributs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visée de précision via les Attributs
+        Sélecteurs d'Attributs
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Visée de précision via les Attributs">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-pseudo-classes-etats-temporels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les Pseudo-Classes : États Temporels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les Pseudo-Classes : États Temporels">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-filtre-daction" class="md-nav__link">
+  <a href="#etats-interactifs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Filtre d'Action
+        États interactifs
       
     </span>
   </a>
@@ -1339,10 +1353,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-tri-sur-les-inputs" class="md-nav__link">
+  <a href="#pseudo-classes-structurelles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Tri sur les Inputs
+        Pseudo-classes structurelles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-classes-modernes-is-not-has" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pseudo-classes modernes : :is(), :not(), :has()
       
     </span>
   </a>
@@ -1355,116 +1380,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-fantomes-du-clic-pseudo-classes-interactives" class="md-nav__link">
+  <a href="#les-pseudo-elements-contenu-genere" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Fantômes du Clic (Pseudo-Classes interactives)
+        Les Pseudo-Éléments : Contenu Généré
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Les Fantômes du Clic (Pseudo-Classes interactives)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-reaction-au-survol-de-la-souris-hover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        La réaction au survol de la souris (:hover)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-zone-active-de-focus-focus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        La zone active de Focus (:focus)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-pseudo-classes-structurelles-mathematiques" class="md-nav__link">
+  <a href="#selecteurs-de-combinaison" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Pseudo-Classes Structurelles mathématiques
+        Sélecteurs de Combinaison
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Les Pseudo-Classes Structurelles mathématiques">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#visee-de-bordures-premier-vs-dernier-enfant" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visée de bordures : Premier vs Dernier enfant
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pair-et-impair-nth-child" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pair et Impair (nth-child)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#combinaisons-destructrices" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Combinaisons Destructrices !
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Combinaisons Destructrices !">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#le-selecteur-descendant" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Le Sélecteur "Descendant"
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conclusion et Synthèse
+        Conclusion
       
     </span>
   </a>
@@ -1617,6 +1558,36 @@
     
   
     Pour aller plus loin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-positionnement-flux/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Positionnement et Flux
   
 
     
@@ -2457,6 +2428,176 @@
       
         
       
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mobile/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement Mobile
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Développement Mobile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../mobile/swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift — Le Langage
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
         
       
         
@@ -2485,7 +2626,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2507,14 +2648,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2721,7 +2862,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2743,14 +2884,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2949,7 +3090,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2971,14 +3112,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3317,7 +3458,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3339,14 +3480,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4048,10 +4189,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-super-racine-root" class="md-nav__link">
+  <a href="#la-pseudo-racine-root" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Super-Racine (:root)
+        La Pseudo-Racine (:root)
       
     </span>
   </a>
@@ -4076,10 +4217,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#la-classe-machin" class="md-nav__link">
+  <a href="#la-classe-nom" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La Classe (.machin)
+        La Classe (.nom)
       
     </span>
   </a>
@@ -4087,10 +4228,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lidentifiant-machin" class="md-nav__link">
+  <a href="#lidentifiant-nom" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L'identifiant (#machin)
+        L'Identifiant (#nom)
       
     </span>
   </a>
@@ -4115,10 +4256,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-tableau-des-scores-des-selecteurs" class="md-nav__link">
+  <a href="#tableau-des-scores-de-specificite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Tableau des scores des Sélecteurs
+        Tableau des scores de spécificité
       
     </span>
   </a>
@@ -4131,22 +4272,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#visee-de-precision-via-les-attributs" class="md-nav__link">
+  <a href="#selecteurs-dattributs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visée de précision via les Attributs
+        Sélecteurs d'Attributs
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Visée de précision via les Attributs">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-pseudo-classes-etats-temporels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les Pseudo-Classes : États Temporels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les Pseudo-Classes : États Temporels">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-filtre-daction" class="md-nav__link">
+  <a href="#etats-interactifs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Filtre d'Action
+        États interactifs
       
     </span>
   </a>
@@ -4154,10 +4306,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#le-tri-sur-les-inputs" class="md-nav__link">
+  <a href="#pseudo-classes-structurelles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Tri sur les Inputs
+        Pseudo-classes structurelles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-classes-modernes-is-not-has" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pseudo-classes modernes : :is(), :not(), :has()
       
     </span>
   </a>
@@ -4170,116 +4333,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-fantomes-du-clic-pseudo-classes-interactives" class="md-nav__link">
+  <a href="#les-pseudo-elements-contenu-genere" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Fantômes du Clic (Pseudo-Classes interactives)
+        Les Pseudo-Éléments : Contenu Généré
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Les Fantômes du Clic (Pseudo-Classes interactives)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#la-reaction-au-survol-de-la-souris-hover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        La réaction au survol de la souris (:hover)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-zone-active-de-focus-focus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        La zone active de Focus (:focus)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-pseudo-classes-structurelles-mathematiques" class="md-nav__link">
+  <a href="#selecteurs-de-combinaison" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Pseudo-Classes Structurelles mathématiques
+        Sélecteurs de Combinaison
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Les Pseudo-Classes Structurelles mathématiques">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#visee-de-bordures-premier-vs-dernier-enfant" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visée de bordures : Premier vs Dernier enfant
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pair-et-impair-nth-child" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pair et Impair (nth-child)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#combinaisons-destructrices" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Combinaisons Destructrices !
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Combinaisons Destructrices !">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#le-selecteur-descendant" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Le Sélecteur "Descendant"
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conclusion et Synthèse
+        Conclusion
       
     </span>
   </a>
@@ -4407,254 +4486,501 @@
 <p><div
   class="omny-meta"
   data-level="🟡 Intermédiaire"
-  data-version="1.0"
+  data-version="1.1"
   data-time="4-5 heures">
 </div>
 </p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">Analogie pédagogique - Cibler avec Précision Chirurgicale</p>
-<p>Imaginez le code HTML comme une carte du monde, et votre CSS comme un radar militaire de visée.
-Si vous pointez le nom global de la balise HTML ("Tous les pays"), vous allez tout brûler d'un coup. C'est inefficace.
-Le secret du CSS réside dans l'art des <strong>Classes</strong> et des <strong>Identifiants</strong>. Ces mécaniques vous permettent de renommer discrètement des balises HTML pour pouvoir les viser à coup de snipper une par une dans le fichier de peinture sans toucher à leurs consœurs !</p>
-<p>Et l'arme fatale : les <strong>pseudo-classes</strong>. Ce sont des états fantômes temporels. Le radar se dira : "Vise ce bouton <em>uniquement pendant la malheureuse seconde</em> ou un visiteur passe sa souris dessus".</p>
+<p>Imaginez le code HTML comme une ville entière, et votre CSS comme un système de GPS militaire. Si vous n'indiquez que "tous les bâtiments", vous peindrez la ville entière d'une seule couleur. Inefficace.</p>
+<p>Le secret du CSS réside dans l'art des <strong>Classes</strong> et des <strong>Identifiants</strong> — des étiquettes que vous apposez sur certains éléments pour pouvoir les viser individuellement dans votre fichier de style, sans toucher à leurs voisins.</p>
+<p>Et l'arme finale : les <strong>pseudo-classes</strong>. Des états temporels fantômes. "Vise ce bouton <em>uniquement pendant la seconde</em> où un visiteur passe sa souris dessus."</p>
 </div>
-<p>Ce module vous livre les clés pour atteindre <strong>n'importe quel élément</strong> récalcitrant de votre écran, peu importe où et quand.</p>
-<p><br /></p>
+<p>Ce module vous livre les clés pour atteindre n'importe quel élément de votre page, peu importe où il se trouve et dans quel état il se trouve.</p>
+<p><br></p>
 <hr />
 <h2 id="le-point-zero-luniversel-et-la-racine">Le Point Zéro : L'Universel et la Racine<a class="headerlink" href="#le-point-zero-luniversel-et-la-racine" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Avant même de cibler des balises spécifiques, <strong>l'intégrateur professionnel prépare toujours son terrain d'opération avec deux sélecteurs</strong> importants à connaître.</p>
-</div>
+<p>Avant même de cibler des balises spécifiques, tout intégrateur professionnel prépare son terrain avec deux sélecteurs fondamentaux.</p>
+<p><br></p>
 <h3 id="le-reset-universel">Le Reset Universel (<code>*</code>)<a class="headerlink" href="#le-reset-universel" title="Permanent link">&para;</a></h3>
-<p>L'astérisque <code>*</code> cible <strong>absolument toutes les balises existantes</strong> sur la page. Il est massivement utilisé en tout début de fichier pour "Mettre à zéro" (Reset) les marges et comportements parasites que les navigateurs (Chrome, Safari, Firefox) injectent par défaut.</p>
-<div class="language-css highlight"><span class="filename">Code CSS - Le Reset vital</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c">/* Ce code nettoie l&#39;ardoise avant de peindre pour s&#39;assurer d&#39;un rendu pur ! */</span>
+<p>L'astérisque <code>*</code> cible <strong>absolument tous les éléments</strong> de la page. Il est utilisé en tout début de fichier pour neutraliser les marges et comportements par défaut injectés par les navigateurs — Chrome, Firefox et Safari n'ont pas les mêmes valeurs par défaut.</p>
+<div class="language-css highlight"><span class="filename">CSS - Reset universel en début de fichier</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c">/* Neutralise les styles par défaut de tous les navigateurs */</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">*</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="c">/* Cette dernière ligne est cruciale, elle sauve le &quot;Modèle de boite&quot; ! */</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c">        box-sizing: border-box impose que padding et border</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c">        soient inclus dans la largeur déclarée (voir module Box Model).</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c">        Cette ligne est indispensable dans tout projet professionnel.</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c">    */</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="la-super-racine-root">La Super-Racine (<code>:root</code>)<a class="headerlink" href="#la-super-racine-root" title="Permanent link">&para;</a></h3>
-<p>Le sélecteur <code>:root</code> cible l'élément structurel de niveau le plus haut de tout le document (au-dessus même de la balise <code>&lt;html&gt;</code>). C'est le coffre-fort universel où les développeurs modernes conçoivent et stockent leurs <strong>Variables CSS</strong> (Custom Properties) pour ne jamais se répéter.</p>
-<div class="language-css highlight"><span class="filename">Code CSS - Stocker ses couleurs globales</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="c">/* On définit ses variables avec un double tiret &quot;--&quot; */</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nv">--couleur-primaire</span><span class="p">:</span><span class="w"> </span><span class="mh">#3498DB</span><span class="p">;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nv">--couleur-danger</span><span class="p">:</span><span class="w"> </span><span class="mh">#E74C3C</span><span class="p">;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nv">--police-titre</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Roboto&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c">/* Plus tard dans le code : on appelle la variable dynamique ! */</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nt">h1</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--couleur-primaire</span><span class="p">);</span><span class="w"> </span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--police-titre</span><span class="p">);</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
+<p><em>Sans ce reset, un <code>&lt;body&gt;</code> a des marges par défaut différentes selon le navigateur. Le reset garantit un point de départ identique sur tous les environnements.</em></p>
+<p><br></p>
+<h3 id="la-pseudo-racine-root">La Pseudo-Racine (<code>:root</code>)<a class="headerlink" href="#la-pseudo-racine-root" title="Permanent link">&para;</a></h3>
+<p><code>:root</code> cible l'élément de plus haut niveau du document — au-dessus même de <code>&lt;html&gt;</code>. C'est l'emplacement standard pour déclarer les <strong>Variables CSS</strong> (Custom Properties) globales du projet.</p>
+<div class="language-css highlight"><span class="filename">CSS - Variables CSS déclarées dans :root</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="c">/* Déclaration des variables avec le préfixe double tiret &quot;--&quot; */</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nv">--couleur-primaire</span><span class="p">:</span><span class="w"> </span><span class="mh">#3498db</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nv">--couleur-danger</span><span class="p">:</span><span class="w"> </span><span class="mh">#e74c3c</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nv">--couleur-succes</span><span class="p">:</span><span class="w"> </span><span class="mh">#27ae60</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nv">--police-titre</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Roboto&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nv">--rayon-bordure</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c">/* Utilisation des variables via var() dans le reste du fichier */</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nt">h1</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--couleur-primaire</span><span class="p">);</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--police-titre</span><span class="p">);</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">.</span><span class="nc">bouton-danger</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--couleur-danger</span><span class="p">);</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--rayon-bordure</span><span class="p">);</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><br /></p>
+<p><em>Modifier <code>--couleur-primaire</code> dans <code>:root</code> propage le changement sur <strong>tous les éléments</strong> qui l'utilisent dans le fichier. C'est le mécanisme fondamental des thèmes et du dark mode.</em></p>
+<p><br></p>
 <hr />
 <h2 id="selecteurs-nommes-classe-et-identifiant">Sélecteurs Nommés : Classe et Identifiant<a class="headerlink" href="#selecteurs-nommes-classe-et-identifiant" title="Permanent link">&para;</a></h2>
-<p>Si vous ciblez brutalement la balise de base <code>button { background: red; }</code>, absolument TOUS les boutons de la page deviendront rouges. C'est un désastre en devenir.
-Pour choisir <em>qui</em> affecter, on vient tatouer le HTML avec l'attribut <code>class=""</code>. Ce nom de classe se vise alors dans le CSS grâce au <strong>point</strong> <code>.</code>.</p>
-<h3 id="la-classe-machin">La Classe (<code>.machin</code>)<a class="headerlink" href="#la-classe-machin" title="Permanent link">&para;</a></h3>
-<div class="language-html highlight"><span class="filename">Code HTML - Assigner des classes</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- Côté HTML : Je nomme différement mes deux composants natifs --&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bouton-valider&quot;</span><span class="p">&gt;</span>Acheter<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<p>Cibler brutalement <code>button { background: red; }</code> rend <strong>tous</strong> les boutons de la page rouges. Pour choisir précisément qui affecter, on étiquette les éléments HTML avec des attributs <code>class</code> ou <code>id</code>.</p>
+<p><br></p>
+<h3 id="la-classe-nom">La Classe (<code>.nom</code>)<a class="headerlink" href="#la-classe-nom" title="Permanent link">&para;</a></h3>
+<p>L'attribut <code>class</code> permet de nommer un ou plusieurs éléments. Dans le CSS, on cible une classe avec le <strong>point</strong> <code>.</code>.</p>
+<div class="language-html highlight"><span class="filename">HTML - Assigner des classes à des éléments</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- Deux boutons identiques en HTML, mais avec des classes différentes --&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bouton-valider&quot;</span><span class="p">&gt;</span>Confirmer l&#39;achat<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bouton-annuler&quot;</span><span class="p">&gt;</span>Retour<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<div class="language-css highlight"><span class="filename">Code CSS - Viser avec le point (.)</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">/* Côté CSS, le point magique annonce &quot;Je cible la classe X&quot; */</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">.</span><span class="nc">bouton-valider</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">green</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">.</span><span class="nc">bouton-annuler</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">gray</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<div class="language-css highlight"><span class="filename">CSS - Cibler par classe avec le point</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">/* Le point &quot;.&quot; annonce : &quot;je cible tous les éléments portant cette classe&quot; */</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">.</span><span class="nc">bouton-valider</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#27ae60</span><span class="p">;</span><span class="w"> </span><span class="c">/* Vert */</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">.</span><span class="nc">bouton-annuler</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#95a5a6</span><span class="p">;</span><span class="w"> </span><span class="c">/* Gris */</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">La puissance des Classes</p>
-<p>Contrairement aux prénoms, 150 personnes (balises) peuvent posséder la même Classe en même temps sans causer un bug.</p>
-</div>
-<h3 id="lidentifiant-machin">L'identifiant (<code>#machin</code>)<a class="headerlink" href="#lidentifiant-machin" title="Permanent link">&para;</a></h3>
-<p>Semblable à la classe, mais on utilise l'attribut <code>id=""</code> (et on le vise en CSS via le hashtag <code>#</code>). La grande loi qui régit les identifiants est que son nom <strong>doit être unique dans tout le site</strong>. </p>
-<div class="language-html highlight"><span class="filename">Code HTML - Assigner un Identifiant unique</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">&lt;</span><span class="nt">header</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;menu-principal&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+<p><em>Une classe peut être partagée par autant d'éléments que nécessaire — c'est sa force. Un même élément peut aussi porter plusieurs classes : <code>class="carte carte-mise-en-avant"</code>.</em></p>
+<p><br></p>
+<h3 id="lidentifiant-nom">L'Identifiant (<code>#nom</code>)<a class="headerlink" href="#lidentifiant-nom" title="Permanent link">&para;</a></h3>
+<p>L'attribut <code>id</code> fonctionne comme une classe, mais son nom doit être <strong>unique dans toute la page</strong>. On le cible dans le CSS avec le <strong><code>#</code></strong>.</p>
+<div class="language-html highlight"><span class="filename">HTML - Assigner un identifiant unique</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">&lt;!-- Un seul élément dans la page peut avoir cet id --&gt;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">&lt;</span><span class="nt">header</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;menu-principal&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
 </span></code></pre></div>
-<div class="language-css highlight"><span class="filename">Code CSS - Viser avec le hashtag (#)</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">#</span><span class="nn">menu-principal</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<div class="language-css highlight"><span class="filename">CSS - Cibler par identifiant avec le dièse</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">#</span><span class="nn">menu-principal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#2c3e50</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">Pratique Pro</p>
-<p>On n'utilise presque JAMAIS l'Identifiant en CSS de nos jours car il verrouille trop les priorités de calcul (problème de spécificité abordé immédiatement ci-dessous). Favorisez toujours vos sélecteurs de Classes (<code>.bouton</code>) sans hésiter !</p>
+<p class="admonition-title">L'identifiant en CSS : une mauvaise pratique courante</p>
+<p>L'identifiant possède un poids de spécificité de <strong>100 points</strong> (contre 10 pour une classe). Cela le rend extrêmement difficile à surcharger plus tard dans le code. En CSS, préférez toujours les classes. Réservez les <code>id</code> à leur rôle d'ancrage HTML (les liens <code>href="#section"</code> du module HTML 02) ou aux cibles JavaScript.</p>
 </div>
-<p><br /></p>
+<p><br></p>
 <hr />
 <h2 id="la-loi-du-plus-fort-specificite-et-poids">La Loi du Plus Fort : Spécificité et Poids<a class="headerlink" href="#la-loi-du-plus-fort-specificite-et-poids" title="Permanent link">&para;</a></h2>
-<div class="admonition quote">
-<p class="admonition-title">Gérer les conflits de style avant qu'ils n'arrivent</p>
-<p>C'est <strong>LE concept vital</strong> qui différencie un junior d'un senior.
-Que se passe-t-il si vous codez <code>button { color: red; }</code> à la ligne 10 de votre fichier, mais que plus bas à la ligne 200, vous codez <code>.bouton-valider { color: green; }</code> sur ce même bouton HTML ? Qui gagne la guerre de la peinture ? L'ordinateur ne lit pas seulement de Haut en Bas, il calcule le "Poids" des armes utilisées !</p>
-</div>
-<p>Le navigateur attribue un <strong>score mathématique de poids (La Spécificité)</strong>. Le sélecteur le plus "lourd" gagne toujours et écrase le plus léger, quelle que soit sa position dans votre fichier !</p>
-<h3 id="le-tableau-des-scores-des-selecteurs">Le Tableau des scores des Sélecteurs<a class="headerlink" href="#le-tableau-des-scores-des-selecteurs" title="Permanent link">&para;</a></h3>
+<p>C'est <strong>le concept qui différencie un développeur junior d'un senior</strong>. Que se passe-t-il si deux règles CSS ciblent le même élément avec des valeurs contradictoires ? Le navigateur ne choisit pas au hasard — il calcule un <strong>score de poids</strong> appelé spécificité.</p>
+<p><strong>La règle avec le score le plus élevé gagne, quelle que soit sa position dans le fichier.</strong></p>
+<h3 id="tableau-des-scores-de-specificite">Tableau des scores de spécificité<a class="headerlink" href="#tableau-des-scores-de-specificite" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Poids</th>
-<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Score</th>
+<th style="text-align: left;">Sélecteur</th>
+<th style="text-align: left;">Exemple</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>1 point</strong></td>
-<td style="text-align: left;">Une cible de Balise simple (<code>div</code>, <code>h1</code>, <code>p</code>). Niveau misérable.</td>
+<td style="text-align: left;"><strong>0-0-1</strong></td>
+<td style="text-align: left;">Balise seule</td>
+<td style="text-align: left;"><code>div</code>, <code>h1</code>, <code>p</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>10 points</strong></td>
-<td style="text-align: left;">Une Classe (<code>.bouton</code>), une Pseudo-classe (<code>:hover</code>) ou un Attribut (<code>[type="text"]</code>). Niveau respecté.</td>
+<td style="text-align: left;"><strong>0-1-0</strong></td>
+<td style="text-align: left;">Classe, pseudo-classe, attribut</td>
+<td style="text-align: left;"><code>.bouton</code>, <code>:hover</code>, <code>[type="text"]</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>100 points</strong></td>
-<td style="text-align: left;">Un Identifiant (<code>#menu-principal</code>). L'arme lourde massive.</td>
+<td style="text-align: left;"><strong>1-0-0</strong></td>
+<td style="text-align: left;">Identifiant</td>
+<td style="text-align: left;"><code>#menu</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>1000 points</strong></td>
-<td style="text-align: left;">Du style direct écrit en <code>Inline</code> dans la balise HTML (<code>style="..."</code>).</td>
+<td style="text-align: left;"><strong>Style inline</strong></td>
+<td style="text-align: left;">Attribut <code>style=""</code> dans le HTML</td>
+<td style="text-align: left;">(hors fichier CSS)</td>
 </tr>
 </tbody>
 </table>
-<div class="language-css highlight"><span class="filename">Code CSS - Tournoi de Spécificité</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c">/* Score : 1 Point (Balise seule). LE PERDANT ! */</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">button</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">blue</span><span class="p">;</span><span class="w"> </span>
+<div class="language-css highlight"><span class="filename">CSS - Tournoi de spécificité</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c">/* Score 0-0-1 : balise seule. Le moins prioritaire. */</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">button</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">blue</span><span class="p">;</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c">/* Score : 10 Points (1 Classe). LE GAGNANT ! Le bouton sera VERT ! */</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">.</span><span class="nc">bouton-erreur</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">green</span><span class="p">;</span><span class="w"> </span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c">/* Score 0-1-0 : une classe. Gagne sur la balise seule. Le bouton sera VERT. */</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">.</span><span class="nc">bouton-principal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">green</span><span class="p">;</span>
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
 </span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c">/* Score cololoesale : 101 Points ! (1 Identifiant #header + 1 Balise button) */</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">#</span><span class="nn">header</span><span class="w"> </span><span class="nt">button</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">yellow</span><span class="p">;</span><span class="w"> </span><span class="c">/* Il écrasera tout le reste sans forcer ! */</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c">/* Score 1-0-1 : un identifiant + une balise. Gagne sur tout le reste. */</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">#</span><span class="nn">en-tete</span><span class="w"> </span><span class="nt">button</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">yellow</span><span class="p">;</span>
 </span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="admonition danger">
-<p class="admonition-title">L'Arme Nucléaire <code>!important</code></p>
-<p>Vous pouvez forcer une règle à devenir un "Dieu absolu" (Score Infini et définitif) en ajoutant le mot magique <code>!important</code> à la fin d'une valeur : <code>color: red !important;</code>.</p>
-<p><strong><em>Attention</em></strong>, il s'agit d'une <strong>très mauvaise pratique</strong> car elle détruit la mécanique naturelle et vous obligera à l'avenir à rajouter des <code>!important</code> partout pour corriger votre propre code. À n'utiliser qu'en tout dernier recours (ex: <strong>pour surcharger de force la couleur d'une bibliothèque externe capricieuse</strong>).</p>
-</div>
-<p><br /></p>
-<hr />
-<h2 id="visee-de-precision-via-les-attributs">Visée de précision via les Attributs<a class="headerlink" href="#visee-de-precision-via-les-attributs" title="Permanent link">&para;</a></h2>
-<div class="admonition quote">
-<p class="admonition-title">Il est parfois fastidieux de rajouter des attributs <code>class="..."</code> à des dizaines d'objets, surtout si ces objets comportent déjà des éléments textuels natifs dont on pourrait se servir pour trier. Les sélecteurs <code>[mon-attribut]</code> volent à votre secours.</p>
-</div>
-<h3 id="le-filtre-daction">Le Filtre d'Action<a class="headerlink" href="#le-filtre-daction" title="Permanent link">&para;</a></h3>
-<div class="language-css highlight"><span class="filename">Code CSS - Filtrer par attribut exact</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c">/* Ce code colore en ROUGE TOUS les liens du site mais ... */</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c">/* ... UNIQUEMENT si le lien ordonne une redirection Forcée sur un Nouvel Onglet !! */</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nt">a</span><span class="o">[</span><span class="nt">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+<p class="admonition-title">L'arme nucléaire <code>!important</code></p>
+<p>Ajouter <code>!important</code> à une déclaration lui confère une priorité absolue, écrasant toute spécificité calculée.</p>
+<div class="language-css highlight"><span class="filename">CSS - !important (à éviter)</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c">/* Cette couleur ne pourra être surchargée que par un autre !important */</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">.</span><span class="nc">texte-rouge</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="le-tri-sur-les-inputs">Le Tri sur les Inputs<a class="headerlink" href="#le-tri-sur-les-inputs" title="Permanent link">&para;</a></h3>
-<div class="admonition quote">
-<p class="admonition-title">Les formulaires ont 10 champs <code>&lt;input&gt;</code> différents, mais un seul est fait pour un Mot de Passe.</p>
+<p>C'est une <strong>très mauvaise pratique</strong> : elle brise la mécanique naturelle de la cascade et vous oblige à multiplier les <code>!important</code> pour corriger votre propre code. Usage légitime : surcharger de force le style d'une bibliothèque externe que vous ne contrôlez pas.</p>
 </div>
-<div class="language-css highlight"><span class="filename">Code CSS - Cibler le type d'input</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c">/* Visée ultra fine : Le champ où le visiteur tape son code secret devient jaune.*/</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">yellow</span><span class="p">;</span>
+<p><br></p>
+<hr />
+<h2 id="selecteurs-dattributs">Sélecteurs d'Attributs<a class="headerlink" href="#selecteurs-dattributs" title="Permanent link">&para;</a></h2>
+<p>Les sélecteurs d'attributs permettent de cibler des éléments selon la présence ou la valeur d'un attribut HTML, sans modifier le code HTML avec des classes supplémentaires.</p>
+<div class="language-css highlight"><span class="filename">CSS - Sélecteurs d'attributs et leurs opérateurs</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c">/* Tous les liens qui s&#39;ouvrent dans un nouvel onglet */</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nt">a</span><span class="o">[</span><span class="nt">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#e74c3c</span><span class="p">;</span><span class="w"> </span><span class="c">/* Rouge pour signaler la navigation externe */</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c">/* Tous les inputs de type password */</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="kc">monospace</span><span class="p">;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="k">letter-spacing</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="kt">em</span><span class="p">;</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">}</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="c">/* Les liens dont l&#39;href COMMENCE par &quot;https&quot; (site sécurisé) */</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="nt">a</span><span class="o">[</span><span class="nt">href</span><span class="o">^=</span><span class="s2">&quot;https&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="k">padding-left</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="c">/* On pourrait ajouter une icône de cadenas via ::before */</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="p">}</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="c">/* Les liens dont l&#39;href SE TERMINE par &quot;.pdf&quot; */</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="nt">a</span><span class="o">[</span><span class="nt">href</span><span class="o">$=</span><span class="s2">&quot;.pdf&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#c0392b</span><span class="p">;</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="p">}</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="c">/* Les éléments dont la classe CONTIENT le mot &quot;carte&quot; */</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="nt">div</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="s2">&quot;carte&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><br /></p>
+<p><strong>Tableau des opérateurs de sélection d'attribut :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Opérateur</th>
+<th>Signification</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[attr]</code></td>
+<td>L'attribut existe</td>
+<td><code>[disabled]</code></td>
+</tr>
+<tr>
+<td><code>[attr="val"]</code></td>
+<td>Valeur exacte</td>
+<td><code>[type="email"]</code></td>
+</tr>
+<tr>
+<td><code>[attr^="val"]</code></td>
+<td>Commence par</td>
+<td><code>[href^="https"]</code></td>
+</tr>
+<tr>
+<td><code>[attr$="val"]</code></td>
+<td>Se termine par</td>
+<td><code>[href$=".pdf"]</code></td>
+</tr>
+<tr>
+<td><code>[attr*="val"]</code></td>
+<td>Contient</td>
+<td><code>[class*="icon"]</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 <hr />
-<h2 id="les-fantomes-du-clic-pseudo-classes-interactives">Les Fantômes du Clic (Pseudo-Classes interactives)<a class="headerlink" href="#les-fantomes-du-clic-pseudo-classes-interactives" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title"><strong>Le CSS ne sert pas qu'à décorer</strong>, il gère entièrement toutes les transitions interactives comportementales de votre application. Ce sont des "états" virtuels que l'on déclenche avec la syntaxe <code>:pseudo-classes</code>.</p>
-</div>
-<h3 id="la-reaction-au-survol-de-la-souris-hover">La réaction au survol de la souris (<code>:hover</code>)<a class="headerlink" href="#la-reaction-au-survol-de-la-souris-hover" title="Permanent link">&para;</a></h3>
-<div class="admonition quote">
-<p class="admonition-title">C'est indispensable pour l'effet de confirmation psychologique.</p>
-</div>
-<div class="language-css highlight"><span class="filename">Code CSS - La pseudo-classe :hover</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c">/* Comportement neutre par défaut */</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c">/* La règle Fantôme ! */</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">.</span><span class="nc">card</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="c">/* Ordre ne s&#39;activant que quand la souris passe physiquement sur la div ! */</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">lightgray</span><span class="p">;</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span><span class="w"> </span><span class="c">/* Change l&#39;icone de la souris en main avec index ! */</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">}</span>
+<h2 id="les-pseudo-classes-etats-temporels">Les Pseudo-Classes : États Temporels<a class="headerlink" href="#les-pseudo-classes-etats-temporels" title="Permanent link">&para;</a></h2>
+<p>Une pseudo-classe cible un élément <strong>dans un état particulier</strong> — survol, focus, sélection, position dans la fratrie. Elle s'écrit avec <code>:</code> suivi du nom de l'état.</p>
+<p><br></p>
+<h3 id="etats-interactifs">États interactifs<a class="headerlink" href="#etats-interactifs" title="Permanent link">&para;</a></h3>
+<div class="language-css highlight"><span class="filename">CSS - Pseudo-classes interactives</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c">/* :hover — déclenché quand la souris survole l&#39;élément */</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">.</span><span class="nc">carte</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="k">background-color</span><span class="w"> </span><span class="mf">0.2</span><span class="kt">s</span><span class="w"> </span><span class="kc">ease</span><span class="p">;</span><span class="w"> </span><span class="c">/* Transition douce */</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">.</span><span class="nc">carte</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f0f4f8</span><span class="p">;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span><span class="w"> </span><span class="c">/* Change le curseur en main */</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">}</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c">/* :focus — déclenché quand l&#39;élément reçoit le focus (clic ou Tab) */</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="p">.</span><span class="nc">champ-saisie</span><span class="p">:</span><span class="nd">focus</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#3498db</span><span class="p">;</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="k">outline</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="c">/* Supprime le contour natif du navigateur */</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="p">}</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="c">/* :active — déclenché pendant le maintien du clic */</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="p">.</span><span class="nc">bouton</span><span class="p">:</span><span class="nd">active</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">scale</span><span class="p">(</span><span class="mf">0.97</span><span class="p">);</span><span class="w"> </span><span class="c">/* Légère compression visuelle au clic */</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="p">}</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="c">/* :visited — liens déjà visités */</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="nt">a</span><span class="p">:</span><span class="nd">visited</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#8e44ad</span><span class="p">;</span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="la-zone-active-de-focus-focus">La zone active de Focus (<code>:focus</code>)<a class="headerlink" href="#la-zone-active-de-focus-focus" title="Permanent link">&para;</a></h3>
-<div class="admonition quote">
-<p class="admonition-title">Le focus matérialise le moment réel où le curseur clignote (là où le visiteur attend de lancer la pression visuelle ou de taper du doigt).</p>
-</div>
-<div class="language-css highlight"><span class="filename">Code CSS - La pseudo-classe :focus</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c">/* Dès qu&#39;on clique dans la boite pour écrire son mail, elle grossit et s&#39;encadre en bleu flashy */</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">.</span><span class="nc">champ-saisie</span><span class="p">:</span><span class="nd">focus</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">blue</span><span class="p">;</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="k">outline</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="c">/* Efface la ligne dégueulasse de contouring noir de base */</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Ci-dessous un schéma représentant le workflow de la souris interactive afin d'assimiler plus simplement le concept. <strong>Entre parenthèse se trouve le nom de la pseudo-classe correspondante</strong>:</p>
-<pre class="mermaid"><code>---
-title: Workflow de la souris interactive
----
-stateDiagram-v2
-    [*] --&gt; Neutre : Chargement
+<p><strong>Workflow des états de la souris :</strong></p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Neutre : Chargement de la page
 
-    Neutre --&gt; Survol(hover) : Souris au dessus
-    Survol(hover) --&gt; Neutre : Souris s'échappe
+    Neutre --&gt; Survol : Souris au-dessus de l'élément
+    Survol --&gt; Neutre : Souris quitte l'élément
 
-    Survol(hover) --&gt; ClicEnCours(active) : Bouton Gauche Enfoncé
-    ClicEnCours(active) --&gt; Verrouiller(focus) : Bouton Gauche Relâché
-    Verrouiller(focus) --&gt; Neutre : Clic ailleurs&lt;br&gt;désengage le focus</code></pre>
-<p><br /></p>
+    Survol --&gt; Actif : Bouton de la souris enfoncé
+    Actif --&gt; Focus : Bouton de la souris relâché
+    Focus --&gt; Neutre : Clic ailleurs sur la page</code></pre>
+<p><br></p>
+<h3 id="pseudo-classes-structurelles">Pseudo-classes structurelles<a class="headerlink" href="#pseudo-classes-structurelles" title="Permanent link">&para;</a></h3>
+<p>Ces pseudo-classes ciblent des éléments selon leur <strong>position dans leur élément parent</strong> — sans modifier le HTML.</p>
+<div class="language-css highlight"><span class="filename">CSS - Pseudo-classes de position structurelle</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c">/* Premier et dernier enfant */</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nt">li</span><span class="p">:</span><span class="nd">first-child</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span><span class="w"> </span><span class="c">/* Le premier élément de liste en gras */</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">}</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nt">li</span><span class="p">:</span><span class="nd">last-child</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="k">border-bottom</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="c">/* Supprime la bordure du dernier élément */</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">}</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c">/* nth-child : alternance pair/impair pour les tableaux */</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="nt">tr</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">even</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f8f9fa</span><span class="p">;</span><span class="w"> </span><span class="c">/* Lignes paires légèrement grisées */</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="p">}</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="nt">tr</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">odd</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffffff</span><span class="p">;</span><span class="w"> </span><span class="c">/* Lignes impaires blanches */</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="p">}</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="c">/* nth-child avec formule : toutes les 3 lignes à partir de la 1ère */</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="nt">li</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">3n</span><span class="o">+</span><span class="nt">1</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#3498db</span><span class="p">;</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><br></p>
+<h3 id="pseudo-classes-modernes-is-not-has">Pseudo-classes modernes : <code>:is()</code>, <code>:not()</code>, <code>:has()</code><a class="headerlink" href="#pseudo-classes-modernes-is-not-has" title="Permanent link">&para;</a></h3>
+<p>Ces sélecteurs introduits dans CSS Level 4 simplifient considérablement l'écriture de règles complexes.</p>
+<div class="language-css highlight"><span class="filename">CSS - Sélecteurs modernes is, not, has</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c">/*</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c">    :is() - groupe de sélecteurs alternatifs.</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c">    Hérite de la spécificité du sélecteur le plus spécifique du groupe.</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c">    Évite de répéter les combinaisons longues.</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c">*/</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c">/* AVANT :is() — répétitif */</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="nt">article</span><span class="w"> </span><span class="nt">h2</span><span class="o">,</span><span class="w"> </span><span class="nt">article</span><span class="w"> </span><span class="nt">h3</span><span class="o">,</span><span class="w"> </span><span class="nt">article</span><span class="w"> </span><span class="nt">h4</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#2c3e50</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c">/* AVEC :is() — lisible */</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="nt">article</span><span class="w"> </span><span class="p">:</span><span class="nd">is</span><span class="o">(</span><span class="nt">h2</span><span class="o">,</span><span class="w"> </span><span class="nt">h3</span><span class="o">,</span><span class="w"> </span><span class="nt">h4</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#2c3e50</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c">/*</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="c">    :not() - exclut les éléments correspondant au sélecteur.</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c">*/</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="c">/* Tous les liens SAUF ceux dans la navigation */</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="nt">a</span><span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="nt">nav</span><span class="w"> </span><span class="nt">a</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="k">text-decoration</span><span class="p">:</span><span class="w"> </span><span class="kc">underline</span><span class="p">;</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="p">}</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="c">/* Tous les inputs SAUF les boutons et cases à cocher */</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="nt">input</span><span class="p">:</span><span class="nd">not</span><span class="o">([</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">])</span><span class="p">:</span><span class="nd">not</span><span class="o">([</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="o">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ddd</span><span class="p">;</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="p">}</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="c">/*</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="c">    :has() - &quot;parent selector&quot; : cible un élément SI il contient un certain enfant.</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="c">    Révolutionnaire : le premier sélecteur CSS qui remonte dans l&#39;arbre DOM.</span>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="c">    Support : Chrome 105+, Firefox 121+, Safari 15.4+</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="c">*/</span>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="c">/* Une carte qui contient une image reçoit un padding supérieur */</span>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="p">.</span><span class="nc">carte</span><span class="p">:</span><span class="nd">has</span><span class="o">(</span><span class="nt">img</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">    </span><span class="k">padding-top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="p">}</span>
+</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>
+</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="c">/* Un label dont l&#39;input associé est required est mis en évidence */</span>
+</span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="nt">label</span><span class="p">:</span><span class="nd">has</span><span class="o">(+</span><span class="w"> </span><span class="nt">input</span><span class="p">:</span><span class="nd">required</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-40"><a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span>
+</span><span id="__span-11-41"><a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="p">}</span>
+</span><span id="__span-11-42"><a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a>
+</span><span id="__span-11-43"><a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a><span class="nt">label</span><span class="p">:</span><span class="nd">has</span><span class="o">(+</span><span class="w"> </span><span class="nt">input</span><span class="p">:</span><span class="nd">required</span><span class="o">)</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-44"><a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a><span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; *&quot;</span><span class="p">;</span>
+</span><span id="__span-11-45"><a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#e74c3c</span><span class="p">;</span>
+</span><span id="__span-11-46"><a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em><code>:has()</code> est considéré comme la fonctionnalité CSS la plus attendue depuis des années. Elle permet de styliser un parent en fonction de son contenu — ce qui était jusqu'alors impossible en CSS pur et nécessitait JavaScript.</em></p>
+<p><br></p>
 <hr />
-<h2 id="les-pseudo-classes-structurelles-mathematiques">Les Pseudo-Classes Structurelles mathématiques<a class="headerlink" href="#les-pseudo-classes-structurelles-mathematiques" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Vous listez 10 articles de blogs. Vous voulez que la couleur alterne (1 Gris, 1 Blanc). N'allez pas rajouter manuellement <code>&lt;div class="gris"&gt;</code> sur les 5 entités ! Demandez au CSS de compter comme un robot à votre place à partir du DOM de sélection.</p>
-</div>
-<h3 id="visee-de-bordures-premier-vs-dernier-enfant">Visée de bordures : Premier vs Dernier enfant<a class="headerlink" href="#visee-de-bordures-premier-vs-dernier-enfant" title="Permanent link">&para;</a></h3>
-<div class="language-css highlight"><span class="filename">Code CSS - Cibler le premier élément</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c">/* Je cible UNIQUEMENT la première balise li du paquet de liste */</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nt">li</span><span class="p">:</span><span class="nd">first-child</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="k">border-bottom</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="c">/* Efface la grosse barre du bas */</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">}</span>
+<h2 id="les-pseudo-elements-contenu-genere">Les Pseudo-Éléments : Contenu Généré<a class="headerlink" href="#les-pseudo-elements-contenu-genere" title="Permanent link">&para;</a></h2>
+<p>Les pseudo-éléments ciblent une <strong>partie</strong> d'un élément ou permettent d'<strong>injecter du contenu virtuel</strong> via CSS, sans modifier le HTML. Ils s'écrivent avec <code>::</code> (deux fois deux-points).</p>
+<div class="language-css highlight"><span class="filename">CSS - Pseudo-éléments ::before et ::after</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c">/*</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c">    ::before — insère un pseudo-élément AVANT le contenu de l&#39;élément.</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c">    ::after  — insère un pseudo-élément APRÈS le contenu de l&#39;élément.</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c">    La propriété content est OBLIGATOIRE (même vide avec content: &quot;&quot;).</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c">    Ces pseudo-éléments sont des éléments inline par défaut.</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c">*/</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c">/* Ajouter une icône devant chaque lien externe */</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nt">a</span><span class="o">[</span><span class="nt">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="o">]</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; ↗&quot;</span><span class="p">;</span><span class="w">          </span><span class="c">/* Le contenu textuel ou vide */</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="kt">em</span><span class="p">;</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">inherit</span><span class="p">;</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="k">opacity</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">;</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="p">}</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="c">/* Ajouter un badge &quot;Obligatoire&quot; devant les labels de champs requis */</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="p">.</span><span class="nc">champ-requis</span><span class="p">::</span><span class="nd">before</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;* &quot;</span><span class="p">;</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#e74c3c</span><span class="p">;</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="p">;</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="p">}</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="c">/* Technique classique : clearfix pour les floats (contexte historique) */</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="p">.</span><span class="nc">conteneur</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w">            </span><span class="c">/* Vide mais obligatoire */</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">    </span><span class="k">clear</span><span class="p">:</span><span class="w"> </span><span class="kc">both</span><span class="p">;</span>
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="p">}</span>
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a><span class="c">/* Décoration pure avec un pseudo-élément positionné */</span>
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="p">.</span><span class="nc">titre-section</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span>
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a><span class="w">    </span><span class="k">padding-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-12-35"><a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a><span class="p">}</span>
+</span><span id="__span-12-36"><a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a>
+</span><span id="__span-12-37"><a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a><span class="p">.</span><span class="nc">titre-section</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-38"><a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a><span class="w">    </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span id="__span-12-39"><a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a><span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
+</span><span id="__span-12-40"><a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a><span class="w">    </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-12-41"><a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a><span class="w">    </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-12-42"><a id="__codelineno-12-42" name="__codelineno-12-42" href="#__codelineno-12-42"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-12-43"><a id="__codelineno-12-43" name="__codelineno-12-43" href="#__codelineno-12-43"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-12-44"><a id="__codelineno-12-44" name="__codelineno-12-44" href="#__codelineno-12-44"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--couleur-primaire</span><span class="p">);</span>
+</span><span id="__span-12-45"><a id="__codelineno-12-45" name="__codelineno-12-45" href="#__codelineno-12-45"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-12-46"><a id="__codelineno-12-46" name="__codelineno-12-46" href="#__codelineno-12-46"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="language-css highlight"><span class="filename">Code CSS - Cibler le dernier élément</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c">/* Je cible UNIQUEMENT la dernière balise li du paquet de liste */</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nt">li</span><span class="p">:</span><span class="nd">last-child</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="k">border-top</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="c">/* Efface la barre du haut */</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">}</span>
+<p><em><code>::before</code> et <code>::after</code> sont des éléments CSS purs — ils n'existent pas dans le DOM HTML et ne sont pas sélectionnables par l'utilisateur. Ils sont idéaux pour les décorations visuelles qui n'ont pas de valeur sémantique.</em></p>
+<p><strong>Autres pseudo-éléments utiles :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Pseudo-élément</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>::first-line</code></td>
+<td>Cible la première ligne d'un paragraphe</td>
+</tr>
+<tr>
+<td><code>::first-letter</code></td>
+<td>Cible la première lettre d'un paragraphe (lettrines)</td>
+</tr>
+<tr>
+<td><code>::selection</code></td>
+<td>Style le texte sélectionné par l'utilisateur</td>
+</tr>
+<tr>
+<td><code>::placeholder</code></td>
+<td>Style le texte de placeholder d'un input</td>
+</tr>
+<tr>
+<td><code>::marker</code></td>
+<td>Style la puce ou le numéro d'une liste</td>
+</tr>
+</tbody>
+</table>
+<div class="language-css highlight"><span class="filename">CSS - Pseudo-éléments de contenu et de sélection</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c">/* Personnaliser la couleur de sélection du texte */</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">::</span><span class="nd">selection</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#3498db</span><span class="p">;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">}</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c">/* Personnaliser le placeholder des champs de saisie */</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="nt">input</span><span class="p">::</span><span class="nd">placeholder</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#adb5bd</span><span class="p">;</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="k">font-style</span><span class="p">:</span><span class="w"> </span><span class="kc">italic</span><span class="p">;</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="p">}</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c">/* Personnaliser les puces d&#39;une liste */</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="nt">li</span><span class="p">::</span><span class="nd">marker</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--couleur-primaire</span><span class="p">);</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="p">;</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="pair-et-impair-nth-child">Pair et Impair (<code>nth-child</code>)<a class="headerlink" href="#pair-et-impair-nth-child" title="Permanent link">&para;</a></h3>
-<div class="language-css highlight"><span class="filename">Code CSS - Alternance pair/impair</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c">/* Tout élément de table étant indexé pair par rapport à son voisin de tableau se teinte : */</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nt">tr</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">even</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f0f0f0</span><span class="p">;</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">}</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c">/* Le système impair est &quot;odd&quot;*/</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="nt">tr</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">odd</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffffff</span><span class="p">;</span>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="p">}</span>
-</span></code></pre></div>
-<p><br /></p>
+<p><br></p>
 <hr />
-<h2 id="combinaisons-destructrices">Combinaisons Destructrices !<a class="headerlink" href="#combinaisons-destructrices" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">L'arme la plus agressive du CSS reste sa capacité à chainer logiquement tout ce qu'on vient de voir de manière consécutive dans une suite imbriquée d'instructions très violente : la mécanique parent et enfant par d'espacement descendant <code>parent enfant</code>.</p>
-</div>
-<h4 id="le-selecteur-descendant">Le Sélecteur "Descendant"<a class="headerlink" href="#le-selecteur-descendant" title="Permanent link">&para;</a></h4>
-<div class="language-css highlight"><span class="filename">Code CSS - Sélecteur descendant imbriqué</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c">/* Visée chainée : */</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c">/* Je veux l&#39;icone img qui est cachée A L&#39;INTÉRIEUR (enfant) </span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c">   d&#39;une div nommée &#39;avatar&#39;  qui elle même se trouve cachée DANS un header ! */</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nt">header</span><span class="w"> </span><span class="p">.</span><span class="nc">avatar</span><span class="w"> </span><span class="nt">img</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span><span class="w"> </span><span class="c">/* On applique un rond parfait sur l&#39;icone ! */</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">}</span>
+<h2 id="selecteurs-de-combinaison">Sélecteurs de Combinaison<a class="headerlink" href="#selecteurs-de-combinaison" title="Permanent link">&para;</a></h2>
+<p>Les combinateurs permettent de cibler des éléments selon leur <strong>relation dans l'arbre DOM</strong>.</p>
+<div class="language-css highlight"><span class="filename">CSS - Les quatre combinateurs CSS</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c">/*</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c">    Espace — sélecteur descendant :</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c">    Cible tous les img qui se trouvent à n&#39;importe quelle profondeur</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c">    à l&#39;intérieur d&#39;un élément .avatar</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c">*/</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="p">.</span><span class="nc">avatar</span><span class="w"> </span><span class="nt">img</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="p">}</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="c">/*</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="c">    &gt; — sélecteur enfant direct :</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="c">    Cible uniquement les li qui sont enfants DIRECTS de .menu</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c">    (pas les li imbriqués dans un sous-menu)</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="c">*/</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="p">.</span><span class="nc">menu</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nt">li</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline-block</span><span class="p">;</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="p">}</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="c">/*</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="c">    + — sélecteur frère adjacent :</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="c">    Cible le premier p qui suit IMMÉDIATEMENT un h2</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="c">*/</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="nt">h2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="kt">em</span><span class="p">;</span>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#555</span><span class="p">;</span>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="p">}</span>
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="c">/*</span>
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="c">    ~ — sélecteur frère général :</span>
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="c">    Cible TOUS les p qui suivent un h2 (pas seulement le premier)</span>
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a><span class="c">*/</span>
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="nt">h2</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="w">    </span><span class="k">margin-left</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><br /></p>
+<p><br></p>
 <hr />
-<h2 id="conclusion-et-synthese">Conclusion et Synthèse<a class="headerlink" href="#conclusion-et-synthese" title="Permanent link">&para;</a></h2>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
-<p class="admonition-title">Le véritable pouvoir du CSS repose sur l'exactitude des ciblages. Les classes (<code>.nom</code>) sont vos alliées de tous les jours, les attributs (<code>[type="..."]</code>) trient avec précision, et les pseudo-classes (<code>:hover</code>, <code>:first-child</code>) ajoutent de l'interactivité ou de la logique mathématique avancée avec une fluidité absolue.</p>
+<p class="admonition-title">Ce qu'il faut retenir de ce module</p>
+<p>Les classes (<code>.nom</code>) sont l'outil quotidien du développeur CSS. Les identifiants (<code>#nom</code>) sont réservés au JavaScript et aux ancres HTML. La spécificité est un score calculé : identifiant (1-0-0) &gt; classe (0-1-0) &gt; balise (0-0-1). Les pseudo-classes (<code>:hover</code>, <code>:focus</code>, <code>:is()</code>, <code>:has()</code>) ciblent des états temporels ou structurels. Les pseudo-éléments (<code>::before</code>, <code>::after</code>, <code>::selection</code>) injectent du contenu virtuel ou ciblent des parties d'éléments. <code>!important</code> brise la cascade — à éviter.</p>
 </div>
 <blockquote>
-<p>Dans le module suivant, nous dompterons les <strong>Unités de Mesures</strong> : l'étape cruciale pour comprendre comment vos composants respirent et s'adaptent à l'écran.</p>
+<p>Dans le module suivant, nous dompterons les <strong>Unités de Mesures</strong> : l'étape cruciale pour comprendre comment vos composants respirent et s'adaptent dynamiquement à l'écran (<code>px</code>, <code>rem</code>, <code>em</code>, <code>vw</code>, <code>clamp()</code>).</p>
 </blockquote>
-<p><br /></p>
+<p><br></p>
 
 
   <nav class="md-tags" >
@@ -4696,7 +5022,7 @@ stateDiagram-v2
         
       
       
-        <span class="md-tag md-tag-icon">HOVER</span>
+        <span class="md-tag md-tag-icon">PSEUDO-ÉLÉMENTS</span>
       
     
       
@@ -4706,7 +5032,7 @@ stateDiagram-v2
         
       
       
-        <span class="md-tag md-tag-icon">CIBLAGE</span>
+        <span class="md-tag md-tag-icon">SPÉCIFICITÉ</span>
       
     
   </nav>

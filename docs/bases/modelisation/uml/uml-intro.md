@@ -108,7 +108,7 @@ title: "Panorama UML – Structure, Comportement, Interactions"
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A["Structure<br/>(Classes, Objets, Composants)"]
     B["Comportement<br/>(Cas d’usage, Activités, États)"]
     C["Interactions<br/>(Séquences, Messages)"]
@@ -213,7 +213,7 @@ Chaque diagramme est présenté dans un **grid propre et homogène**.
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     U["Utilisateur"] --> UC1["Créer un compte"]
     U --> UC2["S'authentifier"]
     U --> UC3["Consulter une formation"]

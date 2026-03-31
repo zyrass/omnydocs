@@ -1,5 +1,5 @@
 ---
-description: "Le cours exhaustif sur CSS Flexbox (display: flex). Maîtrisez la théorie des axes croisés, la distribution spatiale en ligne/colonne et l'élasticité absolue des enfants."
+description: "Le cours exhaustif sur CSS Flexbox : axes croisés, distribution spatiale, élasticité des enfants et cas pratiques."
 icon: lucide/book-open-check
 tags: ["CSS", "FLEXBOX", "LAYOUT", "RESPONSIVE", "ALIGNEMENT"]
 ---
@@ -9,174 +9,190 @@ tags: ["CSS", "FLEXBOX", "LAYOUT", "RESPONSIVE", "ALIGNEMENT"]
 <div
   class="omny-meta"
   data-level="🟡 Intermédiaire"
-  data-version="2.0"
-  data-time="4-6 heures"
-></div>
-  
+  data-version="2.1"
+  data-time="4-6 heures">
+</div>
+
 ## Introduction
 
-Pendant les premières années du Web, positionner des blocs nécessitait des propriétés instables (`float`, `inline-block`) et des calculs manuels complexes. En 2015, le W3C[^1] a standardisé **Flexbox** (The Flexible Box Module). 
+Pendant les premières années du Web, positionner des blocs nécessitait des propriétés instables (`float`, `inline-block`) et des calculs manuels complexes. En 2015, le W3C[^1] a standardisé **Flexbox** (The Flexible Box Module).
 
-Flexbox est un système **unidimensionnel**[^3] : il traite les éléments sur un seul rail à la fois (soit en ligne, soit en colonne). Ce module est la fondation du design responsive moderne.
+Flexbox est un système **unidimensionnel**[^3] : il traite les éléments sur un seul rail à la fois — soit en ligne, soit en colonne. C'est la fondation du design responsive moderne.
 
-!!! quote "Analogie pédagogique — L'orchestre d'élastiques"
+!!! quote "Analogie pédagogique - L'Orchestre d'Élastiques"
     Imaginez un conteneur comme une scène d'orchestre dont le sol serait un élastique géant. Plutôt que de fixer la position rigide de chaque musicien (vos éléments HTML), vous définissez les règles de tension de l'élastique[^2]. Les musiciens s'adaptent alors d'eux-mêmes : ils se serrent si l'espace manque, s'étirent pour combler le vide, ou sautent à la ligne si la scène devient trop étroite.
 
-
-<br />
+<br>
 
 ---
 
 ## Le Concept des Deux Axes
 
-!!! note "Pour maîtriser Flexbox, il est impératif d'abandonner les notions de "Gauche/Droite" ou "Haut/Bas". La logique repose sur deux vecteurs invisibles pilotés par le parent."
+Pour maîtriser Flexbox, il est impératif d'abandonner les notions de "Gauche/Droite" ou "Haut/Bas". La logique repose sur deux vecteurs invisibles pilotés par le parent.
+
+<br>
 
 ### L'Axe Principal (Main Axis) et l'Axe Secondaire (Cross Axis)
 
 Lorsque vous activez le contexte Flexbox, un rail traverse votre conteneur : c'est l'**Axe Principal**. Perpendiculairement à celui-ci se trouve l'**Axe Secondaire**.
 
-!!! abstract "La bascule des axes"
-    La puissance de Flexbox réside dans sa capacité à faire pivoter l'Axe Principal à 90 degrés.
+La puissance de Flexbox réside dans sa capacité à faire pivoter l'Axe Principal à 90 degrés.
 
-    - Si l'Axe Principal est horizontal, l'alignement se fait en **Ligne** (`row`).
-    - Si l'Axe Principal est vertical, l'alignement se fait en **Colonne** (`column`).
+- Si l'Axe Principal est **horizontal**, les enfants s'alignent en **ligne** (`row`).
+- Si l'Axe Principal est **vertical**, les enfants s'alignent en **colonne** (`column`).
 
 ![Concept des Axes Flexbox : Axe Principal et Axe Secondaire](../../../../assets/images/dev/layout-modern/flexbox_axes_concept.png)
 
-<p style="text-align: center;"><em>Cette illustration schématise la bascule entre le mode Ligne (axe principal horizontal) et le mode Colonne (axe principal vertical). L'axe secondaire suit toujours perpendiculairement.</em></p>
+*Cette illustration schématise la bascule entre le mode ligne (axe principal horizontal) et le mode colonne (axe principal vertical). L'axe secondaire suit toujours perpendiculairement.*
 
-!!! warning "Le secret de la terminologie"
-    - `justify-content` dirige l'**Axe Principal**. Soit, ça **ne veut PAS dire** "aligne à gauche ou à droite". Cela veut très exactement dire :<br>_"Gère le vide tout le long de l'Axe PRINCIPAL, peu importe dans quel sens il est tourné !"_
-    - `align-items` dirige l'**Axe Secondaire**. Soit, ça **ne veut PAS dire** "centre verticalement". Cela veut dire :<br>_"Aligne les enfants sur l'Axe SECONDAIRE perpendiculaire, peu importe où il se trouve !"_
+!!! warning "Le secret de la terminologie Flexbox"
+    - `justify-content` gère l'**Axe Principal** — pas "l'horizontal". Si `flex-direction: column`, `justify-content` gère l'espace **vertical**.
+    - `align-items` gère l'**Axe Secondaire** — pas "le vertical". Si `flex-direction: column`, `align-items` gère l'espace **horizontal**.
 
-<br />
+<br>
+
+---
 
 ## Cibler la direction : `flex-direction`
 
-Flexbox repose toujours sur la relation **Parent / Enfants directs**. On n'applique *jamais* la commande `flex` sur l'enfant que l'on veut déplacer. On l'applique **au conteneur** qui l'englobe.
+Flexbox repose toujours sur la relation **Parent / Enfants directs**. La propriété `display: flex` s'applique **au conteneur**, jamais directement aux enfants.
 
-```html title="Code HTML - La structure Parent / Enfants"
-<!-- LA GRANDE BOITE (Le Parent) -->
-<nav class="super-menu-parent">
-    <!-- LES 3 ENFANTS DIRECTS (Qui vont devenir élastiques) -->
-    <a href="#" class="enfant">Accueil</a>
-    <a href="#" class="enfant">Produits</a>
-    <a href="#" class="enfant">Contact</a>
+```html title="HTML - Structure Parent / Enfants Flexbox"
+<!-- LE PARENT : reçoit display: flex -->
+<nav class="menu-parent">
+    <!-- LES ENFANTS DIRECTS : deviennent des flex items -->
+    <a href="#" class="lien-nav">Accueil</a>
+    <a href="#" class="lien-nav">Produits</a>
+    <a href="#" class="lien-nav">Contact</a>
 </nav>
 ```
 
-```css title="Code CSS - Ciblage des enfants"
-.super-menu-parent {
-    /* Établit un contexte de formatage Flex */
+```css title="CSS - Activation du contexte Flexbox"
+.menu-parent {
+    /* Active le contexte Flexbox sur ce conteneur */
     display: flex;
 
-    /* Définit le sens de l'Axe Principal */
-    /* Valeurs : row (défaut), column, row-reverse, column-reverse */
+    /*
+        flex-direction définit le sens de l'Axe Principal.
+        row (défaut)     : horizontal, gauche vers droite
+        column           : vertical, haut vers bas
+        row-reverse      : horizontal, droite vers gauche
+        column-reverse   : vertical, bas vers haut
+    */
     flex-direction: row;
-}
-.enfant {
-    background-color: red; /* Chaque lien aura un fond rouge */
 }
 ```
 
-### Explication des valeurs de `flex-direction`
+!!! note "La valeur `row` est la valeur par défaut"
+    Écrire `flex-direction: row` est techniquement redondant. Cependant, pour la lisibilité du code, beaucoup de développeurs préfèrent l'écrire explicitement dans les projets d'équipe.
 
-- `row` **(Valeur par Défaut)** : L'axe principal est horizontal, comme un texte de gauche à droite. L'axe secondaire est donc la hauteur (vertical). Les enfants se colleront naturellement les uns à côté des autres (gauche -> droite).
-
-    !!! note "Il faut savoir que si la direction est **row** alors il n'est pas nécessaire de saisir celle-ci sur le parent. Par contre pour une meilleure lisibilité du code il est courant de voir cette dernière inscrite."
-
-- `column` : L'axe principal pivote à 90°. Il devient vertical (de haut en bas). L'axe secondaire devient la largeur (horizontal). Les enfants s'empileront naturellement en colonne.
-
-- `row-reverse` : L'axe principal reste horizontal, mais l'origine démarre complètement à Droite ! Le premier enfant HTML sera affiché tout à droite de l'écran, et les suivants se construiront vers la gauche.
-
-- `column-reverse` : Comme une colonne, mais la pile commence en bas de la boîte et empile les éléments vers le haut.
-
-<br />
+<br>
 
 ---
 
 ## Positionnement spatial : `justify-content`
 
-La propriété `justify-content` définit la manière dont l'espace vide restant est réparti le long de l'**Axe Principal** ou l'**Axe Secondaire**.
+`justify-content` définit la manière dont l'espace vide restant est réparti le long de l'**Axe Principal**.
 
-### Le Comportement selon la direction choisie (C'est ici que le débutant se perd !)
+![Distribution spatiale avec justify-content en mode row](../../../../assets/images/dev/layout-modern/flexbox_justify_content.png)
 
-!!! warning "Le piège de la direction : Comprendre `justify-content`"
-    L'erreur la plus commune est de retenir que `justify-content` égale "Horizontal" et c'est tout simplement **faux**. 
-    `justify-content` dirige l'**Axe Principal**.
-    
-    - Si le parent est en **`flex-direction: row` (défaut)** : L'axe principal est Horizontal. Ici, `justify-content` gère l'espacement de Gauche à Droite.
-    - Si le parent est en **`flex-direction: column`** : L'axe principal pivote à 90°. Il devient Vertical. Désormais, `justify-content` gère l'espacement **de Haut en Bas** (Hauteur) !
+*Représentation de la distribution mathématique du vide sur l'Axe Principal, en mode `flex-direction: row`.*
 
-Si vous comprenez ce changement de gravité, vous maîtrisez Flexbox.  
-
-!!! quote "Afin de mieux assimiler le concept, l'illustration ci-dessous vous accompagnera dans votre compréhension sur ce qui est attendu en fonction de la valeur de `justify-content` sur l'axe principal (main axis). Comprenez qu'il est question ici d'être en `flex-direction: row`"
-
-
-![Distribution spatiale de l'espace avec justify-content](../../../../assets/images/dev/layout-modern/flexbox_justify_content.png)
-
-<p style="text-align: center;"><em>Représentation de la distribution mathématique du vide sur l'Axe Principal, permettant d'espacer ou de regrouper les éléments de manière homogène.</em></p>
-
-!!! note "Comme évoqué précédemment nous sommes dans la direction `flex-direction: row`"
-
-```css title="Code CSS - Répartition de l'espace"
+```css title="CSS - Répartition de l'espace sur l'axe principal"
 .menu {
     display: flex;
-    justify-content: space-between; 
+    flex-direction: row;
+    /*
+        flex-start  : éléments collés au début de l'axe
+        flex-end    : éléments poussés à la fin
+        center      : éléments regroupés au centre
+        space-between: premier et dernier aux bords, vide réparti entre les autres
+        space-around : espace égal partagé autour de chaque élément
+        space-evenly : espace strictement identique entre chaque bord et élément
+    */
+    justify-content: space-between;
 }
 ```
 
-| Valeur | Description technique |
+| Valeur | Description |
 | :--- | :--- |
-| `flex-start` | Éléments collés au début de l'axe principal. |
-| `flex-end` | Éléments poussés à la fin de l'axe principal. |
-| `center` | Éléments regroupés au centre de l'axe. |
-| `space-between` | Premier et dernier éléments aux bords, vide réparti entre les autres. |
-| `space-around` | Espace égal partagé autour de chaque élément. |
-| `space-evenly` | Espace strictement identique entre chaque bord et chaque élément. |
+| `flex-start` | Éléments collés au début de l'axe principal |
+| `flex-end` | Éléments poussés à la fin de l'axe principal |
+| `center` | Éléments regroupés au centre |
+| `space-between` | Premier et dernier aux bords, vide réparti entre les autres |
+| `space-around` | Espace égal partagé autour de chaque élément |
+| `space-evenly` | Espace strictement identique entre chaque bord et élément |
 
-<br />
+!!! warning "Le piège de `justify-content` en mode colonne"
+    Si le conteneur est en `flex-direction: column`, `justify-content` gère l'espace **vertical** — pas horizontal. L'axe principal a pivoté. C'est le point où la majorité des débutants se perdent.
+
+<br>
 
 ---
 
 ## Alignement transversal : `align-items`
 
-Très bien, notre espace principal est géré. Mais observons l'Axe Secondaire de travers !
+`align-items` gère l'alignement des enfants sur l'**Axe Secondaire** — perpendiculaire à l'axe principal.
 
-Si vous êtes en mode `row` (ligne de gauche à droite), votre Axe Secondaire est **Vertical**. Et si votre menu fait 120 pixels de `height` (hauteur totale) alors que le texte de vos enfants fait 20 pixels. Où doivent "flotter" vos enfants dans les 100 pixels qui restent "en haut ou en bas" de leur enveloppe parentale ?
-
-C'est l'essence d'`align-items` : l'alignement individuel transversal de chaque objet.
+En mode `row`, si votre menu fait 120px de hauteur mais que les textes ne font que 20px : où "flottent" vos enfants dans les 100px restants ?
 
 ![Alignement sur l'Axe Secondaire avec align-items](../../../../assets/images/dev/layout-modern/flexbox_align_items.png)
 
-<p style="text-align: center;"><em>L'alignement transversal permet de centrer ou d'étirer les éléments sur l'épaisseur du conteneur, quel que soit leur contenu propre.</em></p>
+*L'alignement transversal permet de centrer ou d'étirer les éléments sur l'épaisseur du conteneur.*
 
-```css title="Code CSS - Centrage vertical en ligne"
+```css title="CSS - Centrage vertical parfait avec align-items"
 .header {
     display: flex;
     flex-direction: row;
     height: 120px;
-    
-    /* Gestion du vide sur le rail principal (Horizontal -> Je pousse à droite) */
+
+    /* Poussé vers la droite sur l'axe principal (horizontal) */
     justify-content: flex-end;
-    
-    /* Gestion de la position sur le rail d'épaisseur perpendiculaire
-       (Vertical -> Je centre parfaitement les textes dans les 120px !) */
-    align-items: center; 
+
+    /* Centré verticalement sur l'axe secondaire */
+    align-items: center;
 }
 ```
-*Ce code assure que tous les éléments sont parfaitement centrés verticalement dans les 100px de hauteur du parent.*
 
-| Valeur | Description technique |
+*Ce pattern `justify-content` + `align-items` est l'une des combinaisons les plus utilisées en production pour centrer un contenu dans une barre de navigation.*
+
+| Valeur | Description |
 | :--- | :--- |
-| `stretch` | *(Défaut)* Les enfants s'étirent pour remplir 100% de l'espace sur l'axe transversal. |
-| `flex-start` | Les enfants se regroupent collés au début de l'axe secondaire (le "toit"). |
-| `flex-end` | Les enfants se regroupent collés à la fin de l'axe secondaire (le "sol"). |
-| `center` | Les enfants sont centrés parfaitement au milieu de l'axe transversal. |
-| `baseline` | Aligne les éléments sur la ligne de base (ligne d'écriture) de leur texte. |
+| `stretch` | *(Défaut)* Étire les enfants pour remplir l'axe secondaire |
+| `flex-start` | Enfants collés au début de l'axe secondaire |
+| `flex-end` | Enfants collés à la fin de l'axe secondaire |
+| `center` | Enfants centrés sur l'axe secondaire |
+| `baseline` | Aligne sur la ligne de base typographique du texte |
 
+<br>
 
-<br />
+### Shorthand : `place-items` et `place-content`
+
+Ces deux raccourcis combinent les propriétés d'alignement en une seule déclaration.
+
+```css title="CSS - Shorthands place-items et place-content"
+/*
+    place-items: align-items justify-items
+    Utile pour centrer un élément unique dans son conteneur flex ou grid.
+*/
+.carte-centree {
+    display: flex;
+    place-items: center; /* Équivalent à align-items: center + justify-content: center */
+}
+
+/*
+    place-content: align-content justify-content
+    Utile pour les conteneurs multi-lignes (flex-wrap).
+*/
+.galerie {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center space-between;
+    /* align-content: center + justify-content: space-between */
+}
+```
+
+<br>
 
 ---
 
@@ -184,171 +200,211 @@ C'est l'essence d'`align-items` : l'alignement individuel transversal de chaque 
 
 Par défaut, Flexbox tente de faire tenir tous les éléments sur une seule ligne (`nowrap`), quitte à les écraser.
 
-### `flex-wrap` : La cassure de ligne
-
-```css title="Code CSS - Autoriser le retour à la ligne"
+```css title="CSS - Autoriser le retour à la ligne"
 .galerie {
     display: flex;
-    flex-wrap: wrap; 
+    /* Autorise le passage à la ligne quand les enfants dépassent le conteneur */
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 ```
-*Si les enfants dépassent la largeur du parent, ils basculent automatiquement sur une nouvelle ligne.*
 
 ![Retour à la ligne avec flex-wrap](../../../../assets/images/dev/layout-modern/flexbox_wrap.png)
 
-<p style="text-align: center;"><em>Le passage à la ligne évite l'écrasement des éléments et permet de construire des grilles fluides simples.</em></p>
+*Le passage à la ligne évite l'écrasement des éléments et permet de construire des grilles fluides simples.*
 
-### Le Raccourci : `flex-flow`
+<br>
 
-Les développeurs professionnels utilisent souvent le shorthand `flex-flow` pour combiner la direction (`flex-direction`) et le retour à la ligne (`flex-wrap`).
+### Shorthand `flex-flow`
 
-```css title="Code CSS - Shorthand flex-flow"
+```css title="CSS - Shorthand flex-flow combinant direction et wrap"
 .navigation {
     display: flex;
-    /* Direction: row | Retour à la ligne: wrap */
+    /* flex-direction: row + flex-wrap: wrap en une seule déclaration */
     flex-flow: row wrap;
 }
 ```
-*Cette propriété condense deux intentions en une seule ligne pour une meilleure lisibilité.*
 
+<br>
 
-### L'espace entre les lignes (`align-content`)
+### `align-content` — espacer les rangées multiples
 
-**Attention** : `align-content` n'a d'effet **que si** `flex-wrap: wrap` est activé et qu'il existe plusieurs lignes. Il définit l'alignement des rangées elles-mêmes.
+`align-content` n'a d'effet **que si** `flex-wrap: wrap` est actif et qu'il existe plusieurs lignes. Il répartit l'espace entre les rangées elles-mêmes.
 
-```css title="Code CSS - Espacement multi-lignes"
+```css title="CSS - Répartition des lignes multiples"
 .grille {
     display: flex;
     flex-wrap: wrap;
-    align-content: space-around; /* Répartition de l'espace entre les lignes */
+    height: 500px; /* Une hauteur définie est nécessaire pour voir l'effet */
+    align-content: space-around;
 }
 ```
-*Cette propriété répartit l'espace vertical entre les différentes rangées d'éléments.*
 
-<br />
+<br>
 
 ---
 
-## Gérer l'espacement (la gouttière) : `gap`
+## Gérer l'espacement : `gap`
 
-Historiquement, l'espacement entre éléments nécessitait des marges latérales (`margin`) souvent complexes à gérer sur les premiers et derniers éléments.
-
-```css title="Code CSS - Utilisation de gap"
-.plusieurs-boutons {
+```css title="CSS - Gap uniforme et indépendant"
+.groupe-boutons {
     display: flex;
-    gap: 20px; 
+    /* Espace uniforme de 16px entre tous les enfants */
+    gap: 16px;
+}
+
+/* Valeurs distinctes : row-gap et column-gap */
+.grille-flex {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: vertical horizontal */
+    gap: 24px 16px; /* 24px entre les lignes, 16px entre les colonnes */
 }
 ```
-*`gap` injecte un espace de 20px uniquement **entre** les enfants, sans affecter les bords extérieurs du conteneur.*
+
+*`gap` injecte un espace uniquement **entre** les enfants, sans affecter les bords extérieurs du conteneur — contrairement aux marges.*
+
+<br>
 
 ### L'astuce du "Push" avec `margin: auto`
 
-En Flexbox, une marge réglée sur `auto` absorbera tout l'espace disponible dans sa direction. C'est idéal pour séparer un élément du reste d'un groupe (ex: bouton "Déconnexion" en fin de menu).
+En Flexbox, une marge réglée sur `auto` absorbe tout l'espace disponible dans sa direction.
 
-```css title="Code CSS - Effet de poussée ciblée"
-.navbar { display: flex; }
-.logout { margin-left: auto; }
+```css title="CSS - Pousser un élément à l'opposé"
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.btn-deconnexion {
+    /* Absorbe tout l'espace horizontal disponible à gauche */
+    /* Résultat : le bouton se retrouve poussé à l'extrémité droite */
+    margin-left: auto;
+}
 ```
-*Le bouton .logout sera poussé tout à droite en consommant tout le vide à sa gauche.*
 
-<br />
+<br>
 
 ---
 
-## Propriétés individuelles des Enfants
+## Propriétés des Enfants
 
-Flexbox permet de définir l'élasticité chirurgicale de chaque élément.
+<br>
 
-### L'élasticité : `flex-grow`, `flex-shrink` et `flex-basis`
+### Élasticité : `flex-grow`, `flex-shrink`, `flex-basis`
 
-1. **`flex-grow`** : Capacité à grandir pour occuper le vide (Défaut : 0).
-2. **`flex-shrink`** : Capacité à rétrécir pour éviter le débordement (Défaut : 1).
-3. **`flex-basis`** : Taille idéale de base avant redimensionnement.
+Ces trois propriétés s'appliquent aux **enfants**, pas au conteneur.
 
-!!! tip "Le Shorthand `flex`"
-    Il est recommandé d'utiliser la propriété raccourcie `flex`.
-    **Standard : `flex: 1 1 auto;` (Grandit, Rétrécit, Taille auto).**
+- `flex-grow` — capacité à grandir pour occuper le vide disponible (défaut : `0`)
+- `flex-shrink` — capacité à rétrécir pour éviter le débordement (défaut : `1`)
+- `flex-basis` — taille idéale avant redimensionnement (défaut : `auto`)
 
-```css title="Code CSS - Élasticité maîtrisée"
-.main-content { flex: 1; } /* Grandira pour prendre tout l'espace libre */
-.sidebar { flex: 0 0 250px; } /* Taille fixe de 250px (ne grandit pas, ne rétrécit pas) */
+```css title="CSS - Élasticité avec le shorthand flex"
+/*
+    Shorthand flex : grow | shrink | basis
+    flex: 1         → équivalent à flex: 1 1 0% (grandit, rétrécit, base zéro)
+    flex: 0 0 250px → taille fixe à 250px (ne grandit pas, ne rétrécit pas)
+    flex: auto      → équivalent à flex: 1 1 auto
+*/
+.contenu-principal {
+    flex: 1; /* Prend tout l'espace disponible */
+}
+
+.sidebar {
+    flex: 0 0 260px; /* Largeur fixe, ne bouge pas */
+}
 ```
 
-<br />
+!!! tip "Toujours utiliser le shorthand `flex`"
+    La propriété raccourcie `flex` est recommandée par les spécifications W3C. Elle initialise correctement les valeurs par défaut de `flex-grow`, `flex-shrink` et `flex-basis` selon des comportements standard. Déclarer les trois propriétés séparément peut produire des résultats inattendus.
 
----
+<br>
 
-## Alignement et Ordre spécifique
-
-### La mutinerie individuelle : `align-self`
+### `align-self` — alignement individuel
 
 Un enfant peut outrepasser l'ordre général du parent (`align-items`) pour s'aligner seul.
 
-```css title="Code CSS - Alignement propre"
-.notification { align-self: flex-start; }
+```css title="CSS - Alignement propre à un enfant"
+.notification-badge {
+    /* S'aligne en haut tandis que les autres enfants sont centrés */
+    align-self: flex-start;
+}
 ```
 
-### Accessibilité : `order`
+<br>
 
-`order` permet de réorganiser visuellement les éléments sans toucher au HTML.
+### `order` — réorganisation visuelle
 
-!!! danger "Attention à l'accessibilité"
-    La propriété `order` change l'ordre **visuel** mais pas l'ordre du **DOM**. Un utilisateur naviguant au clavier (Tabulation) suivra toujours l'ordre du code HTML original, créant une confusion majeure. Utilisez `order` avec parcimonie.
+`order` permet de réorganiser visuellement les éléments sans toucher au HTML d'origine.
 
-<br />
+```css title="CSS - Réorganisation visuelle avec order"
+.logo     { order: 1; }
+.nav      { order: 2; }
+.btn-cta  { order: 3; }
+
+/* Sur mobile : mettre le CTA en premier */
+@media (max-width: 768px) {
+    .btn-cta { order: -1; } /* -1 place l'élément avant order: 0 (défaut) */
+}
+```
+
+!!! danger "Accessibilité et `order`"
+    La propriété `order` change l'ordre **visuel** mais pas l'ordre du **DOM**. Un utilisateur naviguant au clavier (touche Tab) suivra toujours l'ordre du code HTML original, créant une confusion majeure. Utilisez `order` avec parcimonie et toujours en testant la navigation clavier.
+
+<br>
 
 ---
 
-## Cas pratique : Le Flex imbriqué (Nested Flex)
+## Cas Pratique : Le Flex Imbriqué
 
-Dans le Web réel, on utilise souvent un Flexbox à l'intérieur d'un autre pour structurer des composants complexes.
+Dans les projets réels, on utilise souvent un conteneur Flex à l'intérieur d'un autre pour structurer des composants complexes.
 
-```html title="Code HTML - Menu complexe"
+```html title="HTML - Barre de navigation avec sous-liste"
 <nav class="nav">
-    <div class="logo">OmnyDoc</div>
-    <ul class="nav-links">
+    <div class="logo">OmnyDocs</div>
+    <ul class="nav-liens">
         <li><a href="#">Cours</a></li>
         <li><a href="#">Lab</a></li>
+        <li><a href="#">Contact</a></li>
     </ul>
 </nav>
 ```
 
-```css title="Code CSS - Flex imbriqué"
-/* Conteneur principal : Logo à gauche, liste à droite */
+```css title="CSS - Flex imbriqué pour une navbar"
+/* Niveau 1 : conteneur principal — logo à gauche, liens à droite */
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 2rem;
+    height: 64px;
 }
 
-/* Secondaire : Les liens se rangent aussi en ligne */
-.nav-links {
+/* Niveau 2 : les liens s'alignent horizontalement entre eux */
+.nav-liens {
     display: flex;
-    gap: 15px;
+    gap: 2rem;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 ```
-*Le parent .nav gère la structure globale, tandis que .nav-links gère l'alignement interne de ses éléments.*
 
-<br />
+*Le parent `.nav` gère la structure macro (logo vs liens), tandis que `.nav-liens` gère l'alignement micro de ses éléments propres.*
+
+<br>
 
 ---
 
-## Résumé et Bonnes Pratiques
-
-!!! success "Les Standards de l'Industrie"
-    - **Privilégiez `gap`** au lieu des marges pour les espacements entre éléments.
-    - **Utilisez `flex: 1;`** pour les zones de contenu principal qui doivent être fluides.
-    - **Vérifiez `flex-direction`** avant de déboguer vos alignements.
-    - **Méfiez-vous d' `order`** pour l'accessibilité (A11y).
-
 ## Conclusion
 
-!!! quote "Essence de Flexbox"
-    Flexbox est l'outil indispensable pour les interfaces unidimensionnelles et la distribution fluide d'espace. Sa maîtrise permet de créer des composants stables et intelligents qui réagissent à tout type d'écran.
+!!! quote "Ce qu'il faut retenir de ce module"
+    Flexbox est l'outil indispensable pour les interfaces unidimensionnelles. `justify-content` gère l'**Axe Principal**, `align-items` gère l'**Axe Secondaire** — leur direction dépend de `flex-direction`. `gap` remplace les marges pour les espacements internes. `flex: 1` permet à un enfant de prendre tout l'espace disponible. `margin: auto` pousse un élément vers l'opposé. Ne jamais utiliser `order` sans tester la navigation clavier.
 
-> Dans le prochain module, nous aborderons CSS Grid, l'outil conçu pour structurer les architectures globales sur deux dimensions (lignes et colonnes simultanées).
+> Dans le prochain module, nous aborderons **CSS Grid** — l'outil conçu pour structurer les architectures globales sur deux dimensions simultanées (lignes et colonnes).
 
-[^1]: W3C : World Wide Web Consortium, organisme de standardisation du Web.
-[^2]: Règles de tension : Manière dont les éléments se partagent l'espace libre ou se compressent.
-[^3]: Unidimensionnel : Système ne traitant qu'une seule direction à la fois (ligne OU colonne).
+<br>
+
+[^1]: **W3C** (World Wide Web Consortium) : organisme international de standardisation du Web.
+[^2]: **Règles de tension** : manière dont les éléments se partagent l'espace libre ou se compressent selon les propriétés Flexbox définies.
+[^3]: **Unidimensionnel** : système ne traitant qu'une seule direction à la fois — ligne OU colonne, jamais les deux simultanément.

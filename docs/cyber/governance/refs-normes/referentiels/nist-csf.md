@@ -273,7 +273,7 @@ Le **Core** constitue le **cœur opérationnel** du CSF. Il organise les activit
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[Framework Core] --> B[6 Fonctions]
     B --> C[23 Catégories]
     C --> D[106 Sous-catégories]
@@ -440,7 +440,7 @@ Les **Profiles** représentent l'**alignement personnalisé** du Framework aux b
 config:
   theme: "base"
 ---
-graph TD
+flowchart TD
     A[1. Analyser] -->|le contexte métier| B[2. Évaluer]
     B -->|les risques critiques| C[3. Sélectionner]
     C -->|les sous-catégories CSF pertinentes| D[4. Créer]

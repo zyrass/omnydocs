@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Désenclaver l'enfer CSS : Modèle de la Boite (The Box Model). Maîtriser margin, padding, border, en utilisant impérativement le box-sizing modern.">
+        <meta name="description" content="Maîtriser le Box Model CSS : margin, padding, border, outline, overflow, box-sizing et les modes d'affichage block/inline.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -156,10 +156,7 @@
             
 <!-- Add announcement here, including arbitrary HTML -->
 <small>
-    <em
-        >Cette documentation est en pleine conception, c'est normal qu'elle soit
-        encors si faible au niveau du contenu</em
-    >
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
 </small>
 
           </div>
@@ -731,6 +728,8 @@
       
         
       
+        
+      
     
     
     
@@ -901,6 +900,8 @@
       
         
       
+        
+      
     
     
     
@@ -1035,6 +1036,8 @@
   
     
     
+      
+        
       
         
       
@@ -1270,22 +1273,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-trois-composants-fondamentaux-du-box-model" class="md-nav__link">
+  <a href="#les-quatre-zones-du-box-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les trois composants fondamentaux du Box Model
+        Les quatre zones du Box Model
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Les trois composants fondamentaux du Box Model">
+    <nav class="md-nav" aria-label="Les quatre zones du Box Model">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#padding-espace-interieur" class="md-nav__link">
+  <a href="#padding-lespace-interieur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Padding : (Espace Intérieur)
+        Padding — l'espace intérieur
       
     </span>
   </a>
@@ -1293,10 +1296,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#border-bordure-reelle" class="md-nav__link">
+  <a href="#border-la-bordure-visible" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Border : (Bordure réelle)
+        Border — la bordure visible
       
     </span>
   </a>
@@ -1304,10 +1307,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#margin-espace-exterieur" class="md-nav__link">
+  <a href="#margin-la-marge-exterieure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Margin : (Espace Extérieur)
+        Margin — la marge extérieure
       
     </span>
   </a>
@@ -1323,7 +1326,7 @@
   <a href="#les-valeurs-raccourcies-shorthand" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les valeurs raccourcies (Shorthand)
+        Les valeurs raccourcies (shorthand)
       
     </span>
   </a>
@@ -1331,22 +1334,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#controler-les-mathematiques-du-navigateur-box-sizing" class="md-nav__link">
+  <a href="#box-sizing-controler-le-calcul-de-la-largeur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contrôler les mathématiques du navigateur : box-sizing
+        box-sizing : contrôler le calcul de la largeur
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Contrôler les mathématiques du navigateur : box-sizing">
+    <nav class="md-nav" aria-label="box-sizing : contrôler le calcul de la largeur">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-standard-de-lindustrie-border-box" class="md-nav__link">
+  <a href="#la-solution-border-box" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Standard de l'Industrie : border-box
+        La solution : border-box
       
     </span>
   </a>
@@ -1359,10 +1362,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-centrage-horizontal-classique-margin-auto" class="md-nav__link">
+  <a href="#outline-la-bordure-fantome" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Centrage horizontal classique (margin: auto)
+        outline — la bordure fantôme
       
     </span>
   </a>
@@ -1370,10 +1373,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
+  <a href="#overflow-gerer-le-depassement-de-contenu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion et Synthèse
+        overflow — gérer le dépassement de contenu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes-daffichage-block-inline-inline-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes d'affichage : block, inline, inline-block
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-fusion-des-marges-margin-collapsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La fusion des marges (Margin Collapsing)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-centrage-horizontal-avec-margin-auto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le centrage horizontal avec margin: auto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -1466,6 +1513,36 @@
     
   
     Pour aller plus loin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-positionnement-flux/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Positionnement et Flux
   
 
     
@@ -2306,6 +2383,176 @@
       
         
       
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mobile/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement Mobile
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Développement Mobile
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../mobile/swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift — Le Langage
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
         
       
         
@@ -2334,7 +2581,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2356,14 +2603,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2570,7 +2817,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2592,14 +2839,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2798,7 +3045,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2820,14 +3067,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3166,7 +3413,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3188,14 +3435,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3874,22 +4121,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-trois-composants-fondamentaux-du-box-model" class="md-nav__link">
+  <a href="#les-quatre-zones-du-box-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les trois composants fondamentaux du Box Model
+        Les quatre zones du Box Model
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Les trois composants fondamentaux du Box Model">
+    <nav class="md-nav" aria-label="Les quatre zones du Box Model">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#padding-espace-interieur" class="md-nav__link">
+  <a href="#padding-lespace-interieur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Padding : (Espace Intérieur)
+        Padding — l'espace intérieur
       
     </span>
   </a>
@@ -3897,10 +4144,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#border-bordure-reelle" class="md-nav__link">
+  <a href="#border-la-bordure-visible" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Border : (Bordure réelle)
+        Border — la bordure visible
       
     </span>
   </a>
@@ -3908,10 +4155,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#margin-espace-exterieur" class="md-nav__link">
+  <a href="#margin-la-marge-exterieure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Margin : (Espace Extérieur)
+        Margin — la marge extérieure
       
     </span>
   </a>
@@ -3927,7 +4174,7 @@
   <a href="#les-valeurs-raccourcies-shorthand" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les valeurs raccourcies (Shorthand)
+        Les valeurs raccourcies (shorthand)
       
     </span>
   </a>
@@ -3935,22 +4182,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#controler-les-mathematiques-du-navigateur-box-sizing" class="md-nav__link">
+  <a href="#box-sizing-controler-le-calcul-de-la-largeur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contrôler les mathématiques du navigateur : box-sizing
+        box-sizing : contrôler le calcul de la largeur
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Contrôler les mathématiques du navigateur : box-sizing">
+    <nav class="md-nav" aria-label="box-sizing : contrôler le calcul de la largeur">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-standard-de-lindustrie-border-box" class="md-nav__link">
+  <a href="#la-solution-border-box" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Standard de l'Industrie : border-box
+        La solution : border-box
       
     </span>
   </a>
@@ -3963,10 +4210,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-centrage-horizontal-classique-margin-auto" class="md-nav__link">
+  <a href="#outline-la-bordure-fantome" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Centrage horizontal classique (margin: auto)
+        outline — la bordure fantôme
       
     </span>
   </a>
@@ -3974,10 +4221,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-et-synthese" class="md-nav__link">
+  <a href="#overflow-gerer-le-depassement-de-contenu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion et Synthèse
+        overflow — gérer le dépassement de contenu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes-daffichage-block-inline-inline-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes d'affichage : block, inline, inline-block
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-fusion-des-marges-margin-collapsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La fusion des marges (Margin Collapsing)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-centrage-horizontal-avec-margin-auto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le centrage horizontal avec margin: auto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -4105,135 +4396,365 @@
 <p><div
   class="omny-meta"
   data-level="🟡 Intermédiaire"
-  data-version="1.0"
+  data-version="1.1"
   data-time="2-3 heures">
 </div>
 </p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
-<p class="admonition-title">Analogie pédagogique - Le Mystère des Blocs Révélé</p>
-<p>Imaginez une <strong>œuvre d'art inestimable encadrée</strong> reposant sur le mur blanc d'un musée de Paris. Le <strong>Box Model CSS</strong>, c'est intrinsèquement l'analyse de cette vision de l'espace vitale : </p>
+<p class="admonition-title">Analogie pédagogique - L'Œuvre d'Art au Musée</p>
+<p>Imaginez une œuvre d'art inestimable accrochée au mur blanc d'un musée parisien. Le Box Model CSS, c'est l'analyse de cet espace vital autour d'elle :</p>
 <ol>
-<li>L'œuvre ou la toile elle-même : <strong>Le Contenu Textuel (<code>Width</code>)</strong></li>
-<li>La zone de passe-partout blanc entre la toile et le cadre  : <strong>Le Rembourrage (<code>Padding</code>)</strong></li>
-<li>Le gros contour massif physique en or de Louis XIV : <strong>La Bordure (<code>Border</code>)</strong></li>
-<li>La distance repoussoir de sécurité nécessaire qui écarte cette œuvre du grand tableau voisin d'à côté pour éviter de polluer notre regard ! : <strong>La Marge extérieure (<code>Margin</code>)</strong> </li>
+<li>La toile elle-même — c'est le <strong>Contenu</strong> (<code>width</code> / <code>height</code>).</li>
+<li>Le passe-partout blanc entre la toile et le cadre — c'est le <strong>Padding</strong> (espace intérieur).</li>
+<li>Le cadre doré qui encadre l'ensemble — c'est la <strong>Border</strong> (bordure).</li>
+<li>La distance de sécurité qui éloigne cette œuvre du tableau voisin — c'est la <strong>Margin</strong> (marge extérieure).</li>
 </ol>
+<p>Avant de maîtriser Flexbox ou Grid, vous <strong>devez</strong> comprendre comment une simple balise HTML occupe et envahit l'espace sur votre page. Sinon, vous passerez des heures à ne pas comprendre pourquoi "ça sort de l'écran".</p>
 </div>
-<p>Avant de savoir mettre en place une belle ligne responsive via Flexbox en CSS, vous <strong>devez</strong> absorber comment une simple malheureuse balise carrée en HTML vit sa propre proportion sur votre page et envahit l'espace. Sinon, vous passerez la semaine complète à pleurer sans comprendre pourquoi <em>"ça sort de l'écran mon chef !"</em>.</p>
-<div class="admonition note">
-<p class="admonition-title">Ce module désamorce définitivement le Box Model pour vous offrir des blocs sains au pixel près.</p>
-</div>
-<p><br /></p>
+<p><br></p>
 <hr />
-<h2 id="les-trois-composants-fondamentaux-du-box-model">Les trois composants fondamentaux du Box Model<a class="headerlink" href="#les-trois-composants-fondamentaux-du-box-model" title="Permanent link">&para;</a></h2>
-<p>Chaque élément HTML est structurellement un objet rectangulaire (une "boîte") généré par le navigateur. Cette boîte est constituée de 4 zones concentriques : le contenu lui-même, entouré de 3 niveaux d'emballages paramétrables.</p>
-<p><img alt="Le Modèle de Boîte CSS (Box Model)" src="../../../../../assets/images/dev/css-fondamental/css_box_model.png" /></p>
-<h3 id="padding-espace-interieur">Padding : (Espace Intérieur)<a class="headerlink" href="#padding-espace-interieur" title="Permanent link">&para;</a></h3>
-<div class="admonition info">
-<p class="admonition-title">Le <strong>Padding</strong> est l'espace de respiration interne situé entre votre contenu (ex: le texte) et la bordure de la boîte.</p>
-</div>
-<p>Le padding repousse le contenu vers l'intérieur pour éviter qu'il ne s'écrase contre les limites physiques de l'élément.
-<em>(Particularité : Le Padding est vide de contenu, mais il affiche la couleur de fond <code>background-color</code> de l'élément).</em></p>
-<div class="language-css highlight"><span class="filename">Code CSS - Le Padding</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">lightgreen</span><span class="p">;</span>
+<h2 id="les-quatre-zones-du-box-model">Les quatre zones du Box Model<a class="headerlink" href="#les-quatre-zones-du-box-model" title="Permanent link">&para;</a></h2>
+<p>Chaque élément HTML est représenté par le navigateur comme une boîte rectangulaire constituée de quatre zones concentriques.</p>
+<p><img alt="Le Modèle de Boîte CSS" src="../../../../../assets/images/dev/css-fondamental/css_box_model.png" /></p>
+<p><em>Chaque élément HTML est une boîte avec quatre zones : contenu au centre, entouré du padding, puis de la border, puis de la margin à l'extérieur.</em></p>
+<p><br></p>
+<h3 id="padding-lespace-interieur">Padding — l'espace intérieur<a class="headerlink" href="#padding-lespace-interieur" title="Permanent link">&para;</a></h3>
+<p>Le padding est l'espace entre le <strong>contenu</strong> et la <strong>bordure</strong>. Il fait partie de la zone colorée de l'élément : il hérite du <code>background-color</code>.</p>
+<div class="language-css highlight"><span class="filename">CSS - Padding intérieur</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">.</span><span class="nc">carte</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f0f4f8</span><span class="p">;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="c">/* Repousse le mot tout nu de 40 pixels par rapport aux bordures de &#39;card&#39; */</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="c">/* (Même en haut, en bas, à gauche, à droite simultanément) */</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c">        padding: valeur-uniforme</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c">        Repousse le contenu de 24px par rapport aux quatre bords de la carte.</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c">        La zone colorée inclut le padding.</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c">    */</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="border-bordure-reelle">Border : (Bordure réelle)<a class="headerlink" href="#border-bordure-reelle" title="Permanent link">&para;</a></h3>
-<p>La bordure est la ligne visible qui encadre physiquement la zone de Padding et le Contenu. C'est la limite matérielle de votre boîte.</p>
-<div class="language-css highlight"><span class="filename">Code CSS - La Bordure</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">     </span><span class="c">/* Epaisseur massive (3 pixels), Design ligne droite dure (solid), Noir total */</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span>
+<p><br></p>
+<h3 id="border-la-bordure-visible">Border — la bordure visible<a class="headerlink" href="#border-la-bordure-visible" title="Permanent link">&para;</a></h3>
+<p>La bordure est la ligne physique qui encadre le padding et le contenu. Elle se définit avec trois valeurs : épaisseur, style, couleur.</p>
+<div class="language-css highlight"><span class="filename">CSS - Border avec les styles disponibles</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">.</span><span class="nc">carte</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="c">/* Epaisseur | Style | Couleur */</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#2c3e50</span><span class="p">;</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c">/* Astuce magique : je rogne informatiquement les angles avec radius ! */</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c">/* Arrondir les angles */</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c">/* Styler chaque côté indépendamment */</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">.</span><span class="nc">separateur</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">border-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#e2e8f0</span><span class="p">;</span><span class="w">  </span><span class="c">/* Seulement le bord supérieur */</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="k">border-bottom</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w">             </span><span class="c">/* Supprimer un bord */</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="margin-espace-exterieur">Margin : (Espace Extérieur)<a class="headerlink" href="#margin-espace-exterieur" title="Permanent link">&para;</a></h3>
-<div class="admonition quote">
-<p class="admonition-title">La <strong>Marge extérieure</strong> (<code>Margin</code>) est la distance de sécurité invisible qui sépare votre composant de ses voisins.</p>
-</div>
-<p>La Marge s'applique à l'extérieur de la bordure. Elle repousse les autres éléments HTML environnants pour aérer la mise en page.</p>
-<div class="language-css highlight"><span class="filename">Code CSS - La Margin</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">.</span><span class="nc">card</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="c">/* Repousse les éléments voisins de 50 pixels dans toutes les directions */</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="c">/* Cet espace est 100% VISUELLEMENT INVISIBLE : la margin n&#39;a PAS de couleur de fond, elle dévoile l&#39;arrière-plan de la page entière. */</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
-</span></code></pre></div>
-<p><br /></p>
-<hr />
-<h2 id="les-valeurs-raccourcies-shorthand">Les valeurs raccourcies (Shorthand)<a class="headerlink" href="#les-valeurs-raccourcies-shorthand" title="Permanent link">&para;</a></h2>
-<p>Il est redondant d'écrire <code>margin-top</code>, <code>margin-bottom</code>, <code>margin-right</code>, <code>margin-left</code> sur plusieurs lignes lorsqu'il est possible de compresser l'instruction.</p>
-<div class="admonition info">
-<p class="admonition-title">Mémorisez la <strong>règle de l'horloge</strong> pour déchiffrer les blocs de 4 paramètres : la lecture commence toujours à midi et tourne dans le sens des aiguilles d'une montre : <strong>Haut, Droite, Bas, Gauche</strong>.</p>
-</div>
-<div class="language-css highlight"><span class="filename">Code CSS - Valeurs raccourcies</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">/* Cas 1 : Uniforme global absolu */</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">.</span><span class="nc">box</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c">/* =&gt; Haut:20, Bas:20, Droite:20, Gauche:20 */</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c">/* Cas 2 : Le système d&#39;Axe Horizontal vs Axe Vertical */</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">.</span><span class="nc">box</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c">/* =&gt; Vértical en Haut/Bas = 10px , et Horizontal Gauche/Droite = 40px */</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c">/* Cas 3 : La rotation comme le sens des aiguilles d&#39;une montre */</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">.</span><span class="nc">box</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="w"> </span><span class="mi">30</span><span class="kt">px</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c">/* =&gt; Top:10px, Right:20px, Bottom:30px, Left:40px */</span>
-</span></code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Astuce mémotechnique</p>
-<p>Cette mécanique horlogère (Haut, Droite, Bas, Gauche) fonctionne exactement de la même manière pour l'instruction <code>padding</code> !</p>
-</div>
-<p><br /></p>
-<hr />
-<h2 id="controler-les-mathematiques-du-navigateur-box-sizing">Contrôler les mathématiques du navigateur : <code>box-sizing</code><a class="headerlink" href="#controler-les-mathematiques-du-navigateur-box-sizing" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Le piège de la taille totale par défaut (<code>content-box</code>)</p>
-<p>Si vous assignez une largeur fixe <code>width: 300px</code> à un élément, puis que vous lui ajoutez un <code>padding: 20px</code> et une <code>border: 2px</code>...
-La logique humaine voudrait que l'élément fasse au total 300px de large. <strong>Ce n'est pas le cas par défaut sur le web.</strong></p>
-<p>Le navigateur calcule mathématiquement :
-<code>300px (contenu)</code> + <code>20px (padding-left)</code> + <code>20px (padding-right)</code> + <code>2px (border-left)</code> + <code>2px (border-right)</code> = <strong>344px de largeur visuelle réelle !</strong>
-Résultat : Vos composants sont systématiquement trop grands et font déborder l'écran.</p>
-</div>
-<h3 id="le-standard-de-lindustrie-border-box">Le Standard de l'Industrie : <code>border-box</code><a class="headerlink" href="#le-standard-de-lindustrie-border-box" title="Permanent link">&para;</a></h3>
-<p>Pour forcer le navigateur à emboîter le <code>padding</code> et la <code>border</code> à <strong>l'intérieur</strong> de la limite exacte de la largeur définie (<code>width</code>), on utilise la propriété <code>box-sizing: border-box;</code>. La boîte ne grossira plus jamais vers l'extérieur : son contenu se compressera naturellement au centre pour laisser la place au rembourrage interne.</p>
-<div class="admonition abstract">
-<p class="admonition-title">La Fusion des Marges (Margin Collapsing)</p>
-<p>Un autre piège fréquent du Box Model concerne l'axe vertical. Si une boîte possède un <code>margin-bottom: 30px</code> et que la boîte physiquement en-dessous (son frère) possède un <code>margin-top: 20px</code>, la distance entre les deux boîtes ne sera <strong>pas</strong> de 50px ! Le navigateur superpose les marges verticales et ne conserve que la plus grande (ici 30px). Ce phénomène contre-intuitif s'appelle la <strong>fusion des marges</strong> (ou Margin Collapsing).</p>
-</div>
-<div class="language-css highlight"><span class="filename">Code CSS - Reset Universel</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c">/* LA commande de base à Mettre A TOUT PRIX au haut des CSS modernes sur le Sélecteur universel Étoile * ! */</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">*</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c">/* Toute balise existante suivra la consigne ! */</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="c">/* width: 300px RESTERA ETERNELLEMENT à 300px visuel !! La paix intérieure.*/</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
-</span></code></pre></div>
-<p><br /></p>
-<hr />
-<h2 id="le-centrage-horizontal-classique-margin-auto">Le Centrage horizontal classique (<code>margin: auto</code>)<a class="headerlink" href="#le-centrage-horizontal-classique-margin-auto" title="Permanent link">&para;</a></h2>
-<p>Une problématique très courante en intégration : "Comment centrer parfaitement le bloc principal au milieu de l'écran horizontalement ?"
-La solution mathématique la plus propre, avant l'arrivée de Flexbox, consistait à combiner une limite de largeur (<code>max-width</code>) avec des marges latérales définies sur la valeur <strong><code>auto</code></strong>.</p>
-<div class="language-css highlight"><span class="filename">Code CSS - Centrage pur</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">.</span><span class="nc">banniere-milieu</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="c">/* 1. On donne des limites à l&#39;objet pour qu&#39;il ne s&#39;étire pas à 100% de l&#39;écran */</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="kt">px</span><span class="p">;</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="c">/* 2. Le miracle de la marge automatique ! */</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="c">/* Marge Haute et Basse à Zéro. Marge Gauche et Droite définies sur `auto`. </span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c">       Le navigateur va diviser l&#39;espace vide restant en deux parts parfaitement égales, </span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c">       suspendant ainsi la boîte exactement au centre. */</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"> </span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+<p><strong>Les styles de bordure disponibles :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Valeur</th>
+<th>Rendu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>solid</code></td>
+<td>Ligne pleine continue</td>
+</tr>
+<tr>
+<td><code>dashed</code></td>
+<td>Tirets</td>
+</tr>
+<tr>
+<td><code>dotted</code></td>
+<td>Points</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>Double ligne</td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>Aucune bordure</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="margin-la-marge-exterieure">Margin — la marge extérieure<a class="headerlink" href="#margin-la-marge-exterieure" title="Permanent link">&para;</a></h3>
+<p>La marge s'applique <strong>à l'extérieur</strong> de la bordure. Elle repousse les éléments voisins. Contrairement au padding, la margin est <strong>totalement transparente</strong> — elle révèle l'arrière-plan de la page.</p>
+<div class="language-css highlight"><span class="filename">CSS - Margin extérieure</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">.</span><span class="nc">carte</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c">        La marge repousse les éléments adjacents de 32px dans toutes les directions.</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c">        Cette zone est transparente : pas de background-color.</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c">    */</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><br></p>
 <hr />
-<h2 id="conclusion-et-synthese">Conclusion et Synthèse<a class="headerlink" href="#conclusion-et-synthese" title="Permanent link">&para;</a></h2>
+<h2 id="les-valeurs-raccourcies-shorthand">Les valeurs raccourcies (shorthand)<a class="headerlink" href="#les-valeurs-raccourcies-shorthand" title="Permanent link">&para;</a></h2>
+<p>Padding et margin acceptent de 1 à 4 valeurs selon la règle de l'horloge : <strong>Haut, Droite, Bas, Gauche</strong> (sens des aiguilles, en partant de midi).</p>
+<div class="language-css highlight"><span class="filename">CSS - Syntaxes raccourcies padding et margin</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">/* 1 valeur : uniforme sur les quatre côtés */</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">.</span><span class="nc">box</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c">/* → Haut: 20px  Droite: 20px  Bas: 20px  Gauche: 20px */</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c">/* 2 valeurs : vertical | horizontal */</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">.</span><span class="nc">box</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c">/* → Haut/Bas: 10px  Droite/Gauche: 40px */</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c">/* 3 valeurs : haut | horizontal | bas */</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">.</span><span class="nc">box</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="w"> </span><span class="mi">30</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c">/* → Haut: 10px  Droite/Gauche: 20px  Bas: 30px */</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c">/* 4 valeurs : haut | droite | bas | gauche (sens horaire depuis midi) */</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">.</span><span class="nc">box</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="w"> </span><span class="mi">30</span><span class="kt">px</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c">/* → Haut: 10px  Droite: 20px  Bas: 30px  Gauche: 40px */</span>
+</span></code></pre></div>
+<p><em>La même syntaxe s'applique identiquement à <code>padding</code> et à <code>margin</code>.</em></p>
+<p><br></p>
+<hr />
+<h2 id="box-sizing-controler-le-calcul-de-la-largeur"><code>box-sizing</code> : contrôler le calcul de la largeur<a class="headerlink" href="#box-sizing-controler-le-calcul-de-la-largeur" title="Permanent link">&para;</a></h2>
+<p>C'est le piège le plus fréquent du CSS débutant. Par défaut, <code>width</code> ne définit que le <strong>contenu</strong> — padding et border s'ajoutent par-dessus.</p>
+<div class="language-css highlight"><span class="filename">CSS - Le piège de content-box par défaut</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c">/*</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c">    Par défaut (content-box) :</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c">    width: 300px + padding: 20px (×2) + border: 2px (×2) = 344px réels</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c">    La boîte dépasse sa largeur déclarée de 44px.</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c">    Résultat sur l&#39;écran : débordement.</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c">*/</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">.</span><span class="nc">boite-cassee</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="c">/* Largeur réelle : 344px — pas 300px */</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="la-solution-border-box">La solution : <code>border-box</code><a class="headerlink" href="#la-solution-border-box" title="Permanent link">&para;</a></h3>
+<p><code>box-sizing: border-box</code> force le navigateur à inclure padding et border <strong>dans</strong> la largeur déclarée. Le contenu se compresse au centre, mais la boîte respecte exactement <code>width</code>.</p>
+<div class="language-css highlight"><span class="filename">CSS - Reset universel avec border-box</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c">/*</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c">    À placer en tout début de fichier CSS, avant toute autre règle.</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c">    Cette déclaration sauve des centaines d&#39;heures de débogage.</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c">*/</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="o">*,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="o">*</span><span class="p">::</span><span class="nd">before</span><span class="o">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="o">*</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c">        Toutes les balises + leurs pseudo-éléments before/after</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c">        respecteront la même convention de calcul.</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c">        width: 300px restera visuellement 300px, quels que soient</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c">        le padding et la border ajoutés.</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c">    */</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em>Notez l'inclusion de <code>*::before</code> et <code>*::after</code> — les pseudo-éléments ont leurs propres boîtes et doivent aussi être couverts par le reset.</em></p>
+<p><br></p>
+<hr />
+<h2 id="outline-la-bordure-fantome"><code>outline</code> — la bordure fantôme<a class="headerlink" href="#outline-la-bordure-fantome" title="Permanent link">&para;</a></h2>
+<p><code>outline</code> ressemble à <code>border</code> mais a un comportement fondamentalement différent : <strong>il ne modifie pas le box model</strong>. Il se dessine <strong>autour</strong> de la boîte sans en modifier les dimensions ni déplacer les éléments voisins.</p>
+<div class="language-css highlight"><span class="filename">CSS - Différence border et outline</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">.</span><span class="nc">bouton</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#3498db</span><span class="p">;</span><span class="w">    </span><span class="c">/* Fait partie du box model : occupe de l&#39;espace */</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="w"> </span><span class="mi">24</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c">/*</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c">    :focus-visible cible les éléments focalisés via le clavier (pas la souris).</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c">    C&#39;est la pseudo-classe recommandée pour styliser le focus sans affecter</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c">    les utilisateurs de souris.</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c">*/</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">.</span><span class="nc">bouton</span><span class="p">:</span><span class="nd">focus-visible</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="k">outline</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#f39c12</span><span class="p">;</span><span class="w">   </span><span class="c">/* NE modifie pas le box model */</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="k">outline-offset</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="p">;</span><span class="w">          </span><span class="c">/* Espace entre la border et l&#39;outline */</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">}</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c">/*</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c">    NE PAS supprimer outline sans alternative !</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="c">    outline: none sur :focus est une erreur d&#39;accessibilité grave.</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="c">    Les utilisateurs naviguant au clavier perdent tout repère visuel.</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="c">*/</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Ne jamais supprimer <code>outline</code> sans le remplacer</p>
+<p><code>outline: none</code> sur <code>:focus</code> (ou <code>:focus-visible</code>) est une violation d'accessibilité WCAG 2.1 Critère 2.4.7. Les utilisateurs naviguant uniquement au clavier ne peuvent plus voir quel élément est actif. Si le style par défaut ne vous convient pas, remplacez-le par un outline personnalisé — ne le supprimez pas.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="overflow-gerer-le-depassement-de-contenu"><code>overflow</code> — gérer le dépassement de contenu<a class="headerlink" href="#overflow-gerer-le-depassement-de-contenu" title="Permanent link">&para;</a></h2>
+<p>Quand le contenu d'une boîte dépasse ses dimensions définies, <code>overflow</code> contrôle le comportement.</p>
+<div class="language-css highlight"><span class="filename">CSS - Les valeurs d'overflow</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">.</span><span class="nc">carte</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c">        overflow: visible (défaut) — le contenu dépasse visuellement la boîte.</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c">        overflow: hidden  — le contenu dépassant est coupé et invisible.</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c">        overflow: scroll  — ajoute une barre de défilement permanente.</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c">        overflow: auto    — ajoute une barre de défilement seulement si nécessaire.</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c">        overflow: clip    — coupe sans créer de contexte de formatage de bloc.</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c">    */</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">}</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="c">/* Contrôler les axes indépendamment */</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="p">.</span><span class="nc">tableau-defilant</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="k">overflow-x</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w">   </span><span class="c">/* Défilement horizontal si nécessaire */</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="k">overflow-y</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span><span class="w"> </span><span class="c">/* Pas de défilement vertical */</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="p">}</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="c">/* Cas classique : rogner les images qui débordent */</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="p">.</span><span class="nc">avatar</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">    </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span><span class="w"> </span><span class="c">/* L&#39;image carrée est rognée dans le cercle */</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em><code>overflow: hidden</code> est aussi couramment utilisé pour créer un <strong>Block Formatting Context</strong> — un contexte d'isolation qui empêche les marges de fusionner et force un parent à englober ses enfants flottants.</em></p>
+<p><br></p>
+<hr />
+<h2 id="modes-daffichage-block-inline-inline-block">Modes d'affichage : <code>block</code>, <code>inline</code>, <code>inline-block</code><a class="headerlink" href="#modes-daffichage-block-inline-inline-block" title="Permanent link">&para;</a></h2>
+<p>La propriété <code>display</code> détermine comment un élément occupe l'espace et interagit avec ses voisins. C'est essentiel pour comprendre pourquoi <code>margin</code> et <code>padding</code> se comportent différemment selon les éléments.</p>
+<div class="language-css highlight"><span class="filename">CSS - Les trois modes d'affichage fondamentaux</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c">/*</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c">    display: block</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c">    - Prend toute la largeur disponible (même si le contenu est plus court).</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c">    - Force un retour à la ligne avant et après lui.</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c">    - Accepte width, height, margin et padding sur les quatre côtés.</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c">    - Éléments block natifs : div, p, h1-h6, section, article, ul, li...</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c">*/</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">.</span><span class="nc">bloc</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="kt">px</span><span class="p">;</span><span class="w">     </span><span class="c">/* Respecté */</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c">/* Respecté sur tous les côtés */</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">}</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="c">/*</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c">    display: inline</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="c">    - S&#39;insère dans le flux du texte, comme un mot dans une phrase.</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="c">    - Ne force PAS de retour à la ligne.</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="c">    - Ignore width et height.</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="c">    - margin et padding gauche/droite fonctionnent, mais haut/bas n&#39;affectent PAS</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="c">      l&#39;espacement avec les lignes adjacentes (ils débordent visuellement).</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="c">    - Éléments inline natifs : span, a, strong, em, code, img...</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="c">*/</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="p">.</span><span class="nc">inline</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline</span><span class="p">;</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="kt">px</span><span class="p">;</span><span class="w">     </span><span class="c">/* Ignoré */</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Ignoré — n&#39;affecte pas l&#39;espacement vertical */</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="p">}</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="c">/*</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="c">    display: inline-block</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="c">    - S&#39;insère dans le flux du texte comme un inline.</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="c">    - Mais accepte width, height, margin et padding sur TOUS les côtés.</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="c">    - Utile pour les badges, boutons inline, icônes avec dimensions.</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="c">*/</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="p">.</span><span class="nc">badge</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline-block</span><span class="p">;</span>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="p">;</span><span class="w">      </span><span class="c">/* Respecté */</span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Respecté sur tous les côtés */</span>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span><span class="w">    </span><span class="c">/* Respecté sur tous les côtés */</span>
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Tableau comparatif des modes d'affichage :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th><code>block</code></th>
+<th><code>inline</code></th>
+<th><code>inline-block</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retour à la ligne</td>
+<td>Oui</td>
+<td>Non</td>
+<td>Non</td>
+</tr>
+<tr>
+<td><code>width</code> / <code>height</code></td>
+<td>Respectés</td>
+<td>Ignorés</td>
+<td>Respectés</td>
+</tr>
+<tr>
+<td><code>margin</code> vertical</td>
+<td>Respecté</td>
+<td>Non appliqué</td>
+<td>Respecté</td>
+</tr>
+<tr>
+<td><code>padding</code> vertical</td>
+<td>Respecté</td>
+<td>Déborde</td>
+<td>Respecté</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="la-fusion-des-marges-margin-collapsing">La fusion des marges (Margin Collapsing)<a class="headerlink" href="#la-fusion-des-marges-margin-collapsing" title="Permanent link">&para;</a></h2>
+<p>C'est le comportement le plus contre-intuitif du Box Model. Deux marges verticales adjacentes ne s'<strong>additionnent pas</strong> — elles <strong>fusionnent</strong> : seule la plus grande s'applique.</p>
+<div class="language-css highlight"><span class="filename">CSS - Fusion des marges verticales</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">.</span><span class="nc">titre</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="k">margin-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">}</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">.</span><span class="nc">paragraphe</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">}</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c">/*</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c">    Distance réelle entre .titre et .paragraphe : 30px (pas 50px).</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="c">    La plus grande marge l&#39;emporte. C&#39;est la fusion des marges.</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="c">    La fusion se produit :</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="c">    - Entre frères et sœurs adjacents (verticalement)</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="c">    - Entre un parent et son premier/dernier enfant (si pas de border/padding entre eux)</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="c">    La fusion NE se produit PAS :</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="c">    - Pour les marges horizontales</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="c">    - Sur les éléments flex ou grid</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="c">    - Si un overflow autre que visible est défini</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="c">*/</span>
+</span></code></pre></div>
+<p><br></p>
+<h2 id="le-centrage-horizontal-avec-margin-auto">Le centrage horizontal avec <code>margin: auto</code><a class="headerlink" href="#le-centrage-horizontal-avec-margin-auto" title="Permanent link">&para;</a></h2>
+<p>Avant l'arrivée de Flexbox, la technique canonique pour centrer un bloc dans sa page était de combiner <code>max-width</code> avec <code>margin: auto</code>.</p>
+<div class="language-css highlight"><span class="filename">CSS - Centrage horizontal classique avec margin auto</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">.</span><span class="nc">contenu-principal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c">        max-width limite la largeur maximale.</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c">        Sans cette limite, l&#39;élément s&#39;étirerait à 100% de la page.</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c">    */</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">900</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="c">/*</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c">        margin: 0 auto</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c">        → Marge verticale (haut/bas) : 0</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c">        → Marge horizontale (gauche/droite) : auto</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="c">        Le navigateur divise l&#39;espace horizontal restant en deux parts égales,</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c">        suspendant ainsi le bloc exactement au centre.</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="c">    */</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="c">/* Padding interne pour que le contenu ne touche pas les bords */</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em><code>margin: auto</code> ne fonctionne que sur les éléments <code>display: block</code> avec une <code>width</code> ou <code>max-width</code> définie. Sans limite de largeur, l'élément occupant déjà 100% de la largeur, il n'y a pas d'espace vide à distribuer.</em></p>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
-<p class="admonition-title">Le Box Model est le battement de cœur de toute intégration Web. Sans lui, le design n'est que hasard. La maîtrise stricte de la marge (pour séparer), du padding (pour faire respirer) et de la bordure, le tout protégé par la déclaration universelle <code>box-sizing: border-box</code>, vous assure des composants stables.</p>
+<p class="admonition-title">Ce qu'il faut retenir de ce module</p>
+<p>Le Box Model est le battement de cœur de toute intégration Web. Chaque élément est une boîte avec quatre zones : contenu, padding (intérieur coloré), border (contour visible) et margin (espace extérieur transparent). <code>box-sizing: border-box</code> dans le reset universel garantit que <code>width</code> reste la largeur réelle. <code>outline</code> se dessine autour de la boîte sans affecter le layout — ne jamais le supprimer sans alternative accessible. <code>overflow</code> contrôle ce qui dépasse. Les éléments <code>block</code> respectent toutes les dimensions, les éléments <code>inline</code> ignorent <code>width</code>/<code>height</code> et les marges verticales.</p>
 </div>
 <blockquote>
-<p>Dans le module suivant, nous apprendrons à faire danser tous nos nouveaux composants créés ensemble par le concept inouï de flux directionnel : <strong>Flexbox CSS</strong>.</p>
+<p>Dans le module suivant, nous apprendrons à faire bouger nos éléments avec <strong>les Transitions et Animations CSS</strong> — transformer des interfaces statiques en expériences visuelles dynamiques.</p>
 </blockquote>
-<p><br /></p>
+<p><br></p>
 
 
   <nav class="md-tags" >
@@ -4295,7 +4816,17 @@ La solution mathématique la plus propre, avant l'arrivée de Flexbox, consistai
         
       
       
-        <span class="md-tag md-tag-icon">SIZING</span>
+        <span class="md-tag md-tag-icon">OVERFLOW</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">DISPLAY</span>
       
     
   </nav>

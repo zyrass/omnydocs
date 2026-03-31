@@ -1,14 +1,14 @@
 ---
 description: "Cascading Style Sheets : de la couleur brute à la mise en page avancée et l'animation matérielle."
-tags: ["CSS", "DESIGN", "LAYOUT", "RESPONSIVE"]
+tags: ["CSS", "DESIGN", "LAYOUT", "RESPONSIVE", "GRID", "FLEXBOX"]
 ---
 
 # CSS
 
 <div
   class="omny-meta"
-  data-level="Intermédiaire → Avancé"
-  data-version="1.1"
+  data-level="🟢 Débutant → 🔴 Avancé"
+  data-version="1.3"
   data-time="2-3 semaines">
 </div>
 
@@ -19,12 +19,12 @@ tags: ["CSS", "DESIGN", "LAYOUT", "RESPONSIVE"]
 
 Le CSS (Cascading Style Sheets) est le langage responsable de **100 % du rendu visuel** et de l'adaptation ergonomique d'une application ou d'un site. C'est lui qui positionne les éléments, gère les couleurs, anime les transitions, et garantit que l'interface reste parfaite sur un mobile comme sur un écran géant.
 
-Cette section vous fera passer des simples colorations textuelles aux architectures de layout industriel (Flexbox, Grid) et aux effets graphiques poussés matériellement (Blend Modes, Filtres, Variables, Nesting).
+Cette section vous fera passer des simples colorations textuelles aux architectures de layout industriel (Flexbox, Grid) et aux effets graphiques modernes (Variables CSS, Nesting natif, Container Queries, Animations).
 
 !!! note "Comment lire cette section"
-    Le CSS s'apprend par strates incompressibles. Vous **devez impérativement** maîtriser les Sélecteurs, la spécificité (Poids) et la Cascade héritée avant d'aborder les modèles d'alignement comme Flexbox, ou vous ne saurez pas pourquoi vos blocs refusent d'obéir.
+    Le CSS s'apprend par strates incompressibles. Vous **devez impérativement** maîtriser les sélecteurs, la spécificité et la cascade avant d'aborder Flexbox ou Grid — sans ces fondations, vous ne saurez pas pourquoi vos blocs refusent d'obéir.
 
-<br />
+<br>
 
 ---
 
@@ -32,17 +32,17 @@ Cette section vous fera passer des simples colorations textuelles aux architectu
 
 <div class="grid cards" markdown>
 
-- ### :lucide-palette: CSS - Fondamentaux
+- ### :lucide-palette: CSS — Fondamentaux
     ---
-    Ce bloc comprend sept sous-modules traitant de la cascade, des sélecteurs de précision, des inévitables unités relatives (rem, vw), du controversé **Box Model** (Marge / Padding), des animations et des techniques modernes de Nesting, complété d'un module "Pour aller plus loin".
-    
-    [Lancer le module 01. Introduction](./fondamental/01-introduction-css.md)
+    Huit modules couvrant la cascade, les sélecteurs de précision, les unités relatives (`rem`, `vw`, `clamp`), le Box Model, les animations et transitions, les Variables CSS et Nesting natif, les techniques avancées modernes, et le **positionnement** (`position`, `z-index`, `scroll-behavior`, card flip 3D).
+
+    [Lancer le module 01 — Introduction](./fondamental/01-introduction-css.md)
 
 - ### :lucide-align-horizontal-justify-center: Layout Moderne
     ---
-    Cette section aborde les moteurs de mise en page récents. Vous y découvrirez **Flexbox**, la norme planétaire absolue pour aligner dynamiquement des éléments sur un axe unidimensionnel avec flexibilité.
+    Les deux moteurs de mise en page du web professionnel. **Flexbox** pour l'alignement sur un axe unidimensionnel. **CSS Grid** pour les mises en page bidimensionnelles complexes, les grilles de contenu et les layouts d'application.
 
-    [Aller vers 01. Flexbox](./layout/01-flexbox-css.md)
+    [Aller vers 01 — Flexbox](./layout/01-flexbox-css.md)
 
 </div>
 
@@ -50,53 +50,58 @@ Cette section vous fera passer des simples colorations textuelles aux architectu
 
 - ### :lucide-smartphone: Responsive Design
     ---
-    L'art fondamental de l'adaptation élastique à tous les écrans du marché mondial (montre, mobile, tablette, TV). Ce chapitre condense l'étude des Media Queries, de la méthode _mobile-first_ et typographies fluides.
+    L'adaptation élastique à tous les écrans (montre, mobile, tablette, TV 4K). Media Queries, méthode _mobile-first_, typographies fluides avec `clamp()`, encoches (`env()`), navigation hamburger CSS et styles d'impression.
 
-    [Aller vers L'Art de l'Adaptation](./responsive/01-responsive-design.md)
+    [Aller vers Responsive Design](./responsive/01-responsive-design.md)
 
 </div>
 
-<br />
+<br>
 
 ---
 
 ## Progression recommandée
 
-La progression part des atomes stylistiques purs pour s'étendre progressivement vers la macro-structure. 
+La progression part des fondations atomiques pour s'étendre vers les systèmes de mise en page, puis vers l'adaptation à tous les contextes d'affichage.
 
 ```mermaid
 flowchart TB
-  Start([Démarrage CSS])
+    Start([Démarrage CSS])
 
-  Intro["1. Base & Sélecteurs<br/>Cibler et peindre"]
-  Box["2. Box Model & Dimensions<br/>L'espace et les limites"]
-  Anim["3. Animations & Avancé<br/>Modernité et variables CSS"]
-  Bonus["4. Aller plus loin<br/>Astuces et finesses natives"]
-  Flex["5. Flexbox (Layout)<br/>Aligner et positionner"]
-  Resp["6. Responsive Design<br/>S'adapter à tous les écrans"]
-  
-  End([CSS Maîtrisé])
+    F01["Fondamental 01<br/>Syntaxe, cascade, couleurs"]
+    F02["Fondamental 02<br/>Sélecteurs et spécificité"]
+    F03["Fondamental 03<br/>Unités et dimensions"]
+    F04["Fondamental 04<br/>Box Model"]
+    F05["Fondamental 05<br/>Animations et transitions"]
+    F06["Fondamental 06<br/>CSS avancé"]
+    F07["Fondamental 07<br/>Aller plus loin"]
+    F08["Fondamental 08<br/>Positionnement et flux"]
+    L01["Layout 01<br/>Flexbox"]
+    L02["Layout 02<br/>CSS Grid"]
+    R01["Responsive<br/>Media Queries"]
 
-  Start --> Intro --> Box --> Anim --> Bonus --> Flex --> Resp --> End
+    End([CSS Maîtrisé])
+
+    Start --> F01 --> F02 --> F03 --> F04 --> F05 --> F06 --> F07 --> F08 --> L01 --> L02 --> R01 --> End
 ```
 
-<br />
+<br>
 
 ---
 
 ## Rôle dans la progression globale
 
-Le CSS boucle formellement l'apprentissage de la présentation statique frontale. Une combinaison d'un HTML robuste aux instructions CSS élastiques vous permet de cloner n'importe laquelle des interfaces existantes au pixel près. La seule brique manquante pour que cette oeuvre mort s'anime d'intelligence interactive sera l'injection de logique algorithmique, via le **JavaScript**.
+Le CSS boucle l'apprentissage de la présentation statique frontale. Une combinaison d'un HTML robuste et d'un CSS élastique permet de reproduire n'importe quelle interface au pixel près. La brique manquante pour animer cette interface d'intelligence interactive sera le **JavaScript**.
 
-<br />
+<br>
 
 ---
 
 ## Conclusion
 
-!!! note "Notre recommandation"
-    Ne sautez **jamais** les modules sur le _Box Model_ et les _Unités de mesure_ (Fondamentaux). Ce sont les deux portes d'entrées du cauchemar du débordement d'éléments en intégration Web. 
+!!! quote "Notre recommandation"
+    Ne sautez **jamais** les modules sur le Box Model, les Unités de mesure et le Positionnement. Ce sont les trois portes d'entrée du cauchemar du débordement et du chevauchement d'éléments en intégration Web. Et ne passez à Flexbox qu'une fois la spécificité parfaitement assimilée.
 
 **Point d'entrée recommandé : [01. Introduction au CSS](./fondamental/01-introduction-css.md)**
 
-<br />
+<br>

@@ -1,7 +1,7 @@
 ---
-description: "Le cours exhaustif sur CSS Grid Layout. Reprenez le contrôle total de vos interfaces 2D avec l'architecture de grille formelle, grid-template-areas et le placement absolu."
+description: "Le cours exhaustif sur CSS Grid Layout : grille formelle, grid-template-areas, placement absolu, subgrid et auto-fit/minmax."
 icon: lucide/book-open-check
-tags: ["CSS", "GRID", "LAYOUT", "ARCHITECT", "2D"]
+tags: ["CSS", "GRID", "LAYOUT", "2D", "SUBGRID", "TEMPLATE-AREAS"]
 ---
 
 # CSS Grid Layout
@@ -9,250 +9,395 @@ tags: ["CSS", "GRID", "LAYOUT", "ARCHITECT", "2D"]
 <div
   class="omny-meta"
   data-level="🔴 Avancé"
-  data-version="2.0"
-  data-time="5-7 heures"
-></div>
+  data-version="2.1"
+  data-time="5-7 heures">
+</div>
 
 ## Introduction
 
-Jusqu'à l'arrivée de Grid en 2017, la structuration globale d'une page Web complète (en-tête, menu latéral, contenu central et pied de page) reposait sur des détournements de propriétés comme `float` ou des imbrications complexes de Flexbox.
+Jusqu'à l'arrivée de Grid en 2017, la structuration globale d'une page Web (en-tête, sidebar, contenu, pied de page) reposait sur des détournements de `float` ou des imbrications complexes de Flexbox.
 
-**CSS Grid** est le premier système natif de mise en page **bi-dimensionnel** du web. Il permet de définir simultanément des lignes et des colonnes, créant ainsi une grille formelle invisible sur laquelle les éléments peuvent être placés avec une précision absolue.
+**CSS Grid** est le premier système natif de mise en page **bidimensionnel** du web. Il permet de définir simultanément des lignes et des colonnes, créant une grille formelle invisible sur laquelle les éléments se placent avec une précision absolue.
 
-Grid est l'outil privilégié pour le design **macroscopique** (_la structure globale de la page_), tandis que Flexbox excelle dans le design **microscopique** (_'alignement des éléments à l'intérieur de ces zones_).
+Grid est l'outil du design **macroscopique** — la structure globale de la page. Flexbox excelle dans le design **microscopique** — l'alignement des éléments à l'intérieur de ces zones.
 
-!!! quote "Analogie pédagogique — Le plan d'architecte"
-    Si Flexbox s'apparente à un élastique unidimensionnel où les éléments s'alignent et réagissent en chaîne, CSS Grid ressemble davantage à un **plan d'architecte**.
-    Vous dessinez virtuellement les pièces de la maison (_la grille formelle_), et vous assignez chaque meuble (_vos éléments HTML_) à une pièce précise. La structure globale prime sur le contenu individuel.
+!!! quote "Analogie pédagogique - Le Plan d'Architecte"
+    Si Flexbox ressemble à un élastique unidimensionnel où les éléments s'alignent en chaîne, CSS Grid ressemble davantage à un **plan d'architecte**. Vous dessinez virtuellement les pièces de la maison (la grille formelle), puis vous assignez chaque meuble (vos éléments HTML) à une pièce précise. La structure globale prime sur le contenu individuel.
 
-<br />
+<br>
 
 ---
 
-## Flexbox vs Grid
+## Flexbox vs Grid : les deux sont complémentaires
 
-!!! info "Il est essentiel de comprendre que **ces deux systèmes sont totalement complémentaires** et conçus pour fonctionner ensemble."
+Ces deux systèmes ne sont pas en compétition — ils sont conçus pour fonctionner ensemble.
 
 ![Concept de base 2D du CSS Grid](../../../../assets/images/dev/layout-modern/css_grid_2d_concept.png)
 
-<p style="text-align: center;"><em>Flexbox gère l'alignement sur un seul axe (ligne ou colonne).<br>Grid structure l'espace sur deux axes simultanés (lignes et colonnes croisées).</em></p>
+*Flexbox gère l'alignement sur un seul axe (ligne ou colonne). Grid structure l'espace sur deux axes simultanés (lignes et colonnes croisées).*
 
-!!! success "La règle d'or de l'intégrateur"
+!!! tip "La règle d'or de l'intégrateur"
+    Utilisez **Grid** sur le conteneur principal pour définir les grandes zones fixes de la page (en-tête, sidebar, contenu, footer). Utilisez **Flexbox** à l'intérieur de ces zones pour fluidifier et aligner les éléments de détail (navigation, icônes, boutons).
 
-    - Utilisez **Grid** sur le conteneur principal (ex: `<main>`, `<body>`) pour définir les grandes "zones" figées de la page<br>(**En-tête**, **Sidebar**, **Contenu**, **Footer**).
-
-    - Utilisez **Flexbox** à l'intérieur de ces zones pour fluidifier et aligner les éléments de détail<br>(**navigation**, **icônes**, **textes**).
-
-<br />
+<br>
 
 ---
 
 ## L'anatomie du système Grid
 
-Une grille repose sur un vocabulaire technique strict en anglais qu'il faut mémoriser, car ce sont ces termes précis que vous utiliserez dans votre code CSS.
+Une grille repose sur un vocabulaire technique précis.
 
 ![Anatomie complète des composants CSS Grid](../../../../assets/images/dev/layout-modern/css_grid_anatomy.png)
 
-<p style="text-align: center;"><em>L'architecture visuelle simplifiée d'un système Grid (Line, Track, Cell et Area).</em></p>
+*Architecture visuelle d'un système Grid : ligne, piste, cellule et zone.*
 
-| Terme CSS (Anglais) | Explication simplifiée |
+| Terme | Explication |
 | :--- | :--- |
-| **Grid Container** | La boîte géante. L'élément parent principal (ex: `<main>`) sur lequel vous écrivez `display: grid;`. |
-| **Grid Item** | Les boîtes intérieures. Ce sont les enfants *directs* du `Grid Container`. |
-| **Grid Line** | Les "lignes de découpe" invisibles. Il s'agit des traits métalliques verticaux et horizontaux qui tranchent votre grille. Par exemple, une grille de 3 colonnes possède 4 lignes de découpe verticales ! |
-| **Grid Area** | Une "zone" rectangulaire. Il s'agit d'un regroupement de plusieurs dalles adjacentes entre elles. C'est la cible finale où vous encastrerez vos composants. |
+| **Grid Container** | L'élément parent sur lequel s'écrit `display: grid` |
+| **Grid Item** | Les enfants **directs** du Grid Container |
+| **Grid Line** | Les traits de découpe invisibles. Une grille de 3 colonnes possède 4 lignes verticales |
+| **Grid Track** | L'espace entre deux Grid Lines (une colonne ou une rangée) |
+| **Grid Cell** | L'intersection d'une colonne et d'une rangée (la plus petite unité) |
+| **Grid Area** | Un regroupement rectangulaire de plusieurs cellules adjacentes |
 
-<br />
+<br>
 
 ---
 
-## Déclaration et structure : (`grid-template`)
+## Déclaration et structure
+
+<br>
 
 ### Initialisation
 
-L'activation du contexte s'effectue sur l'élément parent.
-
-```css title="Code CSS - Naissance de la grille"
+```css title="CSS - Activation du contexte Grid"
 .plan-de-travail {
+    /* Active le contexte Grid sur ce conteneur */
     display: grid;
 }
 ```
-*Sans instructions supplémentaires, Grid empilera simplement les enfants dans une colonne unique par défaut.*
 
-### Le découpage structurel : (`grid-template-columns`) et (`grid-template-rows`)
+*Sans instructions supplémentaires, Grid empile les enfants dans une colonne unique par défaut.*
 
-La puissance de Grid réside dans la définition explicite de sa structure. Plutôt que de laisser les enfants dicter leur taille, c'est le conteneur (*Grid Container*) qui tranche l'espace.
+<br>
 
-- **`grid-template-columns`** : Définit le nombre exact de colonnes (verticales) et la largeur de chacune.
-- **`grid-template-rows`** : Définit le nombre exact de lignes (horizontales) et la hauteur de chacune.
+### `grid-template-columns` et `grid-template-rows`
 
-!!! note "Pour gérer l'élasticité de la grille de manière fluide et éviter les pourcentages infernaux, le W3C a introduit une unité spécifique très puissante : la **fraction** (`fr`). Elle représente une part mathématique de l'espace vidé restant."
+Ces deux propriétés découpent l'espace du conteneur en colonnes et en rangées.
 
-![Découpage en lignes et colonnes](../../../../assets/images/dev/layout-modern/css_grid_template_columns_rows.png)
+L'unité `fr` (fraction) représente une part de l'espace restant après déduction des tailles fixes.
 
-<p style="text-align: center;"><em>L'utilisation conjointe de pixels fixes pour des éléments précis (comme une barre latérale) et de fractions (fr) pour le contenu fluide permet un contrôle architectural absolu.</em></p>
+![Découpage en lignes et colonnes avec fr](../../../../assets/images/dev/layout-modern/css_grid_template_columns_rows.png)
 
-```css title="Code CSS - Découpe des axes"
+*L'association de pixels fixes (pour les sidebars) et de fractions `fr` (pour le contenu fluide) permet un contrôle architectural absolu.*
+
+```css title="CSS - Découpe des colonnes et rangées"
 .architecture-container {
     display: grid;
-    
-    /* 1. TRANCHAGE VERTICAL (Les Colonnes) */
+
+    /*
+        3 colonnes :
+        - Colonne 1 : 100px fixes
+        - Colonne 2 : 1 fraction du vide restant
+        - Colonne 3 : 2 fractions du vide restant (le double de la 2)
+    */
     grid-template-columns: 100px 1fr 2fr;
-    /* La colonne 1 fait 100px fixes.
-     * La colonne 2 prend 1 part du vide.
-     * La colonne 3 prend 2 parts du vide (le double de la 2). */
-    
-    /* 2. TRANCHAGE HORIZONTAL (Les Lignes/Rangées) */
+
+    /*
+        3 rangées :
+        - Rangée 1 : 80px fixes (en-tête)
+        - Rangée 2 : s'adapte à son contenu
+        - Rangée 3 : prend l'espace restant
+    */
     grid-template-rows: 80px auto 1fr;
-    /* La ligne 1 fait 80px fixes.
-     * La ligne 2 s'adapte à son contenu.
-     * La ligne 3 prend 1 part du vide. */
-    
-    /* 3. L'ESPACEMENT (Gouttière) */
-    gap: 16px; 
+
+    /* Gouttière entre toutes les cellules */
+    gap: 16px;
 }
 ```
 
-!!! tip "La répétition avec `repeat()`"
-    Pour éviter la redondance dans les grandes grilles paramétriques, la fonction `repeat()` simplifie le code :
-    `grid-template-columns: repeat(12, 1fr);` (Génère 12 colonnes égales).
-    `grid-template-columns: repeat(3, 100px 2fr);` (Génère une alternance : 100px, 2fr, 100px, 2fr, 100px, 2fr).
+<br>
 
-<br />
+### La fonction `repeat()`
+
+```css title="CSS - repeat() pour les grilles régulières"
+/* 12 colonnes égales (grille Bootstrap-style) */
+.grille-12 {
+    grid-template-columns: repeat(12, 1fr);
+}
+
+/* Alternance : 100px fixe, 2fr fluide, répétée 3 fois */
+.grille-alternee {
+    grid-template-columns: repeat(3, 100px 2fr);
+    /* Génère : 100px 2fr 100px 2fr 100px 2fr */
+}
+```
+
+<br>
+
+### `grid-auto-rows` et `grid-auto-columns`
+
+Ces propriétés définissent la taille des rangées ou colonnes créées **implicitement** — celles que Grid génère automatiquement quand les éléments dépassent la grille déclarée.
+
+```css title="CSS - Lignes et colonnes implicites"
+.galerie {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    /*
+        Toute rangée créée automatiquement (au-delà des grid-template-rows déclarées)
+        aura une hauteur minimale de 200px et s'étendra si le contenu est plus grand.
+    */
+    grid-auto-rows: minmax(200px, auto);
+
+    gap: 1rem;
+}
+```
+
+*`grid-auto-rows` est particulièrement utile pour les galeries dynamiques dont le nombre d'éléments n'est pas connu à l'avance.*
+
+<br>
+
+### `grid-auto-flow` — contrôler le remplissage automatique
+
+```css title="CSS - Ordre de placement automatique des éléments"
+.layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    /*
+        row (défaut) : remplit de gauche à droite, ligne par ligne
+        column       : remplit de haut en bas, colonne par colonne
+        dense        : algorithme de remplissage compact (comble les trous)
+    */
+    grid-auto-flow: row dense;
+}
+```
+
+*`grid-auto-flow: row dense` est utile pour les mosaïques d'éléments de tailles variées — Grid tentera de combler les espaces vides laissés par des éléments plus grands.*
+
+<br>
 
 ---
 
-## Le placement absolu : (`grid-column`) et (`grid-row`)
+## Le placement absolu : `grid-column` et `grid-row`
 
-Par défaut, l'algorithme de Grid place les éléments séquentiellement dans les cellules disponibles de gauche à droite, de haut en bas (régi par `grid-auto-flow`). Mais il est possible de forcer la position d'un enfant en l'ancrant sur les **Grid Lines**.
+Par défaut, Grid place les éléments séquentiellement. Ces propriétés forcent la position d'un enfant en l'ancrant sur des **Grid Lines** numérotées.
 
-Ces propriétés s'appliquent directement à l'**Enfant**.
+```css title="CSS - Placement par numéros de lignes"
+.banniere {
+    /*
+        L'élément démarre à la Grid Line verticale 1
+        et s'étend jusqu'à la Grid Line 4 (couvre 3 colonnes)
+    */
+    grid-column: 1 / 4;
 
-```css title="Code CSS - Étirement sur les lignes"
-.element-banniere {
-    /* L'élément commence à la ligne verticale 1 et s'étend jusqu'à la ligne 4 */
-    grid-column: 1 / 4; 
-    
-    /* L'élément occupe la première ligne horizontale (entre la ligne 1 et 2) */
-    grid-row: 1 / 2; 
+    /* L'élément occupe la première rangée */
+    grid-row: 1 / 2;
 }
 
-.element-footer {
-    /* Astuce : -1 cible toujours la toute dernière ligne de la grille */
-    grid-column: 1 / -1; 
+.footer {
+    /*
+        -1 cible toujours la toute dernière ligne de la grille déclarée
+        Utile pour s'étirer jusqu'au bord sans connaître le nombre exact de colonnes
+    */
+    grid-column: 1 / -1;
 }
 
 .element-large {
-    /* Alternative avec span : 
-     * l'élément s'étale sur 2 colonnes à partir de sa position actuelle */
-    grid-column: span 2; 
+    /* span : s'étale sur 2 colonnes à partir de sa position courante */
+    grid-column: span 2;
+    grid-row: span 3;
 }
 ```
 
-<br />
+<br>
 
 ---
 
-## Les zones nommées : (`grid-template-areas`)
+## Les zones nommées : `grid-template-areas`
 
-S'appuyer sur des numéros de lignes invisibles peut devenir difficile à maintenir sur des grilles complexes. La propriété `grid-template-areas` permet de dessiner une représentation visuelle ("ASCII art") de l'architecture.
+S'appuyer sur des numéros de lignes invisibles devient difficile à maintenir sur des mises en page complexes. `grid-template-areas` permet de dessiner une représentation visuelle de l'architecture.
 
-![Explication visuelle du css grid-template-areas](../../../../assets/images/dev/layout-modern/css_grid_template_areas.png)
+![Explication visuelle de grid-template-areas](../../../../assets/images/dev/layout-modern/css_grid_template_areas.png)
 
-<p style="text-align: center;"><em>La définition de la grille par mots-clés permet aux éléments HTML enfants de s'encastrer automatiquement sur les territoires désignés.</em></p>
+*La définition par mots-clés permet aux enfants de s'encastrer automatiquement sur leurs zones désignées.*
 
-```css title="Code CSS - Structure par ASCII Layout"
+```css title="CSS - Architecture complète avec grid-template-areas"
 /* LE CONTENEUR PARENT */
 .layout-page {
     display: grid;
-    grid-template-columns: 200px 1fr 200px;
-    grid-template-rows: 100px 1fr 80px;
-    
+    grid-template-columns: 240px 1fr 180px;
+    grid-template-rows: 64px 1fr 56px;
+    min-height: 100dvh;
+    gap: 0;
+
+    /*
+        Chaque chaîne de caractères représente une rangée.
+        Chaque mot représente une zone nommée.
+        Un point "." représente une cellule vide.
+    */
     grid-template-areas:
         "en-tete    en-tete     en-tete"
         "navigation zone-centre pub-droite"
         "pied-page  pied-page   pied-page";
 }
 
-/* LES ENFANTS (Indépendants de l'ordre HTML) */
-.header { grid-area: en-tete; }
-.main-content { grid-area: zone-centre; }
+/* LES ENFANTS : s'assignent à leur zone par nom */
+.header        { grid-area: en-tete; }
+.sidebar-nav   { grid-area: navigation; }
+.contenu       { grid-area: zone-centre; }
+.sidebar-pub   { grid-area: pub-droite; }
+.footer        { grid-area: pied-page; }
 ```
 
-!!! example "Responsive Design et Media Queries (Aperçu futur !)"
-    **Ne vous inquiétez pas si vous ne maîtrisez pas encore la syntaxe `@media` ci-dessous !** Le concept du *Responsive Design* fera l'objet d'un module entier à la suite de ce cours. 
-    Cet exemple est juste là pour vous prouver la puissance de l'ASCII art en production.
-    
-    L'avantage majeur de `grid-template-areas` est sa flexibilité redoutable. Sous un point de rupture (sur un petit écran Mobile), il n'est **absolument pas nécessaire** d'ajouter ou de modifier les classes sur vos balises HTML. Il suffit simplement de redessiner l'organisation du Pochoir Parent !
-    
-    ```css title="Code CSS - Responsive Design et Media Queries (Aperçu futur !)"
-    /* Sur un écran de téléphone (quand la largeur est au maximum de 768px) */
-    @media (max-width: 768px) {
-        .layout-page {
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "en-tete"
-                "zone-centre"
-                "navigation"
-                "pub-droite"
-                "pied-page";
-        }
+*Les enfants peuvent être déclarés dans n'importe quel ordre dans le HTML — Grid les place selon les zones, indépendamment de l'ordre source.*
+
+**Responsive avec `grid-template-areas` :**
+
+```css title="CSS - Réorganisation du layout sur mobile"
+/*
+    Sur mobile, on redessine simplement l'ASCII art.
+    Aucune modification du HTML nécessaire.
+*/
+@media (max-width: 768px) {
+    .layout-page {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "en-tete"
+            "zone-centre"
+            "navigation"
+            "pub-droite"
+            "pied-page";
     }
-    ```
-
-<br />
-
----
-
-## L'élasticité intelligente : (`minmax()`), (`auto-fit`) et (`auto-fill`)
-
-Fixer une grille en pixels absolus rend le comportement rigide. La véritable puissance de Grid repose sur ses fonctions calculatoires.
-
-### Sécuriser les dimensions avec `minmax()`
-
-Cette fonction permet de définir un plancher de survie (_minimum absolu_) tout en autorisant une expansion élastique (_maximum_).
-
-```css title="Code CSS - Intervalles sécurisés"
-.galerie {
-    display: grid;
-    /* La colonne ne tombera jamais en dessous de 250px, 
-       mais s'étirera sur le vide restant grâce à la fraction 1fr. */
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
 }
 ```
 
-### Le comportement fluide algorithmique (`auto-fit`)
+*C'est l'avantage majeur de `grid-template-areas` : réorganiser complètement une mise en page complexe en quelques lignes, sans toucher au HTML.*
 
-Définir un nombre fixe de colonnes (ex: `repeat(3)`) oblige inévitablement à utiliser des `@media query`. L'utilisation du mot-clé `auto-fit` **permet de responsabiliser le navigateur sur le nombre de colonnes nécessaires**, sans aucun point de rupture.
+<br>
 
-```css title="Code CSS - Grille fluide algorithmique"
-.catalogue-articles {
+---
+
+## L'élasticité intelligente : `minmax()`, `auto-fit`, `auto-fill`
+
+<br>
+
+### `minmax()` — sécuriser les dimensions
+
+```css title="CSS - Colonnes avec plancher et plafond"
+.galerie {
     display: grid;
-    gap: 15px;
-    
-    /* Génère autant de colonnes élastiques (1fr) de minimum 300px 
-       qu'il est physiquement possible de faire tenir dans la fenêtre. */
+    /*
+        Chaque colonne a un minimum de 250px et peut s'étirer sur l'espace restant.
+        Si la fenêtre est trop étroite pour 3 colonnes de 250px, Grid passe à 2, puis 1.
+    */
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 1rem;
+}
+```
+
+<br>
+
+### `auto-fit` — grille responsive sans media query
+
+```css title="CSS - Grille fluide algorithmique avec auto-fit"
+.catalogue {
+    display: grid;
+    gap: 1.5rem;
+
+    /*
+        auto-fit crée autant de colonnes élastiques (1fr, minimum 300px)
+        qu'il est physiquement possible d'en faire tenir dans le conteneur.
+        Si l'écran rétrécit, les colonnes passent à 2, puis à 1 automatiquement.
+        Aucune media query n'est nécessaire.
+    */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 ```
-*Si l'écran mesure moins de 600px, les éléments "sauteront" mécaniquement à la ligne et la grille passera naturellement sur moins de colonnes.*
 
-<br />
+**Différence entre `auto-fit` et `auto-fill` :**
+
+```css title="CSS - auto-fit vs auto-fill"
+/*
+    auto-fill : crée autant de pistes que possible, même vides.
+    Sur un écran de 900px avec minmax(300px, 1fr) :
+    → crée 3 colonnes (300px chacune), même si seulement 1 élément existe.
+    → les colonnes vides sont visibles comme de l'espace blanc.
+*/
+.avec-auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/*
+    auto-fit : crée les pistes, puis réduit les vides à zéro.
+    Sur le même écran avec 1 seul élément :
+    → l'élément s'étire pour remplir les 900px.
+    → pas de colonnes vides visibles.
+*/
+.avec-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+```
+
+*`auto-fit` est généralement préféré pour les galeries d'articles. `auto-fill` est utile quand on veut réserver visuellement des emplacements pour de futurs éléments.*
+
+<br>
 
 ---
 
-## Résumé et Bonnes Pratiques
+## Subgrid — hériter de la grille parente
 
-!!! success "Les Standards de l'Industrie"
-    - **Le Macro et le Micro** : Utilisez Grid pour positionner vos blocs géants de page (`<header>`, `<main>`, `<footer>`), et utilisez Flexbox à l'intérieur pour les détails.
-    - **L'unité fr** : Privilégiez systématiquement la fraction (`fr`) aux pourcentages pour répartir l'espace résiduel.
-    - **Nommez vos zones** : Utilisez `grid-template-areas` dès que votre grille dépasse les 4 ou 5 éléments ; c'est indispensable pour la maintenance.
-    - **Le responsive fluide** : Maîtrisez `auto-fit` et `minmax()` pour réduire presque totalement le besoin de `@media query` pour vos grilles d'articles.
+`subgrid` est l'une des fonctionnalités CSS les plus attendues depuis des années. Disponible nativement depuis 2023.
+
+Le problème qu'il résout : dans une grille de cards, les éléments internes (titre, contenu, bouton) ne s'alignent pas entre les cards si elles ont des hauteurs de contenu différentes.
+
+```css title="CSS - Subgrid pour l'alignement interne des cards"
+/* La grille principale : 3 colonnes de cards */
+.grille-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 1.5rem;
+}
+
+/* Chaque card hérite des rangées de la grille parente */
+.card {
+    display: grid;
+    /*
+        subgrid sur grid-row indique que cet enfant utilise
+        les rangées de son parent Grid comme référence.
+        Les éléments internes de chaque card s'aligneront
+        automatiquement avec leurs équivalents dans les autres cards.
+    */
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    gap: 0;
+}
+
+/* Les éléments internes s'alignent sur les mêmes lignes dans toutes les cards */
+.card-header  { /* Rangée 1 de la grille parente */ }
+.card-content { /* Rangée 2 de la grille parente */ }
+.card-footer  { /* Rangée 3 de la grille parente */ }
+```
+
+*Sans `subgrid`, les boutons de chaque card étaient à des hauteurs différentes selon la longueur du texte. Avec `subgrid`, toutes les cards partagent les mêmes lignes de grille — les boutons sont parfaitement alignés horizontalement.*
+
+!!! info "Support navigateurs"
+    `subgrid` est disponible dans Chrome 117+, Firefox 71+, Safari 16+, Edge 117+. En 2025, le support dépasse 91% des utilisateurs. C'est la solution définitive au problème classique d'alignement interne des cards.
+
+<br>
+
+---
 
 ## Conclusion
 
-!!! quote "Le système CSS Grid s'impose aujourd'hui comme la fondation inébranlable de la macro-architecture front-end moderne. Il permet de bâtir des structures fiables en deux dimensions (_lignes et colonnes_) sans bricolage ni hacks CSS."
+!!! quote "Ce qu'il faut retenir de ce module"
+    CSS Grid est la fondation inébranlable de la macro-architecture front-end moderne. `grid-template-columns` et `grid-template-rows` découpent l'espace avec l'unité `fr`. `grid-template-areas` dessine l'architecture en ASCII lisible et maintenable. `minmax()` avec `auto-fit` crée des grilles responsive sans media query. `grid-auto-rows` gère les rangées implicites. `subgrid` aligne les éléments internes des cards avec précision. Utilisez Grid pour le macro, Flexbox pour le micro.
 
-> C'est une excellente fondation pour comprendre les enjeux d'adaptabilité qui caractérisent les projets contemporains. Dans la suite du programme, les chapitres sur le **Responsive Design** avancé (unités de fluidités telles que `rem`, ou l'utilisation de `clamp()`) vous permettront de créer des interfaces parfaitement universelles, quel que soit le périphérique.
+> Dans le module suivant, nous aborderons le **Responsive Design** — Media Queries, méthode mobile-first et adaptation complète à tous les écrans.
 
-[^1]: W3C : World Wide Web Consortium, l'organisme de standardisation responsable de la validation des spécifications liées au web (HTML, CSS).
+<br>
+
+[^1]: **W3C** (World Wide Web Consortium) : organisme international responsable de la standardisation des technologies web (HTML, CSS, SVG, etc.).

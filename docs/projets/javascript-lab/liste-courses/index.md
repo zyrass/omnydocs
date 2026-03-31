@@ -26,7 +26,7 @@ tags: ["JAVASCRIPT", "CRUD", "DOM", "LOCALSTORAGE", "ARRAY"]
 Contrairement à la pure intégration statique, une application avec "État" (State) nécessite de séparer la donnée (Le Cerveau) de l'affichage (L'Écran).
 
 ```mermaid
-graph TD
+flowchart TD
     A[Interaction Utilisateur] -->|Clic 'Ajouter'| B(Contrôleur JS)
     B -->|1. Pousse l'objet| C[(Tableau JS en Mémoire)]
     C -->|2. Sauvegarde| D[(LocalStorage Disque Dur)]

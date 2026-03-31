@@ -1,7 +1,7 @@
 ---
-description: "CSS Avancé : variables CSS, filtres, clip-path, blend modes, masques, gradients, container queries, sélecteurs modernes"
+description: "CSS Avancé : variables CSS, filtres, clip-path, blend modes, gradients, container queries, @layer et nesting natif."
 icon: lucide/book-open-check
-tags: ["CSS", "VARIABLES", "FILTERS", "CLIP-PATH", "BLEND-MODES", "GRADIENTS", "CONTAINER-QUERIES"]
+tags: ["CSS", "VARIABLES", "FILTERS", "CLIP-PATH", "BLEND-MODES", "GRADIENTS", "NESTING", "LAYERS"]
 ---
 
 # CSS Avancé
@@ -15,61 +15,30 @@ tags: ["CSS", "VARIABLES", "FILTERS", "CLIP-PATH", "BLEND-MODES", "GRADIENTS", "
 
 ## Introduction
 
-!!! quote "Analogie pédagogique"
-    _Imaginez un **studio de photographie professionnel** équipé de Photoshop. Le photographe a livré ses clichés bruts : bons techniquement, mais sans vie. En post-production, il applique des filtres de couleur, découpe des silhouettes sur fond transparent, superpose des calques avec des modes de fusion, joue avec des dégradés pour créer une ambiance. L'image finale n'a plus rien à voir avec la photo d'origine — et pourtant aucun pixel réel n'a changé, seulement la façon de les présenter. **CSS Avancé**, c'est ce studio de post-production pour le web : des propriétés qui transforment l'apparence visuelle en temps réel, directement dans le navigateur, sans modifier le HTML ni recourir à des images pré-générées._
+!!! quote "Analogie pédagogique - Le Studio de Post-Production"
+    Imaginez un **studio de photographie professionnel** équipé de Photoshop. Le photographe a livré ses clichés bruts : bons techniquement, mais sans vie. En post-production, il applique des filtres de couleur, découpe des silhouettes sur fond transparent, superpose des calques avec des modes de fusion, joue avec des dégradés pour créer une ambiance. L'image finale n'a plus rien à voir avec la photo d'origine — sans qu'un seul pixel réel n'ait changé, seulement la façon de les présenter.
 
-Avant 2015, obtenir ces effets en CSS était impossible : on utilisait des images PNG ou JPEG pour les formes, des images avec calque pour les effets de transparence, et un renouvellement complet des assets à chaque changement de couleur. Les propriétés couvertes dans ce module ont changé radicalement le travail frontend :
+    **CSS Avancé**, c'est ce studio de post-production pour le web : des propriétés qui transforment l'apparence visuelle en temps réel, directement dans le navigateur, sans modifier le HTML ni recourir à des images pré-générées.
 
-- **Variables CSS** — un seul endroit pour piloter l'ensemble d'un design system
-- **Filtres** — effets Photoshop appliqués à n'importe quel élément HTML
-- **Clip-path** — découpes vectorielles sans images
-- **Blend modes** — fusion de calques
-- **Gradients** — dégradés complexes et dynamiques
-- **Container queries** — responsive par composant (CSS 2023)
+Avant 2015, obtenir ces effets exigeait des images PNG ou JPEG statiques, et chaque changement de couleur nécessitait de régénérer les assets. Les propriétés couvertes dans ce module ont changé radicalement le travail frontend.
+
+<br>
 
 ---
 
 ## Variables CSS (Custom Properties)
 
-Les variables CSS sont des propriétés personnalisées réutilisables dans toute la feuille de style. Elles permettent de centraliser les valeurs d'un design system et de créer des thèmes dynamiques.
+Les variables CSS permettent de centraliser les valeurs d'un design system et de créer des thèmes dynamiques.
 
-### Déclaration et utilisation
+!!! note "Référence croisée"
+    La déclaration dans `:root` et l'utilisation de `var()` ont été introduites dans le [module 02 — Sélecteurs CSS](./02-selecteurs-css.md). Ce module approfondit leur usage dans un design system complet et la gestion du dark mode.
 
-```css title="CSS — Syntaxe des variables CSS"
-/* Déclaration dans :root (portée globale) */
-:root {
-    --color-primary: #667eea;
-    --spacing-base: 1rem;
-    --radius-card: 8px;
-}
-
-/* Utilisation avec var() */
-.button {
-    background-color: var(--color-primary);
-    padding: var(--spacing-base) calc(var(--spacing-base) * 2);
-    border-radius: var(--radius-card);
-}
-```
-
-_`var()` lit la valeur de la variable au moment du rendu. Si la variable est modifiée (en CSS ou via un attribut data), tous les éléments qui l'utilisent se mettent à jour instantanément._
-
-```css title="CSS — Valeur de repli (fallback)"
-.element {
-    /* Si --undefined-var n'existe pas, utilise #333333 */
-    color: var(--undefined-var, #333333);
-}
-
-/* Fallback chaîné */
-.element {
-    color: var(--primary, var(--brand-color, #667eea));
-    /* Essaie --primary, sinon --brand-color, sinon #667eea */
-}
-```
+<br>
 
 ### Portée et héritage
 
-```css title="CSS — Portée locale d'une variable"
-/* Portée globale */
+```css title="CSS - Portée locale et héritage des variables"
+/* Portée globale : accessible partout dans le document */
 :root {
     --text-color: #1a1a2e;
 }
@@ -80,23 +49,24 @@ _`var()` lit la valeur de la variable au moment du rendu. Si la variable est mod
     gap: var(--card-gap);
 }
 
-/* Héritage : les enfants accèdent aux variables du parent */
-.section {
-    --section-padding: 4rem;
+/* Valeur de repli (fallback) : utilisée si la variable n'existe pas */
+.element {
+    color: var(--undefined-var, #333333);
 }
 
-.section .inner {
-    padding: var(--section-padding); /* Hérite de .section */
+/* Fallback chaîné : essaie --primary, sinon --brand-color, sinon #667eea */
+.element {
+    color: var(--primary, var(--brand-color, #667eea));
 }
 ```
 
-_Les variables CSS suivent la cascade et l'héritage CSS : elles peuvent être redéfinies localement pour un composant sans affecter les autres._
+<br>
 
 ### Design system complet
 
-```css title="CSS — Variables d'un design system"
+```css title="CSS - Jeu de variables pour un design system"
 :root {
-    /* ── Couleurs ─────────────────────────────────── */
+    /* Couleurs */
     --color-primary:    #667eea;
     --color-secondary:  #764ba2;
     --color-accent:     #f093fb;
@@ -104,18 +74,18 @@ _Les variables CSS suivent la cascade et l'héritage CSS : elles peuvent être r
     --color-warning:    #f39c12;
     --color-danger:     #e74c3c;
 
-    /* ── Texte ───────────────────────────────────── */
+    /* Texte */
     --text-primary:   #1a1a2e;
     --text-secondary: #6b7280;
     --text-muted:     #9ca3af;
     --text-inverse:   #ffffff;
 
-    /* ── Fonds ───────────────────────────────────── */
+    /* Fonds */
     --bg-page:   #ffffff;
     --bg-card:   #f8fafc;
     --bg-dark:   #1a1a2e;
 
-    /* ── Espacement ──────────────────────────────── */
+    /* Espacement */
     --space-xs:  0.25rem;  /*  4 px */
     --space-sm:  0.5rem;   /*  8 px */
     --space-md:  1rem;     /* 16 px */
@@ -124,9 +94,9 @@ _Les variables CSS suivent la cascade et l'héritage CSS : elles peuvent être r
     --space-2xl: 3rem;     /* 48 px */
     --space-3xl: 4rem;     /* 64 px */
 
-    /* ── Typographie ─────────────────────────────── */
-    --font-sans:  'Inter', system-ui, sans-serif;
-    --font-mono:  'JetBrains Mono', monospace;
+    /* Typographie */
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 
     --fs-xs:   0.75rem;
     --fs-sm:   0.875rem;
@@ -137,25 +107,25 @@ _Les variables CSS suivent la cascade et l'héritage CSS : elles peuvent être r
     --fs-3xl:  2rem;
     --fs-4xl:  2.5rem;
 
-    /* ── Bordures ────────────────────────────────── */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
+    /* Bordures */
+    --radius-sm:   4px;
+    --radius-md:   8px;
+    --radius-lg:   12px;
+    --radius-xl:   16px;
     --radius-full: 9999px;
 
-    /* ── Ombres ──────────────────────────────────── */
+    /* Ombres */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.10);
     --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.12);
     --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.16);
 
-    /* ── Transitions ─────────────────────────────── */
+    /* Transitions */
     --transition-fast: 150ms ease;
     --transition-base: 250ms ease;
     --transition-slow: 400ms ease;
 
-    /* ── Z-index ─────────────────────────────────── */
+    /* Z-index */
     --z-base:    1;
     --z-menu:    100;
     --z-sticky:  200;
@@ -164,12 +134,14 @@ _Les variables CSS suivent la cascade et l'héritage CSS : elles peuvent être r
 }
 ```
 
-_Ce jeu de variables fait office de **token system** : changer `--color-primary` répercute la modification sur tous les boutons, liens, badges et éléments d'accent du site en une seule ligne._
+*Modifier `--color-primary` dans `:root` répercute le changement sur tous les boutons, liens, badges et éléments d'accent du site en une seule ligne — c'est la puissance d'un token system.*
 
-### Thème sombre avec prefers-color-scheme
+<br>
 
-```css title="CSS — Dark mode automatique sans JavaScript"
-/* Thème clair (défaut) */
+### Thème sombre avec `prefers-color-scheme`
+
+```css title="CSS - Dark mode automatique sans JavaScript"
+/* Thème clair par défaut */
 :root {
     --bg-page:    #ffffff;
     --bg-card:    #f8fafc;
@@ -178,7 +150,7 @@ _Ce jeu de variables fait office de **token system** : changer `--color-primary`
     --border:     #e5e7eb;
 }
 
-/* Thème sombre : activé par la préférence système */
+/* Thème sombre : activé automatiquement par la préférence système */
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-page:    #0f0f1a;
@@ -189,7 +161,7 @@ _Ce jeu de variables fait office de **token system** : changer `--color-primary`
     }
 }
 
-/* L'attribut data-theme permet un basculement manuel */
+/* L'attribut data-theme permet un basculement manuel via JavaScript */
 [data-theme="dark"] {
     --bg-page:    #0f0f1a;
     --bg-card:    #1a1a2e;
@@ -198,7 +170,7 @@ _Ce jeu de variables fait office de **token system** : changer `--color-primary`
     --border:     #2d3748;
 }
 
-/* Application */
+/* Application : tous les éléments lisent automatiquement la bonne variable */
 body {
     background-color: var(--bg-page);
     color: var(--text-main);
@@ -211,11 +183,13 @@ body {
 }
 ```
 
-_Le basculement de thème via `prefers-color-scheme` est entièrement automatique : le navigateur lit la préférence système et active les bonnes variables. Aucun JavaScript n'est nécessaire pour le comportement de base._
+*Le basculement de thème via `prefers-color-scheme` est entièrement automatique — le navigateur lit la préférence système et active les bonnes variables. Aucun JavaScript n'est nécessaire pour le comportement de base.*
 
-### Variables avec calc()
+<br>
 
-```css title="CSS — Calculs dynamiques avec variables"
+### Variables et `calc()`
+
+```css title="CSS - Calculs dynamiques avec variables CSS"
 :root {
     --space-unit: 8px;   /* Unité de base */
     --scale: 1.5;        /* Facteur d'échelle typographique */
@@ -226,61 +200,64 @@ _Le basculement de thème via `prefers-color-scheme` est entièrement automatiqu
 .mb-1 { margin-bottom: calc(var(--space-unit) * 1); }   /*  8 px */
 .mb-2 { margin-bottom: calc(var(--space-unit) * 2); }   /* 16 px */
 .mb-3 { margin-bottom: calc(var(--space-unit) * 3); }   /* 24 px */
-.mb-4 { margin-bottom: calc(var(--space-unit) * 4); }   /* 32 px */
 
 /* Échelle typographique */
-.text-sm  { font-size: calc(var(--fs-base) / var(--scale)); }       /* 0.67 rem */
-.text-lg  { font-size: calc(var(--fs-base) * var(--scale)); }        /* 1.5 rem */
-.text-xl  { font-size: calc(var(--fs-base) * var(--scale) * var(--scale)); } /* 2.25 rem */
+.text-sm { font-size: calc(var(--fs-base) / var(--scale)); }
+.text-lg { font-size: calc(var(--fs-base) * var(--scale)); }
+.text-xl { font-size: calc(var(--fs-base) * var(--scale) * var(--scale)); }
 ```
+
+<br>
 
 ---
 
 ## CSS Filters
 
-Les filtres CSS appliquent des traitements visuels à un élément et à son contenu, comme Photoshop mais dans le navigateur.
+Les filtres CSS appliquent des traitements visuels à un élément et à son contenu — comme Photoshop, mais dans le navigateur en temps réel.
 
-### Filtres disponibles
+<br>
 
-```css title="CSS — Les 9 filtres CSS avec leurs valeurs"
+### Les filtres disponibles
+
+```css title="CSS - Les neuf filtres CSS avec leurs valeurs"
 /* blur() : flou gaussien */
-.element { filter: blur(5px); }  /* 0 = pas de flou */
+.element { filter: blur(5px); }
 
 /* brightness() : luminosité */
-.element { filter: brightness(0.5); } /* 50 % : sombre */
-.element { filter: brightness(1.5); } /* 150 % : clair */
+.element { filter: brightness(0.5); }  /* 50 % : assombri */
+.element { filter: brightness(1.5); }  /* 150 % : éclairci */
 
 /* contrast() : contraste */
-.element { filter: contrast(0.5); } /* Contraste réduit */
-.element { filter: contrast(2); }   /* Contraste élevé */
+.element { filter: contrast(0.5); }
+.element { filter: contrast(2); }
 
 /* grayscale() : niveau de gris */
-.element { filter: grayscale(0); }    /* Couleur normale */
-.element { filter: grayscale(1); }    /* Noir et blanc complet */
+.element { filter: grayscale(0); }   /* Couleur normale */
+.element { filter: grayscale(1); }   /* Noir et blanc */
 
 /* saturate() : saturation */
-.element { filter: saturate(0); }  /* Désaturé = grayscale */
-.element { filter: saturate(3); }  /* Couleurs très vives */
+.element { filter: saturate(0); }   /* Désaturé */
+.element { filter: saturate(3); }   /* Très saturé */
 
-/* hue-rotate() : rotation de teinte */
-.element { filter: hue-rotate(90deg); }  /* Décalage de la roue chromatique */
+/* hue-rotate() : rotation de teinte sur la roue chromatique */
+.element { filter: hue-rotate(90deg); }
 
-/* invert() : inversion des couleurs */
-.element { filter: invert(1); }  /* Négatif photo */
+/* invert() : inversion des couleurs (effet négatif photo) */
+.element { filter: invert(1); }
 
-/* sepia() : effet sépia (vintage) */
-.element { filter: sepia(1); }  /* 100 % sépia */
+/* sepia() : effet vintage */
+.element { filter: sepia(1); }
 
-/* opacity() : transparence (= propriété opacity) */
+/* opacity() : transparence */
 .element { filter: opacity(0.5); }
 ```
 
-### Combiner les filtres
+<br>
 
-```css title="CSS — Composition de filtres"
-/* Plusieurs filtres s'enchaînent (de gauche à droite) */
+### Composer les filtres
 
-/* Photo vintage */
+```css title="CSS - Composition de filtres pour des effets photo"
+/* Photo vintage : sépia léger + contraste + luminosité */
 .vintage {
     filter: sepia(0.4) contrast(1.1) brightness(1.1) saturate(0.9);
 }
@@ -295,7 +272,7 @@ Les filtres CSS appliquent des traitements visuels à un élément et à son con
     filter: grayscale(0) brightness(1);
 }
 
-/* Ajustement dark mode pour les images */
+/* Adaptation des images en dark mode */
 @media (prefers-color-scheme: dark) {
     img:not([role="icon"]) {
         filter: brightness(0.85) contrast(1.1);
@@ -303,11 +280,13 @@ Les filtres CSS appliquent des traitements visuels à un élément et à son con
 }
 ```
 
-### backdrop-filter — effet glassmorphism
+<br>
 
-`backdrop-filter` applique un filtre **au fond visible derrière l'élément**, pas à l'élément lui-même. C'est la propriété clé du glassmorphism.
+### `backdrop-filter` — le glassmorphism
 
-```css title="CSS — Glassmorphism avec backdrop-filter"
+`backdrop-filter` applique un filtre au **fond visible derrière l'élément**, pas à l'élément lui-même. C'est la propriété clé du glassmorphism.
+
+```css title="CSS - Glassmorphism avec backdrop-filter"
 /* Carte de verre */
 .glass-card {
     background: rgba(255, 255, 255, 0.12);
@@ -317,7 +296,7 @@ Les filtres CSS appliquent des traitements visuels à un élément et à son con
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Navigation fixe avec effet de verre */
+/* Navigation fixe translucide */
 .site-header {
     position: sticky;
     top: 0;
@@ -332,23 +311,21 @@ Les filtres CSS appliquent des traitements visuels à un élément et à son con
         background: rgba(15, 15, 26, 0.6);
         border-color: rgba(255, 255, 255, 0.08);
     }
-
-    .site-header {
-        background: rgba(15, 15, 26, 0.75);
-    }
 }
 ```
 
-!!! note "Support navigateurs"
-    `backdrop-filter` est supporté par Chrome 76+, Safari 9+, Firefox 103+, Edge 79+. Pour les navigateurs qui ne le supportent pas, utilisez `@supports` :
+!!! info "Support navigateurs et fallback"
+    `backdrop-filter` est supporté par Chrome 76+, Safari 9+, Firefox 103+, Edge 79+. Pour les navigateurs sans support, utilisez `@supports` :
 
-    ```css
+    ```css title="CSS - Fallback avec @supports"
     @supports not (backdrop-filter: blur(10px)) {
         .glass-card {
-            background: rgba(255, 255, 255, 0.95); /* Fond opaque en fallback */
+            background: rgba(255, 255, 255, 0.95); /* Fond opaque en repli */
         }
     }
     ```
+
+<br>
 
 ---
 
@@ -356,35 +333,30 @@ Les filtres CSS appliquent des traitements visuels à un élément et à son con
 
 `clip-path` découpe un élément selon une forme géométrique. Tout ce qui est hors de la forme est invisible.
 
-### Formes disponibles
+<br>
 
-```css title="CSS — Clip-path : les quatre fonctions de base"
+### Les formes disponibles
+
+```css title="CSS - Les quatre fonctions clip-path"
 /* circle() : cercle */
-.avatar {
-    clip-path: circle(50%);        /* Cercle parfait */
-    clip-path: circle(40% at 50% 50%); /* Rayon 40 %, centré */
-}
+.avatar      { clip-path: circle(50%); }
+.avatar-sm   { clip-path: circle(40% at 50% 50%); }
 
 /* ellipse() : ellipse */
-.element {
-    clip-path: ellipse(60% 40%); /* Rayon X: 60 %, Y: 40 % */
-}
+.element { clip-path: ellipse(60% 40%); }
 
-/* inset() : rectangle avec coins optionnellement arrondis */
-.element {
-    clip-path: inset(10px 20px);          /* Rognage haut/bas: 10px, gauche/droite: 20px */
-    clip-path: inset(10px round 8px);     /* Rognage + coins arrondis */
-}
+/* inset() : rectangle avec rognage et coins optionnels */
+.element { clip-path: inset(10px 20px); }
+.element { clip-path: inset(10px round 8px); }
 
 /* polygon() : forme libre par coordonnées X Y */
 .triangle {
     clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-    /* Sommet haut-centre, bas-droite, bas-gauche */
 }
 
 .hexagon {
     clip-path: polygon(
-        25% 0%, 75% 0%,
+        25% 0%,  75% 0%,
         100% 50%,
         75% 100%, 25% 100%,
         0% 50%
@@ -399,13 +371,15 @@ Les filtres CSS appliquent des traitements visuels à un élément et à son con
 }
 ```
 
-!!! tip "Générateur clip-path"
-    Le site [bennettfeely.com/clippy](https://bennettfeely.com/clippy) permet de créer visuellement des polygones et de copier le code CSS généré.
+!!! tip "Générateur visuel"
+    [bennettfeely.com/clippy](https://bennettfeely.com/clippy) permet de créer visuellement des polygones et de copier le code CSS généré.
 
-### Animations de clip-path
+<br>
 
-```css title="CSS — Transitions entre formes clip-path"
-/* Révélation circulaire */
+### Animer `clip-path`
+
+```css title="CSS - Transitions et révélations avec clip-path"
+/* Révélation circulaire depuis le centre */
 @keyframes reveal-circle {
     from { clip-path: circle(0% at 50% 50%); }
     to   { clip-path: circle(100% at 50% 50%); }
@@ -415,7 +389,7 @@ Les filtres CSS appliquent des traitements visuels à un élément et à son con
     animation: reveal-circle 0.8s ease-out forwards;
 }
 
-/* Slide depuis la gauche */
+/* Glissement depuis la gauche */
 @keyframes slide-reveal {
     from { clip-path: inset(0 100% 0 0); }
     to   { clip-path: inset(0 0% 0 0); }
@@ -424,38 +398,37 @@ Les filtres CSS appliquent des traitements visuels à un élément et à son con
 .slide-in {
     animation: slide-reveal 0.6s ease-out forwards;
 }
-
-/* Important : les deux clip-path doivent utiliser la même fonction pour être animables */
 ```
+
+*Les deux clip-path à animer doivent utiliser la même fonction (les deux `circle`, ou les deux `inset`). Les fonctions différentes ne peuvent pas être interpolées.*
+
+<br>
 
 ---
 
 ## Blend Modes
 
-Les blend modes définissent comment un élément se fond visuellement avec ce qui est derrière lui, à l'image des modes de fusion de Photoshop.
+Les blend modes définissent comment un élément se fond visuellement avec ce qui est derrière lui — à l'image des modes de fusion Photoshop.
 
-```css title="CSS — mix-blend-mode et background-blend-mode"
+```css title="CSS - mix-blend-mode et background-blend-mode"
 /* mix-blend-mode : fusion entre l'élément et son arrière-plan */
-.element {
-    mix-blend-mode: multiply;  /* Multiplication des channels couleur */
-    mix-blend-mode: screen;    /* Inverse du multiply, éclaircit */
-    mix-blend-mode: overlay;   /* Combine multiply et screen */
-    mix-blend-mode: darken;    /* Conserve les pixels les plus sombres */
-    mix-blend-mode: lighten;   /* Conserve les pixels les plus clairs */
-    mix-blend-mode: difference;/* Soustraction absolue (effet négatif partiel) */
-    mix-blend-mode: color;     /* Applique la teinte de l'élément */
-    mix-blend-mode: luminosity;/* Applique la luminosité de l'élément */
-}
+.element { mix-blend-mode: multiply; }   /* Multiplication des channels */
+.element { mix-blend-mode: screen; }     /* Inverse du multiply, éclaircit */
+.element { mix-blend-mode: overlay; }    /* Combine multiply et screen */
+.element { mix-blend-mode: darken; }     /* Conserve les pixels les plus sombres */
+.element { mix-blend-mode: lighten; }    /* Conserve les pixels les plus clairs */
+.element { mix-blend-mode: difference; } /* Soustraction absolue */
+.element { mix-blend-mode: color; }      /* Applique la teinte de l'élément */
+.element { mix-blend-mode: luminosity; } /* Applique la luminosité de l'élément */
 
-/* Exemple : texte qui se fusionne avec une image de fond */
+/* Texte blanc fusionné avec un fond dégradé */
 .hero-title {
     color: #ffffff;
     mix-blend-mode: overlay;
-    /* Le texte blanc s'intègre visuellement au gradient de fond */
 }
 
 /* background-blend-mode : fusion entre background-image et background-color */
-.section {
+.section-teintee {
     background-image: url('texture.jpg');
     background-color: #667eea;
     background-blend-mode: multiply;
@@ -463,24 +436,23 @@ Les blend modes définissent comment un élément se fond visuellement avec ce q
 }
 ```
 
+<br>
+
 ---
 
 ## Gradients
 
-### linear-gradient
+<br>
 
-```css title="CSS — Gradients linéaires"
-/* Dégradé simple : de gauche à droite (défaut) */
-.element {
-    background: linear-gradient(#667eea, #764ba2);
-}
+### `linear-gradient`
 
-/* Direction en degrés ou mots-clés */
-.element {
-    background: linear-gradient(to right, #667eea, #764ba2);
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
+```css title="CSS - Dégradés linéaires"
+/* Dégradé simple */
+.element { background: linear-gradient(#667eea, #764ba2); }
+
+/* Direction explicite */
+.element { background: linear-gradient(to right, #667eea, #764ba2); }
+.element { background: linear-gradient(45deg, #667eea, #764ba2); }
 
 /* Multi-couleurs avec positions */
 .element {
@@ -493,34 +465,35 @@ Les blend modes définissent comment un élément se fond visuellement avec ce q
 }
 ```
 
-### radial-gradient et conic-gradient
+<br>
 
-```css title="CSS — Gradients radiaux et coniques"
-/* Dégradé radial : du centre vers l'extérieur */
-.element {
-    background: radial-gradient(circle, #667eea 0%, #764ba2 100%);
-    background: radial-gradient(ellipse at top left, #667eea, #764ba2);
-}
+### `radial-gradient` et `conic-gradient`
 
-/* Dégradé conique (roue chromatique, graphiques en secteurs) */
-.element {
-    background: conic-gradient(#667eea, #764ba2, #f093fb, #667eea);
-}
+```css title="CSS - Dégradés radiaux et coniques"
+/* Dégradé radial depuis le centre */
+.element { background: radial-gradient(circle, #667eea 0%, #764ba2 100%); }
+.element { background: radial-gradient(ellipse at top left, #667eea, #764ba2); }
 
-/* Graphique en secteurs CSS */
+/* Dégradé conique — roue chromatique */
+.element { background: conic-gradient(#667eea, #764ba2, #f093fb, #667eea); }
+
+/* Graphique en secteurs 100% CSS */
 .pie-chart {
     border-radius: 50%;
     background: conic-gradient(
-        #667eea  0%   35%,   /* 35 % : Premier secteur */
-        #764ba2  35%  60%,   /* 25 % : Deuxième secteur */
-        #f093fb  60%  100%   /* 40 % : Troisième secteur */
+        #667eea  0%  35%,   /* 35 % */
+        #764ba2 35%  60%,   /* 25 % */
+        #f093fb 60% 100%    /* 40 % */
     );
 }
 ```
 
-### Mesh gradient (tendance 2024-2026)
+<br>
 
-```css title="CSS — Mesh gradient avec radial-gradient superposés"
+### Mesh gradient
+
+```css title="CSS - Mesh gradient avec radial-gradient superposés"
+/* Plusieurs radial-gradient empilés créent des taches de couleur lumineuses */
 .hero {
     background-color: #0f0f1a;
     background-image:
@@ -530,34 +503,32 @@ Les blend modes définissent comment un élément se fond visuellement avec ce q
 }
 ```
 
-_Plusieurs `radial-gradient` superposés créent un effet de "taches de couleur" (mesh gradient) très tendance depuis 2023. Ils sont légers et 100 % CSS._
+*Ce pattern "mesh gradient" est très utilisé depuis 2023 pour les sections hero. Il est léger, 100% CSS, et ne nécessite aucune image externe.*
+
+<br>
 
 ---
 
 ## Container Queries
 
-!!! info "CSS 2023 — support navigateurs"
-    Les container queries sont disponibles dans Chrome 105+, Firefox 110+, Safari 16+, Edge 105+. Ils remplacent avantageusement les media queries pour les composants réutilisables.
+!!! note "Référence croisée"
+    Les unités `cqw` et `cqh` ont été introduites dans le [module 03 — Unités de Mesures](./03-unites-mesures-css.md). Ce module présente la syntaxe `@container` complète pour les styles conditionnels.
 
-Les container queries permettent de conditionner les styles à la taille du **conteneur direct** de l'élément, plutôt qu'à celle du viewport.
-
-```css title="CSS — Container queries : composant auto-adaptatif"
-/* 1. Déclarer un conteneur */
+```css title="CSS - Composant auto-adaptatif avec @container"
+/* 1. Déclarer le contexte de conteneur sur le parent */
 .card-wrapper {
-    container-type: inline-size; /* Active le container query sur la largeur */
-    container-name: card;        /* Nom optionnel mais pratique */
+    container-type: inline-size;
+    container-name: card;
 }
 
-/* 2. Styles conditionnels selon la largeur du conteneur */
-
-/* Par défaut : layout vertical (petite taille) */
+/* 2. Styles par défaut : layout vertical pour les petits conteneurs */
 .card {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-/* Quand le conteneur fait au moins 400 px de large */
+/* 3. Styles conditionnels quand le CONTENEUR fait au moins 400px */
 @container card (min-width: 400px) {
     .card {
         flex-direction: row;
@@ -571,93 +542,83 @@ Les container queries permettent de conditionner les styles à la taille du **co
 }
 ```
 
-_Le même composant `.card` s'affichera différemment selon qu'il est dans une sidebar de 300 px ou une zone principale de 800 px — sans media query sur le viewport._
+*Le même composant `.card` s'affiche différemment dans une sidebar de 300px ou une zone principale de 800px — sans media query sur le viewport. C'est la puissance des container queries pour les architectures de composants.*
+
+<br>
 
 ---
 
-## Sélecteurs CSS modernes
+## `@layer` — Couches de cascade
 
-### :is(), :where() et :has()
+`@layer` résout les conflits de spécificité en organisant les styles en couches ordonnées. La couche déclarée en dernier est la plus prioritaire.
 
-```css title="CSS — Sélecteurs de niveau 4"
-/* :is() : groupe de sélecteurs avec poids CSS normal */
-:is(h1, h2, h3, h4) {
-    line-height: 1.2;
-    font-weight: 700;
-}
-
-/* Equivalent à h1, h2, h3, h4 { … } mais plus lisible */
-
-/* :where() : identique à :is() mais avec spécificité 0  */
-:where(h1, h2, h3) {
-    margin-bottom: 1rem;
-}
-
-/* :has() : sélectionne un parent selon son contenu */
-/* Sélectionne .card qui CONTIENT un élément img */
-.card:has(img) {
-    padding: 0;
-}
-
-/* Sélectionne .form-group dont l'input est invalide */
-.form-group:has(input:invalid) {
-    color: var(--color-danger);
-}
-```
-
-!!! note "Compatibilité :has()"
-    `:has()` est supporté dans Chrome 105+, Safari 15.4+, Firefox 121+. C'est le sélecteur le plus puissant jamais ajouté à CSS — il permet des logiques qui nécessitaient auparavant JavaScript.
-
-### @layer — couches de cascade
-
-```css title="CSS — Gestion des couches de cascade"
-/* Déclarer les couches dans l'ordre de priorité voulue */
+```css title="CSS - Organisation des styles en couches"
+/* Déclaration de l'ordre des couches */
 @layer reset, base, components, utilities;
 
+/* Les styles dans une couche plus prioritaire gagnent,
+   quelle que soit leur spécificité CSS interne */
+
 @layer reset {
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 }
 
 @layer base {
-    body { font-family: var(--font-sans); color: var(--text-primary); }
+    body {
+        font-family: var(--font-sans);
+        color: var(--text-primary);
+    }
 }
 
 @layer components {
-    .btn { /* styles du bouton */ }
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius-md);
+    }
 }
 
+/* Les utilities surclassent les composants grâce à l'ordre des couches,
+   pas grâce à une spécificité plus élevée */
 @layer utilities {
     .text-center { text-align: center; }
-    .hidden { display: none; }
+    .hidden      { display: none; }
 }
-
-/* Les utility classes surclassent les composants, les composants surclassent la base */
 ```
 
-_`@layer` résout les conflits de spécificité par ordre de déclaration des couches. Les styles dans une couche de priorité supérieure gagnent, quelle que soit leur spécificité CSS._
+*`@layer` est particulièrement utile pour intégrer des bibliothèques CSS tierces dans une couche de faible priorité, puis les surcharger facilement depuis votre couche `components` ou `utilities` sans `!important`.*
+
+<br>
 
 ---
 
-## CSS Nesting (Imbrication native)
+## CSS Nesting — Imbrication native
 
-L'imbrication (Nesting) permet d'écrire des règles CSS de manière hiérarchique. Historiquement, cette fonctionnalité extrêmement plébiscitée nécessitait l'installation d'un préprocesseur comme **SCSS** (Sass) ou **Less**. Depuis fin 2023, c'est **une fonctionnalité complètement native dans le langage CSS3** !
+Le Nesting permet d'écrire des règles CSS hiérarchiquement. Fonctionnalité phare de SCSS pendant des années, elle est désormais **native dans le langage CSS** depuis fin 2023.
+
+<br>
 
 ### Syntaxe de base
 
-```css title="CSS — Imbrication basique"
-/* Avant : la répétition constante du sélecteur parent était obligatoire */
-.card { background: white; padding: 1rem; }
-.card .title { font-size: 1.5rem; }
+```css title="CSS - Nesting natif vs ancienne écriture répétitive"
+/* AVANT : répétition constante du sélecteur parent */
+.card             { background: white; padding: 1rem; }
+.card .title      { font-size: 1.5rem; }
 .card .title span { color: var(--color-primary); }
 
-/* Aujourd'hui, on imbrique logiquement la cascade : Le Nesting natif ! */
+/* AUJOURD'HUI : imbrication logique */
 .card {
     background: white;
     padding: 1rem;
-    
+
     .title {
         font-size: 1.5rem;
-        
+
         span {
             color: var(--color-primary);
         }
@@ -665,56 +626,79 @@ L'imbrication (Nesting) permet d'écrire des règles CSS de manière hiérarchiq
 }
 ```
 
-### Le sélecteur parent référent `&`
+<br>
 
-Le symbole `&` référence le parent de la portée d'imbrication actuelle. Il est vital pour enchaîner les fameuses pseudo-classes (`:hover`), concaténer des modificateurs d'état ou pointer la fraterie.
+### Le sélecteur parent `&`
 
-```css title="CSS — Nesting avancé avec le symbole &"
+Le symbole `&` référence le sélecteur parent courant. Il est indispensable pour enchaîner les pseudo-classes, les modificateurs d'état et les sélecteurs frères.
+
+```css title="CSS - Nesting avancé avec le symbole &"
 .btn {
     background: var(--color-primary);
     color: white;
-    
-    /* Vise le hover DIRECTEMENT rattaché au parent ".btn:hover" */
+
+    /* .btn:hover */
     &:hover {
         background: var(--color-secondary);
         transform: translateY(-2px);
     }
-    
-    /* Fusionne une classe pour marquer un état ".btn.is-active" */
+
+    /* .btn.is-active */
     &.is-active {
         box-shadow: 0 0 0 2px var(--color-accent);
     }
-    
-    /* Vise la fraterie directe : "Si un bouton vient juste après un autre bouton" */
+
+    /* Bouton immédiatement suivi d'un autre bouton */
     & + & {
         margin-left: 1rem;
     }
 }
+
+/* Nesting avec media queries */
+.hero {
+    font-size: 2rem;
+    padding: 2rem;
+
+    @media (max-width: 768px) {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+}
 ```
 
-!!! tip "L'ère moderne"
-    Le Nesting permet au code CSS de calquer exactement la structure arborescente visuelle de la page HTML. Il supprime la charge cognitive de lecture et réduit considérablement le besoin d'outils de compilation tiers sur des projets Frontend modernes.
+*Le nesting natif permet au CSS de refléter directement la structure hiérarchique du HTML. Il supprime la charge cognitive de lecture des feuilles de style longues et réduit le besoin de préprocesseurs comme SCSS sur les nouveaux projets.*
+
+!!! info "Support navigateurs"
+    Le Nesting CSS natif est disponible dans Chrome 112+, Firefox 117+, Safari 17.2+, Edge 112+. En 2025, le support dépasse 92% des utilisateurs mondiaux.
+
+<br>
+
+---
+
+## Tableau récapitulatif
+
+| Propriété / Technique | Usage principal |
+| --- | --- |
+| `--var` / `var()` | Design system centralisé, thèmes, dark mode |
+| `filter` | Effets photo, hover désaturation |
+| `backdrop-filter` | Glassmorphism, navigation translucide |
+| `clip-path` | Formes décoratives, révélations animées |
+| `mix-blend-mode` | Fusion de calques, effets graphiques |
+| `linear-gradient` | Fonds, overlays, boutons dégradés |
+| `conic-gradient` | Graphiques, effets coniques |
+| `@container` | Composants auto-adaptatifs |
+| `@layer` | Organisation et priorité de la cascade |
+| Nesting (`&`) | Hiérarchie lisible sans SCSS |
+
+<br>
 
 ---
 
 ## Conclusion
 
-!!! quote "Ce qu'il faut retenir"
-    Les **variables CSS** centralisent votre design system et permettent le dark mode sans JavaScript. Les **filtres** (`blur`, `grayscale`, `brightness` et `backdrop-filter`) ouvrent la porte au glassmorphism et aux traitements d'images dynamiques. **Clip-path**, **blend modes** et **gradients** donnent au CSS un pouvoir graphique que l'on réservait autrefois à Photoshop. Les **container queries** et les sélecteurs `:is()`, `:has()`, `@layer` sont la génération suivante du CSS — largement supportés en 2025.
+!!! quote "Ce qu'il faut retenir de ce module"
+    Les **variables CSS** centralisent votre design system et permettent le dark mode sans JavaScript. Les **filtres** (`blur`, `grayscale`, `brightness`, `backdrop-filter`) ouvrent la porte au glassmorphism et aux traitements d'images dynamiques. **Clip-path**, **blend modes** et **gradients** donnent au CSS un pouvoir graphique autrefois réservé à Photoshop. `@layer` organise la cascade sans guerre de spécificité. Le **Nesting natif** remplace SCSS pour la majorité des projets modernes.
 
-| Propriété | Usage principal |
-|-----------|----------------|
-| `--var` / `var()` | Design system, thèmes, dark mode |
-| `filter` | Effets photo, hover desaturation |
-| `backdrop-filter` | Glassmorphism, navigation translucide |
-| `clip-path` | Formes décoratives, révélations animées |
-| `mix-blend-mode` | Fusion calques, effets créatifs |
-| `linear-gradient` | Fonds, overlays, boutons |
-| `conic-gradient` | Graphiques, effets coniques |
-| `@container` | Composants auto-adaptatifs |
-| `:has()` | Logique parent-enfant en CSS pur |
-| `Nesting (&)` | Structurer l'arborescence proprement sans SCSS |
-
-> Vous maîtrisez maintenant l'ensemble de la chaîne CSS — des fondamentaux aux propriétés avancées. L'étape suivante est de mettre en pratique toutes ces compétences dans un projet concret : le [Projet Final HTML/CSS](../../../projets/html-css-vitrine/index.md), où vous construirez un site vitrine professionnel multi-pages en HTML et CSS uniquement.
+> Dans le module suivant, nous explorerons les ressources et approfondissements pour **aller plus loin** : outils de design, ressources communautaires, et pratiques avancées de l'industrie CSS en 2025.
 
 <br>

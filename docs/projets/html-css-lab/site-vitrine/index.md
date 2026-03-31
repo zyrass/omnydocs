@@ -113,7 +113,7 @@ graph TB
     !!! quote "**Arbre Document Object Model (DOM)** représentant l'imbrication stricte des balises selon les standards du W3C."
 
     ```mermaid
-    graph TD
+    flowchart TD
         BODY[body] --> HEADER[header.main-header]
         HEADER --> NAV[nav.navbar]
         NAV --> LOGO[a.logo]
