@@ -20,6 +20,8 @@ tags: ["SWIFT", "STRUCT", "CLASS", "VALUE-TYPE", "REFERENCE-TYPE"]
 
     Cette distinction — **value type vs reference type** — est la décision architecturale la plus importante en Swift. SwiftUI est entièrement construit sur des structs.
 
+![Diagramme — Value Type (Struct) vs Reference Type (Class) : comportement mémoire comparé](assets/value-semantics.png)
+
 <br>
 
 ---

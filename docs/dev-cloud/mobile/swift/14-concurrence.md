@@ -421,6 +421,73 @@ actor ServiceCache {
 
 ---
 
+## Exercices
+
+!!! note "À vous de jouer"
+
+**Exercice 1 — `async/await` séquentiel**
+
+```swift title="Swift - Exercice 1"
+// Écrivez une fonction async qui simulate le chargement d'un utilisateur
+// puis de ses articles, et affiche le total
+
+func fetchUser(id: Int) async -> String {
+    try? await Task.sleep(for: .milliseconds(200))
+    return "Alice"
+}
+
+func fetchArticles(for user: String) async -> [String] {
+    try? await Task.sleep(for: .milliseconds(300))
+    return ["Article 1", "Article 2", "Article 3"]
+}
+
+// TODO : écrivez afficherProfil() qui appelle les deux fonctions
+// et affiche : "Alice a 3 articles"
+// Puis réécrivez-la avec async let pour les exécuter en parallèle
+```
+
+**Exercice 2 — Task annulable**
+
+```swift title="Swift - Exercice 2"
+// Créez une Task qui effectue un comptage de 1 à 10 (500ms par étape)
+// Annulez-la après 2 secondes et vérifiez que le compte s'arrête
+
+let tâche = Task {
+    for i in 1...10 {
+        // TODO : vérifiez l'annulation ici
+        try await Task.sleep(for: .milliseconds(500))
+        print("Compte : \(i)")
+    }
+}
+
+try await Task.sleep(for: .seconds(2))
+tâche.cancel()
+// Combien de lignes devrait-on voir ?
+```
+
+**Exercice 3 — Actor thread-safe**
+
+```swift title="Swift - Exercice 3"
+// Implémentez un Actor `BanqueActor` avec :
+// - var solde: Double (privé)
+// - func déposer(_ montant: Double)
+// - func retirer(_ montant: Double) throws -> Double
+// - func soldeActuel() -> Double
+
+// Puis testez avec plusieurs Tasks simultanées :
+// let banque = BanqueActor(soldeInitial: 1000.0)
+// await withTaskGroup(of: Void.self) { groupe in
+//     for _ in 1...5 {
+//         groupe.addTask { try? await banque.retirer(100.0) }
+//     }
+// }
+// print(await banque.soldeActuel())   // 500.0
+```
+
+<br>
+
+---
+
 ## Conclusion
 
 !!! quote "Ce qu'il faut retenir de ce module"

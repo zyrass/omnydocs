@@ -30,6 +30,8 @@ tags: ["SWIFT", "ARC", "MÉMOIRE", "WEAK", "UNOWNED", "RETAIN-CYCLE", "CLOSURES"
 
 ARC est le mécanisme de gestion mémoire de Swift pour les **reference types** (les classes). Les value types (structs, enums, arrays) ne sont pas concernés — ils sont alloués et libérés automatiquement sur la stack.
 
+![Diagramme — Cycle de vie ARC : comptage de références, libération et cycles de rétention](assets/arc-lifecycle.png)
+
 ```swift title="Swift - ARC : comptage de références automatique"
 class Connexion {
     let nom: String
@@ -355,11 +357,96 @@ flowchart TD
 
 ---
 
+## Exercices
+
+!!! note "À vous de jouer"
+
+**Exercice 1 — Observer ARC avec `deinit`**
+
+```swift title="Swift - Exercice 1"
+// Créez une class Ressource avec init et deinit qui impriment un message
+// Instanciez trois références vers le même objet
+// Définissez-les à nil une par une et observez quand deinit est appelé
+
+class Ressource {
+    let nom: String
+    init(nom: String) {
+        self.nom = nom
+        print("✅ Ressource '\(nom)' créée")
+    }
+    deinit { print("🗑️ Ressource '\(nom)' libérée") }
+}
+
+// ? Quand exactement deinit est-il appelé ?
+// var r1: Ressource? = Ressource(nom: "Fichier")
+// var r2: Ressource? = r1
+// var r3: Ressource? = r2
+// r1 = nil   // deinit ici ?
+// r2 = nil   // deinit ici ?
+// r3 = nil   // deinit ici ?
+```
+
+**Exercice 2 — Détecter et corriger un cycle de rétention**
+
+```swift title="Swift - Exercice 2"
+// Ce code contient un cycle de rétention — trouvez-le et corrigez-le
+
+class Nœud {
+    var valeur: Int
+    var suivant: Nœud?   // référence forte
+    var précédent: Nœud? // référence forte — PROBLÈME?
+
+    init(_ valeur: Int) { self.valeur = valeur }
+    deinit { print("Nœud \(valeur) libéré") }
+}
+
+var n1: Nœud? = Nœud(1)
+var n2: Nœud? = Nœud(2)
+
+n1?.suivant = n2
+n2?.précédent = n1
+
+n1 = nil
+n2 = nil
+// deinit est-il appelé ? Sinon, comment corriger ?
+```
+
+**Exercice 3 — Capture list dans une closure**
+
+```swift title="Swift - Exercice 3"
+// Completez la classe pour éviter le cycle de rétention dans la closure
+
+class Minuterie {
+    var compte: Int = 0
+    var surTick: (() -> Void)?
+
+    func démarrer() {
+        // TODO : ajoutez la capture list appropriée
+        surTick = {
+            self.compte += 1
+            print("Tick : \(self.compte)")
+        }
+    }
+
+    deinit { print("Minuterie libérée") }
+}
+
+// Vérifiez que deinit est appelé :
+// var m: Minuterie? = Minuterie()
+// m?.démarrer()
+// m?.surTick?()
+// m = nil   // deinit doit être appelé ici
+```
+
+<br>
+
+---
+
 ## Conclusion
 
 !!! quote "Ce qu'il faut retenir de ce module"
     ARC gère automatiquement la mémoire des reference types en comptant les références actives. Un objet est libéré quand son compteur atteint zéro. Les **cycles de rétention** empêchent ce compteur d'atteindre zéro — les objets restent en mémoire indéfiniment. `weak` brise les cycles en ne contribuant pas au comptage — la référence devient `nil` automatiquement si l'objet est libéré. `unowned` ne contribue pas au comptage et suppose que l'objet existera toujours — crash sinon. Dans les closures, `[weak self]` est le pattern standard pour éviter de capturer `self` dans un cycle.
 
-> Vous avez terminé les 13 modules du langage Swift. Vous maîtrisez maintenant les fondations complètes pour aborder **SwiftUI** — les Properties Wrappers (`@State`, `@Binding`), les Views déclaratives et le State management s'appuient directement sur les Protocols, les Generics, les Closures et les Structs que vous venez d'étudier.
+> Vous avez terminé les 15 modules de robustesse Swift. Poursuivez avec les **3 modules de préparation SwiftUI** — KeyPaths (16), Result Builders (17) et Combine (18) — qui s'appuient directement sur tout ce que vous venez d'étudier.
 
 <br>

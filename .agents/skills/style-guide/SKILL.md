@@ -137,4 +137,3 @@ Priorité absolue :
 2. Pédagogie
 3. Cohérence
 4. Exhaustivité
-

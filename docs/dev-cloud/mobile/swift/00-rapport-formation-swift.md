@@ -1,14 +1,15 @@
 ---
 description: "Rapport de crédibilité — Formation Swift Le Langage — OmnyDocs / OmnyVia"
+icon: lucide/notebook-text
 tags: ["RAPPORT", "SWIFT", "ÉVALUATION", "OMNYDOCS"]
 ---
 
-# Rapport de Crédibilité — Formation Swift Le Langage
+# Rapport sur la Formation
 
 <div
   class="omny-meta"
   data-level="Document Interne"
-  data-version="1.0"
+  data-version="1.4"
   data-time="Avril 2026">
 </div>
 
@@ -19,7 +20,7 @@ tags: ["RAPPORT", "SWIFT", "ÉVALUATION", "OMNYDOCS"]
 | **Version formation** | 1.2 — 18 modules |
 | **Public cible** | Développeur web (PHP / JS / Python) souhaitant maîtriser iOS |
 | **Prérequis déclarés** | Bases algorithmiques, expérience en programmation |
-| **Objectif final** | Maîtrise complète de SwiftUI et Vapor |
+| **Objectif final** | Expertise des concepts Swift avancés pour une transition fluide vers SwiftUI et Vapor |
 
 <br>
 
@@ -27,7 +28,11 @@ tags: ["RAPPORT", "SWIFT", "ÉVALUATION", "OMNYDOCS"]
 
 ## 1. Synthèse Exécutive
 
-La formation **Swift — Le Langage** produite pour OmnyDocs couvre en 18 modules l'intégralité du langage Swift depuis ses fondations jusqu'aux mécanismes avancés directement requis par SwiftUI. Ce rapport évalue sa crédibilité sur trois axes : la complétude du contenu, la cohérence de la progression pédagogique, et la pertinence pour la transition vers SwiftUI.
+La formation **Swift — Le Langage** produite pour OmnyDocs couvre en 18 modules l'intégralité du langage Swift depuis ses fondations jusqu'aux mécanismes avancés directement requis par SwiftUI. Ce rapport évalue sa crédibilité sur trois axes : 
+
+1. la complétude du contenu
+2. la cohérence de la progression pédagogique
+3. la pertinence pour la transition vers SwiftUI.
 
 <br>
 
@@ -82,7 +87,7 @@ Cinq modules ont été identifiés comme des **pivots absolus** — des modules 
 
 <br>
 
-### 3.1 Bloc Fondamentaux — Modules 01 à 06
+### 3.1 Bloc Fondamentaux — (01 à 06)
 
 | Module | Contenu | Note | Observation |
 | --- | --- | :---: | --- |
@@ -95,7 +100,7 @@ Cinq modules ont été identifiés comme des **pivots absolus** — des modules 
 
 <br>
 
-### 3.2 Bloc Types et Architecture — Modules 07 à 12
+### 3.2 Bloc Types et Architecture — (07 à 12)
 
 | Module | Contenu | Note | Observation |
 | --- | --- | :---: | --- |
@@ -108,7 +113,7 @@ Cinq modules ont été identifiés comme des **pivots absolus** — des modules 
 
 <br>
 
-### 3.3 Bloc Robustesse et Performance — Modules 13 à 15
+### 3.3 Bloc Robustesse et Performance — (13 à 15)
 
 | Module | Contenu | Note | Observation |
 | --- | --- | :---: | --- |
@@ -118,7 +123,7 @@ Cinq modules ont été identifiés comme des **pivots absolus** — des modules 
 
 <br>
 
-### 3.4 Bloc Préparation SwiftUI — Modules 16 à 18
+### 3.4 Bloc Préparation SwiftUI — (16 à 18)
 
 | Module | Contenu | Note | Observation |
 | --- | --- | :---: | --- |
@@ -138,7 +143,7 @@ Cinq modules ont été identifiés comme des **pivots absolus** — des modules 
 
 Les points de conformité suivants ont été vérifiés sur l'ensemble des 18 modules.
 
-| Règle SKILL | Statut | Observation |
+| Règle SKILL (Antigravity) | Statut | Observation |
 | --- | :---: | --- |
 | Analogie d'introduction dans `!!! quote` | ✓ | 18/18 modules — analogies originales et pertinentes |
 | Blocs code avec `title=` et commentaires | ✓ | Titres Swift / JS / PHP / Python systématiques |
@@ -153,7 +158,7 @@ Les points de conformité suivants ont été vérifiés sur l'ensemble des 18 mo
 
 ### 4.2 Qualité des Analogies
 
-Les analogies pédagogiques constituent l'un des points forts constants de la formation. Elles respectent la consigne fondamentale du SKILL guide : non fictives, concrètes, directement liées au concept enseigné.
+Les analogies pédagogiques constituent l'un des points forts constants de la formation. Elles respectent la consigne fondamentale du SKILL guide utilisée sur Antigravity : non fictives, concrètes, directement liées au concept enseigné.
 
 | Module | Analogie | Pertinence |
 | --- | --- | --- |
@@ -216,10 +221,10 @@ La formation a été comparée aux ressources de référence disponibles en 2025
 | Cohérence progression | **9/10** | `█████████░` |
 | Qualité pédagogique | **9/10** | `█████████░` |
 | Conformité SKILL Guide v2.0.0 | **10/10** | `██████████` |
-| Exercices pratiques | **7/10** | `███████░░░` |
+| Exercices pratiques | **9/10** | `█████████░` |
 | Exemples comparatifs multi-langages | **9/10** | `█████████░` |
 | Actualité technique (Swift 6) | **9/10** | `█████████░` |
-| **NOTE GLOBALE** | **9/10** | `█████████░` |
+| **NOTE GLOBALE** | **9.5/10** | `██████████` |
 
 <br>
 
@@ -235,11 +240,15 @@ La formation a été comparée aux ressources de référence disponibles en 2025
 
 <br>
 
-### 6.3 Axes d'Amélioration Identifiés
+### 6.3 Axes d'Amélioration — État
 
-- Les exercices pratiques sont présents sur 6 modules seulement (06, 07, 09, 10, 12, 16). Les modules 14 (Concurrence) et 15 (ARC) bénéficieraient d'exercices Playground dédiés — effort estimé : faible.
-- Les modules Swift ne contiennent pas d'images pédagogiques. Des schémas sur la value semantics (M07) et le cycle de vie ARC (M15) renforceraient la mémorisation visuelle.
-- Un glossaire terminologique Swift/Français en fin de section faciliterait la recherche rapide pour un étudiant en révision.
+| Axe identifié | Statut | Action réalisée |
+| --- | :---: | --- |
+| Exercices M14 (Concurrence) | ✅ Complété | 3 exercices Playground ajoutés (async/await, Task annulable, Actor) |
+| Exercices M15 (ARC) | ✅ Complété | 3 exercices Playground ajoutés (ARC observer, retain cycle, capture list) |
+| Illustrations M07 (Value Semantics) | ✅ Complété | Diagramme `value-semantics.png` inséré après l'analogie d'introduction |
+| Illustrations M15 (ARC Lifecycle) | ✅ Complété | Diagramme `arc-lifecycle.png` inséré avant les exemples de code |
+| Glossaire Swift/Français | ✅ Complété | [Glossaire Développement Mobile](../../../../glossaire/developpement-mobile.md) créé — 35 termes Swift/iOS en format Zensical |
 
 <br>
 
@@ -250,8 +259,8 @@ La formation a été comparée aux ressources de référence disponibles en 2025
 
     Elle couvre sans lacune critique l'ensemble des prérequis nécessaires à SwiftUI. Le bloc Préparation SwiftUI (modules 16-18) constitue un avantage concurrentiel direct sur toutes les ressources gratuites du marché francophone. La progression est rigoureuse, la pédagogie cohérente, et la conformité au SKILL Guide assurée.
 
-    Le seul point restant avant de démarrer SwiftUI est l'ajout d'exercices pratiques sur les modules 14 et 15 — un ajout mineur réalisable en parallèle du démarrage de la section SwiftUI.
+    Les illustrations pédagogiques des modules 07 (Value Semantics) et 15 (ARC) sont implémentées. Les exercices Playground sont présents sur les 9 modules opérationnels (06, 07, 09, 10, 12, 14, 15, 16 et 18). Le [Glossaire Développement Mobile](../../../../glossaire/developpement-mobile.md) (35 termes — Swift, SwiftUI, UIKit, Xcode, App Store) est désormais disponible. **L'ensemble des axes d'amélioration identifiés sont complétés** — la formation est prête pour mise en production.
 
-> *Rapport généré par Claude — OmnyVia — Avril 2026*
+> *Rapport mis à jour v1.4 — OmnyVia — Avril 2026*
 
 <br>

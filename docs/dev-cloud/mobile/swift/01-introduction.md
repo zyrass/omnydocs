@@ -353,11 +353,18 @@ Mettons ensemble ce que vous venez d'apprendre dans un programme cohérent.
     let version = "1.0.0"
     let langage = "Swift"
 
+    // Détection de la version Swift à la compilation (on abordera #if en modules avancés)
+    #if swift(>=5.10)
+    let swiftVersion = "5.10+"
+    #else
+    let swiftVersion = "< 5.10"
+    #endif
+
     // Affichage avec interpolation
     print("=== \(nomApplication) ===")
     print("Version : \(version)")
     print("Langage : \(langage)")
-    print("Compilé avec : Swift \(#if swift(>=5.10) "5.10+" #else "< 5.10" #endif)")
+    print("Compilé avec : Swift \(swiftVersion)")
 
     // Séparateur visuel
     print(String(repeating: "-", count: 30))
@@ -366,6 +373,19 @@ Mettons ensemble ce que vous venez d'apprendre dans un programme cohérent.
     print("Bienvenue dans l'apprentissage de Swift !")
     print("Ce langage vous prépare à SwiftUI et Vapor.")
     ```
+
+!!! warning "Deux notions aperçues ici — vous les verrez en détail plus tard"
+    Ce programme introduit deux mécanismes que vous n'avez pas encore étudiés.
+
+    **1 — L'interpolation de chaînes `\( )`**
+
+    La syntaxe `\(swiftVersion)` insère la valeur d'une variable directement dans une `String`. C'est l'équivalent Swift des template literals JavaScript (`` `${maVar}` ``) ou des f-strings Python (`f"{ma_var}"`). Vous l'aborderez formellement dans la section **L'interpolation de chaînes** de ce même module, puis dans le module 02.
+
+    **2 — La compilation conditionnelle `#if` / `#else` / `#endif`**
+
+    Cette syntaxe permet d'inclure ou exclure du code selon des conditions connues **au moment de la compilation** (pas à l'exécution). Ici, `#if swift(>=5.10)` demande au compilateur : "si la version de Swift est 5.10 ou supérieure, compile cette ligne ; sinon, compile l'autre". Ce mécanisme est propre aux langages compilés comme Swift et C — vous le rencontrerez dans les modules avancés.
+
+    Pour ce module d'introduction, retenez simplement que `\(nomVariable)` permet d'insérer une valeur dans un texte.
 
 === ":simple-javascript: JavaScript"
 
