@@ -8,8 +8,8 @@ tags: ["SWIFT", "IOS", "LANGAGE", "APPLE", "XCODE"]
 <div
   class="omny-meta"
   data-level="🟢 Débutant → 🔴 Avancé"
-  data-version="1.0"
-  data-time="4-6 semaines">
+  data-version="1.2"
+  data-time="6-8 semaines">
 </div>
 
 !!! quote "Analogie"
@@ -22,13 +22,13 @@ Swift est le langage de programmation officiel d'Apple. Compilé, statiquement t
 Ce parcours couvre Swift de zéro jusqu'au niveau requis pour aborder SwiftUI et Vapor avec une compréhension solide — pas en surface.
 
 !!! note "Comment lire cette section"
-    Le parcours est rigoureusement séquentiel. Les **Optionals** (module 06) sont le concept le plus déroutant pour un développeur venant de PHP ou JavaScript — ne les survolez pas. Les **Protocols** (module 09) sont la fondation de SwiftUI — sans eux, `@State` et `@Binding` resteront des formules magiques incomprises.
+    Le parcours est rigoureusement séquentiel. Cinq modules sont des **pivots absolus** : les Optionals (06), les Protocols (09), Codable (10), les Property Wrappers (12) et les Result Builders (17). Sans eux, SwiftUI reste une boîte noire. Les modules 16 à 18 sont spécifiquement conçus pour préparer la transition vers SwiftUI.
 
 <br>
 
 ---
 
-## Les treize modules
+## Fondamentaux du Langage
 
 <div class="grid cards" markdown>
 
@@ -56,7 +56,7 @@ Ce parcours couvre Swift de zéro jusqu'au niveau requis pour aborder SwiftUI et
 
 - ### :lucide-function-square: 04. Fonctions et Closures
     ---
-    Déclaration, paramètres nommés, valeurs de retour, fonctions comme types, closures et trailing closure syntax.
+    Paramètres nommés, valeurs de retour, **`@escaping`**, fonctions comme types, closures et trailing closure syntax.
 
     [Voir le module 04](./04-fonctions-closures.md)
 
@@ -66,29 +66,35 @@ Ce parcours couvre Swift de zéro jusqu'au niveau requis pour aborder SwiftUI et
 
 - ### :lucide-list: 05. Collections
     ---
-    `Array`, `Dictionary`, `Set` — value semantics, mutabilité, itération et opérations fonctionnelles (`map`, `filter`, `reduce`).
+    `Array`, `Dictionary`, `Set` — value semantics, mutabilité, itération et `map`, `filter`, `reduce`.
 
     [Voir le module 05](./05-collections.md)
 
 - ### :lucide-help-circle: 06. Optionals
     ---
-    Le concept central de Swift. `nil`, `?`, `!`, optional binding, `guard let`, nil coalescing, optional chaining.
+    **Pivot 1/5.** Le concept central de Swift. `nil`, `?`, `!`, optional binding, `guard let`, nil coalescing, optional chaining. Exercices inclus.
 
     [Voir le module 06](./06-optionals.md)
 
 </div>
 
+<br>
+
+---
+
+## Types et Architecture
+
 <div class="grid cards" markdown>
 
 - ### :lucide-box: 07. Structs et Classes
     ---
-    Value types vs Reference types, propriétés, méthodes, initialiseurs, `mutating`, `deinit` et quand choisir l'un ou l'autre.
+    Value types vs Reference types, propriétés, méthodes, `mutating`, `deinit` et quand choisir l'un ou l'autre. Exercices inclus.
 
     [Voir le module 07](./07-structs-classes.md)
 
 - ### :lucide-layers: 08. Enumerations
     ---
-    Enums simples, raw values, associated values, pattern matching — les enums Swift vont bien au-delà des enums classiques.
+    Enums simples, raw values, associated values et pattern matching — les enums Swift vont bien au-delà des enums classiques.
 
     [Voir le module 08](./08-enumerations.md)
 
@@ -98,41 +104,95 @@ Ce parcours couvre Swift de zéro jusqu'au niveau requis pour aborder SwiftUI et
 
 - ### :lucide-plug: 09. Protocols et Extensions
     ---
-    Protocol-Oriented Programming, conformances, extensions de types existants, default implementations — la philosophie centrale de Swift.
+    **Pivot 2/5.** Protocol-Oriented Programming, `Equatable`, `Comparable`, `Hashable`, **`Identifiable`**, extensions, default implementations. Exercices inclus.
 
     [Voir le module 09](./09-protocols-extensions.md)
 
-- ### :lucide-code-2: 10. Generics
+- ### :lucide-braces: 10. Codable — Sérialisation JSON
     ---
-    Fonctions et types génériques, type constraints, associated types dans les protocols — la base de SwiftUI.
+    **Pivot 3/5.** `Codable`, `JSONDecoder`, `JSONEncoder`, `CodingKeys`, snake_case automatique, types imbriqués et pattern réseau complet. Exercices inclus.
 
-    [Voir le module 10](./10-generics.md)
+    [Voir le module 10](./10-codable.md)
 
 </div>
 
 <div class="grid cards" markdown>
 
-- ### :lucide-alert-triangle: 11. Gestion des Erreurs
+- ### :lucide-code-2: 11. Generics
     ---
-    `throws`, `do/catch`, `try`, `try?`, `try!`, le type `Result<T, E>` et les error types personnalisés.
+    Fonctions et types génériques, type constraints, associated types dans les protocols.
 
-    [Voir le module 11](./11-erreurs.md)
+    [Voir le module 11](./11-generics.md)
 
-- ### :lucide-zap: 12. Concurrence Moderne
+- ### :lucide-package: 12. Property Wrappers
     ---
-    `async/await`, `Task`, `Actor`, `@MainActor`, `withTaskGroup` — le modèle de concurrence structurée de Swift.
+    **Pivot 4/5.** `@propertyWrapper`, `wrappedValue`, `projectedValue` (`$`), wrappers paramétrables — pont direct vers `@State`, `@Binding`, `@Published`. Exercices inclus.
 
-    [Voir le module 12](./12-concurrence.md)
+    [Voir le module 12](./12-property-wrappers.md)
+
+</div>
+
+<br>
+
+---
+
+## Robustesse et Performance
+
+<div class="grid cards" markdown>
+
+- ### :lucide-alert-triangle: 13. Gestion des Erreurs
+    ---
+    `throws`, `do/catch`, `try`, `try?`, `try!`, `Result<T, E>`, error types personnalisés et `defer`.
+
+    [Voir le module 13](./13-erreurs.md)
+
+- ### :lucide-zap: 14. Concurrence Moderne
+    ---
+    `async/await`, `Task`, `Actor`, `@MainActor`, **`Sendable`** et le modèle de concurrence Swift 6.
+
+    [Voir le module 14](./14-concurrence.md)
 
 </div>
 
 <div class="grid cards" markdown>
 
-- ### :lucide-memory-stick: 13. ARC et Gestion Mémoire
+- ### :lucide-memory-stick: 15. ARC et Gestion Mémoire
     ---
-    Automatic Reference Counting, cycles de rétention, `weak`, `unowned`, closures et captures — prévenir les memory leaks.
+    Automatic Reference Counting, cycles de rétention, `weak`, `unowned` et captures dans les closures.
 
-    [Voir le module 13](./13-arc-memoire.md)
+    [Voir le module 15](./15-arc-memoire.md)
+
+</div>
+
+<br>
+
+---
+
+## Préparation à SwiftUI
+
+<div class="grid cards" markdown>
+
+- ### :lucide-map-pin: 16. KeyPaths
+    ---
+    `\.propriété`, `WritableKeyPath`, `KeyPath` comme fonction — usage dans `ForEach`, `sorted(by:)` et pont vers `@Binding`.
+
+    [Voir le module 16](./16-keypaths.md)
+
+- ### :lucide-hammer: 17. Result Builders
+    ---
+    **Pivot 5/5.** `@resultBuilder`, `buildBlock`, **`@ViewBuilder`** — comment la syntaxe déclarative `VStack { Text() Button() }` est rendue possible.
+
+    [Voir le module 17](./17-result-builders.md)
+
+</div>
+
+<div class="grid cards" markdown>
+
+- ### :lucide-radio: 18. Combine
+    ---
+    `Publisher`, `Subscriber`, `sink`, `AnyCancellable`, **`@Published`**, **`ObservableObject`** — le câblage réactif entre les ViewModels et SwiftUI.
+
+    [Voir le module 18](./18-combine.md)
 
 </div>
 
@@ -146,25 +206,45 @@ Ce parcours couvre Swift de zéro jusqu'au niveau requis pour aborder SwiftUI et
 flowchart TB
     Start([Démarrage Swift])
 
-    M01["01. Introduction<br/>Xcode et Hello World"]
-    M02["02. Types et Variables<br/>let, var, inférence"]
-    M03["03. Contrôle<br/>if, guard, switch"]
-    M04["04. Fonctions<br/>Paramètres nommés, closures"]
-    M05["05. Collections<br/>Array, Dictionary, Set"]
-    M06["06. Optionals<br/>nil safety — concept central"]
-    M07["07. Structs et Classes<br/>Value vs Reference"]
-    M08["08. Enumerations<br/>Associated values"]
-    M09["09. Protocols<br/>Protocol-Oriented Programming"]
-    M10["10. Generics<br/>Types paramétriques"]
-    M11["11. Erreurs<br/>throws, Result"]
-    M12["12. Concurrence<br/>async/await, Actor"]
-    M13["13. ARC<br/>Gestion mémoire"]
+    subgraph Fondamentaux["Fondamentaux du Langage"]
+        M01["01 — Introduction"]
+        M02["02 — Types/Variables"]
+        M03["03 — Contrôle"]
+        M04["04 — Fonctions/@escaping"]
+        M05["05 — Collections"]
+        M06["06 — Optionals ★"]
+    end
+
+    subgraph Architecture["Types et Architecture"]
+        M07["07 — Structs/Classes"]
+        M08["08 — Enumerations"]
+        M09["09 — Protocols/Identifiable ★"]
+        M10["10 — Codable ★"]
+        M11["11 — Generics"]
+        M12["12 — Property Wrappers ★"]
+    end
+
+    subgraph Robustesse["Robustesse et Performance"]
+        M13["13 — Erreurs"]
+        M14["14 — Concurrence/Sendable"]
+        M15["15 — ARC/Mémoire"]
+    end
+
+    subgraph PrepaSwiftUI["Préparation SwiftUI"]
+        M16["16 — KeyPaths"]
+        M17["17 — Result Builders ★"]
+        M18["18 — Combine"]
+    end
 
     End(["Prêt pour SwiftUI et Vapor"])
 
     Start --> M01 --> M02 --> M03 --> M04 --> M05 --> M06
-    M06 --> M07 --> M08 --> M09 --> M10 --> M11 --> M12 --> M13 --> End
+    M06 --> M07 --> M08 --> M09 --> M10 --> M11 --> M12
+    M12 --> M13 --> M14 --> M15
+    M15 --> M16 --> M17 --> M18 --> End
 ```
+
+*Les modules marqués ★ sont les pivots absolus — ne les survolez pas.*
 
 <br>
 
@@ -172,18 +252,21 @@ flowchart TB
 
 ## Ce qui rend Swift différent des langages web
 
-Pour un développeur venant de PHP, JavaScript ou Python, Swift introduit plusieurs concepts absents ou fondamentalement différents.
-
 | Concept | Swift | Équivalent PHP / JS |
 | --- | --- | --- |
 | `let` vs `var` | Immuabilité au niveau compilateur | `const` JS (partiel), pas d'équivalent PHP natif |
 | Optionals | `nil` explicite, gestion obligatoire | `null` implicite, erreurs à l'exécution |
-| Value types | Les structs sont copiées à l'assignation | Tout objet est une référence en PHP/JS |
+| Value types | Structs copiées à l'assignation | Tout objet est une référence en PHP/JS |
 | `guard` | Sortie anticipée obligatoire | Early return manuel |
-| Protocols | Contrats structurels sans héritage | Interfaces PHP, pas d'équivalent JS natif |
-| Associated values | Enums portant des données | Pas d'équivalent direct |
+| `@escaping` | Closure qui survit à la fonction | Toutes les callbacks JS sont escaping par nature |
+| Codable | Sérialisation JSON synthétisée | `json_encode` / `JSON.parse` sans typage fort |
+| Protocols | Contrats structurels sans héritage | Interfaces PHP, duck typing JS |
+| `Identifiable` | `id` unique requis par `ForEach` | Pas d'équivalent natif |
+| Property Wrappers | Comportement encapsulé sur une propriété | Getters/setters, décorateurs TypeScript |
+| KeyPaths | Référence à une propriété sans sa valeur | Pas d'équivalent direct |
+| Result Builders | DSL déclaratif pour les hierarchies de vues | JSX en React (similaire conceptuellement) |
+| `Sendable` | Sécurité de concurrence au compilateur | Pas d'équivalent natif |
 | ARC | Comptage de références automatique | Garbage Collector |
-| `actor` | Isolation de données pour la concurrence | Pas d'équivalent (JS est single-threaded) |
 
 <br>
 
@@ -192,7 +275,7 @@ Pour un développeur venant de PHP, JavaScript ou Python, Swift introduit plusie
 ## Conclusion
 
 !!! quote "Notre recommandation"
-    Swift récompense la patience. Les modules 06 (Optionals), 07 (Structs/Classes) et 09 (Protocols) sont les trois pivots du langage. Prenez le temps de les maîtriser — chaque concept de SwiftUI est construit dessus. Utilisez Swift Playgrounds pour expérimenter sans friction : pas besoin de créer un projet entier pour tester une idée.
+    Swift récompense la patience. Les cinq pivots sont les modules 06, 09, 10, 12 et 17. Prenez le temps de les maîtriser — ils débloquent SwiftUI entièrement. Les modules 16 à 18 sont spécifiquement conçus pour que la syntaxe de SwiftUI soit immédiatement lisible, pas mystérieuse. Utilisez Swift Playgrounds pour expérimenter sans friction, et faites les exercices — le compilateur Swift est votre meilleur professeur.
 
 **Point d'entrée : [01. Introduction et Environnement](./01-introduction.md)**
 

@@ -9,14 +9,14 @@ tags: ["SWIFT", "CONTRÔLE", "GUARD", "SWITCH", "BOUCLES"]
 <div
   class="omny-meta"
   data-level="🟢 Débutant"
-  data-version="1.0"
+  data-version="1.1"
   data-time="2-3 heures">
 </div>
 
 ## Introduction
 
 !!! quote "Analogie pédagogique - Le Poste de Contrôle aux Frontières"
-    Une structure de contrôle, c'est comme un agent aux frontières. Il examine chaque situation, la compare à des règles précises, et décide du chemin à prendre : continuer, bifurquer, revenir en arrière, ou recommencer. En Swift, ces décisions sont exprimées par des constructions syntaxiques particulièrement expressives — notamment `guard` qui n'existe pas dans PHP ou JavaScript, et un `switch` capable de bien plus que de simples comparaisons d'entiers.
+    Une structure de contrôle, c'est comme un agent aux frontières. Il examine chaque situation, la compare à des règles précises, et décide du chemin à prendre : continuer, bifurquer, revenir en arrière, ou recommencer. En Swift, ces décisions sont exprimées par des constructions syntaxiques particulièrement expressives — notamment `guard` qui n'existe pas en PHP ou JavaScript, et un `switch` capable de bien plus que de simples comparaisons d'entiers.
 
 <br>
 
@@ -40,8 +40,7 @@ tags: ["SWIFT", "CONTRÔLE", "GUARD", "SWITCH", "BOUCLES"]
 
     // Les parenthèses autour de la condition sont FACULTATIVES en Swift
     // La convention communautaire : ne pas les écrire
-    if age >= 18 { print("Majeur") }     // Style Swift
-    if (age >= 18) { print("Majeur") }   // Style valide mais non conventionnel
+    if age >= 18 { print("Majeur") }
     ```
 
 === ":simple-javascript: JavaScript"
@@ -88,7 +87,6 @@ tags: ["SWIFT", "CONTRÔLE", "GUARD", "SWITCH", "BOUCLES"]
         print("Accès tarif réduit")
     else:
         print("Accès refusé")
-    # Python utilise l'indentation à la place des accolades
     ```
 
 <br>
@@ -99,25 +97,23 @@ tags: ["SWIFT", "CONTRÔLE", "GUARD", "SWITCH", "BOUCLES"]
 
 `guard` est l'une des constructions les plus importantes de Swift. Elle n'existe pas en PHP ou JavaScript.
 
-Son principe : vérifier qu'une condition est vraie, et **sortir du contexte courant** si elle est fausse. Le corps d'un `guard` contient le chemin de l'échec. Le chemin du succès continue normalement après.
+Son principe : vérifier qu'une condition est vraie, et **sortir du contexte courant** si elle est fausse. Le corps du `guard` contient le chemin de l'échec. Le chemin du succès continue normalement après.
 
 === ":simple-swift: Swift"
 
-    ```swift title="Swift - guard pour les validations en entrée de fonction"
+    ```swift title="Swift - guard avec conditions booléennes"
     func traiterCommande(quantite: Int, stock: Int, utilisateur: String) {
-        // Sans guard : imbrication en "pyramide"
+        // Sans guard : imbrication en pyramide difficile à lire
         // if quantite > 0 {
         //     if stock >= quantite {
-        //         if !utilisateur.isEmpty {
-        //             // logique métier enfouie à 3 niveaux
-        //         }
+        //         if !utilisateur.isEmpty { ... }
         //     }
         // }
 
-        // Avec guard : conditions de sortie rapide en début de fonction
+        // Avec guard : préconditions exprimées à plat, en début de fonction
         guard quantite > 0 else {
             print("Erreur : quantité invalide")
-            return   // Obligatoire — guard doit toujours sortir du scope
+            return   // Obligatoire — guard doit toujours quitter le scope
         }
 
         guard stock >= quantite else {
@@ -130,22 +126,23 @@ Son principe : vérifier qu'une condition est vraie, et **sortir du contexte cou
             return
         }
 
-        // Ici on est certain que toutes les conditions sont valides
-        // La logique métier est lisible, sans imbrication
+        // Ici, toutes les conditions sont garanties valides
         print("Commande de \(quantite) validée pour \(utilisateur)")
     }
 
-    traiterCommande(quantite: 3, stock: 10, utilisateur: "alice")
-    traiterCommande(quantite: 0, stock: 10, utilisateur: "alice")
-    traiterCommande(quantite: 5, stock: 2,  utilisateur: "alice")
+    traiterCommande(quantite: 3,  stock: 10, utilisateur: "alice")  // OK
+    traiterCommande(quantite: 0,  stock: 10, utilisateur: "alice")  // quantité invalide
+    traiterCommande(quantite: 15, stock: 5,  utilisateur: "alice")  // stock insuffisant
     ```
+
+    !!! note "guard et les Optionals"
+        `guard` peut aussi déballer des Optionals avec `guard let` — c'est l'une de ses utilisations les plus fréquentes en pratique. Cette syntaxe sera couverte entièrement dans le **module 06 — Optionals** une fois que vous aurez compris ce qu'est un Optional. Pour l'instant, retenez le principe : `guard` vérifie une condition et sort si elle est fausse.
 
 === ":simple-javascript: JavaScript"
 
     ```js title="JavaScript - Early return (équivalent manuel de guard)"
-    // JavaScript n'a pas de guard — on utilise le pattern "early return"
+    // JavaScript n'a pas de guard — pattern équivalent : early return
     function traiterCommande(quantite, stock, utilisateur) {
-        // Early return : équivalent sémantique de guard
         if (quantite <= 0) {
             console.log("Erreur : quantité invalide");
             return;
@@ -158,7 +155,6 @@ Son principe : vérifier qu'une condition est vraie, et **sortir du contexte cou
             console.log("Erreur : utilisateur non identifié");
             return;
         }
-
         console.log(`Commande de ${quantite} validée pour ${utilisateur}`);
     }
     ```
@@ -180,7 +176,6 @@ Son principe : vérifier qu'une condition est vraie, et **sortir du contexte cou
             echo "Erreur : utilisateur non identifié";
             return;
         }
-
         echo "Commande de $quantite validée pour $utilisateur";
     }
     ```
@@ -198,12 +193,11 @@ Son principe : vérifier qu'une condition est vraie, et **sortir du contexte cou
         if not utilisateur:
             print("Erreur : utilisateur non identifié")
             return
-
         print(f"Commande de {quantite} validée pour {utilisateur}")
     ```
 
 !!! tip "guard vs if : quand choisir lequel"
-    Utilisez `guard` quand vous **vérifiez des préconditions** en début de fonction ou de bloc — des conditions qui doivent être vraies pour que la suite ait du sens. Utilisez `if/else` quand vous **branchez la logique** entre deux chemins alternatifs valides.
+    Utilisez `guard` pour les **préconditions** en début de fonction — conditions qui doivent être vraies pour que la suite ait du sens. Utilisez `if/else` quand vous **branchez la logique** entre deux chemins alternatifs valides.
 
 <br>
 
@@ -211,7 +205,7 @@ Son principe : vérifier qu'une condition est vraie, et **sortir du contexte cou
 
 ## `switch` — Le Pattern Matching
 
-Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un outil de **pattern matching** qui peut correspondre à des intervalles, des tuples, des types et des conditions arbitraires.
+Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un outil de **pattern matching** qui peut correspondre à des intervalles, des conditions et des chaînes multiples.
 
 === ":simple-swift: Swift"
 
@@ -234,11 +228,10 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
         print("Score invalide")
     }
 
-    // Correspondance sur des chaînes
+    // Plusieurs valeurs dans un même case
     let commande = "nord"
-
     switch commande {
-    case "nord", "n":          // Plusieurs valeurs dans un même case
+    case "nord", "n":
         print("Direction : Nord")
     case "sud", "s":
         print("Direction : Sud")
@@ -249,9 +242,7 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
         print("Direction inconnue")
     }
 
-    // IMPORTANT : pas de fallthrough automatique en Swift
-    // Chaque case est isolé — pas besoin de break
-    // Le fallthrough explicite existe mais est rarement utilisé
+    // Pas de fallthrough automatique en Swift — pas besoin de break
     ```
 
 === ":simple-javascript: JavaScript"
@@ -259,27 +250,18 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
     ```js title="JavaScript - switch (comparaison stricte uniquement)"
     const score = 78;
 
-    // JavaScript switch : comparaison stricte === uniquement, pas d'intervalles
-    // Il faut contourner avec des conditions
-    if (score >= 90) {
-        console.log("Mention Très Bien");
-    } else if (score >= 80) {
-        console.log("Mention Bien");
-    } else if (score >= 70) {
-        console.log("Mention Assez Bien");
-    }
+    // JS switch n'accepte pas les intervalles : on utilise if/else
+    if (score >= 90)      console.log("Mention Très Bien");
+    else if (score >= 80) console.log("Mention Bien");
+    else if (score >= 70) console.log("Mention Assez Bien");
 
-    // switch JS classique (avec break obligatoire)
+    // switch JS : break obligatoire pour éviter le fallthrough
     const commande = "nord";
     switch (commande) {
-        case "nord":
-        case "n":              // Fallthrough implicite (pas de break)
-            console.log("Direction : Nord");
-            break;
-        case "sud":
-        case "s":
-            console.log("Direction : Sud");
-            break;
+        case "nord": case "n":
+            console.log("Direction : Nord"); break;
+        case "sud":  case "s":
+            console.log("Direction : Sud");  break;
         default:
             console.log("Direction inconnue");
     }
@@ -287,11 +269,10 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
 
 === ":simple-php: PHP"
 
-    ```php title="PHP - switch et match (PHP 8)"
+    ```php title="PHP - match() (PHP 8)"
     <?php
     $score = 78;
 
-    // PHP 8 : match() — plus proche du switch Swift
     $mention = match(true) {
         $score >= 90 => "Très Bien",
         $score >= 80 => "Bien",
@@ -300,17 +281,6 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
         default      => "Insuffisant"
     };
     echo $mention;
-
-    // switch PHP classique (break obligatoire)
-    $commande = "nord";
-    switch ($commande) {
-        case "nord":
-        case "n":
-            echo "Direction : Nord";
-            break;
-        default:
-            echo "Direction inconnue";
-    }
     ```
 
 === ":simple-python: Python"
@@ -318,25 +288,11 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
     ```python title="Python - match/case (Python 3.10+)"
     score = 78
 
-    # Python 3.10+ : structural pattern matching (le plus proche du switch Swift)
     match score:
-        case s if s >= 90:
-            print("Mention Très Bien")
-        case s if s >= 80:
-            print("Mention Bien")
-        case s if s >= 70:
-            print("Mention Assez Bien")
-        case _:
-            print("Insuffisant")
-
-    commande = "nord"
-    match commande:
-        case "nord" | "n":
-            print("Direction : Nord")
-        case "sud" | "s":
-            print("Direction : Sud")
-        case _:
-            print("Direction inconnue")
+        case s if s >= 90: print("Mention Très Bien")
+        case s if s >= 80: print("Mention Bien")
+        case s if s >= 70: print("Mention Assez Bien")
+        case _:            print("Insuffisant")
     ```
 
 <br>
@@ -352,29 +308,28 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
 === ":simple-swift: Swift"
 
     ```swift title="Swift - Boucles for-in"
-    // Itération sur un tableau
     let fruits = ["pomme", "banane", "cerise"]
     for fruit in fruits {
         print(fruit)
     }
 
-    // Itération sur un intervalle fermé (1 à 5 inclus)
+    // Intervalle fermé : 1 à 5 inclus
     for i in 1...5 {
         print("Étape \(i)")
     }
 
-    // Itération sur un intervalle semi-ouvert (0 à 4)
+    // Intervalle semi-ouvert : 0 à 4
     for i in 0..<5 {
-        print(i)   // 0, 1, 2, 3, 4
+        print(i)
     }
 
     // _ pour ignorer la valeur d'itération
     for _ in 0..<3 {
-        print("Répétition")   // Affiché 3 fois
+        print("Répétition")
     }
 
-    // Itération sur un dictionnaire (ordre non garanti)
-    let capitales = ["France": "Paris", "Espagne": "Madrid", "Italie": "Rome"]
+    // Dictionnaire : déstructuration de la paire clé/valeur
+    let capitales = ["France": "Paris", "Espagne": "Madrid"]
     for (pays, capitale) in capitales {
         print("\(pays) → \(capitale)")
     }
@@ -387,23 +342,13 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
 
 === ":simple-javascript: JavaScript"
 
-    ```js title="JavaScript - Boucles for (équivalents)"
+    ```js title="JavaScript - for...of et for...in"
     const fruits = ["pomme", "banane", "cerise"];
 
-    // for...of (le plus proche de Swift for-in sur tableau)
-    for (const fruit of fruits) {
-        console.log(fruit);
-    }
+    for (const fruit of fruits) { console.log(fruit); }
 
-    // for classique (équivalent de stride ou range)
-    for (let i = 1; i <= 5; i++) {
-        console.log(`Étape ${i}`);
-    }
+    for (let i = 1; i <= 5; i++) { console.log(`Étape ${i}`); }
 
-    // forEach (fonctionnel)
-    fruits.forEach(fruit => console.log(fruit));
-
-    // for...in sur un objet (équivalent du dictionnaire Swift)
     const capitales = { France: "Paris", Espagne: "Madrid" };
     for (const pays in capitales) {
         console.log(`${pays} → ${capitales[pays]}`);
@@ -412,17 +357,12 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
 
 === ":simple-php: PHP"
 
-    ```php title="PHP - Boucles for et foreach"
+    ```php title="PHP - for et foreach"
     <?php
     $fruits = ["pomme", "banane", "cerise"];
+    foreach ($fruits as $fruit) { echo $fruit . PHP_EOL; }
 
-    foreach ($fruits as $fruit) {
-        echo $fruit . PHP_EOL;
-    }
-
-    for ($i = 1; $i <= 5; $i++) {
-        echo "Étape $i" . PHP_EOL;
-    }
+    for ($i = 1; $i <= 5; $i++) { echo "Étape $i" . PHP_EOL; }
 
     $capitales = ["France" => "Paris", "Espagne" => "Madrid"];
     foreach ($capitales as $pays => $capitale) {
@@ -432,17 +372,13 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
 
 === ":simple-python: Python"
 
-    ```python title="Python - Boucles for"
+    ```python title="Python - for et range"
     fruits = ["pomme", "banane", "cerise"]
+    for fruit in fruits: print(fruit)
 
-    for fruit in fruits:
-        print(fruit)
+    for i in range(1, 6): print(f"Étape {i}")
 
-    for i in range(1, 6):      # 1 à 5 inclus
-        print(f"Étape {i}")
-
-    for i in range(0, 10, 2):  # Équivalent de stride
-        print(i)               # 0, 2, 4, 6, 8
+    for i in range(0, 10, 2): print(i)   # stride équivalent
 
     capitales = {"France": "Paris", "Espagne": "Madrid"}
     for pays, capitale in capitales.items():
@@ -453,7 +389,7 @@ Le `switch` Swift va bien au-delà de la simple comparaison de valeurs. C'est un
 
 ### `while` et `repeat-while`
 
-```swift title="Swift - while et repeat-while"
+```swift title="Swift - while, repeat-while et contrôle de boucle"
 // while : vérifie la condition AVANT chaque itération
 var tentatives = 0
 while tentatives < 3 {
@@ -461,8 +397,7 @@ while tentatives < 3 {
     tentatives += 1
 }
 
-// repeat-while : vérifie la condition APRÈS (exécute au moins une fois)
-// Équivalent du do...while de PHP et JavaScript
+// repeat-while : exécute au moins une fois, condition vérifiée APRÈS
 var nombre = 10
 repeat {
     print(nombre)
@@ -474,15 +409,13 @@ repeat {
 for i in 1...10 {
     if i == 5 { continue }   // Saute cette itération
     if i == 8 { break }      // Quitte la boucle
-    print(i)   // Affiche 1, 2, 3, 4, 6, 7
+    print(i)   // 1, 2, 3, 4, 6, 7
 }
 
-// Boucles étiquetées (pour break/continue ciblés dans des boucles imbriquées)
+// Boucles étiquetées : break/continue sur une boucle externe spécifique
 boucleExterne: for i in 1...3 {
     for j in 1...3 {
-        if j == 2 {
-            continue boucleExterne   // Continue la boucle EXTERNE
-        }
+        if j == 2 { continue boucleExterne }
         print("\(i)-\(j)")
     }
 }
@@ -495,8 +428,8 @@ boucleExterne: for i in 1...3 {
 ## Conclusion
 
 !!! quote "Ce qu'il faut retenir de ce module"
-    `if/else` fonctionne comme dans tous les langages, mais sans parenthèses obligatoires autour de la condition. `guard` est la construction Swift pour les sorties anticipées — elle oblige à traiter les cas d'erreur en premier et évite la pyramide de conditions imbriquées. Le `switch` Swift effectue du pattern matching sur des intervalles, des tuples et des conditions — bien plus puissant que le `switch` de PHP ou JavaScript. `for-in` itère sur n'importe quelle séquence, et `stride` permet les pas personnalisés. `repeat-while` est l'équivalent Swift de `do...while`.
+    `if/else` fonctionne sans parenthèses obligatoires. `guard` exprime les préconditions et oblige à traiter les erreurs en premier — il doit toujours quitter le scope. Le `switch` effectue du pattern matching sur des intervalles et des conditions sans `break`. `for-in` itère sur n'importe quelle séquence, `stride` contrôle le pas. `repeat-while` est l'équivalent de `do...while`.
 
-> Dans le module suivant, nous couvrirons les **Fonctions et Closures** — la clé pour comprendre comment Swift traite les fonctions comme des valeurs de première classe, et pourquoi les closures sont si omniprésentes dans les APIs Apple.
+> Dans le module suivant, nous couvrirons les **Fonctions et Closures** — la clé pour comprendre comment Swift traite les fonctions comme des valeurs de première classe.
 
 <br>

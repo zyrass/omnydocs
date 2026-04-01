@@ -1,7 +1,7 @@
 ---
-description: "Protocols et Extensions Swift : Protocol-Oriented Programming, conformances, extensions de types existants et default implementations."
+description: "Protocols et Extensions Swift : Protocol-Oriented Programming, Equatable, Comparable, Hashable, Identifiable, conformances et exercices."
 icon: lucide/book-open-check
-tags: ["SWIFT", "PROTOCOL", "EXTENSION", "POP", "CONFORMANCE", "DEFAULT-IMPLEMENTATION"]
+tags: ["SWIFT", "PROTOCOL", "EXTENSION", "POP", "EQUATABLE", "HASHABLE", "IDENTIFIABLE"]
 ---
 
 # Protocols et Extensions
@@ -9,70 +9,47 @@ tags: ["SWIFT", "PROTOCOL", "EXTENSION", "POP", "CONFORMANCE", "DEFAULT-IMPLEMEN
 <div
   class="omny-meta"
   data-level="🟡 Intermédiaire → 🔴 Avancé"
-  data-version="1.0"
+  data-version="1.2"
   data-time="4-5 heures">
 </div>
 
 ## Introduction
 
-!!! quote "Analogie pédagogique - Le Cahier des Charges et les Avenant"
-    Un **protocol**, c'est un cahier des charges contractuel. Il dit : *"Tout type qui veut se présenter comme Payable doit obligatoirement implémenter une méthode `payer(montant:)`."* Le protocol ne dit pas **comment** faire — seulement **quoi** faire. Chaque type qui signe ce contrat l'implémente à sa manière.
+!!! quote "Analogie pédagogique - Le Cahier des Charges et les Avenants"
+    Un **protocol**, c'est un cahier des charges contractuel. Il dit : *"Tout type qui veut se présenter comme Payable doit obligatoirement implémenter une méthode `payer(montant:)`."* Le protocol ne dit pas **comment** — seulement **quoi**. Chaque type qui signe ce contrat l'implémente à sa manière.
 
-    Une **extension**, c'est un avenant au cahier des charges. Elle ajoute des fonctionnalités à un type **existant** — même un type que vous n'avez pas créé, comme `String` ou `Array`. Elle peut aussi ajouter une implémentation par défaut dans un protocol, offrant ainsi un comportement gratuit à quiconque se conforme.
-
-    C'est le **Protocol-Oriented Programming** (POP) — la philosophie centrale de Swift, recommandée par Apple depuis 2015 comme alternative à l'héritage orienté objet.
+    Une **extension**, c'est un avenant. Elle ajoute des fonctionnalités à un type **existant** — même un type que vous n'avez pas créé, comme `String` ou `Array`.
 
 <br>
 
 ---
 
-## Déclaration d'un Protocol
+## Déclaration et Conformance
 
 === ":simple-swift: Swift"
 
-    ```swift title="Swift - Déclaration et conformance d'un protocol"
-    // Un protocol déclare des exigences — pas d'implémentation
+    ```swift title="Swift - Protocol et conformance"
     protocol Décrivable {
-        // Propriété requise : get signifie accessible en lecture
         var description: String { get }
-
-        // Méthode requise
         func afficher()
     }
 
-    // Conformance : une struct implémente le protocol
     struct Produit: Décrivable {
         let nom: String
         let prix: Double
 
-        // Implémentation des exigences du protocol
-        var description: String {
-            "\(nom) — \(prix) €"
-        }
-
-        func afficher() {
-            print("Produit : \(description)")
-        }
+        var description: String { "\(nom) — \(prix) €" }
+        func afficher() { print("Produit : \(description)") }
     }
 
-    // Une class peut aussi se conformer
     class Commande: Décrivable {
         let numéro: Int
         var items: [Produit]
 
-        init(numéro: Int) {
-            self.numéro = numéro
-            self.items = []
-        }
+        init(numéro: Int) { self.numéro = numéro; self.items = [] }
 
-        var description: String {
-            "Commande #\(numéro) — \(items.count) article(s)"
-        }
-
-        func afficher() {
-            print(description)
-            items.forEach { $0.afficher() }
-        }
+        var description: String { "Commande #\(numéro) — \(items.count) article(s)" }
+        func afficher() { print(description); items.forEach { $0.afficher() } }
     }
 
     let p = Produit(nom: "Clavier", prix: 89.0)
@@ -81,36 +58,26 @@ tags: ["SWIFT", "PROTOCOL", "EXTENSION", "POP", "CONFORMANCE", "DEFAULT-IMPLEMEN
 
 === ":simple-javascript: JavaScript"
 
-    ```js title="JavaScript - Interface simulée (pas de protocol natif)"
-    // JavaScript n'a pas de protocol ni d'interface
-    // TypeScript apporte les interfaces, proches des protocols Swift
-
+    ```js title="JavaScript - Interface simulée (TypeScript)"
     // TypeScript :
     // interface Décrivable {
     //     readonly description: string;
     //     afficher(): void;
     // }
+    // class Produit implements Décrivable { ... }
 
-    // class Produit implements Décrivable {
-    //     constructor(public nom: string, public prix: number) {}
-    //     get description() { return `${this.nom} — ${this.prix} €`; }
-    //     afficher() { console.log(`Produit : ${this.description}`); }
-    // }
-
-    // En JS pur : duck typing — si l'objet a les bonnes méthodes, ça marche
+    // JS pur : duck typing
     const produit = {
-        nom: "Clavier",
-        prix: 89.0,
         get description() { return `${this.nom} — ${this.prix} €`; },
-        afficher() { console.log(`Produit : ${this.description}`); }
+        afficher() { console.log(`Produit : ${this.description}`); },
+        nom: "Clavier", prix: 89.0
     };
     ```
 
 === ":simple-php: PHP"
 
-    ```php title="PHP - Interface (équivalent du protocol Swift)"
+    ```php title="PHP - Interface"
     <?php
-    // PHP : interface est le concept le plus proche du protocol Swift
     interface Décrivable {
         public function getDescription(): string;
         public function afficher(): void;
@@ -122,19 +89,14 @@ tags: ["SWIFT", "PROTOCOL", "EXTENSION", "POP", "CONFORMANCE", "DEFAULT-IMPLEMEN
             private float $prix
         ) {}
 
-        public function getDescription(): string {
-            return "{$this->nom} — {$this->prix} €";
-        }
-
-        public function afficher(): void {
-            echo "Produit : " . $this->getDescription() . PHP_EOL;
-        }
+        public function getDescription(): string { return "{$this->nom} — {$this->prix} €"; }
+        public function afficher(): void { echo $this->getDescription() . PHP_EOL; }
     }
     ```
 
 === ":simple-python: Python"
 
-    ```python title="Python - Protocol (Python 3.8+ via typing)"
+    ```python title="Python - Protocol (Python 3.8+)"
     from typing import Protocol
 
     class Décrivable(Protocol):
@@ -142,82 +104,172 @@ tags: ["SWIFT", "PROTOCOL", "EXTENSION", "POP", "CONFORMANCE", "DEFAULT-IMPLEMEN
         def description(self) -> str: ...
         def afficher(self) -> None: ...
 
-    # Conformance implicite (structural subtyping)
     class Produit:
         def __init__(self, nom: str, prix: float):
-            self.nom = nom
-            self.prix = prix
+            self.nom, self.prix = nom, prix
 
         @property
-        def description(self) -> str:
-            return f"{self.nom} — {self.prix} €"
-
-        def afficher(self) -> None:
-            print(f"Produit : {self.description}")
-
-    # mypy vérifie la conformance statiquement
+        def description(self) -> str: return f"{self.nom} — {self.prix} €"
+        def afficher(self) -> None: print(f"Produit : {self.description}")
     ```
 
 <br>
 
 ---
 
-## Protocols Multiples
+## Protocols Standards Essentiels
 
-Un type peut se conformer à plusieurs protocols simultanément — c'est la réponse de Swift à l'héritage multiple, sans ses problèmes.
+Swift fournit des protocols standards que vous implémenterez constamment.
 
-```swift title="Swift - Conformance à plusieurs protocols"
-protocol Sérialisable {
-    func versDictionnaire() -> [String: Any]
+<br>
+
+### `Equatable` — Comparer avec `==`
+
+```swift title="Swift - Equatable : synthèse automatique et personnalisation"
+// Swift synthétise Equatable automatiquement si toutes les propriétés sont Equatable
+struct Point: Equatable {
+    var x: Double
+    var y: Double
+    // == est généré automatiquement
 }
 
-protocol Validable {
-    var estValide: Bool { get }
-    func valider() throws
-}
+let p1 = Point(x: 1.0, y: 2.0)
+let p2 = Point(x: 1.0, y: 2.0)
+print(p1 == p2)   // true
 
-// Erreur personnalisée pour la validation
-enum ErreurValidation: Error {
-    case champManquant(String)
-    case formatInvalide(String, valeur: String)
-}
+// Implémentation manuelle quand la logique est personnalisée
+struct Utilisateur: Equatable {
+    var id: Int
+    var nom: String
+    var dateConnexion: Date
 
-// Un type peut se conformer aux deux protocols
-struct UtilisateurForm: Décrivable, Sérialisable, Validable {
-    var email: String
-    var motDePasse: String
-
-    var description: String { "Formulaire : \(email)" }
-    func afficher() { print(description) }
-
-    func versDictionnaire() -> [String: Any] {
-        ["email": email, "password": motDePasse]
-    }
-
-    var estValide: Bool {
-        !email.isEmpty && email.contains("@") && motDePasse.count >= 8
-    }
-
-    func valider() throws {
-        guard !email.isEmpty else {
-            throw ErreurValidation.champManquant("email")
-        }
-        guard email.contains("@") else {
-            throw ErreurValidation.formatInvalide("email", valeur: email)
-        }
-        guard motDePasse.count >= 8 else {
-            throw ErreurValidation.champManquant("motDePasse — minimum 8 caractères")
-        }
+    // Égalité basée uniquement sur l'id
+    static func == (lhs: Utilisateur, rhs: Utilisateur) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
-// Protocol composition : exiger plusieurs conformances simultanément
-func enregistrer(_ form: Sérialisable & Validable) throws {
-    try form.valider()
-    let données = form.versDictionnaire()
-    print("Enregistrement : \(données)")
-}
+// Equatable débloque : contains, firstIndex, ==, !=
+let utilisateurs = [
+    Utilisateur(id: 1, nom: "Alice", dateConnexion: .now),
+    Utilisateur(id: 2, nom: "Bob",   dateConnexion: .now)
+]
+let cible = Utilisateur(id: 2, nom: "Bob", dateConnexion: .distantPast)
+print(utilisateurs.contains(cible))   // true — car id == 2
 ```
+
+<br>
+
+### `Comparable` — Trier avec `<`
+
+```swift title="Swift - Comparable : activer le tri"
+struct Produit: Equatable, Comparable {
+    let nom: String
+    let prix: Double
+
+    // Seule méthode requise — >, <=, >= sont déduits automatiquement
+    static func < (lhs: Produit, rhs: Produit) -> Bool {
+        lhs.prix < rhs.prix
+    }
+}
+
+let produits = [
+    Produit(nom: "Moniteur", prix: 299.0),
+    Produit(nom: "Clavier",  prix: 89.0),
+    Produit(nom: "Souris",   prix: 45.0)
+]
+
+let triésParPrix = produits.sorted()
+// Souris (45€), Clavier (89€), Moniteur (299€)
+
+print(produits.min()?.nom ?? "")   // "Souris"
+print(produits.max()?.nom ?? "")   // "Moniteur"
+```
+
+<br>
+
+### `Hashable` — Utiliser dans `Set` et comme clé de `Dictionary`
+
+```swift title="Swift - Hashable : unicité et indexation"
+// Hashable est requis pour Set<T> et Dictionary<T, V> quand T est la clé
+// Swift synthétise Hashable si Equatable est conforme et toutes les propriétés sont Hashable
+
+struct Tag: Hashable {
+    let nom: String
+    let catégorie: String
+}
+
+var tags: Set<Tag> = []
+tags.insert(Tag(nom: "iOS",   catégorie: "plateforme"))
+tags.insert(Tag(nom: "Swift", catégorie: "langage"))
+tags.insert(Tag(nom: "iOS",   catégorie: "plateforme"))   // Doublon ignoré
+print(tags.count)   // 2
+
+var compteurParTag: [Tag: Int] = [:]
+let tagSwift = Tag(nom: "Swift", catégorie: "langage")
+compteurParTag[tagSwift] = 42
+```
+
+<br>
+
+### `Identifiable` — L'identité unique pour SwiftUI
+
+`Identifiable` est un protocol simple mais **indispensable** en SwiftUI. Il exige qu'un type possède une propriété `id` unique, ce qui permet à SwiftUI de suivre chaque élément dans une liste et de mettre à jour uniquement ce qui a changé.
+
+```swift title="Swift - Identifiable : requis par ForEach en SwiftUI"
+// Le protocol Identifiable de la bibliothèque standard :
+// public protocol Identifiable {
+//     associatedtype ID: Hashable
+//     var id: ID { get }
+// }
+
+struct Article: Identifiable {
+    let id: UUID          // UUID est Hashable — parfait comme identifiant
+    let titre: String
+    let contenu: String
+}
+
+struct Tâche: Identifiable {
+    let id: Int           // Int fonctionne aussi — n'importe quel Hashable
+    var titre: String
+    var estTerminée: Bool
+}
+
+// En SwiftUI, ForEach exige Identifiable :
+// List {
+//     ForEach(articles) { article in    ← fonctionne car Article: Identifiable
+//         Text(article.titre)
+//     }
+// }
+//
+// Sans Identifiable, il faut préciser le keypath manuellement :
+// ForEach(articles, id: \.id) { article in ... }
+
+// UUID() génère un identifiant unique garanti
+let a1 = Article(id: UUID(), titre: "Introduction Swift", contenu: "...")
+let a2 = Article(id: UUID(), titre: "Optionals en pratique", contenu: "...")
+```
+
+*`UUID` (Universally Unique Identifier) est le type de référence pour les identifiants en Swift. `UUID()` génère une valeur de 128 bits garantie unique à chaque appel. C'est le choix standard pour les `id` dans les modèles de données SwiftUI.*
+
+!!! tip "Codable + Identifiable : le modèle complet"
+    En pratique, les structs de données SwiftUI combinent souvent les trois :
+
+    ```swift title="Swift - Pattern complet d'un modèle SwiftUI"
+    struct Article: Codable, Identifiable, Hashable {
+        let id: UUID
+        let titre: String
+        let datePublication: Date
+        var nombreVues: Int
+
+        // Codable     : désérialisation depuis une API JSON
+        // Identifiable : utilisation dans ForEach et List
+        // Hashable     : utilisation dans NavigationSplitView, Set, etc.
+    }
+    ```
+
+!!! note "Chaîne Equatable → Hashable → Identifiable"
+    `Identifiable` ne requiert pas `Equatable` ni `Hashable` — mais le type de `id` doit être `Hashable`. En pratique, si votre modèle est `Identifiable`, il sera aussi `Hashable` dans la quasi-totalité des cas, car `UUID` et `Int` sont déjà `Hashable`.
 
 <br>
 
@@ -225,77 +277,48 @@ func enregistrer(_ form: Sérialisable & Validable) throws {
 
 ## Extensions
 
-Une extension ajoute des fonctionnalités à un type **existant** — sans modifier son code source, sans sous-classer.
-
-```swift title="Swift - Extensions sur des types existants"
-// Extension de String : ajouter des méthodes personnalisées
+```swift title="Swift - Étendre des types existants"
 extension String {
-    // Vérifie si la chaîne est un email valide (simplifié)
     var estUnEmail: Bool {
         contains("@") && contains(".") && count > 5
     }
 
-    // Tronquer la chaîne à une longueur maximale
     func tronquer(à longueur: Int, suffixe: String = "...") -> String {
         guard count > longueur else { return self }
         return String(prefix(longueur)) + suffixe
     }
-
-    // Répéter une chaîne
-    func répéter(_ fois: Int) -> String {
-        String(repeating: self, count: fois)
-    }
 }
 
-print("alice@example.com".estUnEmail)          // true
-print("pas-un-email".estUnEmail)               // false
-print("Bonjour tout le monde".tronquer(à: 10)) // "Bonjour to..."
-print("ha".répéter(3))                         // "hahaha"
+print("alice@example.com".estUnEmail)           // true
+print("Bonjour tout le monde".tronquer(à: 10))  // "Bonjour to..."
 
-// Extension d'Array avec contrainte de type
+// Extension contrainte
 extension Array where Element: Numeric {
-    var somme: Element {
-        reduce(0, +)
-    }
-
-    var moyenne: Double {
-        Double(somme as! Int) / Double(count)
-        // Note : simplification — la vraie implémentation utilise des generics
-    }
+    var somme: Element { reduce(0, +) }
 }
 
-let notes = [14, 18, 12, 15, 17]
-print(notes.somme)   // 76
-```
+print([14, 18, 12, 15, 17].somme)   // 76
 
-```swift title="Swift - Extensions pour organiser le code"
-// Une pratique courante : séparer les conformances en extensions séparées
-struct Article {
+// Organiser les conformances en extensions séparées
+struct Article: Identifiable {
+    let id: UUID
     let titre: String
-    let contenu: String
     let datePublication: Date
     var nombreVues: Int
 }
 
-// Extension pour Equatable
 extension Article: Equatable {
-    static func == (lhs: Article, rhs: Article) -> Bool {
-        lhs.titre == rhs.titre
-    }
+    static func == (lhs: Article, rhs: Article) -> Bool { lhs.id == rhs.id }
 }
 
-// Extension pour Comparable
 extension Article: Comparable {
     static func < (lhs: Article, rhs: Article) -> Bool {
         lhs.datePublication < rhs.datePublication
     }
 }
 
-// Extension pour CustomStringConvertible
 extension Article: CustomStringConvertible {
-    var description: String {
-        "[\(nombreVues) vues] \(titre)"
-    }
+    var description: String { "[\(nombreVues) vues] \(titre)" }
 }
 ```
 
@@ -303,11 +326,9 @@ extension Article: CustomStringConvertible {
 
 ---
 
-## Default Implementations — Comportement Gratuit
+## Default Implementations
 
-Un protocol peut fournir une implémentation par défaut via une extension. Les types conformes héritent de cette implémentation gratuitement, et peuvent la surcharger si besoin.
-
-```swift title="Swift - Default implementations dans les protocols"
+```swift title="Swift - Comportement gratuit via extensions de protocol"
 protocol Journalisable {
     var nomType: String { get }
     func journaliser(_ message: String)
@@ -315,47 +336,24 @@ protocol Journalisable {
     func erreur(_ message: String)
 }
 
-// Extension du protocol : implémentation par défaut
 extension Journalisable {
-    // nomType : par défaut, le nom du type Swift
-    var nomType: String {
-        String(describing: type(of: self))
-    }
+    var nomType: String { String(describing: type(of: self)) }
 
-    // Implémentation par défaut pour avertir et erreur
     func avertir(_ message: String) {
-        journaliser("⚠️ [\(nomType)] \(message)")
+        journaliser("[AVERTISSEMENT] [\(nomType)] \(message)")
     }
 
     func erreur(_ message: String) {
-        journaliser("❌ [\(nomType)] \(message)")
+        journaliser("[ERREUR] [\(nomType)] \(message)")
     }
 }
 
-// Service minimal : implémente seulement journaliser
-// Les autres méthodes sont fournies gratuitement
 struct ServicePaiement: Journalisable {
-    func journaliser(_ message: String) {
-        print("[LOG \(Date())] \(message)")
-    }
+    func journaliser(_ message: String) { print("[LOG] \(message)") }
 
     func traiterPaiement(montant: Double) {
         journaliser("Paiement de \(montant) € initié")
-        // ... logique de paiement
-        avertir("Délai de traitement élevé")   // Méthode héritée du protocol
-    }
-}
-
-// Service avec surcharge : personnalise l'implémentation
-struct ServiceNotification: Journalisable {
-    func journaliser(_ message: String) {
-        print(message)
-    }
-
-    // Surcharge de la default implementation
-    func erreur(_ message: String) {
-        journaliser("ERREUR CRITIQUE: \(message)")
-        // Envoyer une alerte PagerDuty...
+        avertir("Délai de traitement élevé")   // Hérité du protocol
     }
 }
 ```
@@ -366,28 +364,67 @@ struct ServiceNotification: Journalisable {
 
 ## Protocols comme Types
 
-Un protocol peut être utilisé comme type — une variable de type `Décrivable` peut contenir n'importe quel type conforme.
-
-```swift title="Swift - Protocols comme types polymorphes"
-// any Décrivable : peut contenir n'importe quel type conforme (Swift 5.7+)
+```swift title="Swift - any et some"
+// any Décrivable : boîte polymorphe
 var éléments: [any Décrivable] = []
 éléments.append(Produit(nom: "Souris", prix: 45.0))
 éléments.append(Commande(numéro: 1001))
 
-for élément in éléments {
-    élément.afficher()
-}
+for élément in éléments { élément.afficher() }
 
-// some Décrivable : type opaque — un type précis mais non nommé (pour les retours)
-// Utilisé massivement dans SwiftUI : var body: some View { ... }
+// some Décrivable : type opaque — compilateur connaît le type, l'appelant non
+// C'est exactement : var body: some View { ... } en SwiftUI
 func créerDécrivable() -> some Décrivable {
     Produit(nom: "Clavier", prix: 89.0)
-    // Le type de retour exact est Produit, mais l'appelant voit seulement Décrivable
 }
 ```
 
-!!! note "any vs some — la distinction SwiftUI"
-    `any Protocol` est une boîte qui peut contenir n'importe quel type conforme (existential type — a un coût de performance). `some Protocol` est un type opaque : le compilateur connaît le type exact mais l'appelant ne le voit pas — c'est ce qu'utilise SwiftUI avec `some View`. Cette distinction deviendra centrale en SwiftUI.
+<br>
+
+---
+
+## Exercices
+
+!!! note "À vous de jouer"
+
+**Exercice 1 — Conformance Equatable personnalisée**
+
+```swift title="Swift - Exercice 1"
+// Créez struct Livre avec : isbn (String), titre (String), auteur (String), prix (Double)
+// Deux livres sont égaux si leur ISBN est identique (ignorer le prix)
+
+// let l1 = Livre(isbn: "978-0-000", titre: "Swift", auteur: "Apple", prix: 29.0)
+// let l2 = Livre(isbn: "978-0-000", titre: "Swift", auteur: "Apple", prix: 35.0)
+// print(l1 == l2)   // true
+```
+
+**Exercice 2 — Modèle SwiftUI complet**
+
+```swift title="Swift - Exercice 2"
+// Créez une struct Tâche conforme à Codable, Identifiable et Comparable
+// - id : UUID
+// - titre : String
+// - priorité : Int (1 à 5)
+// - estTerminée : Bool
+// - dateÉchéance : Date
+//
+// Comparable : trier par priorité décroissante
+// Testez :
+// var tâches = [Tâche(...), Tâche(...), Tâche(...)]
+// let triées = tâches.sorted()   // Priorité 5 en premier
+```
+
+**Exercice 3 — Protocol avec default implementation**
+
+```swift title="Swift - Exercice 3"
+// Créez protocol Validable avec :
+//   - var estValide: Bool { get }
+//   - var messageErreur: String { get }
+//   - func valider() throws  ← default implementation qui utilise estValide
+//
+// Conformez EmailForm et AgeForm en utilisant la default implementation
+// sans réécrire valider() dans chaque struct
+```
 
 <br>
 
@@ -396,8 +433,8 @@ func créerDécrivable() -> some Décrivable {
 ## Conclusion
 
 !!! quote "Ce qu'il faut retenir de ce module"
-    Un **protocol** définit un contrat — des propriétés et méthodes requises, sans implémentation. N'importe quel type (struct, class, enum) peut s'y conformer. Une **extension** enrichit un type existant sans le modifier — même les types de la bibliothèque standard comme `String` ou `Array`. Les **default implementations** dans les extensions de protocols offrent un comportement gratuit aux types conformes. Un type peut se conformer à plusieurs protocols simultanément — c'est l'alternative Swift à l'héritage multiple.
+    Un **protocol** définit un contrat sans implémentation. `Equatable` active `==`, `Comparable` active le tri, `Hashable` active `Set` et les clés de `Dictionary`. `Identifiable` fournit un `id` unique — **requis par `ForEach` et `List` en SwiftUI**, il s'implémente en une ligne avec un `UUID`. Le pattern complet d'un modèle SwiftUI combine `Codable + Identifiable + Hashable`. Les **extensions** enrichissent n'importe quel type existant. Les **default implementations** offrent un comportement gratuit aux types conformes.
 
-> Dans le module suivant, nous aborderons les **Generics** — le mécanisme qui permet d'écrire du code qui fonctionne avec n'importe quel type tout en restant statiquement typé.
+> Dans le module suivant, nous couvrirons **Codable** — la sérialisation et désérialisation JSON automatique en Swift.
 
 <br>

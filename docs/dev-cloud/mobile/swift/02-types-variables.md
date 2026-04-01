@@ -365,8 +365,8 @@ print(a % b)   // 1  — modulo (reste de la division)
 
     // Multilignes
     const bio = `Développeuse iOS
-Passionnée de JavaScript
-Basée à Lyon`;
+    Passionnée de JavaScript
+    Basée à Lyon`;
 
     // Méthodes
     console.log(prenom.length);             // 5
@@ -416,8 +416,8 @@ Basée à Lyon`;
 
     # Multilignes
     bio = """Développeuse iOS
-Passionnée de Python
-Basée à Lyon"""
+    Passionnée de Python
+    Basée à Lyon"""
 
     # Méthodes
     print(len(prenom))              # 5
