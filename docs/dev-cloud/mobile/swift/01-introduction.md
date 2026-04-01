@@ -164,6 +164,21 @@ Les commentaires sont ignorés par le compilateur. Ils servent à documenter le 
 
     *Les commentaires `///` génèrent une documentation automatique utilisée par Xcode pour afficher l'aide contextuelle dans l'éditeur.*
 
+    !!! note "Le mot clé `return` est facultatif dans les corps mono-expression"
+        En Swift, `return` peut être omis lorsque le corps d'une fonction ne contient qu'**une seule expression** — le compilateur déduit que cette expression est la valeur de retour.
+        ```swift title="Swift - `return` explicite vs implicite"
+        // Avec return explicite
+        func saluer(nom: String) -> String {
+            return "Bonjour, \(nom) !"
+        }
+
+        // Sans return — équivalent, style idiomatique Swift
+        func saluer(nom: String) -> String {
+            "Bonjour, \(nom) !"
+        }
+        ```
+        *La convention Swift idiomatique privilégie l'omission de `return` dans les corps courts (fonctions, computed properties). Adoptez la convention de votre équipe et restez cohérent à l'échelle du projet.*
+
 === ":simple-javascript: JavaScript"
 
     ```js title="JavaScript - Commentaires"
