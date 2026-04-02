@@ -636,23 +636,17 @@ nav = [
       # - Établir le design, la mise en page et les animations visuelles.
       {"CSS" = [
         "dev-cloud/lang/css/index.md",
-        {"Fondamentaux" = [
-          "dev-cloud/lang/css/fondamental/01-introduction-css.md",
-          "dev-cloud/lang/css/fondamental/02-s-lecteurs-css.md",
-          "dev-cloud/lang/css/fondamental/03-unites-mesures-css.md",
-          "dev-cloud/lang/css/fondamental/04-box-model-css.md",
-          "dev-cloud/lang/css/fondamental/05-animations.md",
-          "dev-cloud/lang/css/fondamental/06-css-avance.md",
-          "dev-cloud/lang/css/fondamental/07-aller-plus-loin.md",
-          "dev-cloud/lang/css/fondamental/08-positionnement-flux.md",
-        ]},
-        {"Layout Moderne" = [
-          "dev-cloud/lang/css/layout/01-flexbox-css.md",
-          "dev-cloud/lang/css/layout/02-grid-css.md",
-        ]},
-        {"Responsive" = [
-          "dev-cloud/lang/css/responsive/01-responsive-design.md",
-        ]},
+        "dev-cloud/lang/css/01-introduction-css.md",
+        "dev-cloud/lang/css/02-s-lecteurs-css.md",
+        "dev-cloud/lang/css/03-unites-mesures-css.md",
+        "dev-cloud/lang/css/04-box-model-css.md",
+        "dev-cloud/lang/css/05-animations.md",
+        "dev-cloud/lang/css/06-css-avance.md",
+        "dev-cloud/lang/css/07-aller-plus-loin.md",
+        "dev-cloud/lang/css/08-positionnement-flux.md",
+        "dev-cloud/lang/css/09-flexbox-css.md",
+        "dev-cloud/lang/css/10-grid-css.md",
+        "dev-cloud/lang/css/11-responsive-design.md"
       ]},
 
       # ------------------------------------------------------------------------
@@ -667,18 +661,18 @@ nav = [
         {"Socle & Algorithmique" = [
           "dev-cloud/lang/javascript/socle/01-hello-et-console.md",
           "dev-cloud/lang/javascript/socle/02-bases-algorithmiques.md",
-          "dev-cloud/lang/javascript/socle/03-fonctions-et-objets.md",
+          "dev-cloud/lang/javascript/socle/03-fonctions-et-objets.md"
         ]},
 
         {"Moteur & Architecture" = [
           "dev-cloud/lang/javascript/moteur/04-environnement-modules.md",
-          "dev-cloud/lang/javascript/moteur/05-syntaxe-moderne-es6.md",
+          "dev-cloud/lang/javascript/moteur/05-syntaxe-moderne-es6.md"
         ]},
 
         {"Navigateur & Temps" = [
           "dev-cloud/lang/javascript/application/06-dom-manipulation.md",
           "dev-cloud/lang/javascript/application/07-persistance-locale.md",
-          "dev-cloud/lang/javascript/application/08-logique-asynchrone.md",
+          "dev-cloud/lang/javascript/application/08-logique-asynchrone.md"
         ]},
       ]},
 
@@ -688,34 +682,29 @@ nav = [
       # Rôle :
       # - Installer les bases nécessaires à Laravel (types, erreurs, POO).
       # - Fournir un socle de bonnes pratiques pour la maintenabilité.
-      {"PHP" = [
+      {"PHP - Procédural & POO" = [
         "dev-cloud/lang/php/index.md",
-
-        # PHP — Procédural :
+        # PHP — Procédural - 1>7 :
         # - Syntaxe, fonctions, fichiers, gestion d’erreurs, bonnes pratiques.
-        {"Procédural" = [
-          "dev-cloud/lang/php/procedural/module1.md",
-          "dev-cloud/lang/php/procedural/module2.md",
-          "dev-cloud/lang/php/procedural/module3.md",
-          "dev-cloud/lang/php/procedural/module4.md",
-          "dev-cloud/lang/php/procedural/module5.md",
-          "dev-cloud/lang/php/procedural/module6.md",
-          "dev-cloud/lang/php/procedural/module7.md",
-        ]},
+        "dev-cloud/lang/php/module1.md",
+        "dev-cloud/lang/php/module2.md",
+        "dev-cloud/lang/php/module3.md",
+        "dev-cloud/lang/php/module4.md",
+        "dev-cloud/lang/php/module5.md",
+        "dev-cloud/lang/php/module6.md",
+        "dev-cloud/lang/php/module7.md",
 
-        # PHP — POO :
+        # PHP — POO - 8>16 :
         # - Classes/objets, encapsulation, interfaces, traits, exceptions, SOLID.
-        {"POO" = [
-          "dev-cloud/lang/php/poo/module8.md",
-          "dev-cloud/lang/php/poo/module9.md",
-          "dev-cloud/lang/php/poo/module10.md",
-          "dev-cloud/lang/php/poo/module11.md",
-          "dev-cloud/lang/php/poo/module12.md",
-          "dev-cloud/lang/php/poo/module13.md",
-          "dev-cloud/lang/php/poo/module14.md",
-          "dev-cloud/lang/php/poo/module15.md",
-          "dev-cloud/lang/php/poo/module16.md",
-        ]},
+        "dev-cloud/lang/php/module8.md",
+        "dev-cloud/lang/php/module9.md",
+        "dev-cloud/lang/php/module10.md",
+        "dev-cloud/lang/php/module11.md",
+        "dev-cloud/lang/php/module12.md",
+        "dev-cloud/lang/php/module13.md",
+        "dev-cloud/lang/php/module14.md",
+        "dev-cloud/lang/php/module15.md",
+        "dev-cloud/lang/php/module16.md"
       ]},
 
       # ------------------------------------------------------------------------
@@ -864,10 +853,58 @@ nav = [
       ]},
       {"SwiftUI" = [
         "dev-cloud/mobile/swiftui/index.md",
+        "dev-cloud/mobile/swiftui/00-rapport-formation-swiftui.md",
+
+        # Fondements de la Vue
+        "dev-cloud/mobile/swiftui/01-introduction.md",
+        "dev-cloud/mobile/swiftui/02-vues-modificateurs.md",
+        "dev-cloud/mobile/swiftui/03-layout.md",
+        "dev-cloud/mobile/swiftui/04-state-binding.md",
+        
+        # Données & Navigation
+        "dev-cloud/mobile/swiftui/05-stateobject-observedobject.md",
+        "dev-cloud/mobile/swiftui/06-observable.md",
+        "dev-cloud/mobile/swiftui/07-navigation.md",
+        "dev-cloud/mobile/swiftui/08-listes-collections.md",
+        
+        # Avancé & Réseau
+        "dev-cloud/mobile/swiftui/09-donnees-async.md",
+        "dev-cloud/mobile/swiftui/10-formulaires-validation.md",
+        "dev-cloud/mobile/swiftui/11-animations-transitions.md",
+        "dev-cloud/mobile/swiftui/12-viewmodifier-extensions.md",
+        
+        # Architecture & Production
+        "dev-cloud/mobile/swiftui/13-mvvm.md",
+        "dev-cloud/mobile/swiftui/14-persistence.md",
+        "dev-cloud/mobile/swiftui/15-cycle-de-vie.md",
+        "dev-cloud/mobile/swiftui/16-accessibilite.md",
+        "dev-cloud/mobile/swiftui/17-tests.md",
+        "dev-cloud/mobile/swiftui/18-app-store.md",
       ]},
+
       {"Vapor" = [
         "dev-cloud/mobile/vapor/index.md",
-      ]},
+
+        # Fondements du Framework
+        "dev-cloud/mobile/vapor/01-introduction.md",
+        "dev-cloud/mobile/vapor/02-routing.md",
+        "dev-cloud/mobile/vapor/03-request-response.md",
+        "dev-cloud/mobile/vapor/04-middleware.md",
+        
+        # Données & Persistence
+        "dev-cloud/mobile/vapor/05-fluent-migrations.md",
+        "dev-cloud/mobile/vapor/06-modeles-relations.md",
+        "dev-cloud/mobile/vapor/07-requetes-fluent.md",
+        "dev-cloud/mobile/vapor/08-authentification-jwt.md",
+        
+        # Production & Architecture
+        "dev-cloud/mobile/vapor/09-api-rest.md",
+        "dev-cloud/mobile/vapor/10-queues-jobs.md",
+        "dev-cloud/mobile/vapor/11-tests-xctvapor.md",
+        "dev-cloud/mobile/vapor/12-deploiement.md",
+        
+      ]}
+
     ]}, 
 
     # ==========================================================================
