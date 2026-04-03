@@ -88,7 +88,9 @@ struct MonCompteur: View {
 
 *`body` est réévalué automatiquement chaque fois que `compteur` change. La synchronisation entre état et interface est garantie par le framework — impossible de les désynchroniser.*
 
-<!-- ILLUSTRATION REQUISE : swiftui-declaratif-vs-imperatif.png — Schéma côte à côte : UIKit (flèches manuelles de mise à jour) vs SwiftUI (boucle automatique état → interface) -->
+<br>
+![Paradigme Déclaratif vs Impératif](/assets/images/swiftui/swiftui-declaratif-vs-imperatif.png)
+<br>
 
 <br>
 

@@ -142,7 +142,9 @@ struct VueDétailArticle: View {
 }
 ```
 
-<!-- ILLUSTRATION REQUISE : swiftui-navigation-stack.png — Diagramme de pile : vue liste → push → vue détail → push → vue détail profond, avec flèches push/pop -->
+<br>
+![Architecture Navigation Stack SwiftUI](/assets/images/swiftui/swiftui-navigation-stack.png)
+<br>
 
 *`NavigationLink(value:)` (iOS 16+) est préféré à `NavigationLink(destination:)` car la destination est découplée du lien — elle est définie une seule fois dans `.navigationDestination()`. Cela améliore la testabilité et permet le deep linking.*
 

@@ -46,6 +46,7 @@
       # - Établir les bases de l’intégration frontend (structure, formulaires).
       {"HTML" = [
         "dev-cloud/lang/html/index.md",
+        "dev-cloud/lang/html/00-rapport-formation-html.md",
         "dev-cloud/lang/html/01-introduction.md",
         "dev-cloud/lang/html/02-texte-liens.md",
         "dev-cloud/lang/html/03-images-et-m-dias.md",
@@ -62,6 +63,7 @@
       # - Établir le design, la mise en page et les animations visuelles.
       {"CSS" = [
         "dev-cloud/lang/css/index.md",
+        "dev-cloud/lang/css/00-rapport-formation-css.md",
         "dev-cloud/lang/css/01-introduction-css.md",
         "dev-cloud/lang/css/02-s-lecteurs-css.md",
         "dev-cloud/lang/css/03-unites-mesures-css.md",
@@ -83,6 +85,7 @@
       # - Préparer Alpine.js, tests frontend, et intégrations UI.
       {"JavaScript" = [
         "dev-cloud/lang/javascript/index.md",
+        "dev-cloud/lang/javascript/00-rapport-formation-javascript.md",
 
         {"Socle & Algorithmique" = [
           "dev-cloud/lang/javascript/socle/01-hello-et-console.md",
@@ -110,6 +113,8 @@
       # - Fournir un socle de bonnes pratiques pour la maintenabilité.
       {"PHP - Procédural & POO" = [
         "dev-cloud/lang/php/index.md",
+        "dev-cloud/lang/php/00-rapport-formation-php.md",
+
         # PHP — Procédural - 1>7 :
         # - Syntaxe, fonctions, fichiers, gestion d’erreurs, bonnes pratiques.
         "dev-cloud/lang/php/module1.md",
@@ -141,6 +146,7 @@
       # - À maintenir uniquement si un usage réel est prévu dans les parcours.
       {"Python" = [
         "dev-cloud/lang/python/index.md",
+        "dev-cloud/lang/python/00-rapport-formation-python.md",
         # {"Django" = "dev-cloud/lang/python/django.md"},
         # {"Tkinter" = "dev-cloud/lang/python/tkinter.md"},
         # {"Flask"  = "dev-cloud/lang/python/flask.md"},
@@ -166,22 +172,75 @@
       # - Sert de base à la Stack TALL et aux exemples applicatifs.
       {"Laravel" = [
         "dev-cloud/frameworks/laravel/index.md",
-        "dev-cloud/frameworks/laravel/module1.md",
-        "dev-cloud/frameworks/laravel/module2.md",
-        "dev-cloud/frameworks/laravel/module3.md",
-        "dev-cloud/frameworks/laravel/module4.md",
-        "dev-cloud/frameworks/laravel/module5.md",
-        "dev-cloud/frameworks/laravel/module6.md",
-        "dev-cloud/frameworks/laravel/module7.md",
-        "dev-cloud/frameworks/laravel/module8.md",
-        "dev-cloud/frameworks/laravel/module9.md",
+        "dev-cloud/frameworks/laravel/00-rapport-formation-laravel.md",
+        {"Module 1 - Fondations" = [
+          "dev-cloud/frameworks/laravel/module-01-fondations/01-introduction-installation.md",
+          "dev-cloud/frameworks/laravel/module-01-fondations/02-structure-projet.md",
+          "dev-cloud/frameworks/laravel/module-01-fondations/03-architecture-mvc.md",
+          "dev-cloud/frameworks/laravel/module-01-fondations/04-cycle-vie-artisan.md",
+          "dev-cloud/frameworks/laravel/module-01-fondations/05-configuration-et-pratique.md",
+          "dev-cloud/frameworks/laravel/module-01-fondations/06-conventions-et-bilan.md"
+        ]},
+        {"Module 2 - Routing & Controllers" = [
+          "dev-cloud/frameworks/laravel/module-02-routing-controllers/01-routing-fondations.md",
+          "dev-cloud/frameworks/laravel/module-02-routing-controllers/02-controllers.md",
+          "dev-cloud/frameworks/laravel/module-02-routing-controllers/03-validation.md",
+          "dev-cloud/frameworks/laravel/module-02-routing-controllers/04-route-model-binding.md",
+          "dev-cloud/frameworks/laravel/module-02-routing-controllers/05-redirections-groupes.md",
+          "dev-cloud/frameworks/laravel/module-02-routing-controllers/06-pratique-et-bilan.md"
+        ]},
+        {"Module 3 - Base de données & Eloquent ORM" = [
+          "dev-cloud/frameworks/laravel/module-03-database-eloquent/01-pourquoi-orm-et-migrations.md",
+          "dev-cloud/frameworks/laravel/module-03-database-eloquent/02-config-bdd.md",
+          "dev-cloud/frameworks/laravel/module-03-database-eloquent/03-eloquent-bases-crud.md",
+          "dev-cloud/frameworks/laravel/module-03-database-eloquent/04-relations-modeles.md",
+          "dev-cloud/frameworks/laravel/module-03-database-eloquent/05-factory-seeder-scopes.md",
+          "dev-cloud/frameworks/laravel/module-03-database-eloquent/06-mutateurs-accesseurs.md",
+          "dev-cloud/frameworks/laravel/module-03-database-eloquent/07-pratique-et-bilan.md"
+        ]},
+        {"Module 4 - Authentification Custom" = [
+          "dev-cloud/frameworks/laravel/module-04-auth-custom/01-fondamentaux-sessions-hashing.md",
+          "dev-cloud/frameworks/laravel/module-04-auth-custom/02-inscription-et-connexion.md",
+          "dev-cloud/frameworks/laravel/module-04-auth-custom/03-middlewares-auth.md",
+          "dev-cloud/frameworks/laravel/module-04-auth-custom/04-securite-csrf-bruteforce.md"
+        ]},
+        {"Module 5 - Autorisations & Policies" = [
+          "dev-cloud/frameworks/laravel/module-05-authorization-policies/01-gates-vs-policies.md",
+          "dev-cloud/frameworks/laravel/module-05-authorization-policies/02-policies-ownership.md",
+          "dev-cloud/frameworks/laravel/module-05-authorization-policies/03-rbac-et-middlewares.md",
+          "dev-cloud/frameworks/laravel/module-05-authorization-policies/04-pratique-et-bilan.md"
+        ]},
+        {"Module 6 - Workflow Éditorial" = [
+          "dev-cloud/frameworks/laravel/module-06-workflow-editorial/01-state-machine-et-enum.md",
+          "dev-cloud/frameworks/laravel/module-06-workflow-editorial/02-service-workflow.md",
+          "dev-cloud/frameworks/laravel/module-06-workflow-editorial/03-validation-et-images.md",
+          "dev-cloud/frameworks/laravel/module-06-workflow-editorial/04-interface-moderation.md"
+        ]},
+        {"Module 7 - Starter Kit Breeze" = [
+          "dev-cloud/frameworks/laravel/module-07-breeze-refactoring/01-breeze-vs-custom.md",
+          "dev-cloud/frameworks/laravel/module-07-breeze-refactoring/02-installation-et-fichiers.md",
+          "dev-cloud/frameworks/laravel/module-07-breeze-refactoring/03-comprendre-patterns.md",
+          "dev-cloud/frameworks/laravel/module-07-breeze-refactoring/04-migration-et-bilan.md"
+        ]},
+        {"Module 8 - Stack TALL & Bilan" = [
+          "dev-cloud/frameworks/laravel/module-08-tall-stack/01-introduction-tall.md",
+          "dev-cloud/frameworks/laravel/module-08-tall-stack/02-alpine-interactivite.md",
+          "dev-cloud/frameworks/laravel/module-08-tall-stack/03-livewire-reactif.md",
+          "dev-cloud/frameworks/laravel/module-08-tall-stack/04-bilan-et-perspectives.md"
+        ]},
+        {"Module 9 - Architecture & Sécurité" = [
+          "dev-cloud/frameworks/laravel/module-09-architecture-securite/01-securite-owasp.md",
+          "dev-cloud/frameworks/laravel/module-09-architecture-securite/02-file-attente-et-jobs.md",
+          "dev-cloud/frameworks/laravel/module-09-architecture-securite/03-api-et-sanctum.md",
+          "dev-cloud/frameworks/laravel/module-09-architecture-securite/04-masterclass-synthese.md"
+        ]},
 
         # Authentification Laravel :
         # - Mécanismes et starter-kits officiels, usage web et API.
         {"Authentification Laravel" = [
           {"Breeze"    = "dev-cloud/frameworks/laravel/breeze.md"},
-          {"Jetstream" = "dev-cloud/frameworks/laravel/jetstream.md"},
           {"Sanctum"   = "dev-cloud/frameworks/laravel/sanctum.md"},
+          {"Jetstream" = "dev-cloud/frameworks/laravel/jetstream.md"}
         ]},
       ]},
 
@@ -192,8 +251,13 @@
       # - Interactivité frontend légère (sans framework SPA).
       # - Complément de Livewire dans la Stack TALL.
       {"Alpine.js" = [
-        # Index Alpine : décrit l’organisation “chapitres/leçons”.
-        "dev-cloud/frameworks/alpine/chapitre/index.md",
+        "dev-cloud/frameworks/alpine/index.md",
+        "dev-cloud/frameworks/alpine/00-rapport-formation-alpine.md",
+        "dev-cloud/frameworks/alpine/01-introduction.md",
+        "dev-cloud/frameworks/alpine/02-etat-affichage.md",
+        "dev-cloud/frameworks/alpine/03-interactions-evenements.md",
+        "dev-cloud/frameworks/alpine/04-reactivite-avancee.md",
+        "dev-cloud/frameworks/alpine/05-ecosysteme-production.md",
       ]},
 
       # ------------------------------------------------------------------------
@@ -204,6 +268,7 @@
       # - Modèle mental : état serveur, actions, validation, rendu, événements.
       {"Livewire" = [
         "dev-cloud/frameworks/livewire/index.md",
+        "dev-cloud/frameworks/livewire/00-rapport-formation-livewire.md",
         "dev-cloud/frameworks/livewire/module1.md",
         "dev-cloud/frameworks/livewire/module2.md",
         "dev-cloud/frameworks/livewire/module3.md",
@@ -236,6 +301,7 @@
       # - Objectif : productivité web sans SPA lourde.
       {"Stack TALL" = [
         "dev-cloud/stacks/tall/index.md",
+        "dev-cloud/stacks/tall/00-rapport-formation-tall.md",
         "dev-cloud/stacks/tall/installation.md",
         "dev-cloud/stacks/tall/feuille-route.md",
         "dev-cloud/stacks/tall/fondations.md",
@@ -277,7 +343,7 @@
         "dev-cloud/mobile/swift/17-result-builders.md",
         "dev-cloud/mobile/swift/18-combine.md",
       ]},
-      {"SwiftUI" = [
+      {"SwiftUI — L'Interface Déclarative" = [
         "dev-cloud/mobile/swiftui/index.md",
         "dev-cloud/mobile/swiftui/00-rapport-formation-swiftui.md",
 
@@ -308,8 +374,9 @@
         "dev-cloud/mobile/swiftui/18-app-store.md",
       ]},
 
-      {"Vapor" = [
+      {"Vapor — Le Serveur Swift" = [
         "dev-cloud/mobile/vapor/index.md",
+        "dev-cloud/mobile/vapor/00-rapport-formation-vapor.md",
 
         # Fondements du Framework
         "dev-cloud/mobile/vapor/01-introduction.md",
@@ -327,8 +394,7 @@
         "dev-cloud/mobile/vapor/09-api-rest.md",
         "dev-cloud/mobile/vapor/10-queues-jobs.md",
         "dev-cloud/mobile/vapor/11-tests-xctvapor.md",
-        "dev-cloud/mobile/vapor/12-deploiement.md",
-        
+      
       ]}
 
     ]}, 
@@ -341,6 +407,7 @@
     # - Servir de référence lors des implémentations backend (ex: Laravel/Eloquent).
     {"Base de données" = [
       "dev-cloud/data/index.md",
+      "dev-cloud/data/00-rapport-formation-data.md",
 
       # SQLite :
       # - Base embarquée, adaptée aux projets pédagogiques et prototypes.
@@ -380,10 +447,10 @@
 
       {"UML" = [
         "bases/modelisation/uml/index.md",
+        "bases/modelisation/uml/00-rapport-formation-uml.md",
         {"Introduction" = "bases/modelisation/uml/uml-intro.md"},
 
         {"Diagrammes" = [
-          "bases/modelisation/uml/diagrammes/index.md",
           {"UseCase"             = "bases/modelisation/uml/diagrammes/usecase.md"},
           {"Classes"             = "bases/modelisation/uml/diagrammes/classes.md"},
           {"Séquences"           = "bases/modelisation/uml/diagrammes/sequence.md"},
@@ -404,6 +471,7 @@
 
       {"Merise" = [
         "bases/modelisation/merise/index.md",
+        "bases/modelisation/merise/00-rapport-formation-merise.md",
         {"Introduction" = "bases/modelisation/merise/intro.md"},
         {"MCD"          = "bases/modelisation/merise/mcd.md"},
         {"MLD"          = "bases/modelisation/merise/mld.md"},
@@ -420,6 +488,7 @@
     # - Fournir un outillage concret (PHPUnit, Pest, Vitest, Cypress).
     {"Tests & Qualité" = [
       "dev-cloud/tests-qualite/index.md",
+      "dev-cloud/tests-qualite/00-rapport-formation-tests.md",
 
       # Stratégies :
       # - Approches de conception et organisation des tests.
@@ -440,6 +509,7 @@
       {"Outils de tests PHP" = [
         {"PHPUnit" = [
           "dev-cloud/tests-qualite/phpunit/index.md",
+          "dev-cloud/tests-qualite/phpunit/00-rapport-formation-phpunit.md",
           "dev-cloud/tests-qualite/phpunit/module1.md",
           "dev-cloud/tests-qualite/phpunit/module2.md",
           "dev-cloud/tests-qualite/phpunit/module3.md",
@@ -451,6 +521,7 @@
         ]},
         {"Pest" = [
           "dev-cloud/tests-qualite/pest/index.md",
+          "dev-cloud/tests-qualite/pest/00-rapport-formation-pest.md",
           "dev-cloud/tests-qualite/pest/module1.md",
           "dev-cloud/tests-qualite/pest/module2.md",
           "dev-cloud/tests-qualite/pest/module3.md",
@@ -465,8 +536,17 @@
       # Outils frontend & E2E :
       # - Tests JavaScript et tests de parcours utilisateur.
       {"Outils de tests Front & E2E" = [
-        {"Vitest"  = "dev-cloud/tests-qualite/vitest/vitest.md"},
-        {"Cypress" = "dev-cloud/tests-qualite/cypress/cypress.md"},
+        {"Vitest" = [
+          "dev-cloud/tests-qualite/vitest/00-rapport-formation-vitest.md",
+          "dev-cloud/tests-qualite/vitest/vitest.md"
+        ]},
+        {"Cypress" = [
+          "dev-cloud/tests-qualite/cypress/00-rapport-formation-cypress.md",
+          "dev-cloud/tests-qualite/cypress/cypress.md"
+        ]},
+        {"Jest" = [
+          "dev-cloud/tests-qualite/jest/00-rapport-formation-jest.md"
+        ]},
       ]},
     ]},
 
@@ -482,6 +562,7 @@
     # - La cybersécurité outillage/attaque/défense n’est pas traitée ici.
     {"DevSecOps" = [
       "dev-cloud/devsecops/index.md",
+      "dev-cloud/devsecops/00-rapport-formation-devsecops.md",
 
       # ==========================================================================
       # Gestion de projet

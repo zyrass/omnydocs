@@ -59,7 +59,9 @@ Project → Target → Signing & Capabilities
 4. Provisioning Profile : créé automatiquement avec Automatically manage signing
 ```
 
-<!-- ILLUSTRATION REQUISE : swiftui-signing-capabilities.png — Capture écran annotée de l'onglet Signing & Capabilities d'Xcode avec les zones importantes encadrées -->
+<br>
+![Panneau App Store et Capabilités Signing](/assets/images/swiftui/swiftui-signing-capabilities.png)
+<br>
 
 ### Capabilities — Fonctionnalités Spéciales
 

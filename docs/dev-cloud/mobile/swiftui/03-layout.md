@@ -88,7 +88,9 @@ struct DémoStacks: View {
 }
 ```
 
-<!-- ILLUSTRATION REQUISE : swiftui-layout-containers.png — Diagramme visuel de VStack (flèche bas), HStack (flèche droite), ZStack (couches), avec des boîtes colorées -->
+<br>
+![Conteneurs de Layout VStack HStack ZStack](/assets/images/swiftui/swiftui-layout-containers.png)
+<br>
 
 *`Spacer()` dans un `HStack` crée un espace flexible qui pousse les éléments de chaque côté. Dans un `VStack`, il pousse vers le bas ou vers le haut.*
 

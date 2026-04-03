@@ -1,6 +1,5 @@
 ---
 description: "Vapor — Le serveur Swift : présentation de la formation, structure des 12 modules, prérequis et parcours conseillé."
-icon: lucide/server
 tags: ["VAPOR", "SWIFT", "BACKEND", "SERVER-SIDE", "INDEX"]
 ---
 

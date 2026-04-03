@@ -257,7 +257,9 @@ struct VueListeArticlesSansNavigation: View {
 
     Un `@ObservedObject` dans une vue qui crée l'objet (`@ObservedObject var vm = ViewModel()`) est un bug fréquent : l'instance est recrée à chaque re-rendu de la vue parente, perdant tout l'état.
 
-<!-- ILLUSTRATION REQUISE : swiftui-observableobject-graph.png — Graphe : vue racine @StateObject → sous-vue @ObservedObject (passage explicite) → @EnvironmentObject (injection) -->
+<br>
+![Graphe Object Observable Object Injection](/assets/images/swiftui/swiftui-observableobject-graph.png)
+<br>
 
 <br>
 

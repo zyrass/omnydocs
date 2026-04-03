@@ -253,7 +253,9 @@ struct DémoChaine: View {
 }
 ```
 
-<!-- ILLUSTRATION REQUISE : swiftui-modificateurs-pipeline.png — Diagramme en couches montrant comment chaque modificateur enveloppe la vue précédente -->
+<br>
+![Pipeline de Modificateurs SwiftUI](/assets/images/swiftui/swiftui-modificateurs-pipeline.png)
+<br>
 
 *L'ordre `padding` → `background` produit un fond qui englobe les marges. L'ordre inverse produit un fond collé au texte. SwiftUI applique les modificateurs de l'intérieur vers l'extérieur.*
 

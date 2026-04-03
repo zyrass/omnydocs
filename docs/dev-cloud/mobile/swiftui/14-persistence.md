@@ -353,7 +353,9 @@ struct NoteEditView: View {
 
 *`@Bindable` fonctionne avec les modèles `@Model` de SwiftData — exactement comme avec `@Observable`. Les modifications dans les TextFields sont automatiquement persistées sans appel explicite à save.*
 
-<!-- ILLUSTRATION REQUISE : swiftui-swiftdata-schema.png — Diagramme entité-relation : NotePersistante → @Relationship → [TagPersistant], avec les attributs listés -->
+<br>
+![Schéma Relationnel SwiftData Base de Données](/assets/images/swiftui/swiftui-swiftdata-schema.png)
+<br>
 
 <br>
 

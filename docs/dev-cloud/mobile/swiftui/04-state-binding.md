@@ -206,7 +206,9 @@ struct ListeTâches: View {
 
 *L'opérateur `$` devant un `@State` produit un `Binding<T>` — une référence lecture-écriture vers la valeur. Il faut le `$` uniquement à l'endroit où vous passez la valeur à une vue enfant.*
 
-<!-- ILLUSTRATION REQUISE : swiftui-state-binding-flux.png — Diagramme flux unidirectionnel : @State (parent) → valeur lue dans body → $State crée Binding → sous-vue reçoit Binding → sous-vue modifie → @State change → body recalculé -->
+<br>
+![Flux Indirectionnel State Binding](/assets/images/swiftui/swiftui-state-binding-flux.png)
+<br>
 
 <br>
 

@@ -101,7 +101,9 @@ struct DémoAnimationsBase: View {
 
 ## Les Types d'Animation
 
-<!-- ILLUSTRATION REQUISE : swiftui-animation-curves.png — Graphe des courbes d'animation : easeIn, easeOut, easeInOut, linear, spring (bouncy) avec axe temps/valeur -->
+<br>
+![Courbes de Temps d'Animation SwiftUI](/assets/images/swiftui/swiftui-animation-curves.png)
+<br>
 
 ```swift title="Swift (SwiftUI) — Types d'animation et leur effet"
 import SwiftUI

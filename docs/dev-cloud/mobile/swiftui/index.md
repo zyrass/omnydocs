@@ -3,7 +3,7 @@ description: "SwiftUI : créer des interfaces iOS déclaratives et réactives. D
 tags: ["SWIFTUI", "IOS", "INTERFACE", "APPLE", "DECLARATIF"]
 ---
 
-# SwiftUI
+# SwiftUI — L'Interface Déclarative
 
 <div
   class="omny-meta"

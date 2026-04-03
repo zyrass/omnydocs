@@ -171,7 +171,9 @@ struct VuePanierIOS17: View {
 }
 ```
 
-<!-- ILLUSTRATION REQUISE : swiftui-observable-timeline.png — Timeline iOS 16 (ObservableObject) → iOS 17 (@Observable) avec les changements de syntaxe listés -->
+<br>
+![Timeline d'évolution du framework SwiftUI et Observables](/assets/images/swiftui/swiftui-observable-timeline.png)
+<br>
 
 <br>
 

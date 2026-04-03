@@ -233,7 +233,9 @@ struct ListePosts: View {
 }
 ```
 
-<!-- ILLUSTRATION REQUISE : swiftui-async-fetch-sequence.png — Diagramme de séquence : .task{} → ViewModel.charger() → await URLSession → JSONDecoder → @Published état → SwiftUI re-render -->
+<br>
+![Séquence de Récupération de Données Async](/assets/images/swiftui/swiftui-async-fetch-sequence.png)
+<br>
 
 *`@MainActor` sur le ViewModel garantit que toutes les modifications de `@Published` s'exécutent sur le thread principal — nécessaire car SwiftUI ne peut être mis à jour que depuis le thread principal.*
 
