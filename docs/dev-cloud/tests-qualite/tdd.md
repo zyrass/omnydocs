@@ -31,7 +31,7 @@ tags: ["TDD", "BDD", "TESTING", "PHPUNIT", "PEST", "METHODOLOGIE"]
 ### Le Cycle Red → Green → Refactor
 
 ```mermaid
-flowchart LR
+flowchart TB
     R["🔴 RED\nÉcrire un test\nqui échoue"] --> G["🟢 GREEN\nCode minimum\npour le faire passer"]
     G --> RF["♻️ REFACTOR\nNettoyer sans\ncasser le test"]
     RF --> R

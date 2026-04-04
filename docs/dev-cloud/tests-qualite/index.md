@@ -129,7 +129,7 @@ _Même résultat, même robustesse — Pest est plus lisible, PHPUnit est plus u
 ## Choisir son Framework
 
 ```mermaid
-flowchart TD
+flowchart TB
     A["Nouveau projet ?"] -->|Oui| B["Laravel ?"]
     A -->|Non, existant| C["PHPUnit déjà installé ?"]
     B -->|Oui| D["→ Pest recommandé\n(officiel Laravel 2024)"]
