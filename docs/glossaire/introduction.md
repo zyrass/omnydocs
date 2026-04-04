@@ -23,7 +23,8 @@ Le glossaire est organisé en sept domaines de spécialisation, couvrant l'ensem
 | **Administration Système** | Systèmes d'exploitation, services, virtualisation, sécurité système, monitoring |
 | **Administration Réseau** | Protocoles, routage, commutation, QoS, sécurité réseau, haute disponibilité |
 | **Développement Web** | Frontend, backend, APIs, frameworks, bases de données, sécurité web, performance |
-| **Cloud Computing** | Plateformes cloud, conteneurisation, Infrastructure as Code, serverless, observabilité |
+| **Développement Mobile** | à éditer |
+| **Développement Cloud** | Plateformes cloud, conteneurisation, Infrastructure as Code, serverless, observabilité |
 | **DevSecOps** | CI/CD, automatisation, monitoring, sécurité intégrée, culture DevOps, métriques |
 | **Cybersécurité** | Cryptographie, détection d'intrusion, réponse aux incidents, gouvernance, conformité |
 

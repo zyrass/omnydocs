@@ -13,10 +13,17 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
   data-time="Consultation">
 </div>
 
+Ce glossaire est une ressource exhaustive couvrant l'ensemble de l'écosystème du développement mobile Apple. Vous y trouverez les concepts fondamentaux du langage **Swift**, les frameworks d'interface utilisateur comme **SwiftUI** et **UIKit**, ainsi que les outils de distribution et le développement backend avec **Vapor**. 
+
+Il comporte actuellement **47 mots-clés** essentiels pour tout développeur souhaitant maîtriser le développement iOS moderne.
+
 ## A
 
+### ABI
+
+> Interface binaire définissant comment le code compilé interagit avec le système d'exploitation et les autres bibliothèques au niveau machine.
+
 !!! note "ABI"
-    > Interface binaire définissant comment le code compilé interagit avec le système d'exploitation et les autres bibliothèques au niveau machine.
 
     L'ABI (Application Binary Interface) est ce qui permet à Swift d'être stable depuis Swift 5.0 — le code compilé avec une version du compilateur peut s'exécuter avec une version différente de la runtime Swift, sans recompilation.
 
@@ -24,19 +31,20 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     - **Stabilité Swift :** atteinte avec Swift 5.0 en 2019 — fondamentale pour la distribution sur l'App Store
     - **Conséquence :** Swift est livré avec iOS depuis iOS 12.2, plus besoin de l'embarquer dans l'app
 
-    ```mermaid
-    graph LR
-        A[ABI] --> B[Code compilé]
-        A --> C[Runtime Swift]
-        A --> D[Stabilité iOS 12.2+]
-    ```
+```mermaid
+flowchart TB
+    A[ABI] --> B["Code compilé"]
+    A --> C["Runtime Swift"]
+    A --> D["Stabilité iOS 12.2+"]
+```
 
-<br>
+_Le rôle de l'ABI dans la stabilité binaire et la compatibilité des versions de Swift._
 
----
+### Actor (Swift Concurrency)
+
+> Type de référence Swift conçu pour la concurrence sécurisée, garantissant qu'un seul thread accède à son état mutable à la fois.
 
 !!! note "Actor"
-    > Type de référence Swift conçu pour la concurrence sécurisée, garantissant qu'un seul thread accède à son état mutable à la fois.
 
     Les actors isolent leur état — tout accès se fait de manière asynchrone. Swift Concurrency utilise les actors pour éliminer les data races sans verrous manuels, rendant le code concurrent à la fois sûr et lisible.
 
@@ -56,19 +64,20 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _Un `actor` protège son état interne : tout appel de méthode depuis l'extérieur est implicitement `await`._
 
-    ```mermaid
-    graph LR
-        A[Actor] --> B[Isolation état]
-        A --> C[Swift Concurrency]
-        A --> D[MainActor — UI]
-    ```
+```mermaid
+flowchart TB
+    A[Actor] --> B["Isolation état"]
+    A --> C["Swift Concurrency"]
+    A --> D["MainActor — UI"]
+```
 
-<br>
+_Schéma représentant l'isolation d'état et la sécurité de thread offerte par les Actors._
 
----
+### App Lifecycle (iOS)
+
+> Ensemble des états et transitions qu'une application iOS traverse depuis son lancement jusqu'à sa fermeture.
 
 !!! note "App Lifecycle"
-    > Ensemble des états et transitions qu'une application iOS traverse depuis son lancement jusqu'à sa fermeture.
 
     Comprendre le cycle de vie est essentiel pour gérer correctement les ressources. Une app peut être active, en arrière-plan, suspendue ou terminée — chaque transition déclenche des callbacks spécifiques à exploiter.
 
@@ -76,20 +85,21 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     - **SwiftUI :** `@Environment(\.scenePhase)` avec les valeurs `.active`, `.inactive`, `.background`
     - **Callbacks clés :** `applicationDidBecomeActive`, `applicationDidEnterBackground`, `sceneDidBecomeActive`
 
-    ```mermaid
-    graph LR
-        A[App Lifecycle] --> B[Not Running]
-        B --> C[Active]
-        C --> D[Background]
-        D --> E[Suspended]
-    ```
+```mermaid
+flowchart TB
+    A[App Lifecycle] --> B[Not Running]
+    B --> C[Active]
+    C --> D[Background]
+    D --> E[Suspended]
+```
 
-<br>
+_Diagramme de transition des états d'exécution d'une application iOS._
 
----
+### App Store Connect
+
+> Plateforme Apple de gestion des applications distribuées sur l'App Store — soumission, métadonnées, pricing et analytics.
 
 !!! note "App Store Connect"
-    > Plateforme Apple de gestion des applications distribuées sur l'App Store — soumission, métadonnées, pricing et analytics.
 
     App Store Connect est le portail central pour tout développeur Apple. On y soumet les builds (via Xcode ou Transporter), on configure les métadonnées (descriptions, screenshots, mots-clés), on gère les testeurs TestFlight et on consulte les analytics de performance.
 
@@ -97,77 +107,75 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     - **Review :** chaque soumission est revue par l'équipe Apple (délai : quelques heures à quelques jours)
     - **URL :** [appstoreconnect.apple.com](https://appstoreconnect.apple.com)
 
-    ```mermaid
-    graph LR
-        A[App Store Connect] --> B[Soumission builds]
-        A --> C[TestFlight beta]
-        A --> D[Analytics performances]
+```mermaid
+flowchart TB
+    A["App Store Connect"] --> B["Soumission builds"]
+    A --> C["TestFlight beta"]
+    A --> D["Analytics performances"]
+```
+
+_Cycle de gestion et de distribution via le portail App Store Connect._
+
+### @AppStorage (SwiftUI)
+
+> Property wrapper SwiftUI lisant et écrivant une valeur dans `UserDefaults` avec synchronisation automatique de l'interface.
+
+!!! note "@AppStorage"
+
+    `@AppStorage` simplifie radicalement la persistance légère dans SwiftUI — la vue se met automatiquement à jour si la valeur `UserDefaults` change (depuis une extension, une notification, ou une autre vue). Idéal pour les préférences utilisateur.
+
+    - **Persistance :** `UserDefaults.standard` par défaut, ou une suite personnalisée
+    - **Types supportés :** `Bool`, `Int`, `Double`, `String`, `Data`, `URL`
+    - **Équivalent UIKit :** `UserDefaults.standard.set/get` + notification manuelle
+
+    ```swift title="Swift — @AppStorage : préférences persistantes"
+    struct ParametresView: View {
+        @AppStorage("thème")         var thème: String  = "clair"
+        @AppStorage("notifications") var notifs: Bool   = true
+        @AppStorage("taillePolice")  var taille: Double = 16.0
+
+        var body: some View {
+            Form {
+                Picker("Thème", selection: $thème) {
+                    Text("Clair").tag("clair")
+                    Text("Sombre").tag("sombre")
+                }
+                Toggle("Notifications", isOn: $notifs)
+                Slider(value: $taille, in: 12...24)
+            }
+        }
+    }
     ```
 
-<br>
+    _Chaque modification via `$thème` écrit dans `UserDefaults` et re-rend la vue — zéro code de synchronisation._
 
----
+```mermaid
+flowchart TB
+    A["@AppStorage"] --> B[UserDefaults]
+    A --> C["Préférences utilisateur"]
+    A --> D["Re-render automatique"]
+```
 
-!!! note "Async/Await"
-    > Syntaxe Swift moderne pour l'écriture de code asynchrone de manière séquentielle et lisible, sans callbacks ni completion handlers.
+_Synchronisation automatique entre UserDefaults et l'UI via le property wrapper @AppStorage._
+
+### Async / Await (Swift Concurrency)
+
+> Syntaxe Swift moderne pour l'écriture de code asynchrone de manière séquentielle et lisible, sans callbacks ni completion handlers.
+
+!!! note "Async / Await"
 
     Avant Swift Concurrency, la gestion des opérations asynchrones reposait sur des closures imbriquées ("callback hell") ou des frameworks comme Combine/RxSwift. `async/await` rend le code asynchrone aussi lisible que du code synchrone.
 
     - **Introduit :** Swift 5.5 (iOS 15, Xcode 13) — compatible iOS 13+ avec back-deployment partiel
     - **`async` :** marque une fonction comme asynchrone
     - **`await` :** suspend l'exécution jusqu'à la complétion de la tâche asynchrone
-
-    ```swift title="Swift — Async/Await vs. completion handler"
-    // Avant : callback hell
-    fetchUser(id: 1) { user in
-        fetchPosts(for: user) { posts in
-            display(posts)
-        }
-    }
-
-    // Avec async/await : séquentiel et lisible
-    let user  = try await fetchUser(id: 1)
-    let posts = try await fetchPosts(for: user)
-    display(posts)
-    ```
-
-    _`await` indique un point de suspension — le thread peut traiter d'autres tâches en attendant._
-
-    ```mermaid
-    graph LR
-        A[Async/Await] --> B[Swift Concurrency]
-        A --> C[Code séquentiel lisible]
-        A --> D[Task — exécution]
-    ```
-
-<br>
-
----
-
 ## B
 
-!!! note "Bundle Identifier"
-    > Chaîne de caractères unique identifiant une application Apple sur l'ensemble des plateformes et services Apple.
+### @Bindable (SwiftUI)
 
-    Le Bundle ID est l'empreinte digitale de votre application dans l'écosystème Apple. Il suit le format DNS inversé (`com.nomEntreprise.nomApp`) et doit être unique sur l'App Store. Il est utilisé pour les push notifications, les entitlements, iCloud, et la signature du code.
-
-    - **Format :** `com.example.monApp` (DNS inversé)
-    - **Immuable :** une fois soumis sur l'App Store, ne peut plus être changé
-    - **Usage :** push notifications (APNs), Universal Links, App Clips, entitlements
-
-    ```mermaid
-    graph LR
-        A[Bundle Identifier] --> B[Identité app Apple]
-        A --> C[App Store unique]
-        A --> D[Push notifications APNs]
-    ```
-
-<br>
-
----
+> Property wrapper SwiftUI (iOS 17+) permettant de créer des bindings vers les propriétés d'un type `@Observable`.
 
 !!! note "@Bindable"
-    > Property wrapper SwiftUI (iOS 17+) permettant de créer des bindings vers les propriétés d'un type `@Observable`.
 
     Avec l'ancien système (`ObservableObject`), les bindings vers des propriétés d'un ViewModel utilisaient `@ObservedObject` + `$`. Avec `@Observable`, le property wrapper `@Bindable` remplace ce rôle — il génère des `Binding<T>` depuis les propriétés d'un objet observable.
 
@@ -193,19 +201,20 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _`@Bindable` informe SwiftUI que l'objet peut fournir des `Binding<T>` vers ses propriétés sans nécessiter `@Published`._
 
-    ```mermaid
-    graph LR
-        A[@Bindable] --> B[iOS 17+]
-        A --> C[@Observable objects]
-        A --> D[$vm.propriété → Binding]
-    ```
+```mermaid
+flowchart TB
+    A["@Bindable"] --> B["iOS 17+"]
+    A --> C["@Observable objects"]
+    A --> D["$vm.propriété → Binding"]
+```
 
-<br>
+_Flux de création de Binding via le property wrapper @Bindable introduit avec le framework Observation._
 
----
+### @Binding (SwiftUI)
+
+> Property wrapper SwiftUI créant une référence bidirectionnelle vers une valeur d'état détenue par un parent.
 
 !!! note "@Binding"
-    > Property wrapper SwiftUI créant une référence bidirectionnelle vers une valeur d'état détenue par un parent.
 
     `@Binding` est le mécanisme de communication descendant de SwiftUI — un enfant reçoit un `Binding<T>` et peut lire et modifier la valeur du parent sans en être propriétaire. C'est la mise en œuvre du flux de données unidirectionnel : la source de vérité reste dans le parent.
 
@@ -235,12 +244,35 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _La modification de `isOn` dans l'enfant met à jour `actif` dans le parent — SwiftUI re-rend les deux vues._
 
-    ```mermaid
-    graph LR
-        A[@Binding] --> B[Référence bidirectionnelle]
-        A --> C[Source de vérité — parent]
-        A --> D[$state → Binding creation]
-    ```
+```mermaid
+flowchart TB
+    A["@Binding"] --> B["Référence bidirectionnelle"]
+    A --> C["Source de vérité — parent"]
+    A --> D["$state → Binding creation"]
+```
+
+_Mécanisme de liaison bidirectionnelle assurant la synchronisation de l'état entre une vue parente et son enfant._
+
+### Bundle Identifier
+
+> Chaîne de caractères unique identifiant une application Apple sur l'ensemble des plateformes et services Apple.
+
+!!! note "Bundle Identifier"
+
+    Le Bundle ID est l'empreinte digitale de votre application dans l'écosystème Apple. Il suit le format DNS inversé (`com.nomEntreprise.nomApp`) et doit être unique sur l'App Store. Il est utilisé pour les push notifications, les entitlements, iCloud, et la signature du code.
+
+    - **Format :** `com.example.monApp` (DNS inversé)
+    - **Immuable :** une fois soumis sur l'App Store, ne peut plus être changé
+    - **Usage :** push notifications (APNs), Universal Links, App Clips, entitlements
+
+```mermaid
+flowchart TB
+    A["Bundle Identifier"] --> B["Identité app Apple"]
+    A --> C["App Store unique"]
+    A --> D["Push notifications APNs"]
+```
+
+_Le Bundle ID comme clé unique de l'identité d'une application dans l'écosystème Apple._
 
 <br>
 
@@ -248,8 +280,11 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## C
 
+### Closure
+
+> Bloc de code autonome et de première classe pouvant être stocké, passé en paramètre et capturant son contexte environnant.
+
 !!! note "Closure"
-    > Bloc de code autonome et de première classe pouvant être stocké, passé en paramètre et capturant son contexte environnant.
 
     Les closures sont l'équivalent Swift des lambdas ou fonctions anonymes. Elles capturent les variables de leur contexte (`[weak self]` pour éviter les cycles de rétention). Elles sont omniprésentes dans les APIs UIKit (completion handlers, animations, callbacks).
 
@@ -272,19 +307,20 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _`[weak self]` empêche la closure de retenir fortement `self` — essentiel pour éviter les fuites mémoire._
 
-    ```mermaid
-    graph LR
-        A[Closure] --> B[Capture context]
-        A --> C[Callbacks UIKit]
-        A --> D[weak self retain cycle]
-    ```
+```mermaid
+flowchart TB
+    A[Closure] --> B["Capture context"]
+    A --> C["Callbacks UIKit"]
+    A --> D["weak self retain cycle"]
+```
 
-<br>
+_Représentation des concepts clés des closures : capture de contexte et gestion de la mémoire (Retain Cycle)._
 
----
+### Codable
+
+> Protocole Swift combinant `Encodable` et `Decodable` pour sérialiser et désérialiser des données JSON/XML automatiquement.
 
 !!! note "Codable"
-    > Protocole Swift combinant `Encodable` et `Decodable` pour sérialiser et désérialiser des données JSON/XML automatiquement.
 
     `Codable` est l'une des fonctionnalités les plus pratiques de Swift. Une struct ou classe conforme à `Codable` peut être encodée en JSON et décodée depuis JSON automatiquement, sans écrire manuellement de code de parsing.
 
@@ -307,19 +343,20 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _Swift synthétise automatiquement les méthodes `encode` et `decode` pour les types conformes à `Codable`._
 
-    ```mermaid
-    graph LR
-        A[Codable] --> B[JSON parsing]
-        A --> C[JSONDecoder]
-        A --> D[Encodable / Decodable]
-    ```
+```mermaid
+flowchart TB
+    A[Codable] --> B["JSON parsing"]
+    A --> C[JSONDecoder]
+    A --> D["Encodable / Decodable"]
+```
 
-<br>
+_Le système Codable facilitant la sérialisation et le mapping automatique de données JSON._
 
----
+### Combine
+
+> Framework Apple de programmation réactive (reactive programming) permettant de chaîner et de transformer des flux de valeurs asynchrones.
 
 !!! note "Combine"
-    > Framework Apple de programmation réactive (reactive programming) permettant de chaîner et de transformer des flux de valeurs asynchrones.
 
     Combine introduit les concepts de Publisher (émetteur de valeurs) et Subscriber (consommateur). Il permet de composer des pipelines de traitement de données asynchrones — transformation, filtrage, fusion, gestion d'erreurs — de manière déclarative.
 
@@ -339,19 +376,20 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _Chaque opérateur retourne un nouveau Publisher — les pipelines Combine sont composables à l'infini._
 
-    ```mermaid
-    graph LR
-        A[Combine] --> B[Publisher Subscriber]
-        A --> C[Reactive programming]
-        A --> D[SwiftUI @Published]
-    ```
+```mermaid
+flowchart TB
+    A[Combine] --> B["Publisher Subscriber"]
+    A --> C["Reactive programming"]
+    A --> D["SwiftUI @Published"]
+```
 
-<br>
+_Architecture réactive de Combine basée sur la propagation de flux via Publishers et Subscribers._
 
----
+### Core Data
+
+> Framework Apple de persistance et de gestion objet-graphe pour stocker, requêter et synchroniser des données structurées sur iOS.
 
 !!! note "Core Data"
-    > Framework Apple de persistance et de gestion objet-graphe pour stocker, requêter et synchroniser des données structurées sur iOS.
 
     Core Data n'est pas une base de données — c'est une couche de gestion d'objet-graphe. Derrière, il peut utiliser SQLite, des fichiers binaires ou mémoire. Il gère automatiquement les relations entre objets, les migrations de schéma et l'intégration avec CloudKit (synchronisation iCloud).
 
@@ -359,12 +397,14 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     - **Intégration SwiftUI :** `@FetchRequest`, `@Environment(\.managedObjectContext)`
     - **Alternatives modernes :** SwiftData (iOS 17+), Realm, SQLite.swift
 
-    ```mermaid
-    graph LR
-        A[Core Data] --> B[Persistance SQLite]
-        A --> C[Object graph]
-        A --> D[CloudKit iCloud sync]
-    ```
+```mermaid
+flowchart TB
+    A["Core Data"] --> B["Persistance SQLite"]
+    A --> C["Object graph"]
+    A --> D["CloudKit iCloud sync"]
+```
+
+_Organisation logicielle de la couche de persistance et de synchronisation des données avec Core Data._
 
 <br>
 
@@ -372,8 +412,11 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## D
 
+### Delegate Pattern
+
+> Patron de conception permettant à un objet de déléguer certaines de ses responsabilités à un autre objet via un protocole.
+
 !!! note "Delegate Pattern"
-    > Patron de conception permettant à un objet de déléguer certaines de ses responsabilités à un autre objet via un protocole.
 
     Le pattern Delegate est au cœur de UIKit. `UITableViewDelegate`, `UITextFieldDelegate`, `URLSessionDelegate` — des dizaines d'APIs Apple fonctionnent ainsi. L'objet délégant définit un protocole, l'objet délégué l'implémente.
 
@@ -398,12 +441,14 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _`weak var delegate` est impératif — une référence forte créerait un cycle de rétention._
 
-    ```mermaid
-    graph LR
-        A[Delegate Pattern] --> B[Protocole]
-        A --> C[UIKit APIs]
-        A --> D[weak — retain cycle]
-    ```
+```mermaid
+flowchart TB
+    A["Delegate Pattern"] --> B[Protocole]
+    A --> C["UIKit APIs"]
+    A --> D["weak — retain cycle"]
+```
+
+_Le pattern de délégation facilitant la communication entre objets tout en évitant les fuites mémoire via weak._
 
 <br>
 
@@ -411,8 +456,11 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## E
 
+### Enum avec associated values
+
+> Énumération Swift pouvant stocker des données supplémentaires de types différents pour chaque case.
+
 !!! note "Enum avec associated values"
-    > Énumération Swift pouvant stocker des données supplémentaires de types différents pour chaque case.
 
     Les enums Swift sont bien plus puissants que dans la plupart des langages. Chaque case peut porter des valeurs associées de types différents — ce qui permet de modéliser des états complexes de manière typée et exhaustive, notamment pour la gestion des résultats d'API.
 
@@ -438,19 +486,20 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _Le compilateur Swift vérifie l'exhaustivité du `switch` — chaque case doit être traité._
 
-    ```mermaid
-    graph LR
-        A[Enum associated values] --> B[Modélisation états]
-        A --> C[Result type]
-        A --> D[Pattern matching]
-    ```
+```mermaid
+flowchart TB
+    A["Enum associated values"] --> B["Modélisation états"]
+    A --> C["Result type"]
+    A --> D["Pattern matching"]
+```
 
-<br>
+_Modélisation d'états complexes et typés pour une gestion d'erreurs robuste via les enums._
 
----
+### @EnvironmentObject (SwiftUI)
+
+> Property wrapper SwiftUI injectant un objet observable partagé depuis l'environnement, sans le passer explicitement entre les vues.
 
 !!! note "@EnvironmentObject"
-    > Property wrapper SwiftUI injectant un objet observable partagé depuis l'environnement, sans le passer explicitement entre les vues.
 
     `@EnvironmentObject` est le mécanisme de partage global de SwiftUI — un `ObservableObject` injecté une fois dans l'arbre des vues est accessible par n'importe quelle vue descendante via `@EnvironmentObject`, sans le propager manuellement à travers les niveaux.
 
@@ -482,12 +531,52 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _iOS 17+ : `@EnvironmentObject` reste valide, mais l'alternative recommandée est d'injecter un `@Observable` via `.environment(\\.maClé, objet)`._
 
-    ```mermaid
-    graph LR
-        A[@EnvironmentObject] --> B[Partage global SwiftUI]
-        A --> C[ObservableObject]
-        A --> D[.environmentObject injection]
+```mermaid
+flowchart TB
+    A["@EnvironmentObject"] --> B["Partage global SwiftUI"]
+    A --> C[ObservableObject]
+    A --> D[".environmentObject injection"]
+```
+
+_Mécanisme d'injection de dépendances à travers l'arbre de vues SwiftUI._
+
+<br>
+
+---
+
+## F
+
+### Fluent (Vapor)
+
+> ORM (Object-Relational Mapper) officiel de Vapor permettant de définir les modèles de base de données en Swift et d'écrire des requêtes type-safe.
+
+!!! note "Fluent"
+
+    Fluent traduit les classes Swift (`@Model`) en tables SQL et les opérations Swift (`Article.query(on: db).filter(...)`) en requêtes SQL optimisées. Il supporte SQLite (développement), PostgreSQL (production), MySQL et MongoDB. Les migrations versionnent le schéma.
+
+    - **Protocole central :** `Model` — classe Swift mappée à une table SQL
+    - **Property wrappers :** `@ID`, `@Field`, `@Parent`, `@Children`, `@Siblings`, `@Timestamp`
+    - **Migrations :** `AsyncMigration` avec `prepare` (créer) et `revert` (défaire)
+    - **Eager loading :** `.with(\.$relation)` pour éviter le problème N+1
+
+    ```swift title="Swift (Vapor) — Modèle Fluent et migration"
+    final class Article: Model, Content, @unchecked Sendable {
+        static let schema = "articles"
+        @ID(key: .id)          var id: UUID?
+        @Field(key: "titre")   var titre: String
+        @Parent(key: "auteur_id") var auteur: Utilisateur
+        init() {}
+    }
     ```
+
+```mermaid
+graph TB
+    A[Fluent] --> B["@Model classes"]
+    A --> C[AsyncMigration]
+    A --> D["SQLite PostgreSQL"]
+```
+
+_Le lien entre modèles Swift et base de données relationnelle via Fluent._
 
 <br>
 
@@ -495,8 +584,11 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## G
 
+### Generics
+
+> Mécanisme Swift permettant d'écrire du code flexible et réutilisable qui fonctionne avec n'importe quel type satisfaisant des contraintes données.
+
 !!! note "Generics"
-    > Mécanisme Swift permettant d'écrire du code flexible et réutilisable qui fonctionne avec n'importe quel type satisfaisant des contraintes données.
 
     Les generics sont fondamentaux dans Swift — `Array<Element>`, `Optional<Wrapped>`, `Result<Success, Failure>` sont tous des types génériques. Ils permettent d'écrire une logique une seule fois, valide pour de nombreux types différents.
 
@@ -516,12 +608,52 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _Une contrainte (`T: Comparable`) garantit que seuls les types compatibles peuvent être utilisés._
 
-    ```mermaid
-    graph LR
-        A[Generics] --> B[Réutilisabilité]
-        A --> C[Type safety compile-time]
-        A --> D[Array Optional Result]
+```mermaid
+flowchart TB
+    A[Generics] --> B["Réutilisabilité"]
+    A --> C["Type safety compile-time"]
+    A --> D["Array Optional Result"]
+```
+
+_Concepts de réutilisabilité et de sécurité de type offerts par les Generics._
+
+<br>
+
+---
+
+## J
+
+### JWT (Vapor)
+
+> JSON Web Token — standard d'authentification stateless utilisé dans les APIs Vapor pour sécuriser les routes sans état de session serveur.
+
+!!! note "JWT (Vapor)"
+
+    Dans une API Vapor, le JWT est signé avec une clé secrète HMAC-SHA256 via le package `JWTKit`. Il encode l'identité de l'utilisateur (`sub`), son rôle et son expiration (`exp`). Le serveur valide la signature sans consulter la base de données — c'est l'avantage clé du stateless.
+
+    - **Package :** `vapor/jwt-kit` (à ajouter dans `Package.swift`)
+    - **Signature :** HMAC-SHA256 (symétrique) ou RSA (asymétrique)
+    - **Claims standards :** `sub` (sujet), `exp` (expiration), `iat` (émis à)
+
+    ```swift title="Swift (Vapor) — Payload JWT"
+    struct PayloadJWT: JWTPayload {
+        var sub: SubjectClaim
+        var exp: ExpirationClaim
+        var rôle: String
+        func verify(using algorithm: some JWTAlgorithm) async throws {
+            try self.exp.verifyNotExpired()
+        }
+    }
     ```
+
+```mermaid
+flowchart TB
+    A["JWT Vapor"] --> B["Stateless auth"]
+    A --> C["HMAC-SHA256 signature"]
+    A --> D["JWTMiddleware protection"]
+```
+
+_L'authentification décentralisée et sécurisée par jetons JSON Web Token._
 
 <br>
 
@@ -529,8 +661,43 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## M
 
+### Middleware (Vapor)
+
+> Composant Vapor interceptant chaque requête HTTP avant et après le handler pour appliquer une logique transversale (auth, CORS, logging).
+
+!!! note "Middleware (Vapor)"
+
+    Un middleware Vapor implémente `AsyncMiddleware` avec la méthode `respond(to:chainingTo:)`. Tout le code avant `try await next.respond(to: request)` s'exécute avant le handler, tout le code après s'exécute après. Les middlewares globaux (dans `configure.swift`) s'appliquent à toutes les routes ; les middlewares locaux s'appliquent via `routes.grouped(MonMiddleware())`.
+
+    - **Cas d'usage :** authentification JWT, CORS, journalisation, rate limiting, compression
+    - **Ordre :** l'ordre d'ajout détermine l'ordre d'exécution
+    - **`Request.storage` :** mécanisme pour transmettre des données d'un middleware à un handler
+
+    ```swift title="Swift (Vapor) — Middleware de journalisation"
+    final class LogMiddleware: AsyncMiddleware {
+        func respond(to req: Request, chainingTo next: AsyncResponder) async throws -> Response {
+            req.logger.info("→ \(req.method) \(req.url.path)")
+            let response = try await next.respond(to: req)
+            req.logger.info("← \(response.status.code)")
+            return response
+        }
+    }
+    ```
+
+```mermaid
+flowchart TB
+    A["Middleware Vapor"] --> B["Avant le handler"]
+    A --> C["Après le handler"]
+    A --> D["Request.storage"]
+```
+
+_Le cycle d'interception des requêtes et réponses via les middlewares._
+
+### MVVM
+
+> Architecture logicielle (Model-View-ViewModel) adaptée au paradigme réactif de SwiftUI, séparant la logique métier de l'interface utilisateur.
+
 !!! note "MVVM"
-    > Architecture logicielle (Model-View-ViewModel) adaptée au paradigme réactif de SwiftUI, séparant la logique métier de l'interface utilisateur.
 
     MVVM découple les vues SwiftUI (struct `View`) de la logique métier (classe `ViewModel`). La vue observe le ViewModel via `@StateObject` / `@ObservedObject` / `@Observable` et se met à jour automatiquement quand ses données changent. Le ViewModel ne référence jamais SwiftUI directement — il est testable indépendamment.
 
@@ -571,13 +738,15 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _Le ViewModel ne dépend pas de SwiftUI — il peut être testé avec XCTest sans simulateur._
 
-    ```mermaid
-    graph LR
-        A[MVVM] --> B[Model - données]
-        A --> C[View - interface]
-        A --> D[ViewModel - logique]
-        D --> C
-    ```
+```mermaid
+flowchart TB
+    A[MVVM] --> B["Model - données"]
+    A --> C["View - interface"]
+    A --> D["ViewModel - logique"]
+    D --> C
+```
+
+_Architecture MVVM montrant la séparation entre les données, la logique de présentation et la vue._
 
 <br>
 
@@ -585,14 +754,16 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## N
 
+### NavigationStack (SwiftUI)
+
+> Container SwiftUI gérant la navigation par pile (push/pop) entre vues, avec support des deep links et des états externalisés.
+
 !!! note "NavigationStack"
 
-    > Container SwiftUI gérant la navigation par pile (push/pop) entre vues, avec support des deep links et des états externalisés.
-
-    `NavigationStack` (introduit iOS 16) remplace `NavigationView` en offrant un contrôle programmatique complet de la pile de navigation. L'état de navigation est externalisé dans un tableau, permettant des deep links, des bookmarks et des tests.
+    `NavigationStack` (introduit iOS 16) remplace `NavigationView` en offrant un contrôle programmatique complet de la pile de navigation. L'état de navigation est externalisé dans un tableau (un `NavigationPath`), permettant des deep links, des bookmarks et des tests facilités.
 
     - **Introduit :** iOS 16, remplace `NavigationView`
-    - **Navigation par valeur :** `.navigationDestination(for: Type.self)` + `NavigationPath`
+    - **Navigation par valeur :** `.navigationDestination(for: Type.self)` + `NavigationLink(value:)`
     - **Deep linking :** la pile de navigation peut être reconstruite depuis un URL ou un état sauvegardé
 
     ```swift title="Swift — NavigationStack avec navigationDestination"
@@ -610,12 +781,14 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _Chaque `NavigationLink(value:)` pousse la `navigationDestination` correspondante sur la pile._
 
-    ```mermaid
-    graph LR
-        A[NavigationStack] --> B[Navigation par pile]
-        A --> C[Deep linking URL]
-        A --> D[NavigationPath état]
-    ```
+```mermaid
+flowchart TB
+    A[NavigationStack] --> B["Navigation par pile"]
+    A --> C["Deep linking URL"]
+    A --> D["NavigationPath état"]
+```
+
+_Structure de navigation par pile permettant des transitions fluides et un support natif du deep linking._
 
 <br>
 
@@ -623,10 +796,13 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## O
 
-!!! note "Observable"
-    > Macro Swift (iOS 17+) remplaçant `ObservableObject` + `@Published` par une observation automatique et granulaire des propriétés.
+### Observable (SwiftUI)
 
-    `@Observable` est la nouvelle façon de gérer l'état dans SwiftUI. Le compilateur instrumente automatiquement les accès aux propriétés — seules les vues qui lisent une propriété spécifique se re-rendent quand elle change, ce qui améliore les performances.
+> Macro Swift (iOS 17+) remplaçant `ObservableObject` + `@Published` par une observation automatique et granulaire des propriétés.
+
+!!! note "Observable"
+
+    `@Observable` est la nouvelle façon de gérer l'état dans SwiftUI. Le compilateur instrumente automatiquement les accès aux propriétés — seules les vues qui lisent une propriété spécifique se re-rendent quand elle change, ce qui améliore les performances globales de l'application.
 
     - **Introduit :** Swift 5.9, iOS 17 (via le framework Observation)
     - **Migration :** `class ViewModel: ObservableObject` + `@Published` → `@Observable class ViewModel`
@@ -646,21 +822,97 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     }
     ```
 
-    _Avec `@Observable`, SwiftUI ne re-rend que les vues qui lisent `count` si `count` change — pas toutes les vues abonnées à `ViewModel`._
+    _Avec `@Observable`, SwiftUI ne re-rend que les vues qui lisent `count` si `count` change — pas toutes les vues abonnées au `ViewModel`._
 
-    ```mermaid
-    graph LR
-        A[Observable] --> B[iOS 17 Macro]
-        A --> C[Observation granulaire]
-        A --> D[ObservableObject migration]
+```mermaid
+flowchart TB
+    A[Observable] --> B["iOS 17 Macro"]
+    A --> C["Observation granulaire"]
+    A --> D["ObservableObject migration"]
+```
+
+_Le nouveau paradigme d'observation granulaire introduit par la macro @Observable._
+
+### ObservableObject (SwiftUI)
+
+> Protocole Combine (iOS 13+) permettant à une classe d'émettre des notifications de changement d'état que SwiftUI peut observer.
+
+!!! note "ObservableObject"
+
+    `ObservableObject` est le fondement du state management SwiftUI pour iOS 13+. Une classe conforme possède des propriétés `@Published` qui déclenchent automatiquement `objectWillChange.send()` avant chaque modification — SwiftUI re-rend alors toutes les vues abonnées à cet objet.
+
+    - **Prérequis :** conformité à `ObservableObject` sur une `class` (pas `struct`)
+    - **`@Published` :** déclenche le changement sur chaque modification de la propriété
+    - **iOS 17+ :** remplacé par `@Observable` (plus performant, observation granulaire)
+
+    ```swift title="Swift — ObservableObject avec @Published"
+    class PanierViewModel: ObservableObject {
+        @Published var articles: [String] = []
+        @Published var total: Double = 0.0
+
+        func ajouter(_ article: String, prix: Double) {
+            articles.append(article)
+            total += prix
+        }
+    }
     ```
 
-<br>
+    _Chaque modification d'une propriété `@Published` déclenche un re-render de toutes les vues abonnées via `@StateObject` ou `@ObservedObject`._
 
----
+```mermaid
+flowchart TB
+    A[ObservableObject] --> B["@Published propriétés"]
+    A --> C["Combine objectWillChange"]
+    A --> D["iOS 17 → @Observable"]
+```
+
+_Le cycle de notification d'état géré par le protocole ObservableObject pour synchroniser l'UI._
+
+### @ObservedObject (SwiftUI)
+
+> Property wrapper SwiftUI recevant une référence externe vers un `ObservableObject` et abonnant la vue à ses changements.
+
+!!! note "@ObservedObject"
+
+    Contrairement à `@StateObject` (qui possède l'objet), `@ObservedObject` reçoit l'objet de l'extérieur — le ViewModel est créé et géré ailleurs (par un parent, un container DI, etc.) et passé à l'enfant.
+
+    - **Différence clé :** `@StateObject` = propriétaire (crée l'instance), `@ObservedObject` = observateur (reçoit l'instance)
+    - **Durée de vie :** suit la durée de vie de l'objet passé — pas de recréation si la vue parente re-rend
+
+    ```swift title="Swift — @ObservedObject vs @StateObject"
+    // Parent : crée et possède le ViewModel
+    struct ParentView: View {
+        @StateObject private var vm = PanierViewModel()
+        var body: some View {
+            EnfantView(vm: vm)  // Passe la référence
+        }
+    }
+
+    // Enfant : observe sans posséder
+    struct EnfantView: View {
+        @ObservedObject var vm: PanierViewModel
+        var body: some View {
+            Text("Articles : \(vm.articles.count)")
+        }
+    }
+    ```
+
+    _Règle d'usage : `@StateObject` dans la vue qui instancie le ViewModel, `@ObservedObject` dans toutes les vues enfants qui l'utilisent._
+
+```mermaid
+flowchart TB
+    A["@ObservedObject"] --> B["Référence externe"]
+    A --> C["Re-render sur @Published"]
+    A --> D["@StateObject = propriétaire"]
+```
+
+_Différence de possession de l'état entre @StateObject et @ObservedObject._
+
+### Optionals (Swift)
+
+> Type Swift représentant explicitement l'absence possible d'une valeur, éliminant les NullPointerExceptions au niveau du système de types.
 
 !!! note "Optionals"
-    > Type Swift représentant explicitement l'absence possible d'une valeur, éliminant les NullPointerExceptions au niveau du système de types.
 
     `Optional<T>` est l'une des décisions de design les plus importantes de Swift — toute valeur pouvant être `nil` doit être déclarée explicitement comme `Optional`. Le compilateur force le développeur à gérer ce cas, éliminant la principale source de bugs dans les langages à valeur nulle implicite.
 
@@ -684,90 +936,16 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     let upper = city?.uppercased()
     ```
 
-    _Préférez `if let` / `guard let` au force-unwrap `!` — une valeur `nil` forcée provoque un crash immédiat._
+    _Préférez toujours `if let` ou `guard let` au force-unwrap `!` qui provoque un crash immédiat si la valeur est `nil`._
 
-    ```mermaid
-    graph LR
-        A[Optionals] --> B[Absence de valeur]
-        A --> C[Type safety — nil explicite]
-        A --> D[if let guard let]
-    ```
+```mermaid
+flowchart TB
+    A[Optionals] --> B["Absence de valeur"]
+    A --> C["Type safety — nil explicite"]
+    A --> D["if let guard let"]
+```
 
-<br>
-
----
-
-## O
-
-!!! note "ObservableObject"
-    > Protocole Combine (iOS 13+) permettant à une classe d'émettre des notifications de changement d'état que SwiftUI peut observer.
-
-    `ObservableObject` est le fondement du state management SwiftUI pour iOS 13+. Une classe conforme possède des propriétés `@Published` qui déclenchent automatiquement `objectWillChange.send()` avant chaque modification — SwiftUI re-rend alors les vues abonnées.
-
-    - **Prérequis :** conformité à `ObservableObject` sur une `class` (pas `struct`)
-    - **`@Published` :** déclenche le changement sur chaque modification de la propriété
-    - **iOS 17+ :** remplacé par `@Observable` (plus performant, observation granulaire)
-
-    ```swift title="Swift — ObservableObject avec @Published"
-    class PanierViewModel: ObservableObject {
-        @Published var articles: [String] = []
-        @Published var total: Double = 0.0
-
-        func ajouter(_ article: String, prix: Double) {
-            articles.append(article)
-            total += prix
-        }
-    }
-    ```
-
-    _Chaque modification d'une propriété `@Published` déclenche un re-render de toutes les vues abonnées via `@StateObject` ou `@ObservedObject`._
-
-    ```mermaid
-    graph LR
-        A[ObservableObject] --> B[@Published propriétés]
-        A --> C[Combine objectWillChange]
-        A --> D[iOS 17 → @Observable]
-    ```
-
-<br>
-
----
-
-!!! note "@ObservedObject"
-    > Property wrapper SwiftUI recevant une référence externe vers un `ObservableObject` et abonnant la vue à ses changements.
-
-    Contrairement à `@StateObject` (qui possède l'objet), `@ObservedObject` reçoit l'objet de l'extérieur — le ViewModel est créé et géré ailleurs (par un parent, un container DI, etc.) et passé à l'enfant.
-
-    - **Différence clé :** `@StateObject` = propriétaire (crée l'instance), `@ObservedObject` = observateur (reçoit l'instance)
-    - **Durée de vie :** suit la durée de vie de l'objet passé — pas de recréation si la vue parente re-rend
-    - **iOS 17+ :** `@ObservedObject` peut être remplacé par `@Bindable` avec `@Observable`
-
-    ```swift title="Swift — @ObservedObject vs @StateObject"
-    // Parent : crée et possède le ViewModel
-    struct ParentView: View {
-        @StateObject private var vm = PanierViewModel()
-        var body: some View {
-            EnfantView(vm: vm)  // Passe la référence
-        }
-    }
-
-    // Enfant : observe sans posséder
-    struct EnfantView: View {
-        @ObservedObject var vm: PanierViewModel
-        var body: some View {
-            Text("Articles : \(vm.articles.count)")
-        }
-    }
-    ```
-
-    _Règle : `@StateObject` dans la vue qui instancie le ViewModel, `@ObservedObject` dans toutes les vues enfants qui l'utilisent._
-
-    ```mermaid
-    graph LR
-        A[@ObservedObject] --> B[Référence externe]
-        A --> C[Re-render sur @Published]
-        A --> D[@StateObject = propriétaire]
-    ```
+_Mécanismes de sécurité entourant la gestion des valeurs optionnelles en Swift._
 
 <br>
 
@@ -775,10 +953,34 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## P
 
-!!! note "Protocol"
-    > Contrat définissant un ensemble de propriétés et méthodes qu'un type doit implémenter pour être considéré conforme.
+### Property Wrappers (Swift)
 
-    Swift est un langage "protocol-oriented" — les protocoles sont un mécanisme de polymorphisme plus flexible que l'héritage de classes. Un type peut se conformer à plusieurs protocoles, permettant une composition puissante.
+> Mécanisme Swift permettant d'encapsuler la logique de stockage et d'accès d'une propriété dans un type réutilisable.
+
+!!! note "Property Wrappers"
+
+    Les property wrappers sont la magie derrière tout l'écosystème SwiftUI — `@State`, `@Binding`, `@Published`, `@AppStorage`, `@FetchRequest` sont tous des property wrappers. Ils permettent d'ajouter du comportement personnalisé autour d'une propriété de manière transparente.
+
+    - **Syntaxe :** `@propertyWrapper struct MyWrapper<T> { var wrappedValue: T }`
+    - **SwiftUI built-in :** `@State`, `@Binding`, `@StateObject`, `@ObservedObject`, `@EnvironmentObject`, `@AppStorage`
+    - **Accès :** `$myProp` accède au `projectedValue` du wrapper (ex. `Binding` pour `@State`)
+
+```mermaid
+flowchart TB
+    A["Property Wrappers"] --> B["State Management"]
+    A --> C["SwiftUI @State @Binding"]
+    A --> D["Logique réutilisable"]
+```
+
+_Concept d'encapsulation de logique réutilisable derrière la syntaxe des Property Wrappers._
+
+### Protocol (Swift)
+
+> Contrat définissant un ensemble de propriétés et méthodes qu'un type doit implémenter pour être considéré conforme.
+
+!!! note "Protocol"
+
+    Swift est un langage "protocol-oriented" — les protocoles sont un mécanisme de polymorphisme plus flexible que l'héritage de classes. Un type peut se conformer à plusieurs protocoles, permettant une composition d'unités de code puissante.
 
     - **Protocol extensions :** permettent d'ajouter des implémentations par défaut à un protocole
     - **`some Protocol` :** type opaque — le type concret exact est caché au consommateur
@@ -804,60 +1006,67 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
     _Les extensions de protocole offrent du comportement partagé sans héritage — c'est le "protocol-oriented programming"._
 
-    ```mermaid
-    graph LR
-        A[Protocol] --> B[Contrat de type]
-        A --> C[Protocol extensions]
-        A --> D[some any — types opaques]
-    ```
+```mermaid
+flowchart TB
+    A[Protocol] --> B["Contrat de type"]
+    A --> C["Protocol extensions"]
+    A --> D["some any — types opaques"]
+```
+
+_Le rôle central des protocoles et de leurs extensions dans l'architecture Swift._
 
 <br>
 
 ---
 
-!!! note "@AppStorage"
-    > Property wrapper SwiftUI lisant et écrivant une valeur dans `UserDefaults` avec synchronisation automatique de l'interface.
+## R
 
-    `@AppStorage` simplifie radicalement la persistance légère dans SwiftUI — la vue se met automatiquement à jour si la valeur `UserDefaults` change (depuis une extension, une notification, ou une autre vue). Idéal pour les préférences utilisateur.
+### RouteCollection (Vapor)
 
-    - **Persistance :** `UserDefaults.standard` par défaut, ou une suite personnalisée
-    - **Types supportés :** `Bool`, `Int`, `Double`, `String`, `Data`, `URL`
-    - **Équivalent UIKit :** `UserDefaults.standard.set/get` + notification manuelle
+> Protocole Vapor permettant de grouper les routes d'une ressource dans un contrôleur dédié et réutilisable.
 
-    ```swift title="Swift — @AppStorage : préférences persistantes"
-    struct ParametresView: View {
-        @AppStorage("thème")         var thème: String  = "clair"
-        @AppStorage("notifications") var notifs: Bool   = true
-        @AppStorage("taillePolice")  var taille: Double = 16.0
+!!! note "RouteCollection"
 
-        var body: some View {
-            Form {
-                Picker("Thème", selection: $thème) {
-                    Text("Clair").tag("clair")
-                    Text("Sombre").tag("sombre")
-                }
-                Toggle("Notifications", isOn: $notifs)
-                Slider(value: $taille, in: 12...24)
-            }
+    `RouteCollection` correspond au pattern Contrôleur — une classe ou struct qui implémente `boot(routes:)` déclare toutes les routes de sa ressource. Enregistrée via `app.register(collection: MonController())`, elle organise le code REST de façon cohérente et modulaire.
+
+    - **Méthode requise :** `func boot(routes: RoutesBuilder) throws`
+    - **Convention REST :** chaque ressource = un contrôleur = un `RouteCollection`
+    - **`@Sendable` :** les handlers doivent être marqués `@Sendable` pour Swift 6
+
+    ```swift title="Swift (Vapor) — RouteCollection complet"
+    final class ArticleController: RouteCollection {
+        func boot(routes: RoutesBuilder) throws {
+            let articles = routes.grouped("articles")
+            articles.get(use: lister)
+            articles.post(use: créer)
+            articles.get(":id", use: lire)
         }
+        @Sendable func lister(req: Request) async throws -> [Article] { [] }
+        @Sendable func créer(req: Request) async throws -> Article { Article() }
+        @Sendable func lire(req: Request) async throws -> Article { Article() }
     }
     ```
 
-    _Chaque modification via `$thème` écrit dans `UserDefaults` et re-rend la vue — zéro code de synchronisation._
+```mermaid
+flowchart TB
+    A[RouteCollection] --> B["boot routes"]
+    A --> C["Pattern Controleur"]
+    A --> D["@Sendable handlers"]
+```
 
-    ```mermaid
-    graph LR
-        A[@AppStorage] --> B[UserDefaults]
-        A --> C[Préférences utilisateur]
-        A --> D[Re-render automatique]
-    ```
+_L'organisation modulaire du routage API avec les RouteCollections._
 
 <br>
 
 ---
 
+## S
+
+### ScenePhase (SwiftUI)
+
+> Enum SwiftUI représentant le cycle de vie de la scène (fenêtre) d'une application : active, inactive, ou en arrière-plan.
+
 !!! note "ScenePhase"
-    > Enum SwiftUI représentant le cycle de vie de la scène (fenêtre) d'une application : active, inactive, ou en arrière-plan.
 
     `ScenePhase` est l'équivalent SwiftUI de `UIApplicationDelegate` pour le cycle de vie. En lisant `@Environment(\.scenePhase)`, une vue peut réagir aux transitions de l'application : couper un minuteur en arrière-plan, sauvegarder les données avant suspend, ré-autoriser l'accès réseau au retour.
 
@@ -883,21 +1092,41 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     }
     ```
 
-    ```mermaid
-    graph LR
-        A[ScenePhase] --> B[.active]
-        A --> C[.inactive]
-        A --> D[.background]
-    ```
+```mermaid
+flowchart TB
+    A[ScenePhase] --> B[".active"]
+    A --> C[".inactive"]
+    A --> D[".background"]
+```
 
-<br>
+_Les trois états principaux du cycle de vie d'une scène SwiftUI._
 
----
+### SPM (Swift Package Manager)
 
-## S
+> Gestionnaire de paquets officiel Apple pour déclarer, résoudre et intégrer des dépendances dans les projets Swift.
+
+!!! note "SPM"
+
+    Swift Package Manager est l'outil officiel d'Apple intégré nativement dans Xcode depuis version 11. Il gère le téléchargement, la compilation et l'intégration des bibliothèques via un fichier `Package.swift` robuste et type-safe.
+
+    - **Fichier central :** `Package.swift` (format DSL Swift)
+    - **Intégration :** Xcode → File → Add Packages
+    - **Avantages :** Zéro configuration externe nécessaire, géré directement par le compilateur Swift.
+
+```mermaid
+flowchart TB
+    A[SPM] --> B["Package.swift"]
+    A --> C["Xcode Integration"]
+    A --> D["Binary Targets"]
+```
+
+_Workflow d'intégration des dépendances via Swift Package Manager._
+
+### @State (SwiftUI)
+
+> Property wrapper SwiftUI déclarant une source de vérité locale à une vue — toute modification déclenche un re-render.
 
 !!! note "@State"
-    > Property wrapper SwiftUI déclarant une source de vérité locale à une vue — toute modification déclenche un re-render.
 
     `@State` est le mécanisme d'état le plus fondamental de SwiftUI. La valeur est stockée en dehors de la struct `View` par SwiftUI (dans un stockage stable), ce qui explique qu'elle persiste entre les re-renders. Elle est toujours privée à la vue qui la déclare.
 
@@ -926,21 +1155,20 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     }
     ```
 
-    _SwiftUI surveille les accès à `@State` dans `body` — dès qu'une valeur stockée change, il recalcule uniquement les parties de la vue qui la lisent._
+```mermaid
+flowchart TB
+    A["@State"] --> B["Source de vérité locale"]
+    A --> C["private — encapsulée"]
+    A --> D["$binding pour enfants"]
+```
 
-    ```mermaid
-    graph LR
-        A[@State] --> B[Source de vérité locale]
-        A --> C[private — encapsulée]
-        A --> D[$binding pour enfants]
-    ```
+_Le rôle de @State comme source de vérité locale et privée d'une vue SwiftUI._
 
-<br>
+### @StateObject (SwiftUI)
 
----
+> Property wrapper SwiftUI créant et possédant un `ObservableObject` pour toute la durée de vie de la vue, sans recréation lors des re-renders.
 
 !!! note "@StateObject"
-    > Property wrapper SwiftUI créant et possédant un `ObservableObject` pour toute la durée de vie de la vue, sans recréation lors des re-renders.
 
     `@StateObject` est la solution au problème de `@ObservedObject` dans les parents — si le parent re-rend, `@ObservedObject` recréerait l'objet, perdant son état. `@StateObject` garantit que l'instance est créée une seule fois et vit aussi longtemps que la vue.
 
@@ -962,64 +1190,21 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     }
     ```
 
-    _Avec `@Observable` (iOS 17+) : `@State private var vm = ArticleListeViewModel()` — même comportement, sans `ObservableObject`._
+```mermaid
+flowchart TB
+    A["@StateObject"] --> B["Propriétaire de l'instance"]
+    A --> C["Durée de vie = vue"]
+    A --> D["iOS 17 → @State + @Observable"]
+```
 
-    ```mermaid
-    graph LR
-        A[@StateObject] --> B[Propriétaire de l'instance]
-        A --> C[Durée de vie = vue]
-        A --> D[iOS 17 → @State + @Observable]
-    ```
+_Persistance de l'instance du ViewModel à travers le cycle de vie de la vue via @StateObject._
 
-<br>
 
----
+### Struct vs. Class (Swift)
 
-!!! note "Property Wrappers"
-    > Mécanisme Swift permettant d'encapsuler la logique de stockage et d'accès d'une propriété dans un type réutilisable.
-
-    Les property wrappers sont la magie derrière tout l'écosystème SwiftUI — `@State`, `@Binding`, `@Published`, `@AppStorage`, `@FetchRequest` sont tous des property wrappers. Ils permettent d'ajouter du comportement personnalisé autour d'une propriété de manière transparente.
-
-    - **Syntaxe :** `@propertyWrapper struct MyWrapper<T> { var wrappedValue: T }`
-    - **SwiftUI built-in :** `@State`, `@Binding`, `@StateObject`, `@ObservedObject`, `@EnvironmentObject`, `@AppStorage`
-    - **Accès :** `$myProp` accède au `projectedValue` du wrapper (ex. `Binding` pour `@State`)
-
-    ```mermaid
-    graph LR
-        A[Property Wrappers] --> B[State Management]
-        A --> C[SwiftUI @State @Binding]
-        A --> D[Logique réutilisable]
-    ```
-
-<br>
-
----
-
-## S
-
-!!! note "SPM"
-    > Gestionnaire de paquets officiel Swift pour déclarer, résoudre et intégrer des dépendances dans les projets Xcode et Swift.
-
-    Swift Package Manager est l'outil officiel d'Apple pour la gestion des dépendances. Il est intégré nativement dans Xcode depuis Xcode 11 et offre une alternative moderne à CocoaPods et Carthage.
-
-    - **Acronyme :** Swift Package Manager
-    - **Fichier de configuration :** `Package.swift` (DSL Swift, fortement typé)
-    - **Intégration Xcode :** File → Add Package Dependencies → URL du package
-    - **Alternatives historiques :** CocoaPods (plus populaire, écosystème plus large), Carthage
-
-    ```mermaid
-    graph LR
-        A[SPM] --> B[Dépendances Swift]
-        A --> C[Package.swift]
-        A --> D[CocoaPods alternative]
-    ```
-
-<br>
-
----
+> Distinction fondamentale en Swift entre les types valeur (struct) et les types référence (classe), avec des implications importantes sur la mémoire et le comportement.
 
 !!! note "Struct vs. Class"
-    > Distinction fondamentale en Swift entre les types valeur (struct) et les types référence (classe), avec des implications importantes sur la mémoire et le comportement.
 
     La règle générale Swift : préférer les structs. Elles sont copiées (value semantics), thread-safe par nature, et optimisées par le compilateur. Les classes sont nécessaires quand l'identité d'objet (référence partagée) ou l'héritage est requis.
 
@@ -1040,97 +1225,20 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     print(n1.value) // → 42 (partagé)
     ```
 
-    _La sémantique de valeur des structs élimine les bugs de partage d'état implicite — raison pour laquelle SwiftUI utilise des structs pour les vues._
+```mermaid
+flowchart TB
+    A["Struct vs Class"] --> B["Value type — copie"]
+    A --> C["Reference type — partagé"]
+    A --> D["ARC mémoire classes"]
+```
 
-    ```mermaid
-    graph LR
-        A[Struct vs Class] --> B[Value type — copie]
-        A --> C[Reference type — partagé]
-        A --> D[ARC mémoire classes]
-    ```
+_La sémantique de valeur des structs élimine les bugs de partage d'état implicite — raison pour laquelle SwiftUI utilise des structs pour les vues._
 
-<br>
+### Swift Concurrency
 
----
-
-!!! note "SwiftData"
-    > Framework Apple de persistance moderne (iOS 17+) utilisant des macros Swift pour remplacer et simplifier Core Data.
-
-    SwiftData modernise la persistance sur iOS avec une syntaxe déclarative basée sur les macros Swift. Là où Core Data nécessitait un modèle XCDataModel graphique, SwiftData définit le schéma directement en code Swift, avec support natif de Swift Concurrency et SwiftUI.
-
-    - **Introduit :** iOS 17, macOS 14 (WWDC 2023)
-    - **Syntaxe :** `@Model class User { var name: String }` — le modèle est du code Swift pur
-    - **SwiftUI :** `@Query` pour fetcher les données, `@Environment(\.modelContext)` pour le contexte
-    - **Migration :** chemin de migration depuis Core Data officiel
-
-    ```swift title="Swift — Modèle SwiftData"
-    import SwiftData
-
-    @Model
-    class Task {
-        var title: String
-        var isDone: Bool = false
-        var createdAt: Date = Date()
-
-        init(title: String) { self.title = title }
-    }
-    ```
-
-    _`@Model` génère automatiquement le schéma de persistance — plus besoin de fichier `.xcdatamodeld`._
-
-    ```mermaid
-    graph LR
-        A[SwiftData] --> B[iOS 17 macros]
-        A --> C[Core Data modernisé]
-        A --> D[SwiftUI @Query]
-    ```
-
-<br>
-
----
-
-!!! note "SwiftUI"
-    > Framework Apple de création d'interfaces utilisateur déclaratif, multi-plateformes et réactif, introduit en 2019.
-
-    SwiftUI représente un changement de paradigme fondamental — au lieu de décrire comment construire l'UI étape par étape (UIKit impératif), on décrit ce qu'elle doit afficher en fonction de l'état (déclaratif). L'UI se met automatiquement à jour quand l'état change.
-
-    - **Introduit :** iOS 13, macOS 10.15 (WWDC 2019)
-    - **Plateformes :** iOS, macOS, watchOS, tvOS, visionOS — un seul codebase
-    - **Paradigme :** déclaratif (`View = f(state)`) vs. UIKit impératif
-    - **Interopérabilité :** `UIViewRepresentable` et `UIViewControllerRepresentable` pour wraper UIKit
-
-    ```swift title="Swift — Vue SwiftUI simple"
-    struct ContentView: View {
-        @State private var count = 0
-
-        var body: some View {
-            VStack(spacing: 16) {
-                Text("Compteur : \(count)")
-                    .font(.title)
-                Button("Incrémenter") {
-                    count += 1
-                }
-                .buttonStyle(.borderedProminent)
-            }
-        }
-    }
-    ```
-
-    _SwiftUI re-calcule `body` automatiquement chaque fois que `count` change — l'UI est toujours synchronisée avec l'état._
-
-    ```mermaid
-    graph LR
-        A[SwiftUI] --> B[Déclaratif réactif]
-        A --> C[Multi-plateformes Apple]
-        A --> D[UIKit interop]
-    ```
-
-<br>
-
----
+> Modèle de concurrence moderne de Swift basé sur async/await, actors et structured concurrency pour écrire du code asynchrone sûr.
 
 !!! note "Swift Concurrency"
-    > Modèle de concurrence moderne de Swift basé sur async/await, actors et structured concurrency pour écrire du code asynchrone sûr.
 
     Swift Concurrency résout les problèmes historiques de GCD (Grand Central Dispatch) : data races, callback hell, gestion complexe des erreurs, annulation difficile. Il introduit un modèle structuré où les tâches ont une durée de vie explicite.
 
@@ -1153,14 +1261,94 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     }
     ```
 
-    _`TaskGroup` lance plusieurs tâches en parallèle et attend toutes leurs complétion — remplace efficacement `DispatchGroup`._
+```mermaid
+graph TD
+    A[Swift Concurrency] --> B[async await]
+    A --> C[Actor isolation]
+    A --> D[Structured concurrency]
+```
 
-    ```mermaid
-    graph LR
-        A[Swift Concurrency] --> B[async await]
-        A --> C[Actor isolation]
-        A --> D[Structured concurrency]
+_Le modèle de concurrence structurée et de sécurité mémoire asynchrone de Swift._
+
+### SwiftData
+
+> Framework Apple de persistance moderne (iOS 17+) utilisant des macros Swift pour remplacer et simplifier Core Data.
+
+!!! note "SwiftData"
+
+    SwiftData modernise la persistance sur iOS avec une syntaxe déclarative basée sur les macros Swift. Là où Core Data nécessitait un modèle XCDataModel graphique, SwiftData définit le schéma directement en code Swift, avec support natif de Swift Concurrency et SwiftUI.
+
+    - **Introduit :** iOS 17, macOS 14 (WWDC 2023)
+    - **Syntaxe :** `@Model class User { var name: String }` — le modèle est du code Swift pur
+    - **SwiftUI :** `@Query` pour fetcher les données, `@Environment(\.modelContext)` pour le contexte
+    - **Migration :** chemin de migration depuis Core Data officiel
+
+    ```swift title="Swift — Modèle SwiftData"
+    import SwiftData
+
+    @Model
+    class Task {
+        var title: String
+        var isDone: Bool = false
+        var createdAt: Date = Date()
+
+        init(title: String) { self.title = title }
+    }
     ```
+
+```mermaid
+flowchart TB
+    A[SwiftData] --> B["iOS 17 macros"]
+    A --> C["Core Data modernisé"]
+    A --> D["SwiftUI @Query"]
+```
+
+_Le workflow de persistance moderne utilisant SwiftData et les macros @Model._
+
+### SwiftNIO (Vapor)
+
+> Framework Apple de réseau asynchrone bas niveau, fondement de Vapor, basé sur un modèle event loop non-bloquant.
+
+!!! note "SwiftNIO"
+
+    SwiftNIO est le moteur derrière Vapor — il gère les connexions TCP/HTTP de façon non-bloquante sur un petit nombre de threads. Chaque thread exécute une event loop qui traite des milliers de connexions simultanées sans les bloquer.
+
+    - **Créé :** Apple, 2018 — open source
+    - **Modèle :** event loop non-bloquant (comme Node.js, mais en Swift)
+    - **Lien Vapor :** Vapor utilise SwiftNIO pour toutes les opérations réseau
+    - **`ByteBuffer` :** type central de SwiftNIO pour manipuler les données réseau
+
+```mermaid
+graph TB
+    A[SwiftNIO] --> B["Event Loop threads"]
+    A --> C["Connexions TCP/HTTP"]
+    B --> D["Vapor Request Handler"]
+    D --> E["Réponse HTTP"]
+```
+
+_Le moteur réseau non-bloquant de SwiftNIO qui propulse Vapor._
+
+### SwiftUI
+
+> Framework Apple de création d'interfaces utilisateur déclaratif, multi-plateformes et réactif, introduit en 2019.
+
+!!! note "SwiftUI"
+
+    SwiftUI représente un changement de paradigme majeur par rapport à UIKit : l'UI n'est plus construite de manière impérative mais décrite de façon déclarative. L'interface est une fonction de son état (`UI = f(State)`).
+
+    - **Déclaratif :** On décrit "quoi" afficher, pas "comment" (SwiftUI gère le rendu)
+    - **Live Previews :** Visualisation immédiate du code dans Xcode sans compilation complète
+    - **Multi-plateformes :** Même code pour iOS, macOS, watchOS, tvOS
+    - **Architecture préconisée :** MVVM ou Observation (iOS 17+)
+
+```mermaid
+flowchart TB
+    A[SwiftUI] --> B["Déclaratif"]
+    A --> C["State Management"]
+    A --> D["Previews dynamiques"]
+```
+
+_L'approche déclarative et réactive de la construction d'interfaces avec SwiftUI._
 
 <br>
 
@@ -1168,8 +1356,11 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## T
 
+### TestFlight
+
+> Plateforme Apple de distribution beta permettant de tester des applications iOS avant la mise en production.
+
 !!! note "TestFlight"
-    > Plateforme Apple de distribution beta permettant de tester des applications iOS auprès d'utilisateurs internes et externes avant la mise en production.
 
     TestFlight est le pipeline entre développement et App Store. Il permet de distribuer des builds à des testeurs (jusqu'à 10 000 testeurs externes) qui reçoivent des mises à jour automatiques et peuvent soumettre des feedbacks directement depuis l'app.
 
@@ -1177,12 +1368,14 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     - **Testeurs externes :** invitation par email ou lien public (max 10 000)
     - **Durée build :** 90 jours maximum, puis suppression automatique
 
-    ```mermaid
-    graph LR
-        A[TestFlight] --> B[Beta testing]
-        A --> C[10000 testeurs externes]
-        A --> D[Feedback intégré]
-    ```
+```mermaid
+flowchart TB
+    A[TestFlight] --> B["Beta testing"]
+    A --> C["10000 testeurs externes"]
+    A --> D["Feedback intégré"]
+```
+
+_Le workflow de distribution beta et de collecte de feedback via TestFlight._
 
 <br>
 
@@ -1190,22 +1383,47 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## U
 
-!!! note "UIKit"
-    > Framework Apple de création d'interfaces utilisateur impératif, fondement du développement iOS depuis 2008.
+### UIKit
 
-    UIKit est le framework historique du développement iOS — des millions d'applications en production en dépendent. Son modèle impératif (`viewDidLoad`, delegates, `IBOutlet`) contraste avec SwiftUI déclaratif. Il offre un contrôle granulaire sur chaque aspect de l'UI.
+> Framework Apple de création d'interfaces utilisateur impératif, fondement du développement iOS depuis 2008.
+
+!!! note "UIKit"
+
+    UIKit est le framework historique du développement iOS. Son modèle impératif (`viewDidLoad`, delegates, `IBOutlet`) contraste avec SwiftUI déclaratif. Il offre un contrôle granulaire sur chaque aspect de l'UI.
 
     - **Architecture :** MVC (Model-View-Controller) — pattern imposé par UIKit
-    - **Composants clés :** `UIViewController`, `UIView`, `UITableView`, `UICollectionView`, `UINavigationController`
-    - **Interface :** Storyboard (graphique) ou code pur (`programmatic UI`)
+    - **Composants clés :** `UIViewController`, `UIView`, `UITableView`, `UICollectionView`
     - **Coexistence :** SwiftUI et UIKit peuvent s'utiliser ensemble via `UIViewControllerRepresentable`
 
-    ```mermaid
-    graph LR
-        A[UIKit] --> B[MVC iOS historique]
-        A --> C[UIViewController]
-        A --> D[SwiftUI interop]
-    ```
+```mermaid
+flowchart TB
+    A[UIKit] --> B["MVC iOS historique"]
+    A --> C[UIViewController]
+    A --> D["SwiftUI interop"]
+```
+
+_L'architecture classique MVC au cœur du framework UIKit._
+
+### Unit Testing (XCTest)
+
+> Pratique consistant à tester individuellement les plus petites unités de code (fonctions, méthodes) pour en garantir la validité.
+
+!!! note "Unit Testing"
+
+    Dans l'écosystème Apple, les tests unitaires sont réalisés avec le framework XCTest. Ils permettent de valider la logique métier des ViewModels et des Services sans nécessiter d'interface graphique.
+
+    - **Framework :** XCTest
+    - **AAA Pattern :** Arrange (préparer), Act (exécuter), Assert (vérifier)
+    - **Mocks & Stubs :** objets simulés pour isoler l'unité testée des dépendances externes (APIs, DB)
+
+```mermaid
+flowchart TB
+    A["Unit Testing"] --> B[XCTest]
+    A --> C["Logic Validation"]
+    A --> D["AAA Pattern"]
+```
+
+_L'isolation et la validation des unités de code via les tests unitaires._
 
 <br>
 
@@ -1213,144 +1431,14 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 ## V
 
-!!! note "ViewModifier"
-    > Protocole SwiftUI permettant d'encapsuler un ensemble de modificateurs dans un type réutilisable applicable à n'importe quelle vue.
+### Vapor
 
-    Au lieu de répéter `.font(.headline).foregroundColor(.blue).padding()` sur chaque composant, `ViewModifier` encapsule ce style dans un type dédié. C'est le fondement d'un design system SwiftUI — chaque style de l'application devient un modificateur nommé et documenté.
-
-    - **Protocole :** `ViewModifier` avec la méthode `func body(content: Content) -> some View`
-    - **Application :** `.modifier(MonModificateur())` ou extension `.monStyle()` sur `View`
-    - **Composition :** les modificateurs se chaînent — chacun enveloppe le précédent
-
-    ```swift title="Swift — ViewModifier : encapsuler un style"
-    struct StyleCarte: ViewModifier {
-        func body(content: Content) -> some View {
-            content
-                .padding()
-                .background(Color.white)
-                .cornerRadius(12)
-                .shadow(color: .black.opacity(0.1), radius: 4, y: 2)
-        }
-    }
-
-    // Extension sur View pour un usage idiomatique
-    extension View {
-        func styleCarte() -> some View {
-            modifier(StyleCarte())
-        }
-    }
-
-    // Usage
-    Text("Article").styleCarte()
-    ```
-
-    _`ViewModifier` transforme un style répété en concept nommé — la vue consommatrice n'a pas besoin de connaître les détails de l'implémentation._
-
-    ```mermaid
-    graph LR
-        A[ViewModifier] --> B[Protocole SwiftUI]
-        A --> C[Design system]
-        A --> D[Extension View]
-    ```
-
-<br>
-
----
-
-!!! note "@ViewBuilder"
-    > Attribute Swift permettant d'écrire plusieurs vues SwiftUI dans un bloc de code qui les compose automatiquement en une vue conteneur.
-
-    `@ViewBuilder` est le mécanisme qui rend possible d'écrire `VStack { Text(...) Button(...) Image(...) }` sans virgules — il transforme plusieurs expressions de vues en un `TupleView` typé. Indispensable pour créer des composants réutilisables acceptant du contenu.
-
-    - **Usage :** `@ViewBuilder var body: some View`, closures de contenu dans les composants personnalisés
-    - **DSL SwiftUI :** `if`, `switch`, `ForEach` sont supportés dans un bloc `@ViewBuilder`
-    - **Limite :** maximum 10 vues directes dans un bloc (sinon utiliser `Group {}`)
-
-    ```swift title="Swift — @ViewBuilder : composant personnalisé avec contenu"
-    struct CartePersistante<Contenu: View>: View {
-        let titre: String
-        @ViewBuilder let contenu: () -> Contenu  // @ViewBuilder permet plusieurs vues
-
-        var body: some View {
-            VStack(alignment: .leading) {
-                Text(titre).font(.headline)
-                Divider()
-                contenu()  // Plusieurs vues possibles
-            }
-            .styleCarte()
-        }
-    }
-
-    // Usage
-    CartePersistante(titre: "Article") {
-        Text("Titre de l'article")
-        Text("Par Alice")
-        Image(systemName: "star.fill")
-    }
-    ```
-
-    ```mermaid
-    graph LR
-        A[@ViewBuilder] --> B[DSL SwiftUI]
-        A --> C[Contenu multiple]
-        A --> D[TupleView composition]
-    ```
-
-<br>
-
----
-
-## X
-
-!!! note "Xcode"
-    > Environnement de développement intégré (IDE) officiel Apple pour développer des applications iOS, macOS, watchOS, tvOS et visionOS.
-
-    Xcode est l'outil central de tout développeur Apple — il intègre l'éditeur de code Swift, le simulateur iOS, Instruments (profiling), le débogueur LLDB, le gestionnaire de packages SPM, et le processus de signature/distribution vers l'App Store.
-
-    - **Composants :** éditeur Swift, Interface Builder, Simulator, Instruments, LLDB
-    - **Build system :** compilateur Swift (swiftc), LLVM, linker
-    - **Téléchargement :** gratuit sur le Mac App Store (macOS uniquement)
-    - **Version :** chaque nouvelle version d'iOS requiert la dernière version Xcode pour soumettre
-
-    ```mermaid
-    graph LR
-        A[Xcode] --> B[IDE Apple]
-        A --> C[Simulateur iOS]
-        A --> D[Instruments profiling]
-    ```
-
-<br>
-
----
-
-!!! note "Xcode Instruments"
-    > Suite d'outils de profiling et d'analyse de performance intégrée à Xcode pour diagnostiquer fuites mémoire, CPU et problèmes réseau.
-
-    Instruments est le microscope du développeur iOS. Il permet d'analyser en temps réel la consommation CPU, la mémoire (et détecter les retain cycles via Leaks), les appels réseau, les I/O disque et les performances de rendu (Core Animation).
-
-    - **Outils clés :** Time Profiler (CPU), Leaks (fuites mémoire), Allocations, Network, Core Animation
-    - **Utilisation :** Product → Profile dans Xcode (⌘ + I)
-    - **Conseil :** toujours profiler sur device physique, pas sur simulateur
-
-    ```mermaid
-    graph LR
-        A[Instruments] --> B[Time Profiler CPU]
-        A --> C[Leaks mémoire]
-        A --> D[Core Animation rendu]
-    ```
-
-<br>
-
----
-
-## Vapor
+> Framework web Swift open source basé sur SwiftNIO, permettant de créer des APIs backend performantes en Swift.
 
 !!! note "Vapor"
-    > Framework web Swift open source basé sur SwiftNIO, permettant de créer des APIs REST, des serveurs web et des applications backend en Swift.
 
-    Vapor est le framework backend Swift le plus populaire. Il apporte la sécurité du système de types Swift, async/await natif, et un ORM (Fluent) au développement backend — permettant d'utiliser le même langage côté iOS (SwiftUI) et côté serveur.
+    Vapor est le framework backend Swift le plus populaire. Il apporte la sécurité du système de types Swift, async/await natif, et un ORM (Fluent) au développement backend — permettant d'utiliser le même langage côté iOS et côté serveur.
 
-    - **Créé :** 2016, open source sur GitHub (`vapor/vapor`)
     - **Fondé sur :** SwiftNIO (event loop non-blocking d'Apple)
     - **Ecosystème :** Fluent (ORM), Leaf (templates), JWTKit, Queues
     - **Plateformes :** Linux (Ubuntu, Debian), macOS, Docker
@@ -1364,162 +1452,113 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
     }}
     ```
 
-    ```mermaid
-    graph LR
-        A[Vapor] --> B[Framework backend Swift]
-        A --> C[SwiftNIO event loop]
-        A --> D[Fluent ORM]
-    ```
+```mermaid
+flowchart TB
+    A[Vapor] --> B["Framework backend Swift"]
+    A --> C["SwiftNIO event loop"]
+    A --> D["Fluent ORM"]
+```
 
-<br>
+_L'unification du développement frontend et backend sous le langage Swift avec Vapor._
 
----
+### ViewModifier (SwiftUI)
 
-!!! note "Fluent"
-    > ORM (Object-Relational Mapper) officiel de Vapor permettant de définir les modèles de base de données en Swift et d'écrire des requêtes type-safe.
+> Protocole SwiftUI permettant d'encapsuler un ensemble de modificateurs dans un type réutilisable applicable à n'importe quelle vue.
 
-    Fluent traduit les classes Swift (`@Model`) en tables SQL et les opérations Swift (`Article.query(on: db).filter(...)`) en requêtes SQL optimisées. Il supporte SQLite (développement), PostgreSQL (production), MySQL et MongoDB. Les migrations versionnent le schéma.
+!!! note "ViewModifier"
 
-    - **Protocole central :** `Model` — classe Swift mappée à une table SQL
-    - **Property wrappers :** `@ID`, `@Field`, `@Parent`, `@Children`, `@Siblings`, `@Timestamp`
-    - **Migrations :** `AsyncMigration` avec `prepare` (créer) et `revert` (défaire)
-    - **Eager loading :** `.with(\.$relation)` pour éviter le problème N+1
+    Au lieu de répéter les mêmes modificateurs partout, `ViewModifier` encapsule ce style dans un type dédié. C'est le fondement d'un design system SwiftUI.
 
-    ```swift title="Swift (Vapor) — Modèle Fluent et migration"
-    final class Article: Model, Content, @unchecked Sendable {
-        static let schema = "articles"
-        @ID(key: .id)          var id: UUID?
-        @Field(key: "titre")   var titre: String
-        @Parent(key: "auteur_id") var auteur: Utilisateur
-        init() {}
-    }
-    ```
+    - **Protocole :** `ViewModifier` avec la méthode `func body(content: Content) -> some View`
+    - **Application :** `.modifier(MonModificateur())` ou extension `.monStyle()` sur `View`
 
-    ```mermaid
-    graph LR
-        A[Fluent] --> B[@Model classes]
-        A --> C[AsyncMigration]
-        A --> D[SQLite PostgreSQL]
-    ```
-
-<br>
-
----
-
-!!! note "JWT (Vapor)"
-    > JSON Web Token — standard d'authentification stateless utilisé dans les APIs Vapor pour sécuriser les routes sans état de session serveur.
-
-    Dans une API Vapor, le JWT est signé avec une clé secrète HMAC-SHA256 via le package `JWTKit`. Il encode l'identité de l'utilisateur (`sub`), son rôle et son expiration (`exp`). Le serveur valide la signature sans consulter la base de données — c'est l'avantage clé du stateless.
-
-    - **Package :** `vapor/jwt-kit` (à ajouter dans `Package.swift`)
-    - **Signature :** HMAC-SHA256 (symétrique) ou RSA (asymétrique)
-    - **Claims standards :** `sub` (sujet), `exp` (expiration), `iat` (émis à)
-    - **Complémentaire :** Refresh Token en DB pour permettre la révocation
-
-    ```swift title="Swift (Vapor) — Payload JWT"
-    struct PayloadJWT: JWTPayload {
-        var sub: SubjectClaim
-        var exp: ExpirationClaim
-        var rôle: String
-        func verify(using algorithm: some JWTAlgorithm) async throws {
-            try self.exp.verifyNotExpired()
+    ```swift title="Swift — ViewModifier : encapsuler un style"
+    struct StyleCarte: ViewModifier {
+        func body(content: Content) -> some View {
+            content
+                .padding()
+                .background(Color.white)
+                .cornerRadius(12)
+                .shadow(color: .black.opacity(0.1), radius: 4, y: 2)
         }
     }
     ```
 
-    ```mermaid
-    graph LR
-        A[JWT Vapor] --> B[Stateless auth]
-        A --> C[HMAC-SHA256 signature]
-        A --> D[JWTMiddleware protection]
-    ```
+```mermaid
+flowchart TB
+    A[ViewModifier] --> B["Protocole SwiftUI"]
+    A --> C["Design system"]
+    A --> D["Extension View"]
+```
+
+_L'encapsulation de styles réutilisables via le protocole ViewModifier._
 
 <br>
 
 ---
 
-!!! note "Middleware (Vapor)"
-    > Composant Vapor interceptant chaque requête HTTP avant et après le handler pour appliquer une logique transversale (auth, CORS, logging).
+## X
 
-    Un middleware Vapor implémente `AsyncMiddleware` avec la méthode `respond(to:chainingTo:)`. Tout le code avant `try await next.respond(to: request)` s'exécute avant le handler, tout le code après s'exécute après. Les middlewares globaux (dans `configure.swift`) s'appliquent à toutes les routes ; les middlewares locaux s'appliquent via `routes.grouped(MonMiddleware())`.
+### Xcode
 
-    - **Cas d'usage :** authentification JWT, CORS, journalisation, rate limiting, compression
-    - **Ordre :** l'ordre d'ajout détermine l'ordre d'exécution
-    - **`Request.storage` :** mécanisme pour transmettre des données d'un middleware à un handler
+> Environnement de développement intégré (IDE) officiel Apple pour développer des applications dans tout l'écosystème Apple.
 
-    ```swift title="Swift (Vapor) — Middleware de journalisation"
-    final class LogMiddleware: AsyncMiddleware {
-        func respond(to req: Request, chainingTo next: AsyncResponder) async throws -> Response {
-            req.logger.info("→ \(req.method) \(req.url.path)")
-            let response = try await next.respond(to: req)
-            req.logger.info("← \(response.status.code)")
-            return response
-        }
-    }
-    ```
+!!! note "Xcode"
 
-    ```mermaid
-    graph LR
-        A[Middleware Vapor] --> B[Avant le handler]
-        A --> C[Après le handler]
-        A --> D[Request.storage]
-    ```
+    Xcode est l'outil central de tout développeur Apple — il intègre l'éditeur de code Swift, le simulateur iOS, Instruments (profiling), le débogueur LLDB et le gestionnaire de packages SPM.
 
-<br>
+    - **Composants :** éditeur Swift, Interface Builder, Simulator, Instruments, LLDB
+    - **Build system :** compilateur Swift (swiftc), LLVM, linker
+    - **Distribution :** signature et distribution vers l'App Store
 
----
+```mermaid
+flowchart TB
+    A[Xcode] --> B["IDE Apple"]
+    A --> C["Simulateur iOS"]
+    A --> D["Instruments profiling"]
+```
 
-!!! note "RouteCollection"
-    > Protocole Vapor permettant de grouper les routes d'une ressource dans un contrôleur dédié et réutilisable.
+_L'IDE Xcode comme pilier central de l'écosystème de développement Apple._
 
-    `RouteCollection` correspond au pattern Contrôleur — une classe ou struct qui implémente `boot(routes:)` déclare toutes les routes de sa ressource. Enregistrée via `app.register(collection: MonController())`, elle organise le code REST de façon cohérente.
+### Xcode Instruments
 
-    - **Méthode requise :** `func boot(routes: RoutesBuilder) throws`
-    - **Convention REST :** chaque ressource = un contrôleur = un `RouteCollection`
-    - **`@Sendable` :** les handlers doivent être marqués `@Sendable` pour Swift 6
+> Suite d'outils de profiling intégrée à Xcode pour diagnostiquer fuites mémoire, CPU et problèmes réseau.
 
-    ```swift title="Swift (Vapor) — RouteCollection complet"
-    final class ArticleController: RouteCollection {
-        func boot(routes: RoutesBuilder) throws {
-            let articles = routes.grouped("articles")
-            articles.get(use: lister)
-            articles.post(use: créer)
-            articles.get(":id", use: lire)
-        }
-        @Sendable func lister(req: Request) async throws -> [Article] { [] }
-        @Sendable func créer(req: Request) async throws -> Article { Article() }
-        @Sendable func lire(req: Request) async throws -> Article { Article() }
-    }
-    ```
+!!! note "Xcode Instruments"
 
-    ```mermaid
-    graph LR
-        A[RouteCollection] --> B[boot routes]
-        A --> C[Pattern Controleur]
-        A --> D[@Sendable handlers]
-    ```
+    Instruments est le microscope du développeur iOS. Il permet d'analyser en temps réel la consommation CPU, la mémoire (et détecter les retain cycles via Leaks) et les performances de rendu.
 
-<br>
+    - **Outils clés :** Time Profiler (CPU), Leaks (fuites mémoire), Allocations, Core Animation
+    - **Utilisation :** Product → Profile dans Xcode (⌘ + I)
 
----
+```mermaid
+flowchart TB
+    A[Instruments] --> B["Time Profiler CPU"]
+    A --> C["Leaks mémoire"]
+    A --> D["Core Animation rendu"]
+```
 
-!!! note "SwiftNIO"
-    > Framework Apple de réseau asynchrone bas niveau, fondement de Vapor, basé sur un modèle event loop non-bloquant inspiré de Netty (Java).
+_L'analyse de performance granulaire avec la suite Xcode Instruments._
 
-    SwiftNIO est le moteur derrière Vapor — il gère les connexions TCP/HTTP de façon non-bloquante sur un petit nombre de threads. Chaque thread exécute une event loop qui traite des milliers de connexions simultanées sans les bloquer. Les développeurs Vapor n'interagissent généralement pas directement avec SwiftNIO — Vapor fournit des abstractions de haut niveau.
+### XCTest
 
-    - **Créé :** Apple, 2018 — open source
-    - **Modèle :** event loop non-bloquant (comme Node.js, mais en Swift)
-    - **Lien Vapor :** Vapor utilise SwiftNIO pour toutes les opérations réseau
-    - **`ByteBuffer` :** type central de SwiftNIO pour manipuler les données réseau
+> Framework officiel d'Apple pour l'écriture et l'exécution de tests unitaires, de performance et d'interface utilisateur (UI).
 
-    ```mermaid
-    graph TB
-        A[SwiftNIO] --> B[Event Loop threads]
-        A --> C[Connexions TCP/HTTP]
-        B --> D[Vapor Request Handler]
-        D --> E[Réponse HTTP]
-    ```
+!!! note "XCTest"
+
+    XCTest est intégré à Xcode et permet d'automatiser la vérification de la qualité logicielle. Il inclut des assertions (`XCTAssert`), des mesures de performance et des API pour interagir avec l'interface utilisateur (XCUITest).
+
+    - **XCTAssert :** vérifie si une condition est remplie
+    - **XCUITest :** simule des interactions utilisateur (taps, swipes, saisie)
+
+```mermaid
+flowchart TB
+    A[XCTest] --> B["Tests Unitaires"]
+    A --> C["Tests Performance"]
+    A --> D["Tests UI"]
+```
+
+_L'écosystème complet de test fourni par le framework XCTest._
 
 <br>
 
@@ -1532,3 +1571,4 @@ tags: ["GLOSSAIRE", "MOBILE", "SWIFT", "IOS", "APPLE", "SWIFTUI", "VAPOR"]
 
 > Continuez avec le [Glossaire Cybersécurité](./cybersecurite.md) pour explorer les concepts de sécurité informatique, cryptographie et réponse aux incidents.
 
+<br>
