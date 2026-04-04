@@ -1,0 +1,4541 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cadre universel de management du risque applicable à toute organisation, quel que soit son secteur">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/cyber/governance/refs-normes/isos/iso-31000/">
+      
+      
+        <link rel="prev" href="../iso-27005/">
+      
+      
+        <link rel="next" href="../iso-22301/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.28">
+    
+    
+      
+        <title>ISO 31000 - Lignes Directrices - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/classic/main.5b14e6eb.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iso-31000-lignes-directrices" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ISO 31000 - Lignes Directrices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infra
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Gouvernance
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cyber : Gouvernance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Référentiels & Normes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Référentiels & Normes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../autorites/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autorités françaises
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../reglementations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réglementations Euro.
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../referentiels/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Référentiels &amp; certifications sectoriels
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normes ISOs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2_5" id="__nav_5_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Normes ISOs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-27001/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 27001
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-27002/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 27002
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-27005/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 27005
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 31000
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 31000
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-au-management-du-risque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction au Management du Risque
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-repartir-des-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour repartir des bases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pour repartir des bases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ce-nest-pas-une-norme-de-certification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ce n'est pas une norme de certification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-une-definition-revolutionnaire-du-risque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Une définition révolutionnaire du risque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-un-cadre-universel-et-adaptable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Un cadre universel et adaptable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historique-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Historique et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Historique et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-iso-31000-a-ete-creee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi ISO 31000 a été créée ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-deux-versions-majeures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les deux versions majeures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-sur-levolution-de-liso-31000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline sur l'évolution de l'ISO 31000
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-8-principes-du-management-du-risque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 8 principes du management du risque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les 8 principes du management du risque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'ensemble
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-8-principes-expliques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 8 principes expliqués
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-cadre-de-travail-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cadre de travail (Framework)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le cadre de travail (Framework)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-6-composantes-du-cadre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 6 composantes du cadre
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-des-composantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Détail des composantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-processus-de-management-du-risque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le processus de management du risque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le processus de management du risque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vue-densemble-du-processus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'ensemble du processus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-etapes-du-processus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les étapes du processus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#articulation-avec-dautres-normes-et-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Articulation avec d'autres normes et frameworks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Articulation avec d&#x27;autres normes et frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparaison-avec-les-standards-majeurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparaison avec les standards majeurs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positionnement-diso-31000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Positionnement d'ISO 31000
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefices-de-lapproche-iso-31000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bénéfices de l'approche ISO 31000
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bénéfices de l&#x27;approche ISO 31000">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-organisations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les organisations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-risk-managers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les risk managers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-uvre-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en œuvre pratique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mise en œuvre pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etapes-cles-de-deploiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes clés de déploiement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecueils-a-eviter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Écueils à éviter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facteurs-cles-de-succes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facteurs clés de succès
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perspectives-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perspectives et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perspectives et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#risques-emergents-a-integrer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risques émergents à intégrer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergence-reglementaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convergence réglementaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-mot-de-la-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le mot de la fin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ressources complémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documents-officiels-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documents officiels ISO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-associes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards associés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frameworks-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frameworks complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organismes-professionnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organismes professionnels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-22301/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 22301
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../smsi/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Démarche SMSI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Démarche SMSI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/presentation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Présentation du SMSI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../smsi/risques/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyse de Risques
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/bia/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    BIA (Business Impact Analysis)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/sdsi/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SDSI (Schéma Directeur)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/pssi/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    PSSI (Politique de Sécurité)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../vuln/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des vulnérabilités
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestion des vulnérabilités
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/cve-cvss/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE & CVSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/owasp-top10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Top 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/patch-management/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Patch Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/scan-policy/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Politique de Scan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opé. &amp; SOC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../glossaire/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-au-management-du-risque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction au Management du Risque
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-repartir-des-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour repartir des bases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pour repartir des bases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ce-nest-pas-une-norme-de-certification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ce n'est pas une norme de certification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-une-definition-revolutionnaire-du-risque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Une définition révolutionnaire du risque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-un-cadre-universel-et-adaptable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Un cadre universel et adaptable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historique-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Historique et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Historique et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-iso-31000-a-ete-creee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi ISO 31000 a été créée ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-deux-versions-majeures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les deux versions majeures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-sur-levolution-de-liso-31000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline sur l'évolution de l'ISO 31000
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-8-principes-du-management-du-risque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 8 principes du management du risque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les 8 principes du management du risque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'ensemble
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-8-principes-expliques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 8 principes expliqués
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-cadre-de-travail-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cadre de travail (Framework)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le cadre de travail (Framework)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-6-composantes-du-cadre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 6 composantes du cadre
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-des-composantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Détail des composantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-processus-de-management-du-risque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le processus de management du risque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le processus de management du risque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vue-densemble-du-processus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'ensemble du processus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-etapes-du-processus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les étapes du processus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#articulation-avec-dautres-normes-et-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Articulation avec d'autres normes et frameworks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Articulation avec d&#x27;autres normes et frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparaison-avec-les-standards-majeurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparaison avec les standards majeurs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positionnement-diso-31000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Positionnement d'ISO 31000
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefices-de-lapproche-iso-31000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bénéfices de l'approche ISO 31000
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bénéfices de l&#x27;approche ISO 31000">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-organisations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les organisations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-risk-managers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les risk managers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-uvre-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en œuvre pratique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mise en œuvre pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etapes-cles-de-deploiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes clés de déploiement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecueils-a-eviter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Écueils à éviter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facteurs-cles-de-succes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facteurs clés de succès
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perspectives-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perspectives et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perspectives et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#risques-emergents-a-integrer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risques émergents à intégrer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergence-reglementaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convergence réglementaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-mot-de-la-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le mot de la fin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ressources complémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documents-officiels-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documents officiels ISO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-associes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards associés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frameworks-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frameworks complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organismes-professionnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organismes professionnels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Bienvenue
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cyber : Gouvernance
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Référentiels & Normes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Normes ISOs
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="iso-31000-lignes-directrices">ISO 31000 - Lignes Directrices<a class="headerlink" href="#iso-31000-lignes-directrices" title="Permanent link">&para;</a></h1>
+<p><div
+  class="omny-meta"
+  data-level="🟡 Intermédiaire & 🔴 Avancé"
+  data-version="1.0"
+  data-time="30-35 minutes">
+</div>
+</p>
+<h2 id="introduction-au-management-du-risque">Introduction au Management du Risque<a class="headerlink" href="#introduction-au-management-du-risque" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>Imaginez un <strong>capitaine de navire</strong> qui doit traverser l'Atlantique. Avant de lever l'ancre, il étudie les prévisions météorologiques, identifie les zones dangereuses, vérifie l'état de son navire, forme son équipage aux procédures d'urgence, et prépare des plans alternatifs en cas de tempête. Il ne peut pas <strong>éliminer</strong> tous les risques (tempêtes imprévisibles, pannes mécaniques), mais il peut les <strong>anticiper</strong>, les <strong>évaluer</strong>, et <strong>décider rationnellement</strong> comment naviguer. <strong>ISO 31000 fonctionne exactement ainsi</strong> : c'est la boussole et la carte marine qui guident toute organisation dans son voyage incertain, en transformant l'incertitude en décisions éclairées.</em></p>
+</div>
+<p><strong>ISO 31000</strong> constitue le <strong>cadre universel</strong> de management du risque applicable à toute organisation, quel que soit son secteur, sa taille ou sa nature. Publié en 2009 puis révisé en 2018, ce standard international fournit des <strong>lignes directrices</strong> (et non des exigences certifiables) pour concevoir, mettre en œuvre et améliorer continuellement un système de management du risque intégré à la gouvernance et aux processus de l'organisation.</p>
+<p>Dans un contexte où les organisations font face à des <strong>incertitudes croissantes</strong> (volatilité économique, cybermenaces, changement climatique, disruptions technologiques, crises sanitaires), le management du risque ne peut plus être une activité isolée réservée aux risk managers. Il doit devenir une <strong>compétence organisationnelle transverse</strong>, intégrée à la prise de décision stratégique et opérationnelle.</p>
+<div class="admonition info">
+<p class="admonition-title">Pourquoi ISO 31000 est essentiel ?</p>
+<p>ISO 31000 fournit le <strong>socle universel</strong> dont découlent toutes les approches spécialisées de gestion des risques. Maîtriser ISO 31000, c'est comprendre les principes fondamentaux qui sous-tendent <strong>toute démarche de gestion des risques</strong>, du SMSI (ISO 27001) à la continuité d'activité (ISO 22301), en passant par EBIOS RM ou les frameworks financiers.</p>
+</div>
+<hr />
+<h2 id="pour-repartir-des-bases">Pour repartir des bases<a class="headerlink" href="#pour-repartir-des-bases" title="Permanent link">&para;</a></h2>
+<p>Si vous découvrez ISO 31000, trois points fondamentaux à retenir :</p>
+<h3 id="1-ce-nest-pas-une-norme-de-certification">1. Ce n'est pas une norme de certification<a class="headerlink" href="#1-ce-nest-pas-une-norme-de-certification" title="Permanent link">&para;</a></h3>
+<p>L'ISO 31000 fournit des <strong>lignes directrices</strong>, pas des exigences. Vous ne pouvez pas être "certifié ISO 31000". C'est un <strong>cadre méthodologique</strong> que chaque organisation adapte à son contexte.</p>
+<h3 id="2-une-definition-revolutionnaire-du-risque">2. Une définition révolutionnaire du risque<a class="headerlink" href="#2-une-definition-revolutionnaire-du-risque" title="Permanent link">&para;</a></h3>
+<p><strong>Définition ISO 31000 :</strong></p>
+<blockquote>
+<p><em>"Effet de l'incertitude sur les objectifs"</em></p>
+</blockquote>
+<p>Cette définition implique trois notions clés :</p>
+<ol>
+<li>
+<p><strong>L'incertitude</strong> :<br />
+<em><strong>L'incertitude :</strong> Le risque existe dans l'espace entre "impossible" et "certain". Si un événement est garanti à 100%, ce n'est plus un risque mais une <strong>contrainte planifiable</strong>.</em></p>
+</li>
+<li>
+<p><strong>L'effet (positif ou négatif)</strong> :<br />
+<em>L'<strong>ISO 31000</strong> reconnaît que le risque peut être une <strong>menace</strong> (cyberattaque, perte financière) ou une <strong>opportunité</strong> (innovation, nouveau marché). Cette vision bidirectionnelle distingue ISO 31000 des approches traditionnelles.</em></p>
+</li>
+<li>
+<p><strong>L'impact sur les objectifs</strong>
+    <em>Un événement n'est un "risque" que s'il affecte les objectifs de l'organisation. Une panne informatique dans une PME locale n'a pas le même impact que dans une banque internationale.</em></p>
+</li>
+</ol>
+<h3 id="3-un-cadre-universel-et-adaptable">3 - Un cadre universel et adaptable<a class="headerlink" href="#3-un-cadre-universel-et-adaptable" title="Permanent link">&para;</a></h3>
+<p>L'ISO 31000 s'applique à <strong>tous les types de risques</strong> :</p>
+<ul>
+<li><strong>Stratégiques</strong> -&gt; (ex: disruption marché<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, obsolescence)</li>
+<li><strong>Opérationnels</strong> -&gt; (ex: panne, erreur humaine)</li>
+<li><strong>Financiers</strong> -&gt; (ex: crédit, change, liquidité)</li>
+<li><strong>Conformité</strong> -&gt; (ex: RGPD, NIS2, sanctions)</li>
+<li><strong>Réputation</strong> -&gt; (ex: bad buzz, crise)</li>
+<li><strong>Technologiques</strong> -&gt; (ex: cyber, obsolescence)</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title"><strong>ISO 31000 et les méthodes sectorielles</strong></p>
+<p>L'ISO 31000 ne remplace pas EBIOS RM (cyber), AMDEC<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> (industrie), ou les frameworks spécialisés. Il fournit le <strong>cadre conceptuel supérieur</strong> qui garantit que toutes ces méthodes s'articulent de manière cohérente au niveau organisationnel.</p>
+</div>
+<hr />
+<h2 id="historique-et-evolutions">Historique et évolutions<a class="headerlink" href="#historique-et-evolutions" title="Permanent link">&para;</a></h2>
+<h3 id="pourquoi-iso-31000-a-ete-creee">Pourquoi ISO 31000 a été créée ?<a class="headerlink" href="#pourquoi-iso-31000-a-ete-creee" title="Permanent link">&para;</a></h3>
+<p>Avant 2009, le management du risque souffrait d'une <strong>fragmentation</strong> :</p>
+<ul>
+<li>Les financiers utilisaient VaR<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> et modèles actuariels</li>
+<li>Les ingénieurs appliquaient AMDEC<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup> et arbres de défaillance</li>
+<li>Les risk managers utilisaient des registres sans méthodologie commune</li>
+<li>Les auditeurs suivaient COSO<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> ou des frameworks nationaux</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">Besoin identifié</p>
+<p>Créer un <strong>standard international</strong> harmonisant les approches, applicable à tous secteurs, reconnu par toutes parties prenantes.</p>
+</div>
+<h3 id="les-deux-versions-majeures">Les deux versions majeures<a class="headerlink" href="#les-deux-versions-majeures" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">ISO 31000:2009 — Première édition</label><label for="__tabbed_1_2">ISO 31000:2018 — Révision majeure</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Innovations majeures :</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Définition universelle du risque : "<strong>Effet de l'incertitude sur les objectifs</strong>"</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Vision positive et négative du risque (<em>menaces</em> <strong>ET</strong> <em>opportunités</em>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Processus structuré : <strong>Appréciation</strong> → <strong>Traitement</strong> → <strong>Surveillance</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>11 principes fondamentaux</strong> du management du risque</li>
+</ul>
+<blockquote>
+<p><strong>Impact :</strong> Adoption massive par les gouvernements (<strong>France</strong>, <strong>UK</strong>, <strong>Australie</strong>) et intégration dans les normes sectorielles (<strong>ISO 27005</strong>, <strong>ISO 22301</strong>).</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p><strong>Évolutions clés :</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Simplification</strong> des principes : <strong>11 principes</strong> → <strong>8 principes</strong> (<em>fusion</em> et <em>clarification</em>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Renforcement du leadership :</strong> Le management du risque est <strong>une responsabilité stratégique de la direction</strong>, pas une fonction technique isolée.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Intégration renforcée :</strong> Le risque doit être intégré à <strong>tous les processus</strong> (<em>pas une activité parallèle</em>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Création de valeur :</strong> Focus sur l'amélioration des décisions et l'atteinte des objectifs (<em>le management du risque n'est pas une "<strong>taxe bureaucratique</strong>"</em>).</li>
+</ul>
+<blockquote>
+<p><strong>Dynamisme et itération :</strong> Abandon du modèle linéaire au profit d'un cycle itératif continu.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<h3 id="timeline-sur-levolution-de-liso-31000">Timeline sur l'évolution de l'ISO 31000<a class="headerlink" href="#timeline-sur-levolution-de-liso-31000" title="Permanent link">&para;</a></h3>
+<p><pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+timeline
+    title Évolution ISO 31000
+    2009 : Première édition
+         : 11 principes
+         : Focus sécurité technique
+    2018 : Révision majeure
+         : 8 principes
+         : Leadership et intégration
+         : Création de valeur
+    2025+ : Adaptation continue
+          : ESG, IA, climat
+          : Risques émergents</code></pre>
+<em>La révision 2018 marque un tournant stratégique : <strong>moins de principes, plus de focus sur le leadership et la création de valeur</strong>.</em></p>
+<hr />
+<h2 id="les-8-principes-du-management-du-risque">Les 8 principes du management du risque<a class="headerlink" href="#les-8-principes-du-management-du-risque" title="Permanent link">&para;</a></h2>
+<p>ISO 31000:2018 repose sur <strong>8 principes fondamentaux</strong> qui définissent les caractéristiques d'un système efficace de management du risque.</p>
+<div class="admonition note">
+<p class="admonition-title">Les principes ne sont pas des étapes</p>
+<p>Les 8 principes sont des <strong>qualités</strong> que doit posséder un système de management du risque. Ils ne constituent pas un processus séquentiel mais des caractéristiques transverses à cultiver.</p>
+</div>
+<h3 id="vue-densemble">Vue d'ensemble<a class="headerlink" href="#vue-densemble" title="Permanent link">&para;</a></h3>
+<p><pre class="mermaid"><code>---
+config:
+  theme: "neutral"
+---
+mindmap
+  root((Management du risque&lt;br/&gt;efficace))
+    Intégré
+      Décisions
+      Processus
+      Gouvernance
+    Structuré et global
+      Méthodologie
+      Tous risques
+      Cohérence
+    Personnalisé
+      Contexte
+      Culture
+      Taille
+    Inclusif
+      Parties prenantes
+      Diversité perspectives
+      Appropriation
+    Dynamique
+      Veille
+      Réactivité
+      Anticipation
+    Meilleures infos
+      Données
+      Expertise
+      Prospective
+    Amélioration continue
+      REX
+      Audits
+      Évolution
+    Facteurs humains
+      Culture
+      Biais
+      Comportements</code></pre>
+<em>Les 8 principes forment un <strong>écosystème cohérent</strong> : chacun renforce les autres pour construire une culture organisationnelle résiliente.</em></p>
+<h3 id="les-8-principes-expliques">Les 8 principes expliqués<a class="headerlink" href="#les-8-principes-expliques" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Ci-dessous les 4 premiers principes expliqués</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">1️⃣ Intégré</label><label for="__tabbed_2_2">2️⃣ Structuré et global</label><label for="__tabbed_2_3">3️⃣ Personnalisé</label><label for="__tabbed_2_4">4️⃣ Inclusif</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Le management du risque fait partie intégrante de toutes les activités de l'organisation.</strong></p>
+<p>Le management du risque n'est <strong>pas une activité isolée</strong> réalisée par un département "risk management" déconnecté des opérations. Il doit être intégré :</p>
+<ul>
+<li>
+<p>À la <strong>planification stratégique</strong> :<br />
+<em>Prise en compte des risques dans la définition des objectifs</em></p>
+</li>
+<li>
+<p>Aux <strong>processus opérationnels</strong> :<br />
+<em>Identification des risques lors de l'exécution quotidienne</em></p>
+</li>
+<li>
+<p>À la <strong>prise de décision</strong> :<br />
+<em>Évaluation systématique des risques avant toute décision majeure</em></p>
+</li>
+<li>
+<p>À la <strong>gouvernance</strong> :<br />
+<em>Reporting risques au conseil d'administration</em></p>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><strong>Une approche structurée et globale contribue à des résultats cohérents et comparables.</strong></p>
+<ul>
+<li>
+<p><strong>Structuré</strong> :<br />
+<em>Méthodologie formalisée, reproductible, documentée</em></p>
+</li>
+<li>
+<p><strong>Global</strong> :<br />
+<em>Couvre <strong>tous les types de risques</strong> (pas uniquement financiers ou opérationnels)</em></p>
+</li>
+<li>
+<p><strong>Cohérent</strong> :<br />
+<em>Même approche dans toutes les entités de l'organisation</em></p>
+</li>
+<li>
+<p><strong>Comparable</strong> :<br />
+<em>Permet d'agréger et de prioriser les risques</em></p>
+</li>
+</ul>
+<blockquote>
+<p>Sans une approche structurée, il serait impossible de comparer un "<strong>risque IT élevé</strong>" avec un "<strong>risque financier moyen</strong>".</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p><strong>Le cadre est personnalisé et proportionné aux contextes externe et interne de l'organisation.</strong></p>
+<p>ISO 31000 n'impose <strong>pas une méthode unique</strong> mais un cadre adaptable. Chaque organisation personnalise :</p>
+<ul>
+<li>Le <strong>niveau de détail</strong> -&gt; (<em>ex : PME vs multinationale</em>)</li>
+<li>Les <strong>outils</strong> -&gt; (<em>ex : Excel vs plateforme GRC complexe</em>)</li>
+<li>Les <strong>critères de criticité</strong> -&gt; (<em>ex : adaptés au secteur, à la culture</em>)</li>
+<li>Les <strong>rôles et responsabilités</strong> -&gt; (<em>ex : selon la structure organisationnelle</em>)</li>
+</ul>
+<blockquote>
+<p>Une startup tech et une banque systémique appliquent toutes deux ISO 31000, mais avec des modalités radicalement différentes.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p><strong>L'implication appropriée des parties prenantes permet de prendre en compte leurs connaissances et perceptions.</strong></p>
+<p>Le management du risque ne peut être efficace s'il est réalisé en <strong>vase clos</strong><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> par des experts. Il nécessite :</p>
+<ul>
+<li>
+<p><strong>Consultation</strong> des parties prenantes :<br />
+<em>Opérationnels, direction, clients, fournisseurs</em></p>
+</li>
+<li>
+<p><strong>Diversité des perspectives</strong> :<br />
+<em>Éviter les angles morts</em></p>
+</li>
+<li>
+<p><strong>Appropriation</strong> :<br />
+<em>Les personnes qui gèrent les risques au quotidien doivent être impliquées</em></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Ci-dessous les 4 derniers principes expliqués</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">5️⃣ Dynamique</label><label for="__tabbed_3_2">6️⃣ Meilleures info. disponibles</label><label for="__tabbed_3_3">7️⃣ Facteurs humains et culturels</label><label for="__tabbed_3_4">8️⃣ Amélioration continue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Les risques peuvent émerger, évoluer ou disparaître au fur et à mesure que les contextes changent.</strong></p>
+<p>Le management du risque n'est <strong>pas statique</strong> (un registre mis à jour annuellement) mais <strong>dynamique</strong> :</p>
+<ul>
+<li>
+<p><strong>Veille continue</strong> :<br />
+<em>Surveillance des évolutions (réglementaire, technologique, concurrentiel)</em></p>
+</li>
+<li>
+<p><strong>Réactivité</strong> :<br />
+<em>Identification rapide de nouveaux risques émergents</em></p>
+</li>
+<li>
+<p><strong>Révision régulière</strong> :<br />
+<em>Réévaluation des risques existants</em></p>
+</li>
+<li>
+<p><strong>Anticipation</strong> :<br />
+<em>Prospective sur les risques futurs (horizon 3-5 ans)</em></p>
+</li>
+</ul>
+<blockquote>
+<p>Le risque de pandémie <strong>avant</strong>/<strong>pendant</strong>/<strong>après</strong> COVID-19 illustre parfaitement ce principe.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p><strong>Les décisions sont fondées sur des informations historiques, actuelles et des attentes futures.</strong></p>
+<p>Les décisions de management du risque s'appuient sur :</p>
+<ul>
+<li>
+<p><strong>Données factuelles</strong> :<br />
+<em>Statistiques, historiques d'incidents, audits</em></p>
+</li>
+<li>
+<p><strong>Jugement d'experts</strong> :<br />
+<em>Avis de spécialistes lorsque les données manquent</em></p>
+</li>
+<li>
+<p><strong>Prospective</strong> <br />
+<em>Anticipation des évolutions futures</em></p>
+</li>
+<li>
+<p><strong>Reconnaissance des limites</strong> :<br />
+<em>Transparence sur l'incertitude</em></p>
+</li>
+</ul>
+<blockquote>
+<p>La qualité des décisions <strong>dépend directement</strong> de la <strong>qualité des informations disponibles</strong>.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p><strong>Le comportement humain et la culture influencent tous les aspects du management du risque.</strong></p>
+<p>Les risques ne sont pas uniquement techniques. Les <strong>facteurs humains</strong> jouent un rôle majeur :</p>
+<ul>
+<li>
+<p><strong>Culture de la sécurité</strong> :<br />
+<em>Une organisation avec une culture forte commet moins d'erreurs</em></p>
+</li>
+<li>
+<p><strong>Biais cognitifs</strong> :<br />
+<em>Excès de confiance, ancrage, biais de confirmation</em></p>
+</li>
+<li>
+<p><strong>Résistance au changement</strong> :<br />
+<em>Les mesures peuvent être sabotées si mal acceptées</em></p>
+</li>
+<li>
+<p><strong>Erreur humaine</strong> :<br />
+<em>Première cause d'incidents (phishing, configuration, procédures)</em></p>
+</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Culture punitive</p>
+<p><strong>L'erreur est sanctionnée</strong> → Les employés cachent les incidents → Détection tardive → <strong>Impact majeur</strong></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Culture positive</p>
+<p><strong>L'erreur est une opportunité d'apprentissage</strong> → Signalement immédiat → Détection rapide → <strong>Impact mineur</strong></p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><strong>Le management du risque est continuellement amélioré par l'apprentissage et l'expérience.</strong></p>
+<p>Le système de management du risque n'est <strong>jamais figé</strong>. Il s'améliore via :</p>
+<ul>
+<li>
+<p><strong>Retours d'expérience</strong> :<br />
+<em>Analyse des incidents et quasi-incidents</em></p>
+</li>
+<li>
+<p><strong>Audits internes</strong> :<br />
+<em>Évaluation de l'efficacité du dispositif</em></p>
+</li>
+<li>
+<p><strong>Benchmarks</strong> :<br />
+<em>Comparaison avec les meilleures pratiques</em></p>
+</li>
+<li>
+<p><strong>Évolution des méthodes</strong> :<br />
+<em>Adoption de nouveaux outils et techniques</em></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="le-cadre-de-travail-framework">Le cadre de travail (Framework)<a class="headerlink" href="#le-cadre-de-travail-framework" title="Permanent link">&para;</a></h2>
+<p>ISO 31000 distingue :</p>
+<ul>
+<li>
+<p><strong>Le cadre de travail (Framework)</strong> :<br />
+<em>Structure organisationnelle pour mettre en place le management du risque</em></p>
+</li>
+<li>
+<p><strong>Le processus</strong> :<br />
+<em>Activités opérationnelles d'identification, analyse, traitement des risques</em></p>
+</li>
+</ul>
+<blockquote>
+<p>Le <strong>cadre de travail</strong> répond à la question :<br />
+<em>"Comment structurer l'organisation pour que le management du risque soit efficace ?"</em></p>
+</blockquote>
+<h3 id="les-6-composantes-du-cadre">Les 6 composantes du cadre<a class="headerlink" href="#les-6-composantes-du-cadre" title="Permanent link">&para;</a></h3>
+<p><pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+graph LR
+    A[1. Leadership&lt;br/&gt;et engagement] --&gt; B[2. Intégration]
+    B --&gt; C[3. Conception]
+    C --&gt; D[4. Mise en œuvre]
+    D --&gt; E[5. Évaluation]
+    E --&gt; F[6. Amélioration]
+    F -.Cycle continu.-&gt; A</code></pre>
+<em>Le cadre ISO 31000 fonctionne en <strong>boucle itérative</strong> : chaque cycle d'amélioration renforce la maturité organisationnelle.</em></p>
+<h3 id="detail-des-composantes">Détail des composantes<a class="headerlink" href="#detail-des-composantes" title="Permanent link">&para;</a></h3>
+<details class="abstract">
+<summary>1. Leadership et engagement</summary>
+<p><strong>Le management du risque ne peut être efficace sans l'engagement fort de la direction.</strong></p>
+<p><strong>Responsabilités de la direction :</strong></p>
+<ul>
+<li>Définir l'<strong>appétit au risque</strong> (niveau de risque acceptable)</li>
+<li>Allouer les <strong>ressources</strong> (budget, compétences, outils)</li>
+<li>Assurer la <strong>reddition de comptes</strong> (responsabilité des risques majeurs)</li>
+<li>Promouvoir la <strong>culture du risque</strong> (communication, exemplarité)</li>
+</ul>
+<p><strong>Rôle du conseil d'administration :</strong></p>
+<ul>
+<li>Valider la politique de management du risque</li>
+<li>Approuver l'appétit au risque</li>
+<li>Superviser les risques majeurs (top risks)</li>
+<li>S'assurer de l'adéquation des ressources</li>
+</ul>
+</details>
+<details class="abstract">
+<summary>2. Intégration</summary>
+<p><strong>Le management du risque doit être intégré à tous les processus, non traité comme une activité parallèle.</strong></p>
+<p><strong>Processus clés à intégrer :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Processus</th>
+<th>Intégration du risque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planification stratégique</td>
+<td>Analyse SWOT incluant risques/opportunités</td>
+</tr>
+<tr>
+<td>Gestion de projets</td>
+<td>Registre de risques projet, go/no-go</td>
+</tr>
+<tr>
+<td>Audit interne</td>
+<td>Audits basés sur les risques</td>
+</tr>
+<tr>
+<td>Gestion de la performance</td>
+<td>KPI incluant indicateurs de risque (KRI)</td>
+</tr>
+<tr>
+<td>Conformité</td>
+<td>Gestion intégrée GRC</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>L'intégration transforme le management du risque d'une <strong>fonction support</strong> en <strong>composante stratégique</strong>.</p>
+</blockquote>
+</details>
+<details class="abstract">
+<summary>3. Conception</summary>
+<p><strong>Concevoir un cadre de management du risque adapté au contexte de l'organisation.</strong></p>
+<p><strong>Éléments à concevoir :</strong></p>
+<p><strong>Politique de management du risque :</strong><br />
+<em>Document de référence définissant objectifs, principes, appétit au risque, gouvernance, processus.</em></p>
+<p><strong>Rôles et responsabilités :</strong></p>
+<ul>
+<li>Direction : Définir appétit au risque, superviser risques majeurs</li>
+<li>Risk Manager : Concevoir et piloter le cadre</li>
+<li>Managers : Identifier et gérer les risques de leur périmètre</li>
+<li>Tous collaborateurs : Identifier et signaler les risques</li>
+</ul>
+<p><strong>Outils et ressources :</strong></p>
+<ul>
+<li><strong>Registre de risques</strong> (base centralisée)</li>
+<li><strong>Taxonomie des risques</strong><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup> (classification structurée)</li>
+<li><strong>Échelles de criticité</strong> (matrice probabilité × impact)</li>
+<li><strong>Méthodes d'analyse</strong> (quantitatives et qualitatives)</li>
+</ul>
+</details>
+<details class="abstract">
+<summary>4. Mise en œuvre</summary>
+<p><strong>Déployer opérationnellement le cadre à tous les niveaux de l'organisation.</strong></p>
+<p><strong>Plan de déploiement type :</strong></p>
+<p><strong>Phase 1 : Lancement (3-6 mois)</strong></p>
+<ul>
+<li>Communication direction</li>
+<li>Formation des managers</li>
+<li>Déploiement des outils</li>
+<li>Identification initiale des risques</li>
+</ul>
+<p><strong>Phase 2 : Généralisation (6-12 mois)</strong></p>
+<ul>
+<li>Extension à toutes les entités</li>
+<li>Intégration aux processus existants</li>
+<li>Premiers cycles de surveillance</li>
+<li>Ajustements méthodologiques</li>
+</ul>
+<p><strong>Phase 3 : Maturité (12-24 mois)</strong></p>
+<ul>
+<li>Automatisation (plateforme GRC)</li>
+<li>Culture du risque ancrée</li>
+<li>Amélioration continue</li>
+<li>Certifications compatibles (ISO 27001, ISO 22301)</li>
+</ul>
+</details>
+<details class="abstract">
+<summary>5. Évaluation</summary>
+<p><strong>Mesurer régulièrement l'efficacité du cadre de management du risque.</strong></p>
+<p><strong>Méthodes d'évaluation :</strong></p>
+<p><strong>Audits internes :</strong><br />
+<em>Fréquence annuelle, scope conformité procédures, exhaustivité registre, qualité analyses.</em></p>
+<p><strong>Indicateurs clés (KRI) :</strong></p>
+<ul>
+<li>
+<p><strong>Couverture</strong> :<br />
+<em>% de processus avec analyse de risques</em></p>
+</li>
+<li>
+<p><strong>Maturité</strong> :<br />
+<em>Score de maturité du dispositif</em></p>
+</li>
+<li>
+<p><strong>Efficacité</strong> :<br />
+<em>% de risques critiques avec plan d'action</em></p>
+</li>
+<li>
+<p><strong>Culture</strong> :<br />
+<em>Taux participation formations, risques remontés</em></p>
+</li>
+</ul>
+<p><strong>Benchmarks sectoriels :</strong><br />
+<em>Comparaison avec les bonnes pratiques (FERMA, IRM, CLUSIF).</em></p>
+</details>
+<details class="abstract">
+<summary>6. Amélioration</summary>
+<p><strong>Améliorer continuellement le cadre sur la base des évaluations et retours d'expérience.</strong></p>
+<p><strong>Sources d'amélioration :</strong></p>
+<ul>
+<li>
+<p><strong>REX<sup id="fnref3:7"><a class="footnote-ref" href="#fn:7">7</a></sup> incidents</strong> :<br />
+<em>Analyse des causes racines, mesures correctives</em></p>
+</li>
+<li>
+<p><strong>Évolutions réglementaires</strong> :<br />
+<em>Adaptation DORA, NIS2, AI Act</em></p>
+</li>
+<li>
+<p><strong>Innovations</strong> :<br />
+<em>IA pour détection signaux faibles, nouveaux outils</em></p>
+</li>
+<li>
+<p><strong>Benchmarks</strong> :<br />
+<em>Adoption standards reconnus (ISO 31000, COSO, NIST)</em></p>
+</li>
+</ul>
+<blockquote>
+<p>Chaque incident majeur déclenche un REX<sup id="fnref2:7"><a class="footnote-ref" href="#fn:7">7</a></sup> structuré : <strong>causes</strong>, <strong>corrections</strong>, <strong>mise à jour registre</strong>, <strong>partage leçons</strong>.</p>
+</blockquote>
+</details>
+<hr />
+<h2 id="le-processus-de-management-du-risque">Le processus de management du risque<a class="headerlink" href="#le-processus-de-management-du-risque" title="Permanent link">&para;</a></h2>
+<p>Le <strong>processus</strong> décrit les <strong>activités opérationnelles</strong> pour gérer les risques au quotidien.</p>
+<h3 id="vue-densemble-du-processus">Vue d'ensemble du processus<a class="headerlink" href="#vue-densemble-du-processus" title="Permanent link">&para;</a></h3>
+<p><pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+graph TB
+    A[Communication et consultation&lt;br/&gt;↕ Transverse ↕]
+    B[Définition du contexte]
+    C[Appréciation du risque]
+    C1[Identification]
+    C2[Analyse]
+    C3[Évaluation]
+    D[Traitement du risque]
+    E[Surveillance et revue]
+    F[Enregistrement et reporting]
+
+    A -.Parties prenantes.-&gt; B
+    A -.Parties prenantes.-&gt; C
+    A -.Parties prenantes.-&gt; D
+    A -.Parties prenantes.-&gt; E
+
+    B --&gt; C
+    C --&gt; C1
+    C1 --&gt; C2
+    C2 --&gt; C3
+    C3 --&gt; D
+    D --&gt; E
+    E -.Cycle itératif.-&gt; C1
+    E --&gt; F</code></pre>
+<em>Le processus est <strong>dynamique et itératif</strong> : la surveillance alimente en continu l'identification de nouveaux risques ou la réévaluation des risques existants.</em></p>
+<h3 id="les-etapes-du-processus">Les étapes du processus<a class="headerlink" href="#les-etapes-du-processus" title="Permanent link">&para;</a></h3>
+<details class="abstract">
+<summary>1 - Communication et consultation</summary>
+<p><strong>Activité transverse présente à toutes les étapes du processus.</strong></p>
+<p><strong>Objectifs :</strong></p>
+<ul>
+<li>Recueillir des <strong>informations</strong> (expertise, expérience, perception)</li>
+<li>Favoriser l'<strong>appropriation</strong> (engagement des parties prenantes)</li>
+<li>Assurer la <strong>transparence</strong> (communication claire sur les risques)</li>
+<li>Gérer les <strong>attentes</strong> (alignement sur objectifs et contraintes)</li>
+</ul>
+<p><strong>Parties prenantes clés :</strong></p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span> Direction<br />
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg></span> Direction opérationnels<br />
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg></span> Direction experts techniques<br />
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg></span> Direction clients<br />
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg></span> Direction fournisseurs<br />
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg></span> Direction régulateurs<br />
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg></span> Direction assureurs</p>
+<div class="admonition tip">
+<p class="admonition-title">Consultation efficace</p>
+<p>La diversité des perspectives évite les angles morts : un risque invisible pour la finance peut être évident pour l'IT.</p>
+</div>
+</details>
+<details class="abstract">
+<summary>2 - Définition du contexte</summary>
+<p><strong>Établir le contexte pour personnaliser le management du risque.</strong></p>
+<p><strong>Contexte externe :</strong><br />
+<em>Environnement économique, réglementaire, technologique, social, concurrentiel, géopolitique.</em></p>
+<p><strong>Contexte interne :</strong><br />
+<em>Gouvernance, culture, ressources, objectifs stratégiques, processus.</em></p>
+<p><strong>Appétit au risque :</strong><br />
+<em>Niveau de risque global acceptable pour atteindre les objectifs.</em></p>
+<p><strong>Périmètre :</strong></p>
+<ul>
+<li>Géographique (France vs international)</li>
+<li>Organisationnel (groupe vs filiale)</li>
+<li>Temporel (court terme vs long terme)</li>
+<li>Thématique (tous risques vs focus spécifique)</li>
+</ul>
+</details>
+<details class="abstract">
+<summary>3 - Appréciation du risque</summary>
+<p><strong>Cœur du processus : identifier, analyser, évaluer les risques.</strong></p>
+<div class="grid cards" markdown>
+<ul>
+<li>
+<p><strong>Identification</strong></p>
+<hr />
+<p><strong>Méthodes principales :</strong></p>
+<ul>
+<li>Brainstorming (ateliers collectifs)</li>
+<li>Checklist (listes standardisées)</li>
+<li>SWOT (Forces, Faiblesses, Opportunités, Menaces)</li>
+<li>What-if / Scénarios ("Que se passerait-il si...")</li>
+<li>REX (analyse incidents passés)</li>
+</ul>
+<blockquote>
+<p>Un risque bien identifié comprend : <strong>événement</strong> + <strong>cause(s)</strong> + <strong>conséquence(s)</strong> + <strong>source</strong>.</p>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="grid cards" markdown>
+<ul>
+<li>
+<p><strong>Analyse</strong></p>
+<hr />
+<p><strong>Deux approches complémentaires :</strong></p>
+<p><strong>Analyse qualitative :</strong><br />
+<em>Échelles descriptives (<strong>rare</strong>/<strong>peu probable</strong>/<strong>possible</strong>/<strong>probable</strong>/<strong>quasi-certain</strong>) pour probabilité et impact.</em></p>
+<p><strong>Analyse quantitative :</strong><br />
+<em>Modèles mathématiques (<strong>VaR</strong>, <strong>Monte Carlo</strong>, <strong>arbres de décision</strong>) pour estimer probabilité et impact en valeurs numériques.</em></p>
+<p><strong>Matrice de criticité :</strong><br />
+<em><strong>Probabilité</strong> × <strong>Impact</strong> = <strong>Score de criticité</strong> (matrice 5×5 courante).</em></p>
+</li>
+</ul>
+</div>
+<div class="grid cards" markdown>
+<ul>
+<li>
+<p><strong>Évaluation</strong></p>
+<p><strong>Comparer le niveau de risque aux critères définis pour prioriser les actions.</strong></p>
+<ul>
+<li>Criticité faible (1-5) → Accepter</li>
+<li>Criticité modérée (6-9) → Surveiller</li>
+<li>Criticité significative (10-15) → Traiter</li>
+<li>Criticité critique (16-25) → Traiter en priorité</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+<details class="abstract">
+<summary>4 - Traitement du risque</summary>
+<p><strong>Les 4 stratégies</strong></p>
+<blockquote>
+<p><strong>Sélectionner et mettre en œuvre les options de traitement.</strong></p>
+</blockquote>
+<div class="grid cards" markdown>
+<ul>
+<li>
+<p><strong>1. Réduire (Mitigation)</strong><br />
+<em>Diminuer la probabilité et/ou l'impact via mesures préventives, détection, correction.</em></p>
+</li>
+<li>
+<p><strong>2. Transférer :</strong><br />
+<em>Partager le risque avec un tiers (assurance, externalisation, contrat).</em></p>
+</li>
+<li>
+<p><strong>3. Accepter :</strong><br />
+<em>Décision consciente de ne pas traiter (niveau acceptable, coût mitigation &gt; impact).</em></p>
+</li>
+<li>
+<p><strong>4. Éviter :</strong><br />
+<em>Éliminer le risque en renonçant à l'activité (risque inacceptable, coût prohibitif).</em></p>
+</li>
+</ul>
+</div>
+</details>
+<details class="abstract">
+<summary>5 - Surveillance et revue</summary>
+<blockquote>
+<p><strong>Surveiller en continu l'évolution des risques et l'efficacité des traitements.</strong></p>
+</blockquote>
+<p><strong>Activités de surveillance :</strong></p>
+<ul>
+<li>Suivi des <strong>KRI</strong> (Key Risk Indicators)</li>
+<li>Revue périodique du <strong>registre de risques</strong> (mensuel/trimestriel/annuel)</li>
+<li><strong>Veille</strong> risques émergents (réglementaire, technologique)</li>
+<li><strong>Tests et exercices</strong> (PCA/PRA, wargaming)</li>
+</ul>
+<p><strong>Fréquences types :</strong></p>
+<ul>
+<li><strong>Mensuel</strong> : Risques critiques, incidents</li>
+<li><strong>Trimestriel</strong> : Top 10 risks, évolution criticité</li>
+<li><strong>Annuel</strong> : Cartographie complète, appétit au risque</li>
+</ul>
+</details>
+<details class="abstract">
+<summary>6 - Enregistrement et reporting</summary>
+<blockquote>
+<p><strong>Documenter et communiquer sur les risques et leur gestion.</strong></p>
+</blockquote>
+<p><strong>Registre de risques :</strong><br />
+<em>Base centralisée documentant tous les risques identifiés, leurs caractéristiques, traitements et suivi.</em></p>
+<p><strong>Reporting :</strong></p>
+<ul>
+<li>
+<p><strong>Direction</strong> :<br />
+<em>Synthèse top risks</em></p>
+</li>
+<li>
+<p><strong>Opérationnels</strong> :<br />
+<em>Détail risques périmètre</em></p>
+</li>
+<li>
+<p><strong>Conseil/Régulateur</strong> :<br />
+<em>Vision consolidée, conformité</em></p>
+</li>
+</ul>
+<blockquote>
+<p>La documentation assure la <strong>traçabilité</strong> des décisions et facilite les <strong>audits</strong>.</p>
+</blockquote>
+</details>
+<hr />
+<h2 id="articulation-avec-dautres-normes-et-frameworks">Articulation avec d'autres normes et frameworks<a class="headerlink" href="#articulation-avec-dautres-normes-et-frameworks" title="Permanent link">&para;</a></h2>
+<p>L'ISO 31000 constitue le <strong>socle générique</strong> dont découlent les approches spécialisées.</p>
+<h3 id="comparaison-avec-les-standards-majeurs">Comparaison avec les standards majeurs<a class="headerlink" href="#comparaison-avec-les-standards-majeurs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th>Périmètre</th>
+<th>Relation avec ISO 31000</th>
+<th>Certifiable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ISO 27005</strong></td>
+<td>Risques sécurité information</td>
+<td>Déclinaison ISO 31000 pour le cyber</td>
+<td>❌ Non</td>
+</tr>
+<tr>
+<td><strong>ISO 22301</strong></td>
+<td>Continuité d'activité</td>
+<td>Intègre principes ISO 31000</td>
+<td>✅ Oui</td>
+</tr>
+<tr>
+<td><strong>EBIOS RM</strong></td>
+<td>Risques cyber (France)</td>
+<td>Compatible ISO 31000, focus scénarios</td>
+<td>❌ Non</td>
+</tr>
+<tr>
+<td><strong>COSO ERM</strong></td>
+<td>Risques entreprise (USA)</td>
+<td>Approche parallèle, convergence principes</td>
+<td>❌ Non</td>
+</tr>
+<tr>
+<td><strong>NIST RMF</strong></td>
+<td>Risques cyber (USA)</td>
+<td>Compatible ISO 31000, focus fédéral</td>
+<td>❌ Non</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Complémentarité des standards</p>
+<p>ISO 31000 fournit le <strong>langage commun</strong> et la <strong>méthodologie de base</strong>. Les standards sectoriels (<em>ISO 27005</em>, <em>EBIOS RM</em>, <em>NIST</em>) ajoutent les <strong>spécificités techniques</strong> de leur domaine.</p>
+</div>
+<h3 id="positionnement-diso-31000">Positionnement d'ISO 31000<a class="headerlink" href="#positionnement-diso-31000" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+graph TB
+    A[ISO 31000&lt;br/&gt;Socle universel]
+
+    A --&gt; B[ISO 27005&lt;br/&gt;Risques SI]
+    A --&gt; C[ISO 22301&lt;br/&gt;Continuité]
+    A --&gt; D[ISO 14971&lt;br/&gt;Dispositifs médicaux]
+    A --&gt; E[Frameworks financiers&lt;br/&gt;Bâle, Solvency]
+
+    B --&gt; B1[EBIOS RM&lt;br/&gt;MEHARI&lt;br/&gt;NIST RMF]
+    C --&gt; C1[PCA/PRA&lt;br/&gt;BIA]
+    E --&gt; E1[VaR&lt;br/&gt;Stress tests]</code></pre>
+<p><em>ISO 31000 constitue la <strong>racine commune</strong> dont découlent toutes les méthodes spécialisées de gestion des risques.</em></p>
+<hr />
+<h2 id="benefices-de-lapproche-iso-31000">Bénéfices de l'approche ISO 31000<a class="headerlink" href="#benefices-de-lapproche-iso-31000" title="Permanent link">&para;</a></h2>
+<h3 id="pour-les-organisations">Pour les organisations<a class="headerlink" href="#pour-les-organisations" title="Permanent link">&para;</a></h3>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-check-circle" viewBox="0 0 24 24"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span> <strong>Amélioration de la prise de décision</strong></p>
+<hr />
+<p>Décisions basées sur une évaluation structurée des risques et opportunités.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-trending-up" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></span> <strong>Allocation optimale des ressources</strong></p>
+<hr />
+<p>Concentration des efforts et budgets sur les risques les plus critiques.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span> <strong>Conformité facilitée</strong></p>
+<hr />
+<p>Cadre structuré répondant aux exigences RGPD, NIS2, DORA, ISO 27001.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span> <strong>Résilience accrue</strong></p>
+<hr />
+<p>Anticipation et préparation aux crises plutôt que réaction en mode pompier.</p>
+</li>
+</ul>
+</div>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/></svg></span> <strong>Confiance des parties prenantes</strong></p>
+<hr />
+<p>Démonstration d'une gestion mature des risques (investisseurs, clients, régulateurs).</p>
+</li>
+</ul>
+</div>
+<h3 id="pour-les-risk-managers">Pour les risk managers<a class="headerlink" href="#pour-les-risk-managers" title="Permanent link">&para;</a></h3>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span> <strong>Langage commun</strong></p>
+<hr />
+<p>Terminologie standardisée reconnue internationalement.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-check-square" viewBox="0 0 24 24"><path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344"/><path d="m9 11 3 3L22 4"/></svg></span> <strong>Méthodologie éprouvée</strong></p>
+<hr />
+<p>Processus validé par des milliers d'organisations depuis 2009.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-award" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg></span> <strong>Crédibilité professionnelle</strong></p>
+<hr />
+<p>Référence reconnue lors d'audits, certifications, échanges sectoriels.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-network" viewBox="0 0 24 24"><rect width="6" height="6" x="16" y="16" rx="1"/><rect width="6" height="6" x="2" y="16" rx="1"/><rect width="6" height="6" x="9" y="2" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/></svg></span> <strong>Cohérence transverse</strong></p>
+<hr />
+<p>Vision consolidée de tous les risques (finance, IT, opérations, conformité).</p>
+</li>
+</ul>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">Valeur créée</p>
+<p>ISO 31000 transforme le management du risque d'une <strong>fonction administrative</strong> en <strong>levier de performance stratégique</strong>.</p>
+</div>
+<hr />
+<h2 id="mise-en-uvre-pratique">Mise en œuvre pratique<a class="headerlink" href="#mise-en-uvre-pratique" title="Permanent link">&para;</a></h2>
+<h3 id="etapes-cles-de-deploiement">Étapes clés de déploiement<a class="headerlink" href="#etapes-cles-de-deploiement" title="Permanent link">&para;</a></h3>
+<p><pre class="mermaid"><code>gantt
+    title Plan de déploiement ISO 31000
+    dateFormat YYYY-MM
+    section Préparation
+    Engagement direction      :done, 2025-01, 2025-02
+    Formation équipe          :done, 2025-02, 2025-03
+    section Conception
+    Définition politique      :active, 2025-03, 2025-04
+    Conception cadre          :active, 2025-04, 2025-06
+    section Déploiement
+    Pilote (1 direction)      :2025-06, 2025-09
+    Généralisation            :2025-09, 2026-03
+    section Maturité
+    Amélioration continue     :2026-03, 2026-12</code></pre>
+<em>Ce diagramme de Gantt permet de <strong>visualiser les jalons clés</strong> et de <strong>synchroniser les équipes</strong> autour d'un calendrier partagé de déploiement ISO 31000.</em></p>
+<h3 id="ecueils-a-eviter">Écueils à éviter<a class="headerlink" href="#ecueils-a-eviter" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Pièges courants</p>
+<p><strong>Déconnexion de la stratégie :</strong><br />
+<em>Le management du risque devient une activité administrative sans lien avec les objectifs business.</em></p>
+<p><strong>Complexité excessive :</strong><br />
+<em>Processus trop lourd, registres illisibles, paralysie décisionnelle.</em></p>
+<p><strong>Manque d'engagement direction :</strong><br />
+<em>Sans sponsorship fort, le dispositif reste superficiel et inefficace.</em></p>
+<p><strong>Culture punitive :</strong><br />
+<em>Sanctionner les erreurs pousse à cacher les risques plutôt qu'à les signaler.</em></p>
+<p><strong>Vision statique :</strong><br />
+<em>Registre mis à jour annuellement, aucune réactivité face aux risques émergents.</em></p>
+</div>
+<h3 id="facteurs-cles-de-succes">Facteurs clés de succès<a class="headerlink" href="#facteurs-cles-de-succes" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Leadership visible</strong> de la direction</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Formation</strong> de tous les niveaux (<em>pas uniquement risk managers</em>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Intégration</strong> aux processus existants (<em>pas un dispositif parallèle</em>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Simplicité</strong> des outils (<em>accessible à tous</em>, <em>pas uniquement aux experts</em>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Culture positive</strong> du risque (<em><strong>signaler = valorisé</strong></em>, <em>pas sanctionné</em>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Amélioration continue</strong> basée sur REX<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup> et benchmarks</li>
+</ul>
+<hr />
+<h2 id="perspectives-et-evolutions">Perspectives et évolutions<a class="headerlink" href="#perspectives-et-evolutions" title="Permanent link">&para;</a></h2>
+<h3 id="risques-emergents-a-integrer">Risques émergents à intégrer<a class="headerlink" href="#risques-emergents-a-integrer" title="Permanent link">&para;</a></h3>
+<p><strong>Intelligence Artificielle :</strong><br />
+<em>Biais algorithmiques, hallucinations, dépendance, propriété intellectuelle, deepfakes.</em></p>
+<p><strong>Changement climatique :</strong><br />
+<em>Risques physiques (inondations, canicules), transition (réglementation carbone, obsolescence actifs).</em></p>
+<p><strong>Géopolitique :</strong><br />
+<em>Conflits, sanctions, protectionnisme, ruptures supply chain.</em></p>
+<p><strong>Quantum computing :</strong><br />
+<em>Obsolescence cryptographie actuelle, nouveaux modèles de menaces.</em></p>
+<h3 id="convergence-reglementaire">Convergence réglementaire<a class="headerlink" href="#convergence-reglementaire" title="Permanent link">&para;</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">Les réglementations européennes (NIS2, DORA, AI Act) renforcent les exigences de management du risque, qui sont elles, alignées sur ISO 31000.</p>
+</div>
+<ul>
+<li>
+<p><strong>NIS2 :</strong><br />
+<em>Impose analyse de risques, mesures techniques, gouvernance (compatible ISO 31000).</em></p>
+</li>
+<li>
+<p><strong>DORA :</strong><br />
+<em>Exige cadre de gestion des risques TIC pour secteur financier (framework ISO 31000 applicable).</em></p>
+</li>
+<li>
+<p><strong>AI Act :</strong><br />
+<em>Approche par niveaux de risques cohérente avec principes ISO 31000.</em></p>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">ISO 31000 comme socle de conformité</p>
+<p>Déployer l'<strong>ISO 31000</strong> facilite la conformité simultanée à multiple réglementations partageant les mêmes principes de gestion des risques.</p>
+</div>
+<h2 id="le-mot-de-la-fin">Le mot de la fin<a class="headerlink" href="#le-mot-de-la-fin" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>L'ISO 31000 incarne une <strong>vérité universelle</strong> : dans un monde incertain, la capacité à <strong>anticiper</strong>, <strong>évaluer</strong> et <strong>décider rationnellement face aux risques</strong> constitue un avantage compétitif majeur. Les organisations qui maîtrisent le management du risque ne subissent pas les crises, elles les <strong>anticipent</strong>, les <strong>gèrent</strong> et en sortent <strong>renforcées</strong>.</p>
+<p>Contrairement aux normes sectorielles (<strong>ISO 27005</strong> pour le cyber, <strong>ISO 14971</strong> pour les dispositifs médicaux), ISO 31000 fournit le <strong>socle conceptuel universel</strong> applicable à tous les domaines. Maîtriser ISO 31000, c'est acquérir un <strong>langage commun</strong>, une <strong>méthodologie éprouvée</strong> et une <strong>vision holistique</strong><sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup> du risque qui transcende les silos organisationnels.</p>
+<p>Les 8 principes d'ISO 31000 ne sont pas de simples recommandations techniques : ils définissent une <strong>culture organisationnelle</strong> où le risque n'est pas tabou mais <strong>intégré naturellement</strong> à la prise de décision, où l'erreur n'est pas sanctionnée mais <strong>analysée pour progresser</strong>, où l'incertitude n'est pas subie mais <strong>transformée en opportunités</strong>.</p>
+<p>Dans un contexte européen de plus en plus régulé (<strong>RGPD</strong>, <strong>NIS2</strong>, <strong>DORA</strong>, <strong>AI Act</strong>), l'ISO 31000 devient le <strong>dénominateur commun</strong> qui facilite la conformité simultanée à des exigences multiples. Déployer l'ISO 31000, c'est poser les fondations d'un système de management du risque cohérent, évolutif, auditable.</p>
+<blockquote>
+<p><strong>L'incertitude est inévitable.<br />
+Le management du risque selon l'ISO 31000 transforme cette incertitude en décisions éclairées.</strong></p>
+</blockquote>
+</div>
+<hr />
+<h2 id="ressources-complementaires">Ressources complémentaires<a class="headerlink" href="#ressources-complementaires" title="Permanent link">&para;</a></h2>
+<h3 id="documents-officiels-iso">Documents officiels ISO<a class="headerlink" href="#documents-officiels-iso" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>ISO 31000:2018</strong> — Management du risque : Lignes directrices</p>
+</li>
+<li>
+<p><del><strong>ISO Guide 73:2009</strong> — Management du risque : Vocabulaire</del><br />
+  <small><em><strong>État actuel</strong> : Annulée</em></small><br />
+  <small><em><strong>Date de publication</strong> : 2009-11</em></small><br />
+  <small><em><strong>Stade</strong> : Annulation de la Norme internationale [95.99]</em></small></p>
+</li>
+<li>
+<p><strong>ISO/IEC 31010:2019</strong> — Techniques d'appréciation des risques  </p>
+</li>
+</ul>
+<h3 id="standards-associes">Standards associés<a class="headerlink" href="#standards-associes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ISO 27005</strong> : Gestion des risques liés à la sécurité de l'information</li>
+<li><strong>ISO 22301</strong> : Systèmes de management de la continuité d'activité</li>
+<li><strong>ISO 14971</strong> : Application du management du risque aux dispositifs médicaux</li>
+</ul>
+<h3 id="frameworks-complementaires">Frameworks complémentaires<a class="headerlink" href="#frameworks-complementaires" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>COSO ERM</strong> : Enterprise Risk Management Framework (COSO, États-Unis)</li>
+<li><strong>EBIOS Risk Manager</strong> : Méthode de gestion des risques cyber (ANSSI, France)</li>
+<li><strong>NIST RMF</strong> : Risk Management Framework (NIST, États-Unis)</li>
+</ul>
+<h3 id="organismes-professionnels">Organismes professionnels<a class="headerlink" href="#organismes-professionnels" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>FERMA</strong> : Federation of European Risk Management Associations</li>
+<li><strong>IRM</strong> : Institute of Risk Management (UK)</li>
+<li><strong>AMRAE</strong> : Association pour le Management des Risques et des Assurances de l'Entreprise (France)</li>
+<li><strong>CLUSIF</strong> : Club de la Sécurité de l'Information Français</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>La <strong>disruption de marché</strong> correspond à l’arrivée d’une innovation qui change brutalement les règles établies, comme le passage du vieux <strong>forfait Millenium</strong> (où chaque minute comptait) aux <strong>forfaits Internet tout illimité</strong>, qui ont complètement transformé les usages et forcé les opérateurs à réinventer leur modèle économique.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>La <strong>VaR</strong> (<em>Value at Risk</em>) est une mesure financière qui estime la perte maximale potentielle d’un portefeuille sur une période donnée et avec un niveau de confiance fixé, dans des conditions de marché normales.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>L’<strong>AMDEC</strong> (<em>Analyse des Modes de Défaillance, de leurs Effets et de leur Criticité</em>) est une méthode structurée qui consiste à identifier les défaillances possibles d’un système, analyser leurs conséquences et évaluer leur criticité afin de prioriser les actions de prévention ou de correction.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Le <strong>COSO</strong> est un cadre de référence international destiné à structurer et améliorer le contrôle interne d’une organisation, en définissant les principes nécessaires pour maîtriser les risques, garantir la conformité et renforcer la gouvernance.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Un <strong>vase clos</strong> désigne une situation qui fonctionne en circuit fermé, isolée de l’extérieur, où les idées, informations ou influences ne circulent plus, ce qui finit par limiter l’innovation, la remise en question et la capacité d’adaptation.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>La <strong>taxonomie des risques</strong> est une classification structurée qui organise et hiérarchise tous les types de risques d’une organisation afin de parler un langage commun, d’éviter les ambiguïtés et de faciliter l’identification, l’évaluation et le pilotage des risques dans un cadre cohérent.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p><strong>REX</strong> est un processus structuré qui consiste à analyser un incident après coup, identifier ce qui s’est réellement passé, comprendre les causes profondes, en tirer des enseignements et mettre à jour les pratiques, procédures ou outils pour éviter qu’il ne se reproduise.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:7" title="Jump back to footnote 7 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p>Une <strong>vision holistique</strong> consiste à considérer un système dans sa globalité plutôt qu’à travers ses éléments isolés, en cherchant à comprendre comment toutes les parties interagissent pour produire un fonctionnement ou un résultat d’ensemble.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">ISO 31000</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">MANAGEMENT RISQUE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">NORME ISO</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GOUVERNANCE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PDCA</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../iso-27005/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: ISO 27005">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                ISO 27005
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../iso-22301/" class="md-footer__link md-footer__link--next" aria-label="Suivant: ISO 22301">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                ISO 22301
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.c2b142ea.min.js"></script>
+      
+        <script src="../../../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

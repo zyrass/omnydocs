@@ -988,23 +988,18 @@ Dépannage avancé
 | **Usage** | Infrastructure, services | Travail utilisateur, dev |
 | **Temps de boot** | 5-10 secondes | 15-25 secondes |
 
-### Prochaine Étape : Module 5 - Réseau VirtualBox
+<br>
 
-Vous disposez maintenant de :
+---
 
-- **Module 3** : Serveur Arch minimal maîtrisé
-- **Module 4** : Desktop Arch complet fonctionnel
+## Conclusion
 
-Le **Module 5** va vous apprendre à :
+!!! quote "Votre poste de travail Linux est opérationnel"
+    Un serveur sans interface c'est de l'infrastructure — un bureau c'est de la **productivité**. Vous maîtrisez désormais la chaîne complète : du noyau au bureau graphique, de KMS à SDDM, de `pacstrap` à Plasma ou GNOME. C'est ce que font les ingénieurs DevSecOps pour leurs postes de travail Linux.
 
-- Créer des topologies réseau VirtualBox professionnelles
-- Segmenter vos machines (NAT, Host-Only, Internal Network)
-- Construire un mini-datacenter virtualisé
-- Interconnecter Arch Server, Arch Desktop, Ubuntu, Rocky et Windows
+> Le **Module 5** vous apprend à connecter toutes vos VMs dans une topologie réseau professionnelle (NAT, Host-Only, Internal Network) — l'étape clé avant le lab multi-OS.
 
-**Prenez une pause bien méritée de 15-30 minutes, puis continuez vers le Module 5 !**
-
-[:lucide-arrow-right: Accéder au Module 5 - Réseau VirtualBox](./05-virtualbox-reseau.md){ .md-button .md-button--primary }
+[:lucide-arrow-right: Accéder au Module 5](./05-virtualbox-reseau.md){ .md-button .md-button--primary }
 
 
 [^DRM]: **DRM (Direct Rendering Manager)** : sous-système du noyau Linux gérant l'accès à la carte graphique. KMS (Kernel Mode Setting) fait partie de DRM et gère les résolutions et modes d'affichage.

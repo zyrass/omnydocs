@@ -27,6 +27,8 @@ Ce projet **vous guide** à travers la construction progressive d'un environneme
 !!! abstract "Philosophie du projet"
     Arch-Lab ne se limite pas à l'installation de systèmes d'exploitation. Il **vous enseigne** la logique d'architecture, les différences fondamentales entre les familles Linux, la conception réseau et les bonnes pratiques professionnelles utilisées en entreprise, en DevSecOps et en cybersécurité.
 
+<br>
+
 ---
 
 ## Parcours Pédagogique
@@ -514,3 +516,16 @@ Chaque carte ci-dessous affiche :
     [:lucide-arrow-right Accéder au module](./07-annexes.md)
 
 </div> -->
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Arch-Lab — votre mini-datacenter privé"
+    En sept modules progressifs, vous allez passer de zéro à un **laboratoire multi-OS professionnel** : cinq systèmes interconnectés, trois familles Linux maîtrisées, et une infrastructure réseau segmentée identique à celle des entreprises. C'est votre terrain d'entraînement pour Linux, la cybersecurité et le DevSecOps.
+
+**Commencez par le Module 1 pour découvrir l'architecture globale du projet.**
+
+[:lucide-arrow-right: Démarrer le Module 1](./01-introduction.md){ .md-button .md-button--primary }

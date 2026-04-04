@@ -1424,27 +1424,26 @@ Avant de passer au Module 7, assurez-vous d'avoir compris ces concepts fondament
 | **Complexité réseau** | 2 machines | 5 machines interconnectées |
 | **Temps de restauration** | 2 snapshots | 5 snapshots (lab complet) |
 
-### Prochaine Étape : Module 7 - Annexes & Automatisation
+<br>
 
-Vous disposez maintenant de :
+---
 
-- **Module 3** : Arch Server minimal maîtrisé
-- **Module 4** : Arch Desktop complet fonctionnel
-- **Module 5** : Réseau VirtualBox professionnel segmenté
-- **Module 6** : Laboratoire multi-OS complet (5 systèmes)
+## Conclusion
 
-Le **Module 7** sera un module de référence avec :
+!!! quote "Votre laboratoire multi-OS est opérationnel"
+    Cinq systèmes d'exploitation interconnectés dans un LAN privé — Arch, Ubuntu, Rocky, Windows — reproduisent fidèlement un parc informatique professionnel. Vous maîtrisez désormais les trois grandes familles Linux et leurs gestionnaires de paquets : `pacman`, `apt`, `dnf`. C'est la base concrète de tout scénario SOC, pentest ou DevSecOps.
 
-- **Scripts d'automatisation** : provisionner le lab en quelques commandes
-- **Gestion avancée des snapshots** : stratégies de sauvegarde/restauration
-- **Méthodologie de maintenance** : garder le lab à jour sans tout casser
-- **Cas d'usage professionnels** : scénarios SOC, pentest, DevSecOps documentés
-- **Troubleshooting avancé** : résoudre les problèmes complexes multi-systèmes
-- **Optimisations VirtualBox** : performances, ressources, stabilité
+**Points clés à retenir :**
 
-**Prenez une pause bien méritée de 30 minutes, vous l'avez largement mérité !**
+1. **Ubuntu utilise Netplan** pour la config réseau (syntaxe YAML stricte)
+2. **Rocky Linux est un clone RHEL gratuit** — idéal pour la formation entreprise
+3. **Internal Network `labnet`** relie les 5 systèmes en LAN privé complet
+4. **Trois méthodes de config réseau** : nmcli (Arch/Rocky), Netplan (Ubuntu), GUI (Windows)
+5. **Snapshots indispensables** : retour à un état stable en 10 secondes
 
-[:lucide-arrow-right: Accéder au Module 7 - Annexes & Automatisation](./07-annexes-automatisation.md){ .md-button .md-button--primary }
+> Le **Module 7** clôt le parcours avec les scripts d'automatisation, la gestion avancée des snapshots et les workflows DevSecOps professionnels.
+
+[:lucide-arrow-right: Accéder au Module 7](./07-annexes.md){ .md-button .md-button--primary }
 
 [^1]: **Netplan** : outil de configuration réseau introduit par Canonical dans Ubuntu 17.10. Utilise des fichiers YAML pour définir les interfaces réseau. Génère ensuite la configuration pour systemd-networkd ou NetworkManager. Syntaxe stricte (indentation YAML critique).
 

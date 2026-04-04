@@ -1,0 +1,3039 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Glossaire — Administration Système : Gestion des systèmes d'exploitation, services et infrastructure Linux et Windows.">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/glossaire/administration-systeme/">
+      
+      
+        <link rel="prev" href="../bases-fondamentales/">
+      
+      
+        <link rel="next" href="../administration-reseau/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.28">
+    
+    
+      
+        <title>Administration Système - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/classic/main.5b14e6eb.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#administration-systeme" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Administration Système
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cyber/governance/" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cyber/operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cyber/tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infra
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../cyber/governance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : GRC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../cyber/operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opé. &amp; SOC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../cyber/tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Glossaire
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-map" viewBox="0 0 24 24"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0zM15 5.764v15M9 3.236v15"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide du Lecteur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bases-fondamentales/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Bases Fondamentales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration Système
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration Système
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        F
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        G
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        H
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        J
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        M
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        N
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        T
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#u" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        U
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Y
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Z
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration-reseau/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developpement-web/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developpement-mobile/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Développement Mobile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-computing/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devsecops/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    DevSecOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cybersecurite/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Cybersécurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        F
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        G
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        H
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        J
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        K
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        M
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        N
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        T
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#u" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        U
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Y
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Z
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Bienvenue
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Glossaire
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="administration-systeme">Administration Système<a class="headerlink" href="#administration-systeme" title="Permanent link">&para;</a></h1>
+<p><div
+  class="omny-meta"
+  data-level="🟢 Tout niveau"
+  data-version="1.0"
+  data-time="Consultation">
+</div>
+</p>
+<h2 id="a">A<a class="headerlink" href="#a" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">ACL</p>
+<blockquote>
+<p>Liste de contrôle d'accès définissant les permissions spécifiques d'utilisateurs ou groupes sur des ressources.</p>
+</blockquote>
+<p>Utilisé pour la sécurité fine des fichiers, répertoires et services système.</p>
+<ul>
+<li><strong>Acronyme :</strong> Access Control List</li>
+<li><strong>Extension :</strong> des permissions UNIX classiques (rwx) — <code>getfacl</code> / <code>setfacl</code></li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[ACL] --&gt; B[Permissions]
+    A --&gt; C[Sécurité]
+    A --&gt; D[Utilisateur]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Ansible</p>
+<blockquote>
+<p>Outil d'automatisation IT permettant la configuration, déploiement et gestion d'infrastructure.</p>
+</blockquote>
+<p>Utilisé pour l'automatisation des tâches système et le configuration management sans agent.</p>
+<ul>
+<li><strong>Langage :</strong> YAML (playbooks, roles, inventories)</li>
+<li><strong>Avantages :</strong> agentless (SSH), idempotent, large communauté</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Ansible] --&gt; B[Automation]
+    A --&gt; C[Configuration management]
+    A --&gt; D[Infrastructure as Code]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">APT</p>
+<blockquote>
+<p>Gestionnaire de paquets avancé pour les distributions Debian et dérivées (Ubuntu, Debian, Mint).</p>
+</blockquote>
+<p>Utilisé pour installer, mettre à jour et supprimer des logiciels avec gestion des dépendances.</p>
+<ul>
+<li><strong>Acronyme :</strong> Advanced Package Tool</li>
+<li><strong>Commandes :</strong> <code>apt install</code>, <code>apt update</code>, <code>apt upgrade</code>, <code>apt remove</code></li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[APT] --&gt; B[Package management]
+    A --&gt; C[Debian]
+    A --&gt; D[Repository]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="b">B<a class="headerlink" href="#b" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Bash</p>
+<blockquote>
+<p>Shell Unix populaire et langage de script pour l'automatisation de tâches système.</p>
+</blockquote>
+<p>Utilisé comme interface en ligne de commande par défaut sur la majorité des distributions Linux.</p>
+<ul>
+<li><strong>Acronyme :</strong> Bourne Again Shell</li>
+<li><strong>Fonctionnalités :</strong> variables, boucles, conditions, pipes, redirections</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Bash] --&gt; B[Shell]
+    A --&gt; C[Script]
+    A --&gt; D[Automation]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Backup</p>
+<blockquote>
+<p>Processus de copie et sauvegarde des données pour prévenir leur perte en cas de défaillance.</p>
+</blockquote>
+<p>Utilisé pour la continuité d'activité et la récupération après sinistre (PRA/PCA).</p>
+<ul>
+<li><strong>Types :</strong> complet, incrémental, différentiel</li>
+<li><strong>Stratégie :</strong> règle 3-2-1 — 3 copies, sur 2 supports différents, dont 1 hors site</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Backup] --&gt; B[Restauration]
+    A --&gt; C[Continuité d'activité]
+    A --&gt; D[Stockage]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="c">C<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Chroot</p>
+<blockquote>
+<p>Technique d'isolation changeant la racine apparente du système de fichiers pour un processus.</p>
+</blockquote>
+<p>Utilisé pour la sécurité, les tests et l'isolation d'applications dans un environnement cloisonné.</p>
+<ul>
+<li><strong>Principe :</strong> création d'un environnement racine virtuel (<code>/</code> isolé)</li>
+<li><strong>Évolution :</strong> précurseur des containers modernes (Docker, LXC)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Chroot] --&gt; B[Isolation]
+    A --&gt; C[Sécurité]
+    A --&gt; D[Container]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Cron</p>
+<blockquote>
+<p>Démon Unix planificateur de tâches permettant l'exécution automatique de commandes à intervalles définis.</p>
+</blockquote>
+<p>Utilisé pour l'automatisation de maintenance, sauvegardes, monitoring et rapports périodiques.</p>
+<ul>
+<li><strong>Format :</strong> <code>minute heure jour mois jour_semaine commande</code></li>
+<li><strong>Fichiers :</strong> crontab personnel (<code>crontab -e</code>), <code>/etc/crontab</code> système</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Cron] --&gt; B[Planification]
+    A --&gt; C[Automatisation]
+    A --&gt; D[Maintenance]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">CIS Benchmarks</p>
+<blockquote>
+<p>Standards de configuration sécurisée pour systèmes, réseaux et applications produits par le CIS.</p>
+</blockquote>
+<p>Utilisé pour le durcissement et l'audit de sécurité des infrastructures IT.</p>
+<ul>
+<li><strong>Acronyme :</strong> Center for Internet Security</li>
+<li><strong>Niveaux :</strong> Level 1 (configuration de base), Level 2 (défense en profondeur)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[CIS Benchmarks] --&gt; B[Hardening]
+    A --&gt; C[Sécurité]
+    A --&gt; D[Audit]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="d">D<a class="headerlink" href="#d" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Daemon</p>
+<blockquote>
+<p>Programme s'exécutant en arrière-plan comme service système sans interaction utilisateur directe.</p>
+</blockquote>
+<p>Utilisé pour fournir des services persistants (serveur web, base de données, réseau).</p>
+<ul>
+<li><strong>Convention de nommage :</strong> nom terminé par 'd' (<code>httpd</code>, <code>sshd</code>, <code>mysqld</code>)</li>
+<li><strong>Gestion :</strong> systemd, init.d, service</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Daemon] --&gt; B[Service]
+    A --&gt; C[Processus]
+    A --&gt; D[Systemd]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">DHCP</p>
+<blockquote>
+<p>Protocole d'attribution automatique d'adresses IP et de configuration réseau aux hôtes.</p>
+</blockquote>
+<p>Utilisé pour simplifier la gestion réseau et éviter les conflits d'adresses IP.</p>
+<ul>
+<li><strong>Acronyme :</strong> Dynamic Host Configuration Protocol</li>
+<li><strong>Composants :</strong> serveur DHCP, client, pool d'adresses, lease (durée de bail)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[DHCP] --&gt; B[Adresse IP]
+    A --&gt; C[Configuration réseau]
+    A --&gt; D[Automatisation]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="e">E<a class="headerlink" href="#e" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">EXT4</p>
+<blockquote>
+<p>Système de fichiers journalisé par défaut sur la plupart des distributions Linux.</p>
+</blockquote>
+<p>Utilisé pour le stockage des données avec fiabilité et performance sur volumes Linux.</p>
+<ul>
+<li><strong>Acronyme :</strong> Fourth Extended File System</li>
+<li><strong>Fonctionnalités :</strong> journalisation, extents (blocs contigus), allocation retardée</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[EXT4] --&gt; B[Système de fichiers]
+    A --&gt; C[Journalisation]
+    A --&gt; D[Linux]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="f">F<a class="headerlink" href="#f" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Fail2ban</p>
+<blockquote>
+<p>Outil de protection contre les attaques par force brute analysant les logs système en temps réel.</p>
+</blockquote>
+<p>Utilisé pour bloquer automatiquement les adresses IP suspectes via des règles de firewall dynamiques.</p>
+<ul>
+<li><strong>Principe :</strong> analyse des logs → détection de patterns → action (ban IP)</li>
+<li><strong>Services protégés :</strong> SSH, HTTP, FTP, mail, applications web</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Fail2ban] --&gt; B[Sécurité]
+    A --&gt; C[Logs]
+    A --&gt; D[Firewall]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Filesystem</p>
+<blockquote>
+<p>Organisation logique et hiérarchique du stockage des fichiers et répertoires sur un support.</p>
+</blockquote>
+<p>Utilisé pour structurer, organiser et accéder aux données stockées sur disque.</p>
+<ul>
+<li><strong>Types :</strong> EXT4, NTFS (Windows), APFS (macOS), ZFS, Btrfs</li>
+<li><strong>Fonctions :</strong> métadonnées, permissions, indexation, journalisation</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Filesystem] --&gt; B[Stockage]
+    A --&gt; C[Hiérarchie]
+    A --&gt; D[Métadonnées]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="g">G<a class="headerlink" href="#g" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">GPT</p>
+<blockquote>
+<p>Standard moderne de partitionnement de disque remplaçant le MBR traditionnel.</p>
+</blockquote>
+<p>Utilisé pour les disques de grande capacité et le démarrage UEFI sur les systèmes modernes.</p>
+<ul>
+<li><strong>Acronyme :</strong> GUID Partition Table</li>
+<li><strong>Avantages :</strong> support disques &gt; 2 To, jusqu'à 128 partitions, redondance de la table</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[GPT] --&gt; B[Partitionnement]
+    A --&gt; C[UEFI]
+    A --&gt; D[MBR]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="h">H<a class="headerlink" href="#h" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Hardening</p>
+<blockquote>
+<p>Processus de sécurisation d'un système par configuration rigoureuse et suppression des vulnérabilités.</p>
+</blockquote>
+<p>Utilisé pour réduire la surface d'attaque et améliorer la posture sécuritaire d'un serveur.</p>
+<ul>
+<li><strong>Techniques :</strong> désactivation services inutiles, mises à jour, configuration sécurisée, SELinux</li>
+<li><strong>Standards :</strong> CIS Benchmarks, DISA STIG</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Hardening] --&gt; B[Sécurité]
+    A --&gt; C[Configuration]
+    A --&gt; D[Vulnérabilité]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Htop</p>
+<blockquote>
+<p>Moniteur de processus interactif et amélioré pour systèmes Unix/Linux, successeur de <code>top</code>.</p>
+</blockquote>
+<p>Utilisé pour surveiller l'utilisation des ressources système (CPU, RAM, processus) en temps réel.</p>
+<ul>
+<li><strong>Amélioré par rapport à :</strong> <code>top</code> (interface colorée, tri interactif, recherche)</li>
+<li><strong>Fonctionnalités :</strong> gestion des processus, arborescence, filtrage</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Htop] --&gt; B[Monitoring]
+    A --&gt; C[Processus]
+    A --&gt; D[Ressources système]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="i">I<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Inode</p>
+<blockquote>
+<p>Structure de données contenant les métadonnées d'un fichier dans les systèmes Unix/Linux.</p>
+</blockquote>
+<p>Utilisé pour l'organisation interne des fichiers — un inode = un fichier, indépendamment du nom.</p>
+<ul>
+<li><strong>Contenu :</strong> permissions, propriétaire, taille, timestamps, pointeurs vers les blocs de données</li>
+<li><strong>Limitation :</strong> nombre d'inodes fixe à la création du filesystem — <code>df -i</code> pour vérifier</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Inode] --&gt; B[Métadonnées]
+    A --&gt; C[Filesystem]
+    A --&gt; D[Fichier]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Iptables</p>
+<blockquote>
+<p>Framework de filtrage de paquets réseau pour Linux basé sur le module noyau Netfilter.</p>
+</blockquote>
+<p>Utilisé pour implémenter des firewalls, NAT et manipulation de paquets sur Linux.</p>
+<ul>
+<li><strong>Concepts :</strong> tables (<code>filter</code>, <code>nat</code>, <code>mangle</code>), chaînes (<code>INPUT</code>, <code>OUTPUT</code>, <code>FORWARD</code>)</li>
+<li><strong>Successeur :</strong> nftables (syntaxe unifiée, meilleures performances)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Iptables] --&gt; B[Firewall]
+    A --&gt; C[Netfilter]
+    A --&gt; D[Sécurité réseau]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="j">J<a class="headerlink" href="#j" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Journald</p>
+<blockquote>
+<p>Service de journalisation centralisé faisant partie de systemd.</p>
+</blockquote>
+<p>Utilisé pour collecter, stocker et consulter les logs système de manière unifiée et indexée.</p>
+<ul>
+<li><strong>Commande :</strong> <code>journalctl</code> (avec filtres : <code>-u service</code>, <code>-f</code> follow, <code>-n</code> lignes)</li>
+<li><strong>Avantages :</strong> indexation binaire, recherche rapide, rotation automatique</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Journald] --&gt; B[Systemd]
+    A --&gt; C[Logs]
+    A --&gt; D[Journalctl]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="k">K<a class="headerlink" href="#k" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Kernel</p>
+<blockquote>
+<p>Noyau du système d'exploitation gérant les ressources matérielles et logicielles.</p>
+</blockquote>
+<p>Utilisé comme interface entre les applications et le matériel — couche la plus basse de l'OS.</p>
+<ul>
+<li><strong>Fonctions :</strong> gestion mémoire, scheduler de processus, pilotes, système de fichiers</li>
+<li><strong>Types :</strong> monolithique (Linux), microkernel (Minix), hybride (macOS)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Kernel] --&gt; B[Système d'exploitation]
+    A --&gt; C[Matériel]
+    A --&gt; D[Ressources]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">KVM</p>
+<blockquote>
+<p>Solution de virtualisation intégrée au noyau Linux exploitant les extensions matérielles CPU.</p>
+</blockquote>
+<p>Utilisé pour créer et gérer des machines virtuelles haute performance sur Linux.</p>
+<ul>
+<li><strong>Acronyme :</strong> Kernel-based Virtual Machine</li>
+<li><strong>Outils de gestion :</strong> libvirt, QEMU, virt-manager, Proxmox</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[KVM] --&gt; B[Virtualisation]
+    A --&gt; C[Hyperviseur]
+    A --&gt; D[Machine virtuelle]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="l">L<a class="headerlink" href="#l" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">LDAP</p>
+<blockquote>
+<p>Protocole d'accès et de gestion d'annuaires informatiques centralisés.</p>
+</blockquote>
+<p>Utilisé pour l'authentification centralisée et la gestion des identités dans les entreprises.</p>
+<ul>
+<li><strong>Acronyme :</strong> Lightweight Directory Access Protocol</li>
+<li><strong>Implémentations :</strong> Active Directory (Microsoft), OpenLDAP (open source)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[LDAP] --&gt; B[Annuaire]
+    A --&gt; C[Authentification]
+    A --&gt; D[Active Directory]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">LVM</p>
+<blockquote>
+<p>Gestionnaire de volumes logiques permettant une gestion flexible et dynamique du stockage.</p>
+</blockquote>
+<p>Utilisé pour redimensionner, déplacer et sauvegarder (snapshots) les volumes à chaud.</p>
+<ul>
+<li><strong>Acronyme :</strong> Logical Volume Manager</li>
+<li><strong>Composants :</strong> PV (Physical Volume) → VG (Volume Group) → LV (Logical Volume)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[LVM] --&gt; B[Volume logique]
+    A --&gt; C[Stockage flexible]
+    A --&gt; D[Redimensionnement]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Log rotation</p>
+<blockquote>
+<p>Processus automatique d'archivage et de suppression des anciens fichiers de logs.</p>
+</blockquote>
+<p>Utilisé pour éviter la saturation de l'espace disque tout en conservant un historique exploitable.</p>
+<ul>
+<li><strong>Outils :</strong> logrotate (Linux), newsyslog (BSD)</li>
+<li><strong>Stratégies :</strong> rotation par taille, par périodicité, compression gzip</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Log rotation] --&gt; B[Logs]
+    A --&gt; C[Espace disque]
+    A --&gt; D[Archivage]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="m">M<a class="headerlink" href="#m" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Mount</p>
+<blockquote>
+<p>Action de rendre accessible un système de fichiers en l'attachant à l'arborescence Linux.</p>
+</blockquote>
+<p>Utilisé pour accéder aux disques, partitions, systèmes de fichiers distants (NFS, CIFS).</p>
+<ul>
+<li><strong>Commandes :</strong> <code>mount</code> (monter), <code>umount</code> (démonter), <code>findmnt</code> (lister)</li>
+<li><strong>Points de montage :</strong> répertoires servant d'accès aux filesystems (ex. <code>/mnt</code>, <code>/media</code>)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Mount] --&gt; B[Filesystem]
+    A --&gt; C[Point de montage]
+    A --&gt; D[Arborescence]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">MBR</p>
+<blockquote>
+<p>Secteur de démarrage traditionnel contenant la table de partitions et le bootloader (GRUB).</p>
+</blockquote>
+<p>Utilisé sur les systèmes BIOS hérités pour le démarrage et le partitionnement du disque.</p>
+<ul>
+<li><strong>Acronyme :</strong> Master Boot Record</li>
+<li><strong>Limitations :</strong> 4 partitions primaires maximum, disques &lt; 2 To — remplacé par GPT/UEFI</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[MBR] --&gt; B[Partitionnement]
+    A --&gt; C[BIOS]
+    A --&gt; D[GPT]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="n">N<a class="headerlink" href="#n" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">NFS</p>
+<blockquote>
+<p>Protocole de partage de fichiers en réseau permettant l'accès distant transparent à des systèmes de fichiers.</p>
+</blockquote>
+<p>Utilisé pour partager des systèmes de fichiers entre machines Unix/Linux sur un réseau local.</p>
+<ul>
+<li><strong>Acronyme :</strong> Network File System</li>
+<li><strong>Versions :</strong> NFSv3 (stateless), NFSv4 (avec sécurité Kerberos, stateful)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[NFS] --&gt; B[Partage de fichiers]
+    A --&gt; C[Réseau]
+    A --&gt; D[Montage distant]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Nftables</p>
+<blockquote>
+<p>Framework moderne de filtrage réseau succédant à iptables sur Linux.</p>
+</blockquote>
+<p>Utilisé pour la gestion avancée du trafic réseau, firewall et NAT avec une syntaxe unifiée.</p>
+<ul>
+<li><strong>Avantages :</strong> syntaxe unifiée IPv4/IPv6, performance améliorée, moins de tables</li>
+<li><strong>Compatibilité :</strong> peut coexister avec iptables via des modules de compatibilité</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Nftables] --&gt; B[Iptables]
+    A --&gt; C[Firewall]
+    A --&gt; D[Netfilter]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="p">P<a class="headerlink" href="#p" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">PAM</p>
+<blockquote>
+<p>Framework d'authentification modulaire permettant de configurer les méthodes d'authentification.</p>
+</blockquote>
+<p>Utilisé pour centraliser et standardiser l'authentification système sur Linux.</p>
+<ul>
+<li><strong>Acronyme :</strong> Pluggable Authentication Modules</li>
+<li><strong>Modules courants :</strong> <code>pam_unix</code>, <code>pam_ldap</code>, <code>pam_google_authenticator</code> (MFA)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[PAM] --&gt; B[Authentification]
+    A --&gt; C[Modules]
+    A --&gt; D[Sécurité]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">PID</p>
+<blockquote>
+<p>Identifiant numérique unique attribué à chaque processus en cours d'exécution.</p>
+</blockquote>
+<p>Utilisé pour identifier, surveiller et gérer les processus système.</p>
+<ul>
+<li><strong>Acronyme :</strong> Process ID</li>
+<li><strong>Commandes :</strong> <code>ps</code>, <code>top</code>, <code>htop</code>, <code>kill &lt;PID&gt;</code>, <code>pgrep &lt;nom&gt;</code></li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[PID] --&gt; B[Processus]
+    A --&gt; C[Gestion]
+    A --&gt; D[Surveillance]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="r">R<a class="headerlink" href="#r" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">RAID</p>
+<blockquote>
+<p>Techniques de regroupement de disques pour améliorer la performance et/ou la redondance des données.</p>
+</blockquote>
+<p>Utilisé pour la haute disponibilité du stockage et la protection des données en cas de panne disque.</p>
+<ul>
+<li><strong>Acronyme :</strong> Redundant Array of Independent Disks</li>
+<li><strong>Niveaux courants :</strong> RAID 0 (performance), RAID 1 (miroir), RAID 5 (parité distribuée), RAID 6, RAID 10</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[RAID] --&gt; B[Redondance]
+    A --&gt; C[Performance]
+    A --&gt; D[Stockage]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">RPM</p>
+<blockquote>
+<p>Format de paquet et gestionnaire pour les distributions Red Hat et dérivées (RHEL, Fedora, CentOS).</p>
+</blockquote>
+<p>Utilisé pour installer, mettre à jour et gérer les logiciels avec résolution des dépendances.</p>
+<ul>
+<li><strong>Acronyme :</strong> RPM Package Manager (anciennement Red Hat Package Manager)</li>
+<li><strong>Commandes :</strong> <code>rpm</code> (bas niveau), <code>yum</code> (obsolète), <code>dnf</code> (actuel)</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Homonymie</p>
+<p>En mécanique, RPM désigne aussi les <strong>rotations par minute</strong> d'un disque dur (ex. 7200 RPM). Contexte différent.</p>
+</div>
+<pre class="mermaid"><code>graph LR
+    A[RPM] --&gt; B[Package management]
+    A --&gt; C[Red Hat]
+    A --&gt; D[DNF]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Rsync</p>
+<blockquote>
+<p>Outil de synchronisation de fichiers efficace utilisant des algorithmes delta (transfert différentiel).</p>
+</blockquote>
+<p>Utilisé pour les sauvegardes, synchronisations et transferts optimisés locaux ou distants.</p>
+<ul>
+<li><strong>Avantages :</strong> transfert incrémental (seuls les blocs modifiés), compression, préservation des métadonnées</li>
+<li><strong>Utilisation :</strong> backup, déploiement de code, migration de données</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Rsync] --&gt; B[Synchronisation]
+    A --&gt; C[Backup]
+    A --&gt; D[Transfert]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="s">S<a class="headerlink" href="#s" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">SELinux</p>
+<blockquote>
+<p>Système de contrôle d'accès obligatoire (MAC) ajoutant une couche de sécurité renforcée au noyau Linux.</p>
+</blockquote>
+<p>Utilisé pour confiner les processus et limiter les dégâts en cas de compromission d'un service.</p>
+<ul>
+<li><strong>Acronyme :</strong> Security-Enhanced Linux</li>
+<li><strong>Modes :</strong> <code>enforcing</code> (applique les règles), <code>permissive</code> (log uniquement), <code>disabled</code></li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[SELinux] --&gt; B[Sécurité]
+    A --&gt; C[Confinement]
+    A --&gt; D[Contrôle d'accès]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">SSH</p>
+<blockquote>
+<p>Protocole de communication sécurisée permettant l'accès distant chiffré à des systèmes.</p>
+</blockquote>
+<p>Utilisé pour l'administration à distance, transfert de fichiers (SCP/SFTP) et tunneling sécurisé.</p>
+<ul>
+<li><strong>Acronyme :</strong> Secure Shell</li>
+<li><strong>Fonctionnalités :</strong> authentification par clé publique, port forwarding, X11 forwarding, SFTP</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[SSH] --&gt; B[Accès distant]
+    A --&gt; C[Chiffrement]
+    A --&gt; D[Administration]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Sudo</p>
+<blockquote>
+<p>Commande permettant l'exécution de commandes avec les privilèges d'un autre utilisateur (root).</p>
+</blockquote>
+<p>Utilisé pour l'élévation de privilèges temporaire et traçable sans partager le mot de passe root.</p>
+<ul>
+<li><strong>Acronyme :</strong> Substitute User DO / Super User DO</li>
+<li><strong>Configuration :</strong> <code>/etc/sudoers</code> (à éditer via <code>visudo</code> pour éviter les erreurs de syntaxe)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Sudo] --&gt; B[Privilèges]
+    A --&gt; C[Sécurité]
+    A --&gt; D[Administration]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Systemd</p>
+<blockquote>
+<p>Système d'init moderne pour Linux gérant les services, le démarrage et plus encore.</p>
+</blockquote>
+<p>Utilisé pour démarrer, arrêter et superviser les services système sur toutes les grandes distributions.</p>
+<ul>
+<li><strong>Composants :</strong> <code>systemctl</code> (contrôle), <code>journald</code> (logs), <code>networkd</code> (réseau), <code>resolved</code> (DNS)</li>
+<li><strong>Units :</strong> <code>.service</code>, <code>.timer</code>, <code>.mount</code>, <code>.socket</code></li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Systemd] --&gt; B[Init]
+    A --&gt; C[Services]
+    A --&gt; D[Journald]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="t">T<a class="headerlink" href="#t" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Tmpfs</p>
+<blockquote>
+<p>Système de fichiers temporaire stocké entièrement en mémoire RAM.</p>
+</blockquote>
+<p>Utilisé pour des données temporaires nécessitant des accès très rapides et un nettoyage automatique.</p>
+<ul>
+<li><strong>Avantages :</strong> vitesse maximale (RAM), nettoyage automatique au redémarrage</li>
+<li><strong>Utilisations typiques :</strong> <code>/tmp</code>, caches applicatifs, répertoires de builds</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Tmpfs] --&gt; B[Mémoire RAM]
+    A --&gt; C[Performance]
+    A --&gt; D[Temporaire]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="u">U<a class="headerlink" href="#u" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Umask</p>
+<blockquote>
+<p>Masque définissant les permissions par défaut retirées lors de la création de nouveaux fichiers et répertoires.</p>
+</blockquote>
+<p>Utilisé pour contrôler les permissions d'accès attribuées automatiquement à la création.</p>
+<ul>
+<li><strong>Valeurs courantes :</strong> <code>022</code> → fichiers 644, répertoires 755 | <code>027</code> → fichiers 640, répertoires 750</li>
+<li><strong>Calcul :</strong> permissions finales = permissions maximales (666/777) − umask</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Umask] --&gt; B[Permissions]
+    A --&gt; C[Sécurité]
+    A --&gt; D[Fichier]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">UUID</p>
+<blockquote>
+<p>Identifiant unique universel utilisé pour identifier de manière persistante des ressources système.</p>
+</blockquote>
+<p>Utilisé pour identifier les disques et partitions indépendamment du nom de périphérique (<code>/dev/sdX</code>).</p>
+<ul>
+<li><strong>Acronyme :</strong> Universally Unique Identifier</li>
+<li><strong>Format :</strong> <code>8-4-4-4-12</code> caractères hexadécimaux — ex. <code>550e8400-e29b-41d4-a716-446655440000</code></li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[UUID] --&gt; B[Identification]
+    A --&gt; C[Partition]
+    A --&gt; D[Persistant]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="v">V<a class="headerlink" href="#v" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Virtualisation</p>
+<blockquote>
+<p>Technologie créant des environnements virtuels isolés sur du matériel physique partagé.</p>
+</blockquote>
+<p>Utilisé pour optimiser l'utilisation des ressources matérielles et isoler les workloads.</p>
+<ul>
+<li><strong>Types d'hyperviseurs :</strong> Type 1 bare metal (Proxmox, VMware ESXi), Type 2 hosted (VirtualBox)</li>
+<li><strong>Technologies :</strong> Proxmox, VMware vSphere, Microsoft Hyper-V, KVM, Xen</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[Virtualisation] --&gt; B[Hyperviseur]
+    A --&gt; C[Machine virtuelle]
+    A --&gt; D[Isolation]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">VNC</p>
+<blockquote>
+<p>Protocole de bureau à distance permettant le contrôle graphique d'une machine via le réseau.</p>
+</blockquote>
+<p>Utilisé pour l'administration graphique à distance de serveurs et postes de travail.</p>
+<ul>
+<li><strong>Acronyme :</strong> Virtual Network Computing</li>
+<li><strong>Variantes :</strong> TightVNC, RealVNC, TigerVNC, noVNC (web)</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[VNC] --&gt; B[Bureau à distance]
+    A --&gt; C[Contrôle graphique]
+    A --&gt; D[Administration]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="y">Y<a class="headerlink" href="#y" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">YUM</p>
+<blockquote>
+<p>Gestionnaire de paquets automatisant l'installation et la résolution des dépendances pour Red Hat.</p>
+</blockquote>
+<p>Utilisé pour simplifier la gestion des logiciels et mises à jour sur les distributions Red Hat.</p>
+<ul>
+<li><strong>Acronyme :</strong> Yellowdog Updater Modified</li>
+<li><strong>Successeur :</strong> DNF (Dandified YUM) — actuel sur RHEL 8+, Fedora, Rocky Linux</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[YUM] --&gt; B[RPM]
+    A --&gt; C[Dépendances]
+    A --&gt; D[DNF]</code></pre>
+</div>
+<p><br></p>
+<hr />
+<h2 id="z">Z<a class="headerlink" href="#z" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">ZFS</p>
+<blockquote>
+<p>Système de fichiers avancé combinant filesystem et gestionnaire de volumes avec protection intégrée des données.</p>
+</blockquote>
+<p>Utilisé pour la protection des données enterprise, les snapshots et la gestion du stockage à grande échelle.</p>
+<ul>
+<li><strong>Acronyme :</strong> Zettabyte File System</li>
+<li><strong>Fonctionnalités :</strong> déduplication, compression transparente, RAID logiciel (RAIDZ), checksums, snapshots</li>
+</ul>
+<pre class="mermaid"><code>graph LR
+    A[ZFS] --&gt; B[Snapshot]
+    A --&gt; C[Intégrité]
+    A --&gt; D[Déduplication]</code></pre>
+</div>
+<p><br></p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GLOSSAIRE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">ADMINISTRATION</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">SYSTÈME</span>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">LINUX</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../bases-fondamentales/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Bases Fondamentales">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Bases Fondamentales
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../administration-reseau/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Administration Réseau">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Administration Réseau
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c2b142ea.min.js"></script>
+      
+        <script src="../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

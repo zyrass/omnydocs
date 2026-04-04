@@ -33,6 +33,8 @@ Chacune possède sa philosophie, ses forces, ses cas d'usage privilégiés et so
     - **Red Hat/Rocky** = Mercedes : innovation contrôlée, certifications professionnelles, support entreprise
     - **Arch Linux** = Kit car : vous assemblez chaque pièce vous-même, contrôle total, apprentissage maximum
 
+<br>
+
 ---
 
 ## Objectifs d'Apprentissage
@@ -44,6 +46,8 @@ Chacune possède sa philosophie, ses forces, ses cas d'usage privilégiés et so
 - [ ] Comparer les cycles de vie (LTS vs Rolling Release)
 - [ ] Choisir la distribution appropriée selon le contexte (production, formation, développement)
 - [ ] Comprendre pourquoi Arch-Lab combine ces trois familles
+
+<br>
 
 ---
 
@@ -110,6 +114,8 @@ graph TB
 | **Public** | Débutants, serveurs web | Entreprise, cloud | Power users, formation |
 | **Installation** | Guidée graphique | Semi-automatique | Manuelle complète |
 | **Documentation** | Wiki Ubuntu | Red Hat Docs | Arch Wiki[^2] |
+
+<br>
 
 ---
 
@@ -256,6 +262,8 @@ gantt
 
 !!! tip "Dans Arch-Lab"
     Ubuntu représente le **système de référence stable**. Vous pourrez comparer son comportement avec Arch (rolling) et Rocky (entreprise) dans des scénarios identiques.
+
+<br>
 
 ---
 
@@ -473,6 +481,8 @@ gantt
 
 !!! tip "Dans Arch-Lab"
     Rocky représente le **système entreprise**. Vous comprendrez pourquoi les grandes entreprises privilégient Red Hat : stabilité + innovation + support + certifications.
+
+<br>
 
 ---
 
@@ -739,6 +749,8 @@ Le **Arch Wiki** est considéré comme la ressource Linux la plus complète au m
 !!! tip "Dans Arch-Lab"
     Arch est le **système pédagogique**. En l'installant manuellement (Module 3), vous comprendrez comment fonctionnent TOUS les systèmes Linux (Ubuntu, Rocky, Debian...).
 
+<br>
+
 ---
 
 ## Tableau Comparatif Complet
@@ -841,32 +853,16 @@ sudo systemctl start httpd
 - Localisations différentes (`/etc/apache2/` vs `/etc/httpd/`)
 - Complexités variables (SELinux sous Rocky, simplicité sous Arch)
 
+<br>
+
 ---
 
-## Le Mot de la Fin
+## Conclusion
 
-Félicitations ! Vous avez terminé le Module 2, la base théorique essentielle d'Arch-Lab.
+!!! quote "Les trois familles, une seule compétence"
+    Debian/Ubuntu pour la **stabilité**, Red Hat/Rocky pour l'**entreprise**, Arch pour l'**apprentissage** : maîtriser ces trois univers vous rend polyvalent dans n'importe quel contexte professionnel. Chaque famille répond à des besoins différents — aucune n'est "meilleure", toutes sont **complémentaires**.
 
-### Ce que vous avez appris
-
-- Les trois grandes familles Linux : **Debian/Ubuntu**, **Red Hat/Rocky**, **Arch**
-- Leurs gestionnaires de paquets : **apt**, **dnf**, **pacman**
-- Leurs philosophies : **stabilité**, **entreprise**, **apprentissage**
-- Leurs cycles de vie : **LTS**, **10 ans**, **rolling release**
-- Leurs cas d'usage professionnels respectifs
-- Pourquoi Arch-Lab combine ces trois univers
-
-### Points clés à retenir
-
-1. **Debian/Ubuntu** = stabilité maximale, idéal production/débutants
-2. **Red Hat/Rocky** = standard entreprise, certifications, SELinux
-3. **Arch Linux** = apprentissage maximal, contrôle total, toujours à jour
-4. **Chaque famille répond à des besoins différents**, aucune n'est "meilleure"
-5. **Maîtriser les trois** vous rend polyvalent et employable
-
-### Vérification de Compréhension
-
-**Avant de passer au Module 3, assurez-vous de pouvoir répondre à :**
+**Vérification de compréhension — avant de passer au Module 3 :**
 
 - [ ] Quelle est la différence entre LTS et rolling release ?
 - [ ] Pourquoi Rocky Linux est-il gratuit alors que RHEL est payant ?
@@ -875,23 +871,13 @@ Félicitations ! Vous avez terminé le Module 2, la base théorique essentielle 
 - [ ] Pourquoi le Arch Wiki est-il utile même si vous utilisez Ubuntu ?
 
 !!! success "Si vous répondez oui à tout"
-    Vous êtes prêt pour le **Module 3 : Installation Arch Linux Serveur**, le module le plus technique du parcours.
+    Vous êtes prêt pour le **Module 3 : Installation Arch Linux Serveur** — le module le plus technique du parcours.
 
-### Prochaine étape
-
-Le **Module 3** vous plonge dans l'installation manuelle complète d'Arch Linux. Vous allez :
-
-- Partitionner un disque en mode UEFI/GPT
-- Installer le système de base avec `pacstrap`
-- Configurer le bootloader systemd-boot
-- Créer un utilisateur administrateur
-- Comprendre chaque étape du boot Linux
-
-**C'est le module le plus exigeant mais aussi le plus formateur.** Prévoyez 90-120 minutes ininterrompues et une concentration maximale.
-
-**Prenez une pause de 15-20 minutes, hydratez-vous, puis attaquez le Module 3 !**
+> Le **Module 3** vous plonge dans l'installation manuelle d'Arch Linux : partitionnement UEFI/GPT, `pacstrap`, systemd-boot, création utilisateur. Prévoyez **90 à 120 minutes** ininterrompues.
 
 [:lucide-arrow-right: Accéder au Module 3](./03-arch-serveur.md){ .md-button .md-button--primary }
+
+<br>
 
 ---
 
@@ -915,10 +901,6 @@ Le **Module 3** vous plonge dans l'installation manuelle complète d'Arch Linux.
 - [r/archlinux](https://reddit.com/r/archlinux)
 - [r/Ubuntu](https://reddit.com/r/Ubuntu)
 - [r/RockyLinux](https://reddit.com/r/RockyLinux)
-
----
-
-**Vous maîtrisez maintenant les fondations théoriques. Place à la pratique avec l'installation d'Arch Linux !**
 
 [^1]: **Rolling release** : modèle où le système est mis à jour en continu sans versions majeures. Pas de "Ubuntu 22.04 → 24.04", mais toujours la dernière version.
 

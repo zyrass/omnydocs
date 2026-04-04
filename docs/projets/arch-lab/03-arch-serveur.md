@@ -1,5 +1,5 @@
 ---
-description: "Arch-Lab : laboratoire complet multi-OS sous VirtualBox pour l’apprentissage professionnel de Linux, des réseaux et de la cybersécurité. Comprend sept modules progressifs (serveur, desktop, réseau, multi-OS, automatisation)."
+description: "Module 3 : Installation manuelle d'un serveur Arch Linux en mode UEFI/GPT avec systemd-boot comme bootloader. 28 étapes progressives — de la création de la VM VirtualBox au snapshot final — pour comprendre en profondeur le démarrage Linux."
 icon: lucide/server
 tags: ["LAB", "ARCH", "VIRTUALBOX", "MULTI-OS", "FORMATION", "CYBER", "DEVSECOPS"]
 status: beta
@@ -2119,6 +2119,8 @@ Vous disposez maintenant d'un **serveur Arch Linux minimal stable**. Le prochain
     swapon /dev/sda2
     ```
 
+<br>
+
 ---
 
 ## Ressources Complémentaires
@@ -2142,9 +2144,18 @@ Vous disposez maintenant d'un **serveur Arch Linux minimal stable**. Le prochain
 - [Ventoy](https://www.ventoy.net/) - créer des clés USB bootables multi-ISO
 - [Timeshift](https://github.com/linuxmint/timeshift) - sauvegardes système automatiques
 
+<br>
+
 ---
 
-!!! quote "**Vous maîtrisez désormais l’installation complète d’un système Arch Linux**. Continuez à explorer, tester, casser et reconstruire : l’apprentissage d’Arch repose sur l’expérimentation, et chaque tentative renforce votre compréhension du système."
+## Conclusion
+
+!!! quote "Vous avez construit un serveur Linux de zéro"
+    Installer Arch Linux manuellement n'est pas un exploit technique — c'est une **compréhension profonde** du système. Vous savez maintenant ce que fait chaque fichier, chaque commande, chaque configuration : UEFI, GPT, systemd-boot, `pacstrap`, `arch-chroot`. C'est ce que n'importe quelle distribution automatise en silence.
+
+> Le **Module 4** transforme ce serveur minimal en poste Desktop graphique complet (KDE Plasma ou GNOME). Prévoyez **60 à 90 minutes** supplémentaires.
+
+[:lucide-arrow-right: Accéder au Module 4](./04-arch-desktop.md){ .md-button .md-button--primary }
 
 [^1]: **EFI System Partition (ESP)** : partition spéciale lue par le firmware UEFI pour démarrer l'OS. **DOIT être en FAT32** (seul format compris par UEFI). Contient le bootloader systemd-boot et le noyau Linux. 
 

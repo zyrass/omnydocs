@@ -593,6 +593,8 @@ Chaque module **s'appuie sur les acquis des précédents**. C'est pourquoi il es
 - Export/import d'appliances OVF
 - Automatisation avec scripts
 
+<br>
+
 ---
 
 ## Philosophie "Apprendre en Cassant"
@@ -608,38 +610,27 @@ Chaque module **s'appuie sur les acquis des précédents**. C'est pourquoi il es
 
 **Les snapshots sont votre filet de sécurité.** Vous ne pouvez rien casser de manière irréversible.
 
+<br>
+
 ---
 
-## Le Mot de la Fin
+## Conclusion
 
-Félicitations ! Vous avez terminé le premier module d'Arch-Lab.
+!!! quote "La première étape de votre laboratoire professionnel"
+    Arch-Lab n'est pas un simple tutoriel — c'est un **environnement de simulation professionnel** que vous allez construire brique par brique. Cinq systèmes d'exploitation, trois réseaux, sept modules : à la fin du parcours, vous aurez la pratique d'un ingénieur système junior.
 
-### Ce que vous avez appris
+**Ce que vous avez appris :**
 
 - La finalité pédagogique du projet (simulation d'environnement professionnel)
 - L'architecture globale (5 VMs, 3 réseaux, 3 familles Linux)
-- Le rôle de chaque système dans le laboratoire
-- La progression logique des 7 modules
-- Les quatre piliers pédagogiques
-- Les compétences professionnelles que vous allez acquérir
+- La progression logique des 7 modules et leurs rôles pédagogiques
+- Le principe des snapshots comme filet de sécurité pour l'expérimentation
 
-### Points clés à retenir
-
-1. **Arch-Lab reproduit un mini-datacenter** d'entreprise virtualisé
-2. **Chaque système a un rôle pédagogique précis** (serveur, desktop, stable, entreprise)
-3. **Trois réseaux distincts** segmentent et isolent les machines (NAT, Host-Only, Internal)
-4. **Les modules sont progressifs** et s'appuient les uns sur les autres
-5. **Les snapshots permettent l'expérimentation sans risque**
-
-### Prochaine étape
-
-Vous êtes maintenant prêt à entrer dans le vif du sujet avec le **Module 2 : Panorama des Familles Linux**.
-
-Ce module **vous donnera les bases théoriques** indispensables pour comprendre les différences entre Debian/Ubuntu (apt), Red Hat/Rocky (dnf) et Arch (pacman). Vous découvrirez leurs philosophies respectives, leurs cas d'usage et pourquoi Arch-Lab les combine.
-
-**Prenez une pause de 5-10 minutes, puis continuez vers le Module 2 !**
+> Le **Module 2** vous donne les bases théoriques indispensables : différences entre Debian/Ubuntu, Red Hat/Rocky et Arch Linux, leurs philosophies et gestionnaires de paquets.
 
 [:lucide-arrow-right: Accéder au Module 2](./02-panorama-linux.md){ .md-button .md-button--primary }
+
+<br>
 
 ---
 
@@ -649,6 +640,5 @@ Ce module **vous donnera les bases théoriques** indispensables pour comprendre 
 - [VirtualBox Manual](https://www.virtualbox.org/manual/)
 - [Linux Foundation - Introduction to Linux](https://training.linuxfoundation.org/)
 
----
+!!! tip "Cette page de référence est accessible à tout moment pendant votre parcours Arch-Lab."
 
-!!! tip "**Si vous avez des questions ou remarques sur ce module ? N'hésitez pas à revenir sur cette page de référence tout au long de votre parcours Arch-Lab.**"

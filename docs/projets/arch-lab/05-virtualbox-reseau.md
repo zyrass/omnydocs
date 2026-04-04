@@ -25,7 +25,7 @@ Les **Modules 3 et 4** vous ont permis de construire deux machines Arch Linux fo
 
 Ce **Module 5** vous apprend à construire une **topologie réseau VirtualBox professionnelle** simulant un mini-datacenter d'entreprise avec :
 
-- **Segmentation réseau** (NAT[^1], Host-Only[^2], Internal Natwork[^3])
+- **Segmentation réseau** (NAT[^1], Host-Only[^2], Internal Network[^3])
 - **Adressage IP cohérent** et reproductible
 - **Isolation des flux** (Internet, administration, LAN interne)
 - **Plan de communication** clair entre toutes les machines
@@ -49,7 +49,7 @@ Ce **Module 5** vous apprend à construire une **topologie réseau VirtualBox pr
 
 - [ ] Comprendre les trois types de réseaux VirtualBox (**NAT**, **Host-Only[^2]**, **Internal**)
 - [ ] Créer et configurer un réseau Host-Only[^2] dans VirtualBox
-- [ ] Créer un Internal Natwork[^3] nommé pour le LAN du lab
+- [ ] Créer un Internal Network[^3] nommé pour le LAN du lab
 - [ ] Configurer plusieurs interfaces réseau sur une même VM
 - [ ] Assigner des adresses IP statiques avec NetworkManager (`nmcli`[^4])
 - [ ] Tester la connectivité entre machines (_ping_, _SSH_)
@@ -93,7 +93,7 @@ Ce module est organisé en **3 phases principales** :
 
 Concrètement, vous allez :
 
-- **Étapes 1-3** : _Comprendre NAT[^1], Host-Only[^2] et Internal Natwork[^3] (**théorie**)_
+- **Étapes 1-3** : _Comprendre NAT[^1], Host-Only[^2] et Internal Network[^3] (**théorie**)_
 - **Étapes 4-5** : _Concevoir le plan d'adressage et la topologie globale_
 - **Étapes 6-7** : _Créer les réseaux Host-Only[^2] et Internal dans VirtualBox_
 - **Étapes 8-10** : _Configurer les interfaces réseau sur Arch Server et Arch Desktop_
@@ -275,7 +275,7 @@ Avant de commencer les 15 étapes détaillées, prenez le temps de **visualiser 
             style WIN_HO fill:#fff59d
     ```
 
-    <small>*Ce schéma illustre l'architecture réseau complète d'Arch-Lab après configuration. Il se décompose en trois niveaux isolés : (1) **NAT[^1] VirtualBox** fournit l'accès Internet sortant à toutes les VMs Linux pour les mises à jour système, (2) **Host-Only[^2] (192.168.56.0/24)** permet l'administration SSH/RDP depuis votre PC Windows vers les VMs, (3) **Internal Natwork[^3] labnet (10.10.0.0/24)** crée un LAN privé où toutes les machines communiquent entre elles sans accès à l'hôte ni à Internet. Les couleurs codent les types de systèmes : bleu = réseau Host-Only[^2], vert = Arch Linux, orange = Ubuntu, violet = Rocky Linux, jaune = Windows.*</small>
+    <small>*Ce schéma illustre l'architecture réseau complète d'Arch-Lab après configuration. Il se décompose en trois niveaux isolés : (1) **NAT[^1] VirtualBox** fournit l'accès Internet sortant à toutes les VMs Linux pour les mises à jour système, (2) **Host-Only[^2] (192.168.56.0/24)** permet l'administration SSH/RDP depuis votre PC Windows vers les VMs, (3) **Internal Network[^3] labnet (10.10.0.0/24)** crée un LAN privé où toutes les machines communiquent entre elles sans accès à l'hôte ni à Internet. Les couleurs codent les types de systèmes : bleu = réseau Host-Only[^2], vert = Arch Linux, orange = Ubuntu, violet = Rocky Linux, jaune = Windows.*</small>
 
     **Légende des couleurs :**
 
@@ -283,7 +283,7 @@ Avant de commencer les 15 étapes détaillées, prenez le temps de **visualiser 
     |---------|-------------------------|----------|
     | 🟡 Jaune | NAT[^1] / Internet | Accès sortant uniquement |
     | 🔵 Bleu clair | Réseau Host-Only[^2] | Administration hôte ↔ VMs |
-    | 🟢 Vert clair | Internal Natwork[^3] | LAN privé du lab |
+    | 🟢 Vert clair | Internal Network[^3] | LAN privé du lab |
     | 🔷 Bleu-vert | Arch Linux | Server + Desktop |
     | 🟠 Orange | Ubuntu LTS | Famille Debian/apt |
     | 🟣 Violet | Rocky Linux | Famille Red Hat/dnf |
@@ -358,7 +358,7 @@ graph LR
 
 ### Étape 3 : Comprendre l'Internal Network
 
-!!! quote "L'**Internal Natwork[^3]** crée un LAN privé totalement isolé où seules les VMs communiquent entre elles."
+!!! quote "L'**Internal Network[^3]** crée un LAN privé totalement isolé où seules les VMs communiquent entre elles."
 
 **Fonctionnement :**
 
@@ -385,9 +385,9 @@ graph LR
     style WIN fill:#fff59d
 ```
 
-<small>*Ce diagramme illustre **quelques exemples** de communications possibles dans le réseau Internal labnet. En réalité, **toutes les machines étant sur le même réseau privé 10.10.0.0/24**, elles peuvent **toutes communiquer entre elles sans restriction**. Arch Server peut contacter Windows, Ubuntu peut contacter Arch Desktop, Rocky peut contacter tout le monde, etc. L'Internal Natwork[^3] fonctionne comme un switch physique : si deux machines sont branchées dessus et ont des IPs dans le même sous-réseau, elles peuvent se parler directement. Les flèches affichées ne sont qu'une représentation partielle pour simplifier le schéma.*</small>
+<small>*Ce diagramme illustre **quelques exemples** de communications possibles dans le réseau Internal labnet. En réalité, **toutes les machines étant sur le même réseau privé 10.10.0.0/24**, elles peuvent **toutes communiquer entre elles sans restriction**. Arch Server peut contacter Windows, Ubuntu peut contacter Arch Desktop, Rocky peut contacter tout le monde, etc. L'Internal Network[^3] fonctionne comme un switch physique : si deux machines sont branchées dessus et ont des IPs dans le même sous-réseau, elles peuvent se parler directement. Les flèches affichées ne sont qu'une représentation partielle pour simplifier le schéma.*</small>
 
-**Caractéristiques de l'Internal Natwork[^3] :**
+**Caractéristiques de l'Internal Network[^3] :**
 
 | Aspect | Comportement | Explication |
 |--------|--------------|-------------|
@@ -404,7 +404,7 @@ graph LR
 - **Active Directory** : domaine Windows isolé
 - **Clustering** : serveurs qui se parlent sans sortir
 
-!!! danger "**Attention, l'Internal Natwork[^3] est totalement isolé**, c'est le réseau le plus sécurisé : **aucune fuite possible** vers Internet ou l'hôte. Idéal pour simuler un datacenter interne d'entreprise."
+!!! danger "**Attention, l'Internal Network[^3] est totalement isolé**, c'est le réseau le plus sécurisé : **aucune fuite possible** vers Internet ou l'hôte. Idéal pour simuler un datacenter interne d'entreprise."
 
 ### Étape 4 : Conception de la topologie Arch-Lab
 
@@ -505,11 +505,11 @@ ipconfig | findstr "192.168.56"
 
 ### Étape 7 : Créer l'Internal Network dans VirtualBox
 
-!!! quote "Contrairement à Host-Only[^2], l'Internal Natwork[^3] se crée **lors de la configuration des VMs**, pas dans un gestionnaire centralisé."
+!!! quote "Contrairement à Host-Only[^2], l'Internal Network[^3] se crée **lors de la configuration des VMs**, pas dans un gestionnaire centralisé."
 
 **Important :**
 
-- Toutes les VMs doivent utiliser **exactement le même nom** d'Internal Natwork[^3]
+- Toutes les VMs doivent utiliser **exactement le même nom** d'Internal Network[^3]
 - Nom recommandé : `labnet`
 
 !!! warning "Le nom est sensible à la casse : `labnet` ≠ `Labnet` ≠ `LABNET`. Utilisez toujours `labnet` en minuscules."
@@ -529,7 +529,7 @@ ipconfig | findstr "192.168.56"
 |---------|------|------------|------------------|
 | **Adapter 1** | NAT[^1] | — | Deny |
 | **Adapter 2** | Host-Only[^2] Adapter | vboxnet0 | Deny |
-| **Adapter 3** | Internal Natwork[^3] | labnet | Allow All |
+| **Adapter 3** | Internal Network[^3] | labnet | Allow All |
 
 !!! note "**Cliquez sur OK** puis **Démarrez Arch Server** et connectez-vous en `admin`."
 
@@ -567,7 +567,7 @@ nmcli con mod hostonly ipv4.method manual ipv4.addresses 192.168.56.10/24
 nmcli con up hostonly
 ```
 
-**Configuration Internal Natwork[^3] (enp0s9) :**
+**Configuration Internal Network[^3] (enp0s9) :**
 
 ```bash
 # Créer la connexion Internal Network
@@ -621,7 +621,7 @@ nmcli con show
 |---------|------|------------|------------------|
 | **Adapter 1** | NAT[^1] | — | Deny |
 | **Adapter 2** | Host-Only[^2] Adapter | vboxnet0 | Deny |
-| **Adapter 3** | Internal Natwork[^3] | labnet | Allow All |
+| **Adapter 3** | Internal Network[^3] | labnet | Allow All |
 
 !!! note "**Cliquez sur OK** puis **démarrez Arch Desktop** et connectez-vous."
 
@@ -721,7 +721,7 @@ nmcli con show --active
     # 3 packets transmitted, 3 received, 0% packet loss
     ```
 
-    ✅ **Internal Natwork[^3] fonctionnel** si vous recevez des réponses.
+    ✅ **Internal Network[^3] fonctionnel** si vous recevez des réponses.
 
 **Depuis Arch Desktop :**
 
@@ -757,7 +757,7 @@ ssh admin@192.168.56.20
 
 !!! quote "Si certains tests échouent, voici la méthodologie de diagnostic."
 
-??? abstract "Problème 1 : Pas de réponse au ping sur Internal Natwork[^3]"
+??? abstract "Problème 1 : Pas de réponse au ping sur Internal Network[^3]"
 
     **Symptôme :**
 
@@ -867,7 +867,7 @@ ssh admin@192.168.56.20
     # Si le ping fonctionne : problème SSH uniquement
     ```
 
-??? abstract "Problème 4 : Mauvais nom d'Internal Natwork[^3]"
+??? abstract "Problème 4 : Mauvais nom d'Internal Network[^3]"
 
     **Symptôme :** Les deux machines ne se voient pas sur le réseau Internal.
 
@@ -1056,13 +1056,13 @@ graph TB
 
 ## Dépannage Avancé
 
-??? abstract "Les deux machines Arch ne se voient pas sur Internal Natwork[^3]"
+??? abstract "Les deux machines Arch ne se voient pas sur Internal Network[^3]"
 
     **Symptôme :** `ping 10.10.0.20` ne fonctionne pas depuis Arch Server.
 
     **Causes possibles :**
 
-    1. Nom d'Internal Natwork[^3] différent entre les VMs
+    1. Nom d'Internal Network[^3] différent entre les VMs
     2. Interface enp0s9 désactivée (DOWN)
     3. Firewall bloquant (peu probable sur Arch de base)
 
@@ -1202,7 +1202,7 @@ graph TB
 
     - [x] Compréhension des trois types de réseaux VirtualBox (**NAT[^1]**, **Host-Only[^2]**, **Internal**)
     - [x] Création et configuration de réseaux Host-Only[^2] dans VirtualBox
-    - [x] Création d'Internal Natwork[^3]s nommés pour isolation totale
+    - [x] Création d'Internal Network[^3]s nommés pour isolation totale
     - [x] Configuration multi-interfaces sur des VMs Linux
     - [x] Attribution d'adresses IP statiques avec NetworkManager (`nmcli`[^4])
     - [x] Tests de connectivité réseau (_ping_, _SSH_, _diagnostic_)
@@ -1221,7 +1221,7 @@ graph TB
 | Élément | Configuration | Utilisation |
 |---------|--------------|-------------|
 | **Réseau Host-Only[^2] (vboxnet0)** | 192.168.56.0/24 | Administration SSH/RDP depuis l'hôte |
-| **Internal Natwork[^3] (labnet)** | 10.10.0.0/24 | LAN privé isolé inter-VMs |
+| **Internal Network[^3] (labnet)** | 10.10.0.0/24 | LAN privé isolé inter-VMs |
 | **Arch Server - enp0s8** | 192.168.56.10/24 | Interface admin |
 | **Arch Server - enp0s9** | 10.10.0.10/24 | Interface LAN |
 | **Arch Desktop - enp0s8** | 192.168.56.20/24 | Interface admin |
@@ -1233,8 +1233,8 @@ Avant de passer au Module 6, assurez-vous d'avoir compris ces concepts fondament
 
 1. **NAT[^1] est unidirectionnel** : sortie possible (Internet), entrée bloquée (sauf port forwarding)
 2. **Host-Only[^2] isole d'Internet** : communication hôte ↔ VMs uniquement, pas d'accès web
-3. **Internal Natwork[^3] est totalement privé** : ni Internet, ni hôte, juste les VMs entre elles
-4. **Le nom de l'Internal Natwork[^3]** doit être identique sur toutes les VMs (`labnet`)
+3. **Internal Network[^3] est totalement privé** : ni Internet, ni hôte, juste les VMs entre elles
+4. **Le nom de l'Internal Network[^3]** doit être identique sur toutes les VMs (`labnet`)
 5. **IPs statiques obligatoires** sur Host-Only[^2] et Internal (pas de DHCP)
 6. **NetworkManager gère tout** : `nmcli`[^4] est l'outil universel de configuration réseau sous Arch
 7. **La table de routage** détermine quelle interface utiliser pour chaque destination
@@ -1250,25 +1250,26 @@ Avant de passer au Module 6, assurez-vous d'avoir compris ces concepts fondament
 | **Accès Internet** | NAT[^1] par défaut | NAT[^1] contrôlé + segmentation |
 | **Scénarios possibles** | VM individuelles | SOC, pentest, Active Directory, clustering |
 
-### Prochaine Étape : Module 6 - Lab Multi-OS
+<br>
 
-Vous disposez maintenant de :
+---
 
-- **Module 3** : Arch Server minimal maîtrisé
-- **Module 4** : Arch Desktop complet fonctionnel
-- **Module 5** : Réseau VirtualBox professionnel segmenté
+## Conclusion
 
-Le **Module 6** va compléter votre laboratoire avec :
+!!! quote "Votre datacenter VirtualBox est segmenté comme en entreprise"
+    Trois couches réseau bien isolées — NAT, Host-Only, Internal — reproduisent fidèlement une infrastructure d'entreprise. Vous venez de créer la fondation sur laquelle reposent tous les scénarios SOC, pentest et DevSecOps d'Arch-Lab.
 
-- Installation d'**Ubuntu LTS** (famille Debian/apt)
-- Installation de **Rocky Linux** (famille Red Hat/dnf)
-- Installation de **Windows 10/11** (poste utilisateur)
-- Intégration de toutes les machines dans le réseau `labnet`
-- Scénarios d'interconnexion et cas d'usage professionnels
+**Points clés à retenir :**
 
-**Prenez une pause bien méritée de 15-30 minutes, puis continuez vers le Module 6 !**
+1. **NAT[^1]** est unidirectionnel : sortie Internet possible, entrée bloquée
+2. **Host-Only[^2]** isole d'Internet : administration hôte ↔ VMs uniquement
+3. **Internal Network[^3]** est totalement privé : ni Internet, ni hôte, juste les VMs
+4. **`labnet`** doit être identique sur toutes les VMs (sensible à la casse)
+5. **IPs statiques obligatoires** sur Host-Only et Internal (pas de DHCP)
 
-[:lucide-arrow-right: Accéder au Module 6 - Lab Multi-OS](./06-lab-multi-os.md){ .md-button .md-button--primary }
+> Le **Module 6** complète votre laboratoire : installation d'Ubuntu LTS, Rocky Linux et Windows, puis intégration dans `labnet`.
+
+[:lucide-arrow-right: Accéder au Module 6](./06-lab-multi-os.md){ .md-button .md-button--primary }
 
 [^1]: **NAT (Network Address Translation)** : technique permettant à plusieurs machines sur un réseau privé de partager une seule adresse IP publique pour accéder à Internet. VirtualBox émule un routeur NAT pour chaque VM.
 [^2]: **Host-Only Network** : réseau virtuel privé créé par VirtualBox où l'hôte agit comme un switch virtuel. Aucun accès Internet, seulement communication hôte ↔ VMs et VMs entre elles.

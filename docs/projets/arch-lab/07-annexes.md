@@ -1832,9 +1832,26 @@ Vous disposez maintenant d'un laboratoire professionnel complet. Voici comment l
 - **GitHub Arch-Lab** : partagez vos scripts et améliorations
 - **Discord DevSecOps** : échanges avec pairs
 
-**Vous avez maintenant tous les outils pour devenir un expert DevSecOps/Cyber.**
+<br>
 
-**Merci d'avoir suivi Arch-Lab jusqu'au bout. Bon lab ! 🚀**
+---
+
+## Conclusion
+
+!!! quote "Arch-Lab est accompli — vous êtes prêt pour le monde professionnel"
+    En quelques centaines d'heures de pratique, vous avez construit un laboratoire identique à ceux des équipes SOC, DevSecOps et SysAdmin dans les entreprises. Vous connaissez maintenant les fondations Linux de l'intérieur : depuis le partitionnement UEFI jusqu'à l'automatisation multi-VM. Ce lab est votre terrain d'entraînement permanent.
+
+**Ce que vous avez maîtrisé :**
+
+| Domaine | Compétences |
+|---------|------------|
+| **Linux** | Arch, Ubuntu, Rocky — installation, configuration, maintenance |
+| **Réseau** | NAT, Host-Only, Internal — segmentation et plan d'adressage |
+| **Virtualisation** | VirtualBox — VMs, snapshots, OVF, automatisation VBoxManage |
+| **Scripting** | Bash multi-VM — démarrage, sauvegarde, clonage, export |
+| **Cybersécurité** | Fondations lab SOC/pentest — isolation réseau, audit, snapshots |
+
+> Votre prochaine étape : exploiter ce lab pour des scénarios réels — pentest avec Kali, SIEM avec Wazuh, pipeline CI/CD, Active Directory sur Windows, RHCSA sur Rocky.
 
 [^1]: **VBoxManage** : outil en ligne de commande de VirtualBox pour gérer VMs sans interface graphique. Permet automatisation via scripts Bash/PowerShell. Équivalent CLI de l'interface VirtualBox Manager.
 
