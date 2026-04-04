@@ -1,15 +1,15 @@
 ---
-description: "Rapport de formation Python — Bilan pédagogique, conformité SKILL v2.0.0, couverture technique et recommandations."
+description: "Python — Rapport de formation : bilan pédagogique post-refonte, conformité SKILL v2.0.0 et état des frameworks."
 icon: lucide/file-chart-line
-tags: ["RAPPORT", "PYTHON", "FORMATION", "QUALITE", "NON-CONFORME"]
+tags: ["RAPPORT", "PYTHON", "FORMATION", "DJANGO", "FLASK", "TKINTER"]
 ---
 
 # Rapport de Formation — Python
 
 <div
   class="omny-meta"
-  data-level="🔴 Urgent (Refonte Requise)"
-  data-version="1.0"
+  data-level="📋 Rapport"
+  data-version="2.0 — Post-refonte"
   data-time="Lecture">
 </div>
 
@@ -17,60 +17,86 @@ tags: ["RAPPORT", "PYTHON", "FORMATION", "QUALITE", "NON-CONFORME"]
 
 | Indicateur | Valeur |
 |---|---|
-| **Structure fichiers** | `index.md`, `django.md`, `flask.md`, `tkinker.md` |
-| **Bilan structurel** | ❌ **Non-modulaire.** Fichiers mammouths (de 45 Ko à +50 Ko) |
-| **Conformité SKILL v2.0.0** | ❌ **Faible / Hybride** |
-| **État d'avancement** | **Refonte totale requise** |
+| **Structure** | Modulaire ✅ — Hub + sous-dossiers par framework |
+| **Conformité SKILL v2.0.0** | ✅ Bonne (modules rédigés en ABI) |
+| **État** | Phase 1 complète — modules fondamentaux disponibles |
+| **Frameworks couverts** | Django · Flask · Tkinter |
 
 <br>
 
 ---
 
-## Analyse du Problème
+## Architecture Post-Refonte
 
-Actuellement, la "formation Python" est en réalité un assemblage de gigantesques "Méga-fichiers" :
-- `index.md` : Contient l'intégralité d'un projet fil rouge colossal ("CyberAnalyzer") de la Phase 1 à la Phase 8, le tout condensé sur **plus de 1900 lignes** !
-- `django.md`, `flask.md`, `tkinker.md` : Ce sont des frameworks massifs traités comme de simples appendices de plus de 50 Ko.
-
-### Conséquences pédagogiques :
-1. **Charge cognitive explosée :** Un apprenant face à un document de 1900 lignes fermera instantanément la page.
-2. **Absence de granularité :** Impossible de suivre l'avancement "module par module".
-3. **Mélange Cœur / Frameworks :** Django et Flask sont mis au même niveau hiérarchique que l'index Python. Cela devrait être scindé dans `frameworks/python/`.
+```
+lang/python/
+├── index.md                    ← Hub de navigation modulaire
+├── 00-rapport-formation-python.md
+├── django/
+│   ├── index.md                ← Hub Django
+│   ├── 00-rapport.md           ← Rapport Django
+│   └── 01-fondamentaux.md      ← MVT, ORM QuerySet, Views, Templates, Admin
+├── flask/
+│   ├── index.md                ← Hub Flask
+│   ├── 00-rapport.md           ← Rapport Flask
+│   └── 01-fondamentaux.md      ← App Factory, Blueprints, SQLAlchemy, API REST
+└── tkinter/
+    ├── index.md                ← Hub Tkinter
+    ├── 00-rapport.md           ← Rapport Tkinter
+    └── 01-fondamentaux.md      ← Widgets, pack/grid/place, événements, Canvas
+```
 
 <br>
 
 ---
 
-## Conformité SKILL v2.0.0 (Situation actuelle)
+## Couverture Pédagogique
 
-| Critère SKILL v2.0.0 | Statut | Commentaire |
+### Django
+
+| Module | Contenu | Statut |
 |---|---|---|
-| Modularité (< 20 Ko) | ❌ | Fichiers de +50 Ko (index.md a 1900 lignes) |
-| Titrage standard (0X-titre) | ❌ | Nommages monolithiques (`django.md`) |
-| Séparation des concepts | ❌ | Un seul fichier regroupe Pandas, Matplotlib, Regex, POO et CLI |
-| Frontmatter / Meta | ⚠️ | Présent, mais cache un déficit de la structure |
+| M01 — Fondamentaux | Architecture MVT, installation, settings, ORM (models, migrations, QuerySet API), vues FBV/CBV (ListView, DetailView, CreateView), URLs, templates Django, admin | ✅ Rédigé |
+| M02 — Auth & REST | Authentification custom, DRF, JWT | ⏳ À venir |
+
+### Flask
+
+| Module | Contenu | Statut |
+|---|---|---|
+| M01 — Fondamentaux | App Factory, Blueprints, SQLAlchemy, Alembic, Jinja2, API REST (Blueprint JSON) | ✅ Rédigé |
+| M02 — Avancé | Auth Flask-Login, Flask-JWT-Extended | ⏳ À venir |
+
+### Tkinter
+
+| Module | Contenu | Statut |
+|---|---|---|
+| M01 — Fondamentaux | Widgets (Label, Button, Entry, Text, Listbox, Canvas), gestionnaires (pack/grid/place), événements, Canvas (dessin), application TodoApp | ✅ Rédigé |
+| M02 — Avancé | ttk, Dialogs, Menu, Thread safety | ⏳ À venir |
 
 <br>
 
 ---
 
-## Plan de Refonte Recommandé (Urgent)
+## Conformité SKILL v2.0.0
 
-!!! warning "Refonte architecturale nécessaire"
-    Le contenu pour le projet "CyberAnalyzer" est d'une grande qualité (vrai contexte cyber, utilisation de Pandas/Numpy). Le problème est le **contenant**, pas le contenu !
+| Critère | Statut | Commentaire |
+|---|---|---|
+| Modularité (< 20 Ko par fichier) | ✅ | M01 Django : 15 Ko — dans la norme |
+| Frontmatter complet | ✅ | description, icon, tags |
+| Analogie pédagogique (`!!! quote`) | ✅ | Présente dans chaque M01 |
+| Blocs de code titrés (`title="..."`) | ✅ | Systématisé |
+| Séparateurs `<br>---` | ✅ | Entre chaque section |
+| Conclusion `!!! quote` | ✅ | Synthèse finale par module |
 
-**Action 1 : Mettre en place la modularité (Couper `index.md` en 8-10 modules)**
-Créer une structure standard :
-- `01-introduction-et-setup.md`
-- `02-fondamentaux.md`
-- `03-regex-logs.md`
-- `04-pandas-dataframe.md`
-- `05-numpy-stats.md`
-- etc.
+<br>
 
-**Action 2 : Déplacer les frameworks**
-- Créer `docs/dev-cloud/frameworks/django/` et `docs/dev-cloud/frameworks/flask/`
-- Appliquer la même modularisation pour évacuer les fichiers mammouths `django.md/flask.md`.
+---
 
-**Action 3 : Focus sur le cœur (Core)**
-Python doit d'abord enseigner la grammaire brute du langage avant de jeter l'apprenant dans `Pandas` et la POO. Il faudra vérifier que les concepts de base du langage existent bien.
+## Recommandations
+
+!!! tip "Prochaines étapes"
+    - Rédiger les modules **M02** pour Django (Auth + Django REST Framework) et Flask (Flask-Login)
+    - Envisager un module **Python Core** couvrant les fondamentaux du langage (types, OOP, exceptions, décorateurs) indépendamment des frameworks
+    - Les frameworks sont actuellement traités **dans** `lang/python/` — envisager à terme une migration vers `frameworks/python/django` etc. pour respecter la hiérarchie générale du projet
+
+<br>

@@ -8,7 +8,7 @@ tags: ["MOBILE", "SWIFT", "SWIFTUI", "VAPOR", "IOS"]
 <div
   class="omny-meta"
   data-level="🟢 Débutant → 🔴 Avancé"
-  data-version="1.2"
+  data-version="1.3"
   data-time="3-4 mois">
 </div>
 
@@ -46,7 +46,9 @@ Le parcours est structuré en trois phases progressives et dépendantes :
     ---
     Le framework déclaratif d'Apple pour iOS, macOS, watchOS et tvOS. Views, State management (`@State`, `@Binding`, `@StateObject`), Navigation, Animations.
 
-    *Section en préparation — Swift 18 modules requis*
+    **18 modules** couvrant les Views, le State management (`@State`, `@Binding`, `@StateObject`, `@ObservedObject`), la Navigation avec `NavigationStack`, les Animations et l'intégration avec Combine et `@Observable`.
+
+    [Démarrer SwiftUI](./swiftui/index.md)
 
 </div>
 
@@ -56,7 +58,9 @@ Le parcours est structuré en trois phases progressives et dépendantes :
     ---
     Framework web Swift pour APIs REST, middlewares d'authentification et bases de données avec Fluent ORM.
 
-    *Section en préparation — Swift requis*
+    **12 modules** couvrant les routes et Controllers, Fluent ORM, l'authentification JWT, les Middlewares et le déploiement en production.
+
+    [Démarrer Vapor](./vapor/index.md)
 
 </div>
 

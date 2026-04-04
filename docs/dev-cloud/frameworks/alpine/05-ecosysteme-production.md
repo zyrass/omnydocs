@@ -118,7 +118,7 @@ Alpine.data('brouillonEditeur', () => ({
 
 ---
 
-## Conclusion Finale
+## Conclusion
 
 !!! quote "Vous êtes prêts pour le Fullstack"
     Alpine.js ne rivalise pas avec les Single Page Applications conçues pour Spotify, et telle ne fut jamais son intention. C'est l'arme absolue pour rajouter des widgets, des dashboards connectés asynchrones et des interfaces tactiles sur des applications servies par Laravel, C# ou GoLang sans briser l'accessibilité ou détruire le SEO.

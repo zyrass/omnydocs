@@ -3,7 +3,7 @@ description: "Vapor — Le serveur Swift : présentation de la formation, struct
 tags: ["VAPOR", "SWIFT", "BACKEND", "SERVER-SIDE", "INDEX"]
 ---
 
-# Vapor — Le Serveur Swift
+# Vapor
 
 <div
   class="omny-meta"

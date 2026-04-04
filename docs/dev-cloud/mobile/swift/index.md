@@ -3,7 +3,7 @@ description: "Swift : le langage Apple moderne. Des fondations aux concepts avan
 tags: ["SWIFT", "IOS", "LANGAGE", "APPLE", "XCODE"]
 ---
 
-# Swift — Le Langage
+# Swift
 
 <div
   class="omny-meta"

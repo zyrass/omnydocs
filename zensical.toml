@@ -691,39 +691,68 @@ nav = [
 
         # PHP — Procédural - 1>7 :
         # - Syntaxe, fonctions, fichiers, gestion d’erreurs, bonnes pratiques.
-        "dev-cloud/lang/php/module1.md",
-        "dev-cloud/lang/php/module2.md",
-        "dev-cloud/lang/php/module3.md",
-        "dev-cloud/lang/php/module4.md",
-        "dev-cloud/lang/php/module5.md",
-        "dev-cloud/lang/php/module6.md",
-        "dev-cloud/lang/php/module7.md",
+        "dev-cloud/lang/php/01-fondations.md",
+        "dev-cloud/lang/php/02-structures-controle.md",
+        "dev-cloud/lang/php/03-fonctions-organisation.md",
+        "dev-cloud/lang/php/04-manipulation-donnees.md",
+        "dev-cloud/lang/php/05-formulaires-securite.md",
+        "dev-cloud/lang/php/06-sessions-authentification.md",
+        "dev-cloud/lang/php/07-bases-de-donnees-pdo.md",
 
         # PHP — POO - 8>16 :
         # - Classes/objets, encapsulation, interfaces, traits, exceptions, SOLID.
-        "dev-cloud/lang/php/module8.md",
-        "dev-cloud/lang/php/module9.md",
-        "dev-cloud/lang/php/module10.md",
-        "dev-cloud/lang/php/module11.md",
-        "dev-cloud/lang/php/module12.md",
-        "dev-cloud/lang/php/module13.md",
-        "dev-cloud/lang/php/module14.md",
-        "dev-cloud/lang/php/module15.md",
-        "dev-cloud/lang/php/module16.md"
+        "dev-cloud/lang/php/08-fondations-poo.md",
+        "dev-cloud/lang/php/09-encapsulation-visibilite.md",
+        "dev-cloud/lang/php/10-heritage-polymorphisme.md",
+        "dev-cloud/lang/php/11-traits-namespaces-autoloading.md",
+        "dev-cloud/lang/php/12-design-patterns.md",
+        "dev-cloud/lang/php/13-gestion-erreurs.md",
+        "dev-cloud/lang/php/14-architecture-mvc.md",
+        "dev-cloud/lang/php/15-securite-avancee.md",
+        "dev-cloud/lang/php/16-standards-production.md"
       ]},
 
       # ------------------------------------------------------------------------
       # Python
       # ------------------------------------------------------------------------
       # Rôle :
-      # - Langage polyvalent (scripts, automatisation, web selon besoin).
-      # - À maintenir uniquement si un usage réel est prévu dans les parcours.
+      # - Langage polyvalent (scripts, automatisation, data science, web).
+      # - Parcours recommandé : Core → Framework choisi (Django/Flask/Tkinter).
       {"Python" = [
         "dev-cloud/lang/python/index.md",
         "dev-cloud/lang/python/00-rapport-formation-python.md",
-        # {"Django" = "dev-cloud/lang/python/django.md"},
-        # {"Tkinter" = "dev-cloud/lang/python/tkinter.md"},
-        # {"Flask"  = "dev-cloud/lang/python/flask.md"},
+
+        # Python Core : fondamentaux du langage (avant les frameworks)
+        # - Types, collections, fonctions, OOP, exceptions, modules.
+        {"Core" = [
+          "dev-cloud/lang/python/core/index.md",
+          "dev-cloud/lang/python/core/01-fondamentaux.md",
+        ]},
+
+        # Django : framework web complet (MVT, ORM, Admin, Auth)
+        # - Projet fil rouge : Blog avec système éditorial.
+        {"Django" = [
+          "dev-cloud/lang/python/django/index.md",
+          "dev-cloud/lang/python/django/00-rapport.md",
+          "dev-cloud/lang/python/django/01-fondamentaux.md",
+          "dev-cloud/lang/python/django/02-authentification.md",
+        ]},
+
+        # Flask : micro-framework web (App Factory, Blueprints, SQLAlchemy)
+        # - API REST légère, contrôle total de l'architecture.
+        {"Flask" = [
+          "dev-cloud/lang/python/flask/index.md",
+          "dev-cloud/lang/python/flask/00-rapport.md",
+          "dev-cloud/lang/python/flask/01-fondamentaux.md",
+        ]},
+
+        # Tkinter : interfaces graphiques natives (GUI)
+        # - Widgets, gestionnaires de layout, événements, Canvas.
+        {"Tkinter" = [
+          "dev-cloud/lang/python/tkinter/index.md",
+          "dev-cloud/lang/python/tkinter/00-rapport.md",
+          "dev-cloud/lang/python/tkinter/01-fondamentaux.md",
+        ]},
       ]},
 
     ]},
@@ -737,6 +766,25 @@ nav = [
     {"Frameworks & bibliothèques" = [
 
       "dev-cloud/frameworks/index.md",
+
+      # ------------------------------------------------------------------------
+      # Tailwind CSS
+      # ------------------------------------------------------------------------
+      # Rôle :
+      # - Framework CSS utility-first : le T de la Stack TALL.
+      # - Stylisation sans écrire de CSS custom ; intégré nativement avec Vite.
+      {"Tailwind CSS" = [
+        "dev-cloud/frameworks/tailwind/index.md",
+        "dev-cloud/frameworks/tailwind/00-rapport-formation-tailwind.md",
+        "dev-cloud/frameworks/tailwind/01-philosophie-utility-first.md",
+        "dev-cloud/frameworks/tailwind/02-installation-configuration.md",
+        "dev-cloud/frameworks/tailwind/03-classes-fondamentales.md",
+        "dev-cloud/frameworks/tailwind/04-flexbox-grid-tailwind.md",
+        "dev-cloud/frameworks/tailwind/05-responsive-dark-mode.md",
+        "dev-cloud/frameworks/tailwind/06-etats-interactions.md",
+        "dev-cloud/frameworks/tailwind/07-composants-et-extraction.md",
+        "dev-cloud/frameworks/tailwind/08-plugins-et-theming-avance.md",
+      ]},
 
       # ------------------------------------------------------------------------
       # Laravel
@@ -849,6 +897,22 @@ nav = [
         "dev-cloud/frameworks/livewire/04-evenements-communication.md",
         "dev-cloud/frameworks/livewire/05-avance-production.md",
       ]},
+
+      # ------------------------------------------------------------------------
+      # Astro
+      # ------------------------------------------------------------------------
+      # Rôle :
+      # - Framework web orienté contenu (MPA, îles interactives, SSG/SSR).
+      # - Zéro JS par défaut, supporte React/Vue/Svelte/Lit en composants isolés.
+      {"Astro" = [
+        "dev-cloud/frameworks/astro/index.md",
+        "dev-cloud/frameworks/astro/00-rapport.md",
+        "dev-cloud/frameworks/astro/01-fondamentaux.md",
+        "dev-cloud/frameworks/astro/02-composants-layouts.md",
+        "dev-cloud/frameworks/astro/03-routing-collections.md",
+        "dev-cloud/frameworks/astro/04-deploiement.md",
+      ]},
+
     ]},
 
     # ==========================================================================
@@ -856,13 +920,24 @@ nav = [
     # ==========================================================================
     # Rôle :
     # - Regrouper des compositions cohérentes (frameworks + conventions + pratiques).
-    # - Centraliser les parcours “prêts à produire” (structure, déploiement, auth).
+    # - Centraliser les parcours "prêts à produire" (structure, déploiement, auth).
+    #
+    # Stacks couvertes :
+    # - TALL  : Tailwind + Alpine.js + Laravel + Livewire (backend PHP)
+    # - MERN  : MongoDB + Express + React + Node.js (JavaScript fullstack)
+    # - MEAN  : MongoDB + Express + Angular + Node.js (JavaScript fullstack TypeScript-first)
     {"Stacks" = [
       "dev-cloud/stacks/index.md",
 
-      # Stack TALL :
-      # - Tailwind + Alpine + Laravel + Livewire.
-      # - Objectif : productivité web sans SPA lourde.
+      # --------------------------------------------------------------------------
+      # Stack TALL
+      # --------------------------------------------------------------------------
+      # Description :
+      # - Tailwind CSS + Alpine.js + Laravel + Livewire.
+      # - Approche server-side rendering réactif sans JavaScript bundle lourd.
+      # - Idéale pour les applications web classiques (SaaS, backoffice, CMS).
+      # - Laravel gère le backend, Livewire les composants dynamiques,
+      #   Alpine.js l'interactivité locale, Tailwind le style.
       {"Stack TALL" = [
         "dev-cloud/stacks/tall/index.md",
         "dev-cloud/stacks/tall/00-rapport-formation-tall.md",
@@ -876,15 +951,41 @@ nav = [
         "dev-cloud/stacks/tall/production.md",
         "dev-cloud/stacks/tall/authentification.md",
       ]},
+
+      # --------------------------------------------------------------------------
+      # Stack MERN
+      # --------------------------------------------------------------------------
+      # Description :
+      # - MongoDB + Express.js + React + Node.js.
+      # - JavaScript/TypeScript du frontend au backend (fullstack JS).
+      # - Idéale pour les SPAs et APIs REST modernes.
+      # - React pour l'UI, Express + Node pour l'API, MongoDB pour la persistance.
+      # - Contenu : aperçu de la stack, architecture, cas d'usage, alternatives.
+      {"Stack MERN" = "dev-cloud/stacks/mern.md"},
+
+      # --------------------------------------------------------------------------
+      # Stack MEAN
+      # --------------------------------------------------------------------------
+      # Description :
+      # - MongoDB + Express.js + Angular + Node.js.
+      # - Variante TypeScript-first de la MERN (Angular impose TypeScript).
+      # - Idéale pour les applications d'entreprise avec typage fort côté client.
+      # - Angular pour l'UI (framework complet), Express + Node pour l'API,
+      #   MongoDB pour la persistance documentaire.
+      # - Contenu : aperçu de la stack, architecture, comparaison MERN vs MEAN.
+      {"Stack MEAN" = "dev-cloud/stacks/mean.md"},
+
     ]},
 
     # ==========================================================================
     # 3.4 — Développement Mobile (Swift / SwiftUI / Vapor)
     # ==========================================================================
     # Rôle :
-    # - 
+    # - Développement d'applications natives iOS et services backend en Swift.
     {"Développement Mobile" = [
       "dev-cloud/mobile/index.md",
+
+      # Swift
       {"Swift" = [
         "dev-cloud/mobile/swift/index.md",
         "dev-cloud/mobile/swift/00-rapport-formation-swift.md",
@@ -907,7 +1008,9 @@ nav = [
         "dev-cloud/mobile/swift/17-result-builders.md",
         "dev-cloud/mobile/swift/18-combine.md",
       ]},
-      {"SwiftUI — L'Interface Déclarative" = [
+
+      # SwiftUI — L'Interface Déclarative
+      {"SwiftUI" = [
         "dev-cloud/mobile/swiftui/index.md",
         "dev-cloud/mobile/swiftui/00-rapport-formation-swiftui.md",
 
@@ -938,7 +1041,8 @@ nav = [
         "dev-cloud/mobile/swiftui/18-app-store.md",
       ]},
 
-      {"Vapor — Le Serveur Swift" = [
+      # Vapor — Le Serveur Swift
+      {"Vapor" = [
         "dev-cloud/mobile/vapor/index.md",
         "dev-cloud/mobile/vapor/00-rapport-formation-vapor.md",
 
@@ -958,6 +1062,7 @@ nav = [
         "dev-cloud/mobile/vapor/09-api-rest.md",
         "dev-cloud/mobile/vapor/10-queues-jobs.md",
         "dev-cloud/mobile/vapor/11-tests-xctvapor.md",
+        "dev-cloud/mobile/vapor/12-deploiement.md",
       
       ]}
 
@@ -974,23 +1079,53 @@ nav = [
       "dev-cloud/data/00-rapport-formation-data.md",
 
       # SQLite :
-      # - Base embarquée, adaptée aux projets pédagogiques et prototypes.
-      {"SQLite"          = "dev-cloud/data/sqlite.md"},
+      # - Base embarquée : serverless, zero-config, ACID, intégration Laravel.
+      # - Découpé en 6 modules thématiques depuis le monolithe sqlite.md (2770 lignes).
+      {"SQLite" = [
+        "dev-cloud/data/sqlite/index.md",
+        "dev-cloud/data/sqlite/01-introduction-installation.md",
+        "dev-cloud/data/sqlite/02-types-et-structure.md",
+        "dev-cloud/data/sqlite/03-crud-et-contraintes.md",
+        "dev-cloud/data/sqlite/04-jointures-et-relations.md",
+        "dev-cloud/data/sqlite/05-index-et-transactions.md",
+        "dev-cloud/data/sqlite/06-integration-php-laravel.md",
+      ]},
 
-      # MariaDB/MySQL :
-      # - SGBDR classique orienté web.
+      # --------------------------------------------------------------------------
+      # MariaDB & MySQL
+      # --------------------------------------------------------------------------
+      # Description :
+      # - SGBDR open-source le plus déployé dans les applications web (LAMP/LEMP).
+      # - MySQL et MariaDB sont interchangeables dans l'écosystème Laravel.
+      # - Contenu : DDL/DML/DQL, jointures, index, CTE, window functions,
+      #   optimisation EXPLAIN, intégration Eloquent.
       {"MariaDB & MySQL" = "dev-cloud/data/sql.md"},
 
-      # PostgreSQL :
-      # - SGBDR avancé, robustesse, fonctionnalités étendues.
+      # --------------------------------------------------------------------------
+      # PostgreSQL
+      # --------------------------------------------------------------------------
+      # Description :
+      # - SGBDR open-source le plus avancé (types riches, JSONB, FTS, PostGIS).
+      # - Recommandé pour les APIs modernes et les applications critiques.
+      # - Contenu : types PostgreSQL, JSONB (opérateurs, index GIN),
+      #   Full-Text Search, index spécialisés, intégration Laravel.
       {"PostgreSQL"      = "dev-cloud/data/postgresql.md"},
 
-      # NoSQL :
-      # - Principaux modèles (document, clé-valeur, etc.) et cas d’usage.
+      # --------------------------------------------------------------------------
+      # NoSQL
+      # --------------------------------------------------------------------------
+      # Description :
+      # - Alternative aux bases relationnelles : modèles document, clé-valeur,
+      #   colonne, graphe. Cas d'usage, avantages et limites.
       {"NoSQL"           = "dev-cloud/data/nosql.md"},
 
-      # GraphQL :
-      # - API orientée schéma, requêtes typées, avantages/limites.
+      # --------------------------------------------------------------------------
+      # GraphQL
+      # --------------------------------------------------------------------------
+      # Description :
+      # - API orientée schéma, typage fort, requêtes flexibles (vs REST).
+      # - Contenu : schéma SDL, queries/mutations/subscriptions, résolveurs,
+      #   avantages/limites, intégration frontend.
       {"GraphQL"         = "dev-cloud/data/graphql.md"},
     ]},
 
@@ -1007,40 +1142,40 @@ nav = [
     # pas sur l’implémentation spécifique d’un framework.
     # ==========================================================================
     {"Modélisation & Conception" = [
-      "bases/modelisation/index.md",
+      "dev-cloud/modelisation/index.md",
 
       {"UML" = [
-        "bases/modelisation/uml/index.md",
-        "bases/modelisation/uml/00-rapport-formation-uml.md",
-        {"Introduction" = "bases/modelisation/uml/uml-intro.md"},
+        "dev-cloud/modelisation/uml/index.md",
+        "dev-cloud/modelisation/uml/00-rapport-formation-uml.md",
+        {"Introduction" = "dev-cloud/modelisation/uml/uml-intro.md"},
 
         {"Diagrammes" = [
-          {"UseCase"             = "bases/modelisation/uml/diagrammes/usecase.md"},
-          {"Classes"             = "bases/modelisation/uml/diagrammes/classes.md"},
-          {"Séquences"           = "bases/modelisation/uml/diagrammes/sequence.md"},
-          {"Activités"           = "bases/modelisation/uml/diagrammes/activity.md"},
-          {"États"               = "bases/modelisation/uml/diagrammes/state.md"},
-          {"Object"              = "bases/modelisation/uml/diagrammes/object.md"},
-          {"Composite Structure" = "bases/modelisation/uml/diagrammes/composite-structure.md"},
-          {"Deployment"          = "bases/modelisation/uml/diagrammes/deployment.md"},
-          {"Package"             = "bases/modelisation/uml/diagrammes/package.md"},
-          {"Timing"              = "bases/modelisation/uml/diagrammes/timing.md"},
-          {"Communication"       = "bases/modelisation/uml/diagrammes/communication.md"},
-          {"Architecture Avancée" = "bases/modelisation/uml/diagrammes/architecture-avancee.md"},
-          # {"Component" = "bases/modelisation/uml/diagrammes/component.md"},
-          # {"Profile"   = "bases/modelisation/uml/diagrammes/diag-profile.md"},
-          # {"Overview"  = "bases/modelisation/uml/diagrammes/vue-ensemble.md"},
+          {"UseCase"             = "dev-cloud/modelisation/uml/diagrammes/usecase.md"},
+          {"Classes"             = "dev-cloud/modelisation/uml/diagrammes/classes.md"},
+          {"Séquences"           = "dev-cloud/modelisation/uml/diagrammes/sequence.md"},
+          {"Activités"           = "dev-cloud/modelisation/uml/diagrammes/activity.md"},
+          {"États"               = "dev-cloud/modelisation/uml/diagrammes/state.md"},
+          {"Object"              = "dev-cloud/modelisation/uml/diagrammes/object.md"},
+          {"Composite Structure" = "dev-cloud/modelisation/uml/diagrammes/composite-structure.md"},
+          {"Deployment"          = "dev-cloud/modelisation/uml/diagrammes/deployment.md"},
+          {"Package"             = "dev-cloud/modelisation/uml/diagrammes/package.md"},
+          {"Timing"              = "dev-cloud/modelisation/uml/diagrammes/timing.md"},
+          {"Communication"       = "dev-cloud/modelisation/uml/diagrammes/communication.md"},
+          {"Architecture Avancée" = "dev-cloud/modelisation/uml/diagrammes/architecture-avancee.md"},
+          # {"Component" = "dev-cloud/modelisation/uml/diagrammes/component.md"},
+          # {"Profile"   = "dev-cloud/modelisation/uml/diagrammes/diag-profile.md"},
+          # {"Overview"  = "dev-cloud/modelisation/uml/diagrammes/vue-ensemble.md"},
         ]},
       ]},
 
       {"Merise" = [
-        "bases/modelisation/merise/index.md",
-        "bases/modelisation/merise/00-rapport-formation-merise.md",
-        {"Introduction" = "bases/modelisation/merise/intro.md"},
-        {"MCD"          = "bases/modelisation/merise/mcd.md"},
-        {"MLD"          = "bases/modelisation/merise/mld.md"},
-        {"MPD"          = "bases/modelisation/merise/mpd.md"},
-        {"MPD > SQL"    = "bases/modelisation/merise/mpd-to-sql.md"},
+        "dev-cloud/modelisation/merise/index.md",
+        "dev-cloud/modelisation/merise/00-rapport-formation-merise.md",
+        {"Introduction" = "dev-cloud/modelisation/merise/intro.md"},
+        {"MCD"          = "dev-cloud/modelisation/merise/mcd.md"},
+        {"MLD"          = "dev-cloud/modelisation/merise/mld.md"},
+        {"MPD"          = "dev-cloud/modelisation/merise/mpd.md"},
+        {"MPD > SQL"    = "dev-cloud/modelisation/merise/mpd-to-sql.md"},
       ]},
     ]},
 
@@ -1069,31 +1204,31 @@ nav = [
       ]},
 
       # Outils backend PHP :
-      # - Tests unitaires/intégration et patterns de tests dans l’écosystème PHP.
+      # - Tests unitaires/ intégration et patterns de tests dans l’écosystème PHP.
       {"Outils de tests PHP" = [
         {"PHPUnit" = [
           "dev-cloud/tests-qualite/phpunit/index.md",
           "dev-cloud/tests-qualite/phpunit/00-rapport-formation-phpunit.md",
-          "dev-cloud/tests-qualite/phpunit/module1.md",
-          "dev-cloud/tests-qualite/phpunit/module2.md",
-          "dev-cloud/tests-qualite/phpunit/module3.md",
-          "dev-cloud/tests-qualite/phpunit/module4.md",
-          "dev-cloud/tests-qualite/phpunit/module5.md",
-          "dev-cloud/tests-qualite/phpunit/module6.md",
-          "dev-cloud/tests-qualite/phpunit/module7.md",
-          "dev-cloud/tests-qualite/phpunit/module8.md",
+          "dev-cloud/tests-qualite/phpunit/01-fondations-phpunit.md",
+          "dev-cloud/tests-qualite/phpunit/02-tests-unitaires.md",
+          "dev-cloud/tests-qualite/phpunit/03-tests-integration.md",
+          "dev-cloud/tests-qualite/phpunit/04-tests-fonctionnels.md",
+          "dev-cloud/tests-qualite/phpunit/05-tests-performance.md",
+          "dev-cloud/tests-qualite/phpunit/06-tests-securite.md",
+          "dev-cloud/tests-qualite/phpunit/07-tests-integration.md",
+          "dev-cloud/tests-qualite/phpunit/08-cicd-coverage.md",
         ]},
         {"Pest" = [
           "dev-cloud/tests-qualite/pest/index.md",
           "dev-cloud/tests-qualite/pest/00-rapport-formation-pest.md",
-          "dev-cloud/tests-qualite/pest/module1.md",
-          "dev-cloud/tests-qualite/pest/module2.md",
-          "dev-cloud/tests-qualite/pest/module3.md",
-          "dev-cloud/tests-qualite/pest/module4.md",
-          "dev-cloud/tests-qualite/pest/module5.md",
-          "dev-cloud/tests-qualite/pest/module6.md",
-          "dev-cloud/tests-qualite/pest/module7.md",
-          "dev-cloud/tests-qualite/pest/module8.md",
+          "dev-cloud/tests-qualite/pest/01-fondations-pest.md",
+          "dev-cloud/tests-qualite/pest/02-tests-unitaires.md",
+          "dev-cloud/tests-qualite/pest/03-tests-integration.md",
+          "dev-cloud/tests-qualite/pest/04-tests-fonctionnels.md",
+          "dev-cloud/tests-qualite/pest/05-tests-performance.md",
+          "dev-cloud/tests-qualite/pest/06-tests-securite.md",
+          "dev-cloud/tests-qualite/pest/07-tests-integration.md",
+          "dev-cloud/tests-qualite/pest/08-cicd-coverage.md",
         ]},
       ]},
 
@@ -1101,17 +1236,47 @@ nav = [
       # - Tests JavaScript et tests de parcours utilisateur.
       {"Outils de tests Front & E2E" = [
         {"Vitest" = [
+          "dev-cloud/tests-qualite/vitest/index.md",
           "dev-cloud/tests-qualite/vitest/00-rapport-formation-vitest.md",
-          "dev-cloud/tests-qualite/vitest/vitest.md"
+          "dev-cloud/tests-qualite/vitest/01-introduction-configuration.md",
+          "dev-cloud/tests-qualite/vitest/02-ecrire-des-tests.md",
+          "dev-cloud/tests-qualite/vitest/03-mocking.md",
+          "dev-cloud/tests-qualite/vitest/04-coverage-cicd.md",
         ]},
         {"Cypress" = [
-          "dev-cloud/tests-qualite/cypress/00-rapport-formation-cypress.md",
-          "dev-cloud/tests-qualite/cypress/cypress.md"
+          "dev-cloud/tests-qualite/cypress/index.md",
+          "dev-cloud/tests-qualite/cypress/00-rapport.md",
+          "dev-cloud/tests-qualite/cypress/01-fondamentaux.md",
+          "dev-cloud/tests-qualite/cypress/02-tests-avances.md",
         ]},
         {"Jest" = [
-          "dev-cloud/tests-qualite/jest/00-rapport-formation-jest.md"
+          "dev-cloud/tests-qualite/jest/index.md",
+          "dev-cloud/tests-qualite/jest/00-rapport.md",
+          "dev-cloud/tests-qualite/jest/01-fondamentaux.md",
+          "dev-cloud/tests-qualite/jest/02-mocking-avance.md",
         ]},
       ]},
+    ]},
+
+    # ==========================================================================
+    # 3.7b — TypeScript
+    # ==========================================================================
+    {"TypeScript" = [
+      "dev-cloud/lang/typescript/index.md",
+      "dev-cloud/lang/typescript/00-rapport.md",
+      "dev-cloud/lang/typescript/01-fondamentaux.md",
+      "dev-cloud/lang/typescript/02-avance.md",
+    ]},
+
+    # ==========================================================================
+    # 3.7c — Architecture
+    # ==========================================================================
+    {"Architecture" = [
+      "dev-cloud/architecture/index.md",
+      "dev-cloud/architecture/00-rapport.md",
+      "dev-cloud/architecture/01-api-rest.md",
+      "dev-cloud/architecture/02-clean-architecture.md",
+      "dev-cloud/architecture/03-patterns-pratiques.md",
     ]},
 
     # ==========================================================================

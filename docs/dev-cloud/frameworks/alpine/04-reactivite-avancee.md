@@ -105,5 +105,7 @@ _Les "Refs" permettent de "sauter par-dessus la barrière du Framework" quand se
 
 !!! quote "Gains d'Architecture"
     Avec les Magics Properties, **votre HTML n'est visuellement plus encombré**. Toute la lourde mécanique de calcul et d'init est repoussée dans `x-init()` ou masquée par `$watch`.
-    
+
 > Reste désormais la conclusion absolue. Jusqu'ici, tous nos composants vivaient en vase clos (un input ne parlait qu'à son parent parent `<div x-data>`). Comment créer des applications majeures où des dizaines de cartes communiquent avec une barre de menu Globale ? Rendons-nous au point final, l'[Écosystème et Production](./05-ecosysteme-production.md).
+
+<br>
