@@ -2672,27 +2672,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-mot-de-la-fin" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Mot de la Fin
+        Conclusion
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Le Mot de la Fin">
+    <nav class="md-nav" aria-label="Conclusion">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#felicitations-vous-maitrisez-larchitecture-hybride-tall-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FÉLICITATIONS ! Vous maîtrisez l'architecture hybride TALL Stack.
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#points-cles-a-retenir" class="md-nav__link">
@@ -5737,27 +5726,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-mot-de-la-fin" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Mot de la Fin
+        Conclusion
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Le Mot de la Fin">
+    <nav class="md-nav" aria-label="Conclusion">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#felicitations-vous-maitrisez-larchitecture-hybride-tall-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FÉLICITATIONS ! Vous maîtrisez l'architecture hybride TALL Stack.
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#points-cles-a-retenir" class="md-nav__link">
@@ -5926,8 +5904,9 @@
 </ul>
 <div class="admonition quote">
 <p class="admonition-title">Principe du Module 8</p>
-<p>"L'approche hybride Livewire + Alpine combine logique métier sécurisée (PHP) et micro-interactions instantanées (JavaScript). C'est l'architecture des applications professionnelles modernes."</p>
+<p>"L'architecture hybride TALL représente l'apogée de la stack : Livewire pense, Alpine réagit instantly, ensemble ils délivrent la meilleure expérience utilisateur possible."</p>
 </div>
+<p><br></p>
 <hr />
 <h2 id="objectifs-dapprentissage">Objectifs d'Apprentissage<a class="headerlink" href="#objectifs-dapprentissage" title="Permanent link">&para;</a></h2>
 <p>À la fin de ce module, <strong>vous serez capable de</strong> :</p>
@@ -5953,8 +5932,9 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Comprendre les patterns de communication inter-composants</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Anticiper les pièges de la synchronisation d'état</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Comparer performance des 4 architectures (5, 6, 7, 8)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Choisir l'architecture optimale selon le contexte projet</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Choisir l'architecture optimale selon contexte (&#8538;/&#8542;)</li>
 </ul>
+<p><br></p>
 <hr />
 <h2 id="prerequis">Prérequis<a class="headerlink" href="#prerequis" title="Permanent link">&para;</a></h2>
 <p>Avant de commencer ce module, <strong>assurez-vous d'avoir</strong> :</p>
@@ -5977,9 +5957,10 @@
 </ul>
 </div>
 <div class="admonition danger">
-<p class="admonition-title">Ne Sautez Pas les Modules 6-7</p>
-<p><strong>Impossible de comprendre l'hybride sans maîtriser les bases</strong>. Les Modules 6 et 7 sont <strong>des prérequis absolus</strong>. Sans eux, vous ne saisirez ni les avantages ni les défis de l'approche hybride.</p>
+<p class="admonition-title">Ne Sautez Pas les Modules 6 ET 7</p>
+<p><strong>Comprendre Livewire (Module 6) ET Alpine (Module 7) est OBLIGATOIRE</strong> avant ce module. L'approche hybride combine les deux et vous devez maîtriser chacun individuellement avant de les combiner.</p>
 </div>
+<p><br></p>
 <hr />
 <h2 id="comprendre-avant-dagir-architecture-hybride">Comprendre Avant d'Agir : Architecture Hybride<a class="headerlink" href="#comprendre-avant-dagir-architecture-hybride" title="Permanent link">&para;</a></h2>
 <p>Avant de coder, comprenons <strong>l'architecture hybride</strong> et <strong>quand utiliser chaque outil</strong>.</p>
@@ -6639,6 +6620,7 @@ flowchart TB
 <li><strong>Syntaxe propre</strong> : <code>$this-&gt;tasks</code> au lieu de <code>$this-&gt;getTasks()</code></li>
 <li><strong>Performance</strong> : Pas de recalcul inutile</li>
 </ol>
+<p><br></p>
 <hr />
 <h3 id="etape-5-creer-la-vue-hybride">Étape 5 : Créer la Vue Hybride<a class="headerlink" href="#etape-5-creer-la-vue-hybride" title="Permanent link">&para;</a></h3>
 <p>Créons maintenant la vue qui <strong>combine Livewire et Alpine</strong>.</p>
@@ -6990,6 +6972,10 @@ flowchart TB
 <p class="admonition-title">Optimisation Performance</p>
 <p><strong>Utilisez toujours <code>.debounce</code></strong> pour les champs de recherche/filtres en temps réel. Sinon, vous surchargez le serveur avec des requêtes inutiles.</p>
 </div>
+<blockquote>
+<p>Ainsi s'achève la Phase 2 - Composant Hybride (Étapes 4-6)</p>
+</blockquote>
+<p><br></p>
 <hr />
 <h3 id="etape-6-creer-la-route-et-tester">Étape 6 : Créer la Route et Tester<a class="headerlink" href="#etape-6-creer-la-route-et-tester" title="Permanent link">&para;</a></h3>
 <p><strong>Fichier :</strong> <code>routes/web.php</code></p>
@@ -7035,9 +7021,7 @@ flowchart TB
 <p><strong>Toggle instantané</strong> : Cliquer "Compléter" → <strong>Changement visuel immédiat</strong> (Alpine) → <strong>Persistance serveur</strong> (Livewire)</p>
 </li>
 </ol>
-<blockquote>
-<p>Ainsi s'achève la Phase 2 - Composant Hybride (Étapes 4-6)</p>
-</blockquote>
+<p><br></p>
 <hr />
 <h2 id="phase-3-optimisations-avancees-etapes-7-a-8">Phase 3 — Optimisations Avancées (Étapes 7 à 8)<a class="headerlink" href="#phase-3-optimisations-avancees-etapes-7-a-8" title="Permanent link">&para;</a></h2>
 <h3 id="etape-7-optimisation-avec-wirekey-et-wireoffline">Étape 7 : Optimisation avec <code>wire:key</code> et <code>wire:offline</code><a class="headerlink" href="#etape-7-optimisation-avec-wirekey-et-wireoffline" title="Permanent link">&para;</a></h3>
@@ -7074,6 +7058,7 @@ Avec <code>wire:key</code>, Livewire <strong>identifie l'élément</strong> dire
 </span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></code></pre></div>
+<p><br></p>
 <hr />
 <h3 id="etape-8-pattern-avance-etats-partages">Étape 8 : Pattern Avancé - États Partagés<a class="headerlink" href="#etape-8-pattern-avance-etats-partages" title="Permanent link">&para;</a></h3>
 <p><strong>Problème :</strong> Synchroniser un état entre plusieurs composants Alpine + Livewire.</p>
@@ -7136,6 +7121,7 @@ Avec <code>wire:key</code>, Livewire <strong>identifie l'élément</strong> dire
 </ul>
 <p><strong>Pas nécessaire</strong> pour communication simple Alpine ↔ Livewire (événements suffisent).</p>
 </div>
+<p><br></p>
 <hr />
 <h2 id="comparaison-finale-des-4-architectures">Comparaison Finale des 4 Architectures<a class="headerlink" href="#comparaison-finale-des-4-architectures" title="Permanent link">&para;</a></h2>
 <h3 id="tableau-recapitulatif-complet">Tableau Récapitulatif Complet<a class="headerlink" href="#tableau-recapitulatif-complet" title="Permanent link">&para;</a></h3>
@@ -7351,9 +7337,13 @@ flowchart TD
 <li>❌ Projets très simples (overkill)</li>
 <li>❌ Équipes débutantes (trop complexe)</li>
 </ul>
+<p><br></p>
 <hr />
-<h2 id="le-mot-de-la-fin">Le Mot de la Fin<a class="headerlink" href="#le-mot-de-la-fin" title="Permanent link">&para;</a></h2>
-<h3 id="felicitations-vous-maitrisez-larchitecture-hybride-tall-stack">FÉLICITATIONS ! Vous maîtrisez l'architecture hybride TALL Stack.<a class="headerlink" href="#felicitations-vous-maitrisez-larchitecture-hybride-tall-stack" title="Permanent link">&para;</a></h3>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">L'hybride : quand 1+1 = 3</p>
+<p>L'architecture hybride TALL n'est pas un compromis — c'est une synergie. Livewire porte la logique métier avec la sécurité PHP, Alpine insuffle la vie dans l'interface sans attente. Cette combinaison donne naissance à des applications professionnelles qui impressionnent autant les utilisateurs que les développeurs qui les maintiennent.</p>
+</div>
 <div class="admonition success">
 <p class="admonition-title">Architecture Professionnelle Complète</p>
 </div>

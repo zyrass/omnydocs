@@ -6,7 +6,7 @@ status: beta
 ---
 
 # 3b - Alpine.js Pur
-²
+
 <div
   class="omny-meta"
   data-level="🟡 Intermédiaire"
@@ -45,6 +45,8 @@ Ce module vous guidera pas à pas pour :
 !!! quote "Principe du Module 7"
     "Alpine.js offre une réactivité instantanée côté client avec seulement 15KB de JavaScript. La magie opère dans le navigateur, le serveur ne sert que de persistance."
 
+<br>
+
 ---
 
 ## Objectifs d'Apprentissage
@@ -75,6 +77,8 @@ Ce module vous guidera pas à pas pour :
 - [ ] Comparer performance Livewire vs Alpine.js
 - [ ] Préparer la transition vers Hybride (Module 8)
 
+<br>
+
 ---
 
 ## Prérequis
@@ -98,6 +102,8 @@ Avant de commencer ce module, **assurez-vous d'avoir** :
 
 !!! danger "Ne Sautez Pas le Module 6"
     **Comprendre Livewire (Module 6) est ESSENTIEL** avant Alpine.js. Sans cette comparaison, vous ne saisirez pas **les différences architecturales** et **quand utiliser chaque approche**.
+
+<br>
 
 ---
 
@@ -1462,6 +1468,8 @@ http://localhost:8000/tasks-alpine
 - ✅ **En arrière-plan** : Requête DELETE vers API
 - ✅ Compteur mis à jour instantanément
 
+<br>
+
 ---
 
 ## Comparaison Directe : Livewire vs Alpine.js
@@ -1506,11 +1514,14 @@ http://localhost:8000/tasks-alpine
 - ✅ Livewire pour logique métier + Alpine pour micro-interactions
 - ✅ Application **professionnelle** avec exigences variées
 
+<br>
+
 ---
 
-## Le Mot de la Fin
+## Conclusion
 
-### FÉLICITATIONS ! Vous maîtrisez maintenant Alpine.js.
+!!! quote "Alpine.js : la réactivité sans attente"
+    Avec Alpine.js, vous avez touché du doigt la réactivité pure : zéro latence perçue, car tout se passe dans le navigateur. La contrepartie est la complexité d'une API REST et d'un état JavaScript à maintenir. Le Module 8 réconciliera les deux mondes dans une architecture hybride.
 
 !!! success "Application Réactive Côté Client Opérationnelle"
 

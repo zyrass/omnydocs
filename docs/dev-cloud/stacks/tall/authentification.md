@@ -49,6 +49,8 @@ Ce module vous guidera pas à pas pour :
 !!! quote "Principe du Module 10"
     "L'authentification transforme une application publique partagée en système multi-utilisateurs privé et sécurisé. C'est la fondation de toute application SaaS moderne."
 
+<br>
+
 ---
 
 ## Objectifs d'Apprentissage
@@ -79,6 +81,8 @@ Ce module vous guidera pas à pas pour :
 - [ ] Comparer les 3 kits officiels Laravel (Breeze, Jetstream, Sanctum)
 - [ ] Choisir le système optimal selon type d'application
 
+<br>
+
 ---
 
 ## Prérequis
@@ -96,6 +100,8 @@ Avant de commencer ce module, **assurez-vous d'avoir** :
 
 !!! danger "Testez sur Environnement Dev"
     **N'installez PAS Breeze/Jetstream directement sur votre serveur production.** Testez d'abord sur environnement de développement local, puis déployez après validation.
+
+<br>
 
 ---
 
@@ -206,6 +212,8 @@ php artisan breeze:install react
 !!! tip "Pourquoi Breeze pour TALL Stack ?"
     **Breeze Livewire est parfait** car il utilise **exactement la même stack** que nos Modules 6-8 (Livewire + Alpine + Tailwind). Cohérence maximale avec le reste de l'application.
 
+<br>
+
 ---
 
 #### Laravel Jetstream (🟡 Avancé)
@@ -255,6 +263,8 @@ php artisan jetstream:install inertia
 !!! warning "Jetstream = Overkill pour Débutants"
     **Si vous apprenez Laravel/TALL**, commencez par **Breeze**. Jetstream est **trop complexe** pour débuter et peut masquer les mécanismes d'authentification Laravel.
 
+<br>
+
 ---
 
 #### Laravel Sanctum (🔴 API)
@@ -298,6 +308,8 @@ Laravel Sanctum est un **système d'authentification par tokens** pour API REST 
     **Laravel Sanctum** : Tokens simples, SPA, mobile (recommandé 90% des cas)
     **Laravel Passport** : OAuth2 complet, applications tierces complexes (overkill généralement)
 
+<br>
+
 ---
 
 ## Phase 1 — Installation Laravel Breeze (Étapes 1 à 3)
@@ -323,6 +335,8 @@ composer require laravel/breeze --dev
 
 !!! info "Pourquoi --dev ?"
     **`--dev`** installe Breeze dans `require-dev` car le scaffolding est **uniquement nécessaire pendant développement**. Une fois les fichiers générés, Breeze n'est plus utilisé.
+
+<br>
 
 ---
 
@@ -434,6 +448,8 @@ Vous devriez maintenant voir des **liens "Log in" et "Register"** en haut à dro
     Si vous voyez les liens "Log in" et "Register", Breeze est correctement installé !
 
 > Ainsi s'achève la Phase 1 - Installation Laravel Breeze (Étapes 1-3)
+
+<br>
 
 ---
 
@@ -630,6 +646,8 @@ Route::get('/tasks', HybridTaskManager::class)->middleware('auth');
 
 > Ainsi s'achève la Phase 2 - Protection des Routes (Étapes 4-5)
 
+<br>
+
 ---
 
 ## Phase 3 — Relation User ↔ Tasks (Étapes 6 à 8)
@@ -705,6 +723,8 @@ php artisan migrate
     1. **Supprimer tâches** : `php artisan migrate:fresh` (⚠️ perte données)
     2. **Assigner utilisateur par défaut** : Modifier migration pour mettre `user_id = 1` sur tâches existantes
     3. **Rendre nullable temporairement** : `$table->foreignId('user_id')->nullable()` puis remplir manuellement
+
+<br>
 
 ---
 
@@ -956,6 +976,8 @@ Task::where('user_id', Auth::id())->get()
 
 > Ainsi s'achève la Phase 3 - Relation User ↔ Tasks (Étapes 6-8)
 
+<br>
+
 ---
 
 ## Phase 4 — Tests et Vérifications (Étapes 9 à 10)
@@ -1044,6 +1066,8 @@ EXIT;
 !!! success "Isolation Utilisateurs Validée"
     Si John ne voit pas les tâches de Jane et vice-versa, l'isolation fonctionne parfaitement !
 
+<br>
+
 ---
 
 ### Étape 10 : Personnaliser Messages
@@ -1117,11 +1141,14 @@ EXIT;
 
 > Ainsi s'achève la Phase 4 - Tests et Vérifications (Étapes 9-10)
 
+<br>
+
 ---
 
-## Le Mot de la Fin
+## Conclusion
 
-### FÉLICITATIONS ! Votre application est multi-utilisateurs.
+!!! quote "L'authentification : le badge d'accès à votre SaaS"
+    Une application sans authentification est une maison sans clef — tout le monde entre, personne ne possède rien. Avec Breeze + la relation User/Tasks implementée ici, votre TALL Tasks est transformée en une vraie application multi-tenants où chaque utilisateur règne sur ses propres données.
 
 !!! success "Authentification Complète Implémentée"
 

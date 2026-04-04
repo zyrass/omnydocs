@@ -38,6 +38,8 @@ Ce module vous guidera pas à pas pour :
 !!! quote "Principe du Module 5"
     "Maîtrisez le MVC classique avant d'ajouter la réactivité. Une base solide garantit une compréhension profonde des architectures modernes."
 
+<br>
+
 ---
 
 ## Objectifs d'Apprentissage
@@ -69,6 +71,8 @@ Ce module vous guidera pas à pas pour :
 - [ ] Visualiser comment Blade compile en PHP natif
 - [ ] Préparer mentalement l'ajout de réactivité (Modules 6-8)
 
+<br>
+
 ---
 
 ## Prérequis
@@ -92,6 +96,8 @@ Avant de commencer ce module, **assurez-vous d'avoir** :
 
 !!! danger "Ne Sautez Pas les Tests"
     À la fin de ce module, vous **devez tester l'application** dans le navigateur. Une interface qui "semble" fonctionner peut cacher des bugs subtils. **Testez chaque fonctionnalité** (créer, compléter, supprimer) avant de passer au Module 6.
+
+<br>
 
 ---
 
@@ -172,6 +178,8 @@ flowchart LR
 !!! tip "Pourquoi Commencer par le Statique ?"
     Comprendre le **cycle requête/réponse classique** est **essentiel** pour maîtriser les architectures réactives. Livewire (Module 6) et Alpine (Module 7) **s'appuient sur cette base**. Sans elle, vous ne comprendrez pas ce qui se passe "sous le capot".
 
+<br>
+
 ---
 
 ## Phase 1 — Création du Contrôleur (Étapes 1 à 2)
@@ -209,6 +217,8 @@ ls -la app/Http/Controllers/TaskController.php
 
 !!! success "Contrôleur Créé"
     Vous avez maintenant un fichier `app/Http/Controllers/TaskController.php` contenant une classe vide prête à être complétée.
+
+<br>
 
 ---
 
@@ -457,6 +467,8 @@ DELETE FROM tasks WHERE id = 1
 
 > Ainsi s'achève la Phase 1 - Création du Contrôleur (Étapes 1-2)
 
+<br>
+
 ---
 
 ## Phase 2 — Configuration des Routes (Étape 3)
@@ -619,6 +631,8 @@ public function toggle(Task $task)
 
 > Ainsi s'achève la Phase 2 - Configuration des Routes (Étape 3)
 
+<br>
+
 ---
 
 ## Phase 3 — Création des Vues Blade (Étapes 4 à 6)
@@ -772,6 +786,8 @@ touch resources/views/layouts/app.blade.php
 !!! tip "Tailwind CSS via CDN"
     **Pour le développement**, le CDN Tailwind est **parfait** (pas de build nécessaire). **En production (Module 9)**, nous utiliserons Vite pour compiler et purger le CSS (fichier final ~10KB au lieu de 3MB).
 
+<br>
+
 ---
 
 ### Étape 5 : Créer le Dossier et la Vue des Tâches
@@ -787,6 +803,8 @@ mkdir -p resources/views/tasks
 # Créer le fichier index.blade.php
 touch resources/views/tasks/index.blade.php
 ```
+
+<br>
 
 ---
 
@@ -1549,6 +1567,15 @@ Le **Module 6** vous apprendra à **ajouter la réactivité côté serveur** ave
     - [ ] Testé complétion de tâche (POST /tasks/{id}/toggle)
     - [ ] Testé suppression de tâche (DELETE /tasks/{id})
     - [ ] Compris le cycle requête/réponse HTTP complet
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "MVC : quand le code s'explique tout seul"
+    Le pattern MVC de Laravel n'est pas une contrainte — c'est une langue commune. Chaque contrôleur, route et vue raconte clairement son rôle. Vous venez de construire votre première application CRUD structurée, sécurisée et maintenable. Le Module 6 ira plus loin en éliminant les rechargements de page grâce à Livewire.
 
 [^1]: **MVC (Modèle-Vue-Contrôleur)** : Pattern architectural séparant application en 3 couches. Modèle = logique métier + accès BDD (Task.php). Vue = présentation + interface (index.blade.php). Contrôleur = orchestration requêtes/réponses (TaskController.php). Avantages : maintenabilité, testabilité, séparation préoccupations.
 

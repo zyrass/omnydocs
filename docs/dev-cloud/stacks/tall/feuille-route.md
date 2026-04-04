@@ -31,6 +31,8 @@ Ce module vous guidera à travers :
 !!! quote "Principe du Module 3"
     "Une vision claire de la destination rend chaque étape du voyage plus motivante et compréhensible. Avant de coder, comprenons exactement ce que nous allons construire."
 
+<br>
+
 ---
 
 ## Objectifs d'Apprentissage
@@ -55,6 +57,8 @@ Ce module vous guidera à travers :
 - [ ] Comprendre la progression pédagogique : du simple au complexe, du statique au réactif
 - [ ] Visualiser comment les modules s'emboîtent pour former une application complète
 
+<br>
+
 ---
 
 ## Prérequis
@@ -71,6 +75,8 @@ Avant de commencer ce module, **assurez-vous d'avoir** :
 
 !!! warning "Importance de ce Module"
     **Ne sautez pas ce module !** Beaucoup de développeurs veulent coder immédiatement, mais comprendre la vue d'ensemble vous fera gagner des heures de confusion plus tard.
+
+<br>
 
 ---
 
@@ -128,6 +134,8 @@ graph TB
 
 <small>*Ce diagramme illustre la transition entre les modules théoriques (1-2) et les modules pratiques (4-9). Les rectangles gris représentent les connaissances acquises, les rectangles verts représentent les étapes accomplies, et les rectangles jaunes représentent les étapes à venir. Chaque flèche indique une dépendance logique : impossible de configurer sans avoir initialisé, impossible de migrer sans avoir configuré.*</small>
 
+<br>
+
 ---
 
 ## La Frise Chronologique du Projet : Vue d'Ensemble
@@ -170,6 +178,8 @@ timeline
 - ✅ Migration appliquée (table `tasks` créée)
 - ✅ Test avec Tinker validé (création de tâches fonctionnelle)
 
+<br>
+
 ---
 
 ### Étape 2 : Interface Laravel (Module 5)
@@ -206,6 +216,8 @@ timeline
 
 !!! warning "Limitation de l'Étape 2"
     À la fin de l'Étape 2, l'application **fonctionne** mais **recharge la page** à chaque action (ajout, suppression, modification). C'est normal ! Nous ajouterons la réactivité dans l'Étape 3.
+
+<br>
 
 ---
 
@@ -283,6 +295,8 @@ timeline
     
     **Recommandation** : Suivre les 3 modules dans l'ordre pour comprendre les différences architecturales !
 
+<br>
+
 ---
 
 ### Étape 4 : Production (Module 9)
@@ -318,6 +332,8 @@ timeline
 - ✅ Système de monitoring avec logs et alertes
 - ✅ Scripts de sauvegarde et restauration automatiques
 - ✅ Application **prête pour la production**
+
+<br>
 
 ---
 
@@ -690,6 +706,8 @@ sequenceDiagram
     
     C'est exactement ce que nous allons résoudre dans les modules suivants en ajoutant Laravel + base de données !
 
+<br>
+
 ---
 
 ## Pourquoi Choisir SQLite pour le Développement ?
@@ -775,11 +793,14 @@ DB_PASSWORD=password
     
     **Idéal pour l'apprentissage et les projets personnels !**
 
+<br>
+
 ---
 
-## Le Mot de la Fin
+## Conclusion
 
-### FÉLICITATIONS ! Vous avez maintenant une vision claire du parcours complet.
+!!! quote "La carte du territoire avant la première brique"
+    Avant de poser la première brique de code, vous avez déroulé le plan complet de l'architecte. Les 4 étapes (Fondations → Interface → Réactivité → Production) et les 3 parcours de réactivité (Livewire / Alpine / Hybride) sont désormais visibles d'un seul regard. Cette vision d'ensemble est ce qui sépare les développeurs qui avancent avec clarté de ceux qui codent dans le brouillard.
 
 !!! success "Feuille de Route Maîtrisée"
 

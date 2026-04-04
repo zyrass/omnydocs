@@ -41,7 +41,9 @@ Ce module vous guidera pas à pas pour :
 - **Comparer les 4 architectures** : Classique (Module 5) vs Livewire (6) vs Alpine (7) vs Hybride (8)
 
 !!! quote "Principe du Module 8"
-    "L'approche hybride Livewire + Alpine combine logique métier sécurisée (PHP) et micro-interactions instantanées (JavaScript). C'est l'architecture des applications professionnelles modernes."
+    "L'architecture hybride TALL représente l'apogée de la stack : Livewire pense, Alpine réagit instantly, ensemble ils délivrent la meilleure expérience utilisateur possible."
+
+<br>
 
 ---
 
@@ -71,7 +73,9 @@ Ce module vous guidera pas à pas pour :
 - [ ] Comprendre les patterns de communication inter-composants
 - [ ] Anticiper les pièges de la synchronisation d'état
 - [ ] Comparer performance des 4 architectures (5, 6, 7, 8)
-- [ ] Choisir l'architecture optimale selon le contexte projet
+- [ ] Choisir l'architecture optimale selon contexte (5/6/7/8)
+
+<br>
 
 ---
 
@@ -94,8 +98,10 @@ Avant de commencer ce module, **assurez-vous d'avoir** :
     - **JavaScript moderne** : ES6+, événements DOM, Window events
     - **Patterns architecturaux** : Séparation des responsabilités, communication inter-composants
 
-!!! danger "Ne Sautez Pas les Modules 6-7"
-    **Impossible de comprendre l'hybride sans maîtriser les bases**. Les Modules 6 et 7 sont **des prérequis absolus**. Sans eux, vous ne saisirez ni les avantages ni les défis de l'approche hybride.
+!!! danger "Ne Sautez Pas les Modules 6 ET 7"
+    **Comprendre Livewire (Module 6) ET Alpine (Module 7) est OBLIGATOIRE** avant ce module. L'approche hybride combine les deux et vous devez maîtriser chacun individuellement avant de les combiner.
+
+<br>
 
 ---
 
@@ -628,6 +634,8 @@ public function tasks()
 2. **Syntaxe propre** : `$this->tasks` au lieu de `$this->getTasks()`
 3. **Performance** : Pas de recalcul inutile
 
+<br>
+
 ---
 
 ### Étape 5 : Créer la Vue Hybride
@@ -1003,6 +1011,10 @@ Laravel → AJAX
 !!! tip "Optimisation Performance"
     **Utilisez toujours `.debounce`** pour les champs de recherche/filtres en temps réel. Sinon, vous surchargez le serveur avec des requêtes inutiles.
 
+> Ainsi s'achève la Phase 2 - Composant Hybride (Étapes 4-6)
+
+<br>
+
 ---
 
 ### Étape 6 : Créer la Route et Tester
@@ -1050,11 +1062,12 @@ http://localhost:8000/tasks-hybrid
 
 5. **Toggle instantané** : Cliquer "Compléter" → **Changement visuel immédiat** (Alpine) → **Persistance serveur** (Livewire)
 
-> Ainsi s'achève la Phase 2 - Composant Hybride (Étapes 4-6)
+<br>
 
 ---
 
 ## Phase 3 — Optimisations Avancées (Étapes 7 à 8)
+
 
 ### Étape 7 : Optimisation avec `wire:key` et `wire:offline`
 
@@ -1097,6 +1110,8 @@ Avec `wire:key`, Livewire **identifie l'élément** directement par clé.
     </div>
 </div>
 ```
+
+<br>
 
 ---
 
@@ -1171,6 +1186,8 @@ public function handleFilterChange($status)
     - Communication **Alpine → Alpine** sans Livewire
     
     **Pas nécessaire** pour communication simple Alpine ↔ Livewire (événements suffisent).
+
+<br>
 
 ---
 
@@ -1285,11 +1302,14 @@ flowchart TD
 - ❌ Projets très simples (overkill)
 - ❌ Équipes débutantes (trop complexe)
 
+<br>
+
 ---
 
-## Le Mot de la Fin
+## Conclusion
 
-### FÉLICITATIONS ! Vous maîtrisez l'architecture hybride TALL Stack.
+!!! quote "L'hybride : quand 1+1 = 3"
+    L'architecture hybride TALL n'est pas un compromis — c'est une synergie. Livewire porte la logique métier avec la sécurité PHP, Alpine insuffle la vie dans l'interface sans attente. Cette combinaison donne naissance à des applications professionnelles qui impressionnent autant les utilisateurs que les développeurs qui les maintiennent.
 
 !!! success "Architecture Professionnelle Complète"
 

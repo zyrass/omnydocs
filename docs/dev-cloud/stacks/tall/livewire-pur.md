@@ -44,6 +44,8 @@ Ce module vous guidera pas à pas pour :
 !!! quote "Principe du Module 6"
     "Livewire transforme votre application statique en interface réactive moderne sans écrire une ligne de JavaScript. La magie opère côté serveur, le résultat impressionne côté client."
 
+<br>
+
 ---
 
 ## Objectifs d'Apprentissage
@@ -74,6 +76,8 @@ Ce module vous guidera pas à pas pour :
 - [ ] Comparer performance statique vs réactive
 - [ ] Préparer la transition vers Alpine.js (Module 7) et Hybride (Module 8)
 
+<br>
+
 ---
 
 ## Prérequis
@@ -91,6 +95,8 @@ Avant de commencer ce module, **assurez-vous d'avoir** :
 
 !!! danger "Ne Sautez Pas le Module 5"
     **Comprendre l'application statique (Module 5) est ESSENTIEL** avant d'ajouter la réactivité. Sans cette base, vous ne comprendrez pas **ce qui change** avec Livewire et **pourquoi** c'est important.
+
+<br>
 
 ---
 
@@ -281,6 +287,8 @@ php artisan livewire:publish --assets
     
     **Pour ce module**, nous utiliserons le **CDN** (plus simple, pas de build requis).
 
+<br>
+
 ---
 
 ### Étape 3 : Inclure Livewire dans le Layout
@@ -376,6 +384,8 @@ Modifions le layout principal pour inclure les scripts Livewire.
 
 > Ainsi s'achève la Phase 1 - Installation de Livewire (Étapes 1-3)
 
+<br>
+
 ---
 
 ## Phase 2 — Création du Composant Livewire (Étapes 4 à 5)
@@ -418,6 +428,8 @@ ls -la resources/views/livewire/task-manager.blade.php
 
 # Doivent afficher les 2 fichiers avec date de création
 ```
+
+<br>
 
 ---
 
@@ -700,6 +712,8 @@ public function save()
     Sans `reset()`, après avoir créé une tâche, le formulaire contiendrait **encore les anciennes données**. L'utilisateur devrait manuellement vider les champs avant d'ajouter une nouvelle tâche.
 
 > Ainsi s'achève la Phase 2 - Création du Composant Livewire (Étapes 4-5)
+
+<br>
 
 ---
 
@@ -1416,11 +1430,14 @@ flowchart TB
 !!! tip "Dans le Doute : Commencez par Livewire"
     Pour une application moderne en 2024-2025, **Livewire est le choix par défaut** sauf contrainte spécifique. Les gains d'UX valent largement le léger surcoût initial de 15KB de JavaScript.
 
+<br>
+
 ---
 
-## Le Mot de la Fin
+## Conclusion
 
-### FÉLICITATIONS ! Vous maîtrisez maintenant Livewire.
+!!! quote "Livewire : le PHP qui ne recharge pas"
+    Avec Livewire, vous avez vu que la réactivité moderne nécessite zéro JavaScript. Le serveur pense, le navigateur affiche, Livewire orchestre. Cette maîtrise ouvre la voie au Module 7 où Alpine.js prendra le relais côté client pour une réactivité encore plus instantanée.
 
 !!! success "Application Réactive Côté Serveur Opérationnelle"
 

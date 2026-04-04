@@ -57,6 +57,8 @@ Ce module vous guidera pas à pas pour :
 - [ ] Visualiser la différence entre migrations (structure BDD) et modèles (logique PHP)
 - [ ] Anticiper les problèmes de sécurité liés aux modèles non protégés
 
+<br>
+
 ---
 
 ## Prérequis
@@ -79,6 +81,8 @@ Avant de commencer ce module, **assurez-vous d'avoir** :
 
 !!! danger "Ne Sautez Pas cette Étape"
     Les fondations sont **la base de tout**. Un modèle mal sécurisé = failles de sécurité. Une migration mal écrite = données corrompues. **Prenez le temps de bien comprendre chaque étape.**
+
+<br>
 
 ---
 
@@ -118,6 +122,8 @@ Avant de créer le projet, comprenons **pourquoi nous choisissons SQLite** pour 
     - Le copier pour sauvegarder
     - Le partager avec votre équipe (attention : exclure de `.gitignore` en prod)
     - Le restaurer en remplaçant le fichier
+
+<br>
 
 ---
 
@@ -165,6 +171,8 @@ ls -la
 !!! success "Projet Créé avec Succès"
     Vous avez maintenant un dossier `tall-tasks/` contenant une application Laravel vierge et fonctionnelle !
 
+<br>
+
 ---
 
 ### Étape 2 : Générer la Clé de Sécurité Laravel
@@ -208,6 +216,8 @@ cat .env | grep APP_KEY
     - **Ne JAMAIS** partager `APP_KEY` publiquement (Slack, Discord, forums)
     - Si compromise, régénérez immédiatement avec `php artisan key:generate --force`
 
+<br>
+
 ---
 
 ### Étape 3 : Créer le Fichier de Base de Données SQLite
@@ -240,6 +250,8 @@ ls -la database/
 
 !!! tip "Pourquoi un Fichier Vide ?"
     Le fichier `database.sqlite` est vide pour l'instant. Laravel créera automatiquement les tables lorsque nous exécuterons les migrations à l'Étape 7.
+
+<br>
 
 ---
 
@@ -304,6 +316,8 @@ SESSION_LIFETIME=120
 
 > Ainsi s'achève la Phase 1 - Création du Projet Laravel (Étapes 1-4)
 
+<br>
+
 ---
 
 ## Phase 2 — Création du Modèle Task (Étapes 5 à 6)
@@ -341,6 +355,8 @@ php artisan make:model Task -m
     - `php artisan make:migration create_tasks_table` → Crée la migration
     
     **Sans `-m`, vous devriez exécuter deux commandes séparées.**
+
+<br>
 
 ---
 
@@ -497,6 +513,8 @@ protected $casts = [
 
 > Ainsi s'achève la Phase 2 - Création du Modèle Task (Étapes 5-6)
 
+<br>
+
 ---
 
 ## Phase 3 — Configuration de la Migration (Étapes 7 à 8)
@@ -616,6 +634,8 @@ public function down(): void
 !!! warning "Importance de la Méthode down()"
     **Toujours implémenter `down()` correctement** pour pouvoir annuler une migration. En production, vous devrez peut-être rollback une migration problématique.
 
+<br>
+
 ---
 
 ### Étape 8 : Exécuter la Migration
@@ -718,6 +738,8 @@ flowchart LR
 
 > Ainsi s'achève la Phase 3 - Configuration de la Migration (Étapes 7-8)
 
+<br>
+
 ---
 
 ## Phase 4 — Test avec Tinker (Étapes 9 à 10)
@@ -750,6 +772,8 @@ flowchart LR
     - **PHPUnit** : Framework de tests automatisés pour CI/CD (utilisé plus tard)
     
     **Tinker** est pour l'exploration manuelle, **PHPUnit** pour les tests automatisés.
+
+<br>
 
 ---
 
@@ -910,6 +934,8 @@ exit
 
 > Ainsi s'achève la Phase 4 - Test avec Tinker (Étapes 9-10)
 
+<br>
+
 ---
 
 ## Diagramme de Séquence : Compréhension Complète
@@ -964,13 +990,16 @@ sequenceDiagram
     TIN-->>DEV: Affiche les tâches
 ```
 
-<small>*Ce diagramme illustre le cycle de vie complet d'une tâche depuis la migration jusqu'à la récupération. Phase 1 (Création Table) : `php artisan migrate` lit la migration et génère le SQL `CREATE TABLE tasks` dans SQLite. Phase 2 (Test Tinker) : `Task::create([...])` valide les champs avec `$fillable`, insère en BDD, applique `$casts` pour convertir 0 en false. Phase 3 (Récupération) : `Task::all()` exécute `SELECT * FROM tasks`, applique `$casts`, retourne une Collection. Chaque étape dépend de la précédente : impossible de créer une tâche sans table, impossible de récupérer sans avoir créé.*</small>
+<small>*Ce diagramme illustre le cycle de vie complet d'une tâche depuis la migration jusqu'à la récupération.*</small>
+
+<br>
 
 ---
 
-## Le Mot de la Fin
+## Conclusion
 
-### FÉLICITATIONS ! Vos fondations sont maintenant solides.
+!!! quote "Les fondations déterminent la hauteur de l'édifice"
+    Comme en architecture, la solidité d'une application se juge par ses fondations. Un modèle Eloquent correctement sécurisé avec `$fillable` et `$casts`, une migration rigoureuse, une base de données testée via Tinker — voilà la garantie que les 6 modules suivants reposent sur du béton armé et non sur du sable.
 
 !!! success "Fondations Complètes et Sécurisées"
 

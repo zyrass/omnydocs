@@ -2097,6 +2097,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#non-conformites-residuelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-Conformités Résiduelles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recommandations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5077,6 +5088,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#non-conformites-residuelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-Conformités Résiduelles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recommandations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5190,7 +5212,7 @@
 <p><div
   class="omny-meta"
   data-level="📋 Rapport"
-  data-version="1.0"
+  data-version="2.0"
   data-time="Lecture">
 </div>
 </p>
@@ -5208,12 +5230,20 @@
 <td>10 (installation → authentification)</td>
 </tr>
 <tr>
+<td><strong>Volume total</strong></td>
+<td>~534 Ko</td>
+</tr>
+<tr>
 <td><strong>Conformité SKILL v2.0.0</strong></td>
-<td>⚠️ Audit en cours</td>
+<td>✅ 90 % (refactoring ABI complet)</td>
 </tr>
 <tr>
 <td><strong>État</strong></td>
-<td>Formation complète — revue structurelle à prévoir</td>
+<td>Formation complète — standardisation terminée</td>
+</tr>
+<tr>
+<td><strong>Technologies</strong></td>
+<td>Laravel 12.x · Livewire 3.x · Alpine.js 3.x · PHP 8.4+</td>
 </tr>
 </tbody>
 </table>
@@ -5226,6 +5256,7 @@
 <th>Module</th>
 <th>Sujet</th>
 <th>Taille</th>
+<th style="text-align: center;">Conformité</th>
 </tr>
 </thead>
 <tbody>
@@ -5233,68 +5264,113 @@
 <td><code>index.md</code></td>
 <td>Hub de navigation TALL</td>
 <td>44 Ko</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>installation.md</code></td>
 <td>Environnement, Vite, Tailwind, Alpine, Livewire</td>
 <td>75 Ko</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>feuille-route.md</code></td>
 <td>Parcours et objectifs</td>
 <td>44 Ko</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>fondations.md</code></td>
 <td>Bases et conventions TALL</td>
 <td>41 Ko</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>interface-laravel.md</code></td>
-<td>Blade, composants, routage</td>
+<td>TaskController, routes RESTful, Blade</td>
 <td>58 Ko</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>livewire-pur.md</code></td>
-<td>Composants Livewire, réactivité</td>
+<td>Composants Livewire, réactivité serveur</td>
 <td>59 Ko</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>alpine-pur.md</code></td>
-<td>Alpine.js dans la stack</td>
+<td>Alpine.js, réactivité client, API REST</td>
 <td>58 Ko</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>hybride.md</code></td>
-<td>Livewire + Alpine combinés</td>
+<td>Livewire + Alpine combinés, événements</td>
 <td>57 Ko</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>production.md</code></td>
-<td>Déploiement, optimisation</td>
+<td>Déploiement Nginx, optimisation, backup</td>
 <td>51 Ko</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><code>authentification.md</code></td>
-<td>Auth custom TALL</td>
+<td>Breeze vs Jetstream vs Sanctum, 2FA</td>
 <td>46 Ko</td>
+<td style="text-align: center;">✅</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
 <hr />
 <h2 id="etat-de-conformite-skill-v200">État de Conformité SKILL v2.0.0<a class="headerlink" href="#etat-de-conformite-skill-v200" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Audit structurel différé</p>
-<p>Le contenu pédagogique de la stack TALL est riche et complet (~500 Ko au total). Un audit de conformité structurelle (blocs de code titrés, conclusions <code>!!! quote</code>, séparateurs <code>&lt;br&gt;---</code>) est planifié mais intentionnellement différé. Le fond est validé ; la forme est à standardiser.</p>
+<div class="admonition success">
+<p class="admonition-title">Refactoring ABI terminé — Score : 90 %</p>
+<p>Le refactoring structurel de la stack TALL est <strong>complet</strong>. Les 10 modules respectent désormais le guide SKILL v2.0.0 :</p>
+<ul>
+<li>✅ <strong>Séparateurs</strong> : <code>&lt;br&gt;</code> avant chaque <code>---</code> de section (tous modules)</li>
+<li>✅ <strong>Conclusions</strong> : <code>## Conclusion</code> + <code>!!! quote</code> pédagogique (tous modules)</li>
+<li>✅ <strong>Frontmatter</strong> : <code>description</code>, <code>icon</code>, <code>tags</code>, <code>status</code> systématiques</li>
+<li>✅ <strong><code>omny-meta</code></strong> : <code>data-level</code>, <code>data-version</code>, <code>data-time</code> présents</li>
+<li>✅ <strong>Typo</strong> : caractère <code>²</code> orphelin supprimé (<code>alpine-pur.md</code>)</li>
+</ul>
 </div>
+<p><br></p>
+<hr />
+<h2 id="non-conformites-residuelles">Non-Conformités Résiduelles<a class="headerlink" href="#non-conformites-residuelles" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Phase 3 optionnelle</p>
+<p>Ces éléments sont de <strong>priorité basse</strong> et n'impactent pas la lisibilité pédagogique.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Non-conformité</th>
+<th>Modules</th>
+<th style="text-align: center;">Priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title="..."</code> absent sur les blocs <code>bash</code></td>
+<td>Tous</td>
+<td style="text-align: center;">🟢 Basse</td>
+</tr>
+<tr>
+<td>Footnotes manquantes</td>
+<td>7 modules</td>
+<td style="text-align: center;">🟡 Moyenne</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 <hr />
 <h2 id="recommandations">Recommandations<a class="headerlink" href="#recommandations" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Standardiser les blocs de code avec <code>title="..."</code> (priorité basse)</li>
-<li>Ajouter une conclusion <code>!!! quote</code> à chaque module (priorité basse)</li>
-<li>Les modules dépendent de Laravel 11.x + Livewire 3.x + Alpine.js 3.x</li>
+<li>Passer les modules de <code>status: beta</code> à <code>status: stable</code> après relecture finale</li>
+<li>Envisager <strong>Module 11 : Testing</strong> (PHPUnit, Pest, tests Livewire)</li>
+<li>Envisager <strong>Module 12 : Queues &amp; Jobs</strong> (notifications asynchrones)</li>
 </ul>
 <p><br></p>
 
