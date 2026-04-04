@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Périmètre de la conception et implémentation d'applications, des frameworks, et de la livraison applicative (DevSecOps).">
+        <meta name="description" content="Périmètre de la conception et implémentation d'applications web, mobile et cloud : langages, frameworks, stacks, données, tests et livraison continue.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -4658,89 +4658,122 @@
 <p><div
   class="omny-meta"
   data-level="🟢 Débutant à 🔴 Avancé"
-  data-version="1.0"
+  data-version="2.0"
   data-time="10-15 minutes">
 </div>
 </p>
 <div class="admonition quote">
 <p class="admonition-title">Analogie</p>
-<p><em>Si les fondamentaux IT sont les mathématiques de l'ingénieur, le développement web et le Cloud sont son atelier. C'est ici que le code prend vie, s'assemble en applications robustes et est finalement déployé dans des environnements conteneurisés et sécurisés.</em></p>
+<p><em>Si les fondamentaux IT sont les mathématiques de l'ingénieur, le développement web et le Cloud sont son atelier. C'est ici que le code prend vie, s'assemble en applications robustes et est finalement déployé dans des environnements scalables, sécurisés et maintenables.</em></p>
 </div>
 <div class="admonition abstract">
 <p class="admonition-title">Résumé</p>
-<p>Cette section monumentale couvre la conception logicielle (frontend/backend), son outillage (frameworks, bases de données), la validation de la qualité (tests) et la chaîne de livraison automatisée (CI/CD, Docker). Elle est pensée pour vous amener progressivement d'une simple page HTML jusqu'à une architecture TALL complète et testée.</p>
+<p>Cette section couvre l'intégralité du cycle de vie d'une application moderne : de la modélisation conceptuelle (UML, Merise) à la livraison automatisée (CI/CD, Docker), en passant par les langages, les frameworks, les stacks applicatives, les bases de données, le mobile et la qualité des tests. Elle est pensée pour vous amener progressivement d'une simple page HTML jusqu'à une architecture TALL complète, testée et déployée en production.</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Transition vers la Cybersécurité</p>
-<p>La partie <strong>DevSecOps</strong> présente dans cette section traite d'automatisation et de livraison sécurisée (CI/CD, secrets, Docker). Pour tout ce qui relève de la sécurité offensive (Pentest), défensive (Blue Team) ou de la conformité (GRC), dirigez-vous vers la section dédiée <strong>Cybersécurité</strong>.</p>
+<p class="admonition-title">Périmètre DevSecOps</p>
+<p>La partie <strong>DevSecOps</strong> présente dans cette section traite d'automatisation et de livraison sécurisée (CI/CD, secrets, conteneurs). Pour tout ce qui relève de la sécurité offensive (Pentest), défensive (Blue Team) ou de la conformité (GRC), dirigez-vous vers la section <strong>Cybersécurité</strong>.</p>
 </div>
-<p><br /></p>
+<p><br></p>
 <hr />
 <h2 id="architecture-de-la-section">Architecture de la section<a class="headerlink" href="#architecture-de-la-section" title="Permanent link">&para;</a></h2>
-<p>La progression proposée est pensée en couches superposées : on ne maîtrise un framework que si l'on maîtrise le langage sous-jacent, et on ne déploie proprement (DevSecOps) que si l'on sait de quoi l'application a besoin (Secrets, BDD).</p>
+<p>La progression proposée est pensée en couches superposées : on ne maîtrise pas un framework sans connaître le langage sous-jacent, et on ne déploie pas proprement sans comprendre l'architecture de ce que l'on livre.</p>
 <div class="grid cards">
 <ul>
 <li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-workflow" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></span> <strong>Modélisation</strong></p>
+<hr />
+<p><strong>Périmètre</strong> : Concevoir avant de coder. Diagrammes <strong>UML</strong> (classes, séquences, cas d'utilisation) et méthode <strong>Merise</strong> (MCD, MLD) pour structurer vos données et vos processus.</p>
+<p><a href="./modelisation/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Modéliser un projet</a></p>
+</li>
+<li>
 <p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></svg></span> <strong>Langages &amp; Standards</strong></p>
 <hr />
-<p><strong>Périmètre</strong> : De HTML5/CSS3 pour la structure et le style, jusqu'à JavaScript, Python et PHP en Programmation Orientée Objet (POO).</p>
+<p><strong>Périmètre</strong> : <strong>HTML5/CSS3</strong> pour la structure et le style, <strong>JavaScript</strong> et <strong>TypeScript</strong> côté client, <strong>PHP</strong> (procédural et POO), <strong>Python</strong> et <strong>Go</strong> côté serveur.</p>
 <p><a href="./lang/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Explorer les langages</a></p>
 </li>
 <li>
 <p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-blocks" viewBox="0 0 24 24"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"/><rect width="8" height="8" x="14" y="2" rx="1"/></svg></span> <strong>Frameworks &amp; Bibliothèques</strong></p>
 <hr />
-<p><strong>Périmètre</strong> : Standardiser via <strong>Laravel</strong> (backend PHP), dynamiser avec <strong>Alpine.js</strong>, et asseoir une réactivité état-serveur poussée avec <strong>Livewire</strong>.</p>
-<p><a href="./frameworks/laravel/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Découvrir les frameworks</a></p>
+<p><strong>Périmètre</strong> : <strong>Laravel</strong> (backend PHP), <strong>Alpine.js</strong> (réactivité légère), <strong>Livewire</strong> (état serveur), <strong>Tailwind CSS</strong> (design utilitaire), <strong>Astro</strong> (sites statiques).</p>
+<p><a href="./frameworks/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Découvrir les frameworks</a></p>
 </li>
 <li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></span> <strong>Les Stacks Applicatives</strong></p>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></span> <strong>Stacks Applicatives</strong></p>
 <hr />
-<p><strong>Périmètre</strong> : Assembler les frameworks avec cohérence. Étude approfondie de la <strong>Stack TALL</strong> (Tailwind, Alpine, Laravel, Livewire) pour des applications modernes sans la lourdeur des SPA.</p>
-<p><a href="./stacks/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir la Stack TALL</a></p>
+<p><strong>Périmètre</strong> : Assembler les frameworks avec cohérence. <strong>Stack TALL</strong> (Tailwind, Alpine, Laravel, Livewire), <strong>MERN</strong> et <strong>MEAN</strong> pour des applications JavaScript full-stack.</p>
+<p><a href="./stacks/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir les stacks</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span> <strong>Développement Mobile</strong></p>
+<hr />
+<p><strong>Périmètre</strong> : Applications natives Apple avec <strong>Swift</strong> et <strong>SwiftUI</strong>, backend mobile avec <strong>Vapor</strong> (Swift côté serveur).</p>
+<p><a href="./mobile/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Développer pour mobile</a></p>
 </li>
 <li>
 <p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></span> <strong>Bases de Données</strong></p>
 <hr />
-<p><strong>Périmètre</strong> : La persistance et les modèles d'accès aux données. De <strong>SQLite</strong> pour prototypage rapide à <strong>MariaDB/PostgreSQL</strong>, en passant par GraphQL et le NoSQL.</p>
+<p><strong>Périmètre</strong> : <strong>SQL</strong> (fondamentaux), <strong>SQLite</strong> (prototypage), <strong>PostgreSQL</strong> et <strong>MariaDB</strong> (production), <strong>NoSQL</strong> (MongoDB), <strong>GraphQL</strong> (API de données modernes).</p>
 <p><a href="./data/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Accéder aux données</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9"/></svg></span> <strong>Cloud</strong></p>
+<hr />
+<p><strong>Périmètre</strong> : Hébergement et services managés. Introduction aux plateformes <strong>AWS</strong> et <strong>Azure</strong> : compute, stockage, réseaux et gestion des identités (IAM).</p>
+<p><a href="./cloud/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Explorer le Cloud</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-building-2" viewBox="0 0 24 24"><path d="M10 12h4M10 8h4M14 21v-3a2 2 0 0 0-4 0v3"/><path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/></svg></span> <strong>Architecture Logicielle</strong></p>
+<hr />
+<p><strong>Périmètre</strong> : <strong>API REST</strong> (conception et bonnes pratiques), <strong>Clean Architecture</strong> (séparation des responsabilités), et <strong>Patterns</strong> pratiques (Repository, Service Layer, SOLID).</p>
+<p><a href="./architecture/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Concevoir l'architecture</a></p>
 </li>
 <li>
 <p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-test-tube" viewBox="0 0 24 24"><path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5V2M8.5 2h7M14.5 16h-5"/></svg></span> <strong>Tests &amp; Qualité</strong></p>
 <hr />
-<p><strong>Périmètre</strong> : Pyramide des tests, approches TDD/BDD. Outillage concret avec <strong>PHPUnit</strong>, <strong>Pest</strong> (Backend), ainsi que <strong>Vitest</strong> et <strong>Cypress</strong> (Frontend &amp; E2E).</p>
+<p><strong>Périmètre</strong> : Pyramide des tests, <strong>TDD/BDD</strong>, <strong>SAST/DAST</strong>. Outillage : <strong>PHPUnit</strong>, <strong>Pest</strong> (backend), <strong>Vitest</strong>, <strong>Jest</strong>, <strong>Cypress</strong> (frontend &amp; E2E), couverture de code et fuzzing.</p>
 <p><a href="./tests-qualite/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Améliorer la qualité</a></p>
 </li>
 <li>
 <p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span> <strong>DevSecOps (Livraison)</strong></p>
 <hr />
-<p><strong>Périmètre</strong> : Automatiser la livraison : <strong>CI/CD</strong> (GitHub/GitLab Actions), standardisation via <strong>Docker/Compose</strong> et gestion sécurisée des mots de passe &amp; <strong>Secrets</strong> (Vault).</p>
+<p><strong>Périmètre</strong> : <strong>CI/CD</strong> (GitHub/GitLab Actions), <strong>Docker &amp; Compose</strong>, <strong>IaC</strong> (Infrastructure as Code), gestion sécurisée des <strong>Secrets</strong> (Vault), <strong>AppSec</strong> et observabilité.</p>
 <p><a href="./devsecops/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Déployer l'application</a></p>
 </li>
 </ul>
 </div>
-<p><br /></p>
+<p><br></p>
 <hr />
 <h2 id="ordre-dapprentissage-recommande">Ordre d'apprentissage recommandé<a class="headerlink" href="#ordre-dapprentissage-recommande" title="Permanent link">&para;</a></h2>
-<p>Pour un apprentissage optimal du développement web backend, il est vivement conseillé de procéder par l'assimilation du <strong>langage natif avant le framework</strong>.</p>
-<pre class="mermaid"><code>flowchart LR
-    A["HTML/CSS&lt;br/&gt;&amp; JavaScript"]
-    B["PHP&lt;br/&gt;Procédural &amp; POO"]
-    C["Laravel&lt;br/&gt;(Framework)"]
-    D["Stack TALL&lt;br/&gt;(+ Alpine/Livewire)"]
-    E["Tests &amp; CI/CD&lt;br/&gt;(DevSecOps)"]
+<p>Pour un apprentissage optimal, il est conseillé de suivre la progression naturelle : concevoir avant de coder, maîtriser le langage avant le framework, et industrialiser en dernier.</p>
+<pre class="mermaid"><code>---
+config:
+    theme: 'base'
+---
+flowchart LR
+    A["Modélisation\nUML / Merise"]
+    B["Langages\nHTML · PHP · JS · Python"]
+    C["Frameworks\nLaravel · Alpine · Tailwind"]
+    D["Stacks\nTALL · MERN · MEAN"]
+    E["Données\nSQL · NoSQL · GraphQL"]
+    F["Tests &amp; Qualité\nPest · Cypress · TDD"]
+    G["DevSecOps\nCI/CD · Docker · Secrets"]
 
-    A --&gt;|Socle web| B
+    A --&gt;|Conception| B
     B --&gt;|Fondations| C
     C --&gt;|Composition| D
-    D --&gt;|Industrialisation| E</code></pre>
-<p><br /></p>
+    D --&gt;|Persistance| E
+    E --&gt;|Validation| F
+    F --&gt;|Industrialisation| G</code></pre>
+<p><small><em>Progression recommandée : de la modélisation conceptuelle jusqu'au déploiement automatisé. Le développement mobile (Swift/SwiftUI) et le Cloud (AWS/Azure) s'insèrent en parallèle une fois les fondations web maîtrisées.</em></small></p>
+<p><br></p>
 <hr />
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
-<p class="admonition-title">Conclusion</p>
-<p><em>Le développement d'aujourd'hui ne se limite plus à écrire du code source. C'est concevoir des socles maintenables (POO), les consolider dans des composants (Laravel/Livewire), garantir que rien ne casse (Tests Unitaires &amp; End-to-End) et pouvoir emballer l'ensemble pour une livraison fluide, instantanée et imperméable (Docker et CI/CD). C'est ce cycle entier de l'ingénierie logicielle que vous allez parcourir ici.</em></p>
+<p class="admonition-title">Le cycle complet de l'ingénierie logicielle</p>
+<p><em>Développer aujourd'hui ne se limite plus à écrire du code. C'est modéliser des structures (UML, Merise), les implémenter dans un langage maîtrisé (PHP, JavaScript, Swift), les composer en applications cohérentes (Laravel, TALL Stack), les ancrer dans des données fiables (SQL, NoSQL), garantir qu'elles ne cassent pas (Tests, TDD) et les livrer avec confiance (Docker, CI/CD). C'est ce cycle entier — de la conception au déploiement — que cette section vous propose de parcourir.</em></p>
 </div>
-<p><br /></p>
+<p><br></p>
 
 
   <nav class="md-tags" >
@@ -4793,6 +4826,28 @@
       
       
         <span class="md-tag md-tag-icon">PROGRAMMATION</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">MOBILE</span>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">ARCHITECTURE</span>
       
     
   </nav>
