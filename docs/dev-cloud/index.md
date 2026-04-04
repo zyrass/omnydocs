@@ -127,7 +127,7 @@ Pour un apprentissage optimal, il est conseillé de suivre la progression nature
 config:
     theme: 'base'
 ---
-flowchart LR
+flowchart TB
     A["Modélisation\nUML / Merise"]
     B["Langages\nHTML · PHP · JS · Python"]
     C["Frameworks\nLaravel · Alpine · Tailwind"]
