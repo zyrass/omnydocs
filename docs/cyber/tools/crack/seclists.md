@@ -1,4 +1,4 @@
-﻿---
+---
 description: "SecLists — Le référentiel mondial des listes de sécurité (Wordlists). Une immense bibliothèque open-source regroupant les mots de passe divulgués, les payloads de fuzzing et les dossiers cachés."
 icon: lucide/book-open-check
 tags: ["THEORY", "WORDLISTS", "SECLISTS", "DICTIONARY", "BRUTEFORCE"]
@@ -13,7 +13,9 @@ tags: ["THEORY", "WORDLISTS", "SECLISTS", "DICTIONARY", "BRUTEFORCE"]
   data-time="~20 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/seclists.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/seclists-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -84,6 +86,8 @@ Si vous attaquez l'entreprise fictive "CyberCorp 2024" basée à "Marseille", au
 
 Pour briser la sécurité de cette entreprise, il ne faut pas utiliser un dictionnaire mondial, il faut créer un **dictionnaire sur-mesure** fabriqué spécifiquement à partir du champ lexical de l'entreprise cible (ses produits, ses fondateurs, son jargon). 
 C'est exactement ce que fait l'outil d'extraction linguistique automatique : **[CeWL →](./cewl.md)**.
+
+
 
 
 

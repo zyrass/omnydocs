@@ -1,4 +1,4 @@
-﻿---
+---
 description: "hcxtools / hcxdumptool — La révolution de 2018. Craquer du WiFi WPA/WPA2 sans avoir besoin qu'un client soit connecté, grâce à la faille PMKID."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WIFI", "PMKID", "HASHCAT", "CRACKING"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WIFI", "PMKID", "HASHCAT", "CRACKING"]
   data-time="~20 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/hcxtools.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/kali-tools-icon-missing.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -174,6 +176,8 @@ hashcat -m 22000 hashes_prets.hc22000 /usr/share/wordlists/rockyou.txt
 > Toutes les clés WPA ne sont pas vulnérables. Mais que se passe-t-il si le routeur a une "Porte de derrière" numérique (un code PIN à 8 chiffres pour faciliter l'appairage) ? Découvrez la pire faille WiFi de l'histoire avec **[Reaver & Bully (WPS) →](./reaver-bully.md)**.
 
 <br>
+
+
 
 
 

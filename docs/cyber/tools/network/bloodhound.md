@@ -1,4 +1,4 @@
-﻿---
+---
 description: "BloodHound — L'outil de cartographie et d'analyse de graphes Active Directory. Révèle les chemins d'escalade de privilèges invisibles à l'œil nu."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "ACTIVE DIRECTORY", "BLOODHOUND", "GRAPHE", "ESCALADE"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "ACTIVE DIRECTORY", "BLOODHOUND", "GRAPHE", "ESCALADE"]
   data-time="~20 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/bloodhound.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/bloodhound-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -159,6 +161,8 @@ Une carte se dessine sous vos yeux. Chaque flèche correspond à une action ("Ha
 
 > **Bravo !** Vous maîtrisez maintenant l'arsenal d'exploitation réseau. Du simple scan Nmap au graphique tridimensionnel de l'AD, en passant par le MITM, l'horizon des possibles s'ouvre à vous.
 > Dans la section suivante (Étape 5), nous verrons les outils "Boîte Noire", qui ne font pas de chirurgie, mais scannent le réseau à la recherche de **Vulnérabilités logicielles** (CVE) connues.
+
+
 
 
 

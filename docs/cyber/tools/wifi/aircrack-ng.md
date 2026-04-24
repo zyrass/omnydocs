@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Aircrack-ng — La suite historique et indispensable pour l'audit des réseaux sans fil (WEP, WPA/WPA2-PSK)."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WIFI", "CRACKING", "AIRCRACK", "RESEAU"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WIFI", "CRACKING", "AIRCRACK", "RESEAU"]
   data-time="~30 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/aircrack-ng.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/aircrack-ng-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -217,6 +219,8 @@ aircrack-ng -w /usr/share/wordlists/rockyou.txt capture-01.cap
 > Pour aller plus loin et auditer un quartier entier sans émettre le moindre paquet hostile, découvrez la cartographie passive avec **[Kismet →](./kismet.md)**.
 
 <br>
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 description: "MITRE ATT&CK — Le langage universel de la cybersécurité. Une taxonomie mondiale des tactiques et techniques utilisées par les adversaires."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "MITRE ATTACK", "METHODOLOGIE", "STRATEGIE", "TTP"]
@@ -13,7 +13,11 @@ tags: ["RED TEAM", "MITRE ATTACK", "METHODOLOGIE", "STRATEGIE", "TTP"]
   data-time="~45 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/mitre-attack.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/mitre-attack.svg" width="250" align="center" />
+</div>
+
+![Logo](../../../assets/images/cyber/mitre-attack.svg){: style="width: 100px; display: block; margin: 0 auto;" }
 
 ## Introduction
 
@@ -114,6 +118,8 @@ Contrairement à un pentest classique où l'on cherche "toutes les failles possi
     Le MITRE ATT&CK a révolutionné la cybersécurité en imposant un vocabulaire commun. Ce n'est plus "j'ai utilisé un script powershell pour voler des mots de passe", mais "j'ai exécuté la technique T1003 via la tactique T1059". Maîtriser ce framework est aujourd'hui une compétence non-négociable pour tout professionnel offensif (Red) ou défensif (Blue) cherchant à s'intégrer sur le marché du travail.
 
 > Le MITRE classe les attaques. Mais comment l'entreprise évalue-t-elle le risque financier ou humain de ces attaques ? Découvrez le point de vue stratégique français avec la méthode **[EBIOS Risk Manager (Red Team) →](./ebios-redteam.md)**.
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 description: "John the Ripper — Le couteau suisse du cassage de mots de passe hors-ligne. Un outil CPU incroyablement polyvalent capable de craquer presque tous les types de fichiers (ZIP, SSH, PDF)."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "PASSWORD", "CRACKING", "JOHN THE RIPPER", "OFFLINE"]
@@ -13,7 +13,10 @@ tags: ["RED TEAM", "PASSWORD", "CRACKING", "JOHN THE RIPPER", "OFFLINE"]
   data-time="~35 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/john.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/john-logo.svg" width="250" align="center" />
+</div>
+
 
 ## Introduction
 
@@ -176,6 +179,8 @@ John the Ripper est fondamentalement limité par l'architecture des processeurs 
     John the Ripper (Jumbo) est le roi de la polyvalence. Ses scripts d'extraction (`zip2john`, `ssh2john`) sont indispensables dans toute opération de récupération de données. Il est l'outil parfait pour un pentester en déplacement sur un ordinateur portable pour casser rapidement des mots de passe simples.
 
 > Mais que se passe-t-il si le client utilise une stratégie de mots de passe robuste de 12 caractères complexes hachés avec le standard NTLM de Windows ? Le processeur de votre PC portable va fondre avant de terminer le calcul. Il est temps de passer à l'arme lourde, le logiciel qui fait rugir les cartes graphiques et consomme des milliers de Watts : **[Hashcat →](./hashcat.md)**.
+
+
 
 
 

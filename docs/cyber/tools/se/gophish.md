@@ -1,4 +1,4 @@
-﻿---
+---
 description: "GoPhish — La plateforme open-source de simulation de Phishing. L'outil idéal pour gérer des campagnes massives, analyser les statistiques de clics et évaluer la sensibilisation des employés."
 icon: lucide/book-open-check
 tags: ["BLUE TEAM", "RED TEAM", "SOCIAL ENGINEERING", "GOPHISH", "PHISHING", "CAMPAIGN"]
@@ -13,7 +13,9 @@ tags: ["BLUE TEAM", "RED TEAM", "SOCIAL ENGINEERING", "GOPHISH", "PHISHING", "CA
   data-time="~35 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/gophish.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/gophish-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -181,6 +183,8 @@ Le véritable ennemi de GoPhish n'est pas l'employé, c'est **Proofpoint**, **Mi
     GoPhish est le summum de l'automatisation du facteur humain. Il transforme l'attaque artisanale (SET) en une statistique industrielle. Aujourd'hui, aucune campagne d'hygiène informatique (Compliance) n'est complète sans un tableau de bord GoPhish démontrant l'évolution du taux de clics des employés d'une année sur l'autre.
 
 > L'exploitation du réseau, des sites web, et même des cerveaux humains est maintenant maîtrisée. L'attaquant possède des données. L'étape suivante, souvent ignorée des débutants mais vitale pour l'attaquant professionnel, est de s'assurer de ne jamais perdre cet accès, même si la victime éteint son PC. Préparez-vous à casser des mots de passe hors-ligne et à naviguer dans les ténèbres avec l'Étape 8 : **[Password Attacks →](../password/index.md)**.
+
+
 
 
 

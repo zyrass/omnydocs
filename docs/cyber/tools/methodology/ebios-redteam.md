@@ -1,4 +1,4 @@
-﻿---
+---
 description: "EBIOS Risk Manager (Vue Red Team) — Comprendre et exploiter la méthodologie française d'analyse de risques pour orienter les campagnes offensives."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "EBIOS", "METHODOLOGIE", "GOUVERNANCE", "RISQUE"]
@@ -13,7 +13,11 @@ tags: ["RED TEAM", "EBIOS", "METHODOLOGIE", "GOUVERNANCE", "RISQUE"]
   data-time="~30 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/ebios-redteam.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/ebios-redteam.svg" width="250" align="center" />
+</div>
+
+![Logo](../../../assets/images/cyber/ebios-redteam.svg){: style="width: 100px; display: block; margin: 0 auto;" }
 
 ## Introduction
 
@@ -122,6 +126,8 @@ Un Pentest classique tape sur tout ce qui bouge. Une opération Red Team basée 
     Un bon auditeur technique sait comment contourner un pare-feu. Un excellent auditeur stratégique sait *pourquoi* ce pare-feu a été mis là, et *quelle* est la valeur de la donnée derrière lui. Maîtriser EBIOS RM, c'est passer du statut de technicien (Hacker) au statut de Consultant en Stratégie Offensive, capable de parler d'architecture système le matin, et de gestion du risque financier l'après-midi avec le Directeur Général.
 
 > Pour garantir le succès d'une opération Red Team sans se faire repérer par la Blue Team avant d'atteindre l'objectif stratégique défini, la maîtrise parfaite de la furtivité est indispensable. Poursuivez avec les règles d'**[OpSec et Anonymisation →](./opsec.md)**.
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Stéganographie — L'art de dissimuler de l'information (ou des malwares) à l'intérieur de fichiers anodins (images, audio) pour tromper la surveillance."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "STEGANOGRAPHIE", "OPSEC", "OBFUSCATION", "FURTIVITE"]
@@ -13,7 +13,11 @@ tags: ["RED TEAM", "STEGANOGRAPHIE", "OPSEC", "OBFUSCATION", "FURTIVITE"]
   data-time="~30 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/steganographie.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/steganographie.svg" width="250" align="center" />
+</div>
+
+![Logo](../../../assets/images/cyber/steganographie.svg){: style="width: 100px; display: block; margin: 0 auto;" }
 
 ## Introduction
 
@@ -116,6 +120,8 @@ Voici comment une Red Team exfiltre un petit volume de données très critiques 
     La stéganographie est le summum de l'OpSec (Sécurité Opérationnelle). Là où les malwares normaux jouent à "chat" avec les Antivirus (Evasion classique), la stéganographie refuse de jouer : elle se promène devant les gardes déguisée en tapisserie. C'est la méthode de choix des APT (Advanced Persistent Threats) étatiques pour infiltrer et exfiltrer sans bruit.
 
 > Comment orchestrer ces communications cachées à grande échelle pour piloter des centaines de machines infectées ? C'est le rôle des infrastructures avancées détaillées dans **[C2 (Command & Control) Frameworks →](./c2-frameworks.md)**.
+
+
 
 
 

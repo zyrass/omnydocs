@@ -1,4 +1,4 @@
-﻿---
+---
 description: "httpx — L'outil de probing HTTP/HTTPS polyvalent pour valider les services actifs, récupérer les titres, codes de réponse et technologies."
 icon: lucide/book-open-check
 tags: ["OSINT", "HTTPX", "PROBING", "WEB", "RED TEAM", "PROJECTDISCOVERY"]
@@ -13,7 +13,9 @@ tags: ["OSINT", "HTTPX", "PROBING", "WEB", "RED TEAM", "PROJECTDISCOVERY"]
   data-time="~20 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/httpx.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/kali-tools-icon-missing.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -221,6 +223,8 @@ subfinder -d omnyvia.com -silent | httpx -silent -mc 200 | nuclei -t cves/
 <br>
 
 [^1]: **Système de Traitement Automatisé de Données (STAD)** : Tout équipement informatique capable de traiter des données. Un serveur web interrogé par httpx est un STAD, et la loi punit quiconque tente d'y accéder sans droit.
+
+
 
 
 

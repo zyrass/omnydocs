@@ -1,4 +1,4 @@
-﻿---
+---
 description: "OpSec & Anonymisation — Les règles fondamentales de sécurité opérationnelle pour mener un audit offensif sans compromettre sa propre identité ou celle du client."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "OPSEC", "ANONYMISATION", "FURTIVITE", "METHODOLOGIE"]
@@ -13,7 +13,11 @@ tags: ["RED TEAM", "OPSEC", "ANONYMISATION", "FURTIVITE", "METHODOLOGIE"]
   data-time="~45 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/opsec.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/opsec.svg" width="250" align="center" />
+</div>
+
+![Logo](../../../assets/images/cyber/opsec.svg){: style="width: 100px; display: block; margin: 0 auto;" }
 
 ## Introduction
 
@@ -116,6 +120,8 @@ L'histoire regorge de hackers brillants tombés pour des erreurs de débutants.
     L'OpSec est la seule chose qui sépare un professionnel d'un amateur bruyant. C'est un état d'esprit paranoïaque et méthodique qui doit infuser chaque clic, chaque commande et chaque architecture serveur de l'auditeur. Si la cryptographie sécurise le message, l'OpSec sécurise le messager.
 
 > Maintenant que vous savez opérer dans l'ombre au niveau réseau, apprenez à cacher vos données et vos canaux de communication à la vue de tous (au sein même d'images ou de fichiers normaux) grâce à la **[Stéganographie →](./steganographie.md)**.
+
+
 
 
 

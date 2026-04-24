@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Le Fuzzing Web — Cadre théorique et méthodologique. Comprendre la différence entre Fuzzing, Brute-Force, et comment choisir les bons dictionnaires pour découvrir des vulnérabilités complexes."
 icon: lucide/book-open-check
 tags: ["THEORY", "WEB", "FUZZING", "BRUTE FORCE", "METHODOLOGY"]
@@ -13,7 +13,10 @@ tags: ["THEORY", "WEB", "FUZZING", "BRUTE FORCE", "METHODOLOGY"]
   data-time="~25 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/fuzzing.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/fuzzing.svg" width="250" align="center" />
+</div>
+
 
 ## Introduction
 
@@ -147,6 +150,8 @@ Le Fuzzing est l'activité la plus bruyante du piratage. Aujourd'hui, les archit
     Le Fuzzing web n'est pas "un outil", c'est une méthode d'investigation scientifique par force brute intelligente. Les outils (`ffuf`, `gobuster`, `wfuzz`) changeront avec les années, mais la maîtrise du trio "Point d'injection + Dictionnaire + Filtrage" restera la compétence fondamentale pour cartographier et casser des applications web.
 
 > Le web applicatif étant désormais maîtrisé, il est temps de s'attaquer à la vulnérabilité la plus ancienne, la moins patchable et la plus dangereuse de l'histoire de l'informatique : l'Être Humain. Bienvenue dans l'Étape 7 : **[Social Engineering & Phishing →](../se/index.md)**.
+
+
 
 
 

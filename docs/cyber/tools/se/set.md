@@ -1,4 +1,4 @@
-﻿---
+---
 description: "SET (Social-Engineer Toolkit) — Le framework open-source de référence pour les attaques par ingénierie sociale (Phishing, clonage de sites, clés USB piégées)."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "SOCIAL ENGINEERING", "SET", "PHISHING", "TRUSTEDSEC"]
@@ -13,7 +13,10 @@ tags: ["RED TEAM", "SOCIAL ENGINEERING", "SET", "PHISHING", "TRUSTEDSEC"]
   data-time="~35 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/set.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/set-logo.svg" width="250" align="center" />
+</div>
+
 
 ## Introduction
 
@@ -168,6 +171,8 @@ PARAM: pass=MonMotDePasseSuperSecret
     Le Social-Engineer Toolkit est un outil spectaculaire qui rend le Phishing accessible à n'importe qui en 5 minutes. Il rappelle brutalement aux DSI que des millions d'euros investis dans des pare-feux (Palo Alto, Fortinet) et des antivirus peuvent être balayés par un email convaincant demandant de réinitialiser un mot de passe Microsoft Office 365.
 
 > Bien que SET soit incroyable pour un Pentester solo (Red Team) cherchant un accès initial rapide (Spear Phishing), il n'est pas conçu pour de l'évaluation statistique à grande échelle. Pour lancer une campagne de sensibilisation sur 10 000 employés et obtenir des graphiques clairs sur "qui a cliqué", il faut une véritable plateforme de simulation : **[GoPhish →](./gophish.md)**.
+
+
 
 
 

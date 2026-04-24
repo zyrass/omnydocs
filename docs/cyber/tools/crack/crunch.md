@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Crunch — Le générateur de mots de passe combinatoire. Un outil mathématique capable de créer toutes les combinaisons possibles de caractères, idéal pour forcer des formats spécifiques (ex: plaques d'immatriculation, numéros de téléphone)."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "PASSWORD", "CRUNCH", "DICTIONARY", "BRUTEFORCE"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "PASSWORD", "CRUNCH", "DICTIONARY", "BRUTEFORCE"]
   data-time="~15 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/crunch.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/crunch-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -123,6 +125,8 @@ crunch 8 8 0123456789 | aircrack-ng -e MonWifi -w - capture.cap
     Crunch est l'incarnation de la force brute pure. Il est extrêmement utile pour des missions "exotiques" où vous connaissez la structure mathématique ou réglementaire d'un identifiant ou d'un mot de passe (numéro de téléphone, format de ticket, code PIN de porte d'immeuble). Pour le reste, privilégiez toujours les Wordlists et les Rulesets pour casser des mots de passe générés par des humains.
 
 > La boucle est bouclée. Du scan externe initial (`Nmap`) jusqu'à l'extraction et le craquage des mots de passe en interne (`Hashcat`), vous avez désormais accès au réseau cible. Mais que se passe-t-il une fois le mot de passe récupéré ? L'accès initial n'est que la première étape. L'Étape 9 regroupe l'arsenal d'**[Exploitation et Post-Exploitation →](../exploit/index.md)** pour automatiser votre maintien dans la place.
+
+
 
 
 

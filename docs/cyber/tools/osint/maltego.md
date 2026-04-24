@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Maltego — La plateforme de référence pour la cyber-investigation et l'OSINT par la visualisation de graphes de relations."
 icon: lucide/book-open-check
 tags: ["OSINT", "MALTEGO", "INVESTIGATION", "GRAPHE", "RED TEAM", "LINK ANALYSIS"]
@@ -13,7 +13,9 @@ tags: ["OSINT", "MALTEGO", "INVESTIGATION", "GRAPHE", "RED TEAM", "LINK ANALYSIS
   data-time="~1.5 heure">
 </div>
 
-<img src="../../../assets/images/cyber/maltego.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/maltego-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -220,6 +222,8 @@ _En déployant ce script sur un serveur de développement (TDS), vous pouvez cli
 [^1]: **Système de Traitement Automatisé de Données (STAD)** : Tout ensemble organisé de moyens permettant de traiter des données. Interroger agressivement un STAD sans autorisation constitue un délit pénal.
 
 [^2]: **Open Source Intelligence (OSINT)** : Collecte de renseignements à partir de sources d'information publiques et ouvertes.
+
+
 
 
 

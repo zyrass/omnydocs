@@ -1,4 +1,4 @@
-﻿---
+---
 description: "OpenVPN — Le standard open-source pour la création de réseaux privés virtuels (VPN) sécurisés et robustes."
 icon: lucide/book-open-check
 tags: ["INFRA", "OPENVPN", "VPN", "SÉCURITÉ", "CHIFFREMENT", "RED TEAM"]
@@ -13,7 +13,9 @@ tags: ["INFRA", "OPENVPN", "VPN", "SÉCURITÉ", "CHIFFREMENT", "RED TEAM"]
   data-time="~45 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/openvpn.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/openvpn.jpg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -107,6 +109,8 @@ Lors d'un audit, vous utiliserez souvent OpenVPN pour :
     Bien qu'OpenVPN soit le standard historique, le protocole **Wireguard** gagne du terrain car il est beaucoup plus rapide et simple à configurer. Gardez un œil dessus !
 
 ---
+
+
 
 
 

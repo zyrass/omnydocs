@@ -1,4 +1,4 @@
-﻿---
+---
 description: "theHarvester — Outil OSINT complet pour collecter emails, sous-domaines, IPs et noms d'utilisateurs depuis des dizaines de sources publiques."
 icon: lucide/book-open-check
 tags: ["OSINT", "RECONNAISSANCE", "THEHARVESTER", "SUBDOMAINS", "RED TEAM"]
@@ -13,7 +13,9 @@ tags: ["OSINT", "RECONNAISSANCE", "THEHARVESTER", "SUBDOMAINS", "RED TEAM"]
   data-time="~30-45 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/theharvester.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/theharvester-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -232,6 +234,8 @@ _Fournit une liste de prénoms, noms et intitulés de postes, indispensable pour
 [^1]: **Système de Traitement Automatisé de Données (STAD)** : Désigne tout ensemble organisé de moyens (matériels et logiciels) permettant de collecter, enregistrer, stocker, modifier, manipuler, envoyer, visualiser ou détruire des données. Dans le contexte pénal, cela inclut les serveurs d'entreprises, les bases de données clients, les boîtes mail professionnelles, etc.
 
 [^2]: **Open Source Intelligence (OSINT)** : Méthode de collecte d'informations provenant uniquement de sources publiquement accessibles (internet, réseaux sociaux, bases de données ouvertes, publications, etc.). Contrairement au piratage actif, l'OSINT est purement passif et légal, car il ne nécessite aucune intrusion technique chez la cible.
+
+
 
 
 

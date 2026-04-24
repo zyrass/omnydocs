@@ -1,4 +1,4 @@
-﻿---
+---
 description: "subfinder — L'outil ultra-rapide pour l'énumération passive de sous-domaines via des dizaines de sources publiques (ProjectDiscovery)."
 icon: lucide/book-open-check
 tags: ["OSINT", "SUBFINDER", "SUBDOMAINS", "RED TEAM", "PROJECTDISCOVERY"]
@@ -13,7 +13,10 @@ tags: ["OSINT", "SUBFINDER", "SUBDOMAINS", "RED TEAM", "PROJECTDISCOVERY"]
   data-time="~15 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/subfinder.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/subfinder-logo.svg" width="250" align="center" />
+</div>
+
 
 ## Introduction
 
@@ -228,6 +231,8 @@ subfinder -d omnyvia.com -all -o resultats.txt
 [^1]: **Système de Traitement Automatisé de Données (STAD)** : Désigne tout ensemble organisé de moyens (matériels et logiciels) permettant de traiter des données (serveurs web, messageries, annuaires LDAP).
 
 [^2]: **Open Source Intelligence (OSINT)** : Collecte d'informations issues de sources publiques. Méthode purement passive, n'impliquant aucune interaction non sollicitée avec le système cible.
+
+
 
 
 

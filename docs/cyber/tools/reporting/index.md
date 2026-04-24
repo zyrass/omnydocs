@@ -1,88 +1,89 @@
 ---
-description: "Méthodologie de reporting pentest : structurer, prioriser et documenter les résultats d'un test d'intrusion de manière professionnelle et exploitable"
-tags: ["REPORTING", "PENTEST", "CVSS", "PREUVES", "REMÉDIATION", "RED TEAM", "AUDIT"]
+description: "Reporting & Livrables — L'ultime étape du test d'intrusion. Comment transformer des logs techniques incompréhensibles en un document à forte valeur ajoutée pour le client."
+icon: lucide/file-text
+tags: ["THEORY", "REPORTING", "LIVRABLE", "PENTEST"]
 ---
 
-# Cyber : Reporting
+# Reporting & Livrables — La Valeur du Pentest
 
 <div
   class="omny-meta"
-  data-level="🟡 Intermédiaire & 🔴 Avancé"
-  data-version="1.0"
-  data-time="6-8 minutes">
+  data-level="🟢 Fondamental"
+  data-version="Théorie"
+  data-time="~10 minutes">
 </div>
 
 ## Introduction
 
-!!! quote "Analogie pédagogique — Le Diagnostic du Médecin"
-    Imaginez un patient qui va voir un médecin. Le médecin peut être un génie, s'il gribouille un diagnostic illisible sur un bout de papier sans expliquer le traitement, le patient ne guérira jamais. Le **reporting** est l'ordonnance et le compte-rendu médical : c'est le moment où toute l'expertise technique est traduite en un langage compréhensible, actionnable et priorisé pour que l'organisation puisse corriger ses failles.
+!!! quote "Analogie pédagogique — Le Diagnostic Médical"
+    Un pentester qui trouve une faille critique mais rédige un mauvais rapport, c'est comme un chirurgien brillant qui opère un patient mais refuse d'écrire l'ordonnance post-opératoire.
+    Le client ne paie pas pour que vous piratiez son entreprise. Le client paie pour **savoir comment vous avez fait** et **comment l'en empêcher à l'avenir**. Le livrable (Le Rapport) est l'unique produit fini de votre prestation.
 
-**Le reporting est la phase finale — et la plus visible — d'un test d'intrusion.** Peu importe la qualité technique de l'audit : si le rapport est illisible, mal structuré ou dépourvu de recommandations actionnables, la valeur de l'opération est perdue.
+La phase de Reporting (Rédaction du rapport) est de loin l'étape la plus redoutée par les auditeurs techniques (qui préfèrent souvent chercher des failles plutôt que d'écrire des documents Word). Pourtant, c'est la seule étape qui compte aux yeux du commanditaire (le Directeur Général ou le RSSI).
+
+Un test d'intrusion exceptionnel techniquement sera considéré comme "médiocre" si le rapport est incompréhensible ou bâclé.
 
 <br>
 
 ---
 
-!!! info "Pourquoi cette section est essentielle ?"
-    - **Structurer le livrable** : organiser les résultats selon une hiérarchie claire et professionnellement reconnue
-    - **Scorer les vulnérabilités** : appliquer le CVSS correctement pour une priorisation objective et défendable
-    - **Documenter les preuves** : constituer des preuves d'exploitation exploitables en audit et défendables juridiquement
-    - **Formuler des remédiations** : produire des recommandations précises, priorisées et techniquement applicables
-    - **Démontrer l'impact** : traduire une vulnérabilité technique en risque métier compréhensible par la direction
+## Les 3 Objectifs du Rapport de Pentest
 
-## Les sujets de cette section
+Le rapport final doit répondre simultanément à trois besoins contradictoires :
 
-<div class="grid cards" markdown>
+```mermaid
+flowchart TD
+    %% Couleurs à fort contraste
+    classDef manager fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000
+    classDef tech fill:#e2e8f0,stroke:#64748b,stroke-width:2px,color:#000
+    classDef fix fill:#d1e7dd,stroke:#198754,stroke-width:2px,color:#000
 
--   **Structure d'un Rapport**
+    A("📄 Le Rapport Final") --> B("👔 Pour le Management<br>(Comprendre le Risque)")
+    A --> C("👨‍💻 Pour les Développeurs<br>(Comprendre la Faille)")
+    A --> D("🛠️ Pour les Administrateurs<br>(Appliquer la Correction)")
 
-    ---
+    B --> B1("Synthèse Exécutive<br>Graphes, Impacts Business")
+    C --> C1("Détails Techniques<br>Requêtes HTTP, Logs")
+    D --> D1("Plan de Remédiation<br>Patchs, Configuration")
 
-    Anatomie d'un rapport de pentest professionnel : page de synthèse exécutive, tableau de criticité, fiches de vulnérabilités, preuves d'exploitation, recommandations et plan de remédiation. Conventions de présentation attendues par les clients et les certificateurs.
+    class B,B1 manager
+    class C,C1 tech
+    class D,D1 fix
+```
 
-    [Voir Structure du rapport](./rapport-structure.md)
+### 1. Comprendre le Risque (Aspect Business)
+Le Directeur Général ne sait pas ce qu'est un *Buffer Overflow*. En revanche, il comprend "Possibilité de voler la base de données client à distance". Le rapport doit traduire la technique en risque métier.
 
--   **CVSS — Scoring des vulnérabilités**
+### 2. Comprendre la Faille (Aspect Technique)
+L'équipe informatique du client doit pouvoir reproduire l'attaque. Le rapport doit contenir toutes les étapes, les payloads utilisés et les captures d'écran prouvant l'exploitation.
 
-    ---
+### 3. Corriger la Faille (Aspect Remédiation)
+Il ne suffit pas de dire "Votre serveur est vulnérable". Le rapport doit expliquer *comment* corriger la faille de manière réaliste (Mettre à jour la librairie, modifier une règle de pare-feu, ou échapper les caractères spéciaux dans le code source).
 
-    Common Vulnerability Scoring System : méthodologie de scoring standardisée (v3.1 et v4.0) pour évaluer objectivement la criticité d'une vulnérabilité. Métriques de base, temporelles et environnementales. Calcul, interprétation et erreurs courantes de scoring.
+<br>
 
-    [Voir CVSS](./cvss.md)
+---
 
-</div>
+## Le Cycle de Vie d'une Vulnérabilité
 
-<div class="grid cards" markdown>
+Lors de la rédaction, chaque vulnérabilité découverte suit un cycle de traitement rigoureux :
 
--   **Preuves d'exploitation**
+1. **Identification** : Découverte lors de la phase de Scan ou d'Exploitation.
+2. **Exploitation & Preuve (PoC)** : On documente la preuve que la faille est réelle (**[Gestion des Preuves →](./preuves.md)**).
+3. **Évaluation (Scoring)** : On attribue une note de criticité objective basée sur un standard international (Souvent le **[Score CVSS →](./cvss.md)**).
+4. **Rédaction** : On intègre la faille dans la **[Structure du Rapport →](./rapport-structure.md)**.
+5. **Relecture (QA)** : Relecture par un pair (Quality Assurance) pour vérifier l'orthographe et la justesse technique.
 
-    ---
+<br>
 
-    Collecte, structuration et présentation des preuves : captures d'écran annotées, extraits de logs, outputs de commandes, captures réseau (pcap), hashes capturés, données exfiltrées. Standards de qualité attendus et pièges à éviter dans la documentation des preuves.
+---
 
-    [Voir Preuves](./preuves.md)
+## Bonnes & Mauvaises Pratiques (Do's & Don'ts)
 
--   **Remédiation**
-
-    ---
-
-    Formulation de recommandations actionnables : priorisation selon CVSS et contexte métier, recommandations de remédiation immédiate vs long terme, mesures compensatoires temporaires, plan de traitement priorisé. Distinction entre correction et atténuation.
-
-    [Voir Remédiation](./remediation.md)
-
-</div>
-
-## Public cible
-
-!!! info "À qui s'adresse cette section ?"
-    - **Pentesters** produisant des rapports professionnels pour leurs clients
-    - **Consultants en sécurité** souhaitant standardiser et améliorer la qualité de leurs livrables
-    - **RSSI** commanditant des audits et souhaitant savoir ce qu'un bon rapport doit contenir
-    - **Étudiants** préparant des certifications offensives (OSCP, CEH, PNPT) qui exigent la rédaction de rapports
-
-## Rôle dans l'écosystème offensif
-
-Le reporting est la **phase de valorisation** de l'ensemble des travaux offensifs. C'est le seul livrable tangible que le client reçoit à l'issue d'un test d'intrusion — et celui sur lequel il évalue la qualité de la prestation. Un bon rapport transforme une liste de vulnérabilités techniques en un plan de traitement des risques priorisé, compréhensible à la fois par les équipes techniques qui remédient et par la direction qui alloue les ressources.
+| Action | Recommandation | Explication technique |
+|---|---|---|
+| ✅ **À FAIRE** | **Prendre des notes en continu** | N'attendez pas le dernier jour du pentest pour rédiger. Prenez des captures d'écran et notez vos commandes au fur et à mesure que vous progressez. Des outils de prise de notes collaboratifs sont vitaux. |
+| ❌ **À NE PAS FAIRE** | **Copier-coller le rapport Nessus** | Rendre l'export PDF brut généré par un scanner de vulnérabilités (Nessus, OpenVAS) est une faute professionnelle grave. Les scanners génèrent des "Faux Positifs" et n'ont aucune idée du contexte métier de l'entreprise. Votre valeur ajoutée est l'analyse humaine. |
 
 <br>
 
@@ -90,7 +91,7 @@ Le reporting est la **phase de valorisation** de l'ensemble des travaux offensif
 
 ## Conclusion
 
-!!! quote "L'impact par la communication"
-    Le reporting n'est pas une corvée administrative, c'est l'acte final qui permet à la sécurité de progresser. Un excellent auditeur est avant tout celui qui sait faire comprendre le danger et motiver le changement.
+!!! quote "Ce qu'il faut retenir"
+    Un bon rapport de sécurité est un document hybride : c'est à la fois un audit technique de très haut niveau et un document de communication d'entreprise. Il doit être compréhensible par un membre du comité de direction (qui lira la synthèse de 2 pages) et par un développeur Senior (qui lira les 50 pages d'annexes techniques).
 
-> La mission technique s'achève ici. Pour revoir l'ensemble de l'arsenal, retournez au **[Hub Cyber Tools](../index.md)**.
+> Pour réussir ce grand écart rédactionnel, l'industrie a standardisé la présentation des livrables. Découvrons l'anatomie exacte d'un rapport professionnel : **[La Structure d'un Rapport →](./rapport-structure.md)**.

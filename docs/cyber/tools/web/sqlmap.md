@@ -1,4 +1,4 @@
-﻿---
+---
 description: "SQLMap — L'outil de référence mondial pour la détection et l'exploitation automatisée des failles d'injection SQL. Il permet d'extraire la base de données entière et de prendre le contrôle du serveur."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WEB", "DATABASE", "SQLMAP", "SQL INJECTION"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WEB", "DATABASE", "SQLMAP", "SQL INJECTION"]
   data-time="~50 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/sqlmap.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/sqlmap-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -184,6 +186,8 @@ Par défaut, un WAF (Cloudflare, ModSecurity) va bloquer l'attaque instantanéme
     SQLMap est magique. Il a transformé la discipline extrêmement complexe de l'exploitation SQL aveugle en un processus presque entièrement automatisé. Sa capacité à détecter les WAF, à utiliser des scripts d'obfuscation (`tamper`) et à craquer automatiquement les mots de passe de base de données en fait l'outil le plus craint par les administrateurs systèmes. L'avoir dans son arsenal est obligatoire, mais savoir restreindre son appétit (avec `--batch` et `-p`) est ce qui fait un bon pentester.
 
 > L'ensemble du socle "Pentest Web & API" est désormais en place. Depuis l'interception chirurgicale avec Burp, en passant par le bruit massif de ffuf et les tirs de précision de Nuclei et SQLMap, la surface d'attaque applicative est totalement couverte.
+
+
 
 
 

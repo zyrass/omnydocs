@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Burp Suite — L'outil indispensable du pentester Web. Un proxy d'interception permettant de manipuler, analyser et attaquer les requêtes HTTP/HTTPS à la volée."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WEB", "PROXY", "BURP SUITE", "INTERCEPTION"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WEB", "PROXY", "BURP SUITE", "INTERCEPTION"]
   data-time="~60 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/burp.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/burpsuite-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -215,6 +217,8 @@ Burp Suite est au cœur de l'évasion des **WAF (Web Application Firewalls)**. P
     Si vous ne deviez maîtriser qu'un seul outil pour toute votre carrière en cybersécurité offensive, c'est **Burp Suite**. Presque 80% des failles applicatives (Injections SQL, XSS, CSRF, IDOR) sont impossibles à détecter avec un simple navigateur, car les navigateurs nous empêchent de modifier les champs cachés ou les cookies. Burp vous donne le pouvoir de "voir la matrice" en temps réel.
 
 > Bien que Burp Community soit gratuit, sa version pro est très chère et il limite la vitesse de son module Intruder. Si vous cherchez un outil totalement gratuit, open-source, et complètement automatisable via CI/CD, l'alternative numéro un est **[OWASP ZAP →](./zap.md)**.
+
+
 
 
 

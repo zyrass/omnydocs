@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Shodan & Censys — Moteurs de recherche pour équipements connectés : trouver des serveurs, caméras, bases de données et vulnérabilités sans aucun scan direct."
 icon: lucide/book-open-check
 tags: ["OSINT", "SHODAN", "CENSYS", "RECONNAISSANCE", "IOT", "RED TEAM"]
@@ -13,7 +13,9 @@ tags: ["OSINT", "SHODAN", "CENSYS", "RECONNAISSANCE", "IOT", "RED TEAM"]
   data-time="~30 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/shodan-censys.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/Logo_of_Shodan.svg.png" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -222,6 +224,8 @@ _C'est la méthode de référence absolue pour découvrir des sous-domaines cach
 [^1]: **Système de Traitement Automatisé de Données (STAD)** : Désigne tout ensemble organisé de moyens (matériels et logiciels) permettant de collecter, enregistrer, stocker, modifier, manipuler, envoyer, visualiser ou détruire des données. Un serveur indexé par Shodan est un STAD.
 
 [^2]: **Open Source Intelligence (OSINT)** : Méthode de collecte d'informations provenant uniquement de sources publiquement accessibles. L'OSINT passif ne laisse aucune trace chez la cible.
+
+
 
 
 

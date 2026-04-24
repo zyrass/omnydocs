@@ -1,5 +1,5 @@
-﻿---
-description: "nslookup — L'outil de résolution DNS "legacy". Moins complet que dig, mais omniprésent sur tous les systèmes Windows, ce qui en fait un outil clé en Post-Exploitation."
+---
+description: "nslookup — L'outil de résolution DNS 'legacy'. Moins complet que dig, mais omniprésent sur tous les systèmes Windows, ce qui en fait un outil clé en Post-Exploitation."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "RESEAU", "DNS", "NSLOOKUP", "WINDOWS"]
 ---
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "RESEAU", "DNS", "NSLOOKUP", "WINDOWS"]
   data-time="~10 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/nslookup.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/terminal.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -133,6 +135,8 @@ Le serveur répondra avec le nom complet et l'adresse IP de la machine critique 
     `nslookup` est comme un couteau à beurre. Moins tranchant et moins précis qu'un scalpel (`dig`), il compense par sa disponibilité totale. Vous le trouverez installé sur absolument tous les systèmes Microsoft Windows depuis 1993, ce qui en fait un allié indéboulonnable des missions de piratage en réseau interne.
 
 > Si vous êtes sous Linux et que `dig` vous paraît trop complexe car vous voulez juste obtenir une adresse IP le plus rapidement et silencieusement possible pour vos scripts Bash, le petit utilitaire **[host →](./host.md)** est fait pour vous.
+
+
 
 
 

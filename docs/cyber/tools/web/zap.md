@@ -1,4 +1,4 @@
-﻿---
+---
 description: "OWASP ZAP (Zed Attack Proxy) — L'alternative gratuite et open-source à Burp Suite. Le couteau suisse du DevSecOps, conçu pour l'automatisation et l'intégration continue."
 icon: lucide/book-open-check
 tags: ["BLUE TEAM", "RED TEAM", "WEB", "PROXY", "OWASP", "DEVSECOPS"]
@@ -13,7 +13,9 @@ tags: ["BLUE TEAM", "RED TEAM", "WEB", "PROXY", "OWASP", "DEVSECOPS"]
   data-time="~50 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/zap.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/zaproxy-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -194,6 +196,8 @@ Comme Burp, ZAP est un proxy, il permet de modifier les requêtes à la volée g
     Burp Suite est le roi des Pentesters manuels, mais ZAP est le roi des Ingénieurs DevSecOps. Entièrement scriptable, puissant, et porté par une communauté immense, ZAP est l'outil parfait pour ceux qui refusent de payer des licences à 400€/an pour avoir un fuzzer non bridé. Sa maîtrise via Docker et son API REST est une compétence vitale en 2026.
 
 > Les Proxys (Burp, ZAP) nous permettent de manipuler le trafic que nous voyons. Mais comment attaquer des dossiers cachés, des API secrètes et des fichiers que le site ne nous montre pas ? C'est le royaume du Fuzzing aveugle. Préparez-vous à découvrir la vitesse absolue avec le roi de la découverte web : **[ffuf →](./ffuf.md)**.
+
+
 
 
 

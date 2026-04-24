@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Medusa — L'alternative robuste à Hydra pour le brute-force réseau. Conçu pour une exécution ultra-parallélisée et une grande stabilité sur les protocoles capricieux comme SMB et FTP."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "PASSWORD", "ONLINE", "MEDUSA", "BRUTEFORCE"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "PASSWORD", "ONLINE", "MEDUSA", "BRUTEFORCE"]
   data-time="~20 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/medusa.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/medusa-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -136,6 +138,8 @@ Pourquoi choisir l'un plutôt que l'autre dans un Pentest ?
     Medusa n'est pas révolutionnaire, mais c'est un outil très apprécié par les ingénieurs réseau et les auditeurs qui ont besoin d'attaquer des centaines de routeurs ou serveurs SSH simultanément de manière parfaitement stable. Gardez à l'esprit que ces attaques génèrent énormément de logs et ne passeront jamais inaperçues face à un SOC.
 
 > Que vous utilisiez Hydra, Medusa, Hashcat ou John The Ripper, l'outil en lui-même n'est que l'arme. Les munitions de cette arme, c'est ce qui fait la différence entre un hackeur amateur et un professionnel. Plongeons dans la plus grande bibliothèque de dictionnaires de la planète : **[SecLists →](./seclists.md)**.
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 description: "HAProxy — Le répartiteur de charge (Load Balancer) et proxy inverse ultra-performant pour garantir la haute disponibilité et la sécurité des applications web."
 icon: lucide/book-open-check
 tags: ["INFRA", "HAPROXY", "LOAD BALANCING", "RÉSEAU", "DISPONIBILITÉ", "RED TEAM"]
@@ -13,7 +13,9 @@ tags: ["INFRA", "HAPROXY", "LOAD BALANCING", "RÉSEAU", "DISPONIBILITÉ", "RED T
   data-time="~1 heure">
 </div>
 
-<img src="../../../assets/images/cyber/haproxy.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/Haproxy-logo.png" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -122,6 +124,8 @@ _Les ACL permettent de détecter les signatures d'outils de scan connus et de re
 > Pour une analyse approfondie des performances de votre proxy, activez l'interface de statistiques via la directive `stats enable`.
 
 ---
+
+
 
 
 

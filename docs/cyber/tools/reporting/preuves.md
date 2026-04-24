@@ -1,69 +1,94 @@
-﻿---
-description: "Preuves d'exploitation — Comment collecter, documenter et présenter vos preuves d'intrusion de manière irréfutable et professionnelle."
-icon: lucide/book-open-check
-tags: ["REPORTING", "PENTEST", "PREUVES", "POC", "AUDIT"]
+---
+description: "Preuves & Reproductibilité — L'art de documenter une faille. Comment rédiger une fiche de vulnérabilité irréfutable (PoC) pour les développeurs."
+icon: lucide/file-text
+tags: ["REPORTING", "LIVRABLE", "POC", "VULNERABILITE"]
 ---
 
-# Collecte des Preuves d'Exploitation
+# Preuves & Reproductibilité — Le Constat d'Huissier
 
 <div
   class="omny-meta"
-  data-level="🟡 Intermédiaire"
-  data-version="1.0"
-  data-time="~30 minutes">
+  data-level="🟢 Fondamental"
+  data-version="Théorie Pratique"
+  data-time="~10 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/preuves.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/preuves.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
-!!! quote "Analogie pédagogique — La Scène de Crime"
-    Imaginez un détective sur une scène de crime. S'il dit au juge "Je suis sûr que c'est lui, je l'ai vu", il risque d'être ignoré. S'il apporte une photo des empreintes,**La Collecte de Preuves** (Evidence Collection) est l'étape la plus critique d'un audit de sécurité. Sans preuves tangibles (captures d'écran, logs, sorties de commandes), une vulnérabilité n'est qu'une hypothèse. La qualité et l'intégrité de ces preuves déterminent la crédibilité de l'auditeur et la capacité du client à comprendre et reproduire le problème.
+!!! quote "Analogie pédagogique — L'Enquêteur et le Juge"
+    Si vous allez voir un juge en disant : "Cette personne a volé une voiture", le juge vous rira au nez. Si vous y allez avec la vidéo de surveillance, les empreintes digitales sur la portière et le relevé GPS, le juge vous croira.
+    En cybersécurité, le "Juge", c'est le Développeur (ou l'Administrateur Système). Si vous lui dites juste "Le site est vulnérable aux XSS", il fermera votre ticket. Vous devez fournir le **PoC (Proof of Concept)**, c'est-à-dire le constat d'huissier irréfutable.
+
+La "Partie 3" d'un rapport de pentest est constituée d'une suite de "Fiches de Vulnérabilités". Chaque faille découverte possède sa propre fiche.
+L'objectif unique de cette fiche est la **Reproductibilité**. Un développeur qui lit votre fiche doit pouvoir relancer exactement la même attaque sur son propre ordinateur, constater la faille de ses propres yeux, la corriger, et relancer l'attaque pour prouver que sa correction fonctionne.
 
 <br>
 
 ---
 
-## Les Principes d'une Bonne Preuve
+## L'Anatomie d'une Fiche de Vulnérabilité
 
-Pour être considérée comme valide et professionnelle, une preuve doit respecter plusieurs critères :
-- **Clarté** : L'information critique doit être immédiatement visible (entourage, fléchage).
-- **Contexte** : Inclure des éléments permettant d'identifier la cible (adresse IP, nom d'hôte, URL).
-- **Traçabilité** : Indiquer la date et l'heure de la capture (timestamp).
-- **Intégrité** : Ne jamais altérer la donnée originale. Si une modification est nécessaire (anonymisation), elle doit être précisée.
+Une fiche de faille professionnelle est toujours divisée en 5 sections invariables.
+
+```mermaid
+flowchart TD
+    %% Couleurs à fort contraste
+    classDef root fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000
+    classDef step fill:#e2e8f0,stroke:#64748b,stroke-width:2px,color:#000
+
+    A("🚨 Nom de la Faille + Score") --> B("📝 1. Description Technique")
+    A --> C("💥 2. Impact Métier")
+    A --> D("📸 3. Preuve de Concept (PoC)")
+    A --> E("🛠️ 4. Recommandation (Remédiation)")
+    A --> F("🔗 5. Références")
+
+    class A root
+    class B,C,D,E,F step
+```
+
+### 1. Le Titre et l'Emplacement (Où ça se passe)
+Soyez extrêmement précis.
+- ❌ Mauvais : `Faille SQL Injection`
+- ✅ Bon : `[Critique] Injection SQL (Time-Based) sur le paramètre 'id_user' de la page /profil.php`
+
+### 2. La Description & L'Impact (Pourquoi c'est grave)
+- **Description** : Expliquer brièvement le mécanisme de la faille. (Ex: "Le paramètre n'est pas échappé avant d'être envoyé à la base de données PostgreSQL.")
+- **Impact** : Traduire cela en risque. (Ex: "Un attaquant peut extraire l'intégralité des mots de passe de la base de données, ou effacer les données de production.")
+
+### 3. La Preuve de Concept / PoC (Comment reproduire)
+C'est le cœur de la fiche. C'est le tutoriel pas-à-pas.
+1. Allez sur l'URL `https://site.com/profil.php?id=1`
+2. Modifiez l'URL pour injecter la payload : `https://site.com/profil.php?id=1' OR 1=1--`
+3. Constatez que vous êtes connecté en tant qu'Administrateur.
+*(Insérez toujours une capture d'écran nette de l'étape 3, en floutant les données personnelles des vrais clients si nécessaire).*
+
+### 4. La Recommandation (Comment réparer)
+Il ne suffit pas de critiquer, il faut aider. Si vous connaissez le langage utilisé (ex: PHP), donnez la fonction exacte à utiliser.
+- ❌ Mauvais : "Sécurisez vos requêtes SQL."
+- ✅ Bon : "Utilisez des requêtes préparées (Prepared Statements) avec l'objet PDO en PHP : `$stmt = $pdo->prepare('SELECT * FROM users WHERE id = :id');`"
 
 <br>
 
 ---
 
-## Techniques de Collecte
+## Bonnes & Mauvaises Pratiques (Do's & Don'ts)
 
-### 1. Captures d'écran (Screenshots)
-1.  **État initial** : Montrer la page ou le service normal.
-2.  **L'injection** : Montrer la payload envoyée (ex: `' OR 1=1 --`).
-3.  **Le résultat** : Montrer l'accès obtenu (ex: dashboard administrateur).
-4.  **La preuve d'impact** : Exécuter une commande neutre (`whoami`, `ipconfig`, `id`).
+| Action | Recommandation | Explication technique |
+|---|---|---|
+| ✅ **À FAIRE** | **Fournir la requête HTTP brute** | Lors d'une attaque Web, une capture d'écran du navigateur ne suffit pas toujours. Insérez l'export texte de la requête Burp Suite (Headers HTTP compris) et la réponse du serveur (HTTP 200 OK avec le code malveillant en surbrillance). |
+| ❌ **À NE PAS FAIRE** | **Prendre en photo des outils de hacking noirs/verts** | Le management du client n'a pas besoin de voir 15 captures d'écran illisibles de Nmap, Metasploit ou SQLMap avec du texte vert sur fond noir. Capturez le *résultat* visible de l'attaque (ex: une capture d'écran de l'ordinateur de la secrétaire auquel vous avez accédé), pas la matrice de code qui y a mené. Gardez les logs console pour les annexes. |
 
----
-
-## Erreurs à Éviter (OpSec & Pro)
-
-!!! danger "Les données client"
-    Ne laissez **JAMAIS** des données sensibles en clair dans votre rapport (numéros de CB, mots de passe, documents confidentiels). Masquez-les systématiquement.
-
-!!! warning "Le 'Vandalisme'"
-    N'utilisez pas de messages provocateurs pour vos PoC (ex: `HACKED BY ME`). Utilisez des fichiers neutres comme `audit_omnyvia.txt` contenant la date et l'heure de l'audit.
+<br>
 
 ---
 
 ## Conclusion
 
 !!! quote "Ce qu'il faut retenir"
-    Une preuve est réussie si un technicien du client peut reproduire la faille en suivant vos étapes sans vous appeler. La qualité de vos preuves définit votre professionnalisme : soyez clair, précis, et surtout, respectueux de la confidentialité des données que vous manipulez.
+    La reproductibilité est la marque de fabrique d'un auditeur d'élite. Si un développeur vous appelle deux semaines après la fin du test pour vous dire "Je n'arrive pas à reproduire votre attaque, ça ne marche pas", c'est que votre fiche de preuve (PoC) était mal rédigée. Un bon PoC ne laisse aucune place à l'interprétation.
 
-> Une fois vos preuves collectées, vous devez proposer une solution pour corriger la faille dans votre **[Plan de Remédiation →](./remediation.md)**.
-
-
-
-
-
+> La rédaction d'une fiche implique obligatoirement de donner une note (une gravité) à la vulnérabilité découverte. Cette notation ne doit jamais se faire "au doigt mouillé" ou à l'instinct. C'est le rôle du standard mondial de notation : **[Le Score CVSS →](./cvss.md)**.

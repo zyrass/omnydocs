@@ -1,4 +1,4 @@
-﻿---
+---
 description: "dog — Le client de requête DNS moderne, rapide et coloré écrit en Rust. L'alternative contemporaine à dig supportant le DNS-over-HTTPS (DoH) et le JSON."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "RESEAU", "DNS", "DOG", "RUST"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "RESEAU", "DNS", "DOG", "RUST"]
   data-time="~10 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/dog.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/dog.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -158,6 +160,8 @@ dog omnyvia.com MX --json | jq '.'
     `dog` est l'exemple parfait de la nouvelle génération d'outils (comme `bat` pour `cat` ou `ripgrep` pour `grep`). Il ne réinvente pas la roue, mais il rend la lecture et l'utilisation quotidienne d'une tâche fastidieuse beaucoup plus agréable grâce aux couleurs et aux formats modernes.
 
 > Maintenant que nous avons vu tous les outils pour interroger "proprement" les serveurs DNS (dig, nslookup, host, dog), il est temps de passer aux méthodes offensives pour arracher les secrets de ces serveurs avec l'automatisation de **[dnsenum →](./dnsenum.md)**.
+
+
 
 
 

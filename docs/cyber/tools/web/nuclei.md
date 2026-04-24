@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Nuclei — Le scanner de vulnérabilités Web ultra-rapide basé sur des templates YAML. L'outil favori des Bug Bounty Hunters pour détecter les CVE récentes avant tout le monde."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WEB", "SCANNER", "NUCLEI", "CVE", "BUG BOUNTY"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WEB", "SCANNER", "NUCLEI", "CVE", "BUG BOUNTY"]
   data-time="~45 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/nuclei.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/nuclei-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -192,6 +194,8 @@ Parce qu'il est la star du Bug Bounty, Nuclei est la cible numéro 1 des WAF (We
     Nuclei représente le summum du paradigme "Infrastructure as Code" appliqué à la cybersécurité. Sa conception modulaire basée sur le YAML permet à la communauté mondiale de réagir à une faille zero-day et de produire une arme de détection massive en quelques minutes. C'est le scanner de la génération Cloud/DevSecOps.
 
 > Si Nuclei excelle dans la détection des failles standardisées (CVE), il est inefficace pour exploiter une faille logique très spécifique nécessitant des dizaines d'étapes algorithmiques. Pour automatiser l'exploitation d'une injection SQL (et extraire la base de données entière), il faut faire appel au maître incontesté de la discipline : **[SQLMap →](./sqlmap.md)**.
+
+
 
 
 

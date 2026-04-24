@@ -1,4 +1,4 @@
-﻿---
+---
 description: "dnsenum — Outil offensif d'énumération DNS. Automatise les requêtes de transfert de zone et le bruteforce de sous-domaines pour cartographier un périmètre cible."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "RESEAU", "DNS", "DNSENUM", "BRUTEFORCE", "OSINT"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "RESEAU", "DNS", "DNSENUM", "BRUTEFORCE", "OSINT"]
   data-time="~20 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/dnsenum.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/dnsenum-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -158,6 +160,8 @@ Le terminal va afficher successivement les 3 phases de l'algorithme :
     Dnsenum (aux côtés d'outils plus modernes comme `ffuf` ou `amass`) est l'outil parfait pour passer du statut "d'Observateur" à celui "d'Attaquant Actif". Il tire parti d'une vérité absolue en cybersécurité : la taille de la surface d'attaque est proportionnelle au nombre de serveurs découverts. Trouver le serveur de développement oublié par les administrateurs est souvent la clé pour compromettre le réseau principal.
 
 > Maintenant que le réseau est scanné et les sous-domaines énumérés, comment compromettre l'architecture maîtresse d'une entreprise : l'Active Directory Windows ? Plongez dans les ténèbres avec l'outil d'empoisonnement absolu : **[Responder →](../responder.md)**.
+
+
 
 
 

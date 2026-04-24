@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Feroxbuster — Le fuzzer récursif écrit en Rust. L'outil idéal pour cartographier automatiquement l'intégralité d'une arborescence complexe sans intervention humaine."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WEB", "FUZZING", "FEROXBUSTER", "RUST", "RECURSION"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WEB", "FUZZING", "FEROXBUSTER", "RUST", "RECURSION"]
   data-time="~35 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/feroxbuster.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/feroxbuster-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -181,6 +183,8 @@ Comme tous les fuzzer modernes, il faut tricher avec les en-têtes pour passer s
     Écrit en Rust, ultra-rapide, doté d'une interface console magnifique et capable de s'interfacer intelligemment avec Burp Suite via `--replay-proxy`, Feroxbuster est souvent considéré comme l'état de l'art du brute-force de dossiers en 2026. Si vous devez cartographier un site immense dont vous ne connaissez rien, laissez la récursivité travailler pour vous.
 
 > Ces nouveaux outils en Go et Rust sont impressionnants, mais il fut une époque où l'automatisation web passait par un outil bruyant, agressif et écrit en Perl. Découvrons le dinosaure légendaire des scanners web : **[Nikto →](./nikto.md)**.
+
+
 
 
 

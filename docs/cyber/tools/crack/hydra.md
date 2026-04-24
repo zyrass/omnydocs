@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Hydra — Le brute-forceur réseau multi-protocoles. L'outil historique pour attaquer les services d'authentification en ligne (SSH, FTP, HTTP, SMB) à coups de dictionnaires."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "PASSWORD", "ONLINE", "HYDRA", "BRUTEFORCE"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "PASSWORD", "ONLINE", "HYDRA", "BRUTEFORCE"]
   data-time="~30 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/hydra.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/hydra-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -175,6 +177,8 @@ Par défaut, Hydra est l'inverse de la furtivité.
     Aussi vieux qu'Internet, Hydra reste l'outil de référence absolu pour taper sur les protocoles réseau (SSH, FTP, MySQL, RDP). C'est un marteau. Il ne demande pas de finesse, juste un bon dictionnaire et une cible dont le pare-feu est mal configuré. Ne l'utilisez jamais pour le Web (Burp/ffuf sont meilleurs), et méfiez-vous de la stratégie de verrouillage de compte (Lockout) de votre client.
 
 > Mais si Hydra est trop vieux, existe-t-il une alternative plus stable, plus rapide et codée dans une logique similaire ? Bien sûr. L'éternel frère ennemi d'Hydra, qui le remplace parfois dans certains workflows réseau : **[Medusa →](./medusa.md)**.
+
+
 
 
 

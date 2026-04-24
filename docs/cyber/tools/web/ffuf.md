@@ -1,4 +1,4 @@
-﻿---
+---
 description: "ffuf (Fuzz Faster U Fool) — Le fuzzer Web le plus rapide et le plus polyvalent du marché, écrit en Go. L'outil indispensable pour la découverte de dossiers, d'API et de VHosts cachés."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WEB", "FUZZING", "FFUF", "RECONNAISSANCE"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WEB", "FUZZING", "FFUF", "RECONNAISSANCE"]
   data-time="~45 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/ffuf.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/fuff-logo.webp" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -188,6 +190,8 @@ Par défaut, ffuf va générer une tornade de requêtes (jusqu'à 10 000 par sec
     `ffuf` est le fer de lance du pentester web moderne. Sa capacité à injecter le mot `FUZZ` littéralement n'importe où (URL, JSON, Headers, Cookies) le rend incroyablement plus souple que l'ancienne génération d'outils. Maîtriser ses options de filtrage (`-mc`, `-fc`, `-fs`) est ce qui sépare l'ingénieur red-team du simple bidouilleur bruyant.
 
 > Si `ffuf` est un outil universel puissant, certains auditeurs préfèrent des outils dédiés ayant des comportements très spécifiques. Pour le fuzzing récursif automatisé (qui explore de lui-même les sous-dossiers trouvés), il est temps de découvrir la brutalité de **[Feroxbuster →](./feroxbuster.md)**.
+
+
 
 
 

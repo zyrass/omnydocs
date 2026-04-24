@@ -1,4 +1,4 @@
-﻿---
+---
 description: "hostapd-wpe — L'arme ultime pour cloner un réseau WPA2-Enterprise (802.1X) et voler les identifiants Windows (Active Directory) des employés par tromperie (Evil Twin)."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WIFI", "ENTERPRISE", "EVIL TWIN", "ACTIVE DIRECTORY"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WIFI", "ENTERPRISE", "EVIL TWIN", "ACTIVE DIRECTORY"]
   data-time="~45 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/hostapd-wpe.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/kali-tools-icon-missing.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -169,6 +171,8 @@ asleap -W /usr/share/wordlists/rockyou.txt -C <Challenge_Héxa> -R <Response_Hé
     `hostapd-wpe` est le pont qui relie l'audit Physique (Hardware/Radio) à l'audit Interne (Active Directory). Le WPA-Enterprise est la norme dans les banques, hôpitaux et grandes entreprises. Si l'attaquant arrive à cloner le réseau et à capturer les identifiants d'un simple commercial en buvant un café dans le hall d'accueil, il possède désormais les clés pour s'attaquer de l'intérieur au réseau interne de l'entreprise.
 
 > Vous avez obtenu la clé WiFi ou les identifiants, et vous êtes maintenant connecté au réseau local (LAN) de l'entreprise. L'audit réseau interne commence. Plongez dans la matrice avec le standard du scan de ports : **[Nmap →](../network/nmap.md)**.
+
+
 
 
 

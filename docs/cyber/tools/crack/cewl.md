@@ -1,4 +1,4 @@
-﻿---
+---
 description: "CeWL (Custom Word List generator) — Un aspirateur de mots-clés. Il parcourt (spider) le site web d'une entreprise pour en extraire tout le jargon métier afin de créer un dictionnaire de mots de passe sur-mesure."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "PASSWORD", "WORDLISTS", "CEWL", "SPIDER"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "PASSWORD", "WORDLISTS", "CEWL", "SPIDER"]
   data-time="~15 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/cewl.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/cewl-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -121,6 +123,8 @@ cewl -d 2 -e --email_file emails_omnyvia.txt https://omnyvia.com
     CeWL est l'outil parfait pour contrer les politiques de mots de passe fortes en entreprise. Lorsqu'une DSI oblige les employés à utiliser 12 caractères complexes, l'humain compense en utilisant le nom de son département ou le nom du produit phare de la boîte (qui font généralement plus de 8 lettres). CeWL extrait cette essence même et la transforme en dictionnaire.
 
 > Nous avons les dictionnaires mondiaux (SecLists) et les dictionnaires sur-mesure (CeWL). Mais comment faire si nous ne voulons pas de "mots", mais si nous voulons générer de manière mathématique TOUTES les combinaisons possibles (ex: toutes les plaques d'immatriculation de France, ou tous les numéros de téléphone) ? C'est le rôle du forgeron : **[Crunch →](./crunch.md)**.
+
+
 
 
 

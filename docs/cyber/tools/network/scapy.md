@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Scapy — Le couteau suisse ultime de la manipulation de paquets en Python. Permet de forger, envoyer, renifler et disséquer des paquets réseau personnalisés."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "RESEAU", "PYTHON", "SCAPY", "FORGE"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "RESEAU", "PYTHON", "SCAPY", "FORGE"]
   data-time="~45 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/scapy.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/scapy-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -173,6 +175,8 @@ else:
     Scapy est à l'ingénieur réseau ce que le bistouri est au chirurgien. Ce n'est pas un outil de force brute, c'est l'outil de l'intelligence réseau. Il requiert une excellente compréhension théorique du modèle OSI (Savoir ce qu'est un flag PSH/ACK, savoir comment marche l'ICMP), mais il permet, en retour, de réaliser des tests de sécurité qu'absolument aucun autre outil grand public ne peut accomplir de manière aussi personnalisée.
 
 > Maintenant que nous avons validé la base du réseau (Scans, Ports, Paquets), il faut identifier logiquement les machines (Leurs Noms de Domaines) pour les attaquer. C'est le rôle de la **[Suite de diagnostic DNS →](./dns/index.md)**.
+
+
 
 
 

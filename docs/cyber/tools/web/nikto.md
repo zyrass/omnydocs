@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Nikto — L'ancêtre des scanners de vulnérabilités web. Un outil écrit en Perl, très bruyant, mais incroyablement efficace pour trouver des erreurs de configuration basiques (fichiers par défaut, en-têtes manquants)."
 icon: lucide/book-open-check
 tags: ["BLUE TEAM", "RED TEAM", "WEB", "SCANNER", "NIKTO", "LEGACY"]
@@ -13,7 +13,9 @@ tags: ["BLUE TEAM", "RED TEAM", "WEB", "SCANNER", "NIKTO", "LEGACY"]
   data-time="~20 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/nikto.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/nikto-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -170,6 +172,8 @@ nikto -h http://target.com -evasion 13
     Nikto est vieillissant, lent (car écrit en Perl et synchrone) et bruyant. Pourtant, il reste installé par défaut sur Kali Linux car il excelle dans la détection des vulnérabilités de configuration (Headers, méthodes HTTP PUT/DELETE activées). Il incarne la philosophie du "Quick Win" de la cybersécurité du début des années 2000.
 
 > Le monde a évolué. Aujourd'hui, les serveurs web ne sont plus de vieux Apaches avec des scripts CGI, ce sont des applications React interagissant avec des API complexes. Pour scanner ces technologies modernes à la vitesse de la lumière avec des modèles mis à jour toutes les heures, il faut abandonner le dinosaure Perl et passer à l'arme absolue codée en Go : **[Nuclei →](./nuclei.md)**.
+
+
 
 
 

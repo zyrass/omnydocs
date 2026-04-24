@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Wifite — L'orchestrateur automatisé de pentest WiFi. Il enchaîne automatiquement les attaques (WPS, WEP, WPA) sur toutes les cibles détectées."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WIFI", "WIFITE", "AUTOMATISATION", "CRACKING"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WIFI", "WIFITE", "AUTOMATISATION", "CRACKING"]
   data-time="~15 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/wifite.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/wifite-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -166,6 +168,8 @@ Il suffira ensuite d'utiliser **Hashcat** sur votre ordinateur surpuissant à la
 > Wifite tente de capturer les Handshakes WPA de manière classique, mais une révolution a eu lieu en 2018 permettant de récupérer les éléments cryptographiques sans déconnecter personne. Explorez cette technique avec les **[hcxtools (PMKID) →](./hcxtools.md)**.
 
 <br>
+
+
 
 
 

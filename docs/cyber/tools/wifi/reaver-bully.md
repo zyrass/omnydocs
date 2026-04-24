@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Reaver & Bully — Outils historiques pour attaquer la vulnérabilité béante du protocole WPS (Wi-Fi Protected Setup) via force brute ou Pixie Dust."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WIFI", "WPS", "REAVER", "BULLY", "PIXIE DUST"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WIFI", "WPS", "REAVER", "BULLY", "PIXIE DUST"]
   data-time="~15 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/reaver-bully.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/reaver-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -172,6 +174,8 @@ sudo reaver -i wlan0mon -b 00:11:22:33:44:55 -c 6 -N -d 3 -vv
 > Vous savez attaquer les clés pour tout le monde (WPA-PSK), mais comment auditer les réseaux d'Entreprise, où chaque employé possède un compte et un mot de passe différent pour le WiFi (WPA-Enterprise) ? Entrez dans le monde des attaques "Evil Twin" avec **[hostapd-wpe →](./hostapd-wpe.md)**.
 
 <br>
+
+
 
 
 

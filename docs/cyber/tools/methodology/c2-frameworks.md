@@ -1,4 +1,4 @@
-﻿---
+---
 description: "C2 (Command & Control) Frameworks — Le cœur névralgique des opérations Red Team modernes pour contrôler des parcs de machines compromises (Cobalt Strike, Sliver, Havoc)."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "C2", "COMMAND AND CONTROL", "METHODOLOGIE", "INFRASTRUCTURE"]
@@ -13,7 +13,11 @@ tags: ["RED TEAM", "C2", "COMMAND AND CONTROL", "METHODOLOGIE", "INFRASTRUCTURE"
   data-time="~1 heure">
 </div>
 
-<img src="../../../assets/images/cyber/c2-frameworks.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/c2-frameworks.svg" width="250" align="center" />
+</div>
+
+![Logo](../../../assets/images/cyber/c2-frameworks.svg){: style="width: 100px; display: block; margin: 0 auto;" }
 
 ## Introduction
 
@@ -128,6 +132,8 @@ Voici comment une Red Team mène une opération de compromission de domaine avec
 <br>
 
 [^1]: **Système de Traitement Automatisé de Données (STAD)** : Serveur, ordinateur ou téléphone. L'infection par un agent (Beacon) pour prendre le contrôle à distance caractérise l'infraction suprême au STAD.
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Bettercap — Le couteau suisse moderne pour les attaques Man-in-the-Middle (MITM). Remplace le vénérable Ettercap pour l'interception et l'altération du trafic réseau."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "RESEAU", "MITM", "BETTERCAP", "SPOOFING"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "RESEAU", "MITM", "BETTERCAP", "SPOOFING"]
   data-time="~20 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/bettercap.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/bettercap-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -163,6 +165,8 @@ On lance l'usurpation (Spoofing) et on active le mouchard pour lire les données
     Aujourd'hui, l'écrasante majorité du Web est en HTTPS. Lire le contenu des messages via Bettercap est donc devenu très difficile (SSL Stripping obsolète face à HSTS). Cependant, Bettercap reste redoutable pour deux choses : comprendre précisément vers quels serveurs les machines internes tentent de communiquer, et rediriger ces requêtes vers des serveurs pirates.
 
 > Bettercap force le trafic à passer par vous. Mais sur un réseau Microsoft Windows, il y a un outil encore plus pervers, qui *attend patiemment* qu'un ordinateur Windows pose une question, pour lui mentir et voler son mot de passe. C'est l'outil ultime de la Red Team : **[Responder →](./responder.md)**.
+
+
 
 
 

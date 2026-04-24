@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Kismet — Le sniffer réseau ultime et passif pour détecter les réseaux WiFi, Bluetooth et SDR invisibles, sans jamais révéler votre présence."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WIFI", "KISMET", "OSINT", "PASSIF"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WIFI", "KISMET", "OSINT", "PASSIF"]
   data-time="~20 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/kismet.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/kismet-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -161,6 +163,8 @@ Une fois la mission terminée (Ctrl+C sur le terminal), Kismet a généré plusi
 > Une fois l'environnement cartographié, si l'objectif est de trouver rapidement *lequel* des 50 réseaux de l'entreprise est le moins sécurisé (WPS, WEP), passez à l'automatisation de l'attaque avec **[Wifite →](./wifite.md)**.
 
 <br>
+
+
 
 
 

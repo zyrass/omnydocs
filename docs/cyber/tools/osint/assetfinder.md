@@ -1,4 +1,4 @@
-﻿---
+---
 description: "assetfinder — L'outil ultra-léger et rapide pour découvrir des sous-domaines et des domaines liés à une cible, par le célèbre TomNomNom."
 icon: lucide/book-open-check
 tags: ["OSINT", "ASSETFINDER", "RECONNAISSANCE", "SUBDOMAINS", "RED TEAM", "TOMNOMNOM"]
@@ -13,7 +13,9 @@ tags: ["OSINT", "ASSETFINDER", "RECONNAISSANCE", "SUBDOMAINS", "RED TEAM", "TOMN
   data-time="~10 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/assetfinder.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/kali-tools-icon-missing.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -217,6 +219,8 @@ _En moins de 10 secondes, vous passez d'un simple nom de domaine à une liste de
 [^1]: **Système de Traitement Automatisé de Données (STAD)** : Désigne tout serveur, application web ou réseau cible. Attaquer les serveurs découverts par assetfinder sans autorisation est un délit de compromission de STAD.
 
 [^2]: **Open Source Intelligence (OSINT)** : Collecte d'informations à partir de sources publiquement accessibles sur Internet, sans contact direct avec la cible.
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 description: "host — L'utilitaire de résolution DNS minimaliste. Idéal pour les scripts automatisés (Bash) ou les requêtes simples (IP vers Nom, Nom vers IP)."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "RESEAU", "DNS", "HOST", "SCRIPTING"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "RESEAU", "DNS", "HOST", "SCRIPTING"]
   data-time="~5 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/host.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/terminal.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -127,6 +129,8 @@ Le résultat sera une liste propre et parfaite de tous les serveurs internes de 
     Aujourd'hui, de nombreux professionnels de la sécurité ignorent `host` au profit de `dig` (qui possède l'option `+short` faisant quasiment la même chose). Cependant, sa syntaxe pure et son comportement "Unix-like" (pas de bavardage, que de l'information utile) en font un composant intemporel des boucles de scripts bash d'énumération réseau.
 
 > Les trois outils (dig, nslookup, host) posent une question au serveur DNS et attendent une réponse. Mais comment faire quand on veut automatiser la recherche de dizaines de sous-domaines cachés (ex: `vpn.cible.com`, `admin.cible.com`) ? Il faut passer à un outil de force brute offensif : **[Dnsenum →](./dnsenum.md)**.
+
+
 
 
 

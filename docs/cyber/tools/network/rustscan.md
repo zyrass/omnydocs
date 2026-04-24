@@ -1,4 +1,4 @@
-﻿---
+---
 description: "RustScan — Le scanner de ports nouvelle génération. Écrit en Rust, il est conçu pour être infiniment plus rapide que Nmap tout en s'intégrant parfaitement avec lui."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "RESEAU", "SCAN", "RUSTSCAN", "VITESSE"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "RESEAU", "SCAN", "RUSTSCAN", "VITESSE"]
   data-time="~15 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/rustscan.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/rustscan-logo.png" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -156,6 +158,8 @@ rustscan -a 10.10.10.5 -b 500
     RustScan est l'exemple parfait de l'innovation communautaire. Il ne cherche pas à réinventer la détection d'OS ou l'exécution de scripts NSE (où Nmap excelle depuis 25 ans). Il a simplement pris la seule faiblesse de Nmap (sa vitesse sur le balayage brut des ports) et l'a comblée avec la technologie moderne du langage Rust. 
 
 > Maintenant que nous avons des IP et des ports, nous devons comprendre si ces machines sont rattachées à des noms de domaines pour attaquer la logique de l'infrastructure. Retour aux fondamentaux avec la commande **[Ping →](./ping.md)** et la **[Suite DNS →](./dns/index.md)**.
+
+
 
 
 

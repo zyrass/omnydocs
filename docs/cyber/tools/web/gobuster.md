@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Gobuster — Un outil de force brute en Go ultra-rapide, spécialisé dans la découverte de dossiers cachés, de sous-domaines DNS et de Virtual Hosts."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "WEB", "DNS", "GOBUSTER", "BRUTE FORCE"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "WEB", "DNS", "GOBUSTER", "BRUTE FORCE"]
   data-time="~30 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/gobuster.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/gobuster-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -179,6 +181,8 @@ Comme tous les outils écrits en Go pour la performance, la furtivité n'est pas
     Gobuster est l'exemple parfait de l'outil UNIX "Do one thing and do it well". Il est moins flexible que `ffuf`, mais sa syntaxe à base de commandes (`dir`, `dns`, `vhost`) le rend infiniment plus rapide à dégainer pour un pentester sous pression. Il est le point de départ systématique de la phase active sur n'importe quel test d'intrusion web.
 
 > Et si nous voulions aller encore plus loin ? Gobuster découvre des dossiers, mais il faut le relancer à la main pour fouiller à l'intérieur de ces nouveaux dossiers. Pour automatiser cette exploration en profondeur comme un virus qui se répand, nous devons utiliser un outil de brute-force **récursif** : **[Feroxbuster →](./feroxbuster.md)**.
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Impacket — La collection incontournable de scripts Python pour l'exploitation bas niveau des protocoles Microsoft (SMB, Kerberos, WMI, MSRPC)."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "ACTIVE DIRECTORY", "IMPACKET", "KERBEROS", "PSEXEC"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "ACTIVE DIRECTORY", "IMPACKET", "KERBEROS", "PSEXEC"]
   data-time="~35 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/impacket.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/impacket-scripts-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -167,6 +169,8 @@ impacket-secretsdump CORP.LOCAL/Administrateur:SuperSecret123@10.0.0.8
     Si vous regardez des professionnels de la cybersécurité (HackTheBox, OSCP, Red Team), ils vivent à 90 % dans le dossier des scripts Impacket. C'est l'essence même du piratage Windows. Maîtriser comment construire des tickets Kerberos à la main ou comment manipuler le MSRPC via Python est ce qui sépare un "Script Kiddie" d'un véritable ingénieur en sécurité offensive.
 
 > L'ingénierie c'est bien, mais si l'entreprise possède 10 000 ordinateurs et 50 000 utilisateurs, comment trouver LE chemin pour aller de la secrétaire jusqu'à l'administrateur sans essayer les scripts Impacket au hasard ? Il vous faut la carte au trésor : **[BloodHound →](./bloodhound.md)**.
+
+
 
 
 

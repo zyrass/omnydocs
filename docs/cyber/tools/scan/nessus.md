@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Nessus — Le scanner de vulnérabilités propriétaire de référence. L'étalon-or des cabinets d'audit, réputé pour la précision de ses plugins et son taux quasi-nul de faux positifs."
 icon: lucide/book-open-check
 tags: ["BLUE TEAM", "RED TEAM", "VULNERABILITY", "NESSUS", "TENABLE", "AUDIT"]
@@ -13,7 +13,9 @@ tags: ["BLUE TEAM", "RED TEAM", "VULNERABILITY", "NESSUS", "TENABLE", "AUDIT"]
   data-time="~40 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/nessus.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/nessus-logo.png" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -207,6 +209,8 @@ Nessus n'est **absolument pas furtif**. C'est un outil d'audit, pas d'infiltrati
     Dans l'industrie professionnelle, Nessus est incontournable. Que ce soit pour valider la conformité d'une norme de sécurité bancaire, pour rassurer des actionnaires après une attaque, ou pour aider une équipe Blue Team à gérer son parc de 10 000 machines, le rapport Nessus est le juge de paix. Apprendre à utiliser son API REST pour l'intégrer dans des chaînes d'intégration continue (CI/CD) est l'une des compétences les plus recherchées du marché.
 
 > L'infrastructure de bas niveau (les ports, les systèmes d'exploitation) a été scannée. Mais aujourd'hui, les pare-feux bloquent quasiment tout, sauf un seul port : le trafic Web (443 - HTTPS). Pour entrer dans l'entreprise, il va falloir intercepter et altérer la logique même de leurs applications web. Préparez-vous à entrer dans la Matrice (Étape 6) avec les Maîtres de l'Interception : **[Burp Suite & OWASP ZAP →](../web/index.md)**.
+
+
 
 
 

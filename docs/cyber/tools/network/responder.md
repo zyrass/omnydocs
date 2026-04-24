@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Responder — L'outil de compromission initiale ultime en réseau local Windows. Empoisonne les protocoles LLMNR, NBT-NS et MDNS pour capturer les empreintes NTLMv2."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "ACTIVE DIRECTORY", "RESPONDER", "POISONING", "NTLM"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "ACTIVE DIRECTORY", "RESPONDER", "POISONING", "NTLM"]
   data-time="~15 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/responder.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/responder-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -161,6 +163,8 @@ hashcat -m 5600 hash.txt /usr/share/wordlists/rockyou.txt
     Si vous n'aviez le droit de garder qu'un seul outil pour compromettre une PME Windows de l'intérieur, ce serait Responder. Il profite du fait que Windows privilégie la "facilité d'utilisation" à la sécurité. S'il ne trouve pas un nom de serveur proprement, il fera confiance au premier inconnu (Responder) qui lui dira "Suis-moi, c'est par là".
 
 > Vous avez récupéré le mot de passe de `j.dupont` grâce à Responder. Mais ce compte est-il administrateur de sa machine ? De 10 autres machines ? De tout le domaine ? Pour tester ce mot de passe sur tout le réseau d'un coup, on utilise le fameux "Passe-Partout" de la Red Team : **[CrackMapExec →](./cme.md)**.
+
+
 
 
 

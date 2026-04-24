@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Hashcat — Le logiciel de cassage de mots de passe le plus rapide au monde. Son architecture massivement parallèle exploite la puissance des cartes graphiques (GPU) pour briser l'irrécupérable."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "PASSWORD", "CRACKING", "HASHCAT", "GPU"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "PASSWORD", "CRACKING", "HASHCAT", "GPU"]
   data-time="~45 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/hashcat.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/hashcat-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -161,6 +163,8 @@ hashcat -m 1000 -a 0 hashes.txt rockyou.txt -w 3 -O
     Hashcat est le prédateur ultime des bases de données hachées. Si le hachage est considéré "faible" par les standards modernes (comme le NTLM de Microsoft utilisé dans 90% des réseaux mondiaux), un cluster Hashcat bien configuré le considérera comme du "texte en clair chiffré dans du papier aluminium". C'est pour contrer Hashcat que les mots de passe de moins de 14 caractères sont désormais considérés comme obsolètes en entreprise.
 
 > Mais que faire si vous n'arrivez pas à obtenir la base de données hachée (pas de faille Web, pas d'accès local) ? Il ne vous reste plus qu'à attaquer le portail d'authentification par la porte de devant, en essayant les mots de passe directement via le réseau. C'est le rôle des bruteforceurs en ligne : **[Hydra →](./hydra.md)**.
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 description: "pfSense — Le pare-feu et routeur open-source de référence pour sécuriser les réseaux d'entreprise et domestiques."
 icon: lucide/book-open-check
 tags: ["INFRA", "PFSENSE", "FIREWALL", "RÉSEAU", "SÉCURITÉ", "RED TEAM"]
@@ -13,7 +13,9 @@ tags: ["INFRA", "PFSENSE", "FIREWALL", "RÉSEAU", "SÉCURITÉ", "RED TEAM"]
   data-time="~1 heure">
 </div>
 
-<img src="../../../assets/images/cyber/pfsense.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/PfSense_logo.png" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -32,6 +34,8 @@ tags: ["INFRA", "PFSENSE", "FIREWALL", "RÉSEAU", "SÉCURITÉ", "RED TEAM"]
     pfSense est le cerveau de la défense réseau. Sa polyvalence en fait un outil indispensable pour quiconque souhaite construire une infrastructure sécurisée et résiliente. En tant qu'expert en cybersécurité, savoir configurer et auditer un pfSense est une compétence fondamentale pour protéger les actifs numériques.
 
 > Pour sécuriser les accès distants à travers votre pfSense, configurez un serveur **[OpenVPN](./openvpn.md)**.
+
+
 
 
 

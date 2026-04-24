@@ -1,4 +1,4 @@
-﻿---
+---
 description: "dig (Domain Information Groper) — L'outil de référence mondial pour interroger les serveurs DNS. Exhaustif, ultra-personnalisable et indispensable pour le dépannage réseau."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "RESEAU", "DNS", "DIG", "DIAGNOSTIC"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "RESEAU", "DNS", "DIG", "DIAGNOSTIC"]
   data-time="~15 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/dig.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/terminal.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -139,6 +141,8 @@ dig +short CNAME blog.omnyvia.com
     `dig` est la vérité absolue en matière de routage Internet. Contrairement au navigateur ou à l'outil `ping` qui gardent les informations en cache, `dig` parle directement aux serveurs maîtres. Si vous ne comprenez pas pourquoi un site web ne charge pas ou pourquoi vous n'arrivez pas à atteindre une cible lors d'un test d'intrusion, `dig` vous donnera la réponse technique exacte sans filtre.
 
 > Vous avez l'habitude de `dig` sous Linux, mais vous venez de compromettre un vieux serveur Windows d'une mairie, et vous devez faire du diagnostic réseau. Comment faire sans `dig` ? Utilisez son ancêtre universel : **[nslookup →](./nslookup.md)**.
+
+
 
 
 

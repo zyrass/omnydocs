@@ -1,109 +1,83 @@
-﻿---
-description: "Remédiation — Comment formuler des recommandations actionnables pour aider le client à corriger les vulnérabilités identifiées."
+---
+description: "Recommandations & Correctifs — La phase d'assistance. Comment rédiger des plans de remédiation clairs, réalistes et applicables par les équipes de développement."
 icon: lucide/book-open-check
-tags: ["REPORTING", "PENTEST", "REMEDIATION", "CONSEIL", "AUDIT"]
+tags: ["REPORTING", "REMEDIATION", "CORRECTIF", "PENTEST"]
 ---
 
-# Plan de Remédiation & Recommandations
+# Recommandations & Correctifs — Le Plan de Guérison
 
 <div
   class="omny-meta"
-  data-level="🟡 Intermédiaire"
-  data-version="1.0"
-  data-time="~30 minutes">
+  data-level="🟢 Fondamental"
+  data-version="Standard Industrie"
+  data-time="~15 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/remediation.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/remediation.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
-!!! quote "Analogie pédagogique — L'Ordonnance Médicale"
-    Un pentest sans remédiation est comme un médecin qui vous dirait : "Vous avez une grave infection, au revoir". Le travail du médecin ne s'arrête pas au diagnostic, il commence vraiment avec l'ordonnance. La **Remédiation** est votre ordonnance : vous devez dire au client quel médicament prendre (patch), comment l'appliquer (config) et quels effets secondaires surveiller (tests de non-régression).
+!!! quote "Analogie pédagogique — Le Diagnostic sans Ordonnance"
+    Si votre médecin vous dit "Vous avez une grave infection", et qu'il quitte la pièce sans vous prescrire d'antibiotiques, c'est un mauvais médecin.
+    De la même manière, si vous terminez votre fiche de vulnérabilité en disant "Il y a une injection SQL Critique", sans expliquer précisément au développeur comment réparer son code, vous n'avez fait que la moitié de votre travail d'auditeur.
 
-Le but ultime d'un test d'intrusion n'est pas de casser des systèmes, mais de les renforcer. Vos recommandations de remédiation sont la partie la plus précieuse de votre rapport pour les équipes techniques du client.
-
----
-
-## Les 3 Niveaux de Traitement du Risque
-
-Face à une vulnérabilité, le client a trois options principales :
-
-### 1. La Correction (Fix)
-Éliminer la cause racine de la vulnérabilité.
-- **Exemple** : Mettre à jour le serveur vers la version `X.Y.Z`, modifier le code pour utiliser des requêtes préparées.
-- **C'est l'option recommandée.**
-
-### 2. L'Atténuation (Mitigation)
-Réduire l'impact ou la probabilité d'exploitation sans supprimer la faille.
-- **Exemple** : Placer un WAF devant l'application, isoler le serveur dans un VLAN restreint.
-- **C'est une solution temporaire ou de défense en profondeur.**
-
-### 3. L'Acceptation du Risque
-Décider de ne rien faire car le coût de correction est supérieur au risque.
-- **Note** : En tant qu'auditeur, vous ne décidez pas de l'acceptation, vous fournissez les données pour que le client décide.
-
-**La Remédiation** est l'étape finale et la plus importante pour le client après un audit de sécurité. Elle consiste à fournir des recommandations techniques précises et actionnables pour corriger les vulnérabilités identifiées. Un bon rapport d'audit ne se contente pas de montrer comment "casser" un système, il guide les équipes de développement et d'administration vers une solution pérenne.
+La valeur d'un rapport de cybersécurité ne réside pas dans le nombre de failles trouvées, mais dans **l'applicabilité des solutions proposées**. Un bon pentester est un constructeur (Builder) autant qu'un destructeur (Breaker). La section "Recommandations" est celle qui sera la plus lue par les ingénieurs (DevOps, SysAdmins, Développeurs) dans les semaines qui suivront votre départ.
 
 <br>
 
 ---
 
-## Les Niveaux de Recommandation
+## Les 3 Niveaux de Remédiation
 
-Pour chaque faille, l'auditeur doit proposer des solutions adaptées aux contraintes du client :
-- **Remédiation immédiate (Fix)** : La correction directe du code ou de la configuration pour supprimer la vulnérabilité.
-- **Mesure d'atténuation (Mitigation)** : Une protection temporaire (ex: règle de WAF) si la correction profonde prend du temps.
-- **Recommandation stratégique** : Une modification des processus ou de l'architecture pour éviter que ce type de faille ne se reproduise (ex: formation des développeurs).
+Une recommandation professionnelle ne doit jamais se limiter à une seule phrase abstraite ("Sécurisez le serveur"). Elle doit proposer des solutions à court, moyen et long terme.
+
+```mermaid
+flowchart TD
+    %% Couleurs à fort contraste
+    classDef root fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000
+    classDef short fill:#fff3cd,stroke:#ffc107,stroke-width:2px,color:#000
+    classDef medium fill:#cce5ff,stroke:#0d6efd,stroke-width:2px,color:#000
+    classDef long fill:#d1e7dd,stroke:#198754,stroke-width:2px,color:#000
+
+    A("🛠️ Plan de Remédiation") --> B("🚨 1. Solution de Contournement<br>(Immédiat / Workaround)")
+    A --> C("🔧 2. Correctif Technique<br>(Moyen terme / Patch)")
+    A --> D("🏰 3. Défense en Profondeur<br>(Long terme / Stratégie)")
+
+    B --> B1("Ex: Bloquer l'IP attaquante<br>Ex: Désactiver temporairement la fonctionnalité")
+    C --> C1("Ex: Mettre à jour la librairie Log4j<br>Ex: Réécrire la requête SQL avec PDO")
+    D --> D1("Ex: Mettre en place un WAF<br>Ex: Auditer systématiquement le code avant MEP")
+
+    class A root
+    class B,B1 short
+    class C,C1 medium
+    class D,D1 long
+```
+
+### 1. La Solution de Contournement (Workaround)
+Lorsque la faille est **Critique** et qu'elle est activement exploitée (ou très facile à exploiter), le client ne peut pas attendre 3 semaines que ses développeurs réécrivent l'application. Vous devez proposer une solution "Pansement" applicable dans l'heure :
+*Exemple : "En attendant la mise à jour, configurez le pare-feu Web (WAF) pour bloquer toutes les requêtes HTTP contenant le mot-clé `jndi:`".*
+
+### 2. Le Correctif Technique Définitif (Le Patch)
+C'est la vraie solution au problème. Elle cible la racine (Root Cause).
+- **Failles applicatives** : Fournir des exemples de code sécurisé (ex: montrer comment échapper les balises HTML en React pour bloquer un XSS).
+- **Failles d'infrastructure** : Fournir la configuration recommandée (ex: donner la liste exacte des Cipher Suites TLS cryptographiquement sûrs à copier-coller dans le fichier `nginx.conf`).
+
+### 3. La Défense en Profondeur (Defense in Depth)
+Expliquer comment s'assurer que ce type de faille ne se reproduise *plus jamais* à l'avenir.
+*Exemple : "Intégrer l'outil SonarQube dans la chaîne CI/CD (GitLab) pour que la compilation échoue automatiquement si une injection SQL est détectée par l'analyseur de code statique."*
 
 <br>
 
 ---
 
-## Structure d'une Fiche de Remédiation
+## Bonnes & Mauvaises Pratiques (Do's & Don'ts)
 
-Chaque recommandation doit être structurée de manière claire pour être transmise directement aux équipes techniques :
-
-### 1. Description technique du correctif
-Expliquer le changement nécessaire de manière théorique.
-
-```text title="Exemple : Correction d'une injection SQL"
-Utiliser des requêtes préparées (Prepared Statements) avec des paramètres liés au lieu de concaténer directement les entrées utilisateur dans la requête SQL.
-```
-_Cette approche garantit que les entrées utilisateur sont toujours traitées comme des données et jamais comme du code exécutable par la base de données._
-
-### 2. Exemple de code (Avant / Après)
-Fournir un exemple concret pour aider les développeurs à appliquer le correctif.
-
-```php title="Correction sécurisée en PHP (PDO)"
-// AVANT : Vulnérable
-$query = "SELECT * FROM users WHERE id = " . $_GET['id'];
-
-// APRÈS : Sécurisé
-$stmt = $pdo->prepare('SELECT * FROM users WHERE id = :id');
-$stmt->execute(['id' => $_GET['id']]);
-$user = $stmt->fetch();
-```
-_L'utilisation de PDO avec des paramètres nommés (`:id`) est la méthode standard et la plus sûre pour interagir avec une base de données en PHP._
-
-### 3. Vérification de la correction
-Expliquer comment s'assurer que le correctif est efficace.
-
-```bash title="Test de non-régression après correction"
-# Tenter à nouveau l'injection pour confirmer le blocage
-curl -i "http://target.com/user.php?id=1' OR 1=1"
-```
-_Si le serveur renvoie désormais une erreur propre ou une page vide sans données sensibles, la vulnérabilité est considérée comme corrigée._
-
-<br>
-
----
-
-## Principes de Défense en Profondeur
-
-Une remédiation efficace ne doit pas être un simple "patch" isolé. Elle doit s'inscrire dans une stratégie globale :
-- **Principe du Moindre Privilège** : Limiter les droits des comptes de service.
-- **Défense par Défaut** : Configurer les systèmes pour être sécurisés dès l'installation.
-- **Validation Strictes des Entrées** : Ne jamais faire confiance aux données provenant de l'utilisateur (Allow-listing).
+| Action | Recommandation | Explication technique |
+|---|---|---|
+| ✅ **À FAIRE** | **Adapter la solution au contexte du client** | Si le client héberge un vieux serveur industriel sous Windows XP qui pilote une usine (ICS/SCADA), ne recommandez pas "Mettez à jour vers Windows 11". C'est techniquement impossible pour le client. Recommandez l'isolation réseau absolue (Air-Gap) du serveur. |
+| ❌ **À NE PAS FAIRE** | **Donner des liens morts ou vagues** | Ne dites pas "Lisez la documentation Microsoft". Fournissez le lien direct vers le correctif exact (KBs) ou vers la page spécifique de l'OWASP Cheat Sheet Series qui traite du problème. L'administrateur système ne doit pas avoir à chercher sur Google pour comprendre votre correctif. |
 
 <br>
 
@@ -112,15 +86,4 @@ Une remédiation efficace ne doit pas être un simple "patch" isolé. Elle doit 
 ## Conclusion
 
 !!! quote "Ce qu'il faut retenir"
-    La valeur réelle d'un pentest réside dans la qualité de ses remédiations. Votre rôle est d'être un partenaire du client pour améliorer sa sécurité, pas seulement un attaquant. Des conseils clairs, précis et faciles à mettre en œuvre garantissent un meilleur taux de correction et renforcent votre professionnalisme.
-
-!!! tip "Vérification de la correction"
-    Proposez toujours une phase de **contre-audit** (re-test) quelques semaines après le rapport pour valider que les remédiations ont bien été appliquées correctement.
-
-> Pour évaluer la priorité des remédiations à appliquer, utilisez le système de notation **[CVSS](./cvss.md)**.
-> Pour assurer la pérennité de la sécurité, intégrez ces correctifs dans une démarche de **[Gestion des Vulnérabilités (SOC/Blue Team) →](../../operations/soc/index.md)**.
-
-
-
-
-
+    Un pentester détruit des systèmes en quelques heures, mais un administrateur système met parfois des mois à les reconstruire de manière sécurisée. La phase de remédiation est la main tendue entre le monde de l'offensive (Red Team) et le monde de la défense (Blue Team). Rédiger des recommandations claires, respectueuses et réalisables est ce qui garantira votre rappel pour l'audit de l'année suivante.

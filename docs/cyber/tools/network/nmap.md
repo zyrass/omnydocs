@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Nmap (Network Mapper) — Le roi incontesté des scanners de ports. Outil fondamental de l'exploration réseau et de l'audit de sécurité."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "RESEAU", "SCAN", "NMAP", "NSE"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "RESEAU", "SCAN", "NMAP", "NSE"]
   data-time="~30 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/nmap.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/nmap-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -156,6 +158,8 @@ sudo nmap -sC -sV -p 22,80 10.10.10.5 -oA nmap_detaillé
     Nmap n'est pas un outil que l'on "apprend une fois". C'est un langage réseau en soi. Une parfaite maîtrise des *flags* Nmap permet d'adapter son scan pour passer sous le nez des IDS (Intrusion Detection Systems) ou pour cartographier un réseau interne de 10 000 machines en quelques minutes.
 
 > Mais que faire quand la vitesse de Nmap n'est pas suffisante et que vous avez des dizaines de milliers d'IPs à scanner ? Confiez la découverte de ports au drone ultra-rapide **[RustScan →](./rustscan.md)**.
+
+
 
 
 

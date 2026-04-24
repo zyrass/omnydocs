@@ -14,7 +14,7 @@ tags: ["BLUE TEAM", "RED TEAM", "VULNERABILITY", "OPENVAS", "SCAN", "CVE"]
 </div>
 
 <div style="text-align: center; margin: 0 auto;">
-    <img src="../../../assets/images/cyber/openvas.svg" width="150" align="center" />
+    <img src="/assets/images/cyber/openvas.svg" width="250" align="center" />
 </div>
 
 ## Introduction
@@ -208,4 +208,7 @@ OpenVAS **n'est pas** un outil furtif. Par conception, il est fait pour faire é
     OpenVAS est une arme d'artillerie lourde. On ne l'utilise pas pour la furtivité, on l'utilise pour le rendement. Il permet de passer au crible des dizaines de milliers de points de contrôle techniques sur un immense parc de machines en quelques heures, là où une équipe humaine mettrait des années. Il est le point de départ de toute politique de "Gestion des Vulnérabilités" d'une entreprise moderne.
 
 > Si l'Open Source est un excellent point de départ, les cabinets d'audit exigeant zéro faux positif et des rapports acceptés par les compagnies d'assurance se tournent vers l'étalon-or propriétaire de l'industrie : **[Nessus →](./nessus.md)**.
+
+
+
 

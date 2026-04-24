@@ -1,4 +1,4 @@
-﻿---
+---
 description: "OWASP Amass — L'outil de référence pour la cartographie exhaustive de la surface d'attaque externe et l'énumération de sous-domaines."
 icon: lucide/book-open-check
 tags: ["OSINT", "AMASS", "ENUMERATION", "RECONNAISSANCE", "DNS", "RED TEAM"]
@@ -13,7 +13,9 @@ tags: ["OSINT", "AMASS", "ENUMERATION", "RECONNAISSANCE", "DNS", "RED TEAM"]
   data-time="~1 heure">
 </div>
 
-<img src="../../../assets/images/cyber/amass.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/amass-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -272,6 +274,8 @@ _L'outil affichera "Found" pour les nouveaux sous-domaines apparus depuis hier, 
 [^1]: **Système de Traitement Automatisé de Données (STAD)** : Désigne tout ensemble organisé de moyens (matériels et logiciels) permettant de collecter, enregistrer, stocker, modifier, manipuler, envoyer, visualiser ou détruire des données. Un serveur DNS interrogé par Amass est un STAD.
 
 [^2]: **Open Source Intelligence (OSINT)** : Méthode de collecte d'informations provenant uniquement de sources publiquement accessibles. L'OSINT passif ne laisse aucune trace chez la cible.
+
+
 
 
 

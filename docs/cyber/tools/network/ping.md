@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Ping — L'outil fondamental de diagnostic réseau basé sur ICMP. Indispensable pour vérifier la connectivité et déduire l'OS cible via le TTL."
 icon: lucide/book-open-check
 tags: ["RED TEAM", "RESEAU", "PING", "ICMP", "DIAGNOSTIC"]
@@ -13,7 +13,9 @@ tags: ["RED TEAM", "RESEAU", "PING", "ICMP", "DIAGNOSTIC"]
   data-time="~10 minutes">
 </div>
 
-<img src="../../../assets/images/cyber/ping.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/ping.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -131,6 +133,8 @@ ping -c 1 10.10.10.5
     Aussi basique soit-il, le Ping reste votre premier interlocuteur sur un réseau inconnu. S'il répond, l'analyse de son TTL vous donne déjà une longueur d'avance sur l'identification de l'infrastructure. S'il ne répond pas, n'oubliez jamais que c'est sûrement juste son garde du corps (le Pare-Feu) qui vous ignore.
 
 > Que se passe-t-il lorsque vous devez envoyer un paquet réseau qui ne correspond à aucun standard (ni un vrai ping, ni une vraie requête web) pour tester les réactions étranges d'un pare-feu ? Vous devez le construire à la main, bit par bit. Bienvenue dans la forge avec **[Scapy →](./scapy.md)**.
+
+
 
 
 

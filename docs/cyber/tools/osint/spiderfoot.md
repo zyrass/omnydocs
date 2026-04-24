@@ -1,4 +1,4 @@
-﻿---
+---
 description: "SpiderFoot — Le couteau suisse de l'automatisation OSINT, interrogeant plus de 200 sources publiques simultanément pour dresser une cartographie complète d'une cible."
 icon: lucide/book-open-check
 tags: ["OSINT", "SPIDERFOOT", "AUTOMATISATION", "RECONNAISSANCE", "RED TEAM"]
@@ -13,7 +13,9 @@ tags: ["OSINT", "SPIDERFOOT", "AUTOMATISATION", "RECONNAISSANCE", "RED TEAM"]
   data-time="~1 heure">
 </div>
 
-<img src="../../../assets/images/cyber/spiderfoot.svg" width="100" align="center" style="display: block; margin: 0 auto;">
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/spiderfoot-logo.svg" width="250" align="center" />
+</div>
 
 ## Introduction
 
@@ -229,6 +231,8 @@ python3 sf.py -s omnyvia.com -x json -q > spiderfoot_report.json
 [^1]: **Système de Traitement Automatisé de Données (STAD)** : Désigne les serveurs, réseaux et applications de la cible. Tout module "Actif" de SpiderFoot interagit techniquement avec ce STAD.
 
 [^2]: **Open Source Intelligence (OSINT)** : Collecte de renseignements à partir de sources publiques (Shodan, Whois, Archives) sans jamais envoyer de requêtes directes à la cible.
+
+
 
 
 
