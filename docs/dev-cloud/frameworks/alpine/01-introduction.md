@@ -1,10 +1,10 @@
 ---
 description: "Introduction à Alpine.js : Philosophie, JamStack et équivalent léger aux poids lourds."
-icon: lucide/mountain
+icon: lucide/book-open-check
 tags: ["THEORIE", "ALPINE", "JAVASCRIPT", "FRONTEND"]
 ---
 
-# 01. Introduction à Alpine.js
+# Introduction à Alpine.js
 
 <div
   class="omny-meta"

@@ -1,6 +1,5 @@
 ---
 description: "MERN Stack — Architecture full-stack JavaScript : MongoDB, Express.js, React, Node.js. Setup, composants, state management, déploiement."
-icon: lucide/layers-3
 tags: ["MERN", "MONGODB", "EXPRESS", "REACT", "NODEJS", "FULLSTACK", "JAVASCRIPT"]
 ---
 

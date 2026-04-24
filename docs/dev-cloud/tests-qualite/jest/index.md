@@ -37,6 +37,9 @@ tags: ["JEST", "JAVASCRIPT", "TESTS", "MOCKING", "COVERAGE", "CICD"]
 |---|---|---|
 | [01 — Fondamentaux](./01-fondamentaux.md) | Installation, `describe/test/expect`, matchers, setup | 🟢 |
 | [02 — Mocking Avancé](./02-mocking-avance.md) | `jest.fn()`, `jest.mock()`, spies, modules, timers | 🟡 |
+| [03 — React Testing Library](./03-react-testing-library.md) | Tests de composants React orientés accessibilité (DOM) | 🟡 |
+| [04 — Vue Test Utils](./04-vue-test-utils.md) | Isolation et tests de composants Vue 3 | 🟡 |
+| [05 — CI/CD & GitHub Actions](./05-cicd-github-actions.md) | Automatisation, coverage global et seuils de validation | 🔴 |
 
 <br>
 

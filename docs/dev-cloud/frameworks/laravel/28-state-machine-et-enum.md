@@ -1,6 +1,6 @@
 ---
 description: "Penser une Machine à Etats pour définir les statuts de son site et sa table."
-icon: lucide/git-merge
+icon: lucide/book-open-check
 tags: ["LARAVEL", "WORKFLOW", "DESIGN", "ENUM", "DATABASE"]
 ---
 

@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["ARCHITECTURE", "PATTERNS", "REPOSITORY", "SERVICE", "FACTORY", "OBSERVER", "CQRS"]
 ---
 
-# Module 03 — Patterns Pratiques
+# Patterns Pratiques
 
 <div
   class="omny-meta"

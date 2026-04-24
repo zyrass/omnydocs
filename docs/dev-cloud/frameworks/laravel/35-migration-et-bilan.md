@@ -1,6 +1,6 @@
 ---
 description: "Vérifier la bonne configuration de la refonte sous Breeze en aveugle et passer la validation"
-icon: lucide/clipboard-check
+icon: lucide/book-open-check
 tags: ["LARAVEL", "BREEZE", "TESTING", "CHECKLIST"]
 ---
 

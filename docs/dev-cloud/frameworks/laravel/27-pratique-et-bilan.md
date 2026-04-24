@@ -1,6 +1,6 @@
 ---
 description: "Régler les problématiques de commentaires multiples par Ownership, et conclure par une évaluation des permissions d'une grande application."
-icon: lucide/clipboard-check
+icon: lucide/book-open-check
 tags: ["LARAVEL", "EXERCICE", "OWNERSHIP"]
 ---
 

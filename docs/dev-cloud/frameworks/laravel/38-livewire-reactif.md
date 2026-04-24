@@ -1,6 +1,6 @@
 ---
 description: "Débuter les concepts de requetage dynamique avec le Framework en temps réel Backend"
-icon: lucide/zap
+icon: lucide/book-open-check
 tags: ["LARAVEL", "LIVEWIRE", "FRONTEND", "REACTIVE"]
 ---
 

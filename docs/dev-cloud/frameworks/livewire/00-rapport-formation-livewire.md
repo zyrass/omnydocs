@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "LIVEWIRE", "FORMATION"]
 ---
 
-# Rapport de Formation — Livewire
+# Rapport
 
 <div
   class="omny-meta"

@@ -4,7 +4,7 @@ icon: lucide/box
 tags: ["THEORIE", "LIVEWIRE", "BINDING", "ACTIONS"]
 ---
 
-# 02. Propriétés et Actions
+# Propriétés et Actions
 
 <div
   class="omny-meta"

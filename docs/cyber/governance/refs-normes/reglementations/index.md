@@ -179,6 +179,25 @@ _Les réglementations européennes forment la colonne vertébrale légale qui se
     4. **AI Act** : Organisations développant/déployant de l'IA
     5. Autres : selon secteur d'activité spécifique
 
+## Outils & Correspondances
+
+!!! abstract "Accélérer la mise en conformité"
+    La mise en conformité avec les réglementations européennes nécessite souvent de s'appuyer sur des standards internationaux existants. Pour faciliter ce travail, des outils de correspondance (mapping) sont mis à disposition.
+
+<div class="grid cards" markdown>
+
+-   :lucide-arrow-right-left:{ .lg .middle } **Mapping ISO 27001 : NIS2**
+
+    ---
+
+    Outil d'analyse d'écarts (Gap Analysis) permettant de visualiser la couverture des exigences de l'Article 21 de NIS2 par les mesures de l'ISO 27001:2022.
+
+    [:lucide-book-open-check: Consulter le mapping détaillé](./mapping-iso-nis2.md)
+
+</div>
+
+<br />
+
 > Les fiches suivantes détaillent les obligations, le périmètre, les sanctions et les interactions de chaque réglementation avec les autres couches du cadre de conformité européen.
 
 <br />

@@ -1,6 +1,6 @@
 ---
 description: "DAST — Tests dynamiques de sécurité : OWASP ZAP, tests des 10 vulnérabilités OWASP les plus courantes sur une application Laravel en cours d'exécution."
-icon: lucide/shield-alert
+icon: lucide/book-open-check
 tags: ["DAST", "OWASP", "SECURITE", "ZAP", "TESTING", "LARAVEL"]
 ---
 

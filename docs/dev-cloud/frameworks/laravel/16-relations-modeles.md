@@ -1,6 +1,6 @@
 ---
 description: "Définition des relations transversales entre bases de données sans écrire de JOIN SQL."
-icon: lucide/git-commit
+icon: lucide/book-open-check
 tags: ["LARAVEL", "RELATIONS", "DATABASE"]
 ---
 

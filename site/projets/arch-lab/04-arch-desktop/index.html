@@ -1,0 +1,6805 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Installation complète d’un poste Arch Linux Desktop sous VirtualBox : KDE Plasma ou GNOME, Display Manager, outils essentiels, polices, configuration graphique et optimisation.">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/projets/arch-lab/04-arch-desktop/">
+      
+      
+        <link rel="prev" href="../03-arch-serveur/">
+      
+      
+        <link rel="next" href="../05-virtualbox-reseau/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.34">
+    
+    
+      
+        <title>Module 4 : Arch Linux — Poste Desktop (KDE & GNOME) - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/classic/main.96fc3bb8.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-4-arch-linux-poste-desktop-kde-gnome" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 4 : Arch Linux — Poste Desktop (KDE &amp; GNOME)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cyber/governance/" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cyber/operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cyber/tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infrastructure (Sys-Réseau)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../cyber/governance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : GRC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../cyber/operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opérations &amp; SOC (Blue Team)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../cyber/tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../glossaire/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — Système & Infra
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lab — Système & Infra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux (Arch Lab)
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_1_1" id="__nav_9_1_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_9_1_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux (Arch Lab)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-panorama-linux/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Panorama Linux
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-arch-serveur/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Arch Serveur
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Arch Desktop
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Arch Desktop
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-dapprentissage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs d’apprentissage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprendre-avant-dagir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprendre avant d’agir
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comprendre avant d’agir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-des-20-etapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure des 20 Étapes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-vous-allez-vraiment-faire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que Vous Allez Vraiment Faire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vue-densemble-du-processus-dinstallation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'Ensemble du Processus d'Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xorg-vs-wayland-quel-serveur-daffichage-choisir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xorg vs Wayland : quel serveur d'affichage choisir ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-preparation-de-la-vm-et-mise-a-jour-systeme-etapes-1-a-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 — Préparation de la VM et mise à jour système (Étapes 1 à 4)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1 — Préparation de la VM et mise à jour système (Étapes 1 à 4)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-ajuster-la-vm-virtualbox-pour-un-usage-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : Ajuster la VM VirtualBox pour un usage Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-demarrer-la-vm-et-verifier-la-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Démarrer la VM et vérifier la base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-mise-a-jour-complete-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Mise à jour complète du système
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-verification-rapide-post-mise-a-jour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Vérification rapide post-mise à jour
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-pile-graphique-pilotes-virtualbox-etapes-5-a-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 — Pile graphique &amp; pilotes VirtualBox (Étapes 5 à 9)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2 — Pile graphique &amp; pilotes VirtualBox (Étapes 5 à 9)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-installation-de-xorg-serveur-graphique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 : Installation de Xorg (serveur graphique)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-6-verification-de-base-xorg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6 : Vérification de base Xorg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-7-pilotes-virtualbox-pour-la-partie-graphique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7 : Pilotes VirtualBox pour la partie graphique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-8-configuration-explicite-du-driver-vboxvideo-xorg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 8 : Configuration explicite du driver vboxvideo (Xorg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-9-installation-de-mesa-acceleration-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 9 : Installation de Mesa (accélération 3D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-environnement-desktop-kde-gnome-et-display-manager-etapes-10-a-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 — Environnement Desktop (KDE / GNOME) et Display Manager (Étapes 10 à 16)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3 — Environnement Desktop (KDE &#x2f; GNOME) et Display Manager (Étapes 10 à 16)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-10-choix-de-lenvironnement-de-bureau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 10 : Choix de l’environnement de bureau
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-11-installation-du-display-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 11 : Installation du Display Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-12-polices-compatibilite-et-confort-de-lecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 12 : Polices, compatibilité et confort de lecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-13-outils-essentiels-dun-poste-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 13 : Outils essentiels d’un poste Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-14-activation-et-verification-des-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 14 : Activation et vérification des services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-15-test-des-composants-graphiques-avant-reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 15 : Test des composants graphiques (avant reboot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-16-premier-redemarrage-vers-le-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 16 : Premier redémarrage vers le Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-tests-optimisation-depannage-snapshot-etapes-17-a-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4 — Tests, optimisation, dépannage &amp; snapshot (Étapes 17 à 20)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4 — Tests, optimisation, dépannage &amp; snapshot (Étapes 17 à 20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-17-verifications-a-linterieur-du-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 17 : Vérifications à l’intérieur du Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-18-verification-opengl-mesa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 18 : Vérification OpenGL / Mesa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-19-optimisations-pratiques-pour-virtualbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 19 : Optimisations pratiques pour VirtualBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-20-arret-propre-et-creation-du-snapshot-de-base-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 20 : Arrêt propre et création du Snapshot de base Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recapitulatif-architecture-desktop-finale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Récapitulatif : Architecture Desktop finale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-mot-de-la-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Mot de la Fin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le Mot de la Fin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#felicitations-vous-avez-transforme-votre-serveur-arch-en-desktop-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FÉLICITATIONS ! Vous avez transformé votre serveur Arch en Desktop complet.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-vous-avez-appris-dans-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que vous avez appris dans ce module
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recapitulatif-des-fichiers-critiques-crees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Récapitulatif des Fichiers Critiques Créés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-de-vigilance-pour-la-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points de Vigilance pour la Suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparaison-serveur-module-3-vs-desktop-module-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparaison Serveur (Module 3) vs Desktop (Module 4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-virtualbox-reseau/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-network" viewBox="0 0 24 24"><rect width="6" height="6" x="16" y="16" rx="1"/><rect width="6" height="6" x="2" y="16" rx="1"/><rect width="6" height="6" x="9" y="2" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    VirtualBox — Réseau
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-lab-multi-os/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-boxes" viewBox="0 0 24 24"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3zM7 16.5l-4.74-2.85M7 16.5l5-3M7 16.5v5.17M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5zM17 16.5l-5-3M17 16.5l4.74-2.85M17 16.5v5.17"/><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0zM12 8 7.26 5.15M12 8l4.74-2.85M12 13.5V8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Multi-OS
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-annexes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Annexes
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — HTML/CSS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lab — HTML/CSS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../html-css-lab/site-vitrine/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Vitrine
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — JavaScript
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lab — JavaScript
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../javascript-lab/site-vitrine/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Vitrine
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../javascript-lab/liste-courses/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liste de Courses
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../javascript-lab/puissance-4/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Puissance 4
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../javascript-lab/clicker-hero/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clicker Hero (POO)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../javascript-lab/hub-applicatif/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hub Applicatif
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../php-lab/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — PHP
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_4" id="__nav_9_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lab — PHP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/01-calculatrice/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8M16 14v4M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Calculatrice Simple
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/02-convertisseur/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left-right" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Convertisseur
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/03-systeme-notes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Système de Notes
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/04-quiz-interactif/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-clipboard-list" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Quiz Interactif
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/05-bibliotheque-utilitaires/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-library" viewBox="0 0 24 24"><path d="m16 6 4 14M12 6v14M8 8v12M4 4v16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Bibliothèque Utils
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/06-systeme-template/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-template" viewBox="0 0 24 24"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="5" height="7" x="16" y="14" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    06. Moteur Template
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/07-gestionnaire-contacts/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-contact" viewBox="0 0 24 24"><path d="M16 2v2M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M8 2v2"/><circle cx="12" cy="11" r="3"/><rect width="18" height="18" x="3" y="4" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Gestionnaire Contacts
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/08-validateur-donnees/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    08. Validateur Données
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/09-formulaire-securise/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-mail-warning" viewBox="0 0 24 24"><path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7M20 14v4M20 22v.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    09. Formulaire Sécurisé
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/10-upload-avatar/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-upload-cloud" viewBox="0 0 24 24"><path d="M12 13v8M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m8 17 4-4 4 4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Upload d'Avatar
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/11-systeme-authentification/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-shield-alert" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1zM12 8v4M12 16h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Auth Avancée
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/12-api-jwt/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    12. API JWT
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/13-blog-complet/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Blog MVC (Final)
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/14-classe-article/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Classe Article
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/15-systeme-bancaire/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Système Bancaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/16-bibliotheque-medias/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Bibliothèque Médias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/17-jeu-rpg/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-swords" viewBox="0 0 24 24"><path d="M14.5 17.5 3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4M19 21l2-2M14.5 6.5 18 3h3v3l-3.5 3.5M5 14l4 4M7 17l-3 3M3 19l2 2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Jeu RPG Personnages
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/18-systeme-stockage/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-hard-drive" viewBox="0 0 24 24"><path d="M10 16h.01M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11zM21.946 12.013H2.054M6 16h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Système de Stockage
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/19-systeme-validation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Système de Validation
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/20-notifications/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/21-query-builder-traits/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Query Builder (Traits)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/22-gestionnaire-fichiers/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-folder-open" viewBox="0 0 24 24"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Gestionnaire Fichiers
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/23-api-bouncer/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. API Bouncer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/24-architecture-mvc/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-network" viewBox="0 0 24 24"><rect width="6" height="6" x="16" y="16" rx="1"/><rect width="6" height="6" x="2" y="16" rx="1"/><rect width="6" height="6" x="9" y="2" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Architecture MVC
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/25-collection-magique/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Collection Magique
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php-lab/26-builder-magique/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-wand-2" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72M14 7l3 3M5 6v4M19 14v4M10 2v2M7 8H3M21 16h-4M11 3H9"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Query Builder Magique
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_5" id="__nav_9_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — Laravel
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lab — Laravel
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../laravel-lab/projet-breeze/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel - Breeze
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../laravel-lab/projet-jetstream/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel Jetstream
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../laravel-lab/projet-sanctum/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel - Sanctum
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--stable"></span>
+  
+
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../alpine-lab/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-mountain-snow" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2z"/><path d="M4.14 15.08q3.93-2.355 7.86.42c2.74 1.94 5.49 2 8.23.19"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — Alpine
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_6" id="__nav_9_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lab — Alpine
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../alpine-lab/01-password-generator/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-key" viewBox="0 0 24 24"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4M21 2l-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Password Generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../alpine-lab/02-currency-converter/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-coins" viewBox="0 0 24 24"><path d="M13.744 17.736a6 6 0 1 1-7.48-7.48M15 6h1v4"/><path d="m6.134 14.768.866-.5 2 3.464"/><circle cx="16" cy="8" r="6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Currency Converter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../alpine-lab/03-pentest-tool/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Pentest Reporting Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../livewire-lab/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-hammer" viewBox="0 0 24 24"><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9M18 15l4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — Livewire
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_7" id="__nav_9_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lab — Livewire
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livewire-lab/01-calculatrice/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8M16 14v4M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculatrice Interactive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livewire-lab/02-inscription-validation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-user-plus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Inscription et Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livewire-lab/03-todo-list/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-check-square" viewBox="0 0 24 24"><path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344"/><path d="m9 11 3 3L22 4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Todo List Réactive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livewire-lab/04-datatable-crud/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-table" viewBox="0 0 24 24"><path d="M12 3v18"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M3 15h18"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    DateTable CRUD Avancé
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livewire-lab/05-chat-realtime/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-messages-square" viewBox="0 0 24 24"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2zM20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Chat Real-Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livewire-lab/06-dashboard-saas/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-dashboard" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard SaaS Complet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../swift-lab/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-folder-kanban" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2M8 10v4M12 10v2M16 10v6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — Swift
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_8" id="__nav_9_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lab — Swift
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift-lab/01-pomodoro-focus/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-timer" viewBox="0 0 24 24"><path d="M10 2h4M12 14l3-3"/><circle cx="12" cy="14" r="8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Pomodoro Focus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift-lab/02-disney-vault/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-film" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18M3 7.5h4M3 12h18M3 16.5h4M17 3v18M17 7.5h4M17 16.5h4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Disney Vault
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift-lab/03-hero-clicker/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-mouse-pointer-click" viewBox="0 0 24 24"><path d="M14 4.1 12 6M5.1 8l-2.9-.8M6 12l-1.9 2M7.2 2.2 8 5.1M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Hero Tap Clicker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift-lab/04-omnyscan/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-barcode" viewBox="0 0 24 24"><path d="M3 5v14M8 5v14M12 5v14M17 5v14M21 5v14"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OmnyScan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift-lab/05-omnynews/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OmnyNews
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swift-lab/06-omnysafe/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OmnySafe (Le Saint Graal)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../none" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — Python Tkinter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../none" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — Python Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../none" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab — Go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-dapprentissage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs d’apprentissage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprendre-avant-dagir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprendre avant d’agir
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comprendre avant d’agir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-des-20-etapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure des 20 Étapes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-vous-allez-vraiment-faire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que Vous Allez Vraiment Faire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vue-densemble-du-processus-dinstallation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'Ensemble du Processus d'Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xorg-vs-wayland-quel-serveur-daffichage-choisir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xorg vs Wayland : quel serveur d'affichage choisir ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-preparation-de-la-vm-et-mise-a-jour-systeme-etapes-1-a-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 — Préparation de la VM et mise à jour système (Étapes 1 à 4)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1 — Préparation de la VM et mise à jour système (Étapes 1 à 4)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-ajuster-la-vm-virtualbox-pour-un-usage-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : Ajuster la VM VirtualBox pour un usage Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-demarrer-la-vm-et-verifier-la-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Démarrer la VM et vérifier la base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-mise-a-jour-complete-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Mise à jour complète du système
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-verification-rapide-post-mise-a-jour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Vérification rapide post-mise à jour
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-pile-graphique-pilotes-virtualbox-etapes-5-a-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 — Pile graphique &amp; pilotes VirtualBox (Étapes 5 à 9)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2 — Pile graphique &amp; pilotes VirtualBox (Étapes 5 à 9)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-installation-de-xorg-serveur-graphique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 : Installation de Xorg (serveur graphique)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-6-verification-de-base-xorg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6 : Vérification de base Xorg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-7-pilotes-virtualbox-pour-la-partie-graphique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7 : Pilotes VirtualBox pour la partie graphique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-8-configuration-explicite-du-driver-vboxvideo-xorg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 8 : Configuration explicite du driver vboxvideo (Xorg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-9-installation-de-mesa-acceleration-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 9 : Installation de Mesa (accélération 3D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-environnement-desktop-kde-gnome-et-display-manager-etapes-10-a-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 — Environnement Desktop (KDE / GNOME) et Display Manager (Étapes 10 à 16)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3 — Environnement Desktop (KDE &#x2f; GNOME) et Display Manager (Étapes 10 à 16)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-10-choix-de-lenvironnement-de-bureau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 10 : Choix de l’environnement de bureau
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-11-installation-du-display-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 11 : Installation du Display Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-12-polices-compatibilite-et-confort-de-lecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 12 : Polices, compatibilité et confort de lecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-13-outils-essentiels-dun-poste-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 13 : Outils essentiels d’un poste Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-14-activation-et-verification-des-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 14 : Activation et vérification des services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-15-test-des-composants-graphiques-avant-reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 15 : Test des composants graphiques (avant reboot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-16-premier-redemarrage-vers-le-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 16 : Premier redémarrage vers le Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-tests-optimisation-depannage-snapshot-etapes-17-a-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4 — Tests, optimisation, dépannage &amp; snapshot (Étapes 17 à 20)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4 — Tests, optimisation, dépannage &amp; snapshot (Étapes 17 à 20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-17-verifications-a-linterieur-du-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 17 : Vérifications à l’intérieur du Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-18-verification-opengl-mesa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 18 : Vérification OpenGL / Mesa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-19-optimisations-pratiques-pour-virtualbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 19 : Optimisations pratiques pour VirtualBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-20-arret-propre-et-creation-du-snapshot-de-base-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 20 : Arrêt propre et création du Snapshot de base Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recapitulatif-architecture-desktop-finale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Récapitulatif : Architecture Desktop finale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-mot-de-la-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Mot de la Fin
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le Mot de la Fin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#felicitations-vous-avez-transforme-votre-serveur-arch-en-desktop-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FÉLICITATIONS ! Vous avez transformé votre serveur Arch en Desktop complet.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-vous-avez-appris-dans-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que vous avez appris dans ce module
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recapitulatif-des-fichiers-critiques-crees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Récapitulatif des Fichiers Critiques Créés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-de-vigilance-pour-la-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points de Vigilance pour la Suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparaison-serveur-module-3-vs-desktop-module-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparaison Serveur (Module 3) vs Desktop (Module 4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Projets
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Lab — Système & Infra
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Linux (Arch Lab)
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="module-4-arch-linux-poste-desktop-kde-gnome">Module 4 : Arch Linux — Poste Desktop (KDE &amp; GNOME)<a class="headerlink" href="#module-4-arch-linux-poste-desktop-kde-gnome" title="Permanent link">&para;</a></h1>
+<p><div
+  class="omny-meta"
+  data-level="🟡 Intermédiaire & 🔴 Avancé"
+  data-version="0.2"
+  data-time="60-90 minutes (total module)">
+</div>
+</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Le <strong>Module 3</strong> vous a permis de construire un <strong>serveur Arch Linux minimal</strong> propre, stable, documenté, avec un bootloader maîtrisé et des services de base correctement configurés.</p>
+<p>Ce <strong>Module 4</strong> transforme ce serveur en un <strong>poste Desktop complet</strong>, stable et adapté à un environnement de travail (<em>développement, documentation / bureautique, navigation web, apprentissage système / réseau / cyber, lab</em>) :</p>
+<p>Vous allez construire un environnement graphique <strong>moderne et propre</strong> autour de deux grands environnements :</p>
+<ul>
+<li><strong>KDE Plasma</strong> : léger (<em>pour un Desktop moderne</em>), extrêmement personnalisable, très agréable en VM.</li>
+<li><strong>GNOME</strong> : cohérent, design épuré, ergonomie pensée pour limiter les distractions.</li>
+</ul>
+<p>Les deux seront traités <strong>en parallèle</strong>, via des <strong>onglets</strong> pour que le chemin KDE et GNOME restent lisibles, compatibles VirtualBox et permettent de tester les comportements graphiques d’un poste Linux dans votre lab.</p>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p>Le Module 3 (Serveur) a construit le <strong>châssis, le moteur et le système électrique</strong> de votre véhicule.<br />
+Le Module 4 (Desktop) ajoute <strong>l’habitacle, le tableau de bord, les commandes, l’ergonomie et les sièges</strong>.<br />
+Le moteur reste le même, mais l’expérience utilisateur change radicalement.</p>
+</div>
+<p><strong>Ce module reste strictement rationnel :</strong></p>
+<blockquote>
+<p>pas de packages superflus, uniquement l’essentiel pour un environnement de travail propre avec des choix justifiés, une <strong>pile graphique documentée</strong>, des points de contrôle réguliers et un snapshot final propre pour vos futurs labs.</p>
+</blockquote>
+<h2 id="objectifs-dapprentissage">Objectifs d’apprentissage<a class="headerlink" href="#objectifs-dapprentissage" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>À la fin de ce module, vous serez capable de :</p>
+</blockquote>
+<details class="abstract">
+<summary>Objectifs techniques</summary>
+<ul>
+<li>Installer et configurer la <strong>pile graphique Linux</strong> (Xorg, pilotes, Mesa) dans une VM VirtualBox.</li>
+<li>Déployer un environnement Desktop complet :</li>
+<li><strong>KDE Plasma</strong> ou <strong>GNOME</strong> au choix.</li>
+<li>Installer et activer un <strong>Display Manager</strong> (SDDM ou GDM<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>) au démarrage.</li>
+<li>Gérer les <strong>polices</strong>, la compatibilité Unicode (CJK, emoji) et l’affichage Web.</li>
+<li>Installer les <strong>outils essentiels d’un poste de travail</strong> (navigateur, éditeur, outils système).</li>
+<li>Optimiser l’affichage et les performances sous VirtualBox.</li>
+<li>Diagnostiquer les principales pannes : écran noir, DM qui ne démarre pas, résolution bloquée.</li>
+</ul>
+</details>
+<details class="abstract">
+<summary>Objectifs conceptuels</summary>
+<ul>
+<li>Comprendre la <strong>pile graphique Linux</strong> :<br />
+  noyau → DRM/KMS → Xorg/Wayland → Display Manager → Desktop Environment → applications.</li>
+<li>Comprendre la différence entre :</li>
+<li><strong>Display Manager</strong> (écran de login),</li>
+<li><strong>Desktop Environment</strong> (KDE/GNOME),</li>
+<li><strong>Window Manager</strong> (KWin, Mutter…),</li>
+<li><strong>serveur d’affichage</strong> (Xorg / Wayland).</li>
+<li>Comprendre comment VirtualBox s’insère dans cette pile (driver vboxvideo, Guest Additions, Mesa).</li>
+</ul>
+</details>
+<h2 id="prerequis">Prérequis<a class="headerlink" href="#prerequis" title="Permanent link">&para;</a></h2>
+<p>Avant de commencer, assurez-vous d’avoir :</p>
+<ul>
+<li>Un <strong>Arch-Server</strong> fonctionnel, installé selon le <strong>Module 3</strong> :</li>
+<li>Boot UEFI + systemd-boot,</li>
+<li>Utilisateur <code>admin</code> avec <code>sudo</code>,</li>
+<li>NetworkManager actif,</li>
+<li>Guest Additions déjà installées (ou installables dans ce module).</li>
+<li>Une VM VirtualBox nommée par exemple <code>Arch-Desktop</code> ou <code>Arch-Server</code> que vous allez enrichir.</li>
+<li>Une connexion Internet fonctionnelle depuis la VM (<code>ping archlinux.org</code> OK).</li>
+<li>60 à 90 minutes devant vous pour aller jusqu’au snapshot final.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Ne commencez pas sur une installation Arch incertaine</p>
+<p>Si le Module 3 n’est pas <strong>parfaitement valide</strong> (boot propre, réseau, sudo, pacman fonctionnel), arrêtez-vous ici et corrigez d’abord le Module 3. Le Desktop <strong>n’absorbera pas</strong> les erreurs du serveur, il les amplifie.</p>
+</div>
+<h2 id="comprendre-avant-dagir">Comprendre avant d’agir<a class="headerlink" href="#comprendre-avant-dagir" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Avant de lancer <code>pacman -S kde</code> ou <code>pacman -S gnome</code>, il est crucial de comprendre <strong>ce que vous ajoutez</strong> au système.</p>
+</blockquote>
+<h3 id="structure-des-20-etapes">Structure des 20 Étapes<a class="headerlink" href="#structure-des-20-etapes" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Comme dans le Module 3, ce module est décomposé en <strong>phases</strong> et en <strong>étapes numérotées</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th style="text-align: center;">Étapes</th>
+<th>Objectif</th>
+<th style="text-align: center;">Durée estimée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phase 1<br /><small>Préparation VM &amp; système</strong></small></td>
+<td style="text-align: center;">1 à 4</td>
+<td>Adapter la VM au Desktop, mettre Arch à jour, préparer la base graphique</td>
+<td style="text-align: center;">10-20 min</td>
+</tr>
+<tr>
+<td><strong>Phase 2<br /><small>Pile graphique &amp; pilotes</strong></small></td>
+<td style="text-align: center;">5 à 9</td>
+<td>Installer Xorg, pilotes VirtualBox, polices, Mesa</td>
+<td style="text-align: center;">15-25 min</td>
+</tr>
+<tr>
+<td><strong>Phase 3<br /><small>Environnement Desktop (KDE / GNOME)</strong></small></td>
+<td style="text-align: center;">10 à 16</td>
+<td>Installer KDE/GNOME, Display Manager, services, outils essentiels</td>
+<td style="text-align: center;">20-30 min</td>
+</tr>
+<tr>
+<td><strong>Phase 4<br /><small>Tests, optimisation &amp; snapshot</strong></small></td>
+<td style="text-align: center;">17 à 20</td>
+<td>Vérifier, optimiser, diagnostiquer, créer le snapshot de référence</td>
+<td style="text-align: center;">15-20 min</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ce-que-vous-allez-vraiment-faire">Ce que Vous Allez Vraiment Faire<a class="headerlink" href="#ce-que-vous-allez-vraiment-faire" title="Permanent link">&para;</a></h3>
+<p>Concrètement, vous allez :</p>
+<ul>
+<li><strong>Étapes 1-2</strong> : <em>adapter la configuration VirtualBox et vérifier la base Arch.</em></li>
+<li><strong>Étapes 3-4</strong> : <em>mettre le système à jour, vérifier le noyau / reboot si nécessaire.</em></li>
+<li><strong>Étapes 5-6</strong> : <em>installer Xorg et vérifier qu’il est opérationnel.</em></li>
+<li><strong>Étapes 7-8</strong> : <em>installer / vérifier les Guest Additions et le driver <code>vboxvideo</code>.</em></li>
+<li><strong>Étapes 9-10</strong> : <em>installer les polices et Mesa.</em></li>
+<li><strong>Étapes 11-13</strong> : <em>déployer KDE Plasma ou GNOME + Display Manager (via onglets).</em></li>
+<li><strong>Étapes 14-15</strong> : <em>installer les outils essentiels d’un poste Desktop.</em></li>
+<li><strong>Étapes 16-18</strong> : <em>tester le démarrage graphique, les services et la 3D.</em></li>
+<li><strong>Étapes 19-20</strong> : <em>finaliser et créer un snapshot VirtualBox.</em></li>
+</ul>
+<h3 id="vue-densemble-du-processus-dinstallation">Vue d'Ensemble du Processus d'Installation<a class="headerlink" href="#vue-densemble-du-processus-dinstallation" title="Permanent link">&para;</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">Avant de commencer les 20 étapes détaillées, prenez le temps de <strong>visualiser l'ensemble du parcours</strong>.</p>
+<p>Les deux diagrammes suivants vous donnent une vue macro du processus :</p>
+<ol>
+<li><strong>Le diagramme de séquence</strong> montre le déroulé temporel des 20 étapes</li>
+<li><strong>Le schéma d'architecture</strong> montre la structure finale que vous allez construire</li>
+</ol>
+</div>
+<p>Ces diagrammes sont votre <strong>carte de navigation</strong> pour ce module. Consultez-les régulièrement pendant l'installation pour savoir où vous en êtes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Comment utiliser ces diagrammes</p>
+<ul>
+<li><strong>Avant de commencer</strong> : lisez-les pour comprendre où vous allez</li>
+<li><strong>Pendant l'installation</strong> : revenez-y pour vous situer dans le processus</li>
+<li><strong>En cas de blocage</strong> : identifiez à quelle phase vous êtes pour mieux chercher de l'aide</li>
+</ul>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Diagramme de Séquence Complet</label><label for="__tabbed_1_2">Schéma d'Architecture Cible</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>L'installation du Desktop Arch Linux suit un <strong>processus structuré en 20 étapes</strong> réparties en 4 phases distinctes. Ce diagramme représente l'intégralité du parcours, depuis la configuration de la VM jusqu'au snapshot final Desktop. Chaque étape numérotée correspond à une action précise que <strong>vous</strong> effectuerez pour transformer votre serveur Arch minimal en poste de travail graphique complet.</p>
+<p><strong>Comment lire ce diagramme ?</strong></p>
+<ul>
+<li>Les <strong>flèches pleines</strong> (→) représentent vos actions</li>
+<li>Les <strong>flèches pointillées</strong> (&rarr;) représentent les réponses du système</li>
+<li>Les <strong>notes colorées</strong> détaillent ce qui se passe en arrière-plan</li>
+<li>Les <strong>séparateurs horizontaux</strong> marquent les transitions entre phases</li>
+</ul>
+<p>Ce diagramme vous sert de <strong>carte de navigation</strong> pour suivre votre progression dans la transformation serveur → desktop.
+<pre class="mermaid"><code>sequenceDiagram
+    participant You as Vous
+    participant VB as VirtualBox
+    participant Arch as Arch Server
+    participant Desktop as Arch Desktop
+
+    rect rgb(230, 245, 255)
+        Note over You,Desktop: PHASE 1 : Préparation VM &amp; Système (Étapes 1-4)
+    end
+
+    You-&gt;&gt;VB: 1. Ajuster VM&lt;br/&gt;(RAM 4-8Go, VRAM 128Mo, 3D)
+    VB--&gt;&gt;You: VM optimisée pour Desktop
+
+    You-&gt;&gt;Arch: 2. Boot + vérification base
+    Arch--&gt;&gt;You: uname -r + ping OK
+
+    You-&gt;&gt;Arch: 3. sudo pacman -Syu
+    Note over Arch: Mise à jour complète&lt;br/&gt;+ reboot si noyau MAJ
+    Arch--&gt;&gt;You: Système à jour
+
+    You-&gt;&gt;Arch: 4. Vérifications post-update
+    Arch--&gt;&gt;You: NetworkManager OK
+
+    rect rgb(255, 245, 230)
+        Note over You,Desktop: PHASE 2 : Pile Graphique &amp; Pilotes (Étapes 5-9)
+    end
+
+    You-&gt;&gt;Arch: 5. pacman -S xorg-server...
+    Note over Arch: Installation Xorg
+
+    You-&gt;&gt;Arch: 6. Vérification Xorg
+    Arch--&gt;&gt;You: which Xorg OK
+
+    You-&gt;&gt;Arch: 7. Guest Additions VirtualBox
+    Note over Arch: vboxservice + modules
+
+    You-&gt;&gt;Arch: 8. Config vboxvideo driver
+    Note over Arch: /etc/X11/xorg.conf.d/
+
+    You-&gt;&gt;Arch: 9. pacman -S mesa mesa-utils
+    Note over Arch: Accélération 3D
+
+    rect rgb(230, 255, 230)
+        Note over You,Desktop: PHASE 3 : Desktop Environment (Étapes 10-16)
+    end
+
+    You-&gt;&gt;Desktop: 10. Choix KDE ou GNOME
+    Note over Desktop: plasma kde-applications&lt;br/&gt;OU gnome gnome-extra
+
+    You-&gt;&gt;Desktop: 11. Display Manager
+    Note over Desktop: SDDM (KDE)&lt;br/&gt;OU GDM (GNOME)
+
+    You-&gt;&gt;Desktop: 12. Polices système
+    Note over Desktop: ttf-dejavu noto-fonts...
+
+    You-&gt;&gt;Desktop: 13. Outils essentiels
+    Note over Desktop: firefox git code...
+
+    You-&gt;&gt;Desktop: 14. Vérification services
+    Desktop--&gt;&gt;You: NetworkManager + DM enabled
+
+    You-&gt;&gt;Desktop: 15. Test composants graphiques
+    Desktop--&gt;&gt;You: vboxvideo + config OK
+
+    You-&gt;&gt;Desktop: 16. sudo reboot
+    Desktop--&gt;&gt;You: Login graphique SDDM/GDM
+
+    rect rgb(255, 230, 230)
+        Note over You,Desktop: PHASE 4 : Tests &amp; Snapshot (Étapes 17-20)
+    end
+
+    You-&gt;&gt;Desktop: 17. Vérifications dans Desktop
+    Note over Desktop: ping, df -h,&lt;br/&gt;$XDG_CURRENT_DESKTOP
+
+    You-&gt;&gt;Desktop: 18. Test OpenGL/Mesa
+    Note over Desktop: glxinfo
+    Desktop--&gt;&gt;You: Accélération 3D OK
+
+    You-&gt;&gt;Desktop: 19. Optimisations VirtualBox
+    Note over Desktop: Clipboard, Drag&amp;Drop,&lt;br/&gt;animations
+
+    You-&gt;&gt;Desktop: 20. sudo poweroff
+    Desktop--&gt;&gt;VB: Arrêt propre
+
+    You-&gt;&gt;VB: Snapshot "Arch-Desktop-Base"
+    VB--&gt;&gt;You: Point de restauration créé
+
+    Note over You,Desktop: ✓ Desktop complet opérationnel</code></pre></p>
+<p><small><em>Ce diagramme représente la transformation complète d'un serveur Arch minimal (Module 3) en poste Desktop graphique. Les 20 étapes sont organisées en 4 phases : (1) préparation de l'environnement VM et mise à jour système, (2) installation de la pile graphique Xorg et pilotes VirtualBox, (3) déploiement de l'environnement Desktop (KDE ou GNOME) avec Display Manager, (4) tests, optimisations et création du snapshot final. Durée totale estimée : 60 à 90 minutes.</em></small></p>
+</div>
+<div class="tabbed-block">
+<p><pre class="mermaid"><code>graph TB
+    UEFI["UEFI + bootloader&lt;br/&gt;(Module 3)"] --&gt; KERNEL[Noyau Linux]
+    KERNEL --&gt; DRM[DRM/KMS&lt;br/&gt;Gestion graphique noyau]
+    DRM --&gt; XORG[Xorg&lt;br/&gt;ou Wayland]
+    XORG --&gt; DM[Display Manager&lt;br/&gt;SDDM / GDM]
+    DM --&gt; DE[Desktop Environment&lt;br/&gt;KDE Plasma / GNOME]
+    DE --&gt; APPS["Applications&lt;br/&gt;(Firefox, VSCode, etc.)"]
+
+    subgraph VirtualBox
+        HOST[Hôte Windows/Linux] --&gt; VB[VirtualBox]
+        VB --&gt; GUEST[VM Arch Desktop]
+        GUEST --&gt; DRM
+    end
+
+    style UEFI fill:#e1f5fe
+    style KERNEL fill:#e8f5e9
+    style DRM fill:#c5e1a5
+    style XORG fill:#fff9c4
+    style DM fill:#ffe0b2
+    style DE fill:#d1c4e9
+    style APPS fill:#f8bbd0
+    style VB fill:#cfd8dc</code></pre>
+<small><em>Ce schéma montre comment le chemin critique du Module 3 (UEFI → kernel → systemd) se prolonge désormais jusqu’au Desktop complet (DM, DE, applications), le tout encapsulé dans VirtualBox.</em></small></p>
+</div>
+</div>
+</div>
+<h3 id="xorg-vs-wayland-quel-serveur-daffichage-choisir">Xorg vs Wayland : quel serveur d'affichage choisir ?<a class="headerlink" href="#xorg-vs-wayland-quel-serveur-daffichage-choisir" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Avant d'installer la pile graphique, vous devez comprendre la différence entre les deux protocoles d'affichage Linux modernes.</p>
+</div>
+<p><strong>Comparaison technique :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Xorg</th>
+<th>Wayland</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Architecture</strong></td>
+<td>Serveur X monolithique</td>
+<td>Protocole compositeur</td>
+</tr>
+<tr>
+<td><strong>Année</strong></td>
+<td>1984 (base X11)</td>
+<td>2008 (spécification moderne)</td>
+</tr>
+<tr>
+<td><strong>Sécurité</strong></td>
+<td>Applications accèdent à tout l'écran</td>
+<td>Isolation stricte par fenêtre</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Mature mais ancien</td>
+<td>Plus efficace théoriquement</td>
+</tr>
+<tr>
+<td><strong>Compatibilité VM</strong></td>
+<td>Excellente</td>
+<td>Variable selon pilotes</td>
+</tr>
+<tr>
+<td><strong>VirtualBox</strong></td>
+<td>✅ Parfait</td>
+<td>⚠️ Parfois capricieux</td>
+</tr>
+<tr>
+<td><strong>Tooling</strong></td>
+<td>xrandr, xset, xdotool</td>
+<td>wlr-randr, wl-clipboard</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notre choix pour Arch-Lab : Xorg</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Dans un contexte <strong>VirtualBox pédagogique</strong>, nous privilégions <strong>Xorg</strong> pour plusieurs raisons :</p>
+<ol>
+<li><strong>Stabilité éprouvée</strong> : 40 ans de maturité</li>
+<li><strong>Compatibilité Guest Additions</strong> : intégration parfaite avec VirtualBox</li>
+<li><strong>Débogage facilité</strong> : outils de diagnostic nombreux (<code>xrandr</code>, logs clairs)</li>
+<li><strong>Documentation abondante</strong> : solutions aux problèmes facilement trouvables</li>
+</ol>
+</div>
+<p><strong>Wayland en production :</strong></p>
+<p>Sur un système physique moderne (laptop, workstation), Wayland devient le standard recommandé pour :</p>
+<ul>
+<li>Sécurité renforcée (isolation des applications)</li>
+<li>Meilleure gestion multi-écrans</li>
+<li>Performances accrues (moins de latence)</li>
+<li>Support natif des écrans HiDPI</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Vous pourrez tester Wayland plus tard. <strong>Une fois votre Desktop Xorg stable</strong>, <em>vous pourrez expérimenter Wayland en installant les sessions Wayland de KDE/GNOME sans casser votre configuration de base.</em></p>
+</div>
+<h2 id="phase-1-preparation-de-la-vm-et-mise-a-jour-systeme-etapes-1-a-4">Phase 1 — Préparation de la VM et mise à jour système (Étapes 1 à 4)<a class="headerlink" href="#phase-1-preparation-de-la-vm-et-mise-a-jour-systeme-etapes-1-a-4" title="Permanent link">&para;</a></h2>
+<h3 id="etape-1-ajuster-la-vm-virtualbox-pour-un-usage-desktop">Étape 1 : Ajuster la VM VirtualBox pour un usage Desktop<a class="headerlink" href="#etape-1-ajuster-la-vm-virtualbox-pour-un-usage-desktop" title="Permanent link">&para;</a></h3>
+<p>Un serveur minimal n’a pas nécessairement les réglages optimaux pour un système graphique.
+Quelques ajustements sont recommandés.</p>
+<blockquote>
+<p>Dans VirtualBox, pour la VM <code>Arch-Server</code> (qui va devenir Desktop) ou <code>Arch-Desktop</code> :</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Valeur recommandée</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAM</td>
+<td><strong>4 à 8 Go</strong></td>
+<td>KDE/GNOME + navigateur + IDE</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>2 vCPU</td>
+<td>Fluide sans saturer l’hôte</td>
+</tr>
+<tr>
+<td>Vidéo (VRAM)</td>
+<td><strong>128 Mo minimum</strong></td>
+<td>Requis pour un Desktop confortable</td>
+</tr>
+<tr>
+<td>Accélération 3D</td>
+<td><strong>Activée</strong></td>
+<td>Améliore fortement l’expérience KDE/GNOME</td>
+</tr>
+<tr>
+<td>Contrôleur graphique</td>
+<td><strong>VMSVGA</strong></td>
+<td>Pilote recommandé pour Linux modernes</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Changer ces paramètres VM avant de lancer le Desktop</p>
+<p>Une VRAM trop faible ou l’accélération 3D désactivée peut provoquer :</p>
+<ul>
+<li>résolution figée,</li>
+<li>lenteurs importantes,</li>
+<li>plantages occasionnels de l’interface.</li>
+</ul>
+</div>
+<h3 id="etape-2-demarrer-la-vm-et-verifier-la-base">Étape 2 : Démarrer la VM et vérifier la base<a class="headerlink" href="#etape-2-demarrer-la-vm-et-verifier-la-base" title="Permanent link">&para;</a></h3>
+<p>Connexion en console (TTY) avec votre utilisateur <code>admin</code> :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Vérifier que vous êtes bien sur votre Arch installé</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uname<span class="w"> </span>-r
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Affiche la version du noyau</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Vérifier la connectivité réseau</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>archlinux.org
+</span></code></pre></div>
+<p>Résultat attendu : <strong>ping OK, aucun paquet perdu</strong>.</p>
+<h3 id="etape-3-mise-a-jour-complete-du-systeme">Étape 3 : Mise à jour complète du système<a class="headerlink" href="#etape-3-mise-a-jour-complete-du-systeme" title="Permanent link">&para;</a></h3>
+<p>Avant d’installer des composants graphiques, la base Arch doit être <strong>à jour</strong> :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Commande pour mettre à jour le système</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-Syu
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Si le noyau ou des composants critiques sont mis à jour, redémarrez avec la commande ci-dessous</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Redémarre le système</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>reboot
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Reconnectez-vous en <code>admin</code> après reboot.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Bon réflexe DevOps / Linux</p>
+<p>Faire un <code>pacman -Syu</code> avant un gros changement (Desktop, gros paquets, etc.) évite énormément de conflits ou de comportements étranges.</p>
+</div>
+<h3 id="etape-4-verification-rapide-post-mise-a-jour">Étape 4 : Vérification rapide post-mise à jour<a class="headerlink" href="#etape-4-verification-rapide-post-mise-a-jour" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Vérifier la version du noyau</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>uname<span class="w"> </span>-r
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Vérifier les services critiques</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>systemctl<span class="w"> </span>is-active<span class="w"> </span>NetworkManager
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>systemctl<span class="w"> </span>is-enabled<span class="w"> </span>NetworkManager
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Résultat attendu : <code>active</code> et <code>enabled</code> pour NetworkManager.</p>
+</div>
+<blockquote>
+<p>Ainsi s'achève la Phase de préparation (Étapes 1-4)</p>
+</blockquote>
+<hr />
+<h2 id="phase-2-pile-graphique-pilotes-virtualbox-etapes-5-a-9">Phase 2 — Pile graphique &amp; pilotes VirtualBox (Étapes 5 à 9)<a class="headerlink" href="#phase-2-pile-graphique-pilotes-virtualbox-etapes-5-a-9" title="Permanent link">&para;</a></h2>
+<h3 id="etape-5-installation-de-xorg-serveur-graphique">Étape 5 : Installation de Xorg (serveur graphique)<a class="headerlink" href="#etape-5-installation-de-xorg-serveur-graphique" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">KDE et GNOME peuvent fonctionner sous <strong>Wayland</strong>, mais dans VirtualBox, <strong>Xorg</strong> est plus stable.</p>
+</div>
+<blockquote>
+<p>Nous partons sur <strong>Xorg</strong>, serveur graphique mature et compatible VirtualBox.</p>
+</blockquote>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Installation des paquets xorg nécessaire</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>xorg-server<span class="w"> </span>xorg-xinit<span class="w"> </span>xorg-apps
+</span></code></pre></div>
+<ul>
+<li><code>xorg-server</code> : <em>cœur du serveur X.</em></li>
+<li><code>xorg-xinit</code> : <em>utilitaire pour lancer des sessions X manuelles.</em></li>
+<li><code>xorg-apps</code> : <em>petite boîte à outils (xrandr, xset, etc.) utile pour diagnostiquer.</em></li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">Ces paquets fournissent les composants nécessaires pour la couche graphique de base.</p>
+</div>
+<h3 id="etape-6-verification-de-base-xorg">Étape 6 : Vérification de base Xorg<a class="headerlink" href="#etape-6-verification-de-base-xorg" title="Permanent link">&para;</a></h3>
+<p>Sans Desktop, Xorg peut déjà être testé minimalement :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Vérifier la présence du binaire Xorg</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>which<span class="w"> </span>Xorg
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Lister les logs X (après premiers tests graphiques plus tard)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>ls<span class="w"> </span>/var/log/Xorg.*
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Pour l’instant, vous ne lancez pas encore <code>startx</code>, le Desktop n’est pas installé. Ces commandes servent à confirmer que la base Xorg est bien en place.</p>
+</div>
+<h3 id="etape-7-pilotes-virtualbox-pour-la-partie-graphique">Étape 7 : Pilotes VirtualBox pour la partie graphique<a class="headerlink" href="#etape-7-pilotes-virtualbox-pour-la-partie-graphique" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Si ce n’est pas déjà fait (<em>ou si vous avez un doute</em>), <strong>installez</strong> / <strong>réinstallez les Guest Additions</strong> côté Arch :</p>
+</blockquote>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Installation des Guest Additions VirtualBox</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># virtualbox-guest-utils : outils utilisateur (vboxclient, vboxcontrol...)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">#                          permettent le presse-papier partagé, résolution dynamique</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># virtualbox-guest-modules-arch : modules kernel pour l&#39;intégration matérielle</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">#                                 (carte graphique virtuelle, périphériques partagés)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>virtualbox-guest-utils<span class="w"> </span>virtualbox-guest-modules-arch
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>vboxservice
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>vboxservice
+</span></code></pre></div>
+<ul>
+<li><strong>virtualbox-guest-utils</strong> : <em>services et outils VirtualBox dans l’invité.</em></li>
+<li><strong>virtualbox-guest-modules-arch</strong> : <em>modules noyau adaptés à la version Arch.</em></li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Rôle de vboxservice</p>
+<ul>
+<li>ajustement dynamique de la résolution,</li>
+<li>synchronisation de l’heure,</li>
+<li>intégration souris,</li>
+<li>partage presse-papier,</li>
+<li>meilleure gestion de la carte graphique virtuelle.</li>
+</ul>
+</div>
+<h3 id="etape-8-configuration-explicite-du-driver-vboxvideo-xorg">Étape 8 : Configuration explicite du driver vboxvideo (Xorg)<a class="headerlink" href="#etape-8-configuration-explicite-du-driver-vboxvideo-xorg" title="Permanent link">&para;</a></h3>
+<p>Création d’un fichier minimal de configuration Xorg pour forcer le driver VirtualBox :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/X11/xorg.conf.d
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/X11/xorg.conf.d/20-vboxvideo.conf<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s">Section &quot;Device&quot;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s">    Identifier  &quot;VirtualBox Graphics&quot;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="s">    Driver      &quot;vboxvideo&quot;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="s">EndSection</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="s">EOF</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Ce fichier indique à <strong>Xorg</strong> d’utiliser explicitement le driver <code>vboxvideo</code> fourni par VirtualBox.</p>
+</div>
+<h3 id="etape-9-installation-de-mesa-acceleration-3d">Étape 9 : Installation de Mesa (accélération 3D)<a class="headerlink" href="#etape-9-installation-de-mesa-acceleration-3d" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Mesa fournit l’implémentation OpenGL côté Linux.</p>
+</blockquote>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>mesa<span class="w"> </span>mesa-utils
+</span></code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Test ultérieur (après Desktop) :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>glxinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;OpenGL&quot;</span>
+</span></code></pre></div>
+<p><strong>Résultat attendu</strong> : une ligne indiquant un renderer VirtualBox avec accélération active.</p>
+</div>
+<blockquote>
+<p>Ainsi s'achève la Phase Pile graphique &amp; pilotes VirtualBox (Étapes 5-9)</p>
+</blockquote>
+<hr />
+<h2 id="phase-3-environnement-desktop-kde-gnome-et-display-manager-etapes-10-a-16">Phase 3 — Environnement Desktop (KDE / GNOME) et Display Manager (Étapes 10 à 16)<a class="headerlink" href="#phase-3-environnement-desktop-kde-gnome-et-display-manager-etapes-10-a-16" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">À partir de cette phase, les chemins divergent pour KDE et GNOME.<br />Les sections sont présentées en onglets parallèles.</p>
+</div>
+<h3 id="etape-10-choix-de-lenvironnement-de-bureau">Étape 10 : Choix de l’environnement de bureau<a class="headerlink" href="#etape-10-choix-de-lenvironnement-de-bureau" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">KDE Plasma</label><label for="__tabbed_2_2">GNOME</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="admonition quote">
+<p class="admonition-title">KDE est particulièrement adapté à un usage Desktop en VM :</p>
+<ul>
+<li>très personnalisable,</li>
+<li>bonne intégration avec la plupart des workflows de développement,</li>
+<li>comportement généralement fluide sous VirtualBox.</li>
+</ul>
+</div>
+<p>Installation de base :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>plasma<span class="w"> </span>kde-applications
+</span></code></pre></div>
+<ul>
+<li><code>plasma</code> : environnement KDE Plasma (bureaux, panneau, widgets…)</li>
+<li><code>kde-applications</code> : ensemble d’outils cohérents (Dolphin, Konsole, Okular, etc.)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Il est possible d’alléger <code>kde-applications</code> plus tard en supprimant les applications inutiles.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition quote">
+<p class="admonition-title">GNOME privilégie la cohérence, la simplicité visuelle et la réduction des distractions :</p>
+<ul>
+<li>interface épurée,</li>
+<li>workflow centré sur les activités,</li>
+<li>idéal pour expérimenter Wayland plus tard.</li>
+</ul>
+</div>
+<p>Installation de base :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>gnome<span class="w"> </span>gnome-extra
+</span></code></pre></div>
+<ul>
+<li><code>gnome</code> : environnement GNOME minimal (Shell, paramètres, utilitaires essentiels).</li>
+<li><code>gnome-extra</code> : collection d’outils complémentaires (utile pour un vrai poste Desktop).</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Comme pour KDE, il sera possible de désinstaller certaines applications par la suite.</p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="etape-11-installation-du-display-manager">Étape 11 : Installation du Display Manager<a class="headerlink" href="#etape-11-installation-du-display-manager" title="Permanent link">&para;</a></h3>
+<p>Un <strong>Display Manager (DM)</strong> est l'écran de login graphique qui lance votre session KDE ou GNOME.</p>
+<pre class="mermaid"><code>graph LR
+    SYSTEMD["systemd (boot)"] --&gt; DM[Display Manager&lt;br/&gt;SDDM / GDM]
+    DM --&gt; SESSION[Session utilisateur]
+    SESSION --&gt; DE[Environnement Desktop&lt;br/&gt;KDE ou GNOME]</code></pre>
+<p><strong>Rôle du Display Manager dans le processus de boot :</strong>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Boot as systemd boot
+    participant DM as Display Manager&lt;br/&gt;(SDDM/GDM)
+    participant User as Utilisateur
+    participant Session as Session Desktop
+    participant DE as KDE/GNOME
+
+    Boot-&gt;&gt;DM: 1. Lancement automatique&lt;br/&gt;(service systemd)
+    DM-&gt;&gt;User: 2. Affichage écran login
+    User-&gt;&gt;DM: 3. Identifiants + choix session
+    DM-&gt;&gt;Session: 4. Création session utilisateur&lt;br/&gt;(~/.xsession, variables env)
+    Session-&gt;&gt;DE: 5. Lancement Desktop Environment
+    DE--&gt;&gt;User: 6. Bureau opérationnel
+
+    Note over Boot,DE: Le DM est le pont entre systemd&lt;br/&gt;et votre environnement graphique</code></pre></p>
+<p><small><em>Le Display Manager est lancé automatiquement par systemd au boot. Il affiche l'écran de connexion, authentifie l'utilisateur, initialise les variables d'environnement graphique (<strong>DISPLAY</strong>, <strong>XDG_SESSION_TYPE</strong>...), puis lance le Desktop Environment choisi (<strong>KDE Plasma</strong> ou <strong>GNOME Shell</strong>). Sans DM, vous devriez lancer manuellement <code>startx</code> depuis la console.</em></small></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">KDE (SDDM)</label><label for="__tabbed_3_2">GNOME (GDM)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<blockquote>
+<p>KDE est généralement associé à <strong>SDDM</strong> (Simple Desktop Display Manager).</p>
+</blockquote>
+<p>Installation et activation :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>sddm
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>sddm
+</span></code></pre></div>
+<ul>
+<li><code>sddm</code> sera lancé automatiquement au boot par <code>systemd</code>.</li>
+<li>Il affichera une liste d’utilisateurs et un sélecteur de session Plasma.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<blockquote>
+<p>GNOME est généralement associé à <strong>GDM</strong><sup id="fnref5:4"><a class="footnote-ref" href="#fn:4">4</a></sup> (GNOME Display Manager).</p>
+</blockquote>
+<p>Installation et activation :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>gdm
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>gdm
+</span></code></pre></div>
+<ul>
+<li><code>gdm</code> gère le login graphique et la sélection de session GNOME,</li>
+<li>il sait gérer les sessions <strong>Xorg</strong> et <strong>Wayland</strong> (selon la configuration).</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Ne pas activer deux Display Managers simultanément. En effet, <strong>un seul DM doit être enable</strong> à la fois, sous peine de conflits au démarrage.</p>
+</div>
+<h3 id="etape-12-polices-compatibilite-et-confort-de-lecture">Étape 12 : Polices, compatibilité et confort de lecture<a class="headerlink" href="#etape-12-polices-compatibilite-et-confort-de-lecture" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Un Desktop sans bonnes polices est un enfer à utiliser, surtout en multi-langues.</p>
+</blockquote>
+<p>Installation d’un jeu de polices cohérent :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Installation d&#39;un ensemble complet de polices système</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># ttf-dejavu : polices sans-serif lisibles, excellentes pour le code et l&#39;interface</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># ttf-liberation : équivalents libres des polices Microsoft (Arial, Times, Courier)</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># noto-fonts : famille de polices Google couvrant l&#39;ensemble d&#39;Unicode</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># noto-fonts-cjk : support chinois (Chinese), japonais (Japanese), coréen (Korean)</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="c1"># noto-fonts-emoji : emoji modernes colorés (indispensable pour le web actuel)</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>ttf-dejavu<span class="w"> </span>ttf-liberation<span class="w"> </span>noto-fonts<span class="w"> </span>noto-fonts-cjk<span class="w"> </span>noto-fonts-emoji
+</span></code></pre></div>
+<ul>
+<li><code>ttf-dejavu</code>, <code>ttf-liberation</code> : polices de base lisibles pour la majorité des usages.</li>
+<li><code>noto-fonts</code> : support large Unicode.</li>
+<li><code>noto-fonts-cjk</code> : chinois / japonais / coréen.</li>
+<li><code>noto-fonts-emoji</code> : emoji modernes (utile pour le Web).</li>
+</ul>
+<h3 id="etape-13-outils-essentiels-dun-poste-desktop">Étape 13 : Outils essentiels d’un poste Desktop<a class="headerlink" href="#etape-13-outils-essentiels-dun-poste-desktop" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Vous préparez un poste de travail, pas une simple démo graphique.</p>
+</blockquote>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Outils de base recommandés</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>firefox<span class="w"> </span>filezilla<span class="w"> </span>gparted<span class="w"> </span>htop<span class="w"> </span>neofetch<span class="w"> </span>p7zip<span class="w"> </span>unzip<span class="w"> </span>zip<span class="w"> </span>network-manager-applet
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Pour le développement</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>git<span class="w"> </span>base-devel
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># Pour un éditeur / IDE moderne</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>code
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="c1"># ou le paquet AUR &quot;visual-studio-code-bin&quot; via un helper AUR si configuré</span>
+</span></code></pre></div>
+<p>(<em>La gestion AUR pourra être vue dans un module séparé.</em>)</p>
+<h3 id="etape-14-activation-et-verification-des-services">Étape 14 : Activation et vérification des services<a class="headerlink" href="#etape-14-activation-et-verification-des-services" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Vérification côté réseau (NetworkManager) et Display Manager :</p>
+</blockquote>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Doit être enabled + active</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>systemctl<span class="w"> </span>is-enabled<span class="w"> </span>NetworkManager
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>systemctl<span class="w"> </span>is-active<span class="w"> </span>NetworkManager
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># Vérifier le Display Manager choisi (UN SEUL)</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>systemctl<span class="w"> </span>is-enabled<span class="w"> </span>sddm<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="c1"># KDE</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>systemctl<span class="w"> </span>is-enabled<span class="w"> </span>gdm<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w">  </span><span class="c1"># Gnome</span>
+</span></code></pre></div>
+<p><strong>Résultat attendu</strong> :</p>
+<ul>
+<li><strong><code>enabled</code></strong> pour NetworkManager,</li>
+<li><strong><code>enabled</code></strong> pour <strong>un seul</strong> Display Manager (<code>sddm</code> ou <code>gdm</code>).</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Le système lancera automatiquement l’environnement graphique au démarrage.</p>
+</div>
+<h3 id="etape-15-test-des-composants-graphiques-avant-reboot">Étape 15 : Test des composants graphiques (avant reboot)<a class="headerlink" href="#etape-15-test-des-composants-graphiques-avant-reboot" title="Permanent link">&para;</a></h3>
+<p>Vous pouvez vérifier côté pilotes :</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Vérifier le module vboxvideo</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>lsmod<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vboxvideo
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Vérifier la config Xorg VirtualBox</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>cat<span class="w"> </span>/etc/X11/xorg.conf.d/20-vboxvideo.conf
+</span></code></pre></div>
+<strong>Résultats attendus</strong> :</p>
+<ul>
+<li>présence de <code>vboxvideo</code> dans les modules,</li>
+<li>fichier de configuration cohérent avec ce qui a été créé.</li>
+</ul>
+<h3 id="etape-16-premier-redemarrage-vers-le-desktop">Étape 16 : Premier redémarrage vers le Desktop<a class="headerlink" href="#etape-16-premier-redemarrage-vers-le-desktop" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Redémarrer le système</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>sudo<span class="w"> </span>reboot
+</span></code></pre></div>
+<p>Au redémarrage :</p>
+<ul>
+<li>VirtualBox → boot,</li>
+<li>systemd → lance le Display Manager (sddm ou gdm),</li>
+<li>vous devez arriver sur un écran de connexion graphique.</li>
+</ul>
+<p>Connexion :</p>
+<ul>
+<li>utilisateur : admin (ou votre utilisateur équivalent),</li>
+<li>mot de passe : celui défini au Module 3.</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">Vous entrez alors dans <strong>KDE Plasma</strong> ou <strong>GNOME</strong>, selon votre choix.</p>
+</div>
+<blockquote>
+<p>Ainsi s'achève la Phase Environnement Desktop &amp; Display Manager (Étapes 10-16)</p>
+</blockquote>
+<hr />
+<h2 id="phase-4-tests-optimisation-depannage-snapshot-etapes-17-a-20">Phase 4 — Tests, optimisation, dépannage &amp; snapshot (Étapes 17 à 20)<a class="headerlink" href="#phase-4-tests-optimisation-depannage-snapshot-etapes-17-a-20" title="Permanent link">&para;</a></h2>
+<h3 id="etape-17-verifications-a-linterieur-du-desktop">Étape 17 : Vérifications à l’intérieur du Desktop<a class="headerlink" href="#etape-17-verifications-a-linterieur-du-desktop" title="Permanent link">&para;</a></h3>
+<p>Ouvrez un terminal dans votre environnement graphique :</p>
+<ul>
+<li>KDE : <strong>Konsole</strong>,</li>
+<li>GNOME : <strong>Terminal</strong>.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Confirmer l’environnement de bureau</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$XDG_CURRENT_DESKTOP</span><span class="s2">&quot;</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DESKTOP_SESSION</span><span class="s2">&quot;</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="c1"># Tester le réseau</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>archlinux.org
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="c1"># Vérifier l’espace disque</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>df<span class="w"> </span>-h
+</span></code></pre></div>
+<p>Résultat attendu :</p>
+<ul>
+<li><code>XDG_CURRENT_DESKTOP</code> affiche <code>KDE</code> ou <code>GNOME</code>,</li>
+<li>ping OK,</li>
+<li><code>/</code> et <code>/boot</code> montés correctement.</li>
+</ul>
+<h3 id="etape-18-verification-opengl-mesa">Étape 18 : Vérification OpenGL / Mesa<a class="headerlink" href="#etape-18-verification-opengl-mesa" title="Permanent link">&para;</a></h3>
+<p>Dans le terminal graphique :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>glxinfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;OpenGL&quot;</span>
+</span></code></pre></div>
+<p>Résultat attendu :</p>
+<ul>
+<li>Une ligne indiquant un renderer type <em>“Chromium / VirtualBox”</em> ou équivalent,</li>
+<li>Version OpenGL non nulle.</li>
+</ul>
+<p>Si la commande <code>glxinfo</code> n’est pas trouvée, revérifiez :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>mesa-utils
+</span></code></pre></div>
+<h3 id="etape-19-optimisations-pratiques-pour-virtualbox">Étape 19 : Optimisations pratiques pour VirtualBox<a class="headerlink" href="#etape-19-optimisations-pratiques-pour-virtualbox" title="Permanent link">&para;</a></h3>
+<p>Quelques réglages à intégrer dans vos habitudes :</p>
+<ul>
+<li>Toujours garder VirtualBox Guest Additions à jour côté Arch.</li>
+<li>Adapter la résolution via les options View → Virtual Screen.</li>
+<li>Configurer dans VirtualBox :<ul>
+<li>Devices → Shared Clipboard → Bidirectional,</li>
+<li>Devices → Drag and Drop → Bidirectional (si besoin).</li>
+</ul>
+</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">Vous pouvez également régler le comportement de l’interface (animations, effets) :</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">KDE</label><label for="__tabbed_4_2">GNOME</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Ouvrir <strong>Configuration du système</strong> → <strong>Affichage et écran</strong> → réduire certains effets.</li>
+<li>Désactiver éventuellement des animations superflues si l’hôte est modeste.</li>
+<li>Adapter le thème pour plus de lisibilité (polices, contraste).</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Utiliser <strong>GNOME Tweaks</strong> (paquet <code>gnome-tweaks</code>) pour ajuster :<ul>
+<li>animations,</li>
+<li>fontes,</li>
+<li>thème,</li>
+<li>extensions.</li>
+</ul>
+</li>
+<li>Installer quelques extensions GNOME uniquement si nécessaire, pour éviter la surcharge.</li>
+</ul>
+</div>
+</div>
+</div>
+<h3 id="etape-20-arret-propre-et-creation-du-snapshot-de-base-desktop">Étape 20 : Arrêt propre et création du Snapshot de base Desktop<a class="headerlink" href="#etape-20-arret-propre-et-creation-du-snapshot-de-base-desktop" title="Permanent link">&para;</a></h3>
+<p>Lorsque tout est fonctionnel :</p>
+<ol>
+<li>
+<p>Éteindre proprement la VM : <code>sudo poweroff</code></p>
+</li>
+<li>
+<p>Dans VirtualBox :</p>
+<ul>
+<li>Sélectionner la VM,</li>
+<li>Aller dans l’onglet <strong>Snapshots</strong>,</li>
+<li>Cliquer sur <strong>Take</strong>.</li>
+</ul>
+</li>
+<li>
+<p>Nom recommandé : <code>Arch-Desktop-Base</code></p>
+</li>
+<li>
+<p>Description suggérée :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Arch Desktop complet (KDE ou GNOME)
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>- Base Module 3 entièrement fonctionnelle (UEFI + systemd-boot)
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>- Environnement graphique installé et testé
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>- NetworkManager + vboxservice opérationnels
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>- Polices et outils essentiels (Firefox, Git, etc.)
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>- Système à jour au [DATE]
+</span></code></pre></div>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Ce snapshot devient votre référence Desktop pour :</p>
+<ul>
+<li>vos labs cyber</li>
+<li>vos tests réseaux</li>
+<li>vos environnements de dev</li>
+<li>vos démonstrations pédagogiques</li>
+</ul>
+</div>
+<h2 id="recapitulatif-architecture-desktop-finale">Récapitulatif : Architecture Desktop finale<a class="headerlink" href="#recapitulatif-architecture-desktop-finale" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TD
+    UEFI[UEFI Firmware] --&gt; BOOT[systemd-boot]
+    BOOT --&gt; KERNEL[Noyau Linux]
+    KERNEL --&gt; SYSTEMD["systemd (PID 1)"]
+    SYSTEMD --&gt; DM[Display Manager&lt;br/&gt;SDDM ou GDM]
+
+    DM --&gt;|session utilisateur| DE[Desktop Environment&lt;br/&gt;KDE Plasma ou GNOME]
+    DE --&gt; APPS[Applications&lt;br/&gt;Firefox, VSCode, Terminal, etc.]
+
+    KERNEL --&gt; DRM[DRM/KMS + vboxvideo]
+    DRM --&gt; XORG["Xorg / (Wayland ensuite)"]
+    XORG --&gt; DE
+
+    subgraph VirtualBox
+        HOST[Hôte physique] --&gt; VB[VirtualBox]
+        VB --&gt; GUEST[VM Arch Desktop]
+        GUEST --&gt; KERNEL
+    end
+
+    style UEFI fill:#e1f5fe
+    style BOOT fill:#d1c4e9
+    style KERNEL fill:#e8f5e9
+    style SYSTEMD fill:#c8e6c9
+    style DM fill:#ffe0b2
+    style DE fill:#d1c4e9
+    style APPS fill:#f8bbd0
+    style DRM fill:#c5e1a5
+    style XORG fill:#fff9c4
+    style VB fill:#cfd8dc</code></pre>
+<p><small>Ce schéma finalise la continuité entre le Module 3 (boot/serveur) et le Module 4 (Desktop complet). Vous maîtrisez désormais toute la chaîne, du firmware à l’environnement de bureau.</small></p>
+<p>Dépannage avancé</p>
+<details class="abstract">
+<summary>Écran noir après le boot (pas de SDDM / GDM)</summary>
+<p><strong>Symptôme</strong> : la machine boote, mais reste sur un écran noir ou une console texte, sans DM.</p>
+<p><strong>Causes possibles</strong> :</p>
+<ul>
+<li>Display Manager non activé (<code>enable</code> manquant),</li>
+<li>conflit entre deux DM,</li>
+<li>erreur Xorg / pilote.</li>
+</ul>
+<p><strong>Diagnostic minimal</strong> (en console TTY, Ctrl+Alt+F2) :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Voir quel DM est enabled</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>systemctl<span class="w"> </span>list-unit-files<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;sddm|gdm&#39;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1"># Voir le statut</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>systemctl<span class="w"> </span>status<span class="w"> </span>sddm
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>systemctl<span class="w"> </span>status<span class="w"> </span>gdm
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="c1"># Logs Xorg</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>ls<span class="w"> </span>/var/log/Xorg.*
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>cat<span class="w"> </span>/var/log/Xorg.0.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">50</span>
+</span></code></pre></div>
+<p><strong>Correctifs</strong> :</p>
+<ul>
+<li>Désactiver l’un des DM si deux sont enabled :
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>gdm
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>sddm
+</span></code></pre></div>
+  ou l’inverse.</li>
+<li>Vérifier <code>/etc/X11/xorg.conf.d/20-vboxvideo.conf</code> et éventuellement le supprimer pour revenir à l’auto-détection.</li>
+</ul>
+</details>
+<details class="abstract">
+<summary>Résolution d’écran bloquée, mauvaise taille de bureau</summary>
+<p><strong>Symptôme</strong> : impossible d’ajuster la résolution correctement, écran minuscule ou zoomé.</p>
+<p><strong>Pistes</strong> :</p>
+<ul>
+<li>Vérifier le contrôleur graphique VirtualBox : <strong>VMSVGA</strong>.</li>
+<li>Vérifier la VRAM : <strong>128 Mo minimum</strong>.</li>
+<li>Vérifier <code>vboxservice</code> :
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>vboxservice
+</span></code></pre></div></li>
+<li>Depuis le Desktop, tester :</li>
+<li>KDE : module d’affichage dans les paramètres.</li>
+<li>GNOME : paramètres d’affichage.</li>
+</ul>
+<p>Si rien ne fonctionne, réinstaller les Guests :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>virtualbox-guest-utils<span class="w"> </span>virtualbox-guest-modules-arch
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>vboxservice<span class="w"> </span>--now
+</span></code></pre></div>
+</details>
+<details class="abstract">
+<summary>Le Desktop est très lent / saccadé</summary>
+<p><strong>Symptôme</strong> : le pointeur lag, les fenêtres se déplacent au ralenti.</p>
+<p><strong>Vérifications</strong> :</p>
+<ul>
+<li>côté VM :</li>
+<li>RAM allouée (4–8 Go),</li>
+<li>VRAM (128 Mo),</li>
+<li>3D activée,</li>
+<li>pas trop d’onglets/IDE ouverts.</li>
+<li>côté Desktop :</li>
+<li>réduire les animations :<ul>
+<li>KDE : Config système → Effets du bureau.</li>
+<li>GNOME : <code>gnome-tweaks</code> → Desktop / Animations.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Conseil</strong> : si l’hôte est modeste, privilégier KDE Plasma, souvent plus tolérant en VM.</p>
+</details>
+<details class="abstract">
+<summary>Impossible de lancer des applications graphiques en SSH</summary>
+<p>Si vous vous connectez en SSH depuis l’hôte vers la VM, les applis graphiques ne se lancent pas (ou plantent).<br />
+C’est normal : ce module ne configure pas le <strong>X11 forwarding</strong>.</p>
+<p>Pour ce module, considérez que les applis graphiques sont <strong>lancées depuis la VM</strong>, pas exportées via SSH.</p>
+</details>
+<blockquote>
+<p>Ainsi s'achève la Phase Tests, optimisation, dépannage &amp; snapshot (Étapes 17-20)</p>
+</blockquote>
+<hr />
+<h2 id="le-mot-de-la-fin">Le Mot de la Fin<a class="headerlink" href="#le-mot-de-la-fin" title="Permanent link">&para;</a></h2>
+<h3 id="felicitations-vous-avez-transforme-votre-serveur-arch-en-desktop-complet">FÉLICITATIONS ! Vous avez transformé votre serveur Arch en Desktop complet.<a class="headerlink" href="#felicitations-vous-avez-transforme-votre-serveur-arch-en-desktop-complet" title="Permanent link">&para;</a></h3>
+<div class="admonition success">
+<p class="admonition-title"><strong>Vous venez de construire un poste de travail graphique professionnel</strong> en partant d'un serveur minimal. C'est une compétence rare qui démontre votre compréhension de l'architecture Linux moderne.</p>
+</div>
+<h3 id="ce-que-vous-avez-appris-dans-ce-module">Ce que vous avez appris dans ce module<a class="headerlink" href="#ce-que-vous-avez-appris-dans-ce-module" title="Permanent link">&para;</a></h3>
+<div class="admonition success">
+<p class="admonition-title">Compétences Techniques</p>
+<ul>
+<li>✅ Configuration avancée d'une VM VirtualBox pour usage Desktop</li>
+<li>✅ Installation et configuration de la pile graphique Linux (Xorg, DRM/KMS)</li>
+<li>✅ Déploiement d'un environnement Desktop complet (KDE Plasma ou GNOME)</li>
+<li>✅ Installation et activation d'un Display Manager (SDDM/GDM<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>)</li>
+<li>✅ Gestion des polices système (Unicode, CJK, emoji)</li>
+<li>✅ Intégration Guest Additions VirtualBox pour optimisation graphique</li>
+<li>✅ Installation d'outils essentiels Desktop (Firefox, Git, IDE)</li>
+<li>✅ Tests et validation OpenGL/Mesa</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Compétences Conceptuelles</p>
+<ul>
+<li>✅ Compréhension de la pile graphique Linux complète</li>
+<li>✅ Différence entre Xorg et Wayland</li>
+<li>✅ Rôle du Display Manager vs Desktop Environment</li>
+<li>✅ Architecture VirtualBox + pilotes graphiques (vboxvideo)</li>
+<li>✅ Optimisation performances graphiques en virtualisation</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Points Clés à Retenir</p>
+<blockquote>
+<p>Avant de passer au Module 5, assurez-vous d'avoir compris ces concepts fondamentaux :</p>
+</blockquote>
+<ol>
+<li><strong>La pile graphique Linux</strong> fonctionne en couches : Kernel (DRM/KMS) → Xorg/Wayland → Display Manager → Desktop Environment</li>
+<li><strong>Xorg est plus stable en VM</strong> que Wayland, même si Wayland est l'avenir sur hardware physique</li>
+<li><strong>Le Display Manager</strong> (SDDM/GDM<sup id="fnref3:4"><a class="footnote-ref" href="#fn:4">4</a></sup>) n'est PAS le Desktop Environment (KDE/GNOME), c'est juste l'écran de login</li>
+<li><strong>VirtualBox Guest Additions</strong> sont critiques pour une expérience Desktop fluide (résolution, clipboard, performances)</li>
+<li><strong>Un seul Display Manager</strong> doit être activé à la fois (SDDM OU GDM<sup id="fnref4:4"><a class="footnote-ref" href="#fn:4">4</a></sup>, pas les deux)</li>
+<li><strong>Mesa fournit OpenGL</strong> sous Linux - sans lui, pas d'accélération 3D</li>
+<li><strong>Les polices Unicode</strong> (noto-fonts) évitent les carrés blancs sur le web et dans les applications</li>
+<li><strong>RAM et VRAM</strong> ont un impact direct sur la fluidité : 4-8 Go RAM + 128 Mo VRAM minimum</li>
+</ol>
+</div>
+<h3 id="recapitulatif-des-fichiers-critiques-crees">Récapitulatif des Fichiers Critiques Créés<a class="headerlink" href="#recapitulatif-des-fichiers-critiques-crees" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier/Service</th>
+<th>Rôle</th>
+<th>Localisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>xorg-server</strong></td>
+<td>Serveur d'affichage graphique</td>
+<td><code>/usr/bin/Xorg</code></td>
+</tr>
+<tr>
+<td><strong>20-vboxvideo.conf</strong></td>
+<td>Configuration driver VirtualBox</td>
+<td><code>/etc/X11/xorg.conf.d/</code></td>
+</tr>
+<tr>
+<td><strong>sddm/gdm service</strong></td>
+<td>Display Manager auto-démarré</td>
+<td>systemd unit</td>
+</tr>
+<tr>
+<td><strong>plasma/gnome</strong></td>
+<td>Desktop Environment</td>
+<td><code>/usr/bin/</code>, <code>/usr/share/</code></td>
+</tr>
+<tr>
+<td><strong>vboxservice</strong></td>
+<td>Intégration Guest Additions</td>
+<td>systemd unit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="points-de-vigilance-pour-la-suite">Points de Vigilance pour la Suite<a class="headerlink" href="#points-de-vigilance-pour-la-suite" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Maintenance régulière nécessaire</p>
+<p>Comme pour le serveur (Module 3), maintenez votre Desktop à jour :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># Hebdomadaire recommandé</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-Syu
+</span></code></pre></div>
+<p><strong>Attention</strong> : après mise à jour majeure du noyau ou de Xorg, un redémarrage est souvent nécessaire.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Snapshots avant expérimentations</p>
+<p>Avant d'installer des environnements de développement lourds (Docker, VMs imbriquées, IDE volumineux), créez un snapshot</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Exemple de nom pour un snapshot</p>
+<ul>
+<li>"Pre-Docker-Install"</li>
+<li>"Before-PyCharm-Setup"</li>
+<li>"Clean-Desktop-[DATE]"</li>
+</ul>
+</div>
+<h3 id="comparaison-serveur-module-3-vs-desktop-module-4">Comparaison Serveur (Module 3) vs Desktop (Module 4)<a class="headerlink" href="#comparaison-serveur-module-3-vs-desktop-module-4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Module 3 (Serveur)</th>
+<th>Module 4 (Desktop)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RAM recommandée</strong></td>
+<td>2-4 Go</td>
+<td>4-8 Go</td>
+</tr>
+<tr>
+<td><strong>VRAM</strong></td>
+<td>Non applicable</td>
+<td>128 Mo minimum</td>
+</tr>
+<tr>
+<td><strong>Services</strong></td>
+<td>systemd + NetworkManager</td>
+<td>+ Display Manager + Desktop</td>
+</tr>
+<tr>
+<td><strong>Paquets installés</strong></td>
+<td>~200-300</td>
+<td>~800-1200</td>
+</tr>
+<tr>
+<td><strong>Usage</strong></td>
+<td>Infrastructure, services</td>
+<td>Travail utilisateur, dev</td>
+</tr>
+<tr>
+<td><strong>Temps de boot</strong></td>
+<td>5-10 secondes</td>
+<td>15-25 secondes</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Votre poste de travail Linux est opérationnel</p>
+<p>Un serveur sans interface c'est de l'infrastructure — un bureau c'est de la <strong>productivité</strong>. Vous maîtrisez désormais la chaîne complète : du noyau au bureau graphique, de KMS à SDDM, de <code>pacstrap</code> à Plasma ou GNOME. C'est ce que font les ingénieurs DevSecOps pour leurs postes de travail Linux.</p>
+</div>
+<blockquote>
+<p>Le <strong>Module 5</strong> vous apprend à connecter toutes vos VMs dans une topologie réseau professionnelle (NAT, Host-Only, Internal Network) — l'étape clé avant le lab multi-OS.</p>
+</blockquote>
+<p><a class="md-button md-button--primary" href=".././05-virtualbox-reseau/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span> Accéder au Module 5</a></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:DRM">
+<p><strong>DRM (Direct Rendering Manager)</strong> : sous-système du noyau Linux gérant l'accès à la carte graphique. KMS (Kernel Mode Setting) fait partie de DRM et gère les résolutions et modes d'affichage.&#160;<a class="footnote-backref" href="#fnref:DRM" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:Mesa">
+<p><strong>Mesa</strong> : implémentation open source d'OpenGL, Vulkan et autres APIs graphiques. Indispensable pour l'accélération 3D sous Linux.&#160;<a class="footnote-backref" href="#fnref:Mesa" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:SDDM">
+<p><strong>SDDM (Simple Desktop Display Manager)</strong> : Display Manager léger et moderne, développé en Qt, recommandé pour KDE Plasma.&#160;<a class="footnote-backref" href="#fnref:SDDM" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><strong>GDM (GNOME Display Manager)</strong> : Display Manager officiel de GNOME, supporte nativement Xorg et Wayland.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">ARCH</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">DESKTOP</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">KDE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GNOME</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GRAPHISME</span>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">LINUX</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VIRTUALBOX</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../03-arch-serveur/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Arch Serveur">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Arch Serveur
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05-virtualbox-reseau/" class="md-footer__link md-footer__link--next" aria-label="Suivant: VirtualBox — Réseau">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                VirtualBox — Réseau
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.9f55f5b1.min.js"></script>
+      
+        <script src="../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

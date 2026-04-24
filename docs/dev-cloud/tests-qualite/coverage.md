@@ -1,6 +1,6 @@
 ---
 description: "Code Coverage — Mesurer la couverture de tests : outils (Xdebug, PCOV), seuils, rapports HTML, intégration CI/CD Laravel."
-icon: lucide/bar-chart-2
+icon: lucide/book-open-check
 tags: ["COVERAGE", "TESTING", "XDEBUG", "PCOV", "CICD", "PHPUNIT", "PEST"]
 ---
 

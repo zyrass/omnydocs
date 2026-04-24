@@ -1,6 +1,6 @@
 ---
 description: "Comprendre le tunnel HTTP, les Sessions d'utilisateurs et le cryptage des mots de passe."
-icon: lucide/key-round
+icon: lucide/book-open-check
 tags: ["LARAVEL", "AUTHENTIFICATION", "SECURITY", "HASHING", "SESSION"]
 ---
 

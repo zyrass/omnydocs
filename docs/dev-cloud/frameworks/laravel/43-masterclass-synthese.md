@@ -1,6 +1,6 @@
 ---
 description: "Dernière Synthèse du Framework de la Formation complète, de vos acquis à vos futurs métiers au sein de la branche Backend."
-icon: lucide/graduation-cap
+icon: lucide/book-open-check
 tags: ["LARAVEL", "SUMMARY", "CAREER", "QCM", "EXERCICE"]
 ---
 

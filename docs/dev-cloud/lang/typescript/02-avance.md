@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["TYPESCRIPT", "GENERIQUES", "UTILITY-TYPES", "TYPE-GUARDS", "MAPPED-TYPES"]
 ---
 
-# Module 02 — Types Avancés TypeScript
+# Types Avancés TypeScript
 
 <div
   class="omny-meta"

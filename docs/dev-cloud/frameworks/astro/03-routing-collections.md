@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["ASTRO", "ROUTING", "CONTENT-COLLECTIONS", "MARKDOWN", "MDX", "DYNAMIC"]
 ---
 
-# Module 03 — Routing & Collections
+# Routing & Collections
 
 <div
   class="omny-meta"

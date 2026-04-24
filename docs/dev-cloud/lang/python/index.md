@@ -1,6 +1,5 @@
 ---
 description: "Python — Hub de navigation : présentation du langage, parcours de formation et frameworks disponibles (Django, Flask, Tkinter)."
-icon: lucide/code-2
 tags: ["PYTHON", "DJANGO", "FLASK", "TKINTER", "HUB"]
 ---
 
@@ -34,14 +33,15 @@ tags: ["PYTHON", "DJANGO", "FLASK", "TKINTER", "HUB"]
 
 ## Parcours de Formation
 
-```
-Recommandation :
-1. Maîtriser les fondamentaux Python (variables, fonctions, OOP, erreurs)
-2. Choisir un framework selon votre objectif :
-   - Web backend → Django (complet) ou Flask (micro)
-   - Interfaces graphiques → Tkinter
-   - Data / IA → NumPy, Pandas, PyTorch (hors périmètre)
-```
+!!! quote "**Notre recommandation**"
+
+    1. Maîtriser les fondamentaux Python (variables, fonctions, OOP, erreurs)
+
+    2. Choisir un framework selon votre objectif :
+
+        - Web backend → Django (complet) ou Flask (micro)
+        - Interfaces graphiques → Tkinter
+        - Data / IA → NumPy, Pandas, PyTorch (hors périmètre)
 
 <br>
 

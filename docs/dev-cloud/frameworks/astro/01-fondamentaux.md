@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["ASTRO", "JAVASCRIPT", "SSG", "FRONTMATTER", "SCOPED-CSS", "VITE"]
 ---
 
-# Module 01 — Fondamentaux Astro
+# Fondamentaux
 
 <div
   class="omny-meta"

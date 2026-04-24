@@ -1,6 +1,6 @@
 ---
 description: "Installer proprement le starter-kit sans conflits avec un projet vide ou en cours."
-icon: lucide/box
+icon: lucide/book-open-check
 tags: ["LARAVEL", "BREEZE", "INSTALLATION", "TAILWIND"]
 ---
 

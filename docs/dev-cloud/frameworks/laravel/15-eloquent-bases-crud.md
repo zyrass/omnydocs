@@ -1,6 +1,6 @@
 ---
 description: "Les opérations CRUD via la syntaxe Eloquent."
-icon: lucide/pencil-rule
+icon: lucide/book-open-check
 tags: ["LARAVEL", "ELOQUENT", "CRUD"]
 ---
 

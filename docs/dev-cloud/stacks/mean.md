@@ -1,6 +1,5 @@
 ---
 description: "MEAN Stack — Architecture full-stack JavaScript : MongoDB, Express.js, Angular, Node.js. Setup, structure, flux de données, déploiement."
-icon: lucide/layers-3
 tags: ["MEAN", "MONGODB", "EXPRESS", "ANGULAR", "NODEJS", "FULLSTACK", "TYPESCRIPT"]
 ---
 

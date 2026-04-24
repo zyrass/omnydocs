@@ -37,6 +37,9 @@ tags: ["CYPRESS", "E2E", "TESTS", "JAVASCRIPT", "CICD"]
 |---|---|---|
 | [01 — Fondamentaux](./01-fondamentaux.md) | Installation, sélecteurs, commandes, assertions | 🟡 |
 | [02 — Tests Avancés](./02-tests-avances.md) | Intercept réseau, fixtures, custom commands, CI/CD | 🟡 |
+| [03 — Component Testing](./03-component-testing.md) | Tests isolés React/Vue dans un vrai navigateur | 🟡 |
+| [04 — Cloud & Parallélisme](./04-cypress-cloud.md) | Diviser le temps CI avec Cypress Cloud et Sorry Cypress | 🔴 |
+| [05 — Accessibilité (a11y)](./05-accessibility-testing.md) | Détection automatique des erreurs RGAA via axe-core | 🔴 |
 
 <br>
 

@@ -1,6 +1,6 @@
 ---
 description: "Mettre en pratique les éléments destructeurs et conclure par l'Auto Évaluation du module."
-icon: lucide/clipboard-check
+icon: lucide/book-open-check
 tags: ["LARAVEL", "WORKFLOW", "SUMMARY"]
 ---
 

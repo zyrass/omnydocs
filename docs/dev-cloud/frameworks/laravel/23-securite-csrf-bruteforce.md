@@ -1,6 +1,6 @@
 ---
 description: "Reconnaitre les attaques CSRF, le DDoS ForceBrute et valider le cycle d'apprentissage de sécurité."
-icon: lucide/shield-ban
+icon: lucide/book-open-check
 tags: ["LARAVEL", "SECURITY", "CSRF", "RATELIMIT"]
 ---
 

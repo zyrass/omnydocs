@@ -1,6 +1,6 @@
 ---
 description: "Développer une hiérarchisation des Utilisateurs (Lecteur, Auteur, Editeur, Admin)"
-icon: lucide/contact
+icon: lucide/book-open-check
 tags: ["LARAVEL", "PERMISSIONS", "RBAC", "MIDDLEWARE", "SEEDERS"]
 ---
 

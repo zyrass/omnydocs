@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["ARCHITECTURE", "CLEAN-ARCHITECTURE", "SOLID", "DDD", "INJECTION-DEPENDANCES"]
 ---
 
-# Module 02 — Clean Architecture
+# Clean Architecture
 
 <div
   class="omny-meta"

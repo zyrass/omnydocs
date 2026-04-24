@@ -1,6 +1,6 @@
 ---
 description: "GraphQL — Langage de requête pour APIs : schéma typé, queries, mutations, subscriptions, comparaison REST et intégration Laravel."
-icon: lucide/network
+icon: lucide/book-open-check
 tags: ["GRAPHQL", "API", "LARAVEL", "SCHEMA", "TYPESCRIPT"]
 ---
 

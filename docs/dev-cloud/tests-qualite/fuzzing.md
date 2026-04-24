@@ -1,6 +1,6 @@
 ---
 description: "Fuzzing & Mutation Testing — Générer des entrées aléatoires pour découvrir les bugs et mesurer la qualité des tests avec Infection PHP."
-icon: lucide/shuffle
+icon: lucide/book-open-check
 tags: ["FUZZING", "MUTATION", "INFECTION", "TESTING", "QUALITE", "PHP"]
 ---
 
@@ -270,6 +270,7 @@ Covered Code MSI: 91.9%
 ## 6. Corriger les Mutants Survivants
 
 ```php title="PHP — Exemple : mutant survivant détecté et corrigé"
+<?php
 // ─── Code d'origine ───────────────────────────────────────────────────────────
 class Discount
 {

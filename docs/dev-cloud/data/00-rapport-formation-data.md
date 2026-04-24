@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "DATA", "FORMATION", "BDD"]
 ---
 
-# Rapport de Formation — Data / Base de données
+# Rapport
 
 <div
   class="omny-meta"

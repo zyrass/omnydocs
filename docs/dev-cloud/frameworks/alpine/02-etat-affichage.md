@@ -1,10 +1,10 @@
 ---
 description: "Affichage conditionnel et l'itération des données dans le DOM avec Alpine.js."
-icon: lucide/mountain
+icon: lucide/book-open-check
 tags: ["THEORIE", "ALPINE", "JAVASCRIPT", "DOM"]
 ---
 
-# 02. État et Affichage
+# État et Affichage
 
 <div
   class="omny-meta"

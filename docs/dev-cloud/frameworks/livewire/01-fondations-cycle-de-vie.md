@@ -4,7 +4,7 @@ icon: lucide/box
 tags: ["THEORIE", "LIVEWIRE", "CYCLE", "LARAVEL"]
 ---
 
-# 01. Fondations & Cycle de Vie
+# Fondations & Cycle de Vie
 
 <div
   class="omny-meta"

@@ -1,6 +1,5 @@
 ---
 description: "Astro — Hub de navigation : fondamentaux, composants, layouts, routing, collections de contenu et déploiement."
-icon: lucide/rocket
 tags: ["ASTRO", "JAVASCRIPT", "SSG", "SSR", "CONTENT", "FRAMEWORK"]
 ---
 

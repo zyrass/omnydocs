@@ -227,12 +227,27 @@ nav = [
   ]},
 
   # ==========================================================================
-  # 1.3 — Outils de Développement
+  # 1.3 — Concepts de programmation
+  # ==========================================================================
+  # Principes structurants et notions durables issues des systèmes et de l’ingénierie.
+  # ==========================================================================
+  {"Concepts de programmation" = [
+    {"Architecture Unix"        = "bases/concepts/architecture-unix.md"},
+    {"Liste des codes d'erreur" = "bases/concepts/liste-code-erreur.md"},
+    {"Principes SOLID"           = "bases/concepts/solid.md"},
+    {"Paradigmes de Prog."       = "bases/concepts/paradigmes.md"},
+    {"Design Patterns"           = "bases/concepts/design-patterns.md"},
+    {"Encodage"                  = "bases/concepts/encodage.md"},
+    {"Variables d'environnement" = "bases/concepts/variables-environnements.md"},
+    {"Expressions régulières"    = "bases/concepts/regex.md"},
+  ]},
+
+  # ==========================================================================
+  # 1.4 — Outils de Développement
   # ==========================================================================
   # Outillage transverse pour produire et maintenir du logiciel :
   # - environnements et isolation
   # - gestion d’outils/dépendances
-  # - terminaux et éditeurs
   # - documentation et versionning
   #
   # Remarque : l’exploitation avancée des OS et services est traitée
@@ -250,9 +265,6 @@ nav = [
       {"WSL"  = "bases/outils/environnement-virtuel/wsl.md"},   # Linux sous Windows
       {"NVM"  = "bases/outils/environnement-virtuel/nvm.md"},   # Gestion versions Node.js
       {"VENV" = "bases/outils/environnement-virtuel/venv.md"},  # Environnements Python
-      # {"VirtualBox"     = "bases/outils/environnement-virtuel/virtualbox.md"},
-      # {"Vagrant"        = "bases/outils/environnement-virtuel/vagrant.md"},
-      # {"VBoxManage CLI" = "bases/outils/environnement-virtuel/vboxmanage.md"},
     ]},
 
     # ------------------------------------------------------------------------
@@ -271,28 +283,6 @@ nav = [
     ]},
 
     # ------------------------------------------------------------------------
-    # Terminaux & Shells
-    # ------------------------------------------------------------------------
-    # Objectif : maîtriser l’interface CLI pour exécuter, automatiser,
-    # diagnostiquer et manipuler des projets (build, tests, scripts).
-    # ------------------------------------------------------------------------
-    # {"Terminaux et Shells" = "bases/outils/terminaux-shell.md"},
-
-    # ------------------------------------------------------------------------
-    # Éditeur & IDE
-    # ------------------------------------------------------------------------
-    # Objectif : standardiser l’environnement de travail :
-    # - configuration fiable
-    # - extensions utiles
-    # - snippets réutilisables
-    # ------------------------------------------------------------------------
-    # {"Visual Studio Code" = [
-    #   {"Configuration"           = "bases/outils/vscode/config.md"},
-    #   {"Extensions essentielles" = "bases/outils/vscode/liste-extensions.md"},
-    #   {"Snippets personnalisés"  = "bases/outils/vscode/snippet.md"},
-    # ]},
-
-    # ------------------------------------------------------------------------
     # Documentation & versionning
     # ------------------------------------------------------------------------
     # Objectif : produire une documentation maintenable et garantir la traçabilité :
@@ -302,25 +292,7 @@ nav = [
     {"Documentation & versionning" = [
       {"Markdown" = "bases/outils/markdown.md"},
       {"Git"      = "bases/outils/git.md"},
-      # {"GitHub"   = "bases/outils/github.md"},
-      # {"GitLab"   = "bases/outils/gitlab.md"},
     ]},
-  ]},
-
-  # ==========================================================================
-  # 1.4 — Concepts de programmation
-  # ==========================================================================
-  # Principes structurants et notions durables issues des systèmes et de l’ingénierie.
-  # ==========================================================================
-  {"Concepts de programmation" = [
-    {"Architecture Unix"        = "bases/concepts/architecture-unix.md"},
-    {"Liste des codes d'erreur" = "bases/concepts/liste-code-erreur.md"},
-    # {"Principes SOLID"           = "bases/concepts/solid.md"},
-    # {"Paradigmes de Prog."       = "bases/concepts/paradigmes.md"},
-    # {"Design Patterns"           = "bases/concepts/design-patterns.md"},
-    # {"Encodage"                  = "bases/concepts/encodage.md"},
-    # {"Variables d'environnement" = "bases/concepts/variables-environnements.md"},
-    # {"Expressions régulières"    = "bases/concepts/regex.md"},
   ]},
 
   # ==========================================================================
@@ -541,6 +513,9 @@ nav = [
 
         # Hyperviseur type 1 basé sur KVM
         {"KVM / Proxmox" = "sys-reseau/virtualisation/kvm-proxmox.md"},
+
+        # Standardisation et Création d'images (Image as Code)
+        {"Packer (Création d'images)" = "sys-reseau/virtualisation/packer.md"},
       ]},
 
 
@@ -587,11 +562,13 @@ nav = [
   #
   # Sous-domaines :
   # - Langages & standards
+  # - Modélisation, Conception & Architecture
+  # - Base de données
   # - Frameworks & bibliothèques
   # - Stacks
-  # - Base de données
+  # - Développement Mobile
   # - Tests & Qualité
-  # - DevSecOps (version minimale : CI/CD + Docker + Secrets)
+  # - DevSecOps
   # ============================================================================
 
   {"Développement" = [
@@ -616,8 +593,6 @@ nav = [
       # ------------------------------------------------------------------------
       # HTML
       # ------------------------------------------------------------------------
-      # Rôle :
-      # - Établir les bases de l’intégration frontend (structure, formulaires).
       {"HTML" = [
         "dev-cloud/lang/html/index.md",
         "dev-cloud/lang/html/00-rapport-formation-html.md",
@@ -633,8 +608,6 @@ nav = [
       # ------------------------------------------------------------------------
       # CSS
       # ------------------------------------------------------------------------
-      # Rôle :
-      # - Établir le design, la mise en page et les animations visuelles.
       {"CSS" = [
         "dev-cloud/lang/css/index.md",
         "dev-cloud/lang/css/00-rapport-formation-css.md",
@@ -654,9 +627,6 @@ nav = [
       # ------------------------------------------------------------------------
       # JavaScript
       # ------------------------------------------------------------------------
-      # Rôle :
-      # - Couvrir le langage côté client (DOM, événements, asynchrone).
-      # - Préparer Alpine.js, tests frontend, et intégrations UI.
       {"JavaScript" = [
         "dev-cloud/lang/javascript/index.md",
         "dev-cloud/lang/javascript/00-rapport-formation-javascript.md",
@@ -680,17 +650,22 @@ nav = [
       ]},
 
       # ------------------------------------------------------------------------
+      # TypeScript
+      # ------------------------------------------------------------------------
+      {"TypeScript" = [
+        "dev-cloud/lang/typescript/index.md",
+        "dev-cloud/lang/typescript/00-rapport.md",
+        "dev-cloud/lang/typescript/01-fondamentaux.md",
+        "dev-cloud/lang/typescript/02-avance.md",
+      ]},
+
+      # ------------------------------------------------------------------------
       # PHP
       # ------------------------------------------------------------------------
-      # Rôle :
-      # - Installer les bases nécessaires à Laravel (types, erreurs, POO).
-      # - Fournir un socle de bonnes pratiques pour la maintenabilité.
       {"PHP - Procédural & POO" = [
         "dev-cloud/lang/php/index.md",
         "dev-cloud/lang/php/00-rapport-formation-php.md",
 
-        # PHP — Procédural - 1>7 :
-        # - Syntaxe, fonctions, fichiers, gestion d’erreurs, bonnes pratiques.
         "dev-cloud/lang/php/01-fondations.md",
         "dev-cloud/lang/php/02-structures-controle.md",
         "dev-cloud/lang/php/03-fonctions-organisation.md",
@@ -699,8 +674,6 @@ nav = [
         "dev-cloud/lang/php/06-sessions-authentification.md",
         "dev-cloud/lang/php/07-bases-de-donnees-pdo.md",
 
-        # PHP — POO - 8>16 :
-        # - Classes/objets, encapsulation, interfaces, traits, exceptions, SOLID.
         "dev-cloud/lang/php/08-fondations-poo.md",
         "dev-cloud/lang/php/09-encapsulation-visibilite.md",
         "dev-cloud/lang/php/10-heritage-polymorphisme.md",
@@ -715,22 +688,11 @@ nav = [
       # ------------------------------------------------------------------------
       # Python
       # ------------------------------------------------------------------------
-      # Rôle :
-      # - Langage polyvalent (scripts, automatisation, data science, web).
-      # - Parcours recommandé : Core → Framework choisi (Django/Flask/Tkinter).
       {"Python" = [
         "dev-cloud/lang/python/index.md",
         "dev-cloud/lang/python/00-rapport-formation-python.md",
+        "dev-cloud/lang/python/python.md",
 
-        # Python Core : fondamentaux du langage (avant les frameworks)
-        # - Types, collections, fonctions, OOP, exceptions, modules.
-        {"Core" = [
-          "dev-cloud/lang/python/core/index.md",
-          "dev-cloud/lang/python/core/01-fondamentaux.md",
-        ]},
-
-        # Django : framework web complet (MVT, ORM, Admin, Auth)
-        # - Projet fil rouge : Blog avec système éditorial.
         {"Django" = [
           "dev-cloud/lang/python/django/index.md",
           "dev-cloud/lang/python/django/00-rapport.md",
@@ -738,16 +700,12 @@ nav = [
           "dev-cloud/lang/python/django/02-authentification.md",
         ]},
 
-        # Flask : micro-framework web (App Factory, Blueprints, SQLAlchemy)
-        # - API REST légère, contrôle total de l'architecture.
         {"Flask" = [
           "dev-cloud/lang/python/flask/index.md",
           "dev-cloud/lang/python/flask/00-rapport.md",
           "dev-cloud/lang/python/flask/01-fondamentaux.md",
         ]},
 
-        # Tkinter : interfaces graphiques natives (GUI)
-        # - Widgets, gestionnaires de layout, événements, Canvas.
         {"Tkinter" = [
           "dev-cloud/lang/python/tkinter/index.md",
           "dev-cloud/lang/python/tkinter/00-rapport.md",
@@ -758,21 +716,100 @@ nav = [
     ]},
 
     # ==========================================================================
-    # 3.2 — Frameworks & bibliothèques
+    # 3.2 — Modélisation, Conception & Architecture
+    # ==========================================================================
+    # Objectif : raisonner avant d’implémenter.
+    # ==========================================================================
+    {"Modélisation, Conception & Architecture" = [
+      "dev-cloud/modelisation/index.md",
+
+      # ------------------------------------------------------------------------
+      # Architecture Logicielle
+      # ------------------------------------------------------------------------
+      {"Architecture Logicielle" = [
+        "dev-cloud/architecture/index.md",
+        "dev-cloud/architecture/00-rapport.md",
+        "dev-cloud/architecture/01-api-rest.md",
+        "dev-cloud/architecture/02-clean-architecture.md",
+        "dev-cloud/architecture/03-patterns-pratiques.md",
+      ]},
+
+      # ------------------------------------------------------------------------
+      # UML
+      # ------------------------------------------------------------------------
+      {"UML" = [
+        "dev-cloud/modelisation/uml/index.md",
+        "dev-cloud/modelisation/uml/00-rapport-formation-uml.md",
+        {"Introduction" = "dev-cloud/modelisation/uml/uml-intro.md"},
+
+        {"Diagrammes" = [
+          {"UseCase"             = "dev-cloud/modelisation/uml/diagrammes/usecase.md"},
+          {"Classes"             = "dev-cloud/modelisation/uml/diagrammes/classes.md"},
+          {"Séquences"           = "dev-cloud/modelisation/uml/diagrammes/sequence.md"},
+          {"Activités"           = "dev-cloud/modelisation/uml/diagrammes/activity.md"},
+          {"États"               = "dev-cloud/modelisation/uml/diagrammes/state.md"},
+          {"Object"              = "dev-cloud/modelisation/uml/diagrammes/object.md"},
+          {"Composite Structure" = "dev-cloud/modelisation/uml/diagrammes/composite-structure.md"},
+          {"Deployment"          = "dev-cloud/modelisation/uml/diagrammes/deployment.md"},
+          {"Package"             = "dev-cloud/modelisation/uml/diagrammes/package.md"},
+          {"Timing"              = "dev-cloud/modelisation/uml/diagrammes/timing.md"},
+          {"Communication"       = "dev-cloud/modelisation/uml/diagrammes/communication.md"},
+          {"Architecture Avancée" = "dev-cloud/modelisation/uml/diagrammes/architecture-avancee.md"},
+        ]},
+      ]},
+
+      # ------------------------------------------------------------------------
+      # Merise
+      # ------------------------------------------------------------------------
+      {"Merise" = [
+        "dev-cloud/modelisation/merise/index.md",
+        "dev-cloud/modelisation/merise/00-rapport-formation-merise.md",
+        {"Introduction" = "dev-cloud/modelisation/merise/intro.md"},
+        {"MCD"          = "dev-cloud/modelisation/merise/mcd.md"},
+        {"MLD"          = "dev-cloud/modelisation/merise/mld.md"},
+        {"MPD"          = "dev-cloud/modelisation/merise/mpd.md"},
+        {"MPD > SQL"    = "dev-cloud/modelisation/merise/mpd-to-sql.md"},
+      ]},
+    ]},
+
+    # ==========================================================================
+    # 3.3 — Base de données
+    # ==========================================================================
+    # Rôle :
+    # - Présenter les solutions de persistance et les modèles d’accès aux données.
+    # - Servir de référence avant d'aborder les ORM des Frameworks backend.
+    {"Base de données" = [
+      "dev-cloud/data/index.md",
+      "dev-cloud/data/00-rapport-formation-data.md",
+
+      {"SQLite" = [
+        "dev-cloud/data/sqlite/index.md",
+        "dev-cloud/data/sqlite/01-introduction-installation.md",
+        "dev-cloud/data/sqlite/02-types-et-structure.md",
+        "dev-cloud/data/sqlite/03-crud-et-contraintes.md",
+        "dev-cloud/data/sqlite/04-jointures-et-relations.md",
+        "dev-cloud/data/sqlite/05-index-et-transactions.md",
+        "dev-cloud/data/sqlite/06-integration-php-laravel.md",
+      ]},
+
+      {"MariaDB & MySQL" = "dev-cloud/data/sql.md"},
+      {"PostgreSQL"      = "dev-cloud/data/postgresql.md"},
+      {"NoSQL"           = "dev-cloud/data/nosql.md"},
+      {"GraphQL"         = "dev-cloud/data/graphql.md"},
+    ]},
+
+    # ==========================================================================
+    # 3.4 — Frameworks & Librairies
     # ==========================================================================
     # Rôle :
     # - Structurer le développement applicatif via conventions et composants.
-    # - Centraliser l’outillage spécifique (Laravel, Livewire, Alpine.js).
-    {"Frameworks & bibliothèques" = [
+    {"Frameworks & Librairies" = [
 
       "dev-cloud/frameworks/index.md",
 
       # ------------------------------------------------------------------------
       # Tailwind CSS
       # ------------------------------------------------------------------------
-      # Rôle :
-      # - Framework CSS utility-first : le T de la Stack TALL.
-      # - Stylisation sans écrire de CSS custom ; intégré nativement avec Vite.
       {"Tailwind CSS" = [
         "dev-cloud/frameworks/tailwind/index.md",
         "dev-cloud/frameworks/tailwind/00-rapport-formation-tailwind.md",
@@ -789,9 +826,6 @@ nav = [
       # ------------------------------------------------------------------------
       # Laravel
       # ------------------------------------------------------------------------
-      # Rôle :
-      # - Framework backend PHP : routage, MVC, validation, ORM, sécurité.
-      # - Sert de base à la Stack TALL et aux exemples applicatifs.
       {"Laravel" = [
         "dev-cloud/frameworks/laravel/index.md",
         "dev-cloud/frameworks/laravel/00-rapport-formation-laravel.md",
@@ -805,12 +839,12 @@ nav = [
         "dev-cloud/frameworks/laravel/06-conventions-et-bilan.md",
         
         # II - Routing & Controllers
-        "dev-cloud/frameworks/laravel/07-routing-fondations.md",
-        "dev-cloud/frameworks/laravel/08-controllers.md",
-        "dev-cloud/frameworks/laravel/09-validation.md",
-        "dev-cloud/frameworks/laravel/10-route-model-binding.md",
-        "dev-cloud/frameworks/laravel/11-redirections-groupes.md",
-        "dev-cloud/frameworks/laravel/12-pratique-et-bilan.md",
+        "dev-cloud/frameworks/laravel/10-routing-fondations.md",
+        "dev-cloud/frameworks/laravel/11-controllers.md",
+        "dev-cloud/frameworks/laravel/12-validation.md",
+        "dev-cloud/frameworks/laravel/07-route-model-binding.md",
+        "dev-cloud/frameworks/laravel/08-redirections-groupes.md",
+        "dev-cloud/frameworks/laravel/09-pratique-et-bilan.md",
         
         # III - Base de données & Eloquent ORM
         "dev-cloud/frameworks/laravel/13-pourquoi-orm-et-migrations.md",
@@ -857,8 +891,6 @@ nav = [
         "dev-cloud/frameworks/laravel/42-api-et-sanctum.md",
         "dev-cloud/frameworks/laravel/43-masterclass-synthese.md",
 
-        # Authentification Laravel :
-        # - Mécanismes et starter-kits officiels, usage web et API.
         {"Authentification Laravel" = [
           {"Breeze"    = "dev-cloud/frameworks/laravel/auth/breeze.md"},
           {"Sanctum"   = "dev-cloud/frameworks/laravel/auth/sanctum.md"},
@@ -869,9 +901,6 @@ nav = [
       # ------------------------------------------------------------------------
       # Alpine.js
       # ------------------------------------------------------------------------
-      # Rôle :
-      # - Interactivité frontend légère (sans framework SPA).
-      # - Complément de Livewire dans la Stack TALL.
       {"Alpine.js" = [
         "dev-cloud/frameworks/alpine/index.md",
         "dev-cloud/frameworks/alpine/00-rapport-formation-alpine.md",
@@ -885,9 +914,6 @@ nav = [
       # ------------------------------------------------------------------------
       # Livewire
       # ------------------------------------------------------------------------
-      # Rôle :
-      # - Composants stateful côté serveur, interactions sans SPA.
-      # - Modèle mental : état serveur, actions, validation, rendu, événements.
       {"Livewire" = [
         "dev-cloud/frameworks/livewire/index.md",
         "dev-cloud/frameworks/livewire/00-rapport-formation-livewire.md",
@@ -901,9 +927,6 @@ nav = [
       # ------------------------------------------------------------------------
       # Astro
       # ------------------------------------------------------------------------
-      # Rôle :
-      # - Framework web orienté contenu (MPA, îles interactives, SSG/SSR).
-      # - Zéro JS par défaut, supporte React/Vue/Svelte/Lit en composants isolés.
       {"Astro" = [
         "dev-cloud/frameworks/astro/index.md",
         "dev-cloud/frameworks/astro/00-rapport.md",
@@ -916,72 +939,35 @@ nav = [
     ]},
 
     # ==========================================================================
-    # 3.3 — Stacks
+    # 3.5 — Stacks
     # ==========================================================================
     # Rôle :
     # - Regrouper des compositions cohérentes (frameworks + conventions + pratiques).
-    # - Centraliser les parcours "prêts à produire" (structure, déploiement, auth).
-    #
-    # Stacks couvertes :
-    # - TALL  : Tailwind + Alpine.js + Laravel + Livewire (backend PHP)
-    # - MERN  : MongoDB + Express + React + Node.js (JavaScript fullstack)
-    # - MEAN  : MongoDB + Express + Angular + Node.js (JavaScript fullstack TypeScript-first)
     {"Stacks" = [
       "dev-cloud/stacks/index.md",
 
-      # --------------------------------------------------------------------------
-      # Stack TALL
-      # --------------------------------------------------------------------------
-      # Description :
-      # - Tailwind CSS + Alpine.js + Laravel + Livewire.
-      # - Approche server-side rendering réactif sans JavaScript bundle lourd.
-      # - Idéale pour les applications web classiques (SaaS, backoffice, CMS).
-      # - Laravel gère le backend, Livewire les composants dynamiques,
-      #   Alpine.js l'interactivité locale, Tailwind le style.
       {"Stack TALL" = [
         "dev-cloud/stacks/tall/index.md",
         "dev-cloud/stacks/tall/00-rapport-formation-tall.md",
-        "dev-cloud/stacks/tall/installation.md",
-        "dev-cloud/stacks/tall/feuille-route.md",
-        "dev-cloud/stacks/tall/fondations.md",
-        "dev-cloud/stacks/tall/interface-laravel.md",
-        "dev-cloud/stacks/tall/livewire-pur.md",
-        "dev-cloud/stacks/tall/alpine-pur.md",
-        "dev-cloud/stacks/tall/hybride.md",
-        "dev-cloud/stacks/tall/production.md",
-        "dev-cloud/stacks/tall/authentification.md",
+        "dev-cloud/stacks/tall/01-installation.md",
+        "dev-cloud/stacks/tall/02-feuille-route.md",
+        "dev-cloud/stacks/tall/03-fondations.md",
+        "dev-cloud/stacks/tall/04-interface-laravel.md",
+        "dev-cloud/stacks/tall/05-livewire-pur.md",
+        "dev-cloud/stacks/tall/06-alpine-pur.md",
+        "dev-cloud/stacks/tall/07-hybride.md",
+        "dev-cloud/stacks/tall/08-production.md",
+        "dev-cloud/stacks/tall/09-authentification.md",
       ]},
 
-      # --------------------------------------------------------------------------
-      # Stack MERN
-      # --------------------------------------------------------------------------
-      # Description :
-      # - MongoDB + Express.js + React + Node.js.
-      # - JavaScript/TypeScript du frontend au backend (fullstack JS).
-      # - Idéale pour les SPAs et APIs REST modernes.
-      # - React pour l'UI, Express + Node pour l'API, MongoDB pour la persistance.
-      # - Contenu : aperçu de la stack, architecture, cas d'usage, alternatives.
       {"Stack MERN" = "dev-cloud/stacks/mern.md"},
-
-      # --------------------------------------------------------------------------
-      # Stack MEAN
-      # --------------------------------------------------------------------------
-      # Description :
-      # - MongoDB + Express.js + Angular + Node.js.
-      # - Variante TypeScript-first de la MERN (Angular impose TypeScript).
-      # - Idéale pour les applications d'entreprise avec typage fort côté client.
-      # - Angular pour l'UI (framework complet), Express + Node pour l'API,
-      #   MongoDB pour la persistance documentaire.
-      # - Contenu : aperçu de la stack, architecture, comparaison MERN vs MEAN.
       {"Stack MEAN" = "dev-cloud/stacks/mean.md"},
 
     ]},
 
     # ==========================================================================
-    # 3.4 — Développement Mobile (Swift / SwiftUI / Vapor)
+    # 3.6 — Développement Mobile
     # ==========================================================================
-    # Rôle :
-    # - Développement d'applications natives iOS et services backend en Swift.
     {"Développement Mobile" = [
       "dev-cloud/mobile/index.md",
 
@@ -1009,30 +995,22 @@ nav = [
         "dev-cloud/mobile/swift/18-combine.md",
       ]},
 
-      # SwiftUI — L'Interface Déclarative
+      # SwiftUI
       {"SwiftUI" = [
         "dev-cloud/mobile/swiftui/index.md",
         "dev-cloud/mobile/swiftui/00-rapport-formation-swiftui.md",
-
-        # Fondements de la Vue
         "dev-cloud/mobile/swiftui/01-introduction.md",
         "dev-cloud/mobile/swiftui/02-vues-modificateurs.md",
         "dev-cloud/mobile/swiftui/03-layout.md",
         "dev-cloud/mobile/swiftui/04-state-binding.md",
-        
-        # Données & Navigation
         "dev-cloud/mobile/swiftui/05-stateobject-observedobject.md",
         "dev-cloud/mobile/swiftui/06-observable.md",
         "dev-cloud/mobile/swiftui/07-navigation.md",
         "dev-cloud/mobile/swiftui/08-listes-collections.md",
-        
-        # Avancé & Réseau
         "dev-cloud/mobile/swiftui/09-donnees-async.md",
         "dev-cloud/mobile/swiftui/10-formulaires-validation.md",
         "dev-cloud/mobile/swiftui/11-animations-transitions.md",
         "dev-cloud/mobile/swiftui/12-viewmodifier-extensions.md",
-        
-        # Architecture & Production
         "dev-cloud/mobile/swiftui/13-mvvm.md",
         "dev-cloud/mobile/swiftui/14-persistence.md",
         "dev-cloud/mobile/swiftui/15-cycle-de-vie.md",
@@ -1041,170 +1019,42 @@ nav = [
         "dev-cloud/mobile/swiftui/18-app-store.md",
       ]},
 
-      # Vapor — Le Serveur Swift
+      # Vapor
       {"Vapor" = [
         "dev-cloud/mobile/vapor/index.md",
         "dev-cloud/mobile/vapor/00-rapport-formation-vapor.md",
-
-        # Fondements du Framework
         "dev-cloud/mobile/vapor/01-introduction.md",
         "dev-cloud/mobile/vapor/02-routing.md",
         "dev-cloud/mobile/vapor/03-request-response.md",
         "dev-cloud/mobile/vapor/04-middleware.md",
-        
-        # Données & Persistence
         "dev-cloud/mobile/vapor/05-fluent-migrations.md",
         "dev-cloud/mobile/vapor/06-modeles-relations.md",
         "dev-cloud/mobile/vapor/07-requetes-fluent.md",
         "dev-cloud/mobile/vapor/08-authentification-jwt.md",
-        
-        # Production & Architecture
         "dev-cloud/mobile/vapor/09-api-rest.md",
         "dev-cloud/mobile/vapor/10-queues-jobs.md",
         "dev-cloud/mobile/vapor/11-tests-xctvapor.md",
         "dev-cloud/mobile/vapor/12-deploiement.md",
-      
       ]}
 
     ]}, 
 
     # ==========================================================================
-    # 3.5 — Base de données
-    # ==========================================================================
-    # Rôle :
-    # - Présenter les solutions de persistance et les modèles d’accès aux données.
-    # - Servir de référence lors des implémentations backend (ex: Laravel/Eloquent).
-    {"Base de données" = [
-      "dev-cloud/data/index.md",
-      "dev-cloud/data/00-rapport-formation-data.md",
-
-      # SQLite :
-      # - Base embarquée : serverless, zero-config, ACID, intégration Laravel.
-      # - Découpé en 6 modules thématiques depuis le monolithe sqlite.md (2770 lignes).
-      {"SQLite" = [
-        "dev-cloud/data/sqlite/index.md",
-        "dev-cloud/data/sqlite/01-introduction-installation.md",
-        "dev-cloud/data/sqlite/02-types-et-structure.md",
-        "dev-cloud/data/sqlite/03-crud-et-contraintes.md",
-        "dev-cloud/data/sqlite/04-jointures-et-relations.md",
-        "dev-cloud/data/sqlite/05-index-et-transactions.md",
-        "dev-cloud/data/sqlite/06-integration-php-laravel.md",
-      ]},
-
-      # --------------------------------------------------------------------------
-      # MariaDB & MySQL
-      # --------------------------------------------------------------------------
-      # Description :
-      # - SGBDR open-source le plus déployé dans les applications web (LAMP/LEMP).
-      # - MySQL et MariaDB sont interchangeables dans l'écosystème Laravel.
-      # - Contenu : DDL/DML/DQL, jointures, index, CTE, window functions,
-      #   optimisation EXPLAIN, intégration Eloquent.
-      {"MariaDB & MySQL" = "dev-cloud/data/sql.md"},
-
-      # --------------------------------------------------------------------------
-      # PostgreSQL
-      # --------------------------------------------------------------------------
-      # Description :
-      # - SGBDR open-source le plus avancé (types riches, JSONB, FTS, PostGIS).
-      # - Recommandé pour les APIs modernes et les applications critiques.
-      # - Contenu : types PostgreSQL, JSONB (opérateurs, index GIN),
-      #   Full-Text Search, index spécialisés, intégration Laravel.
-      {"PostgreSQL"      = "dev-cloud/data/postgresql.md"},
-
-      # --------------------------------------------------------------------------
-      # NoSQL
-      # --------------------------------------------------------------------------
-      # Description :
-      # - Alternative aux bases relationnelles : modèles document, clé-valeur,
-      #   colonne, graphe. Cas d'usage, avantages et limites.
-      {"NoSQL"           = "dev-cloud/data/nosql.md"},
-
-      # --------------------------------------------------------------------------
-      # GraphQL
-      # --------------------------------------------------------------------------
-      # Description :
-      # - API orientée schéma, typage fort, requêtes flexibles (vs REST).
-      # - Contenu : schéma SDL, queries/mutations/subscriptions, résolveurs,
-      #   avantages/limites, intégration frontend.
-      {"GraphQL"         = "dev-cloud/data/graphql.md"},
-    ]},
-
-    # ==========================================================================
-    # 3.6 — Modélisation & Conception
-    # ==========================================================================
-    # Objectif : raisonner avant d’implémenter.
-    # On y place les méthodes et notations permettant :
-    # - d’exprimer un besoin
-    # - de structurer un système
-    # - de communiquer une architecture
-    #
-    # Remarque : on reste sur des modèles et notations (fondamentaux),
-    # pas sur l’implémentation spécifique d’un framework.
-    # ==========================================================================
-    {"Modélisation & Conception" = [
-      "dev-cloud/modelisation/index.md",
-
-      {"UML" = [
-        "dev-cloud/modelisation/uml/index.md",
-        "dev-cloud/modelisation/uml/00-rapport-formation-uml.md",
-        {"Introduction" = "dev-cloud/modelisation/uml/uml-intro.md"},
-
-        {"Diagrammes" = [
-          {"UseCase"             = "dev-cloud/modelisation/uml/diagrammes/usecase.md"},
-          {"Classes"             = "dev-cloud/modelisation/uml/diagrammes/classes.md"},
-          {"Séquences"           = "dev-cloud/modelisation/uml/diagrammes/sequence.md"},
-          {"Activités"           = "dev-cloud/modelisation/uml/diagrammes/activity.md"},
-          {"États"               = "dev-cloud/modelisation/uml/diagrammes/state.md"},
-          {"Object"              = "dev-cloud/modelisation/uml/diagrammes/object.md"},
-          {"Composite Structure" = "dev-cloud/modelisation/uml/diagrammes/composite-structure.md"},
-          {"Deployment"          = "dev-cloud/modelisation/uml/diagrammes/deployment.md"},
-          {"Package"             = "dev-cloud/modelisation/uml/diagrammes/package.md"},
-          {"Timing"              = "dev-cloud/modelisation/uml/diagrammes/timing.md"},
-          {"Communication"       = "dev-cloud/modelisation/uml/diagrammes/communication.md"},
-          {"Architecture Avancée" = "dev-cloud/modelisation/uml/diagrammes/architecture-avancee.md"},
-          # {"Component" = "dev-cloud/modelisation/uml/diagrammes/component.md"},
-          # {"Profile"   = "dev-cloud/modelisation/uml/diagrammes/diag-profile.md"},
-          # {"Overview"  = "dev-cloud/modelisation/uml/diagrammes/vue-ensemble.md"},
-        ]},
-      ]},
-
-      {"Merise" = [
-        "dev-cloud/modelisation/merise/index.md",
-        "dev-cloud/modelisation/merise/00-rapport-formation-merise.md",
-        {"Introduction" = "dev-cloud/modelisation/merise/intro.md"},
-        {"MCD"          = "dev-cloud/modelisation/merise/mcd.md"},
-        {"MLD"          = "dev-cloud/modelisation/merise/mld.md"},
-        {"MPD"          = "dev-cloud/modelisation/merise/mpd.md"},
-        {"MPD > SQL"    = "dev-cloud/modelisation/merise/mpd-to-sql.md"},
-      ]},
-    ]},
-
-    # ==========================================================================
     # 3.7 — Tests & Qualité
     # ==========================================================================
-    # Rôle :
-    # - Définir les stratégies de tests et la démarche qualité.
-    # - Fournir un outillage concret (PHPUnit, Pest, Vitest, Cypress).
     {"Tests & Qualité" = [
       "dev-cloud/tests-qualite/index.md",
-      # "dev-cloud/tests-qualite/00-rapport-formation-tests.md",
 
-      # Stratégies :
-      # - Approches de conception et organisation des tests.
       {"TDD vs BDD"         = "dev-cloud/tests-qualite/tdd.md"},
       {"Pyramide des tests" = "dev-cloud/tests-qualite/pyramide-tests.md"},
       {"Coverage"           = "dev-cloud/tests-qualite/coverage.md"},
 
-      # Sécurité & Qualité avancée :
-      # - Techniques complémentaires de réduction du risque (analyse/robustesse).
-      {"Sécurité & Qualité avancée" = [
+      {"Sécurité & Qualité" = [
         {"SAST"    = "dev-cloud/tests-qualite/sast.md"},
         {"DAST"    = "dev-cloud/tests-qualite/dast.md"},
         {"FUZZING" = "dev-cloud/tests-qualite/fuzzing.md"},
       ]},
 
-      # Outils backend PHP :
-      # - Tests unitaires/ intégration et patterns de tests dans l’écosystème PHP.
       {"Outils de tests PHP" = [
         {"PHPUnit" = [
           "dev-cloud/tests-qualite/phpunit/index.md",
@@ -1232,8 +1082,6 @@ nav = [
         ]},
       ]},
 
-      # Outils frontend & E2E :
-      # - Tests JavaScript et tests de parcours utilisateur.
       {"Outils de tests Front & E2E" = [
         {"Vitest" = [
           "dev-cloud/tests-qualite/vitest/index.md",
@@ -1259,97 +1107,31 @@ nav = [
     ]},
 
     # ==========================================================================
-    # 3.7b — TypeScript
-    # ==========================================================================
-    {"TypeScript" = [
-      "dev-cloud/lang/typescript/index.md",
-      "dev-cloud/lang/typescript/00-rapport.md",
-      "dev-cloud/lang/typescript/01-fondamentaux.md",
-      "dev-cloud/lang/typescript/02-avance.md",
-    ]},
-
-    # ==========================================================================
-    # 3.7c — Architecture
-    # ==========================================================================
-    {"Architecture" = [
-      "dev-cloud/architecture/index.md",
-      "dev-cloud/architecture/00-rapport.md",
-      "dev-cloud/architecture/01-api-rest.md",
-      "dev-cloud/architecture/02-clean-architecture.md",
-      "dev-cloud/architecture/03-patterns-pratiques.md",
-    ]},
-
-    # ==========================================================================
-    # 3.8 — DevSecOps (version minimale)
+    # 3.8 — DevSecOps
     # ==========================================================================
     # Rôle :
     # - Automatiser la livraison applicative (build/test/deploy).
     # - Standardiser les environnements (Docker).
     # - Encadrer la gestion des secrets (y compris politiques MDP/entropie).
-    #
-    # Remarque de périmètre :
-    # - La cybersécurité outillage/attaque/défense n’est pas traitée ici.
     {"DevSecOps" = [
       "dev-cloud/devsecops/index.md",
       "dev-cloud/devsecops/00-rapport-formation-devsecops.md",
-
-      # ==========================================================================
-      # Gestion de projet
-      # ==========================================================================
-      # Objectif : structurer le travail et piloter un projet :
-      # - planification
-      # - jalons
-      # - dépendances
-      #
-      # Remarque : les méthodes “agiles” détaillées peuvent être ajoutées ici
-      # si tu veux garder une logique transverse (dev/infra/cyber).
-      # ==========================================================================
-      {"Gestion de projet" = [
-        "bases/devsecops/gestion-projet/index.md",
-        {"Diagramme de Gantt" = "bases/devsecops/gestion-projet/gantt.md"},
-      ]},
-
-      # ------------------------------------------------------------------------
-      # CI/CD
-      # ------------------------------------------------------------------------
-      # Rôle :
-      # - Définir des pipelines reproductibles (stages, artifacts, runners).
-      # - Intégrer tests et contrôles qualité dans la chaîne de livraison.
-      {"CI/CD" = [
-        "dev-cloud/devsecops/cicd/index.md",
-        {"GitHub Actions" = "dev-cloud/devsecops/cicd/github-actions.md"},
-        {"GitLab CI/CD"   = "dev-cloud/devsecops/cicd/gitlab-cicd.md"},
-      ]},
-
-      # ------------------------------------------------------------------------
-      # Conteneurisation (Docker)
-      # ------------------------------------------------------------------------
-      # Rôle :
-      # - Packaging et exécution reproductible.
-      # - Orchestration simple multi-services via Compose.
-      {"Docker" = [
-        "dev-cloud/devsecops/containers/index.md",
-        {"Docker (Moteur)" = "dev-cloud/devsecops/containers/docker.md"},
-        {"Docker Compose"  = "dev-cloud/devsecops/containers/docker_compose.md"},
-      ]},
-
-      # ------------------------------------------------------------------------
-      # Secrets
-      # ------------------------------------------------------------------------
-      # Rôle :
-      # - Stockage et manipulation de secrets (local, CI, environnements).
-      # - Politiques MDP : entropie, robustesse, bonnes pratiques.
-      {"Secrets" = [
-        "dev-cloud/devsecops/secrets/index.md",
-
-        # Entropie des mots de passe :
-        # - Modèles de menace, longueur vs complexité, recommandations.
-        {"Entropie des mots de passe" = "dev-cloud/devsecops/secrets/password-entropy.md"},
-
-        # Vault :
-        # - Gestion centralisée et rotation des secrets (option d’industrialisation).
-        {"Vault (HashiCorp)" = "dev-cloud/devsecops/secrets/vault.md"},
-      ]},
+      "dev-cloud/devsecops/01-calms.md",
+      "dev-cloud/devsecops/02-gantt.md",
+      "dev-cloud/devsecops/03-fondamentaux-docker-ansible.md",
+      "dev-cloud/devsecops/04-docker.md",
+      "dev-cloud/devsecops/05-docker-compose.md",
+      "dev-cloud/devsecops/06-docker-swarm.md",
+      "dev-cloud/devsecops/07-ansible.md",
+      "dev-cloud/devsecops/08-terraform-tofu.md",
+      "dev-cloud/devsecops/09-github-actions.md",
+      "dev-cloud/devsecops/10-gitlab-cicd.md",
+      "dev-cloud/devsecops/11-jwt-auth.md",
+      "dev-cloud/devsecops/12-rate-rbac.md",
+      "dev-cloud/devsecops/13-password-entropy.md",
+      "dev-cloud/devsecops/14-vault.md",
+      "dev-cloud/devsecops/15-wazuh.md",
+      "dev-cloud/devsecops/16-ids-hooks.md",
     ]},
 
   ]}, # Fin Développement
@@ -1412,6 +1194,7 @@ nav = [
         "cyber/governance/refs-normes/reglementations/index.md",
         {"RGPD"          = "cyber/governance/refs-normes/reglementations/rgpd.md"},
         {"NIS2"          = "cyber/governance/refs-normes/reglementations/nis2.md"},
+        {"Mapping ISO-NIS2" = "cyber/governance/refs-normes/reglementations/mapping-iso-nis2.md"},
         {"DORA"          = "cyber/governance/refs-normes/reglementations/dora.md"},
         {"DSA"           = "cyber/governance/refs-normes/reglementations/dsa.md"},
         {"DMA"           = "cyber/governance/refs-normes/reglementations/dma.md"},
@@ -1439,11 +1222,17 @@ nav = [
       # Standards internationaux : sécurité, risques, continuité, qualité, services.
       {"Normes ISOs" = [
         "cyber/governance/refs-normes/isos/index.md",
+        {"ISO 9001" = "cyber/governance/refs-normes/isos/iso-9001.md"},
+        {"ISO 14001" = "cyber/governance/refs-normes/isos/iso-14001.md"},
+        {"ISO 20000" = "cyber/governance/refs-normes/isos/iso-20000.md"},
+        {"ISO 22301" = "cyber/governance/refs-normes/isos/iso-22301.md"},
+        {"ISO 27000" = "cyber/governance/refs-normes/isos/iso-27000.md"},
         {"ISO 27001" = "cyber/governance/refs-normes/isos/iso-27001.md"},
         {"ISO 27002" = "cyber/governance/refs-normes/isos/iso-27002.md"},
         {"ISO 27005" = "cyber/governance/refs-normes/isos/iso-27005.md"},
+        {"ISO 27017" = "cyber/governance/refs-normes/isos/iso-27017.md"},
+        {"ISO 27018" = "cyber/governance/refs-normes/isos/iso-27018.md"},
         {"ISO 31000" = "cyber/governance/refs-normes/isos/iso-31000.md"},
-        {"ISO 22301" = "cyber/governance/refs-normes/isos/iso-22301.md"},
       ]},
     ]},
 
@@ -1537,6 +1326,18 @@ nav = [
       "cyber/operations/soc/index.md",
 
       # ---------------------------------------------------------------------
+      # SIEM — Wazuh (Indexer, Server, Dashboard, Agent)
+      # ---------------------------------------------------------------------
+      # Brique centrale du SOC : collecte, corrélation, alertes, réponse.
+      {"Wazuh SIEM/XDR" = "cyber/operations/soc/siem.md"},
+
+      # ---------------------------------------------------------------------
+      # EDR / XDR
+      # ---------------------------------------------------------------------
+      # Détection et réponse comportementale sur les endpoints.
+      {"EDR / XDR" = "cyber/operations/soc/edr-xdr.md"},
+
+      # ---------------------------------------------------------------------
       # IDS / IPS
       # ---------------------------------------------------------------------
       # Systèmes de détection et de prévention d’intrusion réseau.
@@ -1545,7 +1346,25 @@ nav = [
         "cyber/operations/soc/ids-ips/index.md",
         {"Suricata" = "cyber/operations/soc/ids-ips/suricata.md"},
         {"Snort"    = "cyber/operations/soc/ids-ips/snort.md"},
-      ]}
+      ]},
+
+      # ---------------------------------------------------------------------
+      # NDR — Network Detection & Response
+      # ---------------------------------------------------------------------
+      # Analyse comportementale des flux réseau (Zeek, Arkime).
+      {"NDR" = "cyber/operations/soc/ndr.md"},
+
+      # ---------------------------------------------------------------------
+      # ntopng — Monitoring réseau temps réel
+      # ---------------------------------------------------------------------
+      # Visualisation du trafic, détection d'anomalies de flux.
+      {"ntopng" = "cyber/operations/soc/ntopng.md"},
+
+      # ---------------------------------------------------------------------
+      # TIP — Threat Intelligence Platform
+      # ---------------------------------------------------------------------
+      # Centralisation des IOC, enrichissement SIEM (MISP, OpenCTI).
+      {"TIP (MISP / OpenCTI)" = "cyber/operations/soc/tip.md"},
     ]},
 
     # ========================================================================
@@ -1560,10 +1379,13 @@ nav = [
     # ========================================================================
     {"Détection & Analyse" = [
       "cyber/operations/detection/index.md",
-      {"YARA"      = "cyber/operations/detection/yara.md"},
-      {"Sigma"     = "cyber/operations/detection/sigma.md"},
-      {"Sysmon"    = "cyber/operations/detection/sysmon.md"},
-      {"IOC & TTP" = "cyber/operations/detection/ioc-ttp.md"},
+      # Ordre pédagogique : comprendre → détecter → chasser
+      {"IOC & TTP"      = "cyber/operations/detection/ioc-ttp.md"},
+      {"Sysmon"         = "cyber/operations/detection/sysmon.md"},
+      {"YARA"           = "cyber/operations/detection/yara.md"},
+      {"Sigma"          = "cyber/operations/detection/sigma.md"},
+      {"Threat Hunting" = "cyber/operations/detection/hunting.md"},
+      {"ClamAV"         = "cyber/operations/detection/clamav.md"},
     ]},
 
     # ========================================================================
@@ -1579,8 +1401,10 @@ nav = [
     # ========================================================================
     {"Incident Response & DFIR" = [
       "cyber/operations/ir/index.md",
+      {"Playbooks DFIR" = "cyber/operations/ir/playbooks-dfir.md"},
+      {"CSIRT / CERT"   = "cyber/operations/ir/csirt-cert.md"},
+      {"TheHive"        = "cyber/operations/ir/thehive.md"},
 
-      # ---------------------------------------------------------------------
       # Investigation Numérique (Forensic)
       # ---------------------------------------------------------------------
       # Analyse post-incident :
@@ -1635,6 +1459,10 @@ nav = [
     # ========================================================================
     {"Malware Analysis" = [
       "cyber/operations/malware/index.md",
+      {"Introduction" = "cyber/operations/malware/intro.md"},
+      {"Sandbox"      = "cyber/operations/malware/sandbox.md"},
+      {"Reverse Eng." = "cyber/operations/malware/reverse.md"},
+      {"Obfuscation"  = "cyber/operations/malware/obfuscation.md"},
     ]},
 
     # ========================================================================
@@ -1648,6 +1476,9 @@ nav = [
     # ========================================================================
     {"SOAR & Automatisation" = [
       "cyber/operations/soar/index.md",
+      {"SOAR"      = "cyber/operations/soar/soar.md"},
+      {"Playbooks" = "cyber/operations/soar/playbooks.md"},
+      {"Cortex"    = "cyber/operations/soar/cortex.md"},
     ]},
 
     # ========================================================================
@@ -1662,26 +1493,32 @@ nav = [
     # ========================================================================
     {"Gestion Opérationnelle" = [
       "cyber/operations/management/index.md",
+      {"SLA / SLO"             = "cyber/operations/management/sla.md"},
+      {"Astreintes (On-Call)"  = "cyber/operations/management/oncall.md"},
+      {"Communication Crise"  = "cyber/operations/management/crisis-comm.md"},
     ]}
   ]},
 
-  # ===========================================================================
+# ===========================================================================
   # 6 — CYBERSÉCURITÉ : OUTILS & RED TEAM
   # ===========================================================================
-  # Cette section constitue le catalogue opérationnel des outils et méthodes
-  # de sécurité offensive.
+  # Navigation organisée selon la progression pédagogique naturelle
+  # d'un test d'intrusion, calquée sur le cycle offensif réel :
   #
-  # Elle couvre l’ensemble du cycle d’un test d’intrusion :
-  # - reconnaissance et cartographie
-  # - énumération et analyse de surface d’attaque
-  # - exploitation et post-exploitation
-  # - attaques sur authentification
-  # - ingénierie sociale
-  # - scan automatisé de vulnérabilités
-  # - cadres méthodologiques Red Team
+  #   Cadre → Reconnaissance → WiFi → Réseau → Scan → Web → SE → Passwords → Exploit → Report
   #
-  # Contrairement aux sections GRC et SOC, l’approche ici est strictement
-  # offensive et orientée tests d’intrusion.
+  # Logique d'apprentissage appliquée :
+  #
+  #   1.  Comprendre AVANT d'agir (méthodologie, Kill Chain, légalité)
+  #   2.  Reconnaissance passive (sans contact avec la cible)
+  #   3.  WiFi & réseaux sans fil (vecteur d'accès initial physique)
+  #   4.  Reconnaissance active + réseau (premiers contacts, AD inclus)
+  #   5.  Identification automatisée des vulnérabilités
+  #   6.  Exploitation applicative (Web & API)
+  #   7.  Vecteurs d'accès humains (Social Engineering)
+  #   8.  Attaques sur l'authentification (Password Attacks)
+  #   9.  Exploitation technique et maintien d'accès
+  #   10. Formalisation des résultats (Reporting)
   #
   # PUBLIC CIBLE :
   # - Pentesters
@@ -1693,224 +1530,327 @@ nav = [
   {"Cyber : Attaque" = [
 
     # -------------------------------------------------------------------------
-    # Page d’introduction
+    # Page d'introduction générale
     # -------------------------------------------------------------------------
-    # Cette page présente :
-    # - le cadre légal et éthique des tests d’intrusion
-    # - les prérequis techniques recommandés
-    # - l’organisation des phases offensives
-    # - les parcours de lecture conseillés dans OmnyDocs
+    # Présente le cadre légal et éthique, les prérequis techniques,
+    # l'organisation des phases offensives et les parcours de lecture.
     # -------------------------------------------------------------------------
     "cyber/tools/index.md",
 
     # ========================================================================
-    # 6.1 — OSINT & Reconnaissance
+    # ÉTAPE 1 — Méthodologies Red Team
     # ========================================================================
-    # Phase de collecte d’informations publiques et de cartographie externe.
+    # TOUJOURS en premier. Aucun outil n'a de sens sans le cadre conceptuel
+    # qui l'entoure.
     #
-    # Objectifs :
-    # - identifier les surfaces exposées
-    # - découvrir les actifs Internet
-    # - préparer les phases actives de scan
+    # Un pentester qui exécute des outils sans comprendre la Kill Chain,
+    # MITRE ATT&CK et les phases d'une opération produit du bruit, pas un audit.
+    #
+    # Cette section répond à : Que fait-on ? Dans quel ordre ? Pourquoi ?
+    # Comment documenter ? Comment opérer sans se faire détecter ?
+    # ========================================================================
+    {"Méthodologies Red Team" = [
+      "cyber/tools/methodology/index.md",
+
+      # 1. Fondations & Cycle de vie
+      {"Phases d'un Pentest"    = "cyber/tools/methodology/pentest-phases.md"},    # De la reconnaissance au reporting
+
+      # 2. Cadres Analytiques & Stratégie
+      {"MITRE ATT&CK"           = "cyber/tools/methodology/mitre-attack.md"},      # Taxonomie mondiale des tactiques
+      {"EBIOS RM (Red Team)"    = "cyber/tools/methodology/ebios-redteam.md"},     # Analyse de risques (Vue attaquants)
+
+      # 3. Furtivité & Contournement
+      {"OpSec & Anonymisation"  = "cyber/tools/methodology/opsec.md"},             # Tor, VPN, VPS, OPSEC Failures
+      {"Stéganographie"         = "cyber/tools/methodology/steganographie.md"},    # Dissimulation de données et C2 cachés
+
+      # 4. Opérationnel Avancé
+      {"C2 (Command & Control)" = "cyber/tools/methodology/c2-frameworks.md"}      # Le cœur de l'opération (Cobalt Strike, Sliver)
+    ]},
+
+    # ========================================================================
+    # ÉTAPE 2 — OSINT & Reconnaissance passive
+    # ========================================================================
+    # Première phase opérationnelle : collecter un maximum d'informations
+    # SANS interagir directement avec l'infrastructure cible.
+    #
+    # La reconnaissance passive est légale sur n'importe quelle cible.
+    # Elle précède toutes les phases actives et les alimente.
+    #
+    # Cette section répond à : Qui est la cible ? Quels actifs expose-t-elle ?
+    # Quels SSID, employés, e-mails, sous-domaines, technologies sont visibles ?
     # ========================================================================
     {"OSINT & Reconnaissance" = [
       "cyber/tools/osint/index.md",
 
-      # Outils de collecte OSINT multi-sources
-      {"theHarvester" = "cyber/tools/osint/theharvester.md"},   # Collecte emails, domaines, hôtes
-      {"SpiderFoot"   = "cyber/tools/osint/spiderfoot.md"},     # Automatisation OSINT à grande échelle
-      {"Maltego"      = "cyber/tools/osint/maltego.md"},        # Analyse graphique des relations
+      # 1. Cartographie globale & Moteurs de recherche
+      {"Shodan / Censys" = "cyber/tools/osint/shodan-censys.md"},   # Moteurs de recherche IoT et IPs exposées
+      {"SpiderFoot"      = "cyber/tools/osint/spiderfoot.md"},      # Macro-reconnaissance automatisée (200+ sources)
+      {"theHarvester"    = "cyber/tools/osint/theharvester.md"},    # Collecte d'employés, emails et hôtes de base
 
-      # Enumération de sous-domaines
-      {"Amass"        = "cyber/tools/osint/amass.md"},          # Cartographie d’infrastructure externe
-      {"subfinder"    = "cyber/tools/osint/subfinder.md"},      # Enumération rapide de sous-domaines
-      {"assetfinder"  = "cyber/tools/osint/assetfinder.md"},    # Découverte simple d’assets
+      # 2. Énumération ciblée de sous-domaines
+      {"assetfinder"     = "cyber/tools/osint/assetfinder.md"},     # Découverte ultralégère d'assets (TomNomNom)
+      {"subfinder"       = "cyber/tools/osint/subfinder.md"},       # Énumération très rapide par API
+      {"Amass"           = "cyber/tools/osint/amass.md"},           # Cartographie exhaustive et profonde (OWASP)
 
-      # Validation HTTP des cibles découvertes
-      {"httpx"        = "cyber/tools/osint/httpx.md"},          # Probe HTTP/HTTPS des endpoints
+      # 3. Validation de la surface d'attaque
+      {"httpx"           = "cyber/tools/osint/httpx.md"},           # Validation HTTP/HTTPS (statut 200, technos)
 
-      # Moteurs de recherche d’équipements exposés
-      {"Shodan / Censys" = "cyber/tools/osint/shodan-censys.md"} # Recherche Internet-wide
+      # 4. Analyse et Investigation Graphique
+      {"Maltego"         = "cyber/tools/osint/maltego.md"}          # Visualisation des liens et enquêtes avancées
     ]},
 
     # ========================================================================
-    # 6.2 — Pentest Web & API
+    # ÉTAPE 3 — WiFi & Réseaux Sans Fil
     # ========================================================================
-    # Tests d’intrusion applicatifs :
-    # - vulnérabilités OWASP Top 10
-    # - tests d’authentification et de session
-    # - fuzzing de paramètres et d’endpoints
-    # - analyse de surface Web et API
-    # ========================================================================
-    {"Pentest Web & API" = [
-      "cyber/tools/web/index.md",
-
-      # Proxys d’interception
-      {"Burp Suite" = "cyber/tools/web/burp.md"},               # Proxy d’interception et tests manuels
-      {"OWASP ZAP"  = "cyber/tools/web/zap.md"},                # Alternative open-source
-
-      # Scanners et détection de surface
-      {"Nikto"      = "cyber/tools/web/nikto.md"},              # Scan de configurations Web
-
-      # Fuzzing et brute-force de contenu
-      {"ffuf"        = "cyber/tools/web/ffuf.md"},              # Fuzzer HTTP rapide
-      {"Gobuster"    = "cyber/tools/web/gobuster.md"},          # Bruteforce de répertoires et DNS
-      {"feroxbuster" = "cyber/tools/web/feroxbuster.md"},       # Enumération récursive de contenu
-
-      # Scan moderne par templates
-      {"Nuclei"      = "cyber/tools/web/nuclei.md"},            # Scanner basé sur templates
-
-      # Exploitation spécialisée
-      {"sqlmap"      = "cyber/tools/web/sqlmap.md"},            # Exploitation SQLi automatisée
-      {"Fuzzing (général)" = "cyber/tools/web/fuzzing.md"}      # Méthodologie de fuzzing
-    ]},
-
-    # ========================================================================
-    # 6.3 — Pentest Réseau, Services & AD
-    # ========================================================================
-    # Découverte réseau, énumération de services et analyse d’infrastructure.
+    # Placé immédiatement après l'OSINT car le WiFi est un vecteur d'accès
+    # INITIAL physique — il précède logiquement l'énumération réseau interne.
     #
-    # Cette section couvre :
-    # - scan de ports
-    # - énumération DNS
-    # - manipulation de paquets
-    # - reconnaissance Active Directory
+    # Un réseau WiFi compromis place directement l'attaquant sur le LAN,
+    # depuis lequel toutes les techniques de l'Étape 4 s'appliquent.
+    #
+    # Cette section répond à : Les réseaux sans fil sont-ils correctement
+    # sécurisés ? La clé WPA2 est-elle crackable ? Le WPS est-il actif ?
+    # Les authentifications 802.1X peuvent-elles être interceptées ?
+    # ========================================================================
+    {"WiFi & Réseaux Sans Fil" = [
+      "cyber/tools/wifi/index.md",
+
+      # 1. Fondations & Suite de référence
+      {"Aircrack-ng"      = "cyber/tools/wifi/aircrack-ng.md"},     # airmon-ng, airodump-ng, aireplay-ng
+
+      # 2. Reconnaissance Passive
+      {"Kismet"           = "cyber/tools/wifi/kismet.md"},          # Détecteur passif, IDS WiFi
+
+      # 3. Attaques Actives & Automatisées (Réseaux Personnels)
+      {"Wifite"           = "cyber/tools/wifi/wifite.md"},          # Orchestrateur d'attaques WiFi
+      {"hcxtools"         = "cyber/tools/wifi/hcxtools.md"},        # Capture PMKID + hcxdumptool
+      {"Reaver / Bully"   = "cyber/tools/wifi/reaver-bully.md"},    # PIN bruteforce + Pixie Dust
+
+      # 4. Attaques d'Entreprise (802.1X)
+      {"hostapd-wpe"      = "cyber/tools/wifi/hostapd-wpe.md"}      # Rogue AP EAP-PEAP/TTLS
+    ]},
+
+    # ========================================================================
+    # ÉTAPE 4 — Pentest Réseau, Services & AD
+    # ========================================================================
+    # Placé après le WiFi car un accès LAN (filaire ou sans fil) est
+    # le prérequis naturel à l'énumération réseau interne.
+    #
+    # Cette section couvre la cartographie des hôtes et services accessibles
+    # ainsi que l'exploitation de l'infrastructure Active Directory.
+    #
+    # Cette section répond à : Quels hôtes sont actifs ? Quels services tournent ?
+    # Quelle est la topologie AD ? Où sont les points d'escalade ?
     # ========================================================================
     {"Pentest Réseau, Services & AD" = [
       "cyber/tools/network/index.md",
 
-      # Scanner réseau de référence
-      {"Nmap (NSE)" = "cyber/tools/network/nmap.md"},           # Scan de ports et scripts NSE
-      {"RustScan"   = "cyber/tools/network/rustscan.md"},       # Accélérateur de scan
+      # 1. Découverte & Scan Actif
+      {"Nmap (NSE)"       = "cyber/tools/network/nmap.md"},          # Scanner de ports + scripts NSE
+      {"RustScan"         = "cyber/tools/network/rustscan.md"},      # Accélérateur de scan pour Nmap
 
-      # Outils DNS
+      # 2. Diagnostic & Analyse Bas Niveau
+      {"ping"             = "cyber/tools/network/ping.md"},          # Connectivité ICMP, découverte d'hôtes
+      {"Scapy"            = "cyber/tools/network/scapy.md"},         # Forge et analyse de paquets (Python)
+
+      # 3. Résolution & Énumération DNS
       {"DNS" = [
         "cyber/tools/network/dns/index.md",
-        {"dig"      = "cyber/tools/network/dns/dig.md"},
-        {"nslookup" = "cyber/tools/network/dns/nslookup.md"},
-        {"host"     = "cyber/tools/network/dns/host.md"},
-        {"dnsenum"  = "cyber/tools/network/dns/dnsenum.md"}
+        {"dig"      = "cyber/tools/network/dns/dig.md"},             # Référence BIND, flexible et scriptable
+        {"nslookup" = "cyber/tools/network/dns/nslookup.md"},        # Legacy multiplateforme (post-exploit Windows)
+        {"host"     = "cyber/tools/network/dns/host.md"},            # Résolutions rapides et scripts shell
+        {"dog"      = "cyber/tools/network/dns/dog.md"},             # Requêtes modernes (Rust), JSON et DoH
+        {"dnsenum"  = "cyber/tools/network/dns/dnsenum.md"}          # Enumération DNS + transfert de zone
       ]},
 
-      # Diagnostic réseau
-      {"ping" = "cyber/tools/network/ping.md"},
+      # 4. Attaques LAN & Man-in-the-Middle
+      {"Bettercap"        = "cyber/tools/network/bettercap.md"},     # ARP spoofing, MITM, sniffing réseau
+      {"Responder"        = "cyber/tools/network/responder.md"},     # Poisoning LLMNR/NBT-NS → NTLMv2
 
-      # Manipulation de paquets
-      {"Scapy" = "cyber/tools/network/scapy.md"},
-
-      # Écosystème Active Directory offensif
-      {"Impacket"        = "cyber/tools/network/impacket.md"},
-      {"CrackMapExec"    = "cyber/tools/network/cme.md"},
-      {"Responder"       = "cyber/tools/network/responder.md"},
-      {"BloodHound (AD)" = "cyber/tools/network/bloodhound.md"},
-
-      # Attaques MITM modernes
-      {"Bettercap" = "cyber/tools/network/bettercap.md"}
+      # 5. Exploitation Active Directory (Mouvement Latéral)
+      {"CrackMapExec"     = "cyber/tools/network/cme.md"},           # Exploitation multi-protocoles (SMB, WinRM)
+      {"Impacket"         = "cyber/tools/network/impacket.md"},      # PtH, PtT, DCSync, Kerberoasting
+      {"BloodHound (AD)"  = "cyber/tools/network/bloodhound.md"}     # Cartographie des chemins d'escalade AD
     ]},
 
     # ========================================================================
-    # 6.4 — Exploitation & Post-Exploitation
+    # ÉTAPE 5 — Scan de Vulnérabilités
     # ========================================================================
-    # Phase d’exploitation active et de maintien d’accès.
+    # Placé après la reconnaissance réseau (Étape 4) car le scan s'applique
+    # aux hôtes et services déjà identifiés — on ne scanne pas dans le vide.
     #
-    # Objectifs :
-    # - exécution de payloads
-    # - élévation de privilèges
-    # - pivoting réseau
-    # - persistance
+    # Les résultats orientent directement les phases d'exploitation (6 et 9).
+    #
+    # Distinction avec Nuclei (Étape 6) :
+    # - OpenVAS et Nessus → scan d'infrastructure (hôtes, services, réseau)
+    # - Nuclei → scan applicatif web par templates (voir Pentest Web)
+    #
+    # Cette section répond à : Quelles CVE sont présentes ? Quelles
+    # configurations sont faibles ? Où concentrer l'exploitation ?
     # ========================================================================
-    {"Exploitation & Post-Exploitation" = [
-      "cyber/tools/exploit/index.md",
+    {"Scan de Vulnérabilités" = [
+      "cyber/tools/scan/index.md",
 
-      {"Metasploit" = "cyber/tools/exploit/metasploit.md"},     # Framework d’exploitation
-      {"Msfvenom"   = "cyber/tools/exploit/msfvenom.md"},       # Génération de payloads
-      {"LinPEAS / WinPEAS" = "cyber/tools/exploit/peas.md"},    # Enumération privesc
-      {"Chisel"     = "cyber/tools/exploit/chisel.md"},         # Tunneling HTTP/SOCKS
-      {"Ligolo-NG"  = "cyber/tools/exploit/ligolo-ng.md"},      # Pivoting avancé
-      {"Payloads & Techniques" = "cyber/tools/exploit/payload-all-the-things.md"}
+      # 1. Scanners Open-Source
+      {"OpenVAS (Greenbone)" = "cyber/tools/scan/openvas.md"},       # Scanner open-source (infrastructure)
+
+      # 2. Scanners Commerciaux
+      {"Nessus"              = "cyber/tools/scan/nessus.md"}         # Scanner commercial de référence (Tenable)
     ]},
 
     # ========================================================================
-    # 6.5 — Password Attacks
+    # ÉTAPE 6 — Pentest Web & API
     # ========================================================================
-    # Attaques sur mécanismes d’authentification :
-    # - cracking offline de hashes
-    # - bruteforce online
-    # - génération de dictionnaires
+    # Placé après le scan réseau et de vulnérabilités car les applications
+    # web à tester ont été identifiées lors des phases précédentes.
+    #
+    # Nuclei est ici (et non en Scan de Vulnérabilités) car ses templates
+    # sont majoritairement applicatifs — il complète Burp Suite sur la
+    # découverte de vulnérabilités web connues.
+    #
+    # Cette section répond à : Les applications exposées sont-elles vulnérables ?
+    # Quels paramètres sont injectables ? Quels endpoints sont cachés ?
+    # ========================================================================
+    {"Pentest Web & API" = [
+      "cyber/tools/web/index.md",
+
+      # 1. Interception & Manipulation (Proxys)
+      {"Burp Suite"          = "cyber/tools/web/burp.md"},           # Standard de l'industrie
+      {"OWASP ZAP"           = "cyber/tools/web/zap.md"},            # Alternative open-source, CI/CD-friendly
+
+      # 2. Fuzzing & Découverte de Contenu
+      {"ffuf"                = "cyber/tools/web/ffuf.md"},           # Fuzzer HTTP rapide et flexible
+      {"Gobuster"            = "cyber/tools/web/gobuster.md"},       # Brute-force répertoires, DNS, vhosts
+      {"feroxbuster"         = "cyber/tools/web/feroxbuster.md"},    # Enumération récursive de contenu
+
+      # 3. Scanners & Exploitation Spécialisée
+      {"Nikto"               = "cyber/tools/web/nikto.md"},          # Fichiers sensibles, configs faibles
+      {"Nuclei"              = "cyber/tools/web/nuclei.md"},         # Templates YAML (CVE, misconfigs, exposures)
+      {"sqlmap"              = "cyber/tools/web/sqlmap.md"},         # Exploitation SQLi automatisée
+
+      # 4. Cadres Théoriques
+      {"Fuzzing (général)"   = "cyber/tools/web/fuzzing.md"}         # Méthodologies de fuzzing applicatif
+    ]},
+
+    # ========================================================================
+    # ÉTAPE 7 — Social Engineering
+    # ========================================================================
+    # Placé après les phases techniques car l'ingénierie sociale est un
+    # vecteur d'accès initial ALTERNATIF — pas un prérequis aux phases réseau
+    # ou web. Un lecteur doit comprendre les vecteurs techniques avant
+    # d'aborder le vecteur humain.
+    #
+    # Dans une opération Red Team réelle, le SE peut intervenir très tôt
+    # (phishing pour accès initial) ou en complément d'une reconnaissance
+    # OSINT préalable sur les cibles humaines.
+    #
+    # Cette section répond à : Le facteur humain est-il exploitable ?
+    # Quelle est la résistance au phishing ? Peut-on obtenir des credentials
+    # par manipulation directe ?
+    # ========================================================================
+    {"Social Engineering" = [
+      "cyber/tools/se/index.md",
+
+      # 1. Frameworks d'Attaques Ciblées
+      {"SET"     = "cyber/tools/se/set.md"},                         # Framework d'attaques SE (TrustedSec)
+
+      # 2. Plateformes de Simulation (Campagnes)
+      {"GoPhish" = "cyber/tools/se/gophish.md"}                      # Plateforme de simulation de phishing
+    ]},
+
+    # ========================================================================
+    # ÉTAPE 8 — Password Attacks
+    # ========================================================================
+    # Placé après les phases de reconnaissance et d'identification car les
+    # attaques sur les mots de passe nécessitent :
+    # - des hashes à craquer (Responder, dumps AD, PMKID WiFi)
+    # - des endpoints d'authentification (découverts via Nmap/ffuf)
+    # - des cibles humaines identifiées (OSINT ou SE)
+    #
+    # Cette section intervient à plusieurs phases d'un pentest réel :
+    # accès initial (bruteforce VPN/webmail), post-exploitation (cracking
+    # de hashes NTLM) et mouvement latéral (password spraying AD).
+    #
+    # Cette section répond à : Les hashes sont-ils crackables ? Les services
+    # résistent-ils au bruteforce ? Les mots de passe respectent-ils
+    # la politique de l'organisation ?
     # ========================================================================
     {"Password Attacks" = [
       "cyber/tools/crack/index.md",
 
-      {"John the Ripper" = "cyber/tools/crack/john.md"},
-      {"Hashcat"         = "cyber/tools/crack/hashcat.md"},
-      {"Hydra"           = "cyber/tools/crack/hydra.md"},
-      {"Medusa"          = "cyber/tools/crack/medusa.md"},
-      {"CeWL"            = "cyber/tools/crack/cewl.md"},
-      {"Crunch"          = "cyber/tools/crack/crunch.md"},
-      {"SecLists"        = "cyber/tools/crack/seclists.md"}
+      # 1. Cracking Hors-Ligne (CPU & GPU)
+      {"John the Ripper" = "cyber/tools/crack/john.md"},             # Cracker CPU multi-format
+      {"Hashcat"         = "cyber/tools/crack/hashcat.md"},          # Cracker GPU ultra-rapide (référence)
+
+      # 2. Bruteforce En Ligne (Réseau)
+      {"Hydra"           = "cyber/tools/crack/hydra.md"},            # Bruteforce réseau multi-protocoles
+      {"Medusa"          = "cyber/tools/crack/medusa.md"},           # Alternative parallélisée à Hydra
+
+      # 3. Dictionnaires & Génération
+      {"SecLists"        = "cyber/tools/crack/seclists.md"},         # Référentiel de wordlists (Daniel Miessler)
+      {"CeWL"            = "cyber/tools/crack/cewl.md"},             # Wordlist par spidering web (ciblée)
+      {"Crunch"          = "cyber/tools/crack/crunch.md"}            # Génération par masque et pattern
     ]},
 
     # ========================================================================
-    # 6.6 — Social Engineering
+    # ÉTAPE 9 — Exploitation & Post-Exploitation
     # ========================================================================
-    # Techniques d’ingénierie sociale utilisées dans un cadre autorisé :
-    # - phishing et spear-phishing
-    # - campagnes de simulation
-    # - manipulation humaine contrôlée
-    # ========================================================================
-    {"Social Engineering" = [
-      "cyber/tools/se/index.md",
-      {"SET"     = "cyber/tools/se/set.md"},
-      {"GoPhish" = "cyber/tools/se/gophish.md"}
-    ]},
-
-    # ========================================================================
-    # 6.7 — Scan de Vulnérabilités
-    # ========================================================================
-    # Outils automatisés d’identification de vulnérabilités.
+    # Phase terminale de l'opération offensive : tirer parti de tout ce
+    # qui a été découvert et accédé dans les étapes précédentes.
     #
-    # Ces outils complètent le pentest manuel mais ne le remplacent pas.
+    # L'exploitation présuppose :
+    # - des vulnérabilités identifiées (Étapes 4, 5, 6)
+    # - des credentials récupérés (Étapes 3, 7, 8)
+    # - une compréhension de la topologie réseau (Étape 4)
+    #
+    # Cette section répond à : Jusqu'où peut-on aller une fois le premier
+    # accès obtenu ? Peut-on devenir Domain Admin ? Exfiltrer des données ?
+    # Maintenir un accès persistant sans être détecté ?
     # ========================================================================
-    {"Scan de Vulnérabilités" = [
-      "cyber/tools/scan/index.md",
-      {"OpenVAS (Greenbone)" = "cyber/tools/scan/openvas.md"},
-      {"Nessus"              = "cyber/tools/scan/nessus.md"},
-      {"Nuclei"              = "cyber/tools/scan/nuclei.md"}
+    {"Exploitation & Post-Exploitation" = [
+      "cyber/tools/exploit/index.md",
+
+      # 1. Frameworks d'Exploitation Centralisés
+      {"Metasploit"            = "cyber/tools/exploit/metasploit.md"},         # Framework exploitation (Rapid7)
+      {"Msfvenom"              = "cyber/tools/exploit/msfvenom.md"},           # Génération de payloads
+
+      # 2. Élévation de Privilèges (Privesc)
+      {"LinPEAS / WinPEAS"     = "cyber/tools/exploit/peas.md"},               # Privesc Linux et Windows
+
+      # 3. Pivoting & Tunneling (Post-Compromission)
+      {"Chisel"                = "cyber/tools/exploit/chisel.md"},             # Tunneling HTTP/SOCKS5 (Go)
+      {"Ligolo-NG"             = "cyber/tools/exploit/ligolo-ng.md"},          # Pivoting avancé via interface virtuelle
+
+      # 4. Bases de Connaissances Techniques
+      {"Payloads & Techniques" = "cyber/tools/exploit/payload-all-the-things.md"}  # One-liners, bypasses, techniques
     ]},
 
     # ========================================================================
-    # 6.8 — Méthodologies Red Team
+    # ÉTAPE 10 — Reporting & Livrables
     # ========================================================================
-    # Cadres méthodologiques structurant les opérations offensives :
-    # - phases de pentest
-    # - cartographie MITRE ATT&CK
-    # - OPSEC
-    # - techniques avancées
-    # ========================================================================
-    {"Méthodologies Red Team" = [
-      "cyber/tools/methodology/index.md",
-      {"Phases d’un Pentest" = "cyber/tools/methodology/pentest-phases.md"},
-      {"MITRE ATT&CK"        = "cyber/tools/methodology/mitre-attack.md"},
-      {"OpSec & Anonymisation" = "cyber/tools/methodology/opsec.md"},
-      {"Stéganographie"        = "cyber/tools/methodology/steganographie.md"},
-      {"C2 (Command & Control)" = "cyber/tools/methodology/c2-frameworks.md"}
-    ]},
-
-    # ========================================================================
-    # 6.9 — Reporting & Livrables
-    # ========================================================================
-    # Formalisation des résultats de test d’intrusion :
-    # - structure de rapport
-    # - preuves techniques
-    # - priorisation des risques
-    # - recommandations de remédiation
+    # TOUJOURS en dernier. Le reporting est la phase de valorisation
+    # de l'ensemble des travaux offensifs.
+    #
+    # Un pentest sans rapport de qualité n'a pas de valeur livrable :
+    # les vulnérabilités restent inconnues du client, les risques
+    # ne sont pas priorisés, aucune remédiation n'est possible.
+    #
+    # Cette section répond à : Comment formaliser les résultats ? Comment
+    # scorer les vulnérabilités de manière objective ? Comment constituer
+    # des preuves solides ? Comment formuler des recommandations exploitables ?
     # ========================================================================
     {"Reporting & Livrables" = [
       "cyber/tools/reporting/index.md",
-      {"Structure d’un rapport" = "cyber/tools/reporting/rapport-structure.md"},
-      {"Preuves & Reproductibilité" = "cyber/tools/reporting/preuves.md"},
-      {"Sévérités (CVSS) & Priorisation" = "cyber/tools/reporting/cvss.md"},
-      {"Recommandations & Correctifs" = "cyber/tools/reporting/remediation.md"}
+
+      # 1. Anatomie & Structure
+      {"Structure d'un rapport"           = "cyber/tools/reporting/rapport-structure.md"}, # Anatomie du livrable
+
+      # 2. Preuves & Documentation
+      {"Preuves & Reproductibilité"       = "cyber/tools/reporting/preuves.md"},           # Captures, logs, outputs
+
+      # 3. Évaluation & Recommandations
+      {"Sévérités (CVSS) & Priorisation" = "cyber/tools/reporting/cvss.md"},              # Scoring et hiérarchisation
+      {"Recommandations & Correctifs"     = "cyber/tools/reporting/remediation.md"}        # Plan de remédiation
     ]}
 
   ]},
@@ -2140,9 +2080,27 @@ nav = [
       ]},
       {"Lab — Laravel Jetstream" = [
         "projets/laravel-lab/projet-jetstream/index.md",
+        {"1. Setup & CORS"                = "projets/laravel-lab/projet-jetstream/01-phase1.md"},
+        {"2. Modélisation SaaS"           = "projets/laravel-lab/projet-jetstream/02-phase2.md"},
+        {"3. API & S3 Evidences"          = "projets/laravel-lab/projet-jetstream/03-phase3.md"},
+        {"4. Setup Angular 21"            = "projets/laravel-lab/projet-jetstream/04-phase4.md"},
+        {"5. Interface UI & Charts"       = "projets/laravel-lab/projet-jetstream/05-phase5.md"},
+        {"6. Intégration Signals"         = "projets/laravel-lab/projet-jetstream/06-phase6.md"},
+        {"7. Génération Rapports PDF"     = "projets/laravel-lab/projet-jetstream/07-phase7.md"},
+        {"8. Tests & Déploiement"         = "projets/laravel-lab/projet-jetstream/08-phase8.md"},
+        {"Conclusion"                     = "projets/laravel-lab/projet-jetstream/conclusion.md"},
       ]},
       {"Lab — Laravel Sanctum" = [
         "projets/laravel-lab/projet-sanctum/index.md",
+        {"1. API Laravel & Sanctum"       = "projets/laravel-lab/projet-sanctum/01-phase1.md"},
+        {"2. Modèles & Logique RPG"       = "projets/laravel-lab/projet-sanctum/02-phase2.md"},
+        {"3. Endpoints (Game Loop)"       = "projets/laravel-lab/projet-sanctum/03-phase3.md"},
+        {"4. Client Angular (Stateless)"  = "projets/laravel-lab/projet-sanctum/04-phase4.md"},
+        {"5. Interface & HUD"             = "projets/laravel-lab/projet-sanctum/05-phase5.md"},
+        {"6. Game State (Signals)"        = "projets/laravel-lab/projet-sanctum/06-phase6.md"},
+        {"7. Tests TDD & Cache Redis"     = "projets/laravel-lab/projet-sanctum/07-phase7.md"},
+        {"8. Déploiement VPS & Vercel"    = "projets/laravel-lab/projet-sanctum/08-phase8.md"},
+        {"Conclusion"                     = "projets/laravel-lab/projet-sanctum/conclusion.md"},
       ]},
     ]},
 

@@ -1,6 +1,6 @@
 ---
 description: "Dépasser la boucle de requêtes traditionnelles et unifier Vue et Serveur avec la Stack TALL."
-icon: lucide/blocks
+icon: lucide/book-open-check
 tags: ["LARAVEL", "TALL-STACK", "FRONTEND", "ARCHITECTURE"]
 ---
 

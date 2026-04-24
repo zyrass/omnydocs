@@ -1,6 +1,5 @@
 ---
 description: "Tailwind CSS — Du utility-first aux composants avancés : 8 modules progressifs pour maîtriser le framework CSS le plus utilisé dans l'écosystème Laravel/TALL."
-icon: lucide/wind
 tags: ["TAILWIND", "CSS", "UTILITY-FIRST", "FRONTEND", "TALL"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 description: "Créer et organiser la logique métier avec des Controllers propres."
-icon: lucide/box
+icon: lucide/book-open-check
 tags: ["LARAVEL", "CONTROLLERS", "CRUD"]
 ---
 

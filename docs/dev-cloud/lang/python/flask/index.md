@@ -1,6 +1,5 @@
 ---
 description: "Flask — Hub de navigation : fondamentaux, routes, templates, ORM SQLAlchemy, authentification et déploiement."
-icon: lucide/flask-conical
 tags: ["FLASK", "PYTHON", "WEB", "MICROFRAMEWORK", "SQLALCHEMY"]
 ---
 

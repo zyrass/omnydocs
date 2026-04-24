@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "ASTRO", "JAVASCRIPT", "FORMATION"]
 ---
 
-# Rapport de Formation — Astro
+# Rapport
 
 <div
   class="omny-meta"

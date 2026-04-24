@@ -2,7 +2,6 @@
 description: "Le référentiel français de qualification des services cloud de confiance"
 icon: lucide/book-open-check
 tags: ["SECNUMCLOUD", "CLOUD", "ANSSI", "QUALIFICATION", "SOUVERAINETÉ"]
-status: beta
 ---
 
 # SecNumCloud - Référentiel de Sécurité Cloud de Confiance

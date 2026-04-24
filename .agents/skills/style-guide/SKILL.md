@@ -28,7 +28,7 @@ Garantir une documentation :
 - Frontmatter cohérent :
 
   - cours → `book-open-check`
-  - index → icône spécifique
+  - index → Aucune icône
 
 ## 2. Règles rédactionnelles
 

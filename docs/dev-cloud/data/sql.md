@@ -1,10 +1,10 @@
 ---
 description: "SQL & MariaDB/MySQL — Fondamentaux SQL, DDL/DML, jointures, index, procédures stockées et optimisation pour les applications Laravel."
-icon: lucide/database
+icon: lucide/book-open-check
 tags: ["SQL", "MYSQL", "MARIADB", "DATABASE", "LARAVEL"]
 ---
 
-# SQL & MariaDB / MySQL
+# MariaDB & MySQL
 
 <div
   class="omny-meta"

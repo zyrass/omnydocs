@@ -2,7 +2,6 @@
 description: "La certification française obligatoire pour héberger des données de santé à caractère personnel"
 icon: lucide/book-open-check
 tags: ["HDS", "SANTÉ", "CERTIFICATION", "FRANCE", "DONNÉES PERSONNELLES"]
-status: beta
 ---
 
 # HDS - Hébergement de Données de Santé

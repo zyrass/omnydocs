@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "ALPINEJS", "FORMATION"]
 ---
 
-# Rapport de Formation — AlpineJS
+# Rapport
 
 <div
   class="omny-meta"

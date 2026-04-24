@@ -1,6 +1,6 @@
 ---
 description: "Comprendre la structure d'un projet Laravel et son arborescence"
-icon: lucide/folder-tree
+icon: lucide/book-open-check
 tags: ["LARAVEL", "STRUCTURE", "ARBORESCENCE"]
 ---
 

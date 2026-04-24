@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["DJANGO", "PYTHON", "AUTH", "ABSTRACTUSER", "PERMISSIONS", "GROUPES"]
 ---
 
-# Module 02 — Authentification Django
+# Authentification
 
 <div
   class="omny-meta"

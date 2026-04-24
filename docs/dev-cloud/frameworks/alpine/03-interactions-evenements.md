@@ -1,10 +1,10 @@
 ---
 description: "Gérer l'interaction de l'utilisateur avec Alpine.js : Clics, Formulaires et Two-way Binding."
-icon: lucide/mountain
+icon: lucide/book-open-check
 tags: ["THEORIE", "ALPINE", "JAVASCRIPT", "FORMS"]
 ---
 
-# 03. Interactions et Événements
+# Interactions et Événements
 
 <div
   class="omny-meta"

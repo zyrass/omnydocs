@@ -1,6 +1,6 @@
 ---
 description: "Prendre conscience des risques de base avec OWASP Top 10 liés aux APIs et le web."
-icon: lucide/shield-alert
+icon: lucide/book-open-check
 tags: ["LARAVEL", "SECURITY", "OWASP", "VULNERABILITIES"]
 ---
 

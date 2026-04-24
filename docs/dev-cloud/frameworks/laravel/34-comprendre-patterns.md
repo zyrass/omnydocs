@@ -1,6 +1,6 @@
 ---
 description: "Analyser les patterns implémentés et fournis par rapport à nos codes manuels..."
-icon: lucide/scan-eye
+icon: lucide/book-open-check
 tags: ["LARAVEL", "BREEZE", "CODE", "ANALYSIS"]
 ---
 

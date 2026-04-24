@@ -1,10 +1,10 @@
 ---
 description: "Architecture à grande échelle, gestion d'état global avec Alpine.store(), Persistence."
-icon: lucide/mountain
+icon: lucide/book-open-check
 tags: ["THEORIE", "ALPINE", "ARCHITECTURE", "PRODUCTION"]
 ---
 
-# 05. Écosystème & Production
+# Écosystème & Production
 
 <div
   class="omny-meta"

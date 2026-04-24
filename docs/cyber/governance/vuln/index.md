@@ -25,6 +25,29 @@ tags: ["VULNÉRABILITÉS", "CVE", "CVSS", "OWASP", "PATCH MANAGEMENT"]
     - **Traçabilité** : Démontrer le suivi et le traitement aux auditeurs
     - **Résilience** : Maintenir un niveau de sécurité adapté face aux menaces évolutives
 
+## Cycle de gestion des vulnérabilités
+
+```mermaid
+---
+config:
+  theme: "base"
+---
+flowchart LR
+    INV["1. Inventaire\ndes actifs"] --> DET["2. Détection\n(Scans, Veille)"]
+    DET --> EVA["3. Évaluation\n(CVSS, Impact)"]
+    EVA --> PRI["4. Priorisation\n(Risque réel)"]
+    PRI --> REM["5. Remédiation\n(Patch, Mitigation)"]
+    REM --> VER["6. Vérification\n(Re-scan)"]
+    VER --> INV
+    
+    style DET fill:#e1f5fe,stroke:#01579b
+    style EVA fill:#fffde7,stroke:#fbc02d
+    style PRI fill:#fff3e0,stroke:#ef6c00
+    style REM fill:#e8f5e9,stroke:#1b5e20
+```
+
+_Ce cycle garantit une approche proactive : on ne se contente pas de "patcher", on **évalue** la criticité réelle via le **CVSS** et l'**impact métier** pour concentrer les ressources là où le risque est maximal._
+
 ## Les quatre composantes clés
 
 !!! note "Cette section présente les quatre piliers complémentaires de la gestion des vulnérabilités"

@@ -4,7 +4,7 @@ icon: lucide/box
 tags: ["THEORIE", "LIVEWIRE", "EVENTS", "LISTENERS"]
 ---
 
-# 04. Événements Globaux (Event Bus)
+# Événements Globaux (Event Bus)
 
 <div
   class="omny-meta"

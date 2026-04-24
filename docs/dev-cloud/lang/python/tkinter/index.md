@@ -1,6 +1,5 @@
 ---
 description: "Tkinter — Hub de navigation : fondamentaux, widgets, layout, événements et applications desktop Python."
-icon: lucide/monitor
 tags: ["TKINTER", "PYTHON", "GUI", "DESKTOP", "WIDGETS"]
 ---
 

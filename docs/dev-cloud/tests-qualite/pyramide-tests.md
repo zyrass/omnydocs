@@ -1,6 +1,6 @@
 ---
 description: "La pyramide des tests — comprendre les niveaux, la répartition recommandée et l'antipattern du cône de glace."
-icon: lucide/triangle
+icon: lucide/book-open-check
 tags: ["TESTS", "PYRAMIDE", "STRATEGIE", "TDD", "E2E", "UNITAIRES"]
 ---
 

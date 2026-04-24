@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "MERISE", "FORMATION"]
 ---
 
-# Rapport de Formation — Merise
+# Rapport
 
 <div
   class="omny-meta"

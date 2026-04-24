@@ -1,6 +1,6 @@
 ---
 description: "Évaluer ses compétences avec un parcours de carrière, un QCM de conclusion et terminer les apprentissages sur le Framework PHP."
-icon: lucide/graduation-cap
+icon: lucide/book-open-check
 tags: ["LARAVEL", "SUMMARY", "CAREER", "QCM", "EXERCICE"]
 ---
 

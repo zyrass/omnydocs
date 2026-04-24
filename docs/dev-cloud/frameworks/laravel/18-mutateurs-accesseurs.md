@@ -1,10 +1,10 @@
 ---
 description: "Transformer l'injection et la sortie de vos données et sécuriser les entrées par Transactions de grappes."
-icon: lucide/shield-alert
+icon: lucide/book-open-check
 tags: ["LARAVEL", "MUTATEURS", "ACCESSEURS", "TRANSACTIONS"]
 ---
 
-# Mutateurs & Transactions SQL
+# Mutateurs & Transactions
 
 <div
   class="omny-meta"

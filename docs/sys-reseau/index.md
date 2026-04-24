@@ -1,34 +1,26 @@
 ---
-description: "Mise en œuvre, administration, durcissement et supervision des infrastructures informatiques locales et réseaux."
-icon: lucide/server
-tags: ["SYTEME", "LINUX", "WINDOWS", "RESEAU", "INFRASTRUCTURE"]
+description: "Le prérequis absolu à la cybersécurité : concevoir, administrer, durcir et superviser des infrastructures (Linux, Windows, Réseaux, Virtualisation)."
+tags: ["SYSTEME", "LINUX", "WINDOWS", "RESEAU", "INFRASTRUCTURE", "DURCISSEMENT"]
 ---
 
-# Systèmes & Infra
+# Systèmes & Infrastructure (Sys-Réseau)
 
 <div
   class="omny-meta"
   data-level="🟢 Débutant à 🔴 Avancé"
-  data-version="1.0"
-  data-time="10-15 minutes">
+  data-version="2.0"
+  data-time="Hub Principal">
 </div>
 
-!!! quote "Analogie"
-    _Le développeur construit les bâtiments; l'administrateur système et opérations prépare le terrain, pose les fondations, construit les routes de communication (les réseaux), installe les caméras de vidéosurveillance (monitoring) et sécurise les portes (firewalls)._
+!!! quote "Vous ne pouvez pas défendre ce que vous ne comprenez pas"
+    _Il est tentant de vouloir faire de la "Cyber" (Hacking, Pentest, SOC) directement. **C'est une erreur fondamentale.** L'administration système et réseau est le prérequis absolu à la cybersécurité. Avant d'apprendre à exploiter une faille dans un service ou à configurer un pare-feu de nouvelle génération, vous devez savoir comment construire le serveur, configurer les permissions, gérer les routes réseau et lire les journaux de bord. La vraie cybersécurité, c'est avant tout de l'administration système d'excellence._
 
-!!! abstract "Résumé"
-    Contrairement aux Fondamentaux IT (conceptuels) et au Développement Web (applicatif), cette vaste partie adopte une approche 100% orientée **exploitation**. Y sont traités l'administration de systèmes **Linux** et **Windows**, le déploiement et maintien des **Réseaux**, et l'ensemble des piliers modernes de l'infrastructure que sont la virtualisation, le stockage et l'observabilité.
+!!! abstract "Périmètre de la section"
+    Cette vaste section adopte une approche 100% orientée **Opérations (Ops) / Blue Team (Défense & Construction)**. Y sont traités l'administration quotidienne et le **durcissement (Hardening)** des systèmes **Linux** et **Windows**, le déploiement des **Réseaux**, et l'ensemble des piliers de l'infrastructure moderne (Virtualisation, Stockage, Observabilité).
 
-!!! info "Prérequis : Fondamentaux IT"
-    L'administration de systèmes et réseaux exige une compréhension des modèles conceptuels (OSI, TCP/IP) ou du rôle d'un OS (Kernel vs User-space). Il est très fortement recommandé d'avoir assimilé la section **Bases & IT** avant d'appliquer des configurations dans cette partie.
+## Les Piliers de l'Exploitation
 
-<br />
-
----
-
-## Les piliers de l'exploitation
-
-Cette macro-section s'articule autour de six compétences et domaines incontournables pour les ingénieurs infrastructure, administrateurs et SRE (Site Reliability Engineers).
+Ce Hub s'articule autour de six domaines incontournables pour les ingénieurs infrastructure, les administrateurs et les futurs experts en cybersécurité.
 
 <div class="grid cards" markdown>
 
@@ -36,7 +28,7 @@ Cette macro-section s'articule autour de six compétences et domaines incontourn
 
     ---
 
-    **Périmètre** : Le moteur du web. Automatisation par shell (`Bash`), gestion fine de l'OS (`systemd`, permissions), et son **durcissement profond** (`ufw`, `fail2ban`, `lynis`, auditing).
+    **Périmètre** : Le moteur du web. Automatisation par shell (`Bash`), gestion fine de l'OS (`systemd`, permissions), et surtout son **durcissement profond** (`ufw`, `fail2ban`, `lynis`, auditing).
 
     [:octicons-arrow-right-24: Entrer dans l'univers Linux](./linux/index.md)
 
@@ -48,11 +40,11 @@ Cette macro-section s'articule autour de six compétences et domaines incontourn
 
     [:octicons-arrow-right-24: Découvrir l'administration Windows](./windows/index.md)
 
--   :lucide-network:{ .lg .middle } **Services Réseau & Périphéries**
+-   :lucide-network:{ .lg .middle } **Réseaux & Protocoles**
 
     ---
 
-    **Périmètre** : Les outils d'analyse vitaux (tcpdump, scapy, nslookup), les services DNS, SSH, LDAP... sans oublier les briques de **sécurité périmétrique** indispensables (pfSense, WAF, proxy et VPN).
+    **Périmètre** : Les outils d'analyse vitaux (`tcpdump`, `scapy`), les services fondateurs (DNS, SSH, LDAP) et les briques de **sécurité périmétrique** indispensables (pfSense, WAF, proxy et VPN).
 
     [:octicons-arrow-right-24: Analyser et protéger les flux](./network/index.md)
 
@@ -60,15 +52,15 @@ Cette macro-section s'articule autour de six compétences et domaines incontourn
 
     ---
 
-    **Périmètre** : Comprendre et appliquer les briques permettant l'isolation, du simple l'émulateur (**QEMU**) à l'hyperviseur bare-metal de Type 1 ultra performant en production (**KVM / Proxmox**).
+    **Périmètre** : Comprendre et appliquer les technologies d'isolation, de l'émulateur basique (**QEMU**) à l'hyperviseur bare-metal ultra performant en production (**KVM / Proxmox**).
 
     [:octicons-arrow-right-24: Isoler et virtualiser](./virtualisation/index.md)
 
--   :lucide-hard-drive:{ .lg .middle } **Stockage & PRA**
+-   :lucide-hard-drive:{ .lg .middle } **Stockage & Sauvegarde (PRA)**
 
     ---
 
-    **Périmètre** : Assurer la continuité d'activité à tout prix et sans erreur. Les systèmes de fichiers, les architectures **RAID**, et les plans de reprise d'activité (**PRA** / Sauvegardes / Amanda).
+    **Périmètre** : Assurer la continuité d'activité (Disaster Recovery). L'architecture matérielle (**RAID**), les systèmes de fichiers, et les Plans de Reprise d'Activité avec des outils comme **Amanda**.
 
     [:octicons-arrow-right-24: Sauvegarder et organiser](./storage/index.md)
 
@@ -76,19 +68,16 @@ Cette macro-section s'articule autour de six compétences et domaines incontourn
 
     ---
 
-    **Périmètre** : Vous ne pouvez pas défendre ou réparer ce que vous ne voyez pas. L'étude des Logs (systèmes & composants) et le monitoring réseau avec `ntop`/`ntopng`.
+    **Périmètre** : La vue de l'aigle. L'étude centralisée des Logs (journaux systèmes) et le monitoring temps réel du réseau (`ntop`/`ntopng`) pour repérer instantanément les anomalies.
 
     [:octicons-arrow-right-24: Garder un œil sur les systèmes](./supervision/index.md)
 
 </div>
 
-<br />
+## La Frontière avec la "Cyber"
 
----
+Gardez à l'esprit la limite pédagogique de ce hub :
+- Ici, nous apprenons à **construire, faire tourner, et verrouiller (Durcissement/Hardening)** la porte d'un serveur. (Ex: *Configurer `fail2ban` pour bloquer le bruteforce SSH*).
+- Les hubs ultérieurs de **Cybersécurité (Gouvernance, Outils, Opérations)** vous apprendront comment tester la solidité de cette porte (Red Team), comment l'auditer selon des normes légales (Gouvernance), ou comment traquer un adversaire qui aurait réussi à l'ouvrir (Threat Hunting).
 
-## Conclusion
-
-!!! quote "Conclusion"
-    _Maintenir une infrastructure va bien au-delà de l'installation du système d'exploitation de base. Il s'agit d'orchestrer sa résilience face aux corruptions (Virtualisation/PRA), de prévenir ou repérer les failles béantes (Supervision/Durcissement) et de distribuer les ressources de manière adéquate via des briques réseaux robustes. Un bon administrateur ne règle pas les problèmes en urgence ; il bâtit des systèmes conçus pour ne jamais s'effondrer._
-
-<br />
+**Une fois ces 6 piliers maîtrisés, vous serez prêt à plonger dans les tréfonds de la sécurité informatique.**

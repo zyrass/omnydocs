@@ -1,6 +1,6 @@
 ---
 description: "Présentation détaillée de Laravel Jetstream : L'arsenal avancé pour les applications SaaS."
-icon: lucide/rocket
+icon: lucide/book-open-check
 tags: ["LARAVEL", "AUTH", "JETSTREAM", "SAAS", "TEAMS", "2FA"]
 ---
 

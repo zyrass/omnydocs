@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "DEVSECOPS", "FORMATION", "STRUCTURE"]
 ---
 
-# Rapport de Formation — DevSecOps
+# Rapport
 
 <div
   class="omny-meta"

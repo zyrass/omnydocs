@@ -1,6 +1,6 @@
 ---
 description: "Rediriger le flux utilisateur via des Flash Messages, des groupes de routes et des Middlewares."
-icon: lucide/arrow-right-left
+icon: lucide/book-open-check
 tags: ["LARAVEL", "REDIRECTIONS", "FLASH", "MIDDLEWARE"]
 ---
 

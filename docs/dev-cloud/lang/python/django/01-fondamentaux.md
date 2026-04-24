@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["DJANGO", "PYTHON", "MVT", "ORM", "TEMPLATES", "MIGRATIONS"]
 ---
 
-# Module 01 — Fondamentaux Django
+# Fondamentaux
 
 <div
   class="omny-meta"

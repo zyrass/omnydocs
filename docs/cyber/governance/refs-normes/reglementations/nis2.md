@@ -2,7 +2,6 @@
 description: "La directive européenne renforçant la cybersécurité des infrastructures critiques et des services essentiels"
 icon: lucide/book-open-check
 tags: ["NIS2", "CYBERSÉCURITÉ", "DIRECTIVE", "EUROPE", "INFRASTRUCTURES CRITIQUES"]
-status: beta
 ---
 
 # NIS2 - Directive sur la Sécurité des Réseaux et des Systèmes d'Information

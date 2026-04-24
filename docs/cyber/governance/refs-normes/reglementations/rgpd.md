@@ -2,7 +2,6 @@
 description: "Le règlement européen de référence pour la protection des données personnelles"
 icon: lucide/book-open-check
 tags: ["RGPD", "GDPR", "DONNÉES PERSONNELLES", "EUROPE", "RÉGLEMENTATION"]
-status: beta
 ---
 
 # RGPD - Règlement Général sur la Protection des Données

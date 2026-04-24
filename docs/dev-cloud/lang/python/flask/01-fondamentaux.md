@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["FLASK", "PYTHON", "ROUTES", "JINJA2", "SQLALCHEMY", "BLUEPRINTS", "API"]
 ---
 
-# Module 01 — Fondamentaux Flask
+# Fondamentaux
 
 <div
   class="omny-meta"

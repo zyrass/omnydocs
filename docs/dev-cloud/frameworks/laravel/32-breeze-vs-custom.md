@@ -1,6 +1,6 @@
 ---
 description: "Comprendre pourquoi jeter notre Auth Custom pour intégrer Laravel Breeze (Un Starter-Kit certifié)."
-icon: lucide/refresh-ccw
+icon: lucide/book-open-check
 tags: ["LARAVEL", "BREEZE", "AUTHENTICATION", "REFACTORING"]
 ---
 

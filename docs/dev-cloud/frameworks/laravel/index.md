@@ -1,5 +1,5 @@
 ---
-description: "Maîtriser Laravel de A à Z à travers la construction d'un blog éditorialiste professionnel"3.
+description: "Maîtriser Laravel de A à Z à travers la construction d'un blog éditorialiste professionnel"
 tags: ["LARAVEL", "PHP", "BACKEND", "ELOQUENT", "MVC", "APPRENTISSAGE"]
 ---
 

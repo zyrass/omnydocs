@@ -1,6 +1,6 @@
 ---
 description: "Découvrir la légèreté de l'aspect Javascript et remplacer ses scripts par des attributs natifs HTML"
-icon: lucide/mountain-snow
+icon: lucide/book-open-check
 tags: ["LARAVEL", "ALPINE", "FRONTEND", "INTERACTIVE"]
 ---
 

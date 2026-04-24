@@ -1,6 +1,5 @@
 ---
 description: "Tests & Qualité — Hub de navigation : PHPUnit et Pest pour PHP, pyramide du testing, choix du framework selon le contexte."
-icon: lucide/shield-check
 tags: ["TESTING", "PHPUNIT", "PEST", "QUALITE", "PHP", "TDD"]
 ---
 

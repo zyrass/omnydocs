@@ -4,7 +4,7 @@ icon: lucide/box
 tags: ["THEORIE", "LIVEWIRE", "UPLOADS", "PRODUCTION"]
 ---
 
-# 05. Uploads, Temps et Production
+# Uploads, Temps et Production
 
 <div
   class="omny-meta"

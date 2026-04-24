@@ -17,7 +17,7 @@ tags: ["RAPPORT", "CYPRESS", "TESTS", "FORMATION"]
 
 | Indicateur | Valeur |
 |---|---|
-| **Modules créés** | 2 (fondamentaux, tests avancés) |
+| **Modules créés** | 5 (complet de a à z) |
 | **Conformité SKILL v2.0.0** | ✅ Conforme |
 | **État** | Formation complète P1 |
 
@@ -39,8 +39,8 @@ tags: ["RAPPORT", "CYPRESS", "TESTS", "FORMATION"]
 | Custom Commands | ✅ Module 02 |
 | Page Object Model | ✅ Module 02 |
 | CI/CD GitHub Actions | ✅ Module 02 |
-| Component Testing (React/Vue) | ⏳ À venir |
-| Cypress Cloud + parallélisme | ⏳ À venir |
-| Accessibility Testing | ⏳ À venir |
+| Component Testing (React/Vue) | ✅ Module 03 |
+| Cypress Cloud + parallélisme | ✅ Module 04 |
+| Accessibility Testing | ✅ Module 05 |
 
 <br>

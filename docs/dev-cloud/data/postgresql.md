@@ -1,6 +1,6 @@
 ---
 description: "PostgreSQL — SGBDR avancé : types riches, JSONB, Full-Text Search, partitionnement, index spécialisés et intégration Laravel."
-icon: lucide/database
+icon: lucide/book-open-check
 tags: ["POSTGRESQL", "DATABASE", "SQL", "JSONB", "LARAVEL"]
 ---
 

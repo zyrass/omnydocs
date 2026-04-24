@@ -1,6 +1,5 @@
 ---
 description: "SQLite — Hub de navigation : de l'introduction aux bonnes pratiques de production, 6 modules progressifs pour maîtriser la base de données serverless la plus déployée au monde."
-icon: lucide/database
 tags: ["SQLITE", "DATABASE", "SQL", "SERVERLESS"]
 ---
 

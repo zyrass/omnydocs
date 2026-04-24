@@ -1,6 +1,5 @@
 ---
 description: "Architecture — Hub de navigation : API REST, Clean Architecture, patterns pratiques et bonnes pratiques."
-icon: lucide/building-2
 tags: ["ARCHITECTURE", "API-REST", "CLEAN-ARCHITECTURE", "PATTERNS", "SOLID"]
 ---
 

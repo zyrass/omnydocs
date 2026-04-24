@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["TYPESCRIPT", "TYPES", "INTERFACES", "CLASSES", "ENUMS", "FONCTIONS"]
 ---
 
-# Module 01 — Fondamentaux TypeScript
+# Fondamentaux
 
 <div
   class="omny-meta"

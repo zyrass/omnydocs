@@ -1,6 +1,6 @@
 ---
 description: "NoSQL — Panorama des bases non-relationnelles : document (MongoDB), clé-valeur (Redis), colonne large (Cassandra), graphe (Neo4j), cas d'usage et intégration Laravel."
-icon: lucide/database
+icon: lucide/book-open-check
 tags: ["NOSQL", "MONGODB", "REDIS", "DATABASE", "LARAVEL"]
 ---
 

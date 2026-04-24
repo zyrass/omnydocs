@@ -1,6 +1,5 @@
 ---
 description: "Stacks techniques — Panorama des architectures full-stack : TALL, MEAN, MERN, JAMstack. Choisir la bonne combinaison selon le projet."
-icon: lucide/layers
 tags: ["STACK", "FULLSTACK", "TALL", "MEAN", "MERN", "JAMSTACK", "ARCHITECTURE"]
 ---
 

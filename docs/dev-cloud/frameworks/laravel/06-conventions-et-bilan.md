@@ -1,10 +1,10 @@
 ---
 description: "Les conventions strices imposées par le Framework et l'auto-évaluation."
-icon: lucide/clipboard-check
+icon: lucide/book-open-check
 tags: ["LARAVEL", "CONVENTIONS", "BILAN"]
 ---
 
-# Conventions & Bilan du pôle Fondation
+# Conventions & Bilan
 
 <div
   class="omny-meta"

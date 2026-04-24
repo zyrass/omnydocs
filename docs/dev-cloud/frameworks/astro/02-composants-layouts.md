@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["ASTRO", "COMPOSANTS", "LAYOUTS", "SLOTS", "PROPS", "SEO"]
 ---
 
-# Module 02 — Composants & Layouts
+# Composants & Layouts
 
 <div
   class="omny-meta"

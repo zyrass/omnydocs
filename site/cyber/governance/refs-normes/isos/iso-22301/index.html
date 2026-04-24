@@ -1,0 +1,4518 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Standard international de management de la continuité d'activité applicable à toute organisation souhaitant se préparer, répondre et se rétablir face aux perturbations">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/cyber/governance/refs-normes/isos/iso-22301/">
+      
+      
+        <link rel="prev" href="../iso-20000/">
+      
+      
+        <link rel="next" href="../iso-27000/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.34">
+    
+    
+      
+        <title>ISO 22301 — Système de Management de la Continuité d'Activité - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/classic/main.96fc3bb8.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iso-22301-systeme-de-management-de-la-continuite-dactivite" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ISO 22301 — Système de Management de la Continuité d'Activité
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infrastructure (Sys-Réseau)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Gouvernance
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cyber : Gouvernance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Référentiels & Normes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Référentiels & Normes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../autorites/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autorités françaises
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../reglementations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réglementations Euro.
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../referentiels/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Référentiels &amp; certifications sectoriels
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normes ISOs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2_5" id="__nav_5_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Normes ISOs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-9001/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 9001
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-14001/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 14001
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-20000/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 20000
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 22301
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 22301
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-a-la-continuite-dactivite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction à la Continuité d'Activité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-repartir-des-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour repartir des bases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pour repartir des bases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-une-norme-certifiable-orientee-resultats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Une norme certifiable orientée résultats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-la-distinction-fondamentale-continuite-vs-reprise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. La distinction fondamentale : continuité vs reprise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-les-indicateurs-fondamentaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Les indicateurs fondamentaux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historique-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Historique et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Historique et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-iso-22301-a-ete-creee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi ISO 22301 a été créée ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-versions-majeures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les versions majeures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-de-levolution-iso-22301" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline de l'évolution ISO 22301
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-7-concepts-fondateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 7 concepts fondateurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les 7 concepts fondateurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'ensemble
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-7-concepts-expliques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 7 concepts expliqués
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-structure-hls-et-les-clauses-operationnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La structure HLS et les clauses opérationnelles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La structure HLS et les clauses opérationnelles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-cycle-pdca-applique-aux-clauses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cycle PDCA appliqué aux clauses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-des-clauses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Détail des clauses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#articulation-avec-dautres-normes-et-reglementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Articulation avec d'autres normes et réglementations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Articulation avec d&#x27;autres normes et réglementations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparaison-avec-les-standards-majeurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparaison avec les standards majeurs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positionnement-diso-22301" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Positionnement d'ISO 22301
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefices-de-lapproche-iso-22301" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bénéfices de l'approche ISO 22301
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bénéfices de l&#x27;approche ISO 22301">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-organisations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les organisations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-uvre-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en œuvre pratique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mise en œuvre pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etapes-cles-de-deploiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes clés de déploiement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecueils-a-eviter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Écueils à éviter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facteurs-cles-de-succes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facteurs clés de succès
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perspectives-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perspectives et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perspectives et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iso-22301-face-aux-enjeux-emergents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISO 22301 face aux enjeux émergents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergence-reglementaire-europeenne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convergence réglementaire européenne
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ressources complémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documents-officiels-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documents officiels ISO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-associes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards associés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglementations-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réglementations clés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organismes-de-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organismes de référence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-27000/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 27000
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-27001/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 27001
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-27002/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 27002
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-27005/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 27005
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-27017/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 27017
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-27018/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 27018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iso-31000/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 31000
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../smsi/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Démarche SMSI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Démarche SMSI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/presentation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Présentation du SMSI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../smsi/risques/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyse de Risques
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/bia/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    BIA (Business Impact Analysis)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/sdsi/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SDSI (Schéma Directeur)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../smsi/pssi/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    PSSI (Politique de Sécurité)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../vuln/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des vulnérabilités
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestion des vulnérabilités
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/cve-cvss/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE & CVSS
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/owasp-top10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Top 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/patch-management/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Patch Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vuln/scan-policy/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Politique de Scan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opérations &amp; SOC (Blue Team)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../../glossaire/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-a-la-continuite-dactivite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction à la Continuité d'Activité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-repartir-des-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour repartir des bases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pour repartir des bases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-une-norme-certifiable-orientee-resultats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Une norme certifiable orientée résultats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-la-distinction-fondamentale-continuite-vs-reprise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. La distinction fondamentale : continuité vs reprise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-les-indicateurs-fondamentaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Les indicateurs fondamentaux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historique-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Historique et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Historique et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-iso-22301-a-ete-creee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi ISO 22301 a été créée ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-versions-majeures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les versions majeures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-de-levolution-iso-22301" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline de l'évolution ISO 22301
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-7-concepts-fondateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 7 concepts fondateurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les 7 concepts fondateurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'ensemble
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-7-concepts-expliques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 7 concepts expliqués
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-structure-hls-et-les-clauses-operationnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La structure HLS et les clauses opérationnelles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La structure HLS et les clauses opérationnelles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-cycle-pdca-applique-aux-clauses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cycle PDCA appliqué aux clauses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-des-clauses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Détail des clauses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#articulation-avec-dautres-normes-et-reglementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Articulation avec d'autres normes et réglementations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Articulation avec d&#x27;autres normes et réglementations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparaison-avec-les-standards-majeurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparaison avec les standards majeurs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positionnement-diso-22301" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Positionnement d'ISO 22301
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefices-de-lapproche-iso-22301" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bénéfices de l'approche ISO 22301
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bénéfices de l&#x27;approche ISO 22301">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-les-organisations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour les organisations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-uvre-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en œuvre pratique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mise en œuvre pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etapes-cles-de-deploiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes clés de déploiement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecueils-a-eviter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Écueils à éviter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facteurs-cles-de-succes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facteurs clés de succès
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perspectives-et-evolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perspectives et évolutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perspectives et évolutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iso-22301-face-aux-enjeux-emergents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISO 22301 face aux enjeux émergents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergence-reglementaire-europeenne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convergence réglementaire européenne
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ressources complémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documents-officiels-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documents officiels ISO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-associes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards associés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglementations-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réglementations clés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organismes-de-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organismes de référence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cyber : Gouvernance
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Référentiels & Normes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Normes ISOs
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="iso-22301-systeme-de-management-de-la-continuite-dactivite">ISO 22301 — Système de Management de la Continuité d'Activité<a class="headerlink" href="#iso-22301-systeme-de-management-de-la-continuite-dactivite" title="Permanent link">&para;</a></h1>
+<p><div
+  class="omny-meta"
+  data-level="🟡 Intermédiaire & 🔴 Avancé"
+  data-version="1.0"
+  data-time="35-40 minutes">
+</div>
+</p>
+<h2 id="introduction-a-la-continuite-dactivite">Introduction à la Continuité d'Activité<a class="headerlink" href="#introduction-a-la-continuite-dactivite" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>Imaginez le <strong>centre de contrôle de la centrale nucléaire de Civaux</strong>. Ce site ne fonctionne pas en espérant qu'aucun incident ne surviendra. Il a été conçu en partant du principe que des incidents <strong>se produiront</strong>. Pour chaque scénario envisageable — tremblement de terre, inondation, incendie en salle de contrôle, panne d'alimentation, défaillance humaine, cyberattaque — il existe un plan écrit, des équipes formées, des ressources pré-positionnées, des exercices réalisés régulièrement. Le bâtiment lui-même est conçu pour maintenir les fonctions critiques même en cas de dégradation sévère. <strong>ISO 22301 fonctionne exactement ainsi</strong> : ce n'est pas un plan de secours rangé dans un tiroir. C'est un <strong>système de management complet</strong> qui garantit que l'organisation a identifié ses activités critiques, déterminé leur seuil de tolérance à l'interruption, construit des stratégies de continuité réalistes, et s'est assurée par des tests réguliers qu'elle peut effectivement les activer quand une crise survient — pas seulement qu'elle le croit.</em></p>
+</div>
+<p><strong>ISO 22301</strong> constitue le <strong>standard international de management de la continuité d'activité</strong> (SMCA<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>). Publié en 2012 et révisé en 2019, il définit les <strong>exigences</strong> qu'un système de management de la continuité d'activité doit satisfaire pour qu'une organisation puisse préparer, répondre et se rétablir face aux perturbations pouvant affecter ses activités.</p>
+<p>La continuité d'activité ne se limite pas aux catastrophes naturelles ou aux cyberattaques spectaculaires. Elle couvre toute perturbation significative : panne d'infrastructure critique, défaillance d'un fournisseur stratégique, épidémie affectant les effectifs, incendie dans un site de production, coupure d'électricité prolongée.</p>
+<div class="admonition info">
+<p class="admonition-title">Pourquoi ISO 22301 est essentiel ?</p>
+<p>ISO 22301 fournit le <strong>cadre qui distingue une organisation résiliente</strong> d'une organisation qui découvre ses failles lors d'une crise réelle. La différence entre les deux n'est pas la chance. C'est la préparation. Et la préparation ne s'improvise pas sous pression.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="pour-repartir-des-bases">Pour repartir des bases<a class="headerlink" href="#pour-repartir-des-bases" title="Permanent link">&para;</a></h2>
+<h3 id="1-une-norme-certifiable-orientee-resultats">1. Une norme certifiable orientée résultats<a class="headerlink" href="#1-une-norme-certifiable-orientee-resultats" title="Permanent link">&para;</a></h3>
+<p><strong>ISO 22301 est une norme d'exigences certifiable</strong>. Un organisme de certification<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> accrédité audite l'organisation et délivre un certificat valable 3 ans (avec audits de surveillance annuels) attestant que le SMCA satisfait aux exigences de la norme.</p>
+<p>La certification est particulièrement exigée dans :</p>
+<ul>
+<li><strong>Secteur financier</strong> : exigences DORA<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>, Banque de France</li>
+<li><strong>Secteur de la santé</strong> : continuité des systèmes critiques (SI hospitalier)</li>
+<li><strong>Opérateurs d'importance vitale (OIV)</strong> : obligation réglementaire nationale</li>
+<li><strong>Opérateurs de services essentiels (OSE)</strong> : directive NIS2</li>
+</ul>
+<blockquote>
+<p>ISO 22301 ne garantit pas qu'une organisation ne subira jamais d'interruption. Elle garantit que l'organisation <strong>sait comment y répondre</strong> et qu'elle a les moyens de le faire.</p>
+</blockquote>
+<h3 id="2-la-distinction-fondamentale-continuite-vs-reprise">2. La distinction fondamentale : continuité vs reprise<a class="headerlink" href="#2-la-distinction-fondamentale-continuite-vs-reprise" title="Permanent link">&para;</a></h3>
+<p>Deux concepts essentiels à maîtriser dès le départ :</p>
+<p><strong>Continuité d'activité :</strong><br />
+<em>Capacité à maintenir les fonctions critiques à un niveau minimal acceptable <strong>pendant</strong> une perturbation, sans interruption totale.</em><br />
+→ Exemple : basculer immédiatement sur un site de secours lors d'une panne du site principal</p>
+<p><strong>Reprise d'activité :</strong><br />
+<em>Processus de retour au fonctionnement normal <strong>après</strong> une perturbation. La reprise succède à la continuité.</em><br />
+→ Exemple : rapatrier les opérations sur le site principal après remise en état</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Temporalité</th>
+<th>Objectif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prévention</strong></td>
+<td>Avant la crise</td>
+<td>Réduire la probabilité et l'impact potentiel</td>
+</tr>
+<tr>
+<td><strong>Continuité</strong></td>
+<td>Pendant la crise</td>
+<td>Maintenir les activités critiques au niveau minimum</td>
+</tr>
+<tr>
+<td><strong>Reprise</strong></td>
+<td>Après la crise</td>
+<td>Retrouver le niveau de fonctionnement normal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-les-indicateurs-fondamentaux">3. Les indicateurs fondamentaux<a class="headerlink" href="#3-les-indicateurs-fondamentaux" title="Permanent link">&para;</a></h3>
+<p>Quatre indicateurs structurent toute démarche de continuité d'activité :</p>
+<p><strong>RTO</strong> (<em>Recovery Time Objective</em>, ou Délai Maximum de Reprise<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>) :<br />
+<em>Durée maximale acceptable d'interruption d'une activité avant que les impacts ne deviennent inacceptables.</em></p>
+<p><strong>RPO</strong> (<em>Recovery Point Objective</em>, ou Perte de Données Maximale Admissible<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>) :<br />
+<em>Quantité maximale de données qu'une organisation accepte de perdre en cas de sinistre, exprimée en durée.</em></p>
+<p><strong>MTPD</strong> (<em>Maximum Tolerable Period of Disruption</em><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>) :<br />
+<em>Durée au-delà de laquelle les impacts d'une interruption menacent la survie même de l'organisation.</em></p>
+<p><strong>MBCO</strong> (<em>Minimum Business Continuity Objective</em><sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>) :<br />
+<em>Niveau minimal d'activité que l'organisation doit maintenir pendant une interruption pour rester viable.</em></p>
+<blockquote>
+<p>Ces quatre indicateurs sont déterminés par l'<strong>Analyse d'Impact sur l'Activité</strong> (BIA<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>) et constituent le fondement de toute stratégie de continuité. Ils ne peuvent pas être fixés arbitrairement : ils résultent d'une analyse rigoureuse des impacts métiers.</p>
+</blockquote>
+<p><br></p>
+<hr />
+<h2 id="historique-et-evolutions">Historique et évolutions<a class="headerlink" href="#historique-et-evolutions" title="Permanent link">&para;</a></h2>
+<h3 id="pourquoi-iso-22301-a-ete-creee">Pourquoi ISO 22301 a été créée ?<a class="headerlink" href="#pourquoi-iso-22301-a-ete-creee" title="Permanent link">&para;</a></h3>
+<p>Avant 2012, le management de la continuité d'activité était <strong>fragmenté et national</strong> :</p>
+<ul>
+<li>Le Royaume-Uni avait développé <strong>BS 25999</strong> (2006-2007), premier standard de SMCA certifiable</li>
+<li>Les États-Unis appliquaient <strong>NFPA 1600</strong> et les recommandations FEMA</li>
+<li>En France, les OIV suivaient les Plans de Continuité d'Activité définis par l'ANSSI</li>
+<li>Aucun standard international harmonisé n'existait</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Besoin identifié</p>
+<p>Les crises majeures de la décennie 2000 — attentats du 11 septembre, tsunami en Asie (2004), ouragan Katrina (2005), pandémie H1N1 (2009) — ont révélé l'absence d'un cadre international commun pour la préparation organisationnelle aux perturbations majeures.</p>
+</div>
+<h3 id="les-versions-majeures">Les versions majeures<a class="headerlink" href="#les-versions-majeures" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">BS 25999:2006-2007 — Précurseur</label><label for="__tabbed_1_2">ISO 22301:2012 — Fondation</label><label for="__tabbed_1_3">ISO 22301:2019 — Modernisation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Contexte :</strong><br />
+<em>Norme britannique en deux parties : code de bonnes pratiques (2006) et spécification certifiable (2007).</em></p>
+<p><strong>Innovations majeures :</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Premier standard de SMCA certifiable au monde</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Introduction du <strong>BIA</strong> comme processus central</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Définition des concepts RTO, RPO, MTPD</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Cycle PDCA appliqué à la continuité</li>
+</ul>
+<blockquote>
+<p><strong>Limite :</strong> Portée nationale, adoption limitée hors du Royaume-Uni.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p><strong>Contexte :</strong><br />
+<em>Première norme internationale certifiable de SMCA, convertie de BS 25999 avec des apports de 90 pays participants.</em></p>
+<p><strong>Innovations majeures :</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Standard international reconnu mondialement</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Cadre applicable à toute organisation, tout secteur, toute taille</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Structure compatible avec ISO 9001 et ISO 27001 (de l'époque)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Définition formalisée du BIA<sup id="fnref4:8"><a class="footnote-ref" href="#fn:8">8</a></sup>, des stratégies et des plans de continuité</li>
+</ul>
+<blockquote>
+<p><strong>Impact :</strong> Adoption rapide dans les secteurs réglementés (finance, santé, énergie) et chez les OIV.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p><strong>Contexte :</strong><br />
+<em>Révision majeure adoptant la Structure HLS<sup id="fnref2:9"><a class="footnote-ref" href="#fn:9">9</a></sup> et intégrant les leçons de 7 années d'application mondiale.</em></p>
+<p><strong>Innovations majeures :</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Structure HLS</strong> : alignement avec ISO 9001:2015, ISO 27001:2013, ISO 20000-1:2018</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Pensée fondée sur les risques</strong> intégrée au SMCA</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Contexte de l'organisme</strong> et parties intéressées</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Exigences renforcées sur les <strong>tests et exercices</strong> (fréquence, réalisme, amélioration post-exercice)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Meilleure intégration avec <strong>DORA</strong>, <strong>NIS2</strong> et les réglementations sectorielles</li>
+</ul>
+<blockquote>
+<p><strong>Clarification</strong> : La révision 2019 distingue plus nettement les <strong>procédures</strong> (comment faire) des <strong>plans</strong> (qui fait quoi, quand, avec quels moyens) — une distinction fréquemment source de confusion dans la version 2012.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<h3 id="timeline-de-levolution-iso-22301">Timeline de l'évolution ISO 22301<a class="headerlink" href="#timeline-de-levolution-iso-22301" title="Permanent link">&para;</a></h3>
+<p><pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+timeline
+    title Évolution ISO 22301
+    2001 : Attentats 11 septembre
+         : Prise de conscience mondiale
+         : Accélération des plans de continuité
+    2006 : BS 25999 - Partie 1
+         : Code de bonnes pratiques
+    2007 : BS 25999 - Partie 2
+         : Spécification certifiable
+    2012 : ISO 22301 première édition
+         : Standard international
+         : BIA et stratégies formalisés
+    2019 : Révision majeure
+         : Structure HLS
+         : Risques et contexte
+         : Tests renforcés
+    2022+ : Convergence réglementaire
+          : DORA - NIS2
+          : Cyber-résilience</code></pre>
+<em>Les crises majeures ont systématiquement accéléré l'adoption des standards de continuité. La pandémie COVID-19 a révélé les lacunes des SMCA non testés et insuffisamment documentés.</em></p>
+<p><br></p>
+<hr />
+<h2 id="les-7-concepts-fondateurs">Les 7 concepts fondateurs<a class="headerlink" href="#les-7-concepts-fondateurs" title="Permanent link">&para;</a></h2>
+<p>ISO 22301:2019 repose sur <strong>7 concepts fondateurs</strong> qui structurent la philosophie et les exigences du management de la continuité d'activité.</p>
+<div class="admonition note">
+<p class="admonition-title">Des concepts, pas des étapes</p>
+<p>Ces 7 concepts définissent les <strong>qualités fondamentales</strong> que doit posséder un SMCA robuste. Le BIA est le concept le plus spécifique à ISO 22301 — il n'a pas d'équivalent direct dans ISO 9001 ou ISO 14001.</p>
+</div>
+<h3 id="vue-densemble">Vue d'ensemble<a class="headerlink" href="#vue-densemble" title="Permanent link">&para;</a></h3>
+<p><pre class="mermaid"><code>---
+config:
+  theme: "neutral"
+---
+mindmap
+  root((SMCA efficace))
+    Analyse d'impact BIA
+      Activités critiques
+      Dépendances
+      RTO - RPO - MTPD
+    Stratégies de continuité
+      Alternatives
+      Ressources
+      Priorités
+    Plans de continuité
+      Procédures
+      Rôles
+      Communication de crise
+    Tests et exercices
+      Fréquence
+      Réalisme
+      Amélioration post-test
+    Leadership et culture
+      Engagement direction
+      Sensibilisation
+      Gouvernance
+    Gestion des risques
+      Menaces
+      Scénarios
+      Probabilités
+    Amélioration continue
+      REX post-crise
+      Audits
+      Mises à jour</code></pre>
+<em>Le <strong>BIA</strong> est le pilier central : sans analyse d'impact rigoureuse, aucune des autres composantes du SMCA ne peut être correctement dimensionnée.</em></p>
+<h3 id="les-7-concepts-expliques">Les 7 concepts expliqués<a class="headerlink" href="#les-7-concepts-expliques" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Ci-dessous les 4 premiers concepts</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">1️⃣ Analyse d'Impact sur l'Activité (BIA)</label><label for="__tabbed_2_2">2️⃣ Stratégies de continuité</label><label for="__tabbed_2_3">3️⃣ Plans de continuité d'activité (PCA)</label><label for="__tabbed_2_4">4️⃣ Tests et exercices</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Le BIA est le processus qui fonde l'ensemble de la démarche de continuité d'activité.</strong></p>
+<p>Le BIA<sup id="fnref3:8"><a class="footnote-ref" href="#fn:8">8</a></sup> identifie et quantifie les impacts d'une interruption sur les activités de l'organisation :</p>
+<ul>
+<li>
+<p><strong>Identification des activités critiques</strong> :<br />
+<em>Quelles activités, si elles s'arrêtent, mettent en danger la survie de l'organisation, sa conformité légale ou la sécurité des personnes ?</em></p>
+</li>
+<li>
+<p><strong>Analyse des dépendances</strong> :<br />
+<em>Quelles ressources (personnel, systèmes IT, locaux, fournisseurs, données) sont nécessaires à chaque activité critique ?</em></p>
+</li>
+<li>
+<p><strong>Quantification des impacts</strong> :<br />
+<em>Financiers (perte de chiffre d'affaires, pénalités), opérationnels (incapacité à traiter les commandes), réglementaires (non-conformité), réputationnels.</em></p>
+</li>
+<li>
+<p><strong>Détermination des seuils de tolérance</strong> :<br />
+<em>RTO<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>, RPO<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup>, MTPD<sup id="fnref2:6"><a class="footnote-ref" href="#fn:6">6</a></sup> pour chaque activité critique. Ce sont les paramètres qui dimensionnent les stratégies de continuité.</em></p>
+</li>
+</ul>
+<blockquote>
+<p>Le BIA n'est pas une enquête de satisfaction. C'est une <strong>analyse quantitative</strong> des impacts dans le temps. La question n'est pas "est-ce grave si cette activité s'arrête ?" mais "au bout de combien d'heures l'impact devient-il inacceptable, et quel est sa valeur en euros ?"</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p><strong>Les stratégies définissent comment l'organisation maintiendra ses activités critiques en deçà de leur RTO.</strong></p>
+<p>ISO 22301 n'impose pas de stratégies spécifiques. L'organisation choisit les siennes en fonction du RTO, du coût et du niveau de risque acceptable. Les options les plus courantes :</p>
+<ul>
+<li>
+<p><strong>Site de repli</strong> :<br />
+<em>Site secondaire (propre ou externalisé) capable d'accueillir les activités critiques. Chaud (prêt immédiatement), tiède (opérationnel en quelques heures), froid (infrastructure disponible mais à déployer).</em></p>
+</li>
+<li>
+<p><strong>Travail à distance</strong> :<br />
+<em>Basculement sur le télétravail pour les activités dématérialisables. Exige une infrastructure VPN, des accès sécurisés et des équipements suffisants.</em></p>
+</li>
+<li>
+<p><strong>Traitement manuel</strong> :<br />
+<em>Remplacement temporaire des systèmes IT par des procédures manuelles documentées. Viable pour certaines durées limitées.</em></p>
+</li>
+<li>
+<p><strong>Redondance des ressources</strong> :<br />
+<em>Double alimentation électrique, générateurs, doublement des liaisons réseau, replication des données en temps réel.</em></p>
+</li>
+<li>
+<p><strong>Externalisation de secours</strong> :<br />
+<em>Contrat avec un tiers pour reprendre des activités spécifiques en cas de sinistre.</em></p>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><strong>Les plans traduisent les stratégies en actions concrètes, assignées, séquencées et testées.</strong></p>
+<p>Un PCA<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup> efficace contient :</p>
+<ul>
+<li>
+<p><strong>Conditions de déclenchement</strong> :<br />
+<em>Quels critères déclenchent l'activation du plan ? Qui prend la décision ?</em></p>
+</li>
+<li>
+<p><strong>Organigramme de crise</strong> :<br />
+<em>Qui fait quoi, avec quelle autorité, dans quel ordre.</em></p>
+</li>
+<li>
+<p><strong>Procédures pas à pas</strong> :<br />
+<em>Instructions opérationnelles pour chaque activité critique sur le site de repli ou en mode dégradé.</em></p>
+</li>
+<li>
+<p><strong>Listes de contacts</strong> :<br />
+<em>Internes (cellule de crise, équipes opérationnelles) et externes (fournisseurs, régulateurs, médias, assureurs).</em></p>
+</li>
+<li>
+<p><strong>Ressources pré-identifiées</strong> :<br />
+<em>Locaux, équipements, accès IT, données de référence nécessaires à l'activation.</em></p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Un plan non testé est un plan non fiable</p>
+<p>La rédaction d'un PCA est la phase la moins difficile. La difficulté réelle est de <strong>le tester régulièrement</strong> et de <strong>le mettre à jour</strong> après chaque test, chaque changement organisationnel et chaque incident réel.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><strong>ISO 22301:2019 renforce significativement les exigences sur les tests : ils doivent être planifiés, réalistes, et leurs résultats doivent déclencher des améliorations.</strong></p>
+<p>ISO 22301 distingue plusieurs niveaux de tests :</p>
+<ul>
+<li>
+<p><strong>Revue documentaire</strong> :<br />
+<em>Vérification de la complétude et de la cohérence des plans. Nécessaire mais insuffisante.</em></p>
+</li>
+<li>
+<p><strong>Test de communication</strong> :<br />
+<em>Vérification que les listes de contacts sont exactes et que les canaux de communication fonctionnent.</em></p>
+</li>
+<li>
+<p><strong>Exercice sur table</strong> (<em>Tabletop Exercise</em>) :<br />
+<em>Simulation d'un scénario de crise en salle de réunion. Les participants jouent leurs rôles sans activer réellement les procédures.</em></p>
+</li>
+<li>
+<p><strong>Test partiel</strong> :<br />
+<em>Activation réelle d'une partie du plan : basculement IT sur le site de repli, test du générateur, connexion VPN des équipes à distance.</em></p>
+</li>
+<li>
+<p><strong>Exercice grandeur nature</strong> (<em>Full-Scale Exercise</em>) :<br />
+<em>Simulation complète d'un scénario en conditions réelles. Le plus efficace, le plus coûteux, le plus révélateur.</em></p>
+</li>
+</ul>
+<blockquote>
+<p>Un auditeur ISO 22301 demande systématiquement : les <strong>preuves</strong> des tests réalisés, les <strong>résultats documentés</strong> (ce qui a fonctionné et ce qui n'a pas fonctionné), et les <strong>actions d'amélioration</strong> mises en place suite aux tests.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Ci-dessous les 3 derniers concepts</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">5️⃣ Leadership et culture de résilience</label><label for="__tabbed_3_2">6️⃣ Gestion des risques et des menaces</label><label for="__tabbed_3_3">7️⃣ Amélioration continue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>La résilience organisationnelle ne peut pas être portée par un seul responsable PCA.</strong></p>
+<ul>
+<li>
+<p><strong>Engagement de la direction</strong> :<br />
+<em>La direction alloue les ressources nécessaires (budget, temps, personnel), valide les priorités identifiées par le BIA, et participe aux exercices de crise.</em></p>
+</li>
+<li>
+<p><strong>Politique de continuité</strong> :<br />
+<em>Document formel exprimant les engagements de l'organisation en matière de continuité d'activité, de RTO cibles, et d'amélioration continue du SMCA.</em></p>
+</li>
+<li>
+<p><strong>Culture de résilience</strong> :<br />
+<em>Chaque collaborateur comprend le rôle qu'il joue dans la continuité d'activité — pas uniquement les membres de la cellule de crise.</em></p>
+</li>
+<li>
+<p><strong>Gouvernance de crise</strong> :<br />
+<em>Structure décisionnelle clairement définie pour les situations d'urgence : qui prend les décisions, avec quelle autorité, selon quel protocole d'escalade.</em></p>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><strong>Le SMCA intègre une analyse des risques et des scénarios de menaces pour dimensionner les stratégies de continuité.</strong></p>
+<p>ISO 22301 n'impose pas de méthode de gestion des risques spécifique. Elle exige que l'organisation :</p>
+<ul>
+<li>
+<p><strong>Identifie les menaces</strong> pertinentes pour ses activités :<br />
+<em>Cyber (ransomware, DDoS), naturelles (inondation, tempête), techniques (panne électrique, défaillance datacenter), humaines (grève, perte de compétences clés), réglementaires.</em></p>
+</li>
+<li>
+<p><strong>Évalue leur impact potentiel</strong> :<br />
+<em>En croisant la probabilité d'occurrence et la gravité des impacts identifiés par le BIA.</em></p>
+</li>
+<li>
+<p><strong>Priorise les stratégies de continuité</strong> :<br />
+<em>En concentrant les investissements sur les scénarios les plus probables et les plus impactants pour les activités critiques.</em></p>
+</li>
+</ul>
+<blockquote>
+<p>La gestion des risques dans ISO 22301 est complémentaire d'ISO 31000 (risques généraux) et d'ISO 27005 (risques SI). Les trois peuvent coexister dans un cadre de gestion des risques intégré.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p><strong>Le SMCA s'améliore à chaque test, chaque incident, chaque changement organisationnel.</strong></p>
+<p>L'amélioration continue en ISO 22301 est alimentée par :</p>
+<ul>
+<li>
+<p><strong>REX post-exercice</strong> :<br />
+<em>Analyse formalisée de ce qui a fonctionné, de ce qui a échoué, des délais réellement observés vs les RTO cibles.</em></p>
+</li>
+<li>
+<p><strong>REX post-incident réel</strong> :<br />
+<em>Chaque crise réelle, même mineure, génère des apprentissages que le SMCA doit intégrer.</em></p>
+</li>
+<li>
+<p><strong>Revue périodique des plans</strong> :<br />
+<em>Mise à jour systématique après chaque changement organisationnel majeur : déménagement, restructuration, nouveau système IT, nouveau fournisseur critique.</em></p>
+</li>
+<li>
+<p><strong>Audit interne</strong> :<br />
+<em>Vérification périodique de la conformité du SMCA aux exigences d'ISO 22301 et de son efficacité réelle.</em></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="la-structure-hls-et-les-clauses-operationnelles">La structure HLS et les clauses opérationnelles<a class="headerlink" href="#la-structure-hls-et-les-clauses-operationnelles" title="Permanent link">&para;</a></h2>
+<p>ISO 22301:2019 adopte la <strong>Structure HLS</strong><sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup> en 10 clauses, structurées selon le cycle PDCA<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup>.</p>
+<h3 id="le-cycle-pdca-applique-aux-clauses">Le cycle PDCA appliqué aux clauses<a class="headerlink" href="#le-cycle-pdca-applique-aux-clauses" title="Permanent link">&para;</a></h3>
+<p><pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+flowchart TB
+    subgraph PLAN["PLAN — Planifier"]
+        C4["Clause 4\nContexte de l'organisme"]
+        C5["Clause 5\nLeadership"]
+        C6["Clause 6\nPlanification"]
+        C7["Clause 7\nSupport"]
+    end
+    subgraph DO["DO — Réaliser"]
+        C8["Clause 8\nRéalisation des activités opérationnelles"]
+    end
+    subgraph CHECK["CHECK — Vérifier"]
+        C9["Clause 9\nÉvaluation des performances"]
+    end
+    subgraph ACT["ACT — Agir"]
+        C10["Clause 10\nAmélioration"]
+    end
+    PLAN --&gt; DO
+    DO --&gt; CHECK
+    CHECK --&gt; ACT
+    ACT -.Cycle itératif continu.-&gt; PLAN</code></pre>
+<em>La clause 8 d'ISO 22301 est structurellement différente de celle d'ISO 9001 ou ISO 20000. Elle couvre spécifiquement le BIA, les stratégies, les plans et les procédures de continuité — le cœur opérationnel de la norme.</em></p>
+<h3 id="detail-des-clauses">Détail des clauses<a class="headerlink" href="#detail-des-clauses" title="Permanent link">&para;</a></h3>
+<details class="abstract">
+<summary>Clause 4 — Contexte de l'organisme</summary>
+<p><strong>Comprendre le contexte dans lequel l'organisation doit maintenir ses activités.</strong></p>
+<p><strong>4.1 — Compréhension de l'organisme et de son contexte :</strong><br />
+<em>Identifier les enjeux internes et externes pertinents pour le SMCA. Enjeux internes : dépendances IT, compétences critiques, ressources rares. Enjeux externes : menaces géopolitiques, risques climatiques, instabilité des fournisseurs.</em></p>
+<p><strong>4.2 — Compréhension des parties intéressées :</strong><br />
+<em>Clients (attentes de continuité de service), actionnaires (protection des actifs), régulateurs (conformité), employés (sécurité), fournisseurs (interdépendances).</em></p>
+<p><strong>4.3 — Périmètre du SMCA :</strong><br />
+<em>Définir quelles activités, quels sites, quels processus et quelles parties de l'organisation sont couverts par le SMCA.</em></p>
+<p><strong>4.4 — SMCA :</strong><br />
+<em>Établir, mettre en œuvre, maintenir et améliorer continuellement le SMCA.</em></p>
+</details>
+<details class="abstract">
+<summary>Clause 5 — Leadership</summary>
+<p><strong>La direction assume la responsabilité de la résilience de l'organisation.</strong></p>
+<p><strong>5.1 — Leadership et engagement :</strong><br />
+<em>La direction démontre son engagement : participation aux exercices, validation des priorités du BIA, allocation du budget de continuité, communication sur l'importance du SMCA.</em></p>
+<p><strong>5.2 — Politique de continuité d'activité :</strong><br />
+<em>Établir une politique documentée incluant les objectifs de continuité, les engagements de conformité aux exigences légales et réglementaires, et le cadre pour fixer les objectifs du SMCA.</em></p>
+<p><strong>5.3 — Rôles, responsabilités et autorités :</strong><br />
+<em>Désigner un responsable du SMCA, constituer une cellule de crise<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup> avec des rôles et autorités clairement définis, et s'assurer que chaque plan désigne des responsables nominatifs avec des suppléants.</em></p>
+</details>
+<details class="abstract">
+<summary>Clause 6 — Planification</summary>
+<p><strong>Planifier le SMCA en intégrant les risques et les objectifs de continuité.</strong></p>
+<p><strong>6.1 — Actions face aux risques et opportunités :</strong><br />
+<em>Identifier les risques qui pourraient empêcher le SMCA de satisfaire à ses exigences ou compromettre l'atteinte des objectifs de continuité.</em></p>
+<p><strong>6.2 — Objectifs de continuité d'activité et planification :</strong><br />
+<em>Établir des objectifs mesurables : RTO cibles par activité critique, MTPD validés par la direction, niveau de service minimum en mode dégradé (MBCO<sup id="fnref2:7"><a class="footnote-ref" href="#fn:7">7</a></sup>).</em></p>
+<table>
+<thead>
+<tr>
+<th>Objectif de continuité</th>
+<th>Méthode de détermination</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RTO</td>
+<td>BIA → seuils d'impact</td>
+<td>Système de facturation : RTO = 4h</td>
+</tr>
+<tr>
+<td>RPO</td>
+<td>BIA → tolérance à la perte de données</td>
+<td>Base de données clients : RPO = 1h</td>
+</tr>
+<tr>
+<td>MTPD</td>
+<td>BIA → impact sur la survie</td>
+<td>Direction générale : MTPD = 30 jours</td>
+</tr>
+<tr>
+<td>MBCO</td>
+<td>Analyse des activités minimales</td>
+<td>30% de la capacité normale</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="abstract">
+<summary>Clause 7 — Support</summary>
+<p><strong>Fournir les ressources humaines, documentaires et matérielles nécessaires au SMCA.</strong></p>
+<p><strong>7.1 — Ressources :</strong><br />
+<em>Personnel formé, infrastructure de secours, outils de communication de crise, ressources financières pour l'activation.</em></p>
+<p><strong>7.2 — Compétences :</strong><br />
+<em>Former les membres de la cellule de crise<sup id="fnref2:12"><a class="footnote-ref" href="#fn:12">12</a></sup>, les responsables de processus et les équipes opérationnelles aux procédures de continuité.</em></p>
+<p><strong>7.3 — Sensibilisation :</strong><br />
+<em>Tout le personnel concerné comprend la politique de continuité, son rôle en cas d'activation, et les procédures d'urgence applicables à son poste.</em></p>
+<p><strong>7.4 — Communication :</strong><br />
+<em>Définir les procédures de communication interne (information du personnel pendant une crise) et externe (clients, médias, régulateurs, autorités).</em></p>
+<p><strong>7.5 — Informations documentées :</strong><br />
+<em>Créer, maintenir et maîtriser les informations documentées du SMCA : politique, BIA, stratégies, plans, procédures, enregistrements des tests.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Accessibilité des plans en cas de crise</p>
+<p>Les plans de continuité doivent être <strong>accessibles même lorsque les systèmes IT principaux sont indisponibles</strong>. Des copies physiques ou des hébergements hors site (cloud séparé, site de repli) sont indispensables. Un plan stocké uniquement sur le serveur de fichiers principal est inutile si ce serveur est la cause du sinistre.</p>
+</div>
+</details>
+<details class="abstract">
+<summary>Clause 8 — Réalisation des activités opérationnelles</summary>
+<p><strong>La clause 8 est le cœur opérationnel d'ISO 22301 : BIA, stratégies, plans et procédures.</strong></p>
+<p><strong>8.1 — Planification et maîtrise opérationnelles</strong></p>
+<p><strong>8.2 — Analyse d'impact sur l'activité et appréciation des risques :</strong><br />
+<em>Réaliser le BIA<sup id="fnref2:8"><a class="footnote-ref" href="#fn:8">8</a></sup> pour identifier les activités critiques, leurs dépendances, leurs seuils de tolérance (RTO, RPO, MTPD, MBCO). Réaliser l'appréciation des risques pour identifier les menaces et scénarios à traiter.</em></p>
+<p><strong>8.3 — Stratégies et solutions de continuité d'activité :</strong><br />
+<em>Identifier et sélectionner les stratégies qui permettent d'atteindre les RTO des activités critiques. Valider que les ressources nécessaires à leur activation sont disponibles.</em></p>
+<p><strong>8.4 — Plans et procédures de continuité d'activité :</strong></p>
+<p>La clause 8.4 exige quatre types de documents :</p>
+<ul>
+<li>
+<p><strong>Procédures de réponse aux incidents</strong> :<br />
+<em>Comment détecter, escalader et gérer un incident pouvant déclencher le SMCA.</em></p>
+</li>
+<li>
+<p><strong>Plans de continuité d'activité</strong> :<br />
+<em>Comment maintenir les activités critiques pendant la perturbation.</em></p>
+</li>
+<li>
+<p><strong>Plans de reprise d'activité</strong> :<br />
+<em>Comment retourner au fonctionnement normal après la perturbation.</em></p>
+</li>
+<li>
+<p><strong>Communication de crise</strong> :<br />
+<em>Qui communique quoi, à qui, quand et sur quel canal pendant et après la crise.</em></p>
+</li>
+</ul>
+<p><strong>8.5 — Programmes d'exercices :</strong><br />
+<em>Planifier, réaliser, documenter et améliorer les exercices de continuité à intervalles réguliers.</em></p>
+<p><pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+flowchart LR
+    DET["Détection\nde l'incident"] --&gt; EVA["Évaluation\nde l'impact"]
+    EVA --&gt; DEC{"Activation\ndu PCA ?"}
+    DEC --&gt;|Non| GES["Gestion normale\nde l'incident"]
+    DEC --&gt;|Oui| ACT["Activation\nde la cellule de crise"]
+    ACT --&gt; COM["Communication\nd'urgence"]
+    ACT --&gt; CON["Mise en oeuvre\ndes stratégies"]
+    CON --&gt; OPE["Fonctionnement\nen mode dégradé"]
+    OPE --&gt; REP["Reprise progressive\nniveau normal"]
+    REP --&gt; REX["REX post-crise\net amélioration"]</code></pre>
+<em>Ce flux illustre le cycle complet de gestion d'une crise selon ISO 22301. La décision d'activation du PCA est une décision critique qui doit être prise rapidement sur la base de critères pré-définis, pas improvisée sous pression.</em></p>
+</details>
+<details class="abstract">
+<summary>Clause 9 — Évaluation des performances</summary>
+<p><strong>Mesurer l'efficacité du SMCA et des plans de continuité.</strong></p>
+<p><strong>9.1 — Surveillance, mesure, analyse et évaluation :</strong><br />
+<em>Mesurer la performance du SMCA : conformité aux RTO lors des tests, délais d'activation de la cellule de crise, taux de mise à jour des plans, résultats des exercices.</em></p>
+<p><strong>9.2 — Audit interne :</strong><br />
+<em>Réaliser des audits internes du SMCA à intervalles planifiés pour vérifier la conformité aux exigences d'ISO 22301 et l'efficacité réelle des plans.</em></p>
+<p><strong>9.3 — Revue de direction :</strong><br />
+<em>La direction revoit le SMCA en intégrant les résultats des exercices, des audits, les incidents survenus, les changements de contexte et les nouvelles menaces.</em></p>
+<table>
+<thead>
+<tr>
+<th>Indicateurs de performance du SMCA</th>
+<th>Mesure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RTO atteint lors des tests</td>
+<td>% d'activités critiques dans leur RTO</td>
+</tr>
+<tr>
+<td>Fréquence des exercices</td>
+<td>Nombre d'exercices réalisés vs planifiés</td>
+</tr>
+<tr>
+<td>Taux de mise à jour des plans</td>
+<td>% de plans révisés après chaque changement majeur</td>
+</tr>
+<tr>
+<td>Délai d'activation cellule de crise</td>
+<td>Temps entre détection et activation effective</td>
+</tr>
+<tr>
+<td>Actions post-exercice réalisées</td>
+<td>% d'actions clôturées dans les délais</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="abstract">
+<summary>Clause 10 — Amélioration</summary>
+<p><strong>Améliorer continuellement le SMCA sur la base des tests, des incidents et des audits.</strong></p>
+<p><strong>10.1 — Non-conformité et action corrective :</strong><br />
+<em>Face à une non-conformité (plan non testé, RTO non atteint en exercice, procédure obsolète) : analyser la cause, mettre en œuvre une action corrective, vérifier son efficacité.</em></p>
+<p><strong>10.2 — Amélioration continue :</strong><br />
+<em>Améliorer en permanence la pertinence, l'adéquation et l'efficacité du SMCA — sans attendre qu'une crise réelle révèle les lacunes.</em></p>
+</details>
+<p><br></p>
+<hr />
+<h2 id="articulation-avec-dautres-normes-et-reglementations">Articulation avec d'autres normes et réglementations<a class="headerlink" href="#articulation-avec-dautres-normes-et-reglementations" title="Permanent link">&para;</a></h2>
+<h3 id="comparaison-avec-les-standards-majeurs">Comparaison avec les standards majeurs<a class="headerlink" href="#comparaison-avec-les-standards-majeurs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Standard / Réglementation</th>
+<th>Périmètre</th>
+<th>Relation avec ISO 22301</th>
+<th>Certifiable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ISO 9001:2015</strong></td>
+<td>Qualité</td>
+<td>Structure HLS commune, intégrable</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td><strong>ISO 27001:2022</strong></td>
+<td>Sécurité SI</td>
+<td>Complémentaire (PRA IT, cyber-résilience)</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td><strong>ISO 20000-1:2018</strong></td>
+<td>Services IT</td>
+<td>Complémentaire (continuité des services IT)</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td><strong>ISO 31000:2018</strong></td>
+<td>Management du risque</td>
+<td>Cadre de gestion des risques applicable au SMCA</td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>DORA</strong></td>
+<td>Résilience opérationnelle (finance UE)</td>
+<td>Exige un SMCA, ISO 22301 facilite la conformité</td>
+<td>Réglementaire</td>
+</tr>
+<tr>
+<td><strong>NIS2</strong></td>
+<td>Sécurité des réseaux et SI (UE)</td>
+<td>Exige des plans de continuité pour les OSE</td>
+<td>Réglementaire</td>
+</tr>
+<tr>
+<td><strong>NFPA 1600</strong></td>
+<td>Continuité d'activité (USA)</td>
+<td>Standard américain parallèle</td>
+<td>Non</td>
+</tr>
+</tbody>
+</table>
+<h3 id="positionnement-diso-22301">Positionnement d'ISO 22301<a class="headerlink" href="#positionnement-diso-22301" title="Permanent link">&para;</a></h3>
+<p><pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+flowchart TB
+    HLS["Structure HLS\nSocle commun ISO"]
+
+    HLS --&gt; Q["ISO 9001\nQualité"]
+    HLS --&gt; I["ISO 27001\nSécurité SI"]
+    HLS --&gt; BC["ISO 22301\nContinuité d'activité"]
+    HLS --&gt; IT["ISO 20000\nServices IT"]
+
+    BC -.PRA IT.-&gt; I
+    BC -.Continuité services.-&gt; IT
+    BC -.Risques.-&gt; R["ISO 31000\nManagement du risque"]
+
+    BC -.Conformité.-&gt; DORA["DORA\nFinance"]
+    BC -.Conformité.-&gt; NIS2["NIS2\nOSE - OIV"]</code></pre>
+<em>ISO 22301 est le <strong>pilier de la résilience organisationnelle</strong>. Son articulation avec ISO 27001 est particulièrement critique : les incidents de sécurité (ransomware, DDoS) sont devenus la première cause d'activation des plans de continuité.</em></p>
+<div class="admonition info">
+<p class="admonition-title">ISO 22301 et DORA</p>
+<p>Le règlement européen <strong>DORA</strong> (<em>Digital Operational Resilience Act</em>), applicable depuis janvier 2025 aux entités financières, exige un cadre de résilience opérationnelle numérique incluant des plans de continuité d'activité IT, des tests réguliers et un reporting aux régulateurs. Un SMCA certifié ISO 22301 fournit une base solide et documentée pour répondre à ces exigences.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="benefices-de-lapproche-iso-22301">Bénéfices de l'approche ISO 22301<a class="headerlink" href="#benefices-de-lapproche-iso-22301" title="Permanent link">&para;</a></h2>
+<h3 id="pour-les-organisations">Pour les organisations<a class="headerlink" href="#pour-les-organisations" title="Permanent link">&para;</a></h3>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-check-circle" viewBox="0 0 24 24"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span> <strong>Réduction de l'impact des crises</strong></p>
+<hr />
+<p>Les organisations avec un SMCA opérationnel reprennent leurs activités critiques significativement plus vite que celles sans plan structuré. La différence se mesure en heures vs jours, parfois en survie vs faillite.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-trending-up" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></span> <strong>Conformité réglementaire facilitée</strong></p>
+<hr />
+<p>DORA, NIS2, HDS, réglementation des OIV — tous exigent des plans de continuité. ISO 22301 fournit le cadre structuré qui satisfait ces exigences et les rend auditables.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span> <strong>Confiance des clients et partenaires</strong></p>
+<hr />
+<p>La certification ISO 22301 est une preuve contractuellement opposable de la maturité du dispositif de continuité, de plus en plus exigée dans les contrats de services critiques.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span> <strong>Connaissance approfondie de l'organisation</strong></p>
+<hr />
+<p>Le BIA révèle systématiquement des dépendances critiques et des risques ignorés — y compris dans des organisations matures. C'est un audit organisationnel déguisé.</p>
+</li>
+</ul>
+</div>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/></svg></span> <strong>Avantage concurrentiel sur les appels d'offres</strong></p>
+<hr />
+<p>Dans les secteurs finance, santé, défense et infrastructures critiques, la certification ISO 22301 est un prérequis ou un critère différenciant dans les appels d'offres.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-award" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg></span> <strong>Réduction des primes d'assurance</strong></p>
+<hr />
+<p>Certains assureurs accordent des réductions de primes cyber et risques d'entreprise aux organisations certifiées ISO 22301, la certification réduisant objectivement l'exposition au risque.</p>
+</li>
+</ul>
+</div>
+<p><br></p>
+<hr />
+<h2 id="mise-en-uvre-pratique">Mise en œuvre pratique<a class="headerlink" href="#mise-en-uvre-pratique" title="Permanent link">&para;</a></h2>
+<h3 id="etapes-cles-de-deploiement">Étapes clés de déploiement<a class="headerlink" href="#etapes-cles-de-deploiement" title="Permanent link">&para;</a></h3>
+<p><pre class="mermaid"><code>gantt
+    title Plan de déploiement ISO 22301:2019
+    dateFormat YYYY-MM
+    section Diagnostic
+    Audit à blanc et analyse des écarts          :done, 2025-01, 2025-02
+    section Analyse
+    Réalisation du BIA                           :active, 2025-02, 2025-05
+    Appréciation des risques                     :active, 2025-04, 2025-06
+    section Stratégie
+    Définition des stratégies de continuité      :2025-06, 2025-08
+    Validation par la direction                  :2025-08, 2025-09
+    section Plans
+    Rédaction des PCA et procédures              :2025-09, 2025-11
+    Formation de la cellule de crise             :2025-11, 2025-12
+    section Tests
+    Exercice sur table (tabletop)                :2025-12, 2026-01
+    Test partiel (IT - site de repli)            :2026-01, 2026-02
+    Audit interne et revue de direction          :2026-02, 2026-03
+    section Certification
+    Audit étape 1 (revue documentaire)           :2026-03, 2026-04
+    Audit étape 2 (audit terrain)                :2026-04, 2026-05
+    Surveillance et amélioration continue        :2026-05, 2026-12</code></pre>
+<em>La phase BIA est systématiquement sous-estimée. Une organisation de taille moyenne (200-500 personnes) nécessite 2 à 4 mois de travail pour un BIA exhaustif et validé par les métiers.</em></p>
+<h3 id="ecueils-a-eviter">Écueils à éviter<a class="headerlink" href="#ecueils-a-eviter" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Pièges courants</p>
+<p><strong>BIA réalisé uniquement par la DSI :</strong><br />
+<em>Un BIA mené par les équipes IT sans implication des directions métiers produit une vision technique déconnectée des réalités business. Les RTO sont fixés par les métiers, pas par l'IT.</em></p>
+<p><strong>RTO définis sans analyse des impacts :</strong><br />
+<em>Fixer des RTO par intuition ("4 heures pour tout") sans les étayer par une analyse des impacts financiers, réglementaires et opérationnels génère des strategies soit insuffisantes, soit démesurément coûteuses.</em></p>
+<p><strong>Plans rédigés mais jamais testés :</strong><br />
+<em>Un plan non testé est un plan non fiable. L'écart entre un plan théorique et la réalité d'une crise est systématiquement révélateur lors du premier exercice sérieux.</em></p>
+<p><strong>Plans non mis à jour après les changements :</strong><br />
+<em>Chaque déménagement, restructuration, migration IT, changement de fournisseur critique ou refonte d'un processus métier doit déclencher une révision des plans concernés.</em></p>
+<p><strong>Cellule de crise avec des suppléants non formés :</strong><br />
+<em>Si le responsable du SMCA est absent lors d'une crise réelle, ses suppléants doivent être aussi compétents que lui. La formation et les exercices doivent inclure les suppléants nominalement.</em></p>
+</div>
+<h3 id="facteurs-cles-de-succes">Facteurs clés de succès<a class="headerlink" href="#facteurs-cles-de-succes" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Engagement direct de la direction</strong> dans la validation du BIA et des stratégies</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>BIA co-construit</strong> avec les directions métiers (pas uniquement IT)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>RTO réalistes</strong> fondés sur des analyses d'impact quantifiées</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Plans accessibles</strong> hors des systèmes IT principaux</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Programme d'exercices annuel</strong> avec différents types de tests</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>REX systématiques</strong> après chaque test et chaque incident réel</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Mise à jour des plans</strong> déclenchée par tout changement organisationnel majeur</li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="perspectives-et-evolutions">Perspectives et évolutions<a class="headerlink" href="#perspectives-et-evolutions" title="Permanent link">&para;</a></h2>
+<h3 id="iso-22301-face-aux-enjeux-emergents">ISO 22301 face aux enjeux émergents<a class="headerlink" href="#iso-22301-face-aux-enjeux-emergents" title="Permanent link">&para;</a></h3>
+<p><strong>Cyber-résilience :</strong><br />
+<em>Les ransomwares et les attaques par déni de service sont devenus la première cause d'activation des PCA. L'articulation entre ISO 22301 et ISO 27001 devient critique : les plans de continuité doivent intégrer des scénarios de compromission totale du SI, y compris des sauvegardes hors ligne et des procédures de reconstruction.</em></p>
+<p><strong>Résilience des chaînes d'approvisionnement :</strong><br />
+<em>Les crises de la décennie 2020 ont révélé que les dépendances fournisseurs constituent un vecteur de risque majeur. Le BIA doit intégrer l'analyse des fournisseurs critiques et des scénarios de défaillance multi-fournisseurs simultanés.</em></p>
+<p><strong>Intelligence artificielle :</strong><br />
+<em>Les systèmes d'IA critiques (IA de décision, automatisation de processus) doivent être intégrés dans le BIA comme ressources à part entière. Leur indisponibilité ou leur comportement dégradé peut affecter des activités critiques de manière non anticipée.</em></p>
+<p><strong>Changement climatique :</strong><br />
+<em>Les événements climatiques extrêmes (inondations, canicules, tempêtes) deviennent des scénarios à probabilité croissante. Le BIA et les stratégies de continuité doivent intégrer des scénarios climatiques réalistes pour les sites exposés.</em></p>
+<h3 id="convergence-reglementaire-europeenne">Convergence réglementaire européenne<a class="headerlink" href="#convergence-reglementaire-europeenne" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>DORA</strong> :<br />
+<em>Exige des tests de résilience opérationnelle avancés (TLPT<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">13</a></sup>) pour les entités financières importantes, des plans de continuité ICT documentés et des exercices réguliers. ISO 22301 structure la démarche.</em></p>
+</li>
+<li>
+<p><strong>NIS2</strong> :<br />
+<em>Impose aux OSE et OIV des mesures de gestion de la continuité d'activité et des plans de réponse aux incidents. Un SMCA ISO 22301 satisfait directement ces exigences.</em></p>
+</li>
+<li>
+<p><strong>Directive CER</strong> (<em>Critical Entities Resilience</em>) :<br />
+<em>Directive européenne sur la résilience des entités critiques (infrastructures, énergie, transport, finance). Elle exige des plans de continuité et des évaluations de risques régulières.</em></p>
+</li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Une organisation résiliente ne subit pas les crises. Elle les a déjà traversées sur table.</p>
+<p>ISO 22301:2019 incarne une conviction que seules les organisations qui ont connu une crise majeure comprennent vraiment : <strong>la résilience ne s'improvise pas</strong>. La question n'est pas de savoir si une perturbation majeure surviendra, mais quand elle surviendra, et si l'organisation sera capable d'y répondre efficacement ou si elle découvrira ses lacunes sous pression, au pire moment possible.</p>
+<p>Le BIA est le processus le plus transformateur de la norme. En forçant l'organisation à répondre à des questions précises — quelles activités sont réellement critiques ? à partir de quand leur arrêt menace-t-il la survie ? quelles sont leurs vraies dépendances ? — il révèle une réalité organisationnelle que les schémas d'organisation officiels masquent souvent. C'est un audit de la réalité opérationnelle, pas une formalité documentaire.</p>
+<p>Dans le contexte réglementaire européen actuel — DORA pour la finance, NIS2 pour les secteurs essentiels, directive CER pour les infrastructures critiques — la continuité d'activité n'est plus un choix stratégique optionnel. C'est une <strong>obligation légale pour un nombre croissant d'organisations</strong>. ISO 22301 fournit le cadre qui structure cette obligation en un système gérable, auditable et continuellement amélioré.</p>
+<blockquote>
+<p>La prochaine étape logique est d'explorer comment ISO 22301 s'articule avec <strong>ISO 27001</strong> (sécurité de l'information) pour construire une résilience cyber-organisationnelle complète, couvrant à la fois la prévention des incidents de sécurité et la continuité d'activité lors de leur occurrence inévitable.</p>
+</blockquote>
+</div>
+<p><br></p>
+<hr />
+<h2 id="ressources-complementaires">Ressources complémentaires<a class="headerlink" href="#ressources-complementaires" title="Permanent link">&para;</a></h2>
+<h3 id="documents-officiels-iso">Documents officiels ISO<a class="headerlink" href="#documents-officiels-iso" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ISO 22301:2019</strong> — Sécurité et résilience : SMCA — Exigences</li>
+<li><strong>ISO 22313:2020</strong> — Sécurité et résilience : SMCA — Guide d'application</li>
+<li><strong>ISO 22316:2017</strong> — Sécurité et résilience : Résilience organisationnelle</li>
+<li><strong>ISO 22318:2021</strong> — Sécurité et résilience : Continuité de la chaîne d'approvisionnement</li>
+</ul>
+<h3 id="standards-associes">Standards associés<a class="headerlink" href="#standards-associes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ISO 31000:2018</strong> : Management du risque</li>
+<li><strong>ISO 27001:2022</strong> : Sécurité de l'information (PRA IT)</li>
+<li><strong>ISO 20000-1:2018</strong> : Management des services IT</li>
+</ul>
+<h3 id="reglementations-cles">Réglementations clés<a class="headerlink" href="#reglementations-cles" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>DORA</strong> : Règlement (UE) 2022/2554 — Résilience opérationnelle numérique</li>
+<li><strong>NIS2</strong> : Directive (UE) 2022/2555 — Sécurité des réseaux et systèmes d'information</li>
+<li><strong>Directive CER</strong> : Directive (UE) 2022/2557 — Résilience des entités critiques</li>
+</ul>
+<h3 id="organismes-de-reference">Organismes de référence<a class="headerlink" href="#organismes-de-reference" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ANSSI</strong> : Agence Nationale de la Sécurité des Systèmes d'Information — guides PCA</li>
+<li><strong>BCI</strong> : Business Continuity Institute (UK) — référentiel GPG</li>
+<li><strong>AFNOR</strong> : Association Française de Normalisation</li>
+<li><strong>SGDSN</strong> : Secrétariat Général de la Défense et de la Sécurité Nationale (France)</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Le <strong>SMCA</strong> (<em>Système de Management de la Continuité d'Activité</em>) est l'ensemble des politiques, procédures, ressources et responsabilités qu'une organisation met en place pour préparer, répondre et se rétablir face aux perturbations pouvant affecter ses activités critiques.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Un <strong>organisme de certification</strong> est une entité tierce indépendante et accréditée (par le COFRAC en France) habilitée à auditer et certifier la conformité d'une organisation à ISO 22301:2019.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><strong>DORA</strong> (<em>Digital Operational Resilience Act</em>, Règlement UE 2022/2554) est le règlement européen sur la résilience opérationnelle numérique du secteur financier, applicable depuis janvier 2025. Il impose des exigences strictes en matière de gestion des risques ICT, de continuité d'activité, de tests de résilience et de signalement des incidents.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Le <strong>RTO</strong> (<em>Recovery Time Objective</em>, ou Délai Maximum de Reprise) est la durée maximale d'interruption acceptable pour une activité donnée avant que les impacts ne deviennent inacceptables pour l'organisation. Il est déterminé par le BIA et constitue le paramètre dimensionnant de la stratégie de continuité.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Le <strong>RPO</strong> (<em>Recovery Point Objective</em>, ou Perte de Données Maximale Admissible) est la quantité maximale de données qu'une organisation accepte de perdre en cas de sinistre, exprimée en durée. Un RPO de 1 heure signifie que les sauvegardes doivent être réalisées au moins toutes les heures pour une activité donnée.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Le <strong>MTPD</strong> (<em>Maximum Tolerable Period of Disruption</em>) est la durée maximale au-delà de laquelle les impacts d'une interruption d'activité menacent la survie même de l'organisation (insolvabilité, perte de licence, dommages irréparables). Le MTPD est toujours supérieur au RTO — la différence représente la marge de manœuvre disponible.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>Le <strong>MBCO</strong> (<em>Minimum Business Continuity Objective</em>) est le niveau minimal d'activité que l'organisation doit maintenir pendant une interruption pour rester viable : honorer ses obligations contractuelles minimales, respecter ses obligations légales, et préserver sa capacité à redémarrer normalement.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p>Le <strong>BIA</strong> (<em>Business Impact Analysis</em>, ou Analyse d'Impact sur l'Activité) est le processus qui identifie les activités critiques de l'organisation, analyse les impacts de leur interruption dans le temps (financiers, réglementaires, opérationnels, réputationnels) et détermine les seuils de tolérance (RTO, RPO, MTPD, MBCO). C'est le fondement de toute stratégie de continuité d'activité.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:8" title="Jump back to footnote 8 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:8" title="Jump back to footnote 8 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:9">
+<p>La <strong>Structure HLS</strong> (<em>High Level Structure</em>) est le cadre commun de 10 clauses imposé par l'ISO à toutes ses normes de systèmes de management depuis 2012, facilitant l'intégration de plusieurs normes dans un système de management unifié.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:10">
+<p>Un <strong>PCA</strong> (<em>Plan de Continuité d'Activité</em>) est un document opérationnel qui définit les procédures, les ressources, les rôles et les responsabilités nécessaires pour maintenir les activités critiques pendant une perturbation. Il se distingue du PRI (<em>Plan de Reprise Informatique</em>) qui se concentre sur la reprise des systèmes IT, et du plan de communication de crise qui gère les communications internes et externes.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:11">
+<p>Le <strong>cycle PDCA</strong> (<em>Plan-Do-Check-Act</em>) est le modèle itératif d'amélioration continue qui structure les 7 clauses opérationnelles d'ISO 22301, comme dans toutes les normes HLS.&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:12">
+<p>La <strong>cellule de crise</strong> est l'équipe désignée pour gérer une crise activant le PCA. Elle comprend généralement des représentants de la direction, des fonctions opérationnelles critiques, de la communication, des RH et de l'IT. Chaque membre a un rôle défini, une autorité déléguée et un suppléant formé.&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+</li>
+<li id="fn:13">
+<p>Les <strong>TLPT</strong> (<em>Threat-Led Penetration Testing</em>) sont des tests de pénétration avancés basés sur des scénarios de menaces réelles, exigés par DORA pour les entités financières importantes. Ils testent la résilience de l'organisation face à des attaques cyber sophistiquées en conditions proches du réel.&#160;<a class="footnote-backref" href="#fnref:13" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">ISO 22301</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">SMCA</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CONTINUITÉ</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">NORME ISO</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PDCA</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CERTIFIABLE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PCA</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BIA</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../iso-20000/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: ISO 20000">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                ISO 20000
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../iso-27000/" class="md-footer__link md-footer__link--next" aria-label="Suivant: ISO 27000">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                ISO 27000
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.9f55f5b1.min.js"></script>
+      
+        <script src="../../../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "FLASK", "PYTHON", "FORMATION"]
 ---
 
-# Rapport de Formation — Flask
+# Rapport
 
 <div
   class="omny-meta"

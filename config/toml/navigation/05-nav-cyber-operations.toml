@@ -42,6 +42,18 @@
       "cyber/operations/soc/index.md",
 
       # ---------------------------------------------------------------------
+      # SIEM — Wazuh (Indexer, Server, Dashboard, Agent)
+      # ---------------------------------------------------------------------
+      # Brique centrale du SOC : collecte, corrélation, alertes, réponse.
+      {"Wazuh SIEM/XDR" = "cyber/operations/soc/siem.md"},
+
+      # ---------------------------------------------------------------------
+      # EDR / XDR
+      # ---------------------------------------------------------------------
+      # Détection et réponse comportementale sur les endpoints.
+      {"EDR / XDR" = "cyber/operations/soc/edr-xdr.md"},
+
+      # ---------------------------------------------------------------------
       # IDS / IPS
       # ---------------------------------------------------------------------
       # Systèmes de détection et de prévention d’intrusion réseau.
@@ -50,7 +62,25 @@
         "cyber/operations/soc/ids-ips/index.md",
         {"Suricata" = "cyber/operations/soc/ids-ips/suricata.md"},
         {"Snort"    = "cyber/operations/soc/ids-ips/snort.md"},
-      ]}
+      ]},
+
+      # ---------------------------------------------------------------------
+      # NDR — Network Detection & Response
+      # ---------------------------------------------------------------------
+      # Analyse comportementale des flux réseau (Zeek, Arkime).
+      {"NDR" = "cyber/operations/soc/ndr.md"},
+
+      # ---------------------------------------------------------------------
+      # ntopng — Monitoring réseau temps réel
+      # ---------------------------------------------------------------------
+      # Visualisation du trafic, détection d'anomalies de flux.
+      {"ntopng" = "cyber/operations/soc/ntopng.md"},
+
+      # ---------------------------------------------------------------------
+      # TIP — Threat Intelligence Platform
+      # ---------------------------------------------------------------------
+      # Centralisation des IOC, enrichissement SIEM (MISP, OpenCTI).
+      {"TIP (MISP / OpenCTI)" = "cyber/operations/soc/tip.md"},
     ]},
 
     # ========================================================================
@@ -65,10 +95,13 @@
     # ========================================================================
     {"Détection & Analyse" = [
       "cyber/operations/detection/index.md",
-      {"YARA"      = "cyber/operations/detection/yara.md"},
-      {"Sigma"     = "cyber/operations/detection/sigma.md"},
-      {"Sysmon"    = "cyber/operations/detection/sysmon.md"},
-      {"IOC & TTP" = "cyber/operations/detection/ioc-ttp.md"},
+      # Ordre pédagogique : comprendre → détecter → chasser
+      {"IOC & TTP"      = "cyber/operations/detection/ioc-ttp.md"},
+      {"Sysmon"         = "cyber/operations/detection/sysmon.md"},
+      {"YARA"           = "cyber/operations/detection/yara.md"},
+      {"Sigma"          = "cyber/operations/detection/sigma.md"},
+      {"Threat Hunting" = "cyber/operations/detection/hunting.md"},
+      {"ClamAV"         = "cyber/operations/detection/clamav.md"},
     ]},
 
     # ========================================================================
@@ -84,8 +117,10 @@
     # ========================================================================
     {"Incident Response & DFIR" = [
       "cyber/operations/ir/index.md",
+      {"Playbooks DFIR" = "cyber/operations/ir/playbooks-dfir.md"},
+      {"CSIRT / CERT"   = "cyber/operations/ir/csirt-cert.md"},
+      {"TheHive"        = "cyber/operations/ir/thehive.md"},
 
-      # ---------------------------------------------------------------------
       # Investigation Numérique (Forensic)
       # ---------------------------------------------------------------------
       # Analyse post-incident :
@@ -140,6 +175,10 @@
     # ========================================================================
     {"Malware Analysis" = [
       "cyber/operations/malware/index.md",
+      {"Introduction" = "cyber/operations/malware/intro.md"},
+      {"Sandbox"      = "cyber/operations/malware/sandbox.md"},
+      {"Reverse Eng." = "cyber/operations/malware/reverse.md"},
+      {"Obfuscation"  = "cyber/operations/malware/obfuscation.md"},
     ]},
 
     # ========================================================================
@@ -153,6 +192,9 @@
     # ========================================================================
     {"SOAR & Automatisation" = [
       "cyber/operations/soar/index.md",
+      {"SOAR"      = "cyber/operations/soar/soar.md"},
+      {"Playbooks" = "cyber/operations/soar/playbooks.md"},
+      {"Cortex"    = "cyber/operations/soar/cortex.md"},
     ]},
 
     # ========================================================================
@@ -167,5 +209,8 @@
     # ========================================================================
     {"Gestion Opérationnelle" = [
       "cyber/operations/management/index.md",
+      {"SLA / SLO"             = "cyber/operations/management/sla.md"},
+      {"Astreintes (On-Call)"  = "cyber/operations/management/oncall.md"},
+      {"Communication Crise"  = "cyber/operations/management/crisis-comm.md"},
     ]}
   ]},

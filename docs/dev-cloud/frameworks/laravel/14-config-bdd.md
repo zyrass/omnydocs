@@ -1,6 +1,6 @@
 ---
 description: "Préparer l'environnement multi-système : SQLite, MySQL/MariaDB ou PostgreSQL"
-icon: lucide/hard-drive
+icon: lucide/book-open-check
 tags: ["LARAVEL", "DATABASE", "SQLITE", "MYSQL", "POSTGRESQL"]
 ---
 

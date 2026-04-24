@@ -1,6 +1,6 @@
 ---
 description: "Application pratique de vos connaissances en Eloquent ORM."
-icon: lucide/clipboard-list
+icon: lucide/book-open-check
 tags: ["LARAVEL", "PRATIQUE", "EXERCICE", "BILAN"]
 ---
 

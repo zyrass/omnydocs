@@ -1,6 +1,6 @@
 ---
 description: "Présentation détaillée de Laravel Breeze : Le point d'entrée officiel pour l'authentification."
-icon: lucide/wind
+icon: lucide/book-open-check
 tags: ["LARAVEL", "AUTH", "BREEZE", "STARTER-KIT"]
 ---
 

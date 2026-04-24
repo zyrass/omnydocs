@@ -1,6 +1,5 @@
 ---
 description: "Vision globale du projet Pentest Management Platform : architecture API Laravel Jetstream + Frontend Angular 21 avec Signals, gestion Teams multi-clients, findings OWASP, 2FA obligatoire, et déploiement production."
-icon: lucide/shield-check
 tags: ["JETSTREAM", "ANGULAR", "SIGNALS", "PENTEST", "CYBERSECURITY", "SAAS"]
 status: stable
 ---

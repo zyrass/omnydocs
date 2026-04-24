@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["ARCHITECTURE", "API-REST", "HTTP", "OPENAPI", "SWAGGER", "VERSIONING"]
 ---
 
-# Module 01 — API REST
+# API REST
 
 <div
   class="omny-meta"

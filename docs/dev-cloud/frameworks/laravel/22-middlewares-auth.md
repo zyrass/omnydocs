@@ -1,6 +1,6 @@
 ---
 description: "Vérrouiller les URLs et créer des sessions persistantes."
-icon: lucide/lock
+icon: lucide/book-open-check
 tags: ["LARAVEL", "MIDDLEWARE", "HELPER", "REMEMBER"]
 ---
 

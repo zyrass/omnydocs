@@ -39,7 +39,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 2 | **Durée** : ~6-8h | **Niveau** : 🟢 Débutant
 
-    [:lucide-book-open-check: Accéder au module 1](./procedural/module1.md)
+    [:lucide-book-open-check: Accéder au module 1](./01-fondations.md)
 
 -   :lucide-git-branch:{ .lg .middle } **Module 2** — _Structures de Contrôle_
 
@@ -48,7 +48,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~7-9h | **Niveau** : 🟢 Débutant
 
-    [:lucide-book-open-check: Accéder au module 2](./procedural/module2.md)
+    [:lucide-book-open-check: Accéder au module 2](./02-structures-controle.md)
 
 -   :lucide-function-square:{ .lg .middle } **Module 3** — _Fonctions & Organisation_
 
@@ -57,7 +57,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~8-10h | **Niveau** : 🟡 Intermédiaire
 
-    [:lucide-book-open-check: Accéder au module 3](./procedural/module3.md)
+    [:lucide-book-open-check: Accéder au module 3](./03-fonctions-organisation.md)
 
 -   :lucide-database:{ .lg .middle } **Module 4** — _Manipulation de Données_
 
@@ -66,7 +66,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~9-11h | **Niveau** : 🟡 Intermédiaire
 
-    [:lucide-book-open-check: Accéder au module 4](./procedural/module4.md)
+    [:lucide-book-open-check: Accéder au module 4](./04-manipulation-donnees.md)
 
 
 -   :lucide-shield-alert:{ .lg .middle } **Module 5** — _Formulaires & Sécurité Web_
@@ -76,7 +76,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~10-12h | **Niveau** : 🔴 Avancé
 
-    [:lucide-book-open-check: Accéder au module 5](./procedural/module5.md)
+    [:lucide-book-open-check: Accéder au module 5](./05-formulaires-securite.md)
 
 -   :lucide-cookie:{ .lg .middle } **Module 6** — _Sessions & Authentification_
 
@@ -85,7 +85,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~8-10h | **Niveau** : 🔴 Avancé
 
-    [:lucide-book-open-check: Accéder au module 6](./procedural/module6.md)
+    [:lucide-book-open-check: Accéder au module 6](./06-sessions-authentification.md)
 
 </div>
 
@@ -98,7 +98,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~10-12h | **Niveau** : 🔴 Avancé
 
-    [:lucide-book-open-check: Accéder au module 7](./procedural/module7.md)
+    [:lucide-book-open-check: Accéder au module 7](./07-bases-de-donnees-pdo.md)
 
 </div>
 
@@ -132,7 +132,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~8-10h | **Niveau** : 🟡 Intermédiaire
 
-    [:lucide-book-open-check: Accéder au module 8](./poo/module8.md)
+    [:lucide-book-open-check: Accéder au module 8](./08-fondations-poo.md)
 
 -   :lucide-lock:{ .lg .middle } **Module 9** — _Encapsulation & Visibilité_
 
@@ -141,7 +141,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~7-9h | **Niveau** : 🟡 Intermédiaire
 
-    [:lucide-book-open-check: Accéder au module 9](./poo/module9.md)
+    [:lucide-book-open-check: Accéder au module 9](./09-encapsulation-visibilite.md)
 
 -   :lucide-git-merge:{ .lg .middle } **Module 10** — _Héritage & Polymorphisme_
 
@@ -150,7 +150,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~9-11h | **Niveau** : 🔴 Avancé
 
-    [:lucide-book-open-check: Accéder au module 10](./poo/module10.md)
+    [:lucide-book-open-check: Accéder au module 10](./10-heritage-polymorphisme.md)
 
 -   :lucide-package:{ .lg .middle } **Module 11** — _Traits, Namespaces & Autoloading_
 
@@ -159,7 +159,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~8-10h | **Niveau** : 🔴 Avancé
 
-    [:lucide-book-open-check: Accéder au module 11](./poo/module11.md)
+    [:lucide-book-open-check: Accéder au module 11](./11-traits-namespaces-autoloading.md)
 
 -   :lucide-puzzle:{ .lg .middle } **Module 12** — _Design Patterns_
 
@@ -168,7 +168,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~10-12h | **Niveau** : 🔴 Avancé
 
-    [:lucide-book-open-check: Accéder au module 12](./poo/module12.md)
+    [:lucide-book-open-check: Accéder au module 12](./12-design-patterns.md)
 
 -   :lucide-alert-triangle:{ .lg .middle } **Module 13** — _Gestion des Erreurs_
 
@@ -177,7 +177,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~7-9h | **Niveau** : 🔴 Avancé
 
-    [:lucide-book-open-check: Accéder au module 13](./poo/module13.md)
+    [:lucide-book-open-check: Accéder au module 13](./13-gestion-erreurs.md)
 
 -   :lucide-layout-template:{ .lg .middle } **Module 14** — _Architecture MVC_
 
@@ -186,7 +186,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~12-15h | **Niveau** : 🔴 Avancé
 
-    [:lucide-book-open-check: Accéder au module 14](./poo/module14.md)
+    [:lucide-book-open-check: Accéder au module 14](./14-architecture-mvc.md)
 
 -   :lucide-shield-check:{ .lg .middle } **Module 15** — _Sécurité POO Avancée_
 
@@ -195,7 +195,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 3 | **Durée** : ~9-11h | **Niveau** : 🔴 Expert
 
-    [:lucide-book-open-check: Accéder au module 15](./poo/module15.md)
+    [:lucide-book-open-check: Accéder au module 15](./15-securite-avancee.md)
 
 -   :lucide-rocket:{ .lg .middle } **Module 16** — _Standards & Production_
 
@@ -204,7 +204,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 
     **Projets** : 2 | **Durée** : ~8-10h | **Niveau** : 🔴 Expert
 
-    [:lucide-book-open-check: Accéder au module 16](./poo/module16.md)
+    [:lucide-book-open-check: Accéder au module 16](./16-standards-production.md)
 
 </div>
 

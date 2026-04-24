@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "TALL", "TAILWIND", "ALPINE", "LARAVEL", "LIVEWIRE"]
 ---
 
-# Rapport de Formation — Stack TALL
+# Rapport
 
 <div
   class="omny-meta"

@@ -1,3 +1,33 @@
-{% extends "main.html" %} {% block content %}
-<h1>Page non trouvé - Erreur 404</h1>
+{% extends "main.html" %}
+
+{% block content %}
+<div class="md-typeset 404-container" style="text-align: center; padding: 3rem 1rem 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 35vh;">
+  
+  <span class="twemoji" style="font-size: 8rem; color: var(--md-primary-fg-color); margin-bottom: 1.5rem; display: inline-block; animation: float 3s ease-in-out infinite;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m-1-13h2v6h-2zm0 8h2v2h-2z"/>
+    </svg>
+  </span>
+
+  <h1 style="font-size: 2rem; font-weight: 900; margin-bottom: 1rem; color: var(--md-default-fg-color);">Erreur 404</h1>
+  
+  <p style="font-size: 1.25rem; color: var(--md-default-fg-color--light); max-width: 750px; margin: 0 auto 2.5rem auto; line-height: 1.6;">
+    Oups ! La page que vous cherchez semble avoir disparu dans les méandres du réseau, ou n'a peut-être jamais existé. Ne vous inquiétez pas, vous pouvez toujours retrouver votre chemin.
+  </p>
+  
+  <a href="{{ nav.homepage.url | url }}" class="md-button md-button--primary" title="Retour à l'accueil" style="font-size: 1.1rem; padding: 0.75rem 2.5rem; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <span class="twemoji" style="margin-right: 0.5rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+    </span>
+    Retourner à l'accueil
+  </a>
+
+  <style>
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</div>
 {% endblock %}

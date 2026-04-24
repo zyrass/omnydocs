@@ -1,10 +1,10 @@
 ---
 description: "Plongeon dans les magiques d'Alpine : x-init, $watch, $refs, et gestion du temps."
-icon: lucide/mountain
+icon: lucide/book-open-check
 tags: ["THEORIE", "ALPINE", "JAVASCRIPT", "LIFECYCLE"]
 ---
 
-# 04. Réactivité & Boutons Magiques
+# Réactivité & Boutons Magiques
 
 <div
   class="omny-meta"

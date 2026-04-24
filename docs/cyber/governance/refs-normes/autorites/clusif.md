@@ -2,7 +2,6 @@
 description: "Association de référence des professionnels de la sécurité de l'information en France"
 icon: lucide/book-open-check
 tags: ["CLUSIF", "CYBERSÉCURITÉ", "ASSOCIATION", "FRANCE", "COMMUNAUTÉ"]
-status: beta
 ---
 
 # CLUSIF - Club de la Sécurité de l'Information Français

@@ -1,6 +1,5 @@
 ---
 description: "Django — Hub de navigation : fondamentaux, ORM, vues, templates, authentification et déploiement."
-icon: lucide/layers
 tags: ["DJANGO", "PYTHON", "WEB", "ORM", "FRAMEWORK"]
 ---
 

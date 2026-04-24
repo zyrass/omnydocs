@@ -1,6 +1,6 @@
 ---
 description: "Connecter son application Back-End a des systèmes Extérieurs (Mobile Flutter, VueJS...)"
-icon: lucide/network
+icon: lucide/book-open-check
 tags: ["LARAVEL", "API", "SANCTUM", "PASSPORT", "JETSTREAM"]
 ---
 

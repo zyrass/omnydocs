@@ -1,6 +1,6 @@
 ---
 description: "Présentation détaillée de Laravel Sanctum : Le gardien des API et des Applications Single Page."
-icon: lucide/key-round
+icon: lucide/book-open-check
 tags: ["LARAVEL", "API", "SANCTUM", "TOKENS", "SPA", "SECURITE"]
 ---
 

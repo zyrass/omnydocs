@@ -4,7 +4,7 @@ icon: lucide/box
 tags: ["THEORIE", "LIVEWIRE", "VALIDATION", "FORMULAIRES"]
 ---
 
-# 03. Formulaires et Validation
+# Formulaires et Validation
 
 <div
   class="omny-meta"

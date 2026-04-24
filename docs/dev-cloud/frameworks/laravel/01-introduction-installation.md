@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["LARAVEL", "FONDATIONS", "INSTALLATION"]
 ---
 
-# I - Fondations Laravel & Installation
+# Laravel & Installation
 
 <div
   class="omny-meta"

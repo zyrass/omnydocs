@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["ASTRO", "DEPLOIEMENT", "VERCEL", "NETLIFY", "CLOUDFLARE", "SSR", "BUILD"]
 ---
 
-# Module 04 — Déploiement
+# Déploiement
 
 <div
   class="omny-meta"

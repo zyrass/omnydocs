@@ -33,6 +33,8 @@
 :root {
   /* Comportement de défilement fluide pour l'ancrage */
   scroll-behavior: smooth;
+  /* Redéfinition globale de la largeur de la sidebar (Desktop + Mobile Drawer) */
+  --md-sidebar-width: 17rem;
 }
 
 code {
@@ -67,25 +69,50 @@ p > img {
   max-width: 100vw; /* Utilise toute la largeur disponible */
 }
 
-.md-main__inner {
-  margin-top: 0;
-}
-
 /** 
    * ============================================================================
-   *  Sidebar primaire (gauche) - Navigation principale
+   *  Fix et Optimisation de la Barre Latérale (Sidebar Gauche)
    * ============================================================================
    */
 
-/** 
-   * ============================================================================
-   *  Sidebar primaire secondaire (droite) - Table des matières
-   * ============================================================================
+/* 
+ * Optimisation de la Barre Latérale (Sidebar Gauche) sur les grands écrans 
+ * On évite de l'appliquer sur mobile pour ne pas casser le Drawer natif !
+ */
+@media screen and (min-width: 1220px) {
+  /* 
+   * MkDocs utilise un Flexbox. Si on laisse la barre s'étirer (stretch), 
+   * le `position: sticky` ne marche pas.
+   * En utilisant `align-self: flex-start`, on limite sa hauteur, 
+   * ce qui permet à `overflow-y: auto` de créer un scroll local !
    */
+  .md-sidebar--primary {
+    align-self: flex-start !important;
+    position: sticky !important;
+    top: 4rem !important; /* Sous le header */
+    height: calc(100vh - 4rem) !important; /* Reste limité à la fenêtre */
+  }
 
-/* Sidebar  */
-.md-sidebar--secondary {
-  width: 18rem; /* ~272px - légèrement plus large */
+  /* La largeur est gérée par la variable --md-sidebar-width dans :root */
+
+  /* Le conteneur interne gère le défilement */
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    height: 100% !important;
+    overflow-y: auto !important;
+    padding-bottom: 6rem !important; /* Marge pour scroller largement au-dessus du footer */
+  }
+
+  /* Scrollbar locale fine et design pour la sidebar */
+  .md-sidebar--primary .md-sidebar__scrollwrap::-webkit-scrollbar {
+    width: 5px;
+  }
+  .md-sidebar--primary .md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+    background: rgba(103, 58, 183, 0.4);
+    border-radius: 4px;
+  }
+  .md-sidebar--primary .md-sidebar__scrollwrap::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }
 
 /** 
@@ -95,12 +122,14 @@ p > img {
    */
 
 .md-content__inner.md-typeset {
-  width: 70%;
+  width: 100%;
+  max-width: 1200px; /* Limite la largeur de ligne pour la lisibilité */
   margin: 0 auto !important;
   padding: 0 1rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+  /* Sur mobile, on laisse MkDocs gérer le Drawer (menu burger) nativement */
   .md-content__inner.md-typeset {
     width: 95%;
     padding: 0 1rem;

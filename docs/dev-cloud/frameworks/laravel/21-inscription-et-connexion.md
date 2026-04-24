@@ -1,6 +1,6 @@
 ---
 description: "Structurer manuellement les flux de connexions et les logiques métiers associées."
-icon: lucide/form-input
+icon: lucide/book-open-check
 tags: ["LARAVEL", "AUTHENTIFICATION", "LOGIN", "REGISTER"]
 ---
 

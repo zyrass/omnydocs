@@ -1,6 +1,6 @@
 ---
 description: "SAST — Analyse statique de code PHP : PHPStan, Psalm, Larastan. Détecter les bugs et erreurs de type sans exécuter le code."
-icon: lucide/scan-search
+icon: lucide/book-open-check
 tags: ["SAST", "PHPSTAN", "PSALM", "LARASTAN", "QUALITE", "PHP", "LARAVEL"]
 ---
 

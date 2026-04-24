@@ -1,6 +1,6 @@
 ---
 description: "TDD & BDD — Test-Driven Development et Behavior-Driven Development : cycle Red-Green-Refactor, exemples PHP/Laravel avec PHPUnit et Pest."
-icon: lucide/refresh-cw
+icon: lucide/book-open-check
 tags: ["TDD", "BDD", "TESTING", "PHPUNIT", "PEST", "METHODOLOGIE"]
 ---
 

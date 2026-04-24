@@ -4,7 +4,7 @@ icon: lucide/book-open-check
 tags: ["TKINTER", "PYTHON", "GUI", "WIDGETS", "CANVAS", "EVENTS"]
 ---
 
-# Module 01 — Fondamentaux Tkinter
+# Fondamentaux
 
 <div
   class="omny-meta"

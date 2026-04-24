@@ -1,6 +1,6 @@
 ---
 description: "Remplir l'environnement de développement avec des données factices et encapsuler les queries."
-icon: lucide/flask-conical
+icon: lucide/book-open-check
 tags: ["LARAVEL", "FACTORY", "SEEDER", "SCOPES"]
 ---
 

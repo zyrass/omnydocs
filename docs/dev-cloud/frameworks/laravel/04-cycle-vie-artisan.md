@@ -1,10 +1,10 @@
 ---
 description: "Du point d'entrée index.php à la réponse HTTP, explorez les maillons de votre application."
-icon: lucide/refresh-cw
+icon: lucide/book-open-check
 tags: ["LARAVEL", "CYCLE", "HTTP", "ARTISAN", "CLI"]
 ---
 
-# Cycle de vie et commandes Artisan
+# Cycle de vie et Artisan
 
 <div
   class="omny-meta"

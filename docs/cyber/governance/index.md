@@ -25,6 +25,33 @@ tags: ["GRC", "GOUVERNANCE", "CONFORMITÉ", "RISQUES", "SMSI"]
     - **Pilotage stratégique** : Aligner la cybersécurité sur les objectifs business
     - **Auditabilité** : Démontrer la conformité aux autorités et certificateurs
 
+## Architecture de l'écosystème GRC
+
+```mermaid
+---
+config:
+  theme: "base"
+---
+mindmap
+  root((Cyber GRC))
+    Référentiels et Normes
+      Autorités (ANSSI, CNIL)
+      Lois (NIS2, RGPD, DORA)
+      Standards (ISO 27001, NIST)
+    Démarche SMSI
+      Analyses de Risques (EBIOS RM)
+      Impact Métier (BIA)
+      Stratégie (SDSI)
+      Règles (PSSI)
+    Gestion des Vulnérabilités
+      Scoring (CVE, CVSS)
+      Applicatif (OWASP)
+      Remédiation (Patch Management)
+      Contrôle (Scans)
+```
+
+_Ce schéma illustre la complémentarité des trois piliers : les **Référentiels** fixent le cadre, le **SMSI** structure l'organisation, et la **Gestion des Vulnérabilités** assure le maintien opérationnel du niveau de sécurité._
+
 ## Les trois piliers de la GRC
 
 <div class="grid cards" markdown>

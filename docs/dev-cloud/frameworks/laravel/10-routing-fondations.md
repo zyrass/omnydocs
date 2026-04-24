@@ -1,6 +1,6 @@
 ---
 description: "Maîtriser le système de routing Laravel et les méthodes HTTP."
-icon: lucide/route
+icon: lucide/book-open-check
 tags: ["LARAVEL", "ROUTING", "HTTP"]
 ---
 

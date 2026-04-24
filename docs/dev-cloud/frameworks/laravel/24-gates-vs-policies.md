@@ -1,6 +1,6 @@
 ---
 description: "Découvrir la subtilité entre authentifier et autoriser, puis l'appuyer techniquement via des Gates."
-icon: lucide/shield-alert
+icon: lucide/book-open-check
 tags: ["LARAVEL", "AUTORISATION", "GATES", "PERMISSIONS"]
 ---
 

@@ -1,6 +1,5 @@
 ---
 description: "TypeScript — Hub de navigation : fondamentaux, types avancés, génériques, OOP et intégration frameworks."
-icon: lucide/code-2
 tags: ["TYPESCRIPT", "JAVASCRIPT", "TYPES", "GENERIQUES", "OOP"]
 ---
 

@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "TYPESCRIPT", "FORMATION"]
 ---
 
-# Rapport de Formation — TypeScript
+# Rapport
 
 <div
   class="omny-meta"

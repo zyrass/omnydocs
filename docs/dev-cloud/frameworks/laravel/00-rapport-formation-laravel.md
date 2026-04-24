@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "LARAVEL", "FORMATION", "QUALITE", "BILAN", "TALL"]
 ---
 
-# Rapport de Formation — Laravel Masterclass
+# Rapport
 
 <div
   class="omny-meta"

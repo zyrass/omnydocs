@@ -3,7 +3,7 @@ description: "UML — Unified Modeling Language : maîtrisez les 12 diagrammes e
 tags: ["MODELISATION", "UML", "ARCHITECTURE", "CONCEPTION"]
 ---
 
-# UML — Modélisation Objet
+# UML
 
 <div
   class="omny-meta"

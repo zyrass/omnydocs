@@ -2,7 +2,6 @@
 description: "Le standard de sécurité mondial pour la protection des données de cartes bancaires"
 icon: lucide/book-open-check
 tags: ["PCI DSS", "PAIEMENT", "CARTES BANCAIRES", "SÉCURITÉ", "STANDARD"]
-status: beta
 ---
 
 # PCI DSS - Payment Card Industry Data Security Standard

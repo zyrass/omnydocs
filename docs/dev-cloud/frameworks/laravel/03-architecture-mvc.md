@@ -1,10 +1,10 @@
 ---
 description: "Comprendre l'Architecture MVC dans Laravel"
-icon: lucide/blocks
+icon: lucide/book-open-check
 tags: ["LARAVEL", "MVC", "CONTROLLER", "BLADE"]
 ---
 
-# L'Architecture MVC de Laravel
+# L'Architecture MVC
 
 <div
   class="omny-meta"

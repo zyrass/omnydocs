@@ -1,6 +1,6 @@
 ---
 description: "Découvrir la classe request dédiée et configurer le stockage du fichier localement"
-icon: lucide/image-up
+icon: lucide/book-open-check
 tags: ["LARAVEL", "UPLOAD", "STOREREQUEST", "VALIDATION"]
 ---
 

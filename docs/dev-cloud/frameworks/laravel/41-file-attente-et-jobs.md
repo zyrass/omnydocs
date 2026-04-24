@@ -1,6 +1,6 @@
 ---
 description: "Gérer l'impact asynchrone des tâches lentes de votre serveur PHP avec les Jobs."
-icon: lucide/clock-3
+icon: lucide/book-open-check
 tags: ["LARAVEL", "QUEUES", "JOBS", "ASYNC"]
 ---
 

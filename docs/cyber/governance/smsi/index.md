@@ -25,6 +25,52 @@ tags: ["SMSI", "ISO 27001", "ANALYSE RISQUES", "BIA", "PSSI", "SDSI"]
     - **Gouvernance documentaire** : Cadre clair pour piloter la sécurité
     - **Amélioration continue** : Dispositif évolutif face aux menaces
 
+## Dynamique du SMSI (PDCA)
+
+```mermaid
+---
+config:
+  theme: "base"
+---
+flowchart TD
+    subgraph P["PLAN (Planifier)"]
+        direction TB
+        AR["Analyse de Risques"]
+        BIA["Business Impact Analysis"]
+        SDSI["Schéma Directeur (SDSI)"]
+    end
+
+    subgraph D["DO (Mettre en œuvre)"]
+        direction TB
+        PSSI["Politique de Sécurité (PSSI)"]
+        MES["Mesures & Procédures"]
+    end
+
+    subgraph C["CHECK (Contrôler)"]
+        direction TB
+        AUD["Audits & Revues"]
+        IND["Indicateurs (KPI)"]
+    end
+
+    subgraph A["ACT (Améliorer)"]
+        direction TB
+        COR["Actions Correctives"]
+        EVO["Mise à jour Gouvernance"]
+    end
+
+    P --> D
+    D --> C
+    C --> A
+    A --> P
+
+    style P fill:#e1f5fe,stroke:#01579b
+    style D fill:#e8f5e9,stroke:#1b5e20
+    style C fill:#fffde7,stroke:#fbc02d
+    style A fill:#fbe9e7,stroke:#bf360c
+```
+
+_Le cycle PDCA garantit que la sécurité n'est pas un état figé mais un processus vivant : le **SDSI** fixe le cap (Plan), la **PSSI** impose les règles (Do), les **Audits** vérifient l'application (Check) et les **Revues** corrigent le tir (Act)._
+
 ## Les composantes du SMSI
 
 !!! note "Cette section présente les composantes d'un SMSI"

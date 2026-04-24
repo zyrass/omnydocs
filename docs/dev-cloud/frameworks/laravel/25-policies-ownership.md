@@ -1,6 +1,6 @@
 ---
 description: "Structurer la gestion des droits ciblés et granulaires par ressource (Ownership)."
-icon: lucide/folder-lock
+icon: lucide/book-open-check
 tags: ["LARAVEL", "AUTORISATION", "POLICIES", "OWNERSHIP"]
 ---
 

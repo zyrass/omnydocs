@@ -4,7 +4,7 @@ icon: lucide/file-chart-line
 tags: ["RAPPORT", "ARCHITECTURE", "FORMATION"]
 ---
 
-# Rapport de Formation — Architecture
+# Rapport
 
 <div
   class="omny-meta"

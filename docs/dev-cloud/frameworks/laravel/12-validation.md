@@ -1,6 +1,6 @@
 ---
 description: "Sécuriser les entrées de données via la validation serveur et les Form Requests."
-icon: lucide/shield-check
+icon: lucide/book-open-check
 tags: ["LARAVEL", "VALIDATION", "REQUEST"]
 ---
 

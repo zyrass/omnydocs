@@ -82,27 +82,38 @@ Ces quatre piliers constituent **le socle réglementaire et normatif** de la cyb
 ## Parcours de conformité dynamique
 
 ```mermaid
+---
+config:
+  theme: "base"
+---
 sequenceDiagram
-    participant Org as Organisation
-    participant FR as Autorités FR<br/>(ANSSI, CNIL)
-    participant EU as UE<br/>(RGPD, NIS2, DORA)
-    participant Ref as Référentiels<br/>(SecNumCloud, HDS, PCI DSS)
-    participant ISO as Normes ISO<br/>(27001, 22301)
+    autonumber
+    participant Org as 🏢 Organisation
+    participant EU as 🇪🇺 UE (Lois)
+    participant FR as 🇫🇷 Autorités FR
+    participant Ref as 📋 Référentiels
+    participant ISO as 🏗️ Normes ISO
 
-    Org->>EU: 1. Analyse des obligations légales
-    EU-->>FR: 2. Transposition et recommandations
-    FR-->>Org: 3. Interprétation, guides, sanctions
+    Note over Org, EU: 1. Identification des obligations
+    Org->>EU: Analyse du périmètre (NIS2, RGPD, DORA)
+    EU-->>Org: Exigences légales & Sanctions
 
-    Org->>Ref: 4. Sélection des référentiels applicables
-    Ref-->>Org: 5. Exigences opérationnelles
+    Note over Org, FR: 2. Cadrage National
+    Org->>FR: Consultation des guides (ANSSI, CNIL)
+    FR-->>Org: Interprétation & Recommandations
 
-    Org->>ISO: 6. Mise en place SMSI (ISO 27001)
-    ISO-->>Org: 7. Cadre de management structuré
+    Note over Org, Ref: 3. Traduction Opérationnelle
+    Org->>Ref: Choix des contrôles (PCI DSS, HDS)
+    Ref-->>Org: Exigences de certification
 
-    Org->>Org: 8. Mise en conformité technique & organisationnelle
+    Note over Org, ISO: 4. Management & Certification
+    Org->>ISO: Implémentation SMSI (27001)
+    ISO-->>Org: Cadre structurant & Amélioration continue
+
+    Note right of Org: 5. Mise en conformité réelle
 ```
 
-_Ce parcours illustre de manière simplifiée la manière dont une organisation française engage sa démarche de conformité. **Avant toute action technique**, elle doit **identifier** ses obligations légales, **comprendre** leur interprétation par les autorités nationales, puis **sélectionner** les référentiels et normes les plus adaptés pour traduire ces exigences en contrôles concrets._
+_Ce parcours illustre la cascade de conformité : on part de la **Loi (UE)**, on l'interprète via les **Autorités (FR)**, on la traduit en **Contrôles (Référentiels)** et on la manage via les **Normes (ISO)**._
 
 ## Tableau de synthèse des interactions
 

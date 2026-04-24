@@ -1,10 +1,10 @@
 ---
 description: "Injecter directement l'objet Modele concerné dans la route pour simplifier la syntaxe."
-icon: lucide/git-merge
+icon: lucide/book-open-check
 tags: ["LARAVEL", "BINDING", "MODEL"]
 ---
 
-# Le Route Model Binding
+# Route Model Binding
 
 <div
   class="omny-meta"

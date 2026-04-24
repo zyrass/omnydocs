@@ -1,6 +1,6 @@
 ---
 description: "Comprendre l'utilité des gestionnaires de base et versionner l'architecture avec des Migrations."
-icon: lucide/database
+icon: lucide/book-open-check
 tags: ["LARAVEL", "DATABASE", "ORM", "MIGRATIONS"]
 ---
 

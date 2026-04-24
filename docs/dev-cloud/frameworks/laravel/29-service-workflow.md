@@ -1,6 +1,6 @@
 ---
 description: "Structurer la logique métier et valider son flux de base de donnée."
-icon: lucide/workflow
+icon: lucide/book-open-check
 tags: ["LARAVEL", "SERVICE", "TRANSACTIONS", "LOGIC"]
 ---
 

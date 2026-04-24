@@ -17,7 +17,7 @@ tags: ["RAPPORT", "JEST", "JAVASCRIPT", "FORMATION", "TESTS"]
 
 | Indicateur | Valeur |
 |---|---|
-| **Modules créés** | 2 (fondamentaux, mocking avancé) |
+| **Modules créés** | 5 (complet de a à z) |
 | **Conformité SKILL v2.0.0** | ✅ Conforme |
 | **État** | Formation complète P1 |
 
@@ -40,8 +40,8 @@ tags: ["RAPPORT", "JEST", "JAVASCRIPT", "FORMATION", "TESTS"]
 | jest.mock() | ✅ Module 02 |
 | jest.spyOn() | ✅ Module 02 |
 | Timers virtuels | ✅ Module 02 |
-| React Testing Library | ⏳ À venir |
-| Vue Test Utils + Jest | ⏳ À venir |
-| CI/CD GitHub Actions + Jest | ⏳ À venir |
+| React Testing Library | ✅ Module 03 |
+| Vue Test Utils + Jest | ✅ Module 04 |
+| CI/CD GitHub Actions + Jest | ✅ Module 05 |
 
 <br>

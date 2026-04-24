@@ -1,6 +1,6 @@
 ---
 description: "Configuration globale de l'environnement de travail (.env) et base de données."
-icon: lucide/settings
+icon: lucide/book-open-check
 tags: ["LARAVEL", "ENV", "DATABASE", "SQLITE"]
 ---
 

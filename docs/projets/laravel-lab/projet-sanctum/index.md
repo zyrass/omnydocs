@@ -1,6 +1,5 @@
 ---
 description: "Vision globale du projet Dungeon Memory Battle RPG : architecture API REST Laravel Sanctum + Frontend Angular 21 avec Signals, gameplay jeu mémoire + combat tour par tour, système progression RPG."
-icon: lucide/swords
 tags: ["SANCTUM", "API-REST", "ANGULAR", "SIGNALS", "RPG", "GAME"]
 status: stable
 ---

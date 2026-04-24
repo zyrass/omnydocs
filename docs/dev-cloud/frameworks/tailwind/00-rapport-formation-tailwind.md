@@ -4,7 +4,7 @@ icon: lucide/clipboard-check
 tags: ["TAILWIND", "RAPPORT", "FORMATION", "BILAN"]
 ---
 
-# Rapport de Formation — Tailwind CSS
+# Rapport
 
 <div
   class="omny-meta"
