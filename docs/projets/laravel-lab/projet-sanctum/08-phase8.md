@@ -13,6 +13,10 @@ tags: ["DEPLOYMENT", "VPS", "FORGE", "VERCEL", "PRODUCTION"]
   data-time="2h - 3h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Sécuriser une API avec Sanctum s'apparente à donner un jeton d'accès temporaire à un livreur. Au lieu de lui donner les clés de la maison (authentification de session), vous lui donnez un badge qui ne permet d'ouvrir que la porte du garage, et qui peut être révoqué à tout moment._
+
 ## Objectif de la Phase
 
 > Notre jeu "Dungeon RPG" est terminé et optimisé en local. Il est temps de le rendre accessible au monde entier. Comme l'architecture est totalement découplée (API Stateless + Client SPA), nous allons utiliser deux stratégies d'hébergement différentes : un serveur dédié **VPS (Linux)** géré par **Laravel Forge** pour le backend (qui a besoin de PHP, MySQL et Redis), et une plateforme **Serverless CDN (Vercel ou Netlify)** pour distribuer les fichiers statiques de notre Frontend Angular.
@@ -137,3 +141,14 @@ Votre jeu vidéo en ligne est désormais "Live" !
 - ✅ **CORS** correctement configuré entre les deux environnements.
 
 Rendez-vous à la conclusion du projet Sanctum pour clôturer ce passionnant Laravel Lab !
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le déploiement d'une API Laravel sur un VPS est une opération sensible : variables d'environnement, configuration Nginx, clés d'application, certificats SSL. Laravel Forge automatise cette complexité mais ne dispense pas de comprendre ce qu'il fait. En production, chaque commande `php artisan` doit être exécutée manuellement la première fois avant d'être automatisée.
+
+> [Projet Sanctum déployé. Consultez la synthèse et les leçons apprises →](./conclusion.md)

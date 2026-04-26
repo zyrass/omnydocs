@@ -12,6 +12,10 @@ tags: ["SECURITE", "RESEAU", "PFSENSE", "WAF", "VPN", "PROXY"]
   data-time="Sous-Hub Sécurité Périmétrique">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La sécurité réseau moderne (Zero Trust, WAF, VPN) s'apparente aux contrôles stricts dans un aéroport international. Le pare-feu classique est la porte d'entrée, le WAF est le portique de sécurité vérifiant le contenu des bagages, et le VPN est le tunnel VIP sécurisé réservé aux employés identifiés._
+
 !!! quote "Les douanes de l'infrastructure"
     _Sécuriser un serveur individuellement (Hardening Host avec UFW et Lynis) est crucial (la défense en profondeur), mais insuffisant pour une entreprise. Vous avez besoin d'équipements spécialisés (souvent placés "en bordure" du réseau, d'où le terme périmétrique) dont l'unique travail est d'inspecter, de router, de chiffrer et de bloquer les flux de données massifs entrant et sortant de votre infrastructure._
 
@@ -49,4 +53,15 @@ La mise en place de ces outils différencie un simple "serveur sur Internet" d'u
 
     [:octicons-arrow-right-24: Distribuer la charge](./haproxy.md)
 
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La sécurité réseau ne s'arrête plus au simple pare-feu périmétrique. L'implémentation de VPNs robustes (OpenVPN/WireGuard) et d'une segmentation stricte forme l'épine dorsale d'une architecture résiliente.
+
+> [Retourner à l'index Réseau →](../index.md)

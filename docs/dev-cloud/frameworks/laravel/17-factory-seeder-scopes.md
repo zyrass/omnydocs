@@ -145,3 +145,14 @@ $posts = Post::published()->byUser(1)->latest()->get();
 ## Conclusion 
 
 Vos requêtes métier étant stocké sur le Model lié garantissent des Controllers extrêmements courts. La base de donnée ne sera ni plus ni moins qu'un terrain de jeu d'assemblage où Laravel masque des milliers de lignes SQL derrière un design pattern abstrait orienté objet, très propre. Il reste un dernier point sensible avant de clore le cycle DB : Le formatage à la volée.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les factories et seeders transforment le développement local en playground contrôlé. Un développeur qui travaille sans données de test réalistes passe plus de temps à créer manuellement des jeux de données qu'à développer. `php artisan db:seed` en une commande, et votre application est peuplée avec 50 utilisateurs, 200 posts et 1000 commentaires cohérents.
+
+> [Peuplement de données maîtrisé. Affinez maintenant l'accès aux attributs de vos modèles →](./18-mutateurs-accesseurs.md)

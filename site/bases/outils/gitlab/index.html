@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="à éditer">
+        <meta name="description" content="GitLab — La plateforme DevSecOps complète, auto-hébergeable. CI/CD intégré, gestion de projet, sécurité applicative et registre de conteneurs en une seule plateforme.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Gitlab - OmnyDocs</title>
+        <title>GitLab — Le Studio DevSecOps Intégré - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gitlab" class="md-skip">
+        <a href="#gitlab-le-studio-devsecops-integre" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gitlab
+              GitLab — Le Studio DevSecOps Intégré
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1190,6 +1188,61 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gitlab-vs-github-differences-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitLab vs GitHub — Différences Clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-merge-requests-mr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les Merge Requests (MR)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-pipelines-cicd-gitlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les Pipelines CI/CD GitLab
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-hebergement-gitlab-ce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-hébergement GitLab (CE)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1211,16 +1264,199 @@
                 
                   
 
-<h1 id="gitlab">Gitlab<a class="headerlink" href="#gitlab" title="Permanent link">&para;</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<h1 id="gitlab-le-studio-devsecops-integre">GitLab — Le Studio DevSecOps Intégré<a class="headerlink" href="#gitlab-le-studio-devsecops-integre" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
   data-level="🟢 Débutant & 🟡 Intermédiaire"
-  data-version="0"
-  data-time="??-?? minutes">
+  data-version="17.x"
+  data-time="~30 minutes">
 </div>
 </p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique — L'Atelier Complet vs l'Outillerie Spécialisée</p>
+<p>Imaginez que GitHub est une excellente boutique de matériaux de construction : le bois est parfait, bien rangé, collaboratif. Mais pour construire votre maison, vous devez encore appeler un électricien (GitHub Actions), un plombier (un outil de suivi de tickets externe), et un bureau d'architecte (une plateforme de déploiement tierce).</p>
+<p><strong>GitLab</strong> est l'atelier intégré : le code, les tickets, les pipelines CI/CD, le registre Docker, le scanner de sécurité, et le déploiement continu sont <strong>tous sous le même toit</strong>, sans intégration externe. C'est le choix des équipes qui valorisent la cohérence et la souveraineté sur leurs outils.</p>
+</div>
+<p>GitLab est disponible en deux versions : <strong>GitLab.com</strong> (SaaS hébergé) et <strong>GitLab CE/EE</strong> (auto-hébergé), ce qui en fait la référence pour les organisations qui ne souhaitent pas externaliser leur code source.</p>
+<p><br></p>
+<hr />
+<h2 id="gitlab-vs-github-differences-cles">GitLab vs GitHub — Différences Clés<a class="headerlink" href="#gitlab-vs-github-differences-cles" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TD
+    classDef gh fill:#cce5ff,stroke:#0d6efd,color:#000
+    classDef gl fill:#d1e7dd,stroke:#198754,color:#000
 
+    subgraph GitHub["GitHub"]
+        direction TB
+        GH1["Code &amp; PRs"]
+        GH2["GitHub Actions (CI/CD)"]
+        GH3["GitHub Issues"]
+        GH4["Packages (registre)"]
+        GH5["GitHub Pages"]
+    end
+
+    subgraph GitLab["GitLab (Natif)"]
+        direction TB
+        GL1["Code &amp; Merge Requests"]
+        GL2["CI/CD Intégré ✅"]
+        GL3["Issues + Milestones + Boards ✅"]
+        GL4["Container Registry + Package Registry ✅"]
+        GL5["Auto DevOps + SAST + DAST ✅"]
+        GL6["Auto-hébergement (CE/EE) ✅"]
+    end
+
+    class GH1,GH2,GH3,GH4,GH5 gh
+    class GL1,GL2,GL3,GL4,GL5,GL6 gl</code></pre>
+<p><em>La principale différence architecturale : GitHub intègre des services tiers (Actions, Packages), tandis que GitLab propose <strong>une plateforme unifiée</strong> avec toutes les fonctionnalités nativement intégrées et versionnées ensemble.</em></p>
+<p><br></p>
+<hr />
+<h2 id="les-merge-requests-mr">Les Merge Requests (MR)<a class="headerlink" href="#les-merge-requests-mr" title="Permanent link">&para;</a></h2>
+<p>L'équivalent GitLab des Pull Requests GitHub s'appelle une <strong>Merge Request</strong>. Le flux est identique mais enrichi nativement :</p>
+<ul>
+<li><strong>Code Review</strong> intégrée avec suggestions inline</li>
+<li><strong>Pipeline CI/CD</strong> attaché à chaque MR (tests, lint, sécurité)</li>
+<li><strong>Discussions</strong> résolues manuellement</li>
+<li><strong>Squash &amp; Merge</strong> configurable au niveau du projet</li>
+</ul>
+<div class="language-bash highlight"><span class="filename">Workflow GitLab standard</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Créer une branche de fonctionnalité</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/module-paiement
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Travailler, committer</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: ajouter l&#39;intégration Stripe&quot;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Pousser et créer la MR automatiquement via l&#39;URL proposée</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/module-paiement
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># → GitLab affiche un lien direct pour créer la Merge Request</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="les-pipelines-cicd-gitlab">Les Pipelines CI/CD GitLab<a class="headerlink" href="#les-pipelines-cicd-gitlab" title="Permanent link">&para;</a></h2>
+<p>Le fichier <code>.gitlab-ci.yml</code> est le cœur de l'automatisation GitLab. Il définit les stages et jobs exécutés automatiquement.</p>
+<div class="language-yaml highlight"><span class="filename">.gitlab-ci.yml — Pipeline Laravel complet</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Définition des étapes dans l&#39;ordre d&#39;exécution</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">stages</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">variables</span><span class="p">:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">PHP_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8.3&quot;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># ─── Stage 1 : Tests ────────────────────────────────────────</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nt">tests</span><span class="p">:</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">php:8.3-cli</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">composer install --no-interaction</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cp .env.example .env</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">php artisan key:generate</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">php artisan test --coverage</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="c1"># Se déclenche sur toutes les branches</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;$CI_PIPELINE_SOURCE</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">&quot;merge_request_event&quot;&#39;</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="c1"># ─── Stage 2 : Sécurité (SAST natif GitLab) ─────────────────</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="nt">sast</span><span class="p">:</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">  </span><span class="c1"># Template officiel GitLab — analyse les failles de code</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">  </span><span class="nt">include</span><span class="p">:</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">template</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Security/SAST.gitlab-ci.yml</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="c1"># ─── Stage 3 : Déploiement (sur main uniquement) ────────────</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="nt">deploy_production</span><span class="p">:</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">  </span><span class="nt">script</span><span class="p">:</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh deploy@mon-serveur &quot;cd /var/www &amp;&amp; git pull &amp;&amp; php artisan migrate --force&quot;</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">  </span><span class="c1"># Déclenché uniquement sur la branche main</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;$CI_COMMIT_BRANCH</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">&quot;main&quot;&#39;</span>
+</span></code></pre></div>
+<p><em>Le template <code>Security/SAST.gitlab-ci.yml</code> est un des atouts majeurs de GitLab : il intègre un scanner de sécurité de code (<strong>SAST</strong>) gratuitement et automatiquement dans le pipeline, sans configuration.</em></p>
+<p><br></p>
+<hr />
+<h2 id="auto-hebergement-gitlab-ce">Auto-hébergement GitLab (CE)<a class="headerlink" href="#auto-hebergement-gitlab-ce" title="Permanent link">&para;</a></h2>
+<p>Pour les organisations qui ne peuvent pas externaliser leur code source (secteur public, défense, santé), GitLab CE s'installe sur votre infrastructure.</p>
+<div class="language-bash highlight"><span class="filename">Installation GitLab CE sur Ubuntu (Omnibus)</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 1. Installer les dépendances</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>openssh-server<span class="w"> </span>ca-certificates
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 2. Ajouter le repository GitLab</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>curl<span class="w"> </span>https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>bash
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># 3. Installer (remplacez par votre domaine)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>sudo<span class="w"> </span><span class="nv">EXTERNAL_URL</span><span class="o">=</span><span class="s2">&quot;https://gitlab.mon-entreprise.com&quot;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gitlab-ce
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># 4. Récupérer le mot de passe admin initial</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>sudo<span class="w"> </span>cat<span class="w"> </span>/etc/gitlab/initial_root_password
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Ressources requises</p>
+<p>GitLab Omnibus nécessite au minimum <strong>4 cœurs CPU</strong> et <strong>8 Go de RAM</strong> pour une utilisation en production. En dessous, les performances se dégradent significativement.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>GitLab est le choix rationnel pour les équipes qui veulent <strong>une plateforme unique, cohérente et potentiellement auto-hébergée</strong>. Son CI/CD natif, ses fonctionnalités de sécurité intégrées (SAST, DAST, Dependency Scanning) et son modèle open-source en font la référence dans les contextes où la souveraineté des données est non négociable. La migration depuis GitHub est simple — l'écosystème est comparable, la philosophie est identique.</p>
+</div>
+<blockquote>
+<p><a href=".././vscode/config/">Visual Studio Code — Configurer votre éditeur →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GIT</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GITLAB</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CI/CD</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">DEVSECOPS</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">AUTO-HÉBERGÉ</span>
+      
+    
+  </nav>
 
 
 

@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="8.3"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Valider un formulaire revient souvent à coder des `if(!empty($_POST['...']))`, imbriqués à l'infini.
@@ -229,4 +233,15 @@ if (!$validator->validate($dataUserFakePost)) {
       <span class="text-gray-700">L'injecter en une ligne <code>$validator->addRule('ip', new IsBannedIPRule());</code></span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

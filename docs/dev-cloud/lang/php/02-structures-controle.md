@@ -745,3 +745,14 @@ Mettez en pratique vos connaissances sur les structures de contrôle avec ces de
     Vous avez maintenant les clés pour rendre vos scripts PHP "intelligents". En maîtrisant les structures de contrôle, vous passez de l'écriture d'une simple recette linéaire à la conception d'un véritable algorithme capable de s'adapter aux données et aux actions des utilisateurs. Gardez toujours à l'esprit la simplicité : si une structure devient trop complexe, c'est souvent le signe qu'il faut la simplifier avec `match` ou en découpant votre logique.
 
 > Prêt à organiser votre code de manière professionnelle ? Dans le **Module 3**, nous allons apprendre à créer nos propres **fonctions** pour éviter la répétition et structurer nos applications comme des experts.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

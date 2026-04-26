@@ -894,3 +894,14 @@ Le **Module 4** vous apprendra à **poser les fondations solides** de l'applicat
 [^4]: **Computed Property** : Propriété calculée dynamiquement à partir d'autres données. En Livewire : méthode `getXxxProperty()` accessible via `$this->xxx`. Recalculée automatiquement quand dépendances changent. Évite recalculs inutiles (mise en cache).
 
 [^5]: **Tinker** : REPL (Read-Eval-Print Loop) interactif Laravel permettant d'exécuter code PHP dans contexte application. Utile pour tester modèles, requêtes Eloquent, fonctions. Accessible via `php artisan tinker`. Alternative : exécuter code dans routes/web.php temporairement.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La TALL stack (Tailwind, Alpine, Laravel, Livewire) offre une alternative puissante aux SPAs (Single Page Applications) lourdes en JavaScript. Elle permet de construire des interfaces réactives tout en gardant la logique métier solidement ancrée côté serveur.
+
+> [Retourner à l'index TALL →](../index.md)

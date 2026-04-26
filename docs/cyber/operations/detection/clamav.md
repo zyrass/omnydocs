@@ -208,5 +208,3 @@ sigtool --info /var/lib/clamav/main.cvd
     ClamAV seul n'est pas un antivirus "enterprise". Intégré dans votre SOC Wazuh, il devient un **outil de réponse automatique** qui scanne chaque fichier suspect sans intervention humaine. Pour un SOC open-source, la combinaison Wazuh FIM + ClamAV + YARA offre une couverture antivirus solide sans aucun coût de licence. La quarantaine automatique permet de neutraliser immédiatement une menace pendant que l'analyste l'analyse.
 
 > **La Phase 2 (Détection & Analyse) est terminée.** Passez à la **[Phase 3 — Incident Response & DFIR →](../ir/index.md)** pour apprendre à gérer un incident une fois qu'il est détecté.
-
-<br>

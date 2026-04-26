@@ -332,3 +332,12 @@ public function test_cart_total_includes_all_items(): void
 > Prochaine étape : [Coverage →](./coverage.md) — mesurer l'efficacité de votre suite de tests.
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

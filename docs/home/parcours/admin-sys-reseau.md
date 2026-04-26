@@ -13,6 +13,10 @@ tags: ["PARCOURS", "SYSTEMES", "RESEAU", "ADMINISTRATION"]
   data-time="5-10 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Le parcours Administrateur est semblable à celui d'un urbaniste. Vous ne construisez pas les maisons (les applications), mais vous concevez et maintenez les routes, le réseau électrique et les feux de signalisation qui permettent à la ville (l'entreprise) de fonctionner sans interruption._
+
 !!! note "**Accessibilité : modérée** — _Ce parcours demande de la rigueur sur les concepts réseau et système avant d'être pleinement opérationnel._"
 
 ## Que fait ce parcours
@@ -132,8 +136,9 @@ _L'extension vers la **Cyber Défense** est la plus directe : la maîtrise de l'
 
 ## Conclusion
 
-Le parcours Administrateur Systèmes & Réseaux est le symétrique technique du parcours Développeur web.  
-Il produit un profil opérationnel sur Linux, Windows et les services réseau, immédiatement applicable en environnement professionnel.
+!!! quote "Ce qu'il faut retenir"
+    Le parcours Administrateur Systèmes & Réseaux est le symétrique technique du parcours Développeur web.  
+    Il produit un profil opérationnel sur Linux, Windows et les services réseau, immédiatement applicable en environnement professionnel.
 
 **Point d'entrée recommandé : [Fondamentaux IT](../../bases/index.md) — puis [Systèmes & Infrastructure](../../sys-reseau/index.md).**
 

@@ -357,6 +357,9 @@ rpm --rebuilddb
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La gestion des paquets via yum rhel est la porte d'entrée de toute administration système Linux. Comprendre ses mécanismes de résolution de dépendances et de dépôts garantit la stabilité et la sécurité de vos serveurs en production.
+
 !!! quote "Conclusion"
     _YUM est la grammaire historique des systèmes RPM en environnement enterprise. Même si DNF est la réalité moderne, YUM reste incontournable dès qu'on intervient sur des environnements legacy — et surtout, dès qu'on doit comprendre des procédures, des runbooks et des habitudes d'équipes ops qui datent de RHEL 6 et 7. Maîtriser YUM, c'est maîtriser la chaîne de confiance GPG, la gouvernance des dépôts, la logique de résolution de dépendances et les mécaniques de diagnostic. C'est exactement ce qui rend solide quand ça casse en production — pas le fait de connaître trois commandes par cœur._
 

@@ -1860,3 +1860,14 @@ Vous disposez maintenant d'un laboratoire professionnel complet. Voici comment l
 [^3]: **Snapshot incrémentiels** : VirtualBox stocke uniquement les blocs modifiés depuis le snapshot parent. Économise énormément d'espace disque par rapport à des copies complètes.
 
 [^4]: **MITRE ATT&CK** : base de connaissances publique des tactiques et techniques utilisées par les attaquants cyber. Référence mondiale pour décrire les comportements adversaires. Utilisé dans 90%+ des équipes SOC professionnelles.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'architecture logicielle et système demande une vision globale. Les décisions prises lors de cette phase auront un impact déterminant sur la maintenabilité, les coûts et la sécurité du projet sur les prochaines années.
+
+> [Passer à la phase suivante →](../index.md)

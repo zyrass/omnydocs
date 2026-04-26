@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Document en cours de rédaction">
+        <meta name="description" content="Création de la page de profil utilisateur avec mise à jour des informations et upload d'avatar sécurisé.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Phase4 - OmnyDocs</title>
+        <title>Phase 4 — Profil Utilisateur & Upload - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#phase4" class="md-skip">
+        <a href="#phase-4-profil-utilisateur-upload" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Phase4
+              Phase 4 — Profil Utilisateur &amp; Upload
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1173,6 +1171,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-de-la-phase-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de la Phase 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-a-jour-du-profilecontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise à Jour du ProfileController
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-profileupdaterequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation — ProfileUpdateRequest
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vue-profil-champ-avatar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vue Profil — Champ Avatar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1192,20 +1253,117 @@
                 
                   
 
-<h1 id="phase4">Phase4<a class="headerlink" href="#phase4" title="Permanent link">&para;</a></h1>
+<h1 id="phase-4-profil-utilisateur-upload">Phase 4 — Profil Utilisateur &amp; Upload<a class="headerlink" href="#phase-4-profil-utilisateur-upload" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 En construction"
-  data-version="1.0"
-  data-time="Bientôt disponible">
+  data-level="🟡 Intermédiaire"
+  data-version="Laravel 11"
+  data-time="~1 heure">
 </div>
 </p>
+<h2 id="objectifs-de-la-phase-4">Objectifs de la Phase 4<a class="headerlink" href="#objectifs-de-la-phase-4" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
-<p class="admonition-title">Article en cours de rédaction</p>
-<p>Le contenu détaillé de cette page est actuellement en cours de rédaction. Il sera publié lors des prochaines mises à jour d'OmnyDocs.</p>
+<p class="admonition-title">Ce que vous allez faire</p>
+<ul>
+<li>Étendre la page Profil générée par Breeze</li>
+<li>Ajouter un champ <code>bio</code> éditable</li>
+<li>Implémenter l'upload d'avatar sécurisé</li>
+<li>Valider les fichiers côté serveur (type MIME, taille max)</li>
+</ul>
 </div>
-<p><br /></p>
+<h2 id="mise-a-jour-du-profilecontroller">Mise à Jour du ProfileController<a class="headerlink" href="#mise-a-jour-du-profilecontroller" title="Permanent link">&para;</a></h2>
+<div class="language-php highlight"><span class="filename">app/Http/Controllers/ProfileController.php (méthode update)</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">public function update(ProfileUpdateRequest $request): RedirectResponse</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="x">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="x">    $validated = $request-&gt;validated();</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="x">    // Upload de l&#39;avatar si fourni</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="x">    if ($request-&gt;hasFile(&#39;avatar&#39;)) {</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="x">        // Supprimer l&#39;ancien avatar</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="x">        if ($request-&gt;user()-&gt;avatar) {</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="x">            Storage::disk(&#39;public&#39;)-&gt;delete($request-&gt;user()-&gt;avatar);</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="x">        }</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="x">        $path = $request-&gt;file(&#39;avatar&#39;)-&gt;store(&#39;avatars&#39;, &#39;public&#39;);</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="x">        $validated[&#39;avatar&#39;] = $path;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="x">    }</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="x">    $request-&gt;user()-&gt;fill($validated)-&gt;save();</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="x">    return Redirect::route(&#39;profile.edit&#39;)-&gt;with(&#39;status&#39;, &#39;profile-updated&#39;);</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="x">}</span>
+</span></code></pre></div>
+<h2 id="validation-profileupdaterequest">Validation — ProfileUpdateRequest<a class="headerlink" href="#validation-profileupdaterequest" title="Permanent link">&para;</a></h2>
+<div class="language-php highlight"><span class="filename">app/Http/Requests/ProfileUpdateRequest.php</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">public function rules(): array</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="x">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="x">    return [</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="x">        &#39;name&#39;   =&gt; [&#39;required&#39;, &#39;string&#39;, &#39;max:255&#39;],</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="x">        &#39;email&#39;  =&gt; [&#39;required&#39;, &#39;email&#39;, &#39;max:255&#39;, Rule::unique(User::class)-&gt;ignore($this-&gt;user()-&gt;id)],</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="x">        &#39;bio&#39;    =&gt; [&#39;nullable&#39;, &#39;string&#39;, &#39;max:500&#39;],</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="x">        &#39;avatar&#39; =&gt; [&#39;nullable&#39;, &#39;image&#39;, &#39;mimes:jpg,jpeg,png,webp&#39;, &#39;max:2048&#39;], // 2 Mo max</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="x">    ];</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="x">}</span>
+</span></code></pre></div>
+<h2 id="vue-profil-champ-avatar">Vue Profil — Champ Avatar<a class="headerlink" href="#vue-profil-champ-avatar" title="Permanent link">&para;</a></h2>
+<div class="language-html highlight"><span class="filename">resources/views/profile/partials/update-profile-information-form.blade.php (extrait)</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;profile.update&#39;) }}&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    @csrf
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    @method(&#39;patch&#39;)
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="cm">&lt;!-- Avatar actuel --&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    @if (Auth::user()-&gt;avatar)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ Storage::url(Auth::user()-&gt;avatar) }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w-20 h-20 rounded-full&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Avatar&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    @endif
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="cm">&lt;!-- Upload nouvel avatar --&gt;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="p">&lt;</span><span class="nt">x-input-label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;avatar&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Avatar (JPG, PNG, WebP - 2 Mo max)&quot;</span> <span class="p">/&gt;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;avatar&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;avatar&quot;</span> <span class="na">accept</span><span class="o">=</span><span class="s">&quot;image/*&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mt-1&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="p">&lt;</span><span class="nt">x-input-error</span> <span class="na">:messages</span><span class="o">=</span><span class="s">&quot;$errors-&gt;get(&#39;avatar&#39;)&quot;</span> <span class="p">/&gt;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>L'upload de fichiers est un vecteur d'attaque classique. La validation <code>mimes:jpg,jpeg,png,webp</code> ne vérifie pas seulement l'extension — elle lit les octets du fichier (magic bytes). La limite de taille (<code>max:2048</code>) protège contre les attaques de déni de service par fichiers volumineux. Ces deux règles sont non négociables sur toute implémentation d'upload en production.</p>
+</div>
+<blockquote>
+<p><a href=".././phase5/">Phase 5 — Autorisation et protection des routes →</a></p>
+</blockquote>
 
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">LARAVEL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BREEZE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PROJET GUIDÉ</span>
+      
+    
+  </nav>
 
 
 

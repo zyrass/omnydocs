@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # Gantt (planification)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     Le Gantt sert à planifier une roadmap : jalons, dépendances implicites et phases. Il est pertinent pour cadrer un projet, synchroniser plusieurs équipes et rendre visible une trajectoire dans le temps.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -34,6 +46,15 @@ gantt
 ```
 
 _Ce schéma planifie des phases avec statuts (done/active) et durées exprimées en jours._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

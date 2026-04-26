@@ -9,8 +9,12 @@ tags: ["JAVASCRIPT", "ALGORITHM", "2D-ARRAY", "LOGIC", "GAME-LOOP"]
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="1.0"
-  data-time="3 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Le client (un réseau de salles d'arcade) souhaite numériser ses classiques. Le Puissance 4 est en apparence un "simple tableau de 6 lignes par 7 colonnes". Mais algorithmiquement, il exige que le développeur Front-End modélise une **Matrice (2D Array)**, applique une gravité (le jeton tombe tout en bas), vérifie les diagonales complexes, et dessine l'UI en Temps Réel. C'est l'essence du game dev en navigateur !
@@ -132,4 +136,15 @@ La structure de ce projet se déploie en 4 phases chirurgicales.
       <span class="text-gray-700">Le jeu détecte instantanément 4 jetons consécutifs dans un sens diagonal complexe.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

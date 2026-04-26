@@ -283,3 +283,14 @@ Tous les patches ne peuvent pas être appliqués dans les délais cibles — con
 [^2]: Une **CMDB** (*Configuration Management Database*, ou Base de Données de Gestion des Configurations) est le référentiel central qui stocke les informations sur tous les actifs du SI (serveurs, applications, équipements réseau, dépendances) et leurs relations. C'est la source de vérité pour le patch management et tous les autres processus ITSM.
 [^3]: Un **SBOM** (*Software Bill of Materials*, ou Nomenclature des composants logiciels) est une liste exhaustive de tous les composants logiciels d'une application (bibliothèques, frameworks, dépendances tierces) avec leurs versions. Il permet d'identifier rapidement si une application est affectée par une CVE publiée sur l'un de ses composants.
 [^4]: Le **canary deployment** (déploiement canari) est une technique de déploiement progressif qui consiste à déployer une nouvelle version sur un sous-ensemble limité de serveurs ou d'utilisateurs avant de l'étendre à l'ensemble de la production. Il permet de détecter les problèmes sur un périmètre limité avant impact total.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
+
+> [Retour à l'index →](./index.md)

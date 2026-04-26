@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="à éditer">
+        <meta name="description" content="Amazon Web Services (AWS) — Introduction à la plateforme cloud n°1 mondiale. Services essentiels, modèle de responsabilité partagée et premiers pas avec EC2, S3, RDS et IAM.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>AWS - OmnyDocs</title>
+        <title>Amazon Web Services — Le Cloud Leader Mondial - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aws" class="md-skip">
+        <a href="#amazon-web-services-le-cloud-leader-mondial" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AWS
+              Amazon Web Services — Le Cloud Leader Mondial
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1173,6 +1171,119 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-modele-de-responsabilite-partagee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Modèle de Responsabilité Partagée
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-services-fondamentaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les Services Fondamentaux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les Services Fondamentaux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ec2-les-serveurs-virtuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 — Les Serveurs Virtuels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-le-stockage-objet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 — Le Stockage Objet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rds-les-bases-de-donnees-managees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RDS — Les Bases de Données Managées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iam-la-gestion-des-identites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM — La Gestion des Identités
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-applicative-typique-sur-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Applicative Typique sur AWS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1192,15 +1303,265 @@
                 
                   
 
-<h1 id="aws">AWS<a class="headerlink" href="#aws" title="Permanent link">&para;</a></h1>
+<h1 id="amazon-web-services-le-cloud-leader-mondial">Amazon Web Services — Le Cloud Leader Mondial<a class="headerlink" href="#amazon-web-services-le-cloud-leader-mondial" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 Débutant & 🟡 Intermédiaire"
-  data-version="0"
-  data-time="??-?? minutes">
+  data-level="🟡 Intermédiaire"
+  data-version="2024"
+  data-time="~30 minutes">
 </div>
 </p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique — Le Bailleur d'Infrastructure</p>
+<p>Avant AWS (2006), une startup qui voulait lancer un service en ligne devait acheter des serveurs physiques, louer une salle dans un datacenter, et payer une équipe d'administration — des mois avant de voir le premier utilisateur. <strong>AWS</strong> a changé les règles : vous louez de la puissance de calcul, du stockage et des bases de données à la seconde, sans rien posséder. Comme un bailleur qui vous loue une chambre meublée plutôt que de vous vendre un appartement.</p>
+<p>Cette flexibilité est le cœur du cloud : <strong>payer ce que vous consommez, quand vous le consommez</strong>, et scaler instantanément si votre trafic explose.</p>
+</div>
+<p>AWS est la plateforme cloud d'Amazon, lancée en 2006, et toujours leader mondial avec ~33% de part de marché. Elle propose plus de <strong>200 services</strong> couvrant le calcul, le stockage, les bases de données, l'IA, la sécurité, le réseau et le DevOps.</p>
+<p><br></p>
+<hr />
+<h2 id="le-modele-de-responsabilite-partagee">Le Modèle de Responsabilité Partagée<a class="headerlink" href="#le-modele-de-responsabilite-partagee" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TB
+    classDef aws fill:#fff3cd,stroke:#ffc107,color:#000
+    classDef client fill:#d1e7dd,stroke:#198754,color:#000
 
+    subgraph AWS["🔶 Responsabilité AWS"]
+        direction LR
+        A1["Datacenter physique"]
+        A2["Matériel (serveurs, réseau)"]
+        A3["Hyperviseur et virtualisation"]
+    end
+
+    subgraph Client["🟢 Responsabilité Client"]
+        direction LR
+        C1["Configuration des services"]
+        C2["Données et chiffrement"]
+        C3["Gestion des accès (IAM)"]
+        C4["Sécurité du code applicatif"]
+    end
+
+    AWS --&gt; Client
+
+    class A1,A2,A3 aws
+    class C1,C2,C3,C4 client</code></pre>
+<p><em>AWS sécurise le cloud. <strong>Vous</strong> sécurisez <strong>ce qui est dans</strong> le cloud. La majorité des incidents de sécurité AWS proviennent d'une mauvaise configuration client (bucket S3 public, credentials IAM exposés), pas d'une faille AWS.</em></p>
+<p><br></p>
+<hr />
+<h2 id="les-services-fondamentaux">Les Services Fondamentaux<a class="headerlink" href="#les-services-fondamentaux" title="Permanent link">&para;</a></h2>
+<h3 id="ec2-les-serveurs-virtuels">EC2 — Les Serveurs Virtuels<a class="headerlink" href="#ec2-les-serveurs-virtuels" title="Permanent link">&para;</a></h3>
+<p><strong>EC2 (Elastic Compute Cloud)</strong> est le service de machines virtuelles d'AWS. Chaque instance est une VM avec CPU, RAM et OS au choix.</p>
+<div class="language-bash highlight"><span class="filename">Lancer une instance EC2 via AWS CLI</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Installer et configurer le CLI</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>aws<span class="w"> </span>configure
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># → AWS Access Key ID</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># → AWS Secret Access Key</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># → Region (ex: eu-west-1 pour l&#39;Irlande)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Lancer une instance EC2 (Ubuntu 24.04, type t3.micro)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>aws<span class="w"> </span>ec2<span class="w"> </span>run-instances<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span>--image-id<span class="w"> </span>ami-0c55b159cbfafe1f0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span>--instance-type<span class="w"> </span>t3.micro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span>--key-name<span class="w"> </span>ma-cle-ssh<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span>--security-group-ids<span class="w"> </span>sg-xxxxxxxx<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span>--count<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span>--tag-specifications<span class="w"> </span><span class="s1">&#39;ResourceType=instance,Tags=[{Key=Name,Value=mon-serveur}]&#39;</span>
+</span></code></pre></div>
+<p><strong>Types d'instances courants :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Famille</th>
+<th>Usage</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>t3</code> / <code>t4g</code></td>
+<td>Développement, charges variables</td>
+<td><code>t3.micro</code> (Free Tier)</td>
+</tr>
+<tr>
+<td><code>m6i</code></td>
+<td>Production généraliste</td>
+<td><code>m6i.large</code> (2 vCPU, 8 Go)</td>
+</tr>
+<tr>
+<td><code>c6i</code></td>
+<td>Calcul intensif (CPU)</td>
+<td><code>c6i.xlarge</code></td>
+</tr>
+<tr>
+<td><code>r6i</code></td>
+<td>Mémoire intensive (BDD)</td>
+<td><code>r6i.2xlarge</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s3-le-stockage-objet">S3 — Le Stockage Objet<a class="headerlink" href="#s3-le-stockage-objet" title="Permanent link">&para;</a></h3>
+<p><strong>S3 (Simple Storage Service)</strong> est le service de stockage de fichiers d'AWS. Chaque fichier est un <strong>objet</strong> dans un <strong>bucket</strong>. Capacité théoriquement illimitée.</p>
+<div class="language-bash highlight"><span class="filename">Opérations S3 basiques</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Créer un bucket (nom unique mondial)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>aws<span class="w"> </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://mon-bucket-unique-2024
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Uploader un fichier</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>./rapport.pdf<span class="w"> </span>s3://mon-bucket-unique-2024/rapports/
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Synchroniser un dossier entier</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>./build/<span class="w"> </span>s3://mon-site-web/<span class="w"> </span>--delete
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Rendre un fichier accessible publiquement</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>aws<span class="w"> </span>s3api<span class="w"> </span>put-object-acl<span class="w"> </span>--bucket<span class="w"> </span>mon-bucket<span class="w"> </span>--key<span class="w"> </span>rapport.pdf<span class="w"> </span>--acl<span class="w"> </span>public-read
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">S3 Public = Données exposées</p>
+<p>Ne jamais rendre un bucket S3 entièrement public sans audit. En 2024, des centaines d'organisations ont exposé des données sensibles par erreur de configuration. Utilisez les <strong>S3 Block Public Access</strong> settings systématiquement.</p>
+</div>
+<h3 id="rds-les-bases-de-donnees-managees">RDS — Les Bases de Données Managées<a class="headerlink" href="#rds-les-bases-de-donnees-managees" title="Permanent link">&para;</a></h3>
+<p><strong>RDS (Relational Database Service)</strong> gère MySQL, PostgreSQL, MariaDB, Oracle et SQL Server. AWS s'occupe des sauvegardes, mises à jour et haute disponibilité.</p>
+<table>
+<thead>
+<tr>
+<th>Avantage RDS</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Backups automatiques</strong></td>
+<td>Rétention jusqu'à 35 jours, point-in-time recovery</td>
+</tr>
+<tr>
+<td><strong>Multi-AZ</strong></td>
+<td>Réplication synchrone dans 2 zones de disponibilité</td>
+</tr>
+<tr>
+<td><strong>Read Replicas</strong></td>
+<td>Scalabilité des lectures en lecture seule</td>
+</tr>
+<tr>
+<td><strong>Maintenance automatique</strong></td>
+<td>Patches OS et moteur sans intervention manuelle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="iam-la-gestion-des-identites">IAM — La Gestion des Identités<a class="headerlink" href="#iam-la-gestion-des-identites" title="Permanent link">&para;</a></h3>
+<p><strong>IAM (Identity and Access Management)</strong> contrôle <strong>qui peut faire quoi</strong> sur quels services AWS.</p>
+<div class="language-json highlight"><span class="filename">Politique IAM — Accès S3 en lecture seule sur un bucket spécifique</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">                </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">                </span><span class="s2">&quot;s3:ListBucket&quot;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="p">],</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">                </span><span class="s2">&quot;arn:aws:s3:::mon-bucket-production&quot;</span><span class="p">,</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">                </span><span class="s2">&quot;arn:aws:s3:::mon-bucket-production/*&quot;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Principe du moindre privilège</p>
+<p>Chaque utilisateur, rôle ou service IAM doit avoir <strong>uniquement</strong> les permissions dont il a besoin. Ne jamais utiliser les credentials root pour les opérations courantes. Créer des rôles IAM dédiés pour chaque application.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="architecture-applicative-typique-sur-aws">Architecture Applicative Typique sur AWS<a class="headerlink" href="#architecture-applicative-typique-sur-aws" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    U["👤 Utilisateur"] --&gt; CF["CloudFront\n(CDN)"]
+    CF --&gt; ALB["Load Balancer\n(ALB)"]
+    ALB --&gt; EC2A["EC2\nApp Server 1"]
+    ALB --&gt; EC2B["EC2\nApp Server 2"]
+    EC2A &amp; EC2B --&gt; RDS["RDS PostgreSQL\n(Multi-AZ)"]
+    EC2A &amp; EC2B --&gt; S3["S3 Bucket\n(Fichiers statiques)"]
+    EC2A &amp; EC2B --&gt; REDIS["ElastiCache Redis\n(Sessions / Cache)"]</code></pre>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>AWS n'est pas un service — c'est un écosystème de 200+ services qu'on compose pour construire des architectures. Le point d'entrée pour un développeur est systématiquement <strong>EC2</strong> (calculer), <strong>S3</strong> (stocker), <strong>RDS</strong> (données relationnelles) et <strong>IAM</strong> (sécuriser). Ces quatre services couvrent 90% des besoins d'une application web standard. La maîtrise d'IAM est la compétence la plus critique : une politique IAM mal configurée expose toute votre infrastructure.</p>
+</div>
+<blockquote>
+<p><a href="../azure/">Azure — La plateforme cloud Microsoft →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">AWS</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CLOUD</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">EC2</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">S3</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">IAM</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">RDS</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">AMAZON</span>
+      
+    
+  </nav>
 
 
 

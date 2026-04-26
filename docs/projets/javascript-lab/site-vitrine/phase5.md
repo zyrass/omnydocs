@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟢 Débutant"
   data-version="1.0"
-  data-time="30m">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le site tourne à merveille sur `localhost:5173`. Mais ce serveur de développement Vite est trop lent (il ne compile rien, il injecte du code à chaud pour vous aider). Nous devons écraser, minifier, et compresser ce code en un paquet minuscule, illisible pour l'homme mais parfait pour le navigateur, afin de le mettre en ligne sur un vrai serveur.
@@ -90,3 +94,14 @@ L'approche Drag & Drop est artisanale. L'Ingénieur déploiera via Git :
 Vous êtes passé d'intégrateur HTML/CSS à Développeur Front-End natif. Vous maîtrisez le chaînage d'événements, la modularité et l'UI via les Web Storage API. Mais votre site tourne en circuit fermé sur ses propres données. Pour créer l'immensité du web, il faut dialoguer avec d'autres serveurs planétaires en asynchrone pour pomper et afficher de la donnée tierce...
 
 C'est l'objectif titanesque du prochain projet terminal JS : **Le Hub Applicatif Asynchrone.**
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

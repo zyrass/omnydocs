@@ -13,6 +13,10 @@ tags: ["TCPDUMP", "WIRESHARK", "SNIFFER", "RESEAU", "CAPTURE"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Utiliser des outils d'analyse réseau (comme tcpdump ou scapy), c'est comme brancher un stéthoscope sur les artères d'une ville. Vous ne regardez plus simplement si les camions arrivent à destination, mais vous examinez le contenu de chaque paquet transporté pour détecter une anomalie ou une maladie (latence, perte, malware)._
+
 !!! quote "Plonger dans la matrice"
     _Lorsque deux machines n'arrivent pas à communiquer malgré un pare-feu en apparence ouvert, le seul moyen d'avoir la vérité absolue est de capturer les paquets sur le fil. **Tcpdump** est l'analyseur de paquets (Packet Sniffer) en ligne de commande le plus célèbre et le plus puissant d'Unix._
 
@@ -113,3 +117,14 @@ sudo tcpdump -r capture_web.pcap
 En Ops, `tcpdump` est l'outil de diagnostic réseau ultime (Pourquoi la requête API plante ? Regardons le paquet HTTP brut).
 
 En Cybersécurité offensive (Red Team), intercepter les paquets s'appelle le **Sniffing**. Si un pirate s'introduit sur votre réseau interne et lance un tcpdump sur des protocoles non chiffrés (HTTP, Telnet, FTP), il verra les noms d'utilisateurs et les mots de passe passer **en clair**. C'est la raison absolue pour laquelle on impose aujourd'hui le chiffrement partout (HTTPS, SSH, SFTP).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La visibilité réseau est primordiale pour l'analyse d'incidents et le troubleshooting. Maîtriser tcpdump, netstat ou scapy permet de diagnostiquer la majorité des anomalies avant qu'elles ne s'aggravent.
+
+> [Retourner à l'index Réseau →](../index.md)

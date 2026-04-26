@@ -789,6 +789,9 @@ kube-score score deployment.yaml
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Le format YAML est un standard incontournable de l'échange de données. Savoir le lire, le structurer et l'analyser est une compétence transversale absolument vitale, que ce soit en développement, en administration système ou en analyse de logs cybersécurité.
+
 !!! quote "Conclusion"
     _YAML a révolutionné la configuration d'infrastructure en rendant les fichiers lisibles par les humains sans sacrifier la puissance d'expression. Son adoption massive par Kubernetes, Docker, Ansible et les pipelines CI/CD en a fait le langage universel de l'infrastructure as code. Maîtriser YAML, c'est comprendre que l'indentation est sémantique, que les commentaires sont essentiels et que les ancres évitent la duplication. Pour la configuration d'infrastructure moderne, YAML est incontournable._
 

@@ -9,8 +9,12 @@ tags: ["JAVASCRIPT", "POO", "CLASSES", "GAME-LOOP", "ARCHITECTURE"]
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="1.0"
-  data-time="3 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Le paradigme procédural (des fonctions qui appellent d'autres fonctions) atteint ses limites quand une application grandit. Comment gérer un jeu où le joueur, les 15 bâtiments achetables virtuels, et le moteur temporel doivent interagir sans créer un code spaghettis colossal ? En encapsulant la logique à travers la **Programmation Orientée Objet (POO)**. Vous allez coder un jeu incrémental où chaque élément est une 'Instance' autonome.
@@ -134,4 +138,15 @@ La création de cet écosystème POO est fragmentée en 4 phases rigoureuses.
       <span class="text-gray-700">Chaque seconde réelle qui passe (Game Loop), le patrimoine du joueur s'incrémente automatiquement des rendements de ses bâtiments.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

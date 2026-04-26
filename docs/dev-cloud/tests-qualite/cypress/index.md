@@ -52,3 +52,12 @@ tags: ["CYPRESS", "E2E", "TESTS", "JAVASCRIPT", "CICD"]
 - Bases HTML/CSS (sélecteurs)
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

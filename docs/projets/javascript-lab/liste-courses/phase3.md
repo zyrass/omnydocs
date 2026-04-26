@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟡 Intermédiaire"
   data-version="1.0"
-  data-time="1h00">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le "Cerveau" de notre application (Le tableau `courses` de la Phase 2) fonctionne parfaitement dans l'ombre. Maintenant, nous allons lui ordonner de dessiner une interface (Les balises `<li>` HTML) fidèlement, et de mémoriser ce tableau sur le Disque Dur de l'utilisateur pour qu'il résiste à l'actualisation de la page.
@@ -167,3 +171,14 @@ Si vous avez respecté le code intégral...
 **Mission Accomplie**. Vous maîtrisez officiellement l'Architecture DOM Dynamique. 
 Vous êtes prêt à augmenter le niveau cérébral en passant à des logiques mathématiques en dimensions (Les grilles à axes X/Y), nécessaires pour le légendaire jeu **Puissance 4**, notre prochain projet. 
 Respirez, un grand défi mathématique vous attend.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

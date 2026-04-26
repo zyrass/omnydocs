@@ -317,3 +317,14 @@ La PSSI est souvent confondue avec d'autres documents. Ces confusions génèrent
 [^6]: Un système **air-gappé** est un système physiquement isolé de tout réseau, public comme privé. Les sauvegardes air-gappées ne sont pas accessibles depuis le réseau et sont donc immunisées contre les attaques ransomware qui ciblent les sauvegardes connectées.
 [^7]: Le **SDLC sécurisé** (*Secure Software Development Lifecycle*) est l'intégration de pratiques de sécurité à chaque étape du développement logiciel : analyse des exigences de sécurité, conception sécurisée, revue de code, tests de sécurité (SAST/DAST), déploiement et surveillance. Il vise à corriger les vulnérabilités le plus tôt possible dans le cycle — phase la moins coûteuse.
 [^8]: Un **REX** (*Retour d'Expérience*) est un processus structuré d'analyse post-incident qui identifie les causes racines, documente ce qui a fonctionné et ce qui a failli, et produit des recommandations pour améliorer les processus et prévenir la récurrence.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le SMSI (Système de Management de la Sécurité de l'Information) est le moteur de l'amélioration continue en cybersécurité. Il transforme une approche réactive en une stratégie proactive, mesurable et alignée avec la direction.
+
+> [Retour à l'index du SMSI →](../index.md)

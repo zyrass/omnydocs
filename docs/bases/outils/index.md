@@ -57,6 +57,9 @@ Ces outils ne sont pas liés à un langage ou à un système d'exploitation spé
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    L'outil index est un compagnon quotidien dans la vie d'un professionnel de l'IT. Sa maîtrise ne s'acquiert pas en le lisant, mais par une pratique constante. Automatisez au maximum son utilisation pour qu'il devienne une seconde nature.
+
 !!! quote "Conclusion"
     _Maîtriser Git et Markdown sépare le bricoleur du professionnel. Le code n'existe vraiment que s'il est documenté et versionné. Ces deux outils garantissent que votre travail est lisible, réversible et collaboratif._
 

@@ -218,26 +218,3 @@ _Fournit une liste de prénoms, noms et intitulés de postes, indispensable pour
 
     De plus, scrapper des données personnelles (ex: emails d'employés) à des fins commerciales sans consentement constitue une violation du **RGPD**, passible de sanctions par la CNIL.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    theHarvester est un outil indispensable de l'arsenal Red Team car il pose les fondations de l'attaque. L'adage *"On ne peut pirater que ce que l'on connaît"* prend tout son sens ici : en 5 minutes, theHarvester dévoile l'empreinte numérique d'une cible, révélant ses sous-domaines oubliés et ses adresses de messagerie, transformant le web public en votre principal informateur.
-
-> Une fois la moisson initiale terminée, il est crucial d'affiner l'énumération de l'infrastructure technique avec des outils spécialisés comme **[Amass →](./amass.md)**.
-
-<br>
-
-[^1]: **Système de Traitement Automatisé de Données (STAD)** : Désigne tout ensemble organisé de moyens (matériels et logiciels) permettant de collecter, enregistrer, stocker, modifier, manipuler, envoyer, visualiser ou détruire des données. Dans le contexte pénal, cela inclut les serveurs d'entreprises, les bases de données clients, les boîtes mail professionnelles, etc.
-
-[^2]: **Open Source Intelligence (OSINT)** : Méthode de collecte d'informations provenant uniquement de sources publiquement accessibles (internet, réseaux sociaux, bases de données ouvertes, publications, etc.). Contrairement au piratage actif, l'OSINT est purement passif et légal, car il ne nécessite aucune intrusion technique chez la cible.
-
-
-
-
-
-
-

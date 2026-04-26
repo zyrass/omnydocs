@@ -1010,3 +1010,14 @@ _Un SMSI mature nécessite **24 à 36 mois** de déploiement progressif. Vouloir
 - **CLUSIF** : [https://clusif.fr](https://clusif.fr)
 - **ISACA** : [https://www.isaca.org](https://www.isaca.org)
 - **CEFCYS** : [https://www.cefcys.fr](https://www.cefcys.fr) (Certification RSSI)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le SMSI (Système de Management de la Sécurité de l'Information) est le moteur de l'amélioration continue en cybersécurité. Il transforme une approche réactive en une stratégie proactive, mesurable et alignée avec la direction.
+
+> [Retour à l'index du SMSI →](../index.md)

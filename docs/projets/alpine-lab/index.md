@@ -13,6 +13,10 @@ tags: ["PROJET", "ALPINE", "LAB", "INDEX"]
   data-time="18 Heures">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "De la théorie à la pratique"
     Bienvenue dans le **Laboratoire Alpine.js**. Vous avez acquis la [Théorie Allégée du Framework](../../dev-cloud/frameworks/alpine/index.md), il est temps de retrousser vos manches. L'objectif de ces 3 projets est de transformer vos connaissances abstraites en outils professionnels réellement utilisables.
 
@@ -45,3 +49,14 @@ Un outil métier complexe de recension des vulnérabilités cyber.
 
 L'ensemble du code peut être exécuté dans un simple ficher index.html vierge et ne nécessite aucun outil de "Build" (Node, Webpack, Vite). 
 > Préparez votre bloc-notes web et démarrez immédiatement le [Projet 1](./01-password-generator.md).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

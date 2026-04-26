@@ -108,3 +108,14 @@ return Storage::url($this->path);
 // Ou suppression par Disque Dur Local et non plus DB 
 return Storage::delete($this->path); 
 ```
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La gestion de fichiers en production est un terrain miné si l'on n'applique pas des règles strictes : validation du type MIME (pas seulement de l'extension), stockage hors du dossier public, génération de noms uniques avec `Storage::put()`. Laravel's Filesystem abstraction permet de switcher entre stockage local et S3 sans modifier une ligne de code applicatif.
+
+> [Gestion de fichiers maîtrisée. Consolidez l'interface de modération de contenu →](./31-interface-moderation.md)

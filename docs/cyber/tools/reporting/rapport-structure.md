@@ -102,3 +102,14 @@ Les données brutes qui pollueraient la lecture du rapport.
     Un rapport de sécurité professionnel est un entonnoir : il commence par une vue très large orientée "Stratégie d'Entreprise", puis se resserre vers des considérations hautement "Techniques et Chirurgicales". Savoir adapter son niveau de langage en fonction de la section du rapport est ce qui différencie un bon pirate informatique d'un excellent consultant en cybersécurité.
 
 > Savoir structurer le rapport est essentiel, mais le cœur du travail reste la rédaction de la fameuse "Partie 3" (Les détails des vulnérabilités). Comment rédiger une fiche de faille parfaite pour qu'un développeur puisse la reproduire et la corriger sans vous appeler à l'aide ? C'est l'art des **[Preuves & Reproductibilité →](./preuves.md)**.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
+
+> [Retour à l'index →](./index.md)

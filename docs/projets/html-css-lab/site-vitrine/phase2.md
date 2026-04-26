@@ -14,6 +14,10 @@ status: stable
   data-time="1h30">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "Le Défi du Client"
     "C'est bien que le site s'affiche sur un écran géant de 27 pouces, mais la majorité de notre trafic (75%) provient d'Instagram et LinkedIn via des **Smartphones**. Notre logo doit être à gauche, et le menu doit être caché sous une petite icône de trois barres horizontales. Au clic, le menu apparaît."
 
@@ -196,3 +200,14 @@ Nous devons créer l'exception "Ecran Large".
     Si `menu-toggle:checked ~ .nav-links` ne s'ouvre pas, vérifiez votre structure HTML. La balise `<ul class="nav-links">` **DOIT ABSOLUMENT** être placée au même niveau (être le petit frère) de la balise `<input>` dans l'arborescence du DOM, pas enfanté au fond d'une mauvaise Div.
 
 [Passer à la Phase 3 : Accueil & Hero Call To Action →](phase3.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

@@ -13,6 +13,10 @@ tags: ["PROJET", "DISNEY", "LIST", "FILTER", "SWIFTUI"]
   data-time="3 Heures">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "Gérer la data, c'est trier le monde"
     Si le Projet 1 nous a appris à manipuler le temps et les variables simples, ce Projet 2 va nous apprendre à dompter les `Collections`. La vaste majorité des applications de l'App Store sont en réalité d'immenses listes de données filtrables (Instagram, Twitter, Amazon). Avec le **Disney Vault**, nous allons créer un gestionnaire de collection des Grands Classiques d'animation, et surtout, apprendre à filtrer les données pour générer des vues dynamiques (ex: l'onglet des "Films Manquants").
 
@@ -343,3 +347,12 @@ _Transformer une vulgaire `List` en une galerie de cartes nécessite simplement 
 > Si structurer et afficher les données locales vous paraît dompté, il est l'heure de nous pencher sur un nouveau mystère technologique : la Persistance sur Disque. Rendez-vous dans le laboratoire des Idle Games : Hero Tap Clicker !
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

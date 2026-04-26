@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="à éditer">
+        <meta name="description" content="VBoxManage — L'interface en ligne de commande complète de VirtualBox. Automatisez la création, la gestion et le contrôle de vos machines virtuelles sans interface graphique.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>VboxManage - OmnyDocs</title>
+        <title>VBoxManage — VirtualBox en Ligne de Commande - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vboxmanage" class="md-skip">
+        <a href="#vboxmanage-virtualbox-en-ligne-de-commande" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              VboxManage
+              VBoxManage — VirtualBox en Ligne de Commande
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1190,6 +1188,89 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#commandes-fondamentales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commandes Fondamentales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commandes Fondamentales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lister-les-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lister les VMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demarrer-et-arreter-une-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Démarrer et arrêter une VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion des Snapshots
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creer-une-vm-complete-par-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer une VM Complète par Script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfert-de-fichiers-et-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfert de Fichiers et Port Forwarding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1211,16 +1292,177 @@
                 
                   
 
-<h1 id="vboxmanage">VboxManage<a class="headerlink" href="#vboxmanage" title="Permanent link">&para;</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<h1 id="vboxmanage-virtualbox-en-ligne-de-commande">VBoxManage — VirtualBox en Ligne de Commande<a class="headerlink" href="#vboxmanage-virtualbox-en-ligne-de-commande" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 Débutant & 🟡 Intermédiaire"
-  data-version="0"
-  data-time="??-?? minutes">
+  data-level="🟡 Intermédiaire"
+  data-version="7.x"
+  data-time="~20 minutes">
 </div>
 </p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique — Le Cockpit vs les Commandes Radio</p>
+<p>Utiliser l'interface graphique VirtualBox, c'est piloter depuis le cockpit avec les boutons et jauges visibles. <strong>VBoxManage</strong>, c'est piloter par commandes radio : plus rapide, scriptable, et surtout utilisable depuis un serveur sans interface graphique (headless).</p>
+<p>Un administrateur système qui déploie 10 VMs identiques ne va pas cliquer 200 fois dans l'interface. Il écrit un script <code>vboxmanage</code> de 30 lignes, l'exécute, et revient 5 minutes plus tard avec 10 VMs prêtes.</p>
+</div>
+<p><code>VBoxManage</code> est l'outil CLI officiel de VirtualBox. Il expose <strong>100% des fonctionnalités</strong> de l'interface graphique — et davantage. Indispensable pour l'automatisation, les serveurs headless et l'intégration avec des outils comme <strong>Vagrant</strong>.</p>
+<p><br></p>
+<hr />
+<h2 id="commandes-fondamentales">Commandes Fondamentales<a class="headerlink" href="#commandes-fondamentales" title="Permanent link">&para;</a></h2>
+<h3 id="lister-les-vms">Lister les VMs<a class="headerlink" href="#lister-les-vms" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Inventaire des machines virtuelles</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Toutes les VMs enregistrées</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>VBoxManage<span class="w"> </span>list<span class="w"> </span>vms
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># VMs actuellement en cours d&#39;exécution</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>VBoxManage<span class="w"> </span>list<span class="w"> </span>runningvms
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Exemple de sortie :</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># &quot;Ubuntu-24.04-Server&quot; {a1b2c3d4-e5f6-...}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># &quot;Kali-Linux-2024&quot; {f6e5d4c3-b2a1-...}</span>
+</span></code></pre></div>
+<h3 id="demarrer-et-arreter-une-vm">Démarrer et arrêter une VM<a class="headerlink" href="#demarrer-et-arreter-une-vm" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Contrôle du cycle de vie</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Démarrer avec interface graphique</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>VBoxManage<span class="w"> </span>startvm<span class="w"> </span><span class="s2">&quot;Ubuntu-24.04-Server&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Démarrer en mode headless (sans fenêtre — pour les serveurs)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>VBoxManage<span class="w"> </span>startvm<span class="w"> </span><span class="s2">&quot;Ubuntu-24.04-Server&quot;</span><span class="w"> </span>--type<span class="w"> </span>headless
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Arrêt propre (équivalent du bouton d&#39;extinction)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>VBoxManage<span class="w"> </span>controlvm<span class="w"> </span><span class="s2">&quot;Ubuntu-24.04-Server&quot;</span><span class="w"> </span>acpipowerbutton
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Arrêt forcé (= débrancher la prise)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>VBoxManage<span class="w"> </span>controlvm<span class="w"> </span><span class="s2">&quot;Ubuntu-24.04-Server&quot;</span><span class="w"> </span>poweroff
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Suspendre (pause)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>VBoxManage<span class="w"> </span>controlvm<span class="w"> </span><span class="s2">&quot;Ubuntu-24.04-Server&quot;</span><span class="w"> </span>savestate
+</span></code></pre></div>
+<h3 id="gestion-des-snapshots">Gestion des Snapshots<a class="headerlink" href="#gestion-des-snapshots" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Snapshots en ligne de commande</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Créer un snapshot</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>VBoxManage<span class="w"> </span>snapshot<span class="w"> </span><span class="s2">&quot;Kali-Linux-2024&quot;</span><span class="w"> </span>take<span class="w"> </span><span class="s2">&quot;avant-lab-metasploit&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--description<span class="w"> </span><span class="s2">&quot;VM propre avant exercice Metasploit&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Lister les snapshots d&#39;une VM</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>VBoxManage<span class="w"> </span>snapshot<span class="w"> </span><span class="s2">&quot;Kali-Linux-2024&quot;</span><span class="w"> </span>list
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># Restaurer un snapshot (la VM doit être éteinte)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>VBoxManage<span class="w"> </span>snapshot<span class="w"> </span><span class="s2">&quot;Kali-Linux-2024&quot;</span><span class="w"> </span>restore<span class="w"> </span><span class="s2">&quot;avant-lab-metasploit&quot;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Supprimer un snapshot (libère l&#39;espace disque)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>VBoxManage<span class="w"> </span>snapshot<span class="w"> </span><span class="s2">&quot;Kali-Linux-2024&quot;</span><span class="w"> </span>delete<span class="w"> </span><span class="s2">&quot;avant-lab-metasploit&quot;</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="creer-une-vm-complete-par-script">Créer une VM Complète par Script<a class="headerlink" href="#creer-une-vm-complete-par-script" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><span class="filename">Script de création d&#x27;une VM Ubuntu Server</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">VM_NAME</span><span class="o">=</span><span class="s2">&quot;Ubuntu-24.04-Server&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nv">ISO</span><span class="o">=</span><span class="s2">&quot;/path/to/ubuntu-24.04-server.iso&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">DISK</span><span class="o">=</span><span class="s2">&quot;/path/to/vms/</span><span class="si">${</span><span class="nv">VM_NAME</span><span class="si">}</span><span class="s2">.vdi&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># 1. Créer et enregistrer la VM</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>VBoxManage<span class="w"> </span>createvm<span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VM_NAME</span><span class="s2">&quot;</span><span class="w"> </span>--ostype<span class="w"> </span><span class="s2">&quot;Ubuntu_64&quot;</span><span class="w"> </span>--register
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># 2. Configurer CPU et RAM</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>VBoxManage<span class="w"> </span>modifyvm<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VM_NAME</span><span class="s2">&quot;</span><span class="w"> </span>--cpus<span class="w"> </span><span class="m">2</span><span class="w"> </span>--memory<span class="w"> </span><span class="m">2048</span><span class="w"> </span>--vram<span class="w"> </span><span class="m">16</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1"># 3. Configurer le réseau (NAT)</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>VBoxManage<span class="w"> </span>modifyvm<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VM_NAME</span><span class="s2">&quot;</span><span class="w"> </span>--nic1<span class="w"> </span>nat
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1"># 4. Créer le disque dur (20 Go, dynamique)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>VBoxManage<span class="w"> </span>createhd<span class="w"> </span>--filename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DISK</span><span class="s2">&quot;</span><span class="w"> </span>--size<span class="w"> </span><span class="m">20480</span><span class="w"> </span>--format<span class="w"> </span>VDI
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="c1"># 5. Attacher un contrôleur SATA et le disque</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>VBoxManage<span class="w"> </span>storagectl<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VM_NAME</span><span class="s2">&quot;</span><span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;SATA Controller&quot;</span><span class="w"> </span>--add<span class="w"> </span>sata
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>VBoxManage<span class="w"> </span>storageattach<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VM_NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">  </span>--storagectl<span class="w"> </span><span class="s2">&quot;SATA Controller&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">0</span><span class="w"> </span>--device<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">  </span>--type<span class="w"> </span>hdd<span class="w"> </span>--medium<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DISK</span><span class="s2">&quot;</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="c1"># 6. Attacher l&#39;ISO d&#39;installation</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>VBoxManage<span class="w"> </span>storagectl<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VM_NAME</span><span class="s2">&quot;</span><span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;IDE Controller&quot;</span><span class="w"> </span>--add<span class="w"> </span>ide
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>VBoxManage<span class="w"> </span>storageattach<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VM_NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">  </span>--storagectl<span class="w"> </span><span class="s2">&quot;IDE Controller&quot;</span><span class="w"> </span>--port<span class="w"> </span><span class="m">0</span><span class="w"> </span>--device<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">  </span>--type<span class="w"> </span>dvddrive<span class="w"> </span>--medium<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ISO</span><span class="s2">&quot;</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="c1"># 7. Démarrer</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>VBoxManage<span class="w"> </span>startvm<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VM_NAME</span><span class="s2">&quot;</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;VM </span><span class="nv">$VM_NAME</span><span class="s2"> démarrée !&quot;</span>
+</span></code></pre></div>
+<p><em>Ce script est le point de départ d'une infrastructure automatisée. <strong>Vagrant</strong> abstrait exactement ce niveau de commandes pour vous permettre de décrire vos VMs en Ruby (Vagrantfile) sans écrire vous-même les appels <code>VBoxManage</code>.</em></p>
+<p><br></p>
+<hr />
+<h2 id="transfert-de-fichiers-et-port-forwarding">Transfert de Fichiers et Port Forwarding<a class="headerlink" href="#transfert-de-fichiers-et-port-forwarding" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><span class="filename">Rediriger un port de l&#x27;hôte vers la VM</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Rediriger le port 2222 de l&#39;hôte vers le port 22 (SSH) de la VM</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>VBoxManage<span class="w"> </span>modifyvm<span class="w"> </span><span class="s2">&quot;Ubuntu-24.04-Server&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--natpf1<span class="w"> </span><span class="s2">&quot;ssh,tcp,,2222,,22&quot;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Connexion SSH depuis l&#39;hôte vers la VM</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>user@localhost
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p><code>VBoxManage</code> transforme VirtualBox d'un outil graphique en <strong>plateforme de virtualisation scriptable</strong>. Dès que vous devez gérer plus de 2 VMs, créer des labs reproductibles, ou automatiser des opérations de maintenance, la ligne de commande devient indispensable. La maîtrise de <code>VBoxManage</code> est également le premier pas vers la compréhension de <strong>Vagrant</strong>, qui en est l'abstraction de haut niveau.</p>
+</div>
+<blockquote>
+<p><a href=".././vagrant/">Vagrant — Automatiser la création d'environnements de développement →</a></p>
+</blockquote>
 
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VIRTUALISATION</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VIRTUALBOX</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CLI</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">AUTOMATISATION</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VBOXMANAGE</span>
+      
+    
+  </nav>
 
 
 

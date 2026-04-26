@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://omnydocs.netlify.app/sys-reseau/storage/amanda/">
       
       
-        <link rel="prev" href="../backup-pra/">
+        <link rel="prev" href="../backup-pra.md">
       
       
         <link rel="next" href="../../supervision/">
@@ -564,6 +564,8 @@
       
         
           
+        
+      
         
       
         
@@ -1765,11 +1767,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../backup-pra/" class="md-nav__link">
+      <a href="../backup-pra.md" class="md-nav__link">
         
   
-  
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
   
   <span class="md-ellipsis">
     
@@ -1930,6 +1930,17 @@
       
         <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Conclusion
@@ -2539,10 +2550,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2707,6 +2714,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2780,6 +2798,10 @@
 </div>
 </p>
 <div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>La gestion du stockage (RAID, LVM) et des sauvegardes fonctionne comme la gestion financière d'une entreprise. Le RAID est une assurance contre les pannes matérielles du quotidien (un serveur qui tombe), tandis qu'une sauvegarde hors-ligne (Amanda) est votre coffre-fort dans une banque distante en cas d'incendie majeur.</em></p>
+</div>
+<div class="admonition quote">
 <p class="admonition-title">Gérer les sauvegardes à l'échelle</p>
 <p><em>Si vous avez 2 serveurs, vous pouvez utiliser un simple script Bash avec la commande <code>rsync</code> pour copier les fichiers toutes les nuits. Mais si vous avez 500 serveurs (Linux, Solaris, Windows), gérant des bases de données immenses, vous avez besoin d'un "Maître des Sauvegardes" centralisé. C'est le rôle de solutions massives (et coûteuses) comme Veeam ou Bacula. <strong>Amanda</strong> est l'alternative open-source historique issue du monde de la recherche universitaire.</em></p>
 </div>
@@ -2813,6 +2835,16 @@ La charge réseau est ainsi parfaitement lissée.</p>
 <p>Amanda utilise par défaut les outils standard UNIX : <code>tar</code> (Tape Archive) et <code>dump</code>. Si votre serveur Amanda explose, vous pouvez physiquement prendre la bande magnétique, la brancher sur n'importe quel ordinateur Linux du monde, et utiliser une simple commande <code>tar -xvf</code> pour récupérer vos données, sans avoir besoin de réinstaller Amanda. C'est l'essence même de l'archivage à long terme (Pérennité).</p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <p>Bien qu'Amanda soit vue aujourd'hui comme une technologie "historique" (les entreprises modernes se tournant vers Veeam, Rubrik ou Proxmox Backup Server), elle reste l'un des meilleurs exemples de conception logicielle résiliente, conçue spécifiquement pour maximiser la capacité des médias physiques (Bandes LTO) tout en utilisant des formats universels durables.</p>
+<p><br></p>
+<hr />
+<h2 id="conclusion_1">Conclusion<a class="headerlink" href="#conclusion_1" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>La résilience des données (RAID, sauvegardes) est le filet de sécurité ultime de l'entreprise face aux ransomwares et aux défaillances matérielles. Souvenez-vous : une sauvegarde non testée n'est qu'une illusion de sécurité.</p>
+</div>
+<blockquote>
+<p><a href="../../">Retourner à l'index →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >
@@ -2911,7 +2943,7 @@ La charge réseau est ainsi parfaitement lissée.</p>
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../backup-pra/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Sauvegarde &amp; PRA">
+          <a href="../backup-pra.md" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Sauvegarde &amp; PRA">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>

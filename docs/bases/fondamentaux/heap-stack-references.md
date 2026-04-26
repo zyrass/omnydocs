@@ -488,6 +488,9 @@ def exemple_nettoyage():
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ces notions fondamentales sur heap stack references sont essentielles pour la suite de votre parcours. Consolidez ces acquis théoriques par la pratique avant de passer aux modules spécialisés (Cybersécurité, Infrastructure ou Développement).
+
 !!! quote "Conclusion"
     _La gestion mémoire, c'est comme apprendre à conduire : au début on y pense consciemment à chaque manoeuvre, puis ça devient un réflexe. L'objectif n'est pas de tout mémoriser, mais de comprendre la logique — le reste vient avec la pratique._
 

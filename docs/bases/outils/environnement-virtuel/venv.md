@@ -728,6 +728,9 @@ pip install -r requirements.txt
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    L'outil venv est un compagnon quotidien dans la vie d'un professionnel de l'IT. Sa maîtrise ne s'acquiert pas en le lisant, mais par une pratique constante. Automatisez au maximum son utilisation pour qu'il devienne une seconde nature.
+
 !!! quote "Conclusion"
     _L'environnement virtuel est la première décision à prendre avant d'écrire la moindre ligne de code Python. Ce n'est pas une option avancée réservée aux projets complexes — c'est la pratique de base qui évite des heures de débogage liées à des conflits de versions. venv est inclus dans Python, sans installation supplémentaire, et suffit pour la grande majorité des projets. Le fichier requirements.txt est l'artefact central : il matérialise les dépendances du projet, garantit la reproductibilité et documente l'environnement. Commiter requirements.txt, ignorer .venv, activer l'environnement avant toute commande pip — ces trois réflexes suffisent à maintenir un environnement Python propre et reproductible._
 

@@ -13,6 +13,10 @@ tags: ["ANGULAR", "UI", "HUD", "ANIMATIONS", "GAME-DEV"]
   data-time="4h - 5h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Sécuriser une API avec Sanctum s'apparente à donner un jeton d'accès temporaire à un livreur. Au lieu de lui donner les clés de la maison (authentification de session), vous lui donnez un badge qui ne permet d'ouvrir que la porte du garage, et qui peut être révoqué à tout moment._
+
 ## Objectif de la Phase
 
 > Un jeu nécessite une interface très spécifique (HUD). Fini les tableaux Material de Jetstream, nous allons créer une interface sombre, immersive, inspirée des RPG classiques. Nous aborderons la création de l'écran de sélection de classe, du "Village" (hub central), et surtout de l'écran de "Combat" avec ses barres de Points de Vie (HP/MP) dynamiques et le journal des événements (Combat Logs) en autoscroll.
@@ -258,3 +262,14 @@ Le jeu possède désormais une interface digne d'un RPG classique :
 - ✅ Le journal de combat retranscrit l'action calculée par le backend.
 
 Dans la **Phase 6**, nous lierons l'intelligence de ces interfaces avec la vraie logique de l'API grâce au `GameStateService` basé sur les Signals.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La conception des endpoints REST doit anticiper les besoins du client dès le début : filtrage, pagination, tri, et inclusion conditionnelle de relations (`?include=posts`). Laravel API Resources permettent de versionner ces structures sans casser les clients existants. Un endpoint mal versionnéest la source numéro un de conflits lors des montées de version.
+
+> [API REST structurée. Implementez maintenant les fonctionnalités avancées (upload, exports) →](./06-phase6.md)

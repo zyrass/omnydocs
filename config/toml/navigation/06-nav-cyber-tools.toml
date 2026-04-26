@@ -53,6 +53,7 @@
 
       # 1. Fondations & Cycle de vie
       {"Phases d'un Pentest"    = "cyber/tools/methodology/pentest-phases.md"},    # De la reconnaissance au reporting
+      {"Comparatif des OS Cyber" = "cyber/tools/os-cyber.md"},                     # Kali, Parrot, BlackArch, CommandoVM
 
       # 2. Cadres Analytiques & Stratégie
       {"MITRE ATT&CK"           = "cyber/tools/methodology/mitre-attack.md"},      # Taxonomie mondiale des tactiques
@@ -169,7 +170,14 @@
       # 5. Exploitation Active Directory (Mouvement Latéral)
       {"CrackMapExec"     = "cyber/tools/network/cme.md"},           # Exploitation multi-protocoles (SMB, WinRM)
       {"Impacket"         = "cyber/tools/network/impacket.md"},      # PtH, PtT, DCSync, Kerberoasting
-      {"BloodHound (AD)"  = "cyber/tools/network/bloodhound.md"}     # Cartographie des chemins d'escalade AD
+      {"BloodHound (AD)"  = "cyber/tools/network/bloodhound.md"},    # Cartographie des chemins d'escalade AD
+
+      # 6. Évasion & Infrastructure Red Team
+      {"pfSense (Attaques)" = "cyber/tools/network/pfsense.md"},     # Contournement de pare-feu
+      {"OpenVPN (Bypass)"   = "cyber/tools/network/openvpn.md"},     # Tunnels chiffrés et exfiltration
+      {"HAProxy (Fronting)" = "cyber/tools/network/haproxy.md"},     # Reverse proxying et Domain Fronting
+      {"OpenSSH (Tunnels)"  = "cyber/tools/network/openssh.md"},     # Tunnels locaux, distants et dynamiques
+      {"OpenClient"         = "cyber/tools/network/openclient.md"}   # Clients d'accès distants
     ]},
 
     # ========================================================================
@@ -227,8 +235,9 @@
       {"Nuclei"              = "cyber/tools/web/nuclei.md"},         # Templates YAML (CVE, misconfigs, exposures)
       {"sqlmap"              = "cyber/tools/web/sqlmap.md"},         # Exploitation SQLi automatisée
 
-      # 4. Cadres Théoriques
-      {"Fuzzing (général)"   = "cyber/tools/web/fuzzing.md"}         # Méthodologies de fuzzing applicatif
+      # 4. Cadres Théoriques & Pratique
+      {"Fuzzing (général)"   = "cyber/tools/web/fuzzing.md"},        # Méthodologies de fuzzing applicatif
+      {"DVWA & Plateformes"  = "cyber/tools/web/dvwa.md"}            # Laboratoire d'entraînement vulnérable
     ]},
 
     # ========================================================================
@@ -349,7 +358,8 @@
 
       # 3. Évaluation & Recommandations
       {"Sévérités (CVSS) & Priorisation" = "cyber/tools/reporting/cvss.md"},              # Scoring et hiérarchisation
-      {"Recommandations & Correctifs"     = "cyber/tools/reporting/remediation.md"}        # Plan de remédiation
+      {"Recommandations & Correctifs"     = "cyber/tools/reporting/remediation.md"},        # Plan de remédiation
+      {"Dradis Framework"                 = "cyber/tools/reporting/dradis.md"}             # Centralisation des rapports
     ]}
 
   ]},

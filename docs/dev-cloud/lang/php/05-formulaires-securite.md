@@ -1781,3 +1781,14 @@ Voilà le **Module 5 - Formulaires & Sécurité Web complet** (10-12 heures de c
 Le Module 5 PHP est terminé ! La sécurité web est maintenant SOLIDE. C'était le module le plus CRITIQUE de la formation.
 
 Veux-tu que je continue avec le **Module 6 - Sessions & Authentification** ? (sessions complètes, password hashing bcrypt/Argon2, remember me sécurisé, session hijacking/fixation, 2FA, logout sécurisé)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

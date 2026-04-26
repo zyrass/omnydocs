@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # ER Diagram (modèle de données)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     L'ER diagram formalise un modèle relationnel : tables, relations et cardinalités. Il permet de vérifier la cohérence du schéma, d'anticiper l'intégrité référentielle, et d'aligner équipe dev, DBA et sécurité sur une même représentation.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -45,6 +57,15 @@ erDiagram
 ```
 
 _Ce schéma modélise un **SI**[^1] minimal : utilisateurs, contenus et commentaires avec leurs relations._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

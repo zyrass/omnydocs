@@ -1126,3 +1126,14 @@ Le **Module 5** vous apprendra à **construire l'interface utilisateur** avec La
 [^4]: **Tinker** : REPL (Read-Eval-Print Loop) interactif Laravel créé par Taylor Otwell. Permet d'exécuter code PHP dans contexte application. Utile pour tester modèles, requêtes Eloquent, explorer relations. Accessible via `php artisan tinker`. Alternative rapide aux tests manuels.
 
 [^5]: **Blueprint** : Classe Laravel utilisée dans migrations pour définir structure table. Fournit méthodes fluides pour créer colonnes (`string()`, `text()`, `boolean()`, etc.). Génère SQL approprié pour BDD cible (MySQL, PostgreSQL, SQLite). Permet modifiers (`nullable()`, `default()`, `unique()`).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La TALL stack (Tailwind, Alpine, Laravel, Livewire) offre une alternative puissante aux SPAs (Single Page Applications) lourdes en JavaScript. Elle permet de construire des interfaces réactives tout en gardant la logique métier solidement ancrée côté serveur.
+
+> [Retourner à l'index TALL →](../index.md)

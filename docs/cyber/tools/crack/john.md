@@ -169,19 +169,3 @@ John the Ripper est fondamentalement limité par l'architecture des processeurs 
     1. Dans un contexte de Red Team, casser le hash d'un autre administrateur permet un mouvement latéral furtif (réutilisation de mot de passe sur d'autres serveurs).
     2. Ne partagez jamais un fichier `.pot` (le cache de mots de passe cassés de John) avec un tiers non autorisé, il contient les secrets industriels de vos clients en clair.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    John the Ripper (Jumbo) est le roi de la polyvalence. Ses scripts d'extraction (`zip2john`, `ssh2john`) sont indispensables dans toute opération de récupération de données. Il est l'outil parfait pour un pentester en déplacement sur un ordinateur portable pour casser rapidement des mots de passe simples.
-
-> Mais que se passe-t-il si le client utilise une stratégie de mots de passe robuste de 12 caractères complexes hachés avec le standard NTLM de Windows ? Le processeur de votre PC portable va fondre avant de terminer le calcul. Il est temps de passer à l'arme lourde, le logiciel qui fait rugir les cartes graphiques et consomme des milliers de Watts : **[Hashcat →](./hashcat.md)**.
-
-
-
-
-
-

@@ -1589,3 +1589,14 @@ Le **Module 6** vous apprendra à **ajouter la réactivité côté serveur** ave
 [^6]: **Method Spoofing** : Technique Laravel simulant méthodes HTTP non supportées par HTML (PUT, PATCH, DELETE). Formulaire HTML limité à GET/POST. Solution : `@method('DELETE')` génère `<input type="hidden" name="_method" value="DELETE">`. Laravel lit ce champ et traite requête comme vrai DELETE.
 
 [^7]: **Helper old()** : Fonction Laravel conservant valeurs formulaire après redirection (erreur validation). Usage : `value="{{ old('title') }}"`. Récupère données de session flash. Évite frustration utilisateur devant retaper formulaire complet après erreur. Améliore significativement UX.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La TALL stack (Tailwind, Alpine, Laravel, Livewire) offre une alternative puissante aux SPAs (Single Page Applications) lourdes en JavaScript. Elle permet de construire des interfaces réactives tout en gardant la logique métier solidement ancrée côté serveur.
+
+> [Retourner à l'index TALL →](../index.md)

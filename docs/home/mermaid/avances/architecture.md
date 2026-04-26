@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # Architecture Diagram (composants)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     Le diagramme Architecture sert à représenter des composants et leurs relations (groupes, services). C'est pertinent pour une vue SOC, une plateforme SI, ou une architecture applicative distribuée, avec une lecture claire des zones et des flux entre composants.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -267,6 +279,15 @@ architecture-beta
 ```
 
 _Icônes AWS[^6] via Iconify et Font Awesome — rendu à valider selon le support Zensical._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

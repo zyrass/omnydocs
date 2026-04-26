@@ -162,21 +162,3 @@ sudo reaver -i wlan0mon -b 00:11:22:33:44:55 -c 6 -N -d 3 -vv
     
     Vérifiez toujours si l'audit autorise des actions pouvant impacter la disponibilité de la production du client.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Aujourd'hui, l'immense majorité des équipements professionnels (Cisco, Aruba) n'ont plus le protocole WPS d'activé. Cependant, lors d'un audit d'une PME, d'une boutique physique ou du "télétravail" d'un dirigeant, le routeur fourni par l'opérateur local a souvent le WPS activé par défaut. Reaver et Bully restent donc des armes fatales (et paresseuses) pour contourner la politique de mot de passe forte dictée par la DSI, via la porte de derrière.
-
-> Vous savez attaquer les clés pour tout le monde (WPA-PSK), mais comment auditer les réseaux d'Entreprise, où chaque employé possède un compte et un mot de passe différent pour le WiFi (WPA-Enterprise) ? Entrez dans le monde des attaques "Evil Twin" avec **[hostapd-wpe →](./hostapd-wpe.md)**.
-
-<br>
-
-
-
-
-
-

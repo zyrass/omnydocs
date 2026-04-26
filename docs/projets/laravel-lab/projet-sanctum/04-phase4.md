@@ -13,6 +13,10 @@ tags: ["ANGULAR", "SIGNALS", "LOCALSTORAGE", "BEARER", "INTERCEPTOR"]
   data-time="1h30 - 2h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Sécuriser une API avec Sanctum s'apparente à donner un jeton d'accès temporaire à un livreur. Au lieu de lui donner les clés de la maison (authentification de session), vous lui donnez un badge qui ne permet d'ouvrir que la porte du garage, et qui peut être révoqué à tout moment._
+
 ## Objectif de la Phase
 
 > L'API backend est fonctionnelle. Nous allons maintenant créer l'interface client de notre jeu avec **Angular 21**. À la différence de Jetstream, l'authentification est ici gérée par des **Personal Access Tokens**. Nous devons donc construire un service capable de stocker ces tokens de manière sécurisée (LocalStorage) et un intercepteur HTTP chargé de les injecter automatiquement dans chaque requête vers le backend sous la forme d'un en-tête `Authorization: Bearer <token>`.
@@ -249,3 +253,14 @@ L'architecture client Stateless est prête :
 - ✅ **Guards conditionnels** prêts à protéger les écrans de jeu.
 
 Dans la **Phase 5**, nous allons concevoir l'interface graphique de notre jeu : la création de personnage, l'affichage du joueur (HUD, HP/MP), et l'écran de combat !
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Un token Sanctum n'est pas infaillible : il peut être volé, exposé dans les logs ou partagé. Les bonnes pratiques de sécurité incluent une expiration courte (`tokenExpiresIn`), la révocation à la déconnexion, et la limitation des permissions par token (`can('read-posts')`). Un token root non expirant exposé accidentellement est une catastrophe.
+
+> [Sécurité des tokens maîtrisée. Construisez maintenant les endpoints REST de l'application →](./05-phase5.md)

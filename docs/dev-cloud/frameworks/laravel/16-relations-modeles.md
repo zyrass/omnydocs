@@ -161,3 +161,14 @@ De la même manière, si vous avez des dépendances croisées, listez les. `Post
 ## Conclusion 
 
 Le modèle est maintenant une architecture riche d'objets inter-connectés très facilement via l'Orienté Objet pur sans écriture brutale en code SQL. Le système devient ludique. Ne manque plus qu'à ce système des données à traiter, ce qui nous emmène dans une logique d'hydratation de test par Seeders.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les relations Eloquent sont le cœur du modèle de données Laravel. Un `User` qui `hasMany(Post::class)` ou un `Post` qui `belongsTo(User::class)` : ces déclarations semblent simples, mais elles évitent des dizaines de JOINs SQL manuels. La clé de la performance reste le chargement anticipé (`with()`) pour éviter le piège classique du problème N+1.
+
+> [Relations comprises. Peuplez maintenant vos bases de données avec les factories et seeders →](./17-factory-seeder-scopes.md)

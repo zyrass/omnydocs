@@ -12,6 +12,10 @@ tags: ["SECNUMCLOUD", "HDS", "PCI DSS", "NIST", "CERTIFICATIONS"]
   data-time="8-10 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Les référentiels techniques (CIS, NIST) sont comme des check-lists de pilotes d'avion. Même le meilleur ingénieur les utilise avant chaque mise en production pour s'assurer de ne rien oublier d'essentiel._
+
 ## Introduction
 
 **Les référentiels et certifications** représentent la **couche opérationnelle** du paysage de conformité. Ils traduisent les obligations des réglementations européennes (**RGPD**, **NIS2**, **DORA**) et les recommandations des autorités françaises (**ANSSI**, **CNIL**) en **exigences vérifiables**, permettant d'auditer, certifier ou qualifier les organisations et les services.
@@ -104,4 +108,13 @@ _Les référentiels opérationnels forment le pont entre les obligations légale
 
 > Les fiches suivantes détaillent le périmètre, les exigences, les processus de certification et les liens avec les obligations légales pour chaque référentiel.
 
-<br />
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Un référentiel sectoriel comme SecNumCloud ou HDS n'est pas une option pour les acteurs concernés — c'est une exigence contractuelle ou légale. Pour les autres, NIST CSF reste la boussole de choix pour structurer une démarche de cybersécurité rigoureuse, même sans obligation formelle. Choisir son référentiel, c'est définir le niveau d'ambition de sa maturité cyber.
+
+> [Explorez maintenant les normes ISO qui sous-tendent ces référentiels →](../isos/)

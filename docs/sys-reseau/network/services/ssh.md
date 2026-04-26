@@ -13,6 +13,10 @@ tags: ["SSH", "OPENSSH", "RESEAU", "SECURITE", "CRYPTOGRAPHIE"]
   data-time="25 - 35 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Les services réseaux (DNS, FTP, SSH) sont comme les différents guichets spécialisés d'une grande entreprise. Le DNS est l'accueil qui indique où se trouve chaque bureau, SSH est l'entrée de service hyper-sécurisée pour la maintenance, et FTP est le quai de chargement des marchandises. Chaque guichet mal surveillé est une opportunité d'intrusion._
+
 !!! quote "La ligne de vie de l'Ops"
     _Avant SSH (Secure Shell), les administrateurs utilisaient `Telnet` pour se connecter à distance à leurs serveurs. Le problème ? Telnet envoyait les mots de passe "en clair" sur le réseau. Si vous étiez sur le même Wi-Fi, vous pouviez intercepter le mot de passe root avec `tcpdump`. **SSH** (Port 22) a révolutionné cela en chiffrant l'intégralité de la communication de bout en bout._
 
@@ -124,3 +128,14 @@ sftp admin@192.168.1.50
 ## Conclusion
 
 L'outil SSH est probablement l'outil le plus critique de l'Internet moderne. S'il est mal configuré (mot de passe faible, accès root autorisé, faille non patchée), il offre au pirate la récompense absolue : un accès administrateur distant en ligne de commande. Le durcissement de `sshd_config` est la règle numéro 1 de tout déploiement en production.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Chaque service exposé est un vecteur d'attaque potentiel. La configuration sécurisée des services fondamentaux (DNS, SSH, Samba) est la première et souvent la plus critique ligne de défense de l'infrastructure.
+
+> [Retourner à l'index Réseau →](../index.md)

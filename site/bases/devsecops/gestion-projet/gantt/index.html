@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Document en cours de rédaction">
+        <meta name="description" content="Diagramme de Gantt — Comprendre, créer et lire un planning de projet sous forme de Gantt. Outil de planification temporelle indispensable pour la gestion de projet.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Gantt - OmnyDocs</title>
+        <title>Diagramme de Gantt — La Carte Temporelle du Projet - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gantt" class="md-skip">
+        <a href="#diagramme-de-gantt-la-carte-temporelle-du-projet" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gantt
+              Diagramme de Gantt — La Carte Temporelle du Projet
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1173,6 +1171,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creer-un-gantt-avec-mermaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer un Gantt avec Mermaid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntaxe-mermaid-pour-les-gantt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntaxe Mermaid pour les Gantt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gantt-vs-kanban-quand-utiliser-quoi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gantt vs Kanban — Quand Utiliser Quoi ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1192,20 +1253,201 @@
                 
                   
 
-<h1 id="gantt">Gantt<a class="headerlink" href="#gantt" title="Permanent link">&para;</a></h1>
+<h1 id="diagramme-de-gantt-la-carte-temporelle-du-projet">Diagramme de Gantt — La Carte Temporelle du Projet<a class="headerlink" href="#diagramme-de-gantt-la-carte-temporelle-du-projet" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 En construction"
-  data-version="1.0"
-  data-time="Bientôt disponible">
+  data-level="🟢 Débutant"
+  data-version="2024"
+  data-time="~15 minutes">
 </div>
 </p>
-<div class="admonition info">
-<p class="admonition-title">Article en cours de rédaction</p>
-<p>Le contenu détaillé de cette page est actuellement en cours de rédaction. Il sera publié lors des prochaines mises à jour d'OmnyDocs.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique — Le Plan de Vol</p>
+<p>Quand un avion décolle de Paris pour New York, le pilote ne consulte pas sa carte toutes les 5 minutes. Il a planifié le vol au sol : route, durée, altitude, carburant, escales d'urgence. Le <strong>Gantt</strong>, c'est le plan de vol de votre projet : qui fait quoi, quand, pour combien de temps, et quelles tâches bloquent les autres.</p>
+<p>Développé par Henry Gantt en 1910, ce diagramme reste, plus d'un siècle plus tard, l'outil de planification le plus lisible qui existe pour un projet à plusieurs phases et plusieurs acteurs.</p>
 </div>
-<p><br /></p>
+<p>Un diagramme de Gantt représente les tâches d'un projet sur un <strong>axe temporel horizontal</strong>. La durée d'une barre = la durée de la tâche. Les dépendances (une tâche qui ne peut commencer qu'après une autre) sont représentées par des flèches ou par l'enchaînement des barres.</p>
+<p><br></p>
+<hr />
+<h2 id="creer-un-gantt-avec-mermaid">Créer un Gantt avec Mermaid<a class="headerlink" href="#creer-un-gantt-avec-mermaid" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>gantt
+    title Projet de Développement — Application Web
+    dateFormat YYYY-MM-DD
+    excludes weekends
 
+    section Phase 1 : Cadrage
+        Analyse des besoins       :done,    p1t1, 2026-04-01, 3d
+        Maquettes et wireframes   :done,    p1t2, after p1t1, 4d
+        Validation client         :active,  p1t3, after p1t2, 2d
+
+    section Phase 2 : Développement Backend
+        Installation Laravel      :         p2t1, after p1t3, 1d
+        Base de données           :         p2t2, after p2t1, 5d
+        API REST + Auth           :         p2t3, after p2t2, 8d
+
+    section Phase 3 : Frontend
+        Intégration HTML/CSS      :         p3t1, after p1t3, 6d
+        Composants Angular        :         p3t2, after p3t1, 7d
+        Connexion API → Frontend  :         p3t3, after p2t3, 4d
+
+    section Phase 4 : Déploiement
+        Tests et QA               :crit,    p4t1, after p3t3, 5d
+        Déploiement production    :crit,    p4t2, after p4t1, 2d</code></pre>
+<p><em>Le chemin critique (:crit) identifie les tâches qui, si elles prennent du retard, <strong>retardent l'ensemble du projet</strong>. C'est la priorité absolue du chef de projet.</em></p>
+<p><br></p>
+<hr />
+<h2 id="syntaxe-mermaid-pour-les-gantt">Syntaxe Mermaid pour les Gantt<a class="headerlink" href="#syntaxe-mermaid-pour-les-gantt" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>gantt
+    dateFormat YYYY-MM-DD
+    title Syntaxe de référence
+
+    section Section 1
+        Tâche terminée       :done,   t1, 2026-01-01, 5d
+        Tâche active         :active, t2, after t1, 3d
+        Tâche critique       :crit,   t3, after t2, 4d
+        Tâche standard       :        t4, after t3, 2d
+        Milestone (jalon)    :milestone, m1, 2026-01-20, 0d</code></pre>
+<table>
+<thead>
+<tr>
+<th>Marqueur</th>
+<th>Signification</th>
+<th>Couleur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:done,</code></td>
+<td>Tâche terminée</td>
+<td>Vert foncé</td>
+</tr>
+<tr>
+<td><code>:active,</code></td>
+<td>En cours</td>
+<td>Bleu</td>
+</tr>
+<tr>
+<td><code>:crit,</code></td>
+<td>Chemin critique</td>
+<td>Rouge</td>
+</tr>
+<tr>
+<td><code>:milestone,</code></td>
+<td>Jalon (point de contrôle)</td>
+<td>Losange</td>
+</tr>
+<tr>
+<td><em>(sans marqueur)</em></td>
+<td>Planifiée</td>
+<td>Bleu clair</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="gantt-vs-kanban-quand-utiliser-quoi">Gantt vs Kanban — Quand Utiliser Quoi ?<a class="headerlink" href="#gantt-vs-kanban-quand-utiliser-quoi" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Gantt</th>
+<th>Kanban</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Idéal pour</strong></td>
+<td>Projets avec dates fixes, jalons contractuels</td>
+<td>Flux de travail continu, maintenance</td>
+</tr>
+<tr>
+<td><strong>Visibilité</strong></td>
+<td>Temporelle (qui fait quoi quand)</td>
+<td>État du travail (ce qui est en cours)</td>
+</tr>
+<tr>
+<td><strong>Flexibilité</strong></td>
+<td>Faible (le planning est figé)</td>
+<td>Haute (priorités changeantes)</td>
+</tr>
+<tr>
+<td><strong>Taille d'équipe</strong></td>
+<td>5+ personnes, phases distinctes</td>
+<td>1 à 10 personnes</td>
+</tr>
+<tr>
+<td><strong>Usage typique</strong></td>
+<td>Projet client, refonte complète</td>
+<td>Développement produit continu</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Le Gantt n'est pas un outil de contrôle — c'est un outil de <strong>communication</strong>. Il aligne en un seul visuel le client, le chef de projet et l'équipe sur les priorités, les dépendances et les dates clés. Sur les projets complexes avec des dépendances entre équipes (frontend qui attend le backend, QA qui attend le développement), le Gantt est irremplaçable pour identifier les blocages avant qu'ils surviennent.</p>
+</div>
+<blockquote>
+<p><a href=".././">Retour à la Gestion de Projet →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GESTION PROJET</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GANTT</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PLANIFICATION</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">MERMAID</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PLANNING</span>
+      
+    
+  </nav>
 
 
 

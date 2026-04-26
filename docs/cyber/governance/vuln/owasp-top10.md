@@ -394,3 +394,14 @@ flowchart LR
 [^3]: Un **SBOM** (*Software Bill of Materials*, ou Nomenclature des composants logiciels) est une liste exhaustive de tous les composants logiciels d'une application — bibliothèques, frameworks, dépendances tierces — avec leurs versions. Il permet d'identifier rapidement si l'application est affectée par une CVE publiée sur l'un de ses composants.
 [^4]: Un **JWT** (*JSON Web Token*) est un standard ouvert (RFC 7519) pour créer des tokens d'accès qui peuvent contenir des claims (affirmations sur l'utilisateur). En sécurité applicative, les JWT mal implémentés peuvent permettre des attaques (algorithme `none`, secret faible, absence de validation de l'expiration).
 [^5]: La **désérialisation** est le processus inverse de la sérialisation : convertir des données formatées (JSON, XML, format binaire propriétaire) en objets applicatifs. La désérialisation non sécurisée permet à un attaquant de créer des objets malveillants qui, une fois désérialisés par l'application, exécutent du code arbitraire.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
+
+> [Retour à l'index →](./index.md)

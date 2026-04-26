@@ -45,3 +45,12 @@ tags: ["RAPPORT", "JEST", "JAVASCRIPT", "FORMATION", "TESTS"]
 | CI/CD GitHub Actions + Jest | ✅ Module 05 |
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

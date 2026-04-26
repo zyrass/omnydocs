@@ -165,19 +165,3 @@ else:
     1. **IP Spoofing** : Forger un paquet en faisant croire qu'il vient de l'adresse IP de votre patron au lieu de la vôtre est de l'usurpation d'identité numérique. Si ce paquet interagit avec un pare-feu ou un serveur pour contourner une sécurité (ex: *"Laisse-moi passer, je viens de l'IP du patron"*), il s'agit d'une tentative d'accès frauduleux dans un STAD (Article 323-1 du Code pénal).
     2. Les outils "bas niveau" comme Scapy sont l'équivalent cyber de porter une cagoule et de changer ses empreintes digitales. Toute utilisation hors du laboratoire ou hors mandat écrit strict est considérée comme ayant une intention résolument hostile par les autorités compétentes.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Scapy est à l'ingénieur réseau ce que le bistouri est au chirurgien. Ce n'est pas un outil de force brute, c'est l'outil de l'intelligence réseau. Il requiert une excellente compréhension théorique du modèle OSI (Savoir ce qu'est un flag PSH/ACK, savoir comment marche l'ICMP), mais il permet, en retour, de réaliser des tests de sécurité qu'absolument aucun autre outil grand public ne peut accomplir de manière aussi personnalisée.
-
-> Maintenant que nous avons validé la base du réseau (Scans, Ports, Paquets), il faut identifier logiquement les machines (Leurs Noms de Domaines) pour les attaquer. C'est le rôle de la **[Suite de diagnostic DNS →](./dns/index.md)**.
-
-
-
-
-
-

@@ -524,6 +524,9 @@ timedatectl status
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Les notions abordées autour de modele tcp sont le système nerveux de l'informatique moderne. Sans une maîtrise parfaite de ces protocoles et modèles, le dépannage de problèmes d'infrastructure ou la sécurisation de communications restent de pures suppositions.
+
 !!! quote "Conclusion"
     _Le modèle TCP/IP est l'architecture qui fait fonctionner Internet depuis plus de cinquante ans. Ses quatre couches découpent la complexité d'une communication réseau en périmètres indépendants et interchangeables — changer l'implémentation de la couche Accès réseau (passer d'Ethernet à Wi-Fi) ne modifie pas le comportement des couches supérieures. Comprendre l'encapsulation — comment une donnée HTTP devient un segment TCP, un paquet IP, une trame Ethernet, puis une suite de bits — est indispensable pour lire une capture Wireshark, diagnostiquer une panne réseau ou comprendre pourquoi une attaque de couche 2 peut intercepter du trafic HTTPS. L'adressage IP, le routage et le NAT sont les mécanismes qui permettent à des milliards d'hôtes de se trouver et de communiquer. IPv6 résout structurellement les limites d'IPv4 — sa maîtrise devient incontournable._
 

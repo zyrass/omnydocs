@@ -978,3 +978,13 @@ Le **CLUSIF** produit des guides pratiques qui **facilitent l'application concr�
 
 ---
 
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La CNIL n'est pas seulement un organe de sanction, c'est aussi un guide pour la conformité. Intégrer ses recommandations dès la conception d'un projet permet d'éviter des redressements coûteux et de bâtir une relation de confiance avec les utilisateurs.
+
+> [Comprendre le RGPD →](../reglementations/rgpd.md)

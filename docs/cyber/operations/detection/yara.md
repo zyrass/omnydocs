@@ -306,5 +306,3 @@ fi
     YARA est l'outil qui transforme une analyse de malware en **connaissance réutilisable**. Chaque malware analysé devient une règle qui protège contre toutes ses futures variantes. La clé d'une bonne règle YARA est l'**équilibre** : assez spécifique pour ne pas matcher des fichiers légitimes, assez générique pour attraper les variantes de la même famille. Les modules YARA (`pe`, `elf`, `math`) permettent d'aller encore plus loin dans la précision.
 
 > Passez au cours **[Sigma →](./sigma.md)** pour apprendre l'équivalent de YARA, mais pour les événements de logs — le format universel qui unifie la détection dans tous les SIEM.
-
-<br>

@@ -125,19 +125,3 @@ Le serveur répondra avec le nom complet et l'adresse IP de la machine critique 
 | ✅ **À FAIRE** | **L'utiliser en "One-Liner" dans les scripts** | Si vous êtes sur Windows et devez scripter une résolution, vous pouvez utiliser la syntaxe en une ligne (identique à Linux) : `nslookup -type=TXT omnyvia.com 8.8.8.8` |
 | ❌ **À NE PAS FAIRE** | **Utiliser nslookup sous Linux pour l'OSINT** | Si vous avez accès à votre machine Kali Linux (et donc à `dig` ou `host`), laissez `nslookup` tranquille. Ses réponses sont souvent bruitées (il affiche des informations sur votre propre connexion réseau avant de donner la réponse), ce qui le rend insupportable à nettoyer avec `grep` ou `awk`. |
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    `nslookup` est comme un couteau à beurre. Moins tranchant et moins précis qu'un scalpel (`dig`), il compense par sa disponibilité totale. Vous le trouverez installé sur absolument tous les systèmes Microsoft Windows depuis 1993, ce qui en fait un allié indéboulonnable des missions de piratage en réseau interne.
-
-> Si vous êtes sous Linux et que `dig` vous paraît trop complexe car vous voulez juste obtenir une adresse IP le plus rapidement et silencieusement possible pour vos scripts Bash, le petit utilitaire **[host →](./host.md)** est fait pour vous.
-
-
-
-
-
-

@@ -116,6 +116,13 @@ Route::prefix('admin')
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-Le circuit est fermé, les données sont redirigées avec accusé de réception ou conditionnées, et le visiteur reste bloqué s'il va trop vite dans des URL protégées par vos groupes. L'achèvement du Module 2 requiert une évaluation des acquis.
+!!! quote "Ce qu'il faut retenir"
+    Le système de routage Laravel est déclaratif et composable. Les groupes de routes, les préfixes, les middlewares et les namespaces permettent de définir des règles transversales à l'échelle de l'application sans répétition. C'est la fondation sur laquelle repose toute la lisibilité de l'architecture.
+
+> [Routing avancé maîtrisé. Consolidez vos acquis avec le module de pratique →](./09-pratique-et-bilan.md)

@@ -1664,3 +1664,14 @@ J'ai créé le **Module 11 - Traits** (6-8 heures) qui couvre exhaustivement les
 Tu as maintenant maîtrisé les traits ! Tu sais quand les utiliser, comment résoudre les conflits, et comment éviter les anti-patterns. Les traits sont un outil puissant pour la réutilisation de code sans les contraintes de l'héritage.
 
 Veux-tu que je continue avec le **Module 12 - Exceptions** ? (try/catch/finally, hiérarchie exceptions PHP, exceptions personnalisées, best practices gestion erreurs, Exception vs Error, logging)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

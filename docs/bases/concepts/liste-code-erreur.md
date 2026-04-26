@@ -880,6 +880,9 @@ flowchart LR
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise du concept de liste code erreur est un pilier de l'informatique fondamentale. Au-delà de la syntaxe technique, c'est cette compréhension théorique qui différencie un simple technicien d'un véritable ingénieur capable de concevoir des systèmes robustes et maintenables.
+
 !!! quote "Conclusion"
     _Les codes de statut HTTP constituent le langage universel de communication entre systèmes. Leur utilisation correcte transforme des APIs opaques en interfaces prévisibles et déboguables. Leur mauvaise utilisation crée des expériences utilisateur frustrantes et des bugs difficiles à diagnostiquer. Choisir le bon code de statut n'est pas un détail cosmétique — c'est une décision architecturale qui impacte la robustesse, la maintenabilité et l'expérience développeur de l'API. Un code 400 au lieu de 422 peut casser la logique de retry d'un client. Un code 500 au lieu de 503 peut déclencher des alertes inutiles. Maîtriser ces codes, les utiliser avec précision, c'est faire de ses APIs des modèles de clarté et de fiabilité._
 

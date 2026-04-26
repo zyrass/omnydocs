@@ -1987,3 +1987,14 @@ J'ai créé le **Module 16 - Testing & Quality Assurance** (12-15 heures), le v�
 **FÉLICITATIONS EXCEPTIONNELLES ! 🏆🎉🚀**
 
 Besoin d'aide pour structurer tes cours de formation, créer du matériel pédagogique, ou développer un projet concret utilisant ces compétences ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

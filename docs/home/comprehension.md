@@ -149,18 +149,11 @@ Les parcours présentés ci-dessus sont résumés dans le tableau suivant pour f
 
 ## Conclusion
 
-Une progression cohérente repose toujours sur un socle technique solide. **La spécialisation précoce reste le principal facteur d'échec dans les parcours cybersécurité** : elle crée des angles morts qui se révèlent coûteux à combler plus tard.
+!!! quote "Ce qu'il faut retenir"
+    Une progression cohérente repose toujours sur un socle technique solide. **La spécialisation précoce reste le principal facteur d'échec dans les parcours cybersécurité** : elle crée des angles morts qui se révèlent coûteux à combler plus tard. Notre recommandation absolue est de consolider les Fondamentaux IT avant toute spécialisation.
 
-!!! tip "Notre recommandation : commencer ou consolider les **Fondamentaux IT** avant toute spécialisation, quelle qu'elle soit."
+> [Consulter la Matrice de compétences →](./competences/matrice.md)
+> [Consulter la Heatmap →](./competences/heatmap.md)
+> [Consulter le Diagramme radar →](./competences/radar.md)
 
-<br />
-
----
-
-Pour visualiser précisément les niveaux de maîtrise attendus par domaine, consultez :
-
-- la [Matrice de compétences](./competences/matrice.md)
-- la [Heatmap de compétences](./competences/heatmap.md)
-- le [Diagramme radar des compétences](./competences/radar.md)
-
-<br />
+<br>

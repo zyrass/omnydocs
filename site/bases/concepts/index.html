@@ -6,11 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Cette documentation a pour vocation d'explorer et de transmettre les concepts fondamentaux de l'informatique à travers
-une approche claire, structurée et progressive. Elle couvre un large spectre de domaines — du développement web à
-l'administration système, en passant par la cybersécurité et le DevSecOps — afin d'offrir à chacun les bases nécessaires
-pour comprendre, apprendre et construire des solutions numériques solides et sécurisées.
-">
+        <meta name="description" content="Prérequis — Les concepts fondamentaux de l'informatique à maîtriser avant d'aborder le développement ou la cybersécurité : binaire, réseau, OS, protocoles.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -29,7 +25,7 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
     
     
       
-        <title>Index - OmnyDocs</title>
+        <title>Concepts Fondamentaux — Avant de Coder - OmnyDocs</title>
       
     
     
@@ -138,7 +134,7 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#concepts-fondamentaux-avant-de-coder" class="md-skip">
           Aller au contenu
         </a>
       
@@ -193,7 +189,7 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Concepts Fondamentaux — Avant de Coder
             
           </span>
         </div>
@@ -562,6 +558,8 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
         
           
+        
+      
         
       
         
@@ -1093,10 +1091,6 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1174,6 +1168,8 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1186,6 +1182,89 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
     <span class="md-ellipsis">
       
         Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-binaire-et-la-representation-des-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Binaire et la Représentation des Données
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-reseau-la-boite-aux-lettres-universelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Réseau — La Boîte aux Lettres Universelle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le Réseau — La Boîte aux Lettres Universelle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ladresse-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'adresse IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les Ports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp-vs-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP vs UDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-systeme-dexploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Système d'Exploitation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -1213,20 +1292,247 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
                 
                   
 
-  <h1 id="__skip">Index</h1>
-
-<hr />
-<p>description: "à éditer"</p>
-<hr />
-<p># Concepts</p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<h1 id="concepts-fondamentaux-avant-de-coder">Concepts Fondamentaux — Avant de Coder<a class="headerlink" href="#concepts-fondamentaux-avant-de-coder" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 Débutant & 🟡 Intermédiaire"
-  data-version="0"
-  data-time="??-?? minutes">
+  data-level="🟢 Débutant"
+  data-version="2024"
+  data-time="~30 minutes">
 </div>
 </p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique — Les Fondations de la Maison</p>
+<p>On ne construit pas un gratte-ciel sur du sable. En informatique, la tentation est grande de commencer directement par le code, les frameworks et les outils — c'est le "sable". <strong>Les fondations</strong>, ce sont les concepts qui ne changent jamais : comment fonctionne un ordinateur, comment les données circulent sur un réseau, comment un système d'exploitation gère les ressources.</p>
+<p>Un développeur qui ne comprend pas pourquoi <code>127.0.0.1</code> est l'adresse de sa propre machine, ou ce qu'est un port réseau, sera bloqué au premier problème de déploiement. Ces concepts ne prennent que quelques heures à comprendre — et ils servent à vie.</p>
+</div>
+<p><br></p>
+<hr />
+<h2 id="le-binaire-et-la-representation-des-donnees">Le Binaire et la Représentation des Données<a class="headerlink" href="#le-binaire-et-la-representation-des-donnees" title="Permanent link">&para;</a></h2>
+<p>Tout en informatique est, au niveau le plus bas, des <strong>bits</strong> (0 ou 1). Un <strong>octet (byte)</strong> = 8 bits. Tout le reste est une convention humaine construite par-dessus.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["🔌 Électricité\n(0V / 5V)"] --&gt; B["💾 Bit\n(0 ou 1)"]
+    B --&gt; C["📦 Octet\n(8 bits)"]
+    C --&gt; D["🔤 Caractère\n(ASCII / UTF-8)"]
+    D --&gt; E["📝 Fichier\n(suite d'octets)"]
+    E --&gt; F["💿 Disque\n(milliards d'octets)"]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Unité</th>
+<th>Équivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 bit</td>
+<td>0 ou 1</td>
+</tr>
+<tr>
+<td>1 octet (byte)</td>
+<td>8 bits</td>
+</tr>
+<tr>
+<td>1 Ko (kilooctet)</td>
+<td>1 024 octets</td>
+</tr>
+<tr>
+<td>1 Mo (mégaoctet)</td>
+<td>1 024 Ko</td>
+</tr>
+<tr>
+<td>1 Go (gigaoctet)</td>
+<td>1 024 Mo</td>
+</tr>
+<tr>
+<td>1 To (téraoctet)</td>
+<td>1 024 Go</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="le-reseau-la-boite-aux-lettres-universelle">Le Réseau — La Boîte aux Lettres Universelle<a class="headerlink" href="#le-reseau-la-boite-aux-lettres-universelle" title="Permanent link">&para;</a></h2>
+<h3 id="ladresse-ip">L'adresse IP<a class="headerlink" href="#ladresse-ip" title="Permanent link">&para;</a></h3>
+<p>Une <strong>adresse IP</strong> est l'identifiant unique d'une machine sur un réseau. En IPv4 : 4 nombres de 0 à 255 séparés par des points (<code>192.168.1.10</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Adresse</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>127.0.0.1</code></td>
+<td>Votre propre machine (loopback)</td>
+</tr>
+<tr>
+<td><code>192.168.x.x</code></td>
+<td>Réseau local privé (chez vous ou au bureau)</td>
+</tr>
+<tr>
+<td><code>10.x.x.x</code></td>
+<td>Réseau privé d'entreprise</td>
+</tr>
+<tr>
+<td><code>8.8.8.8</code></td>
+<td>Serveur DNS public de Google</td>
+</tr>
+</tbody>
+</table>
+<h3 id="les-ports">Les Ports<a class="headerlink" href="#les-ports" title="Permanent link">&para;</a></h3>
+<p>Un <strong>port</strong> est un canal de communication sur une même machine. L'adresse IP identifie la machine, le port identifie le service.</p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Protocole / Service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>22</code></td>
+<td>SSH (accès distant sécurisé)</td>
+</tr>
+<tr>
+<td><code>80</code></td>
+<td>HTTP (web non sécurisé)</td>
+</tr>
+<tr>
+<td><code>443</code></td>
+<td>HTTPS (web sécurisé TLS)</td>
+</tr>
+<tr>
+<td><code>3306</code></td>
+<td>MySQL (base de données)</td>
+</tr>
+<tr>
+<td><code>5432</code></td>
+<td>PostgreSQL</td>
+</tr>
+<tr>
+<td><code>6379</code></td>
+<td>Redis</td>
+</tr>
+<tr>
+<td><code>8080</code></td>
+<td>HTTP alternatif (développement)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Retenir les ports critiques</p>
+<p>En développement, vous utiliserez quasi quotidiennement : <strong>22</strong> (SSH serveur), <strong>80/443</strong> (Nginx/Apache), <strong>3306</strong> (MySQL), <strong>8000</strong> (serveur de développement Laravel), <strong>5173</strong> (Vite/Vue.js). Les connaître évite de chercher à chaque fois.</p>
+</div>
+<h3 id="tcp-vs-udp">TCP vs UDP<a class="headerlink" href="#tcp-vs-udp" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant C as Client
+    participant S as Serveur
+
+    rect rgb(209, 231, 221)
+        Note over C,S: TCP — Connexion garantie (Web, SSH, BDD)
+        C-&gt;&gt;S: SYN (Je veux me connecter)
+        S-&gt;&gt;C: SYN-ACK (OK, je t'accepte)
+        C-&gt;&gt;S: ACK (Reçu !)
+        Note over C,S: Échange de données garanti et ordonné
+    end</code></pre>
+<ul>
+<li><strong>TCP</strong> : Garantit la livraison dans l'ordre. Utilisé pour le Web, SSH, les bases de données. Plus lent.</li>
+<li><strong>UDP</strong> : Pas de garantie. Utilisé pour le streaming vidéo, les jeux en ligne, DNS. Plus rapide.</li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="le-systeme-dexploitation">Le Système d'Exploitation<a class="headerlink" href="#le-systeme-dexploitation" title="Permanent link">&para;</a></h2>
+<p>Un <strong>OS</strong> (Operating System) est l'intermédiaire entre le matériel (CPU, RAM, disques) et les applications. Il gère :</p>
+<ul>
+<li><strong>Les processus</strong> : Chaque programme en cours d'exécution</li>
+<li><strong>La mémoire</strong> : Allocation et isolation de la RAM entre processus</li>
+<li><strong>Le système de fichiers</strong> : Organisation des données sur disque</li>
+<li><strong>Les périphériques</strong> : Clavier, réseau, GPU via les drivers</li>
+</ul>
+<pre class="mermaid"><code>flowchart TB
+    APP["Applications\n(Navigateur, VS Code, votre code)"]
+    OS["Système d'Exploitation\n(Windows, Linux, macOS)"]
+    HW["Matériel\n(CPU, RAM, Disque, Réseau)"]
+
+    APP --&gt;|"Appels système (syscalls)"| OS
+    OS --&gt;|"Instructions bas niveau"| HW</code></pre>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Ces concepts ne sont pas des prérequis académiques — ce sont des outils de débogage. Quand votre application refuse de se connecter à la base de données, vous saurez vérifier si le port 3306 est ouvert. Quand votre serveur est lent, vous saurez différencier un problème de CPU (processus) d'un problème d'I/O (disque). Ces fondations transforment les erreurs mystérieuses en problèmes diagnosticables.</p>
+</div>
+<blockquote>
+<p><a href="../outils/">Découvrez les outils essentiels du développeur →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BASES</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">FONDAMENTAUX</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BINAIRE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">RÉSEAU</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">OS</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PRÉREQUIS</span>
+      
+    
+  </nav>
 
 
 
@@ -1235,6 +1541,8 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
 
 
 
+  
+  
 
 
 

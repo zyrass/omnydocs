@@ -13,6 +13,10 @@ tags: ["JETSTREAM", "API", "REST", "JSON", "RESOURCES"]
   data-time="3h - 4h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Si Breeze est une serrure de maison individuelle, Jetstream est le système de sécurité d'un immeuble de bureaux complet. Il gère non seulement les badges d'accès (authentification), mais aussi les droits par étage (rôles), les équipes (locataires) et la sécurité renforcée (2FA)._
+
 ## Objectif de la Phase
 
 > Notre base de données et notre logique métier sont prêtes. Il est temps de les exposer au monde extérieur (notamment à notre future Single Page Application Angular) via une **API RESTful**. Nous allons construire des endpoints standardisés, implémenter une validation stricte des données entrantes, et utiliser les **API Resources** de Laravel pour formater les réponses JSON de manière sécurisée et uniforme.
@@ -224,3 +228,14 @@ L'API REST est désormais opérationnelle :
 - ✅ **Upload de fichiers sensibles** sur S3 géré.
 
 Dans la **Phase 4**, nous allons basculer côté Frontend pour initialiser notre projet **Angular 21** et mettre en place la gestion d'état moderne basée sur les **Signals**.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La logique métier d'une application de Pentest management est complexe par nature : planification de missions, attribution de pentesteurs, gestion des vulnérabilités découvertes. La clé architecturale reste la même : chaque opération complexe vit dans un Service dédié, jamais dans le contrôleur.
+
+> [Logique métier posée. Sécurisez maintenant l'API avec l'authentification Sanctum et les policies →](./04-phase4.md)

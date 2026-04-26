@@ -1378,3 +1378,14 @@ J'ai créé le **Module 8 - Introduction à la POO** (8-10 heures) qui lance la 
 La formation progresse parfaitement ! Tu as maintenant les fondations POO solides.
 
 Veux-tu que je continue avec le **Module 9 - Héritage & Polymorphisme** ? (extends, parent, surcharge, classes abstraites, hiérarchies, composition vs héritage)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

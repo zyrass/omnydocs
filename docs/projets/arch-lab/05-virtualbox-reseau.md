@@ -1276,3 +1276,13 @@ Avant de passer au Module 6, assurez-vous d'avoir compris ces concepts fondament
 [^3]: **Internal Network** : réseau virtuel totalement isolé simulant un switch physique. Les VMs communiquent entre elles sans aucun accès à l'hôte ni à Internet. Idéal pour simuler un LAN d'entreprise.
 [^4]: **nmcli (NetworkManager Command Line Interface)** : outil en ligne de commande pour gérer NetworkManager sous Linux. Permet de créer, modifier et activer des connexions réseau sans interface graphique.
 
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'architecture logicielle et système demande une vision globale. Les décisions prises lors de cette phase auront un impact déterminant sur la maintenabilité, les coûts et la sécurité du projet sur les prochaines années.
+
+> [Passer à la phase suivante →](../index.md)

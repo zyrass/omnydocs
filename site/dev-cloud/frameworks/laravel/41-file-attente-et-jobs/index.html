@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -3599,6 +3601,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5888,10 +5901,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -5994,6 +6003,17 @@
     <span class="md-ellipsis">
       
         2. Le Job et le Background Processing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -6134,6 +6154,16 @@
 </span></code></pre></div>
 <p>Pour que ce job soit géré, le Serveur lui devra lancer un deamon d'écoute (Un programme infini tournant sur votre Linux VPS Cloud), <code>php artisan queue:work</code> afin qu'il dépile la base de donnée "jobs" dans laquelle votre Front envoi des informations. Cela demande souvent des configurations comme Supervisor ou Redis, que nous aborderons dans les cours d'Infrastructure ! </p>
 <p>Il existe un paquet pour voir toutes les executions en temps réel du terminal, sur un très joli dashboard en noir : <strong>Laravel Horizon</strong> (<code>composer require laravel/horizon</code>). A tester absolument en développement Local ou Production.</p>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Les queues sont le levier de performance le plus impactant d'une application Laravel en production. Chaque opération qui n'a pas besoin d'un résultat immédiat pour l'utilisateur — envoi d'email, traitement d'image, génération de PDF, appel d'API externe — doit être déportée en file d'attente. C'est la différence entre une application qui répond en 200ms et une qui fait attendre l'utilisateur 3 secondes.</p>
+</div>
+<blockquote>
+<p><a href=".././42-api-et-sanctum/">Queues maîtrisées. Exposez maintenant votre application via une API Sanctum →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >

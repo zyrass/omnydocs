@@ -4419,3 +4419,14 @@ Malgré les différences philosophiques, **convergence croissante** :
 [^5]: **GLBA** est la loi américaine qui oblige les **institutions financières** à protéger **les données personnelles** de leurs clients en imposant des règles de **confidentialité**, de **transparence** et de **sécurité**, notamment via le **Safeguards Rule**.
 [^6]: L’**Executive Order 14028**, signé par le Président **Biden** en 2021, impose un **renforcement majeur de la cybersécurité fédérale** américaine en exigeant le **_zero-trust_***, la sécurisation de la **supply chain logicielle**, une meilleure **détection** des incidents et l’adoption systématique de bonnes pratiques comme les SBOM.
 [^7]: **CIRCIA** est la loi américaine qui oblige les entreprises opérant des infrastructures critiques à **déclarer rapidement** leurs incidents de cybersécurité majeurs et **tout paiement lié à un ransomware**, afin d’améliorer la réponse nationale et le partage d’informations.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le framework NIST CSF n'est pas une simple liste de contrôles, c'est un langage commun. Ses cinq fonctions (Identifier, Protéger, Détecter, Répondre, Récupérer) permettent de structurer la posture de sécurité d'une organisation de manière compréhensible, tant pour les ingénieurs que pour le comité de direction.
+
+> [Poursuivre vers les normes ISO →](../isos/)

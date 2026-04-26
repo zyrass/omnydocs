@@ -72,3 +72,14 @@ class ProcessNewPost implements ShouldQueue
 Pour que ce job soit géré, le Serveur lui devra lancer un deamon d'écoute (Un programme infini tournant sur votre Linux VPS Cloud), `php artisan queue:work` afin qu'il dépile la base de donnée "jobs" dans laquelle votre Front envoi des informations. Cela demande souvent des configurations comme Supervisor ou Redis, que nous aborderons dans les cours d'Infrastructure ! 
 
 Il existe un paquet pour voir toutes les executions en temps réel du terminal, sur un très joli dashboard en noir : **Laravel Horizon** (`composer require laravel/horizon`). A tester absolument en développement Local ou Production.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les queues sont le levier de performance le plus impactant d'une application Laravel en production. Chaque opération qui n'a pas besoin d'un résultat immédiat pour l'utilisateur — envoi d'email, traitement d'image, génération de PDF, appel d'API externe — doit être déportée en file d'attente. C'est la différence entre une application qui répond en 200ms et une qui fait attendre l'utilisateur 3 secondes.
+
+> [Queues maîtrisées. Exposez maintenant votre application via une API Sanctum →](./42-api-et-sanctum.md)

@@ -14,6 +14,10 @@ status: stable
   data-time="1h00">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "Le Défi du Client"
     "C'est parfait, l'image héros attire l'œil. Mais le client doit tout de suite comprendre ce que l'on vend. Nous voulons nos 3 piliers (Design, Développement, Marketing) clairement affichés côte à côte sur ordinateur, mais mis les uns sous les autres sur un téléphone."
 
@@ -186,3 +190,14 @@ Si la Grid est le chef d'orchestre, la Card est le musicien. Nous devons lui don
 **Félicitations.** Vous venez de valider que la Grid est idéale pour les **patterns réguliers**. Dans la phase suivante, nous affronterons le Portfolio et le Footer final, nécessitant l'utilisation du **CSS Object-Fit** pour détruire le cauchemar des images distordues.
 
 [Passer à la Phase 5 : Portfolio & Résolution Finale →](phase5.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

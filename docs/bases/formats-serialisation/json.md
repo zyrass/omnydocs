@@ -747,6 +747,9 @@ const donnees = JSON.parse(userInput);
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Le format JSON est un standard incontournable de l'échange de données. Savoir le lire, le structurer et l'analyser est une compétence transversale absolument vitale, que ce soit en développement, en administration système ou en analyse de logs cybersécurité.
+
 !!! quote "Conclusion"
     _JSON est devenu le langage universel de l'échange de données sur le web moderne. Sa syntaxe simple cache une puissance réelle pour représenter des structures complexes de manière lisible et interopérable. Comprendre ses six types, ses règles strictes et ses limites — pas de commentaires, pas de dates natives, pas de types binaires — c'est comprendre pourquoi il est partout et comment l'utiliser sans se faire piéger._
 

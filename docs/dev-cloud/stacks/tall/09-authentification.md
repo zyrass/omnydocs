@@ -1289,3 +1289,14 @@ php artisan migrate
 [^7]: **Sessions Laravel** : Stockage état utilisateur entre requêtes HTTP. Drivers : file (défaut), database, redis, memcached. Configuration `config/session.php`. Session ID stocké dans cookie httpOnly. Remember me : cookie longue durée. `Auth::logout()` invalide session. Session lifetime configurable (120 min défaut).
 
 [^8]: **CSRF Protection** : Cross-Site Request Forgery, attaque forçant actions non désirées. Laravel génère token unique par session. Formulaires POST/PUT/DELETE nécessitent `@csrf`. Token vérifié par middleware `VerifyCsrfToken`. API exclue CSRF (utilise tokens). SPA : cookie XSRF-TOKEN + header X-XSRF-TOKEN.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La TALL stack (Tailwind, Alpine, Laravel, Livewire) offre une alternative puissante aux SPAs (Single Page Applications) lourdes en JavaScript. Elle permet de construire des interfaces réactives tout en gardant la logique métier solidement ancrée côté serveur.
+
+> [Retourner à l'index TALL →](../index.md)

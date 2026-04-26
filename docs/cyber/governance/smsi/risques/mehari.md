@@ -281,3 +281,14 @@ Le fichier tableur officiel MEHARI est téléchargeable gratuitement sur le site
 
 [^1]: Le **CLUSIF** (*Club de la Sécurité de l'Information Français*) est une association professionnelle française qui rassemble des utilisateurs et des offreurs de produits et services de sécurité. Il publie des guides, des méthodes (dont MEHARI) et des études sectorielles sur la sécurité de l'information.
 [^2]: Le **ROI** (*Return on Investment*, ou Retour sur Investissement) dans le contexte de MEHARI désigne la réduction de risque obtenue pour un investissement en mesure de sécurité donné. La simulation MEHARI permet de comparer le ROI de différentes mesures en calculant leur impact sur les niveaux de risque avant tout investissement réel.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le SMSI (Système de Management de la Sécurité de l'Information) est le moteur de l'amélioration continue en cybersécurité. Il transforme une approche réactive en une stratégie proactive, mesurable et alignée avec la direction.
+
+> [Retour à l'index du SMSI →](../index.md)

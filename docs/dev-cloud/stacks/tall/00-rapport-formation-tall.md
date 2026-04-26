@@ -82,3 +82,12 @@ tags: ["RAPPORT", "TALL", "TAILWIND", "ALPINE", "LARAVEL", "LIVEWIRE"]
 - Envisager **Module 12 : Queues & Jobs** (notifications asynchrones)
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La TALL stack (Tailwind, Alpine, Laravel, Livewire) offre une alternative puissante aux SPAs (Single Page Applications) lourdes en JavaScript. Elle permet de construire des interfaces réactives tout en gardant la logique métier solidement ancrée côté serveur.
+
+> [Retourner à l'index TALL →](../index.md)

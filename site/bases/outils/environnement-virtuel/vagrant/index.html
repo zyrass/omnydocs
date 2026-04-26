@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="à éditer">
+        <meta name="description" content="Vagrant — L'outil d'automatisation d'environnements de développement reproductibles. Définissez votre VM en code (Vagrantfile) et partagez-la avec votre équipe.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Vagrant - OmnyDocs</title>
+        <title>Vagrant — L'Environnement de Développement comme du Code - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vagrant" class="md-skip">
+        <a href="#vagrant-lenvironnement-de-developpement-comme-du-code" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vagrant
+              Vagrant — L'Environnement de Développement comme du Code
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1190,6 +1188,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#architecture-vagrant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Vagrant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-vagrantfile-la-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Vagrantfile — La Base
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandes-essentielles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commandes Essentielles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commandes Essentielles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partager-le-vagrantfile-avec-lequipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partager le Vagrantfile avec l'équipe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes Pratiques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1211,16 +1281,214 @@
                 
                   
 
-<h1 id="vagrant">Vagrant<a class="headerlink" href="#vagrant" title="Permanent link">&para;</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<h1 id="vagrant-lenvironnement-de-developpement-comme-du-code">Vagrant — L'Environnement de Développement comme du Code<a class="headerlink" href="#vagrant-lenvironnement-de-developpement-comme-du-code" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 Débutant & 🟡 Intermédiaire"
-  data-version="0"
-  data-time="??-?? minutes">
+  data-level="🟡 Intermédiaire"
+  data-version="2.x"
+  data-time="~25 minutes">
 </div>
 </p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique — La Recette de Cuisine vs le Plat Préparé</p>
+<p>Partager une VM VirtualBox entre collègues, c'est comme envoyer un plat cuisiné par la poste : lourd, fragile, et le résultat change selon qui l'a préparé. <strong>Vagrant</strong>, c'est partager la <strong>recette</strong> (un fichier texte de 20 lignes) : n'importe qui peut recréer exactement le même plat en une commande, n'importe où, n'importe quand.</p>
+<p>Le <code>Vagrantfile</code> est votre recette : il décrit l'OS, la RAM, le réseau, et les logiciels à installer. La commande <code>vagrant up</code> exécute cette recette et livre une VM prête à l'emploi en moins de 5 minutes.</p>
+</div>
+<p>Vagrant est développé par HashiCorp et s'appuie sur des <strong>providers</strong> (VirtualBox, VMware, Hyper-V) et des <strong>provisioners</strong> (Shell, Ansible, Chef) pour livrer des environnements identiques à tous les membres d'une équipe. C'est l'antidote au classique <em>"ça marche sur ma machine"</em>.</p>
+<p><br></p>
+<hr />
+<h2 id="architecture-vagrant">Architecture Vagrant<a class="headerlink" href="#architecture-vagrant" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TD
+    classDef file fill:#fff3cd,stroke:#ffc107,color:#000
+    classDef tool fill:#cce5ff,stroke:#0d6efd,color:#000
+    classDef vm fill:#d1e7dd,stroke:#198754,color:#000
 
+    VF["📄 Vagrantfile\n(la recette en Ruby)"]
+    V["📦 Vagrant CLI"]
+    P["🔧 Provider\n(VirtualBox / VMware)"]
+    PROV["⚙️ Provisioner\n(Shell / Ansible)"]
+    VM["🖥️ VM finale\nprête à l'emploi"]
+
+    VF --&gt;|vagrant up| V
+    V --&gt; P
+    V --&gt; PROV
+    P --&gt; VM
+    PROV --&gt;|Configure l'OS| VM
+
+    class VF file
+    class V,PROV tool
+    class P tool
+    class VM vm</code></pre>
+<p><em><code>vagrant up</code> orchestre tout : télécharger la <strong>box</strong> (image de base), créer la VM dans VirtualBox, appliquer le réseau et le provisioning. Le résultat est déterministe et reproductible.</em></p>
+<p><br></p>
+<hr />
+<h2 id="le-vagrantfile-la-base">Le Vagrantfile — La Base<a class="headerlink" href="#le-vagrantfile-la-base" title="Permanent link">&para;</a></h2>
+<div class="language-ruby highlight"><span class="filename">Vagrantfile — VM de développement Laravel</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="c1"># ── Image de base (box) ──────────────────────────────────────</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="c1"># Chercher des boxes sur https://app.vagrantup.com/boxes/search</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ubuntu/jammy64&quot;</span><span class="w">  </span><span class="c1"># Ubuntu 22.04 LTS</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="c1"># ── Réseau ───────────────────────────────────────────────────</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="c1"># Accéder à l&#39;appli depuis l&#39;hôte sur http://192.168.56.10</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span><span class="w"> </span><span class="s2">&quot;private_network&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">ip</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.56.10&quot;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="c1"># ── Dossier partagé : synchronisation code hôte ↔ VM ─────────</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="c1"># Votre code sur l&#39;hôte = /var/www/html dans la VM</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span><span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/var/www/html&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;virtualbox&quot;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="c1"># ── Ressources VirtualBox ────────────────────────────────────</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span><span class="w"> </span><span class="s2">&quot;virtualbox&quot;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="n">vb</span><span class="o">.</span><span class="n">memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2048&quot;</span><span class="w">  </span><span class="c1"># 2 Go RAM</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="n">vb</span><span class="o">.</span><span class="n">cpus</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="n">vb</span><span class="o">.</span><span class="n">name</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;laravel-dev&quot;</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="k">end</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="c1"># ── Provisioning : installer PHP, Nginx, Composer ────────────</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">inline</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="sh">    apt-get update -qq</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="sh">    apt-get install -y nginx php8.3-fpm php8.3-cli php8.3-mbstring \</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="sh">      php8.3-xml php8.3-curl php8.3-pdo php8.3-mysql composer</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="sh">    # Démarrer les services</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="sh">    systemctl enable nginx php8.3-fpm</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="sh">    systemctl start nginx php8.3-fpm</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="sh">    echo &quot;✅ Environnement Laravel prêt sur http://192.168.56.10&quot;</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="dl">  SHELL</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="k">end</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="commandes-essentielles">Commandes Essentielles<a class="headerlink" href="#commandes-essentielles" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><span class="filename">Cycle de vie d&#x27;une VM Vagrant</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Créer et démarrer la VM (télécharge la box si absente)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>vagrant<span class="w"> </span>up
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Se connecter en SSH (sans connaître l&#39;IP ni les clés)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>vagrant<span class="w"> </span>ssh
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Relancer le provisioning (si vous avez modifié le Vagrantfile)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>vagrant<span class="w"> </span>provision
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Éteindre la VM proprement (état sauvegardé)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>vagrant<span class="w"> </span>halt
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Suspendre (pause — redémarrage très rapide)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>vagrant<span class="w"> </span><span class="nb">suspend</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>vagrant<span class="w"> </span>resume
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1"># Détruire complètement la VM (libère l&#39;espace disque)</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>vagrant<span class="w"> </span>destroy
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="c1"># Voir le statut de toutes les VMs Vagrant</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>vagrant<span class="w"> </span>global-status
+</span></code></pre></div>
+<h3 id="partager-le-vagrantfile-avec-lequipe">Partager le Vagrantfile avec l'équipe<a class="headerlink" href="#partager-le-vagrantfile-avec-lequipe" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Workflow en équipe</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Le développeur 1 crée l&#39;environnement</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>add<span class="w"> </span>Vagrantfile
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: ajouter Vagrantfile pour environnement de dev Laravel&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>git<span class="w"> </span>push
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Le développeur 2 récupère et lance exactement le même environnement</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>git<span class="w"> </span>pull
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>vagrant<span class="w"> </span>up
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># → Même VM, même PHP, même Nginx, même version — garanti.</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="bonnes-pratiques">Bonnes Pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Règle</th>
+<th>Raison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Commiter le Vagrantfile</strong></td>
+<td>C'est le code de l'environnement — il doit être versionné comme le reste</td>
+</tr>
+<tr>
+<td><strong>Ne pas commiter <code>.vagrant/</code></strong></td>
+<td>Ce dossier est local et contient l'état de la VM — ajouter à <code>.gitignore</code></td>
+</tr>
+<tr>
+<td><strong>Utiliser des boxes officielles</strong></td>
+<td><code>ubuntu/jammy64</code>, <code>debian/bookworm64</code> — éviter les boxes communautaires non vérifiées</td>
+</tr>
+<tr>
+<td><strong>Provisioning idempotent</strong></td>
+<td>Votre script shell doit pouvoir s'exécuter plusieurs fois sans erreur</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Vagrant résout le problème numéro un du développement en équipe : <strong>l'environnement variable</strong>. En décrivant l'infrastructure comme du code (IaC) dans un <code>Vagrantfile</code> commité dans Git, vous garantissez que chaque développeur, chaque pipeline CI et chaque serveur de staging travaillent dans <strong>le même environnement</strong>. C'est le fondement de la philosophie DevOps appliquée au poste de développement.</p>
+</div>
+<blockquote>
+<p><a href=".././">Retour aux outils d'environnement virtuel →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VIRTUALISATION</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VAGRANT</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">INFRASTRUCTURE AS CODE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">DEVOPS</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VM</span>
+      
+    
+  </nav>
 
 
 

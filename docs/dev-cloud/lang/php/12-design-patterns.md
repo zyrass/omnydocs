@@ -1644,3 +1644,14 @@ J'ai créé le **Module 12 - Exceptions** (8-10 heures) qui couvre exhaustivemen
 Tu as maintenant maîtrisé la gestion des exceptions ! Tu sais gérer les erreurs gracieusement, créer des hiérarchies d'exceptions personnalisées, et construire des applications robustes qui ne crashent pas brutalement.
 
 Veux-tu que je continue avec le **Module 13 - Namespaces & Autoloading** ? (namespaces, use statement, autoloading PSR-4, Composer, structure projet professionnel, organisation code)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

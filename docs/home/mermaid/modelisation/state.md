@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # State Diagram (cycle de vie)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     Le state diagram est adapté pour représenter un cycle de vie et ses transitions. Il clarifie les états possibles d'un objet (ticket, commande, incident) et les événements déclencheurs. Il est particulièrement utile pour éviter les états implicites ou non gérés dans un workflow.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -30,6 +42,15 @@ stateDiagram-v2
 ```
 
 _Ce schéma décrit un cycle de validation avec retour arrière possible via une demande de modifications._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

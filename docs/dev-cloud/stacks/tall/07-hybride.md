@@ -1409,3 +1409,14 @@ Le **Module 9** vous apprendra à **déployer votre application en production** 
 [^7]: **Alpine Store** : État global Alpine partagé entre composants. Déclaration : `Alpine.store('name', { data, methods })`. Accès : `$store.name.data`. Usage : thème, langue, filtres globaux, communication Alpine ↔ Alpine. Alternative Redux/Vuex pour Alpine. Pas nécessaire pour communication simple Livewire ↔ Alpine.
 
 [^8]: **wire:key** : Directive Livewire identifiant unique élément dans boucles. Syntaxe : `wire:key="task-{{ $task->id }}"`. Performance : O(n) vs O(n²) sans clé. Obligatoire dans `@foreach` pour diff DOM optimal. Équivalent `:key` Vue.js, `key` React. Utilise ID BDD ou identifiant unique stable.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La TALL stack (Tailwind, Alpine, Laravel, Livewire) offre une alternative puissante aux SPAs (Single Page Applications) lourdes en JavaScript. Elle permet de construire des interfaces réactives tout en gardant la logique métier solidement ancrée côté serveur.
+
+> [Retourner à l'index TALL →](../index.md)

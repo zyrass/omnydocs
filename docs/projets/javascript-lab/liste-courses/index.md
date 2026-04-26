@@ -9,8 +9,12 @@ tags: ["JAVASCRIPT", "CRUD", "DOM", "LOCALSTORAGE", "ARRAY"]
   class="omny-meta"
   data-level="🟢 Débutant"
   data-version="1.0"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Avant d'attaquer des applications connectées aux serveurs du monde entier, il faut maîtriser la gestion de données en circuit fermé. Ce projet vous demande de concevoir une liste de courses intelligente : l'utilisateur peut ajouter un article, le rayer (barré), ou le supprimer. Le point crucial ? Si l'on ferme le navigateur, la liste doit réapparaître intacte à la réouverture.
@@ -107,4 +111,15 @@ Ce projet est découpé en 3 phases d'ingénierie stricte.
       <span class="text-gray-700">Je peux fermer le navigateur, le rouvrir, et ma liste est intacte.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

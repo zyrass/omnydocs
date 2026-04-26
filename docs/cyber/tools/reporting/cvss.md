@@ -105,3 +105,14 @@ Le score chiffré est traduit en un mot (Criticité) pour simplifier la communic
     Le CVSS n'est pas parfait, mais c'est le seul langage commun dont dispose l'industrie. Lors d'un test d'intrusion, votre crédibilité en tant qu'expert dépend fortement de votre capacité à attribuer le bon score à vos vulnérabilités. Ne cherchez pas à sur-vendre le danger. Laissez la formule mathématique du CVSS parler pour vous.
 
 > Vous savez maintenant comment structurer un rapport, documenter une faille (PoC) et la noter (CVSS). Mais rédiger un rapport Word de 80 pages à la main est fastidieux, surtout quand on travaille en équipe à plusieurs pentesters. Il est temps de découvrir les environnements de collaboration dédiés à l'écriture de rapports de sécurité : **[Dradis Framework →](./dradis.md)**.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
+
+> [Retour à l'index →](./index.md)

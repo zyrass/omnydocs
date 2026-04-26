@@ -13,6 +13,10 @@ tags: ["CHKROOTKIT", "ROOTKIT", "SECURITE", "LINUX", "COMPROMISSION"]
   data-time="15 - 20 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Le durcissement d'un système Linux est comme la construction des fortifications d'un château. Le pare-feu (UFW) correspond aux douves extérieures, les permissions POSIX (chmod/chown) sont les clés des différentes pièces, et la supervision (Fail2Ban/Lynis) agit comme les gardes effectuant des rondes régulières._
+
 !!! quote "L'ennemi de l'intérieur"
     _Un **Rootkit** est le pire cauchemar d'un administrateur système. C'est un ensemble de logiciels malveillants dont le but est d'obtenir des privilèges "root", puis de modifier le cœur même du système d'exploitation (le noyau ou des commandes de base comme `ls`, `ps` ou `netstat`) pour se rendre totalement invisible. Un pirate équipé d'un rootkit peut ouvrir des portes dérobées, masquer ses fichiers et ses processus : l'OS ment ouvertement à l'administrateur._
 
@@ -104,3 +108,14 @@ Vous ne pouvez pas vous contenter de "supprimer le rootkit" avec un antivirus, c
 ## Conclusion
 
 L'utilisation de Chkrootkit est souvent la dernière étape d'un audit de sécurité. S'il ne trouve rien, vous pouvez être raisonnablement serein sur l'intégrité de votre socle système. Cependant, pour qu'il soit vraiment efficace, il faudrait l'exécuter depuis un CD Live ou une clé USB saine, car un rootkit très avancé pourrait même berner `chkrootkit` s'il est exécuté depuis le système déjà infecté.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Sécuriser un système Linux exige une approche en couches : du pare-feu avec UFW à la détection d'intrusions avec Fail2Ban, en passant par un durcissement régulier. Aucun outil de sécurité ne remplace une bonne configuration de base.
+
+> [Retourner à l'index Linux →](../index.md)

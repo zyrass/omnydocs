@@ -754,3 +754,14 @@ La production de guides via groupes de travail suit un **processus rigoureux** (
 - **Adresse** : 11 rue de Mogador, 75009 Paris
 
 ---
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

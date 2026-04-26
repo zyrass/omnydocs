@@ -962,3 +962,14 @@ Le **Module 2** vous accompagnera dans la mise en place complète de votre envir
 [^4]: **SPA (Single Page Application)** : Application web qui charge une seule page HTML et met à jour dynamiquement le contenu sans rechargement complet. React, Vue, Angular créent des SPA par défaut. Avantages : navigation fluide, UX rapide après chargement initial. Inconvénients : premier chargement lent (gros bundle JS), SEO complexe, état client difficile à gérer.
 
 [^5]: **MVC (Model-View-Controller)** : Pattern architectural séparant application en 3 couches : Modèle (données/BDD), Vue (présentation HTML), Contrôleur (logique métier). Laravel implémente MVC avec Eloquent (Modèle), Blade (Vue), Controllers (Contrôleur). Livewire utilise une variante avec Composants qui fusionnent Controller + Vue.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La TALL stack (Tailwind, Alpine, Laravel, Livewire) offre une alternative puissante aux SPAs (Single Page Applications) lourdes en JavaScript. Elle permet de construire des interfaces réactives tout en gardant la logique métier solidement ancrée côté serveur.
+
+> [Retourner à l'index TALL →](../index.md)

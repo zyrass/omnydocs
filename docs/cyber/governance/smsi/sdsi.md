@@ -283,3 +283,14 @@ Le SDSI n'est pas un document figé sur 3 ans. Il est révisé **chaque année**
 [^1]: Le **CMMI** (*Capability Maturity Model Integration*) est un modèle d'évaluation de la maturité des processus organisationnels sur une échelle de 1 (initial, chaotique) à 5 (optimisation continue). Il est utilisé pour mesurer et communiquer le niveau de maturité sécurité d'une organisation de manière standardisée et comparable.
 [^2]: Le **CAPEX** (*Capital Expenditure*, ou dépense d'investissement) désigne les investissements ponctuels qui créent ou améliorent des actifs durables : achat de licences logicielles, de matériel, ou recours à des prestations de conseil non récurrentes. Ils sont comptabilisés comme immobilisations et amortis sur plusieurs années.
 [^3]: L'**OPEX** (*Operational Expenditure*, ou dépense opérationnelle) désigne les coûts récurrents nécessaires au fonctionnement courant : abonnements logiciels (SaaS), salaires des équipes sécurité, contrats de maintenance, formations annuelles. Ils sont comptabilisés en charges de l'exercice.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le SMSI (Système de Management de la Sécurité de l'Information) est le moteur de l'amélioration continue en cybersécurité. Il transforme une approche réactive en une stratégie proactive, mesurable et alignée avec la direction.
+
+> [Retour à l'index du SMSI →](../index.md)

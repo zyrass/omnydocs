@@ -32,3 +32,14 @@ La formation Pest semble riche et exhaustive (8 fichiers pesant autour de 45 Ko)
 **Recommandations :**
 1. Le poids des fichiers est à la limite supérieure tolérable. Il faudrait idéalement les scinder ou s'assurer que des respirations (Mermaid, Exercices) existent pour alléger la lecture.
 2. Remplacer `moduleX.md` par des noms conformes (ex: `01-introduction-pest.md`).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Pest PHP apporte une syntaxe élégante et expressive aux tests PHP. En réduisant le bruit syntaxique, il permet aux développeurs de se concentrer sur l'essentiel : la qualité et la fiabilité du code métier.
+
+> [Retourner à l'index des tests →](../../index.md)

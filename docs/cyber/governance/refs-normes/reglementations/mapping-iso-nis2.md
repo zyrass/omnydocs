@@ -533,3 +533,14 @@ Ce tableau permet de partir d'un constat d'audit ISO 27001 et d'identifier l'art
 
 [^1]: Le **RGS** (*Référentiel Général de Sécurité*) est le cadre réglementaire français fixant les règles de sécurité applicables aux systèmes d'information des autorités administratives, notamment les algorithmes cryptographiques autorisés. Il est géré par l'ANSSI et constitue la référence française pour la conformité cryptographique dans le cadre de NIS2.
 [^2]: La **migration post-quantique** désigne le processus de remplacement des algorithmes cryptographiques asymétriques actuels (RSA, ECC) par des algorithmes résistants aux ordinateurs quantiques, standardisés par le NIST en 2024 (ML-KEM, ML-DSA). NIS2 anticipe cette migration dans ses orientations sur la cryptographie, notamment pour les données à longue durée de vie.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

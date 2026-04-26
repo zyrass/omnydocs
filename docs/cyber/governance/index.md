@@ -102,4 +102,13 @@ La GRC constitue **le cadre de pilotage stratégique** qui transforme la cybers�
 
 > Les sections suivantes vous fourniront les clés pour comprendre, mettre en œuvre et auditer un dispositif GRC complet et conforme aux exigences actuelles.
 
-<br />
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La GRC est le langage commun entre le RSSI, le DPO, la Direction et les auditeurs. Sans ce cadre stratégique, la cybersécurité reste un centre de coûts incompris. Avec lui, elle devient un argument de confiance, de compétitivité et de résilience — démontrant que l'organisation ne subit pas les risques cyber, elle les pilote.
+
+> [Commencez par le socle réglementaire qui encadre toutes les obligations →](./refs-normes/)

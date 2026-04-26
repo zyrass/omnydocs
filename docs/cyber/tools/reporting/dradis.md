@@ -105,3 +105,14 @@ Vous rédigez votre Word avec votre logo, vos couleurs, et là où vous voulez v
     Dradis est le patriarche des outils de gestion de tests d'intrusion. Bien que son interface (Ruby on Rails) puisse paraître vieillissante par rapport aux standards actuels, sa robustesse, sa capacité à ingérer tous les formats du marché et son intégration MS Word en ont fait un standard dans de nombreux cabinets d'audit.
 
 > Néanmoins, la lenteur et la complexité de configuration des templates Word de Dradis ont frustré beaucoup de professionnels. C'est pourquoi une nouvelle génération d'outils de reporting, plus fluides, plus beaux et basés sur des technologies modernes, a récemment vu le jour. Le leader incontesté de cette nouvelle vague est **[SysReptor →](./sysrepor.md)**.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
+
+> [Retour à l'index →](./index.md)

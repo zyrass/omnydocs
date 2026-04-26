@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -1765,11 +1767,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../storage/backup-pra/" class="md-nav__link">
+      <a href="../storage/backup-pra.md" class="md-nav__link">
         
   
-  
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
   
   <span class="md-ellipsis">
     
@@ -2409,10 +2409,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2500,6 +2496,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#cartographie-de-lecosysteme-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ Cartographie de l'Écosystème Réseau
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lapproche-operationnelle-ops" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2515,6 +2522,17 @@
     <span class="md-ellipsis">
       
         Le lien avec la Cybersécurité (Rappel)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -2594,9 +2612,24 @@
 </div>
 </p>
 <div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>L'administration des systèmes et réseaux s'apparente à l'urbanisme. Vous construisez des routes (routage), définissez des quartiers (VLANs), et établissez des lois de circulation (pare-feu) pour que les flux de données circulent de manière fluide et sécurisée.</em></p>
+</div>
+<div class="admonition quote">
 <p class="admonition-title">Les fondations du système nerveux</p>
 <p><em>Comme pour l'administration système, <strong>il est inutile de s'attaquer à la cybersécurité (hacking, pentest) si vous ne maîtrisez pas le réseau</strong>. Avant d'intercepter un paquet réseau pour en extraire un mot de passe (Sniffing), vous devez comprendre ce qu'est le protocole ARP, comment fonctionne le modèle TCP/IP, et comment un administrateur configure un pare-feu périmétrique. C'est l'objectif de ce hub.</em></p>
 </div>
+<h2 id="cartographie-de-lecosysteme-reseau">🗺️ Cartographie de l'Écosystème Réseau<a class="headerlink" href="#cartographie-de-lecosysteme-reseau" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    A[Client Externe / Hacker] --&gt;|Internet| B[Pare-feu Périmétrique pfsense]
+    B --&gt;|Filtrage| C[DMZ - Reverse Proxy HAProxy]
+    C --&gt;|Routage L7| D[Réseau Interne LAN]
+
+    D --&gt; E[Services Core DNS, DHCP]
+    D --&gt; F[Stockage Samba, FTP]
+    D --&gt; G[Administration SSH, VPN]
+
+    H[Admin Réseau / Blue Team] -.-&gt;|Monitoring Nmap, Wireshark| D</code></pre>
 <h2 id="lapproche-operationnelle-ops">L'approche Opérationnelle (Ops)<a class="headerlink" href="#lapproche-operationnelle-ops" title="Permanent link">&para;</a></h2>
 <p>Contrairement à la section des fondamentaux théoriques (Modèle OSI, familles de protocoles), ce hub est <strong>100% pratique et opérationnel</strong>. Vous y apprendrez à utiliser les outils quotidiens de l'ingénieur réseau, à déployer les services de base, et à ériger les premières barrières de défense.</p>
 <div class="grid cards">
@@ -2625,6 +2658,16 @@
 <p><strong>La Blue Team (Défense)</strong> passe 80% de son temps à utiliser les outils présentés dans la section <em>Sécurité Périmétrique</em> (pfSense, WAF). Pour bloquer une attaque, il faut configurer correctement son pare-feu et son reverse proxy.</p>
 <p><strong>La Red Team (Attaque)</strong> passe 80% de son temps à utiliser (ou détourner) les outils de la section <em>Outils d'Analyse</em> (tcpdump, scapy, nmap). Pour attaquer, il faut comprendre l'état des ports et savoir injecter des paquets illégitimes dans le réseau.</p>
 <p>Dans tous les cas, <strong>la maîtrise de l'administration réseau est le prérequis</strong>.</p>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Comprendre le modèle OSI et les protocoles TCP/IP est indispensable pour tout ingénieur. Une infrastructure réseau mal conçue sera toujours un cauchemar à sécuriser et à maintenir.</p>
+</div>
+<blockquote>
+<p><a href="../">Retourner à l'index →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >

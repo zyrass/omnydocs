@@ -13,6 +13,10 @@ tags: ["PROJET", "POMODORO", "TIMER", "SWIFTUI", "STATE"]
   data-time="2 Heures">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "Le temps est relatif..."
     Si Albert Einstein utilisait SwiftUI, il aurait vite compris qu'entre une variable `@State` qui décompte et une vue qui se rafraîchit, la relativité prend un sens très concret. Dans ce premier projet de la bibliothèque, l'objectif est visuel et immédiat : créer une boucle d'interface liée au balancier irréductible de l'horloge système (le composant `Timer`). On fait du beau, de l'utile, et du temps réel.
 
@@ -321,6 +325,9 @@ _L'intégration des `RadialGradient` et du modificateur natif `.background(.ultr
 ---
 
 ## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Cette application Pomodoro pose les fondements du développement iOS avec SwiftUI. La gestion des timers, des états réactifs (`@State`) et du cycle de vie de l'application sont des piliers de l'écosystème Apple.
 
 !!! quote "Maîtriser le temps et l'espace visuel"
     En un seul fichier condensé, l'alchimie entre la donnée abstraite (des secondes écoulées) et son impact visuel immersif (cercle rouge fluide) s'est produite. L'interface ne ment jamais : l'apprenant vient d'absorber toute la puissance des modificateurs autonomes du framework Apple. 

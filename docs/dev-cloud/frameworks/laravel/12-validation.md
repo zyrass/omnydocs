@@ -161,6 +161,13 @@ public function store(StorePostRequest $request)
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-En allégeant le controller, on applique les principes du "Clean Code". La prochaine étape va permettre d'alléger encore plus l'écriture des actions métier grâce au Binding de Model.
+!!! quote "Ce qu'il faut retenir"
+    La validation côté serveur n'est pas une option — c'est la dernière ligne de défense de votre application. Même si votre frontend valide parfaitement les données, un utilisateur malveillant peut contourner le navigateur et envoyer n'importe quelle requête directement à votre API. Laravel's `validate()` garantit que la logique métier ne reçoit jamais de données non conformes.
+
+> [Validation sécurisée. Connectez maintenant votre application à une base de données →](./13-pourquoi-orm-et-migrations.md)

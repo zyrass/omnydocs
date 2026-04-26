@@ -115,3 +115,14 @@ class Post extends Model
 ## Conclusion 
 
 Les piliers en base de donnée sont scellés et les constantes de typage sécurisent le transit de l'information. Nous passons au cerveau des Controller : Les Services d'Architecture qui valideront ces états.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les State Machines et les Enums PHP 8.1 forment un duo puissant pour représenter l'état d'une entité métier. Plutôt que de stocker des chaînes libres (`'pending'`, `'active'`) susceptibles de fautes de frappe, les Backed Enums garantissent un vocabulaire contrôlé par le compilateur PHP lui-même.
+
+> [État métier maîtrisé. Architecturez maintenant vos processus complexes en Services →](./29-service-workflow.md)

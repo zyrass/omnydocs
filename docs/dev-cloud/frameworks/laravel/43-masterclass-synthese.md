@@ -86,3 +86,14 @@ Continuez à construire, à échouer, à debugger, à refactoriser en Live. Chaq
 <div class="mt-8 text-center pt-8 border-t border-gray-200">
   <p class="text-xl italic text-gray-500">OmnyDocs - Frameworks Laravel Training</p>
 </div>
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Vous venez de traverser l'intégralité du cycle de développement Laravel : de l'installation à la mise en production sécurisée, en passant par l'ORM, l'authentification, les autorisations, la Stack TALL et les APIs. Laravel n'est pas un framework que l'on 'finit' d'apprendre — c'est un écosystème qui évolue avec vous. La prochaine étape est la pratique intense au travers des projets guidés.
+
+> [Masterclass terminée. Passez à la pratique avec les projets guidés Laravel →](../auth/)

@@ -213,5 +213,3 @@ docker compose up -d
     Une TIP transforme votre SOC de **réactif** (on détecte après l'attaque) à **proactif** (on connaît l'attaquant avant qu'il frappe). MISP connecté à Wazuh permet de corréler automatiquement vos alertes avec les campagnes d'attaque mondiales — une IP inconnue qui touche votre réseau devient immédiatement identifiable comme appartenant à un groupe APT si elle est dans MISP. C'est la différence entre "anomalie réseau" et "compromission probable par APT28".
 
 > **La Phase 1 (Architecture SOC) est terminée.** Passez maintenant à la **[Phase 2 — Détection & Analyse →](../../detection/index.md)** pour apprendre à créer les règles qui exploitent toute cette infrastructure.
-
-<br>

@@ -309,3 +309,14 @@ L'ANSSI ne fournit pas d'outil officiel pour EBIOS RM mais plusieurs solutions s
 [^4]: La **PGSSI-S** (*Politique Générale de Sécurité des Systèmes d'Information de Santé*) est le référentiel de sécurité spécifique au secteur de la santé en France, piloté par le Délégué Ministériel au Numérique en Santé (DMNS). Elle s'applique aux établissements de santé et prestataires du secteur.
 [^5]: Un **APT** (*Advanced Persistent Threat*, ou Menace Persistante Avancée) désigne un acteur malveillant — généralement étatique ou financé par un État — qui conduit des cyberattaques sophistiquées, ciblées et de longue durée. Exemples : APT29 (Cozy Bear, Russie), APT41 (Chine), Lazarus Group (Corée du Nord).
 [^6]: **MITRE ATT&CK** est une base de connaissances des tactiques, techniques et procédures (TTP) utilisées par les groupes d'attaquants dans des conditions réelles. Maintenue par la fondation MITRE, elle est organisée en matrices (Enterprise, Mobile, ICS) et permet de modéliser précisément les chemins d'attaque dans les scénarios opérationnels EBIOS RM.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le SMSI (Système de Management de la Sécurité de l'Information) est le moteur de l'amélioration continue en cybersécurité. Il transforme une approche réactive en une stratégie proactive, mesurable et alignée avec la direction.
+
+> [Retour à l'index du SMSI →](../index.md)

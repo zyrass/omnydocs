@@ -13,6 +13,10 @@ status: stable
   data-time="18-24 heures (8 phases)">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Sécuriser une API avec Sanctum s'apparente à donner un jeton d'accès temporaire à un livreur. Au lieu de lui donner les clés de la maison (authentification de session), vous lui donnez un badge qui ne permet d'ouvrir que la porte du garage, et qui peut être révoqué à tout moment._
+
 ## Introduction du projet - Dungeon Memory Battle RPG
 
 Bienvenue dans ce projet **Dungeon Memory Battle RPG** combinant **Laravel Sanctum** (API REST) et **Angular 21 avec Signals** (frontend moderne) ! Ce jeu mélange **mémoire** (retourner cartes sur plateau 4×4) et **combat RPG tour par tour** : chaque monstre révélé déclenche un combat immédiat, impossible de fuir. Vous choisirez votre classe (**Guerrier**, **Archer**, **Mage**), progresserez en niveau, collecterez équipement, et affronterez des créatures de difficulté croissante.
@@ -1493,4 +1497,13 @@ npm install @angular/animations
 
 </div>
 
-<br />
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les kits de démarrage Laravel font gagner des semaines de développement, mais ils imposent de bien comprendre les flux sous-jacents. Ne traitez jamais l'authentification comme une simple boîte noire.
+
+> [Passer à la phase suivante →](../index.md)

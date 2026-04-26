@@ -173,20 +173,3 @@ Comme tous les fuzzer modernes, il faut tricher avec les en-têtes pour passer s
     1. Si le site possède un module de calendrier dynamique (chaque mois a un lien vers le mois suivant), Feroxbuster va cliquer sur chaque lien, créant un nouveau job d'exploration, à l'infini (`/2024/01`, puis `/2024/02`, etc).
     2. Ce comportement de "boucle infinie" (Infinite Loop) va saturer la file d'attente de Feroxbuster, mais surtout **provoquer un Déni de Service (DoS)** sur le serveur de l'entreprise en épuisant sa base de données avec des requêtes calendaires inutiles. Restreignez toujours avec l'option `--depth`.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Écrit en Rust, ultra-rapide, doté d'une interface console magnifique et capable de s'interfacer intelligemment avec Burp Suite via `--replay-proxy`, Feroxbuster est souvent considéré comme l'état de l'art du brute-force de dossiers en 2026. Si vous devez cartographier un site immense dont vous ne connaissez rien, laissez la récursivité travailler pour vous.
-
-> Ces nouveaux outils en Go et Rust sont impressionnants, mais il fut une époque où l'automatisation web passait par un outil bruyant, agressif et écrit en Perl. Découvrons le dinosaure légendaire des scanners web : **[Nikto →](./nikto.md)**.
-
-
-
-
-
-
-

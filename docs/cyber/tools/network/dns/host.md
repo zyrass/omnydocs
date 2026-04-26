@@ -119,20 +119,3 @@ Le résultat sera une liste propre et parfaite de tous les serveurs internes de 
 | ✅ **À FAIRE** | **Utiliser `host` pour les vérifications rapides** | Gardez `dig` pour les audits techniques complexes où vous avez besoin de voir le TTL ou les flags de sécurité DNS (DNSSEC). Utilisez `host` quand vous avez juste une IP et que vous voulez un nom (ou l'inverse). |
 | ❌ **À NE PAS FAIRE** | **Utiliser l'option `-l` contre un DNS public en 2024** | La faille de "Transfert de Zone" (Zone Transfer / AXFR) est connue depuis 25 ans. Si vous tapez `host -l google.com`, le serveur DNS de Google vous bloquera immédiatement, car vous lui demandez de vous donner la liste de tous ses millions de serveurs internes d'un coup. |
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Aujourd'hui, de nombreux professionnels de la sécurité ignorent `host` au profit de `dig` (qui possède l'option `+short` faisant quasiment la même chose). Cependant, sa syntaxe pure et son comportement "Unix-like" (pas de bavardage, que de l'information utile) en font un composant intemporel des boucles de scripts bash d'énumération réseau.
-
-> Les trois outils (dig, nslookup, host) posent une question au serveur DNS et attendent une réponse. Mais comment faire quand on veut automatiser la recherche de dizaines de sous-domaines cachés (ex: `vpn.cible.com`, `admin.cible.com`) ? Il faut passer à un outil de force brute offensif : **[Dnsenum →](./dnsenum.md)**.
-
-
-
-
-
-
-

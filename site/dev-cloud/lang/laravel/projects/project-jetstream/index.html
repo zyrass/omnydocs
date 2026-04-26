@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Document en cours de rédaction">
+        <meta name="description" content="Laravel Jetstream — Projet guidé avancé. Authentification multi-teams, 2FA, profil complet, API Sanctum et interface Livewire ou Inertia. 8 phases pour une plateforme SaaS.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Project Jetstream - OmnyDocs</title>
+        <title>Projet Jetstream — Plateforme SaaS Multi-Teams - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-jetstream" class="md-skip">
+        <a href="#projet-jetstream-plateforme-saas-multi-teams" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Jetstream
+              Projet Jetstream — Plateforme SaaS Multi-Teams
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1173,6 +1171,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Projet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1192,20 +1242,123 @@
                 
                   
 
-<h1 id="project-jetstream">Project Jetstream<a class="headerlink" href="#project-jetstream" title="Permanent link">&para;</a></h1>
+<h1 id="projet-jetstream-plateforme-saas-multi-teams">Projet Jetstream — Plateforme SaaS Multi-Teams<a class="headerlink" href="#projet-jetstream-plateforme-saas-multi-teams" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 En construction"
-  data-version="1.0"
-  data-time="Bientôt disponible">
+  data-level="🟡 Intermédiaire & 🔴 Avancé"
+  data-version="Laravel 11"
+  data-time="~12 Heures">
 </div>
 </p>
-<div class="admonition info">
-<p class="admonition-title">Article en cours de rédaction</p>
-<p>Le contenu détaillé de cette page est actuellement en cours de rédaction. Il sera publié lors des prochaines mises à jour d'OmnyDocs.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Qu'est-ce que ce projet ?</p>
+<p><strong>Laravel Jetstream</strong> est le kit d'authentification avancé de Laravel. Il va bien au-delà de Breeze en incluant nativement : <strong>Teams</strong> (multi-tenant), <strong>2FA</strong> (authentification à deux facteurs), <strong>API tokens (Sanctum)</strong>, <strong>gestion de profil complète</strong>, et le choix entre Livewire ou Inertia.js pour le frontend.</p>
 </div>
-<p><br /></p>
+<p>Ce projet guidé simule la construction d'une <strong>plateforme de gestion de missions Pentest</strong> en mode SaaS multi-équipes — un cas d'usage réel et représentatif des applications Jetstream en production.</p>
+<p><br></p>
+<hr />
+<h2 id="architecture-du-projet">Architecture du Projet<a class="headerlink" href="#architecture-du-projet" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    classDef phase fill:#fff3cd,stroke:#ffc107,color:#000
 
+    P1["Phase 1\nInstallation + Teams"] --&gt; P2["Phase 2\nModèles + Migrations"]
+    P2 --&gt; P3["Phase 3\nLogique Métier"]
+    P3 --&gt; P4["Phase 4\nAuth + Policies"]
+    P4 --&gt; P5["Phase 5\nAPI REST"]
+    P5 --&gt; P6["Phase 6\nTemps Réel"]
+    P6 --&gt; P7["Phase 7\nOptimisation"]
+    P7 --&gt; P8["Phase 8\nTests + Déploiement"]
+
+    class P1,P2,P3,P4,P5,P6,P7,P8 phase</code></pre>
+<p><br></p>
+<hr />
+<h2 id="prerequis">Prérequis<a class="headerlink" href="#prerequis" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Ce projet est avancé</p>
+<ul>
+<li>✅ Maîtriser les projets Breeze (Phases 1-7)</li>
+<li>✅ Connaître les Policies et le RBAC (modules 24-26)</li>
+<li>✅ Avoir lu les modules Services et State Machine (28-29)</li>
+<li>✅ Connaître les bases des Queues (41)</li>
+<li>✅ Node.js + Redis installés</li>
+</ul>
+</div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Jetstream est la référence pour les applications Laravel en production avec des besoins d'authentification avancés. La complexité de sa configuration initiale est compensée par la richesse des fonctionnalités livrées clé en main. Ce projet vous confrontera aux défis réels d'un SaaS : isolation des données par tenant, gestion des droits multi-niveaux, et scalabilité. C'est le projet le plus proche d'une application professionnelle réelle.</p>
+</div>
+<blockquote>
+<p><a href="./01-phase1/">Commencer : Phase 1 — Installation Jetstream + Teams →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">LARAVEL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">JETSTREAM</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">TEAMS</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">2FA</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">SANCTUM</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PROJET GUIDÉ</span>
+      
+    
+  </nav>
 
 
 

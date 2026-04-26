@@ -102,6 +102,9 @@ L'OSINT et la reconnaissance constituent la **phase zéro** de toute opération 
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ce module vous dote des outils fondamentaux pour cette catégorie d'attaque ou d'analyse. Gardez à l'esprit qu'un outil ne remplace pas la compréhension du concept : c'est votre capacité à interpréter les résultats qui fait de vous un véritable expert technique en cybersécurité.
+
 !!! quote "Savoir avant d'agir"
     Une reconnaissance OSINT exhaustive est le socle de toute opération Red Team réussie. Elle permet de minimiser le bruit lors des phases actives et d'identifier des vecteurs d'attaque souvent invisibles lors d'un scan classique.
 

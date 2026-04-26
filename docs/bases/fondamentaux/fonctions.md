@@ -872,6 +872,9 @@ Quatre règles à appliquer systématiquement. Une seule responsabilité par fon
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ces notions fondamentales sur fonctions sont essentielles pour la suite de votre parcours. Consolidez ces acquis théoriques par la pratique avant de passer aux modules spécialisés (Cybersécurité, Infrastructure ou Développement).
+
 !!! quote "Conclusion"
     _Les fonctions constituent les briques fondamentales qui transforment du code procédural linéaire en architectures modulaires maintenables. Au début, identifier les blocs répétitifs demande un effort conscient. Avec la pratique, décomposer naturellement les problèmes en fonctions ciblées devient un réflexe._
 

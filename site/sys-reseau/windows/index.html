@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -1765,11 +1767,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../storage/backup-pra/" class="md-nav__link">
+      <a href="../storage/backup-pra.md" class="md-nav__link">
         
   
-  
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
   
   <span class="md-ellipsis">
     
@@ -2409,10 +2409,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2511,10 +2507,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-changement-de-paradigme-cli-vs-gui" class="md-nav__link">
+  <a href="#navigation-du-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le Changement de Paradigme (CLI vs GUI)
+        🧭 Navigation du Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -2594,11 +2601,33 @@
 </div>
 </p>
 <div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>L'Active Directory (AD) sous Windows est comme l'état civil central et le cadastre d'un pays. Au lieu de laisser chaque ville (ordinateur) gérer ses passeports et ses lois, l'AD centralise l'identité de tous les citoyens (utilisateurs) et impose des lois fédérales (GPO) applicables partout instantanément.</em></p>
+</div>
+<div class="admonition quote">
 <p class="admonition-title">Le pilier de l'entreprise</p>
 <p><em>Si Linux est le roi incontesté de l'hébergement Cloud public et des serveurs web, <strong>Windows Server</strong> règne en maître absolu sur l'infrastructure interne des entreprises de taille moyenne et grande. Gérer un parc de 500 ordinateurs employés, centraliser leurs mots de passe, et déployer des règles de sécurité globables est un cauchemar sous Linux. Sous Windows, grâce à l'Active Directory, c'est natif.</em></p>
 </div>
 <h2 id="organisation-de-la-section">Organisation de la section<a class="headerlink" href="#organisation-de-la-section" title="Permanent link">&para;</a></h2>
 <p>Contrairement au développement logiciel, l'administration d'un parc Windows d'entreprise demande une grande rigueur, une compréhension de la philosophie Microsoft (très orientée "Objet" même dans son Shell) et une maîtrise des politiques de groupe.</p>
+<pre class="mermaid"><code>flowchart TD
+    %% Couleurs
+    classDef ad fill:#e2e8f0,stroke:#64748b,stroke-width:2px,color:#000
+    classDef target fill:#d1e7dd,stroke:#198754,stroke-width:2px,color:#000
+    classDef admin fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000
+
+    A("👨‍💻 Admin Sys&lt;br&gt;(RSAT / PowerShell)") --&gt;|"GPO &amp; Scripts"| B("🏢 Contrôleur de Domaine&lt;br&gt;(Active Directory)")
+
+    B --&gt;|"Authentification (Kerberos)"| C("🖥️ Poste Employé (Windows 11)")
+    B --&gt;|"Partage Fichiers (SMB)"| D("🗄️ Serveur Fichiers (Windows Server)")
+    B --&gt;|"Identités (LDAP)"| E("☁️ Azure AD / Entra ID")
+
+    class B ad
+    class C,D,E target
+    class A admin</code></pre>
+<p><br></p>
+<hr />
+<h2 id="navigation-du-module">🧭 Navigation du Module<a class="headerlink" href="#navigation-du-module" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
 <ul>
 <li>
@@ -2621,9 +2650,16 @@
 </li>
 </ul>
 </div>
-<h2 id="le-changement-de-paradigme-cli-vs-gui">Le Changement de Paradigme (CLI vs GUI)<a class="headerlink" href="#le-changement-de-paradigme-cli-vs-gui" title="Permanent link">&para;</a></h2>
-<p>Il est tentant d'administrer Windows Server uniquement à la souris (via le Server Manager). <strong>C'est une très mauvaise habitude.</strong> </p>
-<p>Microsoft pousse depuis plus de 10 ans l'installation de "Windows Server Core" (une version sans aucune interface graphique) pour des raisons de sécurité (surface d'attaque réduite) et de performance. L'administrateur moderne doit être capable de gérer un domaine entier via <code>PowerShell</code> ou des outils d'administration à distance (RSAT / Windows Admin Center).</p>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Il est tentant d'administrer Windows Server uniquement à la souris (via le Server Manager). <strong>C'est une très mauvaise habitude.</strong> Microsoft pousse depuis plus de 10 ans l'installation de "Windows Server Core" (sans interface graphique) pour des raisons de sécurité. L'administrateur moderne doit être capable de gérer un domaine entier via la ligne de commande.</p>
+</div>
+<blockquote>
+<p>Prêt à quitter la souris ? Plongez dans l'outil d'administration le plus puissant de Microsoft : <strong><a href="./powershell/">PowerShell</a></strong>.</p>
+</blockquote>
 
 
   <nav class="md-tags" >

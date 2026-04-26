@@ -13,6 +13,10 @@ tags: ["SCAPY", "PYTHON", "FORGE", "RESEAU", "SECURITE"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Utiliser des outils d'analyse réseau (comme tcpdump ou scapy), c'est comme brancher un stéthoscope sur les artères d'une ville. Vous ne regardez plus simplement si les camions arrivent à destination, mais vous examinez le contenu de chaque paquet transporté pour détecter une anomalie ou une maladie (latence, perte, malware)._
+
 !!! quote "Prendre le contrôle total"
     _Les outils traditionnels (`ping`, `curl`, `nmap`) construisent des paquets réseau pré-définis et vous cachent la machinerie. Vous ne pouvez pas leur dire : "Fais-moi un paquet TCP, mais mets une fausse adresse IP source, et active les flags SYN et FIN en même temps". **Scapy** le peut. C'est un outil interactif (écrit en Python) qui vous permet de forger n'importe quel paquet réseau atome par atome._
 
@@ -126,3 +130,14 @@ Au lieu d'utiliser Nmap, un pirate peut coder son propre scanner de ports en Pyt
 ## Conclusion
 
 L'utilisation de Scapy exige une maîtrise absolue du fonctionnement de la pile TCP/IP. C'est l'outil qui prouve le dicton : *"On ne peut pas attaquer le réseau si l'on ne sait pas d'abord comment l'ordinateur construit ses paquets."*
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La visibilité réseau est primordiale pour l'analyse d'incidents et le troubleshooting. Maîtriser tcpdump, netstat ou scapy permet de diagnostiquer la majorité des anomalies avant qu'elles ne s'aggravent.
+
+> [Retourner à l'index Réseau →](../index.md)

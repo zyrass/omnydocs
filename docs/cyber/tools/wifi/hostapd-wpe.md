@@ -161,19 +161,3 @@ asleap -W /usr/share/wordlists/rockyou.txt -C <Challenge_Héxa> -R <Response_Hé
     2. **Collecte de données personnelles** : En capturant l'identifiant prénom/nom d'un employé et son condensat (Hash) de mot de passe, vous vous rendez coupable de vol de données et de recel de données à caractère personnel (RGPD + Code pénal).
     3. **Ingénierie Sociale (Tromperie)** : L'employé clique "Oui" au certificat frauduleux parce qu'il croit être sur le réseau de son entreprise. Sans un mandat écrit explicite du comité de direction validant cette approche de *Social Engineering / Phishing*, l'acte est formellement illégal et puni de peines de prison.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    `hostapd-wpe` est le pont qui relie l'audit Physique (Hardware/Radio) à l'audit Interne (Active Directory). Le WPA-Enterprise est la norme dans les banques, hôpitaux et grandes entreprises. Si l'attaquant arrive à cloner le réseau et à capturer les identifiants d'un simple commercial en buvant un café dans le hall d'accueil, il possède désormais les clés pour s'attaquer de l'intérieur au réseau interne de l'entreprise.
-
-> Vous avez obtenu la clé WiFi ou les identifiants, et vous êtes maintenant connecté au réseau local (LAN) de l'entreprise. L'audit réseau interne commence. Plongez dans la matrice avec le standard du scan de ports : **[Nmap →](../network/nmap.md)**.
-
-
-
-
-
-

@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="8.3"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Tenter de lire un fichier qui n'existe pas en PHP procédural génère un affreux *Warning* jaune qui pollue l'écran et continue le script incognito.
@@ -148,4 +152,15 @@ try {
 <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mt-8">
   <h4 class="text-lg font-bold text-gray-900 mt-0 mb-4">✅ Objectifs de Validation</h4>
   <p class="mb-4 text-gray-700">Comprendre que la Ligne 18 : <code>echo "Lecture : $lecture"</code> ne s'exécute pas est la clé des Exceptions. Au moment précis où <code>read()</code> a crié <code>throw new</code>, le moteur PHP fait exploser la boule de feu. L'exécution de la zone s'arrête instantanément, la boule de feu remonte à travers le code jusqu'à se fracasser sur le rempart du premier <code>Catch</code> qui correspond à son nom.</p>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

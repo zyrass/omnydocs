@@ -13,6 +13,10 @@ tags: ["OPENVPN", "VPN", "WIREGUARD", "SECURITE", "RESEAU"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Un VPN comme OpenVPN est un tunnel blindé privatif construit au milieu d'une autoroute publique (Internet). Peu importe qui regarde le trafic sur l'autoroute, vos camions de données voyagent de manière invisible et sécurisée jusqu'à la base de destination._
+
 !!! quote "L'extension du réseau interne"
     _Une entreprise possède des ressources sensibles (serveur de fichiers, ERP, Intranet) qui ne doivent JAMAIS être exposées sur Internet. Si un employé en télétravail doit accéder à ces ressources, il ne peut pas passer par l'IP publique de l'entreprise. Il faut créer un tunnel direct, privé et chiffré au travers d'Internet. C'est le rôle du **Virtual Private Network (VPN)**._
 
@@ -89,3 +93,14 @@ Il existe deux sous-modes critiques en sécurité :
 ## Conclusion
 
 Le VPN est souvent le point d'entrée unique de l'entreprise. En Cybersécurité, sécuriser la porte (Endpoint) du VPN est une priorité absolue. Aujourd'hui, on n'autorise plus jamais une connexion VPN avec un simple mot de passe ; l'utilisation du **MFA (Authentification Multi-Facteurs)** via une application (Google Authenticator / Duo) est indispensable.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La sécurité réseau ne s'arrête plus au simple pare-feu périmétrique. L'implémentation de VPNs robustes (OpenVPN/WireGuard) et d'une segmentation stricte forme l'épine dorsale d'une architecture résiliente.
+
+> [Retourner à l'index Réseau →](../index.md)

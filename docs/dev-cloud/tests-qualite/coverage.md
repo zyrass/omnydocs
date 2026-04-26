@@ -317,3 +317,12 @@ it('generates a PDF invoice', function () {
 > Prochaine étape : [SAST →](./sast.md) — l'analyse statique qui détecte les bugs sans exécuter le code.
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

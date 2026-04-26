@@ -13,6 +13,10 @@ tags: ["LDAP", "PAM", "ANNUAIRE", "RESEAU", "AUTHENTIFICATION"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _LDAP et PAM agissent comme la sécurité d'un aéroport. LDAP est la grande base de données des passeports valides (qui existe), tandis que PAM est le douanier à chaque porte d'embarquement (SSH, Sudo) qui vérifie l'identité avant d'autoriser le passage._
+
 !!! quote "Un pour les gouverner tous"
     _Imaginez que vous deviez gérer l'informatique d'une PME avec 50 serveurs Linux, un wiki interne, un système de chat (Mattermost), et un GitLab. Si vous devez créer le compte de l'employé "John" 54 fois, sur 54 bases de données différentes avec 54 mots de passe différents, c'est l'enfer. C'est ici qu'intervient **LDAP** : une base de données centralisée qui stocke l'identité (Single Sign-On philosophique)._
 
@@ -82,3 +86,14 @@ En cybersécurité moderne, l'identité (LDAP/AD/EntraID) est devenue le **nouve
 Les pare-feux réseau (UFW, pfSense) ne suffisent plus car les employés travaillent en télétravail depuis leurs réseaux wifi personnels. La sécurité se fonde désormais sur l'authentification forte de l'identité : "Même si je n'ai pas de pare-feu réseau, tu dois prouver de façon indéniable qui tu es (MFA/LDAP) pour accéder à cette ressource". 
 
 Gérer un serveur LDAP de manière robuste et sécurisée est donc la pierre angulaire de l'architecture "Zero Trust".
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Chaque service exposé est un vecteur d'attaque potentiel. La configuration sécurisée des services fondamentaux (DNS, SSH, Samba) est la première et souvent la plus critique ligne de défense de l'infrastructure.
+
+> [Retourner à l'index Réseau →](../index.md)

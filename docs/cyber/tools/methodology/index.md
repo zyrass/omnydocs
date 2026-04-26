@@ -110,6 +110,9 @@ Les méthodologies Red Team constituent la **colonne vertébrale de toute opéra
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ce module vous dote des outils fondamentaux pour cette catégorie d'attaque ou d'analyse. Gardez à l'esprit qu'un outil ne remplace pas la compréhension du concept : c'est votre capacité à interpréter les résultats qui fait de vous un véritable expert technique en cybersécurité.
+
 !!! quote "L'excellence opérationnelle par la rigueur"
     La méthodologie est ce qui sépare le hacker amateur du professionnel de la sécurité. C'est elle qui garantit que l'audit apporte une valeur ajoutée réelle au client en identifiant non seulement les failles, mais aussi les lacunes organisationnelles et de détection.
 

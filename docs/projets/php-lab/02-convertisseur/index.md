@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟢 Débutant"
   data-version="8.3"
-  data-time="1 Heure">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Votre entreprise internationale a besoin d'un outil interne pour convertir des miles en kilomètres, des kilos en livres, et des Celsius en Fahrenheit. Ce projet vous apprend à structurer des **Fonctions Pures** (qui font une seule chose) et à concaténer dynamiquement des chaînes de caractères pour déclencher l'action adéquate.
@@ -225,4 +229,15 @@ Sous la balise `?>`, nous intégrons l'Interface permettant à l'humain d'active
       <span class="text-gray-700">Je convertis "60" Miles en Km : le résultat s'affiche, limitant l'arrondi mathématique à 2 chiffres après la virgule via <code>number_format()</code>.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

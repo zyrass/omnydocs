@@ -108,6 +108,13 @@ DB_CONNECTION=sqlite
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-L'arborescence n'a désormais plus de secret, et la séparation MVC peut enfin se mettre en place. Sans surprise, le prochain sous-module explorera le cœur de l'approche MVC.
+!!! quote "Ce qu'il faut retenir"
+    La structure d'un projet Laravel n'est pas arbitraire — chaque dossier a une responsabilité précise. Avant d'écrire la moindre ligne de logique métier, comprendre où chaque fichier doit vivre est le premier réflexe d'un développeur Laravel professionnel. Cette discipline évite la dette technique dès le départ.
+
+> [L'architecture est posée. Découvrez maintenant le cœur conceptuel du framework →](./03-architecture-mvc.md)

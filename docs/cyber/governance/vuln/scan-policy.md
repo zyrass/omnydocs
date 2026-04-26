@@ -277,3 +277,14 @@ La politique doit prévoir l'insertion de **clauses autorisant les scans** dans 
 [^2]: Le **DAST** (*Dynamic Application Security Testing*, ou Test de Sécurité Dynamique des Applications) est une méthode de test de sécurité applicative qui analyse une application en cours d'exécution en simulant des attaques réelles, sans accès au code source. Il détecte des vulnérabilités comme les injections SQL, XSS, CSRF et les mauvaises configurations.
 [^3]: Le **SCA** (*Software Composition Analysis*, ou Analyse de Composition Logicielle) est un processus d'identification et d'évaluation des composants open source et tiers intégrés dans une application. Il identifie les composants avec des CVE connues, des licences problématiques ou des versions obsolètes. Les outils incluent Dependabot, Snyk, OWASP Dependency-Check, Trivy.
 [^4]: Un **STAD** (*Système de Traitement Automatisé de Données*) est la terminologie juridique française désignant tout système informatique. L'article 323-1 du Code pénal punit le fait "d'accéder ou de se maintenir, frauduleusement, dans tout ou partie d'un système de traitement automatisé de données" de 2 ans d'emprisonnement et 60 000€ d'amende. Tout scan de vulnérabilités sur un système sans autorisation explicite peut constituer cette infraction.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
+
+> [Retour à l'index →](./index.md)

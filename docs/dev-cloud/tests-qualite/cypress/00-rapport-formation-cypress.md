@@ -31,3 +31,14 @@ La section concernant les tests End-to-End via Cypress est littéralement vide. 
 
 **Recommandations :**
 - **Création from scratch :** Rédiger le cursus Cypress selon le standard SKILL v2.0 (Introduction E2E, Installation, Sélecteurs Cypress, Actions, Assertions, Interception réseau).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

@@ -56,6 +56,9 @@ tags: ["RESEAU", "TCP/IP", "OSI", "PROTOCOLES", "BASES"]
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Les notions abordées autour de index sont le système nerveux de l'informatique moderne. Sans une maîtrise parfaite de ces protocoles et modèles, le dépannage de problèmes d'infrastructure ou la sécurisation de communications restent de pures suppositions.
+
 !!! quote "Conclusion"
     _Les pannes qui semblent mystérieuses en DevOps ou en Cloud Computing sont très souvent d'origine réseau. Avoir une image claire et mentale d'une requête HTTP traversant un réseau NAT permet d'économiser d'innombrables heures de débogage._
 

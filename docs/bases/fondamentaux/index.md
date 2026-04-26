@@ -125,6 +125,9 @@ Ces fondamentaux constituent la première couche technique de tout le reste. Ils
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ces notions fondamentales sur index sont essentielles pour la suite de votre parcours. Consolidez ces acquis théoriques par la pratique avant de passer aux modules spécialisés (Cybersécurité, Infrastructure ou Développement).
+
 !!! note "Notre recommandation"
     Ces six fiches sont courtes mais denses. Mieux vaut les lire dans l'ordre, en s'assurant de comprendre chaque notion avant de passer à la suivante. Ce sont des investissements à rentabilité immédiate dès les premiers exercices pratiques.
 

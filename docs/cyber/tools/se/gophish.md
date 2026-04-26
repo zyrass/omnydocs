@@ -184,8 +184,13 @@ Le véritable ennemi de GoPhish n'est pas l'employé, c'est **Proofpoint**, **Mi
 
 > L'exploitation du réseau, des sites web, et même des cerveaux humains est maintenant maîtrisée. L'attaquant possède des données. L'étape suivante, souvent ignorée des débutants mais vitale pour l'attaquant professionnel, est de s'assurer de ne jamais perdre cet accès, même si la victime éteint son PC. Préparez-vous à casser des mots de passe hors-ligne et à naviguer dans les ténèbres avec l'Étape 8 : **[Password Attacks →](../password/index.md)**.
 
+<br>
 
+---
 
+## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
 
-
+> [Retour à l'index →](./index.md)

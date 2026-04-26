@@ -113,19 +113,3 @@ cewl -d 2 -e --email_file emails_omnyvia.txt https://omnyvia.com
 | ✅ **À FAIRE** | **Combiner CeWL avec des Règles Hashcat** | CeWL génère le mot "OmnyCare". Personne ne met ça tel quel. En associant ce fichier avec John ou Hashcat et la règle "OneRule", Hashcat le mutera en `OmnyCare2024!` ou `@OmnyCare123`. C'est là que réside la vraie puissance de CeWL. |
 | ❌ **À NE PAS FAIRE** | **Définir une profondeur (`-d`) supérieure à 3 sur un gros site** | Si vous lancez `cewl -d 5` sur le site d'un grand média ou d'un géant du e-commerce, CeWL va ouvrir des centaines de milliers de pages (catégories, produits, commentaires). Cela va générer un fichier de 5 Go et prendre 3 jours, tout en s'apparentant à un Déni de Service (DoS) sur le serveur web. |
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    CeWL est l'outil parfait pour contrer les politiques de mots de passe fortes en entreprise. Lorsqu'une DSI oblige les employés à utiliser 12 caractères complexes, l'humain compense en utilisant le nom de son département ou le nom du produit phare de la boîte (qui font généralement plus de 8 lettres). CeWL extrait cette essence même et la transforme en dictionnaire.
-
-> Nous avons les dictionnaires mondiaux (SecLists) et les dictionnaires sur-mesure (CeWL). Mais comment faire si nous ne voulons pas de "mots", mais si nous voulons générer de manière mathématique TOUTES les combinaisons possibles (ex: toutes les plaques d'immatriculation de France, ou tous les numéros de téléphone) ? C'est le rôle du forgeron : **[Crunch →](./crunch.md)**.
-
-
-
-
-
-

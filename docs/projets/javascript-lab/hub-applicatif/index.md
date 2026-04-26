@@ -9,8 +9,12 @@ tags: ["JAVASCRIPT", "ASYNC", "FETCH", "PROMESSE", "CRUD", "ARCHITECTURE"]
   class="omny-meta"
   data-level="🔴 Avancé (Certifiant)"
   data-version="2.0"
-  data-time="6-10 heures (6 phases)">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 ## Introduction du Projet - Le Terminal Personnalisé
 
@@ -344,3 +348,14 @@ graph TB
    - [ ] Toute mon architecture logicielle est découplée : je ne fais pas de `.innerHTML +=` au milieu de mon fichier de requête météo.
 
 > Vous avez franchi la plus grande barrière du développement Front-End. Le Web Asynchrone. Vous lisez des données depuis une API, vous écrivez des données de l'interface vers le magasin d'État. Ce patron de conception universel vous offre maintenant la capacité sereine d'étudier un véritable Framework Industriel comme (React.js / Vue.js) ou de dériver vos compétences vers la persistance back-end avec des bases de données réelles (SQL) via PHP Laravel ou Go ! Et nous arrivons justement à la section suivante et cruciale... **Le Back-End (Go / PHP)**.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

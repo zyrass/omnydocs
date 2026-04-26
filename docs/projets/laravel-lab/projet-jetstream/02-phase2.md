@@ -13,6 +13,10 @@ tags: ["JETSTREAM", "MIGRATIONS", "ELOQUENT", "POLICIES", "SERVICES"]
   data-time="3h - 4h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Si Breeze est une serrure de maison individuelle, Jetstream est le système de sécurité d'un immeuble de bureaux complet. Il gère non seulement les badges d'accès (authentification), mais aussi les droits par étage (rôles), les équipes (locataires) et la sécurité renforcée (2FA)._
+
 ## Objectif de la Phase
 
 > Au cœur de notre plateforme SaaS se trouve un modèle de données complexe qui doit supporter la fonctionnalité Multi-Tenancy (chaque "Team" voit uniquement ses propres missions). Nous allons créer la structure BDD d'une application de Pentest professionnelle : **Missions, Assets, Findings (vulnérabilités), Evidences et Remediations**. Nous mettrons également en place les Services responsables de la logique métier (comme le calculateur de score CVSS) et les Policies d'autorisation.
@@ -296,3 +300,14 @@ Les fondations métier sont prêtes :
 - ✅ Un jeu de données simulé est prêt à être requêté.
 
 Dans la **Phase 3**, nous allons exposer ces données de manière sécurisée via une API REST JSON standardisée.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La modélisation Eloquent pour une application multi-teams exige une rigueur particulière : chaque relation doit embarquer le scope d'équipe pour éviter les fuites de données entre tenants. La discipline de scoping au niveau du modèle est la seule garantie robuste d'isolation des données en environnement SaaS.
+
+> [Modèles maîtrisés. Implémentez maintenant la logique métier complète de la plateforme →](./03-phase3.md)

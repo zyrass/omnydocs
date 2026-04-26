@@ -150,20 +150,3 @@ Le terminal va afficher successivement les 3 phases de l'algorithme :
     
     *Ne lancez un Dnsenum agressif que si vous possédez une autorisation formelle d'audit de sécurité sur le périmètre.*
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Dnsenum (aux côtés d'outils plus modernes comme `ffuf` ou `amass`) est l'outil parfait pour passer du statut "d'Observateur" à celui "d'Attaquant Actif". Il tire parti d'une vérité absolue en cybersécurité : la taille de la surface d'attaque est proportionnelle au nombre de serveurs découverts. Trouver le serveur de développement oublié par les administrateurs est souvent la clé pour compromettre le réseau principal.
-
-> Maintenant que le réseau est scanné et les sous-domaines énumérés, comment compromettre l'architecture maîtresse d'une entreprise : l'Active Directory Windows ? Plongez dans les ténèbres avec l'outil d'empoisonnement absolu : **[Responder →](../responder.md)**.
-
-
-
-
-
-
-

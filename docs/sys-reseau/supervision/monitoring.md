@@ -13,6 +13,10 @@ tags: ["MONITORING", "ZABBIX", "PROMETHEUS", "GRAFANA", "SUPERVISION"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La supervision (monitoring, logs) est l'équivalent du tableau de bord d'un avion de ligne. Sans ces cadrans et ces alertes, le pilote (l'administrateur) navigue à l'aveugle et ne s'apercevra d'une baisse de pression moteur que lorsque l'avion commencera à perdre de l'altitude._
+
 !!! quote "Réagir avant les utilisateurs"
     _La pire situation pour un administrateur système, c'est de recevoir un appel téléphonique du Directeur lui disant "Le site web de l'entreprise est tombé !". Un bon administrateur ne doit jamais l'apprendre par ses utilisateurs. Il doit l'apprendre par son propre téléphone, qui lui envoie un SMS automatique ("Alerte : Le disque dur est plein à 98%") 10 minutes **avant** que le serveur ne crashe, lui laissant le temps d'intervenir._
 
@@ -77,3 +81,14 @@ L'erreur la plus fréquente en supervision est le **Sur-Monitoring** (ou "Alerte
 Si un administrateur configure son Zabbix pour recevoir un email à chaque fois qu'un disque dépasse 70% de remplissage, il va recevoir 50 emails par jour. Au bout d'une semaine, son cerveau ignorera totalement les emails de supervision (en créant une règle Outlook qui les met à la corbeille). Le jour où un vrai crash interviendra, l'alerte sera perdue dans la masse.
 
 La supervision doit être silencieuse 99% du temps, et ne crier que pour les événements véritablement critiques.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Une supervision efficace transforme le bruit en alertes exploitables. La centralisation des logs et la création de dashboards pertinents réduisent drastiquement le MTTR (Mean Time To Respond) lors d'un incident.
+
+> [Retourner à l'index →](../index.md)

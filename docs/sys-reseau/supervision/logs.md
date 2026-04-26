@@ -13,6 +13,10 @@ tags: ["LOGS", "SYSLOG", "ELK", "SIEM", "SUPERVISION"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La supervision (monitoring, logs) est l'équivalent du tableau de bord d'un avion de ligne. Sans ces cadrans et ces alertes, le pilote (l'administrateur) navigue à l'aveugle et ne s'apercevra d'une baisse de pression moteur que lorsque l'avion commencera à perdre de l'altitude._
+
 !!! quote "Les boîtes noires du serveur"
     _Un "Log" (Journal système) est un simple fichier texte dans lequel un logiciel enregistre tout ce qu'il fait. L'application Web note l'IP de tous ses visiteurs, le pare-feu note toutes les IPs qu'il a bloquées, et le système Linux note toutes les connexions SSH réussies ou échouées. Sans logs, le diagnostic d'une panne ou l'enquête suite à un piratage est mathématiquement impossible._
 
@@ -76,3 +80,14 @@ La solution Open Source leader est la stack **ELK (Elasticsearch, Logstash, Kiba
 
 ### La naissance du SIEM
 Lorsque vous prenez une stack ELK et que vous y ajoutez de "l'intelligence" (Des règles mathématiques du type : *"Alerte-moi immédiatement si un utilisateur rate son mot de passe 50 fois en 1 minute sur 3 serveurs différents"*), le serveur de logs devient un **SIEM (Security Information and Event Management)**, l'outil de travail exclusif du centre de cyberdéfense (SOC).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Une supervision efficace transforme le bruit en alertes exploitables. La centralisation des logs et la création de dashboards pertinents réduisent drastiquement le MTTR (Mean Time To Respond) lors d'un incident.
+
+> [Retourner à l'index →](../index.md)

@@ -66,3 +66,14 @@ C'est ainsi qu'a l'autre bout du monde le Mobile consommera la variable Json "to
 C'est là tout ce que fera le Paquetage **Laravel Jetstream** de base au lieu de Breeze. Il inclut un panel pour que vos Utilisateurs web gèrent leur propres "jetons d'API (Sanctum)" dans leur paramètres de compte et les révoque... Si tel était le souhait de votre architecture !
 
 Passons au Bilan final de la théorie des serveurs.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Sanctum est l'outil Laravel pour deux cas d'usage distincts : les SPA (authentification par cookie de session) et les API mobiles/tierces (authentification par token personnel). Comprendre cette distinction est critique avant de choisir votre implémentation — utiliser des tokens là où les cookies suffiraient, c'est introduire une complexité inutile et une surface d'attaque supplémentaire.
+
+> [API sécurisée. Synthétisez l'ensemble du parcours Laravel dans le module final →](./43-masterclass-synthese.md)

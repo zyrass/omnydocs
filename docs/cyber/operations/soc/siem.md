@@ -426,5 +426,3 @@ Wazuh s'intègre nativement avec l'écosystème SOC :
     Wazuh est bien plus qu'un SIEM : c'est une plateforme complète de **détection et réponse** (XDR). Sa force réside dans la combinaison des **agents endpoint** (visibilité comportementale), du **moteur de règles** (corrélation intelligente), et de l'**Active Response** (réponse automatique). Un SOC opérationnel avec Wazuh peut détecter une attaque de brute force en quelques secondes et bloquer automatiquement l'IP source — sans intervention humaine pour les cas les plus simples.
 
 > Une fois Wazuh déployé, continuez avec la configuration de **[Suricata →](./ids-ips/suricata.md)** pour ajouter la couche de détection réseau, puis avec **[EDR/XDR →](./edr-xdr.md)** pour renforcer la visibilité endpoint.
-
-<br>

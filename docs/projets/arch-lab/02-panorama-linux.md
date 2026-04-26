@@ -908,3 +908,13 @@ sudo systemctl start httpd
 [^3]: **ESM (Extended Security Maintenance)** : support étendu payant proposé par Canonical pour les entreprises nécessitant 10 ans de support total.
 [^4]: **Modules DNF** : permettent d'installer plusieurs versions d'un logiciel simultanément. Exemple : PHP 7.4 pour app legacy + PHP 8.3 pour app moderne.
 
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'architecture logicielle et système demande une vision globale. Les décisions prises lors de cette phase auront un impact déterminant sur la maintenabilité, les coûts et la sécurité du projet sur les prochaines années.
+
+> [Passer à la phase suivante →](../index.md)

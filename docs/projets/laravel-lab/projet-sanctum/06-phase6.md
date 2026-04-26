@@ -13,6 +13,10 @@ tags: ["ANGULAR", "SIGNALS", "GAME-STATE", "HTTPCLIENT", "LOGIC"]
   data-time="3h - 4h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Sécuriser une API avec Sanctum s'apparente à donner un jeton d'accès temporaire à un livreur. Au lieu de lui donner les clés de la maison (authentification de session), vous lui donnez un badge qui ne permet d'ouvrir que la porte du garage, et qui peut être révoqué à tout moment._
+
 ## Objectif de la Phase
 
 > Nous avons notre API backend qui calcule les règles du jeu en toute sécurité, et notre interface Frontend qui est prête à les afficher. Il manque le chef d'orchestre : le **GameStateService**. Contrairement à une application de gestion (SaaS), un jeu ne fait pas d'"Optimistic Updates" sur un combat (le joueur ne sait pas s'il va faire un coup critique ou rater). Le client doit envoyer l'action, **attendre** la résolution du serveur, puis animer les résultats de manière séquentielle.
@@ -210,3 +214,14 @@ L'âme du jeu est là. L'intégration est terminée :
 - ✅ **Protection totale** : le client ne fait que demander au serveur le résultat de l'action, l'UI s'adapte en conséquence (Server-Authoritative).
 
 La phase de conception principale est finie. Dans la **Phase 7**, nous verrons comment tester ce système complexe (TDD) et optimiser les performances (Redis Cache) pour supporter des centaines de combats simultanés.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les fonctionnalités avancées (upload de fichiers, exports PDF/CSV, notifications par email) doivent systématiquement passer par des queues en production. Une API qui bloque la réponse HTTP pendant 3 secondes pour générer un PDF expose le serveur aux timeouts et aux doubles clics des utilisateurs. Répondez immédiatement avec un ID de job, notifiez quand le traitement est terminé.
+
+> [Fonctionnalités avancées implementées. Renforcez maintenant avec les tests automatisés →](./07-phase7.md)

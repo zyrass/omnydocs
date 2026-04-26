@@ -99,3 +99,14 @@ class LoginRequest extends FormRequest
 ```
 
 Mener un site à bien avec des architectures solides est possible si on laisse se reposer certains bloc sur la structure globale et les paquetages pré-existants (Starter-kits). Il existe d'autres "Kits" officiels que *Breeze* comme *Jetstream* et *Fortify* plus orienté pour l'immense API ou les Équipes d'Entreprises "Teams". Mais Laravel Breeze est le meilleur compromis de refonte possible pour apprendre et avancer en pro.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Un kit d'authentification comme Breeze n'est pas magique — il applique des patterns connus et éprouvés. Comprendre ces patterns (Form Request, Guard, Provider, Redirector) vous permet de les adapter, de les étendre et surtout de les déboguer quand quelque chose ne se comporte pas comme prévu en production.
+
+> [Patterns compris. Migrez maintenant vers la Stack TALL pour une expérience full-stack moderne →](./35-migration-et-bilan.md)

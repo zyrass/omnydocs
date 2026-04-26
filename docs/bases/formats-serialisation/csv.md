@@ -753,6 +753,9 @@ CSV ne supporte pas les données hiérarchiques — un enregistrement avec plusi
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Le format CSV est un standard incontournable de l'échange de données. Savoir le lire, le structurer et l'analyser est une compétence transversale absolument vitale, que ce soit en développement, en administration système ou en analyse de logs cybersécurité.
+
 !!! quote "Conclusion"
     _CSV est le format universel de l'échange de données — simple, lisible et supporté par tous les langages et tous les outils. Sa simplicité apparente cache des pièges concrets : encodage non spécifié, délimiteur supposé plutôt que vérifié, données non validées, fichiers trop volumineux pour être chargés en mémoire. Maîtriser CSV, c'est comprendre ses limites structurelles (pas de types, pas de hiérarchie, pas de standard strict) autant que ses forces (universalité, performance brute, interopérabilité totale). Pour des données simples et tabulaires, CSV reste imbattable._
 

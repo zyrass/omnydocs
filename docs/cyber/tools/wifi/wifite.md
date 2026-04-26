@@ -156,21 +156,3 @@ Il suffira ensuite d'utiliser **Hashcat** sur votre ordinateur surpuissant à la
 
     *Sélectionnez toujours rigoureusement vos cibles avec les numéros, et ne laissez jamais l'outil tourner en "aveugle" sans surveillance humaine.*
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Wifite est l'outil parfait pour gagner du temps. Il ne remplace pas la compréhension profonde des protocoles WiFi fournie par Aircrack-ng, mais il l'industrialise. Dans les missions où le temps d'exposition physique du pentester dans un lieu public est limité, Wifite permet de récolter un maximum de données chiffrées en un minimum de temps.
-
-> Wifite tente de capturer les Handshakes WPA de manière classique, mais une révolution a eu lieu en 2018 permettant de récupérer les éléments cryptographiques sans déconnecter personne. Explorez cette technique avec les **[hcxtools (PMKID) →](./hcxtools.md)**.
-
-<br>
-
-
-
-
-
-

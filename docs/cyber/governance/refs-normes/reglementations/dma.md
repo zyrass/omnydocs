@@ -314,3 +314,14 @@ mindmap
 
 [^1]: L'**article 102 TFUE** (*Traité sur le Fonctionnement de l'Union Européenne*) est la disposition du droit européen primaire qui interdit les abus de position dominante. Son application requiert de prouver la position dominante, le comportement abusif et le lien de causalité — une procédure qui peut prendre 5 à 10 ans face à des acteurs disposant de ressources juridiques importantes.
 [^2]: Le **sideloading** désigne l'installation d'applications sur un appareil mobile en dehors des boutiques d'applications officielles du fabricant (App Store pour Apple, Google Play pour Android). Apple l'avait historiquement interdit sur iOS pour des raisons de sécurité et de contrôle commercial, avant d'être contraint par le DMA de l'autoriser dans l'UE depuis mars 2024.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

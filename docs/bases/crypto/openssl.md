@@ -464,6 +464,9 @@ Les permissions `600` sur toute clé privée sont non-négociables. Utiliser une
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La cryptographie et l'outil OPENSSL constituent la base de la confiance numérique. Une erreur de configuration dans ce domaine ne produit pas un simple bug, mais une vulnérabilité critique pouvant compromettre l'intégralité d'un système d'information.
+
 !!! quote "Conclusion"
     _OpenSSL n'est pas seulement un outil — c'est la loupe qui rend visible la sécurité réelle d'un système. Savoir lire la sortie de `openssl s_client` ou inspecter un certificat X.509 directement depuis le terminal permet de diagnostiquer en quelques secondes ce qu'un navigateur cache derrière une icône de cadenas. Comprendre le cycle clé → CSR → certificat, les formats PEM et DER, et la différence entre RSA et ECC, c'est comprendre comment la confiance numérique est construite et déployée — des fondations nécessaires avant d'aborder la PKI dans le chapitre suivant._
 

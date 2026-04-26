@@ -123,20 +123,3 @@ ping -c 1 10.10.10.5
     
     Cependant, "Ping" a donné naissance historiquement à la pire attaque basique d'Internet : Le **Ping of Death** (Envoi d'un paquet ICMP illégalement grand pour faire crasher les vieux OS) et le **Ping Flood** (Attaque par Déni de Service en saturant la bande passante de la cible de pings). Ces deux utilisations déviées, si elles causent une indisponibilité, tombent sous l'Article 323-2 du Code Pénal.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Aussi basique soit-il, le Ping reste votre premier interlocuteur sur un réseau inconnu. S'il répond, l'analyse de son TTL vous donne déjà une longueur d'avance sur l'identification de l'infrastructure. S'il ne répond pas, n'oubliez jamais que c'est sûrement juste son garde du corps (le Pare-Feu) qui vous ignore.
-
-> Que se passe-t-il lorsque vous devez envoyer un paquet réseau qui ne correspond à aucun standard (ni un vrai ping, ni une vraie requête web) pour tester les réactions étranges d'un pare-feu ? Vous devez le construire à la main, bit par bit. Bienvenue dans la forge avec **[Scapy →](./scapy.md)**.
-
-
-
-
-
-
-

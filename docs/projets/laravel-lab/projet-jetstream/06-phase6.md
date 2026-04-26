@@ -13,6 +13,10 @@ tags: ["ANGULAR", "SIGNALS", "HTTPCLIENT", "INTEGRATION", "STATE"]
   data-time="3h - 4h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Si Breeze est une serrure de maison individuelle, Jetstream est le système de sécurité d'un immeuble de bureaux complet. Il gère non seulement les badges d'accès (authentification), mais aussi les droits par étage (rôles), les équipes (locataires) et la sécurité renforcée (2FA)._
+
 ## Objectif de la Phase
 
 > Avoir une belle interface ne suffit pas. Notre application doit communiquer en temps réel avec notre base de données Laravel. Cette phase est fondamentale : nous allons créer les **Services d'État (State Services)** avec Angular Signals pour synchroniser les données de l'API avec notre interface. Nous implémenterons également des mécanismes d'**Optimistic Updates** pour donner l'illusion d'une application instantanée, ainsi qu'une gestion robuste des erreurs (snackbars).
@@ -247,3 +251,14 @@ La boucle est bouclée, notre frontend et backend parlent la même langue :
 - ✅ **Graphiques dynamiques** recalculés automatiquement grâce aux Computed Signals.
 
 Dans la **Phase 7**, nous verrons comment exporter tout le travail du Pentester sous forme d'un **rapport PDF professionnel** généré côté serveur.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les notifications temps réel (WebSockets via Pusher ou Laravel Reverb) transforment une application CRUD statique en plateforme collaborative vivante. Le choix architectural critique : broadcast depuis une Queue pour ne jamais bloquer la réponse HTTP, et écouter côté client uniquement sur les canaux auxquels l'utilisateur a accès.
+
+> [Temps réel maîtrisé. Affinez les performances avec les requêtes optimisées et la mise en cache →](./07-phase7.md)

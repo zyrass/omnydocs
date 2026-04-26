@@ -130,6 +130,9 @@ Le pentest réseau et services intervient après la reconnaissance (OSINT, DNS) 
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ce module vous dote des outils fondamentaux pour cette catégorie d'attaque ou d'analyse. Gardez à l'esprit qu'un outil ne remplace pas la compréhension du concept : c'est votre capacité à interpréter les résultats qui fait de vous un véritable expert technique en cybersécurité.
+
 !!! quote "Le cœur de l'infrastructure"
     La maîtrise du réseau et de l'Active Directory est ce qui différencie un audit de surface d'une véritable compromission de l'infrastructure cible. Chaque protocole mal configuré est une opportunité pour l'auditeur.
 

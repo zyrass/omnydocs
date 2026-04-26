@@ -978,3 +978,13 @@ Les autorités de contrôle tiennent compte de :
 
 ---
 
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le RGPD a transformé la confidentialité des données d'une simple considération éthique en une exigence légale stricte. La protection des données dès la conception (Privacy by Design) est désormais le standard absolu pour tout nouveau projet numérique en Europe.
+
+> [Découvrir la directive NIS2 →](./nis2.md)

@@ -140,6 +140,26 @@ Une carte se dessine sous vos yeux. Chaque flèche correspond à une action ("Ha
 
 ---
 
+## 🛡️ Blue Team & Détection (SOC)
+
+BloodHound est très bruyant lors de sa phase d'ingestion. La défense (Blue Team) a plusieurs moyens de détecter cette reconnaissance massive de l'Active Directory.
+
+### 1. Détection des Requêtes LDAP Massives (SIEM)
+L'ingestor doit poser des milliers de requêtes LDAP au contrôleur de domaine en quelques minutes. Un comportement anormal pour un utilisateur standard.
+*   **Event ID Windows** : `1644` (Directory Service Search)
+*   **Comportement** : Un utilisateur standard (non-administrateur) effectuant plus de 1000 requêtes LDAP d'énumération (`objectCategory=person`, `objectClass=computer`) en moins d'une minute.
+
+### 2. Les HoneyTokens (Comptes Piégés)
+La stratégie la plus efficace contre BloodHound consiste à créer de faux comptes (HoneyTokens) invisibles et inutilisés, avec des noms attractifs (ex: `svc_backup_admin`).
+BloodHound va inévitablement les énumérer et les intégrer dans ses chemins d'attaque. Dès qu'un attaquant tente d'utiliser ce compte ou demande un ticket Kerberos le concernant (Kerberoasting), une alerte critique (Event ID 4768 / 4769) est déclenchée immédiatement dans le SIEM.
+
+### 3. Microsoft Defender for Identity (MDI)
+L'EDR spécialisé de Microsoft (MDI, ex-ATA) intègre une détection native de BloodHound. Il lève l'alerte **"Reconnaissance LDAP suspecte"** lorsqu'il détecte le profil de requêtes typique de SharpHound.
+
+<br>
+
+---
+
 ## Avertissement Légal & Éthique
 
 !!! danger "Cartographie et Vol de Topologie"
@@ -149,21 +169,4 @@ Une carte se dessine sous vos yeux. Chaque flèche correspond à une action ("Ha
     2. **Le Déclencheur Juridique** : Ce n'est pas la collecte qui est pénalement répréhensible, c'est l'usage du compte "t.martin". Si ce compte a été obtenu frauduleusement (via Responder ou Phishing), l'utilisation même de BloodHound constitue le "Maintien frauduleux dans un STAD" (Art. 323-1).
     
     *Cependant, pour les Blue Teams, BloodHound est un outil purement défensif, légal et très puissant, pour trouver les failles de leur propre réseau et les réparer.*
-
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    BloodHound a révolutionné l'approche de la sécurité réseau en introduisant la devise de John Lambert (Microsoft) : *"Les défenseurs pensent en listes, les attaquants pensent en graphes"*. Le logiciel a prouvé que même si l'entreprise a les meilleurs mots de passe du monde et des serveurs ultra-sécurisés, si les droits d'accès s'entremêlent, il y a mathématiquement toujours une route qui mène aux clés du royaume.
-
-> **Bravo !** Vous maîtrisez maintenant l'arsenal d'exploitation réseau. Du simple scan Nmap au graphique tridimensionnel de l'AD, en passant par le MITM, l'horizon des possibles s'ouvre à vous.
-> Dans la section suivante (Étape 5), nous verrons les outils "Boîte Noire", qui ne font pas de chirurgie, mais scannent le réseau à la recherche de **Vulnérabilités logicielles** (CVE) connues.
-
-
-
-
-
 

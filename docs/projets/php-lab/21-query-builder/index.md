@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="8.3"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Le Query Builder est comme un traducteur personnel. Au lieu d'écrire des requêtes SQL complexes à la main au risque de faire une faute de frappe, vous utilisez des méthodes PHP élégantes qui construisent la requête SQL parfaite et sécurisée en arrière-plan._
 
 !!! quote "Le Pitch"
     Écrire des requêtes MySQL en dur n'est pas fiable en programmation moderne. Les frameworks comme Laravel (Eloquent) construisent ces chaînes SQL par concaténation intelligente d'objets, ce que l'on appelle un **Query Builder**.
@@ -192,4 +196,15 @@ echo "<code>" . $sqlSecureString . "</code>";
       <span class="text-gray-700">Imaginez une erreur dans votre code de pagination Limit. Vous savez EXACTEMENT où chercher : Dans le <code>trait Limitable</code>, et non pas perdus au milieu des 400 lignes de la Classe Générale <code>QueryBuilder</code> pleine de WHERE et de ORDER. C'est l'essence du Code Propre.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="8.3"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Autoriser un utilisateur à envoyer un fichier sur votre propre Serveur Web est l'action **la plus dangereuse** en informatique. Un hacker peut renommer un virus `.exe` ou un script pirate `.php` en `.jpg` pour prendre le contrôle total du serveur.
@@ -237,4 +241,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['mon_avatar'])) {
       <span class="text-gray-700">Vous avez changé volontairement le nom d'un fichier excel <code>compta.xlsx</code> en <code>compta.jpg</code> avant de l'envoyer. L'extension PHP <code>finfo_file</code> a analysé le coeur binaire, détecté un Spreadsheet XML et a levé l'Alerte Rouge : Falsification Détectée. Le Hacker (Vous) est coincé.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

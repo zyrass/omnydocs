@@ -13,6 +13,10 @@ tags: ["PARCOURS", "CYBERSECURITE", "BLUE-TEAM", "SOC", "DFIR"]
   data-time="5-10 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Passer de l'Infrastructure à la Cyber Défense s'apparente à évoluer du métier d'architecte réseau routier à celui de chef de la police. Vous connaissez déjà chaque route et chaque recoin de la ville ; vous apprenez maintenant à repérer les comportements suspects et à intercepter les criminels (SOC/DFIR)._
+
 !!! warning "**Accessibilité : avancée** — _Ce parcours suppose une maîtrise solide de l'infrastructure avant d'aborder la détection et la réponse à incident._"
 
 ## Que fait ce parcours
@@ -136,8 +140,9 @@ _L'extension vers la **Gouvernance** est la plus naturelle à ce stade : un anal
 
 ## Conclusion
 
-Le parcours Sys → Cyber Défense est l'un des deux chemins offensifs de la documentation — ici orienté protection, détection et investigation.  
-Il produit un profil analyste SOC ou DFIR opérationnel, capable d'intervenir sur des incidents réels en environnement de production.
+!!! quote "Ce qu'il faut retenir"
+    Le parcours Sys → Cyber Défense est l'un des deux chemins offensifs de la documentation — ici orienté protection, détection et investigation.  
+    Il produit un profil analyste SOC ou DFIR opérationnel, capable d'intervenir sur des incidents réels en environnement de production.
 
 **Point d'entrée recommandé : [Fondamentaux IT](../../bases/index.md) — puis [Systèmes & Infrastructure](../../sys-reseau/index.md) — puis [Cyber : Défense](../../cyber/operations/index.md).**
 

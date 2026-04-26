@@ -13,6 +13,10 @@ tags: ["FTP", "SFTP", "RESEAU", "SERVICES", "TRANSFERT"]
   data-time="15 - 20 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Les services réseaux (DNS, FTP, SSH) sont comme les différents guichets spécialisés d'une grande entreprise. Le DNS est l'accueil qui indique où se trouve chaque bureau, SSH est l'entrée de service hyper-sécurisée pour la maintenance, et FTP est le quai de chargement des marchandises. Chaque guichet mal surveillé est une opportunité d'intrusion._
+
 !!! quote "Transférer en sécurité"
     _Depuis les débuts de l'Internet, le besoin de transférer des fichiers volumineux entre machines est une constante. Le **FTP** (File Transfer Protocol) a longtemps été le standard absolu. Aujourd'hui, il est considéré comme une faille de sécurité majeure, mais ses descendants (FTPS et surtout SFTP) restent les piliers de la gestion de contenu web et des sauvegardes distantes._
 
@@ -97,3 +101,14 @@ Match Group sftp-only
 ## Conclusion
 
 Dans 95% des cas modernes (développement web, sauvegardes de fichiers automatiques vers un serveur distant, administration de logs), la réponse est **SFTP**. Le vieux protocole FTP(S) n'est justifié aujourd'hui que si vous avez besoin de très hautes performances de transfert local ou de gérer des centaines de comptes virtuels (comme sur des hébergements mutualisés type cPanel).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Chaque service exposé est un vecteur d'attaque potentiel. La configuration sécurisée des services fondamentaux (DNS, SSH, Samba) est la première et souvent la plus critique ligne de défense de l'infrastructure.
+
+> [Retourner à l'index Réseau →](../index.md)

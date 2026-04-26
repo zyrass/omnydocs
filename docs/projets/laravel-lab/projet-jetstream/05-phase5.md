@@ -13,6 +13,10 @@ tags: ["ANGULAR", "MATERIAL", "DASHBOARD", "UI", "CHARTJS"]
   data-time="5h - 7h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Si Breeze est une serrure de maison individuelle, Jetstream est le système de sécurité d'un immeuble de bureaux complet. Il gère non seulement les badges d'accès (authentification), mais aussi les droits par étage (rôles), les équipes (locataires) et la sécurité renforcée (2FA)._
+
 ## Objectif de la Phase
 
 > C'est ici que l'application prend vie. Le backend fournit les données, le frontend les exploite. Nous allons concevoir une **interface de niveau professionnel** avec Angular Material. Cette interface inclura un Dashboard de statistiques (avec graphiques Chart.js), une gestion fluide des Teams (SaaS), des formulaires réactifs pour le CRUD des missions et des vulnérabilités (Findings), et une intégration avancée des Signals pour garantir une fluidité d'affichage à 60 FPS sans le moindre scintillement.
@@ -260,3 +264,14 @@ L'interface de l'application SaaS prend forme :
 - ✅ **Formulaires robustes** pour saisir les données critiques (Findings).
 
 L'interface est belle, mais elle doit maintenant communiquer efficacement et de manière asynchrone avec notre Backend Laravel. Ce sera l'objet de la **Phase 6 : Intégration API ↔ Frontend**.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Un endpoint API REST bien conçu communique son contrat via ses codes HTTP : 200 pour le succès, 201 pour la création, 422 pour les erreurs de validation, 403 pour les accès refusés, 404 pour les ressources introuvables. API Resources de Laravel garantissent que la structure JSON renvoyée au client ne change jamais sans décision explicite.
+
+> [API REST maîtrisée. Intégrez maintenant les notifications en temps réel →](./06-phase6.md)

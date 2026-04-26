@@ -204,3 +204,14 @@ Le CRA crée des **obligations nouvelles pour les fabricants** qui s'ajoutent à
 [^2]: **PEN** (*Products with digital Elements*, ou Produits comportant des éléments numériques) est la terminologie officielle du CRA pour désigner les produits concernés par le règlement.
 [^3]: Un **SBOM** (*Software Bill of Materials*, ou Nomenclature des composants logiciels) est une liste exhaustive des composants logiciels d'un produit : bibliothèques, frameworks, outils tiers, dépendances. Il permet d'identifier rapidement si un produit est affecté par une vulnérabilité découverte dans un de ses composants.
 [^4]: L'**ENISA** (*European Union Agency for Cybersecurity*, ou Agence de l'Union européenne pour la cybersécurité) est l'agence européenne chargée de contribuer à la cybersécurité en Europe. Dans le cadre du CRA, elle reçoit les notifications d'incidents et de vulnérabilités activement exploitées.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

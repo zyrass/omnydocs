@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="1.0"
-  data-time="1h30">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le client ajoute de nouveaux projets chaque mois à son Portfolio. En HTML statique, il faut copier-coller un bloc de 10 lignes à chaque fois pour l'ajouter, ce qui augmente le risque d'erreur humaine pour un Rédacteur Web. En JavaScript moderne, la donnée ("Data") est séparée de l'affichage ("Vue"). Nous allons détruire notre HTML pour laisser le JS peindre l'écran automatiquement à partir d'une liste de données.
@@ -145,3 +149,14 @@ Ici, avec `.filter()`, le tableau est recalculé dans la puce RAM de l'ordinateu
 Le code Source est impeccable. C'est l'heure de fermer la boîte et d'expédier ce produit fini sur les serveurs du monde entier : la ligne d'assemblage (Build Phase).
 
 [Passer à la Phase 5 : Compilation & Déploiement →](phase5.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

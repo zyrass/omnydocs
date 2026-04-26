@@ -13,6 +13,10 @@ tags: ["SANCTUM", "API", "TOKENS", "STATELESS", "AUTH"]
   data-time="1h - 2h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Sécuriser une API avec Sanctum s'apparente à donner un jeton d'accès temporaire à un livreur. Au lieu de lui donner les clés de la maison (authentification de session), vous lui donnez un badge qui ne permet d'ouvrir que la porte du garage, et qui peut être révoqué à tout moment._
+
 ## Objectif de la Phase
 
 > Bienvenue dans le Niveau 3 ! Pour notre jeu vidéo en ligne (Dungeon RPG), nous abandonnons la gestion de session par cookie. Un jeu vidéo (ou une application mobile native) nécessite une authentification **Stateless** (sans état) basée sur l'échange de clés secrètes. Nous allons configurer Laravel Sanctum pour générer et vérifier des **Personal Access Tokens (PAT)**. Le serveur ne retiendra aucune "session" ; chaque requête devra contenir le token dans son en-tête.
@@ -222,3 +226,14 @@ L'authentification "API Pure" (Stateless) n'a plus de secret pour vous :
 - ✅ Les routes sont protégées et filtrent les accès non autorisés.
 
 Dans la **Phase 2**, nous allons plonger dans le cœur de notre Jeu de Rôle (RPG) en modélisant les Personnages, les Monstres et la logique des Combats au tour par tour !
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Sanctum en mode API stateless (Personal Access Tokens) est fondamentalement différent du mode SPA : chaque requête transporte son token dans le header `Authorization: Bearer`. Ce modèle est conçu pour les clients mobiles, les applications tierces et les intégrations inter-services — pas pour les SPA hébergées sur le même domaine, où les cookies sont plus sécurisés.
+
+> [Architecture API posée. Modélisez maintenant la base de données du projet →](./02-phase2.md)

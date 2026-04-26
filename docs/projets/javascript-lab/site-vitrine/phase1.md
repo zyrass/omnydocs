@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟡 Intermédiaire"
   data-version="1.0"
-  data-time="1h00">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le premier choc d'un développeur junior arrivant en entreprise, c'est de découvrir qu'aucun site professionnel n'est codé avec un simple fichier `index.html` ouvert dans le navigateur. On utilise des "Bundlers" (Webpack, Vite, Turbopack) pour minifier, modulariser et recharger le code quasi instantanément. Votre mission : transplanter le projet HTML/CSS du client dans un moteur de Formule 1.
@@ -93,3 +97,14 @@ initMenu();
 **Votre usine à gaz est opérationnelle.** Nous avons quitté l'âge de pierre (Fichier HTML basique) pour l'ère industrielle (Dossier Vite compilé). Il est temps de manipuler notre premier élément du DOM en direct : le Menu Burger.
 
 [Passer à la Phase 2 : Refactoring du Menu Mobile →](phase2.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

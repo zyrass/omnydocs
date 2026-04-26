@@ -108,6 +108,13 @@ Lancez `php artisan serve` et testez `http://localhost:8000/about` : Félicitati
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-L'environnement est isolé et maitrisé, et nos pages virtuelles communiquent du contenu dynamique. Avant d'avancer vers le Module 2, il est important de clôturer les fondations par un système standard de conventions typographiques.
+!!! quote "Ce qu'il faut retenir"
+    La configuration Laravel repose sur un principe fondamental : **aucune valeur sensible ne doit figurer dans le code**. Le fichier `.env` est votre seul point de vérité pour les secrets — une discipline que vous retrouverez dans tous les frameworks professionnels modernes.
+
+> [Environnement configuré. Apprenez maintenant les conventions qui rendent Laravel prévisible →](./06-conventions-et-bilan.md)

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Document en cours de rédaction">
+        <meta name="description" content="Laravel Breeze — Projet guidé complet. Authentification légère, interface Blade/Tailwind, déploiement. 7 phases progressives pour maîtriser l'authentification Laravel en profondeur.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Project Breeze - OmnyDocs</title>
+        <title>Projet Breeze — Application d'Authentification Complète - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-breeze" class="md-skip">
+        <a href="#projet-breeze-application-dauthentification-complete" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Breeze
+              Projet Breeze — Application d'Authentification Complète
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1173,6 +1171,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Projet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure du Projet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1192,20 +1253,161 @@
                 
                   
 
-<h1 id="project-breeze">Project Breeze<a class="headerlink" href="#project-breeze" title="Permanent link">&para;</a></h1>
+<h1 id="projet-breeze-application-dauthentification-complete">Projet Breeze — Application d'Authentification Complète<a class="headerlink" href="#projet-breeze-application-dauthentification-complete" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 En construction"
-  data-version="1.0"
-  data-time="Bientôt disponible">
+  data-level="🟢 Débutant & 🟡 Intermédiaire"
+  data-version="Laravel 11"
+  data-time="~8 Heures">
 </div>
 </p>
-<div class="admonition info">
-<p class="admonition-title">Article en cours de rédaction</p>
-<p>Le contenu détaillé de cette page est actuellement en cours de rédaction. Il sera publié lors des prochaines mises à jour d'OmnyDocs.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Qu'est-ce que ce projet ?</p>
+<p><strong>Laravel Breeze</strong> est le kit de démarrage officiel le plus léger de Laravel. Contrairement à Jetstream (qui inclut Teams, 2FA, API tokens dès l'installation), Breeze se concentre sur l'essentiel : <strong>inscription, connexion, réinitialisation de mot de passe, et vérification d'email</strong>. C'est le point d'entrée idéal pour comprendre l'authentification Laravel sans la complexité d'un kit complet.</p>
 </div>
-<p><br /></p>
+<p>Ce projet guidé vous accompagne sur <strong>7 phases progressives</strong>, de l'installation à la personnalisation complète d'une application authentifiée, avec une interface Blade et Tailwind.</p>
+<p><br></p>
+<hr />
+<h2 id="architecture-du-projet">Architecture du Projet<a class="headerlink" href="#architecture-du-projet" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    classDef phase fill:#cce5ff,stroke:#0d6efd,color:#000
 
+    P1["Phase 1\nInstallation"] --&gt; P2["Phase 2\nBDD &amp; Migrations"]
+    P2 --&gt; P3["Phase 3\nVues Blade"]
+    P3 --&gt; P4["Phase 4\nProfil Utilisateur"]
+    P4 --&gt; P5["Phase 5\nAutorisation"]
+    P5 --&gt; P6["Phase 6\nTests"]
+    P6 --&gt; P7["Phase 7\nDéploiement"]
+
+    class P1,P2,P3,P4,P5,P6,P7 phase</code></pre>
+<p><br></p>
+<hr />
+<h2 id="structure-du-projet">Structure du Projet<a class="headerlink" href="#structure-du-projet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Contenu</th>
+<th>Durée estimée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phase 1</strong></td>
+<td>Installation Laravel + Breeze, configuration <code>.env</code>, structure</td>
+<td>45 min</td>
+</tr>
+<tr>
+<td><strong>Phase 2</strong></td>
+<td>Migrations, modèle User, relations</td>
+<td>1h</td>
+</tr>
+<tr>
+<td><strong>Phase 3</strong></td>
+<td>Personnalisation des vues Blade (login, register, dashboard)</td>
+<td>1h30</td>
+</tr>
+<tr>
+<td><strong>Phase 4</strong></td>
+<td>Page de profil, mise à jour utilisateur, upload avatar</td>
+<td>1h</td>
+</tr>
+<tr>
+<td><strong>Phase 5</strong></td>
+<td>Middleware, autorisation, protection des routes</td>
+<td>45 min</td>
+</tr>
+<tr>
+<td><strong>Phase 6</strong></td>
+<td>Tests PHPUnit (Feature tests d'authentification)</td>
+<td>1h</td>
+</tr>
+<tr>
+<td><strong>Phase 7</strong></td>
+<td>Déploiement sur VPS, configuration Nginx + SSL</td>
+<td>1h</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="prerequis">Prérequis<a class="headerlink" href="#prerequis" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Avant de commencer ce projet</p>
+<ul>
+<li>✅ Avoir complété les modules <strong>Controllers</strong> (11) et <strong>Validation</strong> (12)</li>
+<li>✅ Connaître les bases d'<strong>Eloquent</strong> (15-16)</li>
+<li>✅ Avoir lu le module <strong>Authentification</strong> (21-22)</li>
+<li>✅ Node.js installé (<code>npm</code> pour Vite/Tailwind)</li>
+<li>✅ Serveur MySQL ou PostgreSQL configuré</li>
+</ul>
+</div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Breeze n'est pas un raccourci — c'est une fondation. Ce projet vous apprend à <strong>posséder</strong> votre système d'authentification : comprendre chaque middleware, chaque guard, chaque vue générée. C'est cette compréhension qui vous permettra d'étendre Breeze avec vos propres fonctionnalités sans vous perdre dans du code que vous n'avez pas écrit.</p>
+</div>
+<blockquote>
+<p><a href="./phase1/">Commencer : Phase 1 — Installation →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">LARAVEL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BREEZE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">AUTH</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BLADE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PROJET GUIDÉ</span>
+      
+    
+  </nav>
 
 
 

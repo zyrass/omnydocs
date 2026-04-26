@@ -215,25 +215,3 @@ python3 sf.py -s omnyvia.com -x json -q > spiderfoot_report.json
     *Peine encourue pour accès frauduleux à un STAD : 3 ans d'emprisonnement et 100 000 € d'amende.*
     *Avant de cliquer sur "Run Scan", vérifiez toujours que les modules "Actifs" sont bien désactivés si vous n'avez pas de mandat de Red Team.*
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    SpiderFoot est le filet dérivant de l'OSINT. Il remonte énormément d'informations, dont beaucoup de déchets, mais il est souvent le seul outil capable de faire le lien entre une adresse IP, un employé qui a fait fuiter son mot de passe sur un obscur forum, et un nom de domaine abandonné. C'est l'outil de macro-reconnaissance par excellence.
-
-> Si l'utilisation de l'interface web de SpiderFoot vous plaît pour la visualisation, vous devriez pousser le concept encore plus loin en construisant vos propres graphes interactifs avec **[Maltego →](./maltego.md)**.
-
-<br>
-
-[^1]: **Système de Traitement Automatisé de Données (STAD)** : Désigne les serveurs, réseaux et applications de la cible. Tout module "Actif" de SpiderFoot interagit techniquement avec ce STAD.
-
-[^2]: **Open Source Intelligence (OSINT)** : Collecte de renseignements à partir de sources publiques (Shodan, Whois, Archives) sans jamais envoyer de requêtes directes à la cible.
-
-
-
-
-
-

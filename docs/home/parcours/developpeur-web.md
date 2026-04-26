@@ -13,6 +13,10 @@ tags: ["PARCOURS", "DEVELOPPEMENT", "TALL", "WEB"]
   data-time="5-10 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Choisir le parcours Développeur Web, c'est comme apprendre le métier de bâtisseur. Vous commencez par comprendre les fondations (Fondamentaux IT), puis vous montez les murs (HTML/CSS), installez l'électricité (JavaScript) et enfin concevez l'architecture complète du bâtiment (Laravel/TALL)._
+
 !!! tip "**Accessibilité : facile** — _Ce parcours est le plus direct et le moins exigeant en prérequis._"
 
 ## Que fait ce parcours
@@ -132,8 +136,9 @@ _L'extension vers la **Cyber Attaque** est la plus naturelle : la maîtrise du c
 
 ## Conclusion
 
-Le parcours Développeur web est le chemin le plus accessible de la documentation.  
-Il produit un profil opérationnel sur la stack TALL, immédiatement applicable en environnement professionnel.
+!!! quote "Ce qu'il faut retenir"
+    Le parcours Développeur web est le chemin le plus accessible de la documentation.  
+    Il produit un profil opérationnel sur la stack TALL, immédiatement applicable en environnement professionnel.
 
 **Point d'entrée recommandé : [Fondamentaux IT](../../bases/index.md) — puis [Développement & Stack TALL](../../dev-cloud/index.md).**
 

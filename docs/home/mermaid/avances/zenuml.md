@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # ZenUML (séquence orientée scénario)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     ZenUML propose une variante narrative des diagrammes de séquence. C'est adapté lorsque l'on souhaite un rendu lisible avec des stéréotypes d'acteurs (boundary, contrôle, base de données) sans alourdir la syntaxe. Le support dépend du renderer — à valider sous Zensical.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -36,6 +48,15 @@ zenuml
 ```
 
 <p><em>Ce schéma décrit un scénario narratif d'authentification : requête, lecture base, vérification du mot de passe, puis réponse applicative.</em></p>
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

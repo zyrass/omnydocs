@@ -168,6 +168,35 @@ Par défaut, un WAF (Cloudflare, ModSecurity) va bloquer l'attaque instantanéme
 
 ---
 
+## 🛡️ Blue Team & Détection (SOC)
+
+Bien que redoutable, SQLMap est historiquement l'un des outils les plus "bruyants" et faciles à détecter si l'attaquant ne l'a pas minutieusement configuré.
+
+### 1. Détection via User-Agent (WAF / SIEM)
+C'est l'erreur de débutant (Script Kiddie) par excellence. L'outil s'annonce fièrement dans ses requêtes HTTP.
+```yaml title="Règle Sigma : Détection User-Agent par défaut"
+title: Default SQLMap User Agent Detected
+logsource:
+    category: webserver
+detection:
+    selection:
+        c-useragent|contains: 'sqlmap/'
+    condition: selection
+level: high
+```
+
+### 2. Détection Comportementale (Volume & Erreurs)
+SQLMap provoque une quantité massive d'erreurs 500 dans les logs du serveur Web lors de sa phase heuristique (Error-based).
+*   **Alerte SIEM** : Un pic soudain (> 50 requêtes/seconde) d'erreurs `HTTP 500` provenant de la même adresse IP en direction du même endpoint (ex: `login.php`).
+
+### 3. Empreintes Spécifiques (Payloads SQLMap)
+Même obfusqués, les payloads générés par SQLMap contiennent souvent des chaînes mathématiques ou temporelles spécifiques à son moteur interne.
+*   **Patterns détectés** : `CONCAT(0x7171786b71...`, `SLEEP(5)`, `WAITFOR DELAY '0:0:5'`, ou des tests mathématiques absurdes comme `AND 1234=1234`.
+
+<br>
+
+---
+
 ## Avertissement Légal & Risques Applicatifs
 
 !!! danger "Altération et Instabilité des Bases de Données"
@@ -175,21 +204,4 @@ Par défaut, un WAF (Cloudflare, ModSecurity) va bloquer l'attaque instantanéme
     
     1. **Surcharge CPU** : Une attaque "Error-Based" ou "Time-Based" massive nécessite que le serveur évalue des centaines de requêtes complexes (`SLEEP()`, `BENCHMARK()`) par seconde. Cela peut provoquer le crash du SGBD et faire tomber l'application entière (Déni de Service).
     2. SQLMap propose des options pour modifier la base (`--sql-shell` -> `DROP TABLE`). Toute altération (mise à jour, suppression) des données en production est non seulement un risque métier immense, mais souvent une violation des règles d'engagement de l'audit. **Lisez toujours ce que SQLMap vous demande avant d'appuyer sur Entrée.**
-
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    SQLMap est magique. Il a transformé la discipline extrêmement complexe de l'exploitation SQL aveugle en un processus presque entièrement automatisé. Sa capacité à détecter les WAF, à utiliser des scripts d'obfuscation (`tamper`) et à craquer automatiquement les mots de passe de base de données en fait l'outil le plus craint par les administrateurs systèmes. L'avoir dans son arsenal est obligatoire, mais savoir restreindre son appétit (avec `--batch` et `-p`) est ce qui fait un bon pentester.
-
-> L'ensemble du socle "Pentest Web & API" est désormais en place. Depuis l'interception chirurgicale avec Burp, en passant par le bruit massif de ffuf et les tirs de précision de Nuclei et SQLMap, la surface d'attaque applicative est totalement couverte.
-
-
-
-
-
-
 

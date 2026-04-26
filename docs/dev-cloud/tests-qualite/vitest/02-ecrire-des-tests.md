@@ -356,3 +356,12 @@ it.todo('tester avec des caractères Unicode exotiques');
 > Module suivant : [Mocking & Spies →](./03-mocking.md) — isoler les dépendances (API, modules, timers, Window).
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

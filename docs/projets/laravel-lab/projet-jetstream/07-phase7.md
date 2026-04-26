@@ -13,6 +13,10 @@ tags: ["LARAVEL", "DOMPDF", "PDF", "REPORTING", "API"]
   data-time="2h - 3h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Si Breeze est une serrure de maison individuelle, Jetstream est le système de sécurité d'un immeuble de bureaux complet. Il gère non seulement les badges d'accès (authentification), mais aussi les droits par étage (rôles), les équipes (locataires) et la sécurité renforcée (2FA)._
+
 ## Objectif de la Phase
 
 > Le livrable final d'une mission de test d'intrusion est le **Rapport de Sécurité**. Il doit être professionnel, brandé aux couleurs du client, et contenir des graphiques exécutifs ainsi que le détail des vulnérabilités. Nous allons utiliser la librairie `barryvdh/laravel-dompdf` côté Laravel pour générer ce PDF à la volée à partir d'une vue Blade, puis l'envoyer de manière sécurisée (Blob) à notre application Angular.
@@ -247,3 +251,14 @@ La fonctionnalité de reporting est en place, complétant le workflow de notre p
 - ✅ **Frontend Angular** récupérant le flux en tant que `Blob` et forçant le téléchargement avec préservation de la session Sanctum.
 
 La prochaine et dernière étape est la **Phase 8 : Tests et Déploiement**.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'optimisation d'une API en production suit une hiérarchie stricte : d'abord éliminer les requêtes N+1 avec `with()`, ensuite mettre en cache les données lentes avec Redis, enfin indexer les colonnes de filtrage en base de données. Un profiler comme Laravel Telescope ou Clockwork est indispensable pour identifier les bottlenecks réels avant d'optimiser.
+
+> [Performances optimisées. Finalisez le projet avec les tests et le déploiement production →](./08-phase8.md)

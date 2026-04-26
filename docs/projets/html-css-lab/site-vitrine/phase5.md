@@ -14,6 +14,10 @@ status: stable
   data-time="1h00">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "Le Défi du Client"
     "Les 3 piliers de la boîte, c'est fait. L'entête aussi. Maintenant il nous faut une grille avec nos derniers travaux (Portfolio). Le problème, c'est que nos designers téléchargent des images qui n'ont jamais la même taille ou le même ratio (carré, rectangle vertical, 16:9). Le code HTML/CSS doit avaler n'importe quelle image sans la déformer."
 
@@ -204,3 +208,14 @@ Prenez une profonde expiration. Appuyez sur F12. Activez la vue Mobile ("Toggle 
 - [ ] À aucun endroit, je n'ai utilisé une unité de `Fixed pixels` écrasant l'espace (Ex: interdiction de mettre des width 1400px sur un conteneur principal). Tout est en Pourcentage '%', ou bridé avec des `max-width`.
 
 🏆 **Conclusion Majeure** : Ce laboratoire confirme vos acquis structurels. Vous avez bâti la carrosserie et le réseau électrique d'une voiture robuste. Vous êtes prêt pour entamer les couches dynamiques de données. Archivez ce projet (Il servira de base au laboratoire JavaScript suivant !).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

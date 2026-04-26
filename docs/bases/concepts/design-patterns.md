@@ -13,6 +13,10 @@ tags: ["ARCHITECTURE", "DESIGN PATTERNS", "GANG OF FOUR", "POO", "CONCEPTION"]
   data-time="30 - 45 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Les design patterns sont les plans d'architecte de la programmation. Face à un problème récurrent (comment construire un pont ?), plutôt que de tout réinventer, vous utilisez un patron de conception éprouvé par des milliers de développeurs avant vous._
+
 !!! quote "Ne réinventez pas la roue"
     _Un **Design Pattern** n'est pas un morceau de code prêt à être copié-collé. C'est un concept, un modèle de solution abstrait applicable à un problème de conception logicielle récurrent. Formalisés en 1994 par le **Gang of Four (GoF)**, ces modèles forment un vocabulaire commun indispensable entre développeurs pour concevoir des architectures robustes, évolutives et maintenables._
 
@@ -181,5 +185,8 @@ Le **MVC (Modèle-Vue-Contrôleur)** n'est pas un design pattern du Gang of Four
 - Le **Contrôleur** agit souvent comme une *Strategy* pour la Vue.
 
 ## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise du concept de design patterns est un pilier de l'informatique fondamentale. Au-delà de la syntaxe technique, c'est cette compréhension théorique qui différencie un simple technicien d'un véritable ingénieur capable de concevoir des systèmes robustes et maintenables.
 
 L'apprentissage des Design Patterns est la ligne de démarcation entre un développeur "junior" et un développeur "senior" ou architecte. Il ne faut pas chercher à forcer leur utilisation (cela conduit à la sur-ingénierie), mais plutôt les reconnaître naturellement lorsque le problème qu'ils résolvent se présente.

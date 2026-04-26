@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé (POO)"
   data-version="1.0"
-  data-time="1h30">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Notre Moteur tourne de manière asynchrone dans le noir. Il est grand temps d'illuminer l'écran. 
@@ -158,3 +162,14 @@ updateUI() {
 Vous avez bâti le **Moteur de Jeu (Game Engine) asynchrone Singleton Object-Oriented**. Vous comprenez désormais fondamentalement comment est structuré un jeu, une application Desktop, ou même un système d'exploitation Windows : Une boucle globale qui tourne à l'infini, qui regarde l'heure, qui regarde votre clic de souris, et redessine l'écran en fonction des entités.
 
 L'univers du JavaScript est désormais sous votre absolue maîtrise. Vous êtes diplômable.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

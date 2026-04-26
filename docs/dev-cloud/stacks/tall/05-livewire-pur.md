@@ -1589,3 +1589,14 @@ Le **Module 7** vous apprendra à **ajouter la réactivité côté client** avec
 [^7]: **wire:confirm** : Directive Livewire 3 affichant popup confirmation JavaScript avant exécuter action. Syntaxe : `wire:confirm="Message"`. Équivalent `onclick="return confirm('...')"` mais intégré. Utilisateur clique OK → Action exécutée. Utilisateur clique Annuler → Rien. Remplace JavaScript inline pour confirmations.
 
 [^8]: **CSRF (Cross-Site Request Forgery)** : Attaque forçant utilisateur authentifié à exécuter actions non désirées. Protection Laravel : Token unique vérifié à chaque POST/PUT/DELETE. Formulaires classiques : `@csrf` obligatoire. Livewire : Token inclus automatiquement dans requêtes AJAX (plus besoin `@csrf`).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La TALL stack (Tailwind, Alpine, Laravel, Livewire) offre une alternative puissante aux SPAs (Single Page Applications) lourdes en JavaScript. Elle permet de construire des interfaces réactives tout en gardant la logique métier solidement ancrée côté serveur.
+
+> [Retourner à l'index TALL →](../index.md)

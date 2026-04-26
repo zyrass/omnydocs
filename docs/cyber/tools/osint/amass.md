@@ -258,25 +258,3 @@ _L'outil affichera "Found" pour les nouveaux sous-domaines apparus depuis hier, 
 
     *Ne lancez jamais un Amass en mode actif sans autorisation écrite formelle (Mandat/Ordre de mission).*
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Amass est l'outil ultime de **visibilité**. Il révèle le "Shadow IT", c'est-à-dire les serveurs et services que l'administrateur système a oubliés, mais que l'attaquant, lui, trouvera toujours. Maîtriser Amass, c'est s'assurer qu'aucun actif exposé ne reste dans l'ombre avant de lancer les phases de scan de vulnérabilités.
-
-> Une fois vos sous-domaines bruts récoltés, filtrez les serveurs web réellement actifs avec un outil comme **[Httpx →](./httpx.md)**.
-
-<br>
-
-[^1]: **Système de Traitement Automatisé de Données (STAD)** : Désigne tout ensemble organisé de moyens (matériels et logiciels) permettant de collecter, enregistrer, stocker, modifier, manipuler, envoyer, visualiser ou détruire des données. Un serveur DNS interrogé par Amass est un STAD.
-
-[^2]: **Open Source Intelligence (OSINT)** : Méthode de collecte d'informations provenant uniquement de sources publiquement accessibles. L'OSINT passif ne laisse aucune trace chez la cible.
-
-
-
-
-
-

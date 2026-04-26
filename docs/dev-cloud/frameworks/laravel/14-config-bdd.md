@@ -101,6 +101,13 @@ DB_PASSWORD=votre_mot_de_passe
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-L'environnement DB est une question de choix et vous laisse libre de migrer ce que l'on appelle les Datasources très rapidement. Le prochain document passe aux travaux pratiques en vous exposant la syntaxe Eloquent pour réaliser l'intégralité du cycle de vie du Back-Office.
+!!! quote "Ce qu'il faut retenir"
+    La configuration de base de données dans Laravel repose sur une séparation stricte : les paramètres de connexion vivent dans `.env`, jamais dans le code. Cette discipline garantit qu'une même application peut se connecter à une base SQLite en développement et à PostgreSQL en production sans modifier une seule ligne de code.
+
+> [Base de données connectée. Maîtrisez maintenant Eloquent ORM pour interagir avec vos données →](./15-eloquent-bases-crud.md)

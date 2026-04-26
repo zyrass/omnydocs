@@ -94,6 +94,9 @@ _En mode **réseau passif** (port SPAN), l'IDS reçoit une copie du trafic et n'
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise des systèmes de détection et prévention d'intrusion (IDS/IPS) est la clé de voûte de la surveillance réseau d'un SOC. Bien configurés, ils bloquent le bruit de fond; mal configurés, ils aveuglent les analystes sous un déluge de faux positifs.
+
 !!! quote "IDS vs IPS — Quel choix pour votre SOC ?"
     En SOC, on commence souvent en **mode IDS** (passif) pour éviter les faux positifs bloquants, puis on passe progressivement en **mode IPS** sur les règles les plus fiables. Suricata gère les deux modes sans reconfiguration majeure.
 

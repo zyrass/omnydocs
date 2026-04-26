@@ -13,6 +13,10 @@ tags: ["SANCTUM", "API", "ENDPOINTS", "GAME-LOOP", "ANTI-CHEAT"]
   data-time="2h - 3h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Sécuriser une API avec Sanctum s'apparente à donner un jeton d'accès temporaire à un livreur. Au lieu de lui donner les clés de la maison (authentification de session), vous lui donnez un badge qui ne permet d'ouvrir que la porte du garage, et qui peut être révoqué à tout moment._
+
 ## Objectif de la Phase
 
 > Contrairement à une API classique (CRUD), une API de jeu vidéo gère une "Game Loop" (Boucle de Jeu) asynchrone via des actions spécifiques (Créer un personnage, Lancer un combat, Attaquer, Fuir). Nous allons développer ces endpoints en gardant une priorité absolue : la sécurité. **Le serveur ne doit faire confiance à aucune donnée envoyée par le client concernant les calculs.** L'API doit empêcher la triche (ex: attaquer deux fois d'affilée, soigner un personnage mort, attaquer dans un combat déjà terminé).
@@ -242,3 +246,14 @@ L'API de notre jeu vidéo est maintenant opérationnelle et hautement sécurisé
 - ✅ Utilisation des **Transactions BDD** pour parer aux requêtes concurrentes (Race Conditions).
 
 Passons maintenant à la **Phase 4**, où nous allons configurer le moteur graphique en Angular 21 (Signals) pour consommer cette API.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La logique métier d'une API pure doit être encore plus rigoureusement isolée que dans une application full-stack : un Service appelé par un contrôleur HTTP doit être identiquement appelable depuis une commande Artisan, un Job en queue ou un test unitaire. Cette contrainte force une architecture propre dès le départ.
+
+> [Logique métier implémentée. Sécurisez maintenant les endpoints avec Sanctum et les policies →](./04-phase4.md)

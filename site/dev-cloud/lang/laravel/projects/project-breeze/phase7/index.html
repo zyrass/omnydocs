@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Document en cours de rédaction">
+        <meta name="description" content="Déploiement de l'application Breeze sur un VPS Linux : configuration Nginx, PHP-FPM, SSL Let's Encrypt et automatisation Git.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Phase7 - OmnyDocs</title>
+        <title>Phase 7 — Déploiement Production - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#phase7" class="md-skip">
+        <a href="#phase-7-deploiement-production" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Phase7
+              Phase 7 — Déploiement Production
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1173,6 +1171,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-de-la-phase-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de la Phase 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-serveur-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Serveur — Dépendances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-configuration-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configuration Nginx
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-deploiement-du-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Déploiement du Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1192,20 +1253,130 @@
                 
                   
 
-<h1 id="phase7">Phase7<a class="headerlink" href="#phase7" title="Permanent link">&para;</a></h1>
+<h1 id="phase-7-deploiement-production">Phase 7 — Déploiement Production<a class="headerlink" href="#phase-7-deploiement-production" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 En construction"
-  data-version="1.0"
-  data-time="Bientôt disponible">
+  data-level="🔴 Avancé"
+  data-version="Laravel 11"
+  data-time="~1 heure">
 </div>
 </p>
+<h2 id="objectifs-de-la-phase-7">Objectifs de la Phase 7<a class="headerlink" href="#objectifs-de-la-phase-7" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
-<p class="admonition-title">Article en cours de rédaction</p>
-<p>Le contenu détaillé de cette page est actuellement en cours de rédaction. Il sera publié lors des prochaines mises à jour d'OmnyDocs.</p>
+<p class="admonition-title">Ce que vous allez faire</p>
+<ul>
+<li>Configurer un VPS Ubuntu 24.04 (Nginx + PHP 8.3 + MySQL)</li>
+<li>Cloner et configurer le projet Laravel en production</li>
+<li>Configurer un Virtual Host Nginx pour le domaine</li>
+<li>Générer un certificat SSL avec Let's Encrypt (Certbot)</li>
+<li>Automatiser les déploiements via Git (optional)</li>
+</ul>
 </div>
-<p><br /></p>
+<h2 id="1-serveur-dependances">1. Serveur — Dépendances<a class="headerlink" href="#1-serveur-dependances" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><span class="filename">Sur le VPS — Installation LEMP</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Mise à jour et dépendances</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx<span class="w"> </span>mysql-server<span class="w"> </span>php8.3-fpm<span class="w"> </span>php8.3-cli<span class="w">     </span>php8.3-mbstring<span class="w"> </span>php8.3-xml<span class="w"> </span>php8.3-curl<span class="w"> </span>php8.3-pdo<span class="w"> </span>php8.3-mysql<span class="w">     </span>composer<span class="w"> </span>git<span class="w"> </span>unzip<span class="w"> </span>certbot<span class="w"> </span>python3-certbot-nginx
+</span></code></pre></div>
+<h2 id="2-configuration-nginx">2. Configuration Nginx<a class="headerlink" href="#2-configuration-nginx" title="Permanent link">&para;</a></h2>
+<div class="language-nginx highlight"><span class="filename">/etc/nginx/sites-available/projet-breeze</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">mondomaine.com</span><span class="w"> </span><span class="s">www.mondomaine.com</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/projet-breeze/public</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.php</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="s">/index.php?</span><span class="nv">$query_string</span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="w"> </span><span class="sr">\.php$</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="kn">fastcgi_pass</span><span class="w"> </span><span class="s">unix:/var/run/php/php8.3-fpm.sock</span><span class="p">;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="kn">fastcgi_index</span><span class="w"> </span><span class="s">index.php</span><span class="p">;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="kn">fastcgi_param</span><span class="w"> </span><span class="s">SCRIPT_FILENAME</span><span class="w"> </span><span class="nv">$realpath_root$fastcgi_script_name</span><span class="p">;</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="kn">include</span><span class="w"> </span><span class="s">fastcgi_params</span><span class="p">;</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Activer le site</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/etc/nginx/sites-available/projet-breeze<span class="w"> </span>/etc/nginx/sites-enabled/
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>nginx<span class="w"> </span>-t<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># SSL avec Let&#39;s Encrypt</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>sudo<span class="w"> </span>certbot<span class="w"> </span>--nginx<span class="w"> </span>-d<span class="w"> </span>mondomaine.com<span class="w"> </span>-d<span class="w"> </span>www.mondomaine.com
+</span></code></pre></div>
+<h2 id="3-deploiement-du-code">3. Déploiement du Code<a class="headerlink" href="#3-deploiement-du-code" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><span class="filename">Sur le VPS — Premier déploiement</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>/var/www
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/username/projet-breeze.git
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">cd</span><span class="w"> </span>projet-breeze
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>composer<span class="w"> </span>install<span class="w"> </span>--no-dev<span class="w"> </span>--optimize-autoloader
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>php<span class="w"> </span>artisan<span class="w"> </span>key:generate
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># Configurer .env avec les variables de production</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>nano<span class="w"> </span>.env
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>php<span class="w"> </span>artisan<span class="w"> </span>migrate<span class="w"> </span>--force
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>php<span class="w"> </span>artisan<span class="w"> </span>config:cache
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>php<span class="w"> </span>artisan<span class="w"> </span>route:cache
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>php<span class="w"> </span>artisan<span class="w"> </span>view:cache
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="c1"># Permissions</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>storage<span class="w"> </span>bootstrap/cache
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">775</span><span class="w"> </span>storage<span class="w"> </span>bootstrap/cache
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Variables d'environnement en production</p>
+<ul>
+<li><code>APP_ENV=production</code></li>
+<li><code>APP_DEBUG=false</code></li>
+<li>Configurer <code>MAIL_*</code> pour les emails de réinitialisation de mot de passe</li>
+</ul>
+</div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Le déploiement n'est pas la fin du projet — c'est le début de la responsabilité de production. Les commandes <code>config:cache</code>, <code>route:cache</code> et <code>view:cache</code> sont les trois optimisations essentielles à exécuter sur chaque déploiement Laravel en production. Elles peuvent réduire le temps de réponse de 30 à 50% en éliminant les recalculs à chaque requête.</p>
+</div>
+<blockquote>
+<p><a href=".././conclusion/">Conclusion du projet Breeze →</a></p>
+</blockquote>
 
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">LARAVEL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BREEZE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PROJET GUIDÉ</span>
+      
+    
+  </nav>
 
 
 

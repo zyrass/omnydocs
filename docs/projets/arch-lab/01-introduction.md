@@ -14,6 +14,10 @@ status: beta
   data-time="30-40 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _L'architecture logicielle est comme l'urbanisme d'une ville. Vous pouvez construire une simple cabane sans plan, mais pour bâtir un quartier entier avec ses routes et réseaux, vous avez besoin de règles strictes pour éviter l'effondrement et les embouteillages._
+
 ## Introduction
 
 Bienvenue dans le premier module d'Arch-Lab ! Avant de plonger dans l'installation et la configuration technique, il est essentiel que **vous compreniez** la vision d'ensemble du projet, son architecture globale et la logique pédagogique qui structure ce parcours.
@@ -642,3 +646,13 @@ Chaque module **s'appuie sur les acquis des précédents**. C'est pourquoi il es
 
 !!! tip "Cette page de référence est accessible à tout moment pendant votre parcours Arch-Lab."
 
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'architecture logicielle et système demande une vision globale. Les décisions prises lors de cette phase auront un impact déterminant sur la maintenabilité, les coûts et la sécurité du projet sur les prochaines années.
+
+> [Passer à la phase suivante →](../index.md)

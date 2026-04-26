@@ -182,3 +182,14 @@ Conditions strictes :
 - **Règlement Data Act** : Règlement (UE) 2023/2854 — eur-lex.europa.eu
 - **Commission européenne — Stratégie des données** : digital-strategy.ec.europa.eu
 - **DGA** : Règlement (UE) 2022/868 (texte complémentaire)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

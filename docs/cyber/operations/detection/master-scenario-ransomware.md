@@ -164,3 +164,14 @@ rule Ransomware_Generic_Pattern {
     C'est en combinant **l'analyse de processus (Sysmon)**, **la corrélation de logs (Wazuh/Sigma)** et **l'analyse comportementale réseau (NDR)** que le SOC a pu détecter l'attaque dès l'étape 2, limitant l'impact à un seul poste de travail au lieu d'une faillite totale de l'entreprise.
 
 > **Prochaine étape :** Apprenez à écrire ces règles vous-même en commençant par le cours **[YARA : Signatures Malwares →](./yara.md)**.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La détection (Detection Engineering) repose sur la création de règles précises et évolutives. Comprendre les TTPs (Tactics, Techniques, and Procedures) des attaquants est indispensable pour écrire des signatures qui génèrent peu de faux positifs.
+
+> [Retour à l'index des opérations →](../../index.md)

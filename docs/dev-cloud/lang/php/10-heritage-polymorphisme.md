@@ -1769,3 +1769,14 @@ J'ai créé le **Module 10 - Interfaces** (8-10 heures) qui couvre exhaustivemen
 Les interfaces sont maintenant maîtrisées ! Tu as appris à créer des contrats stricts, utiliser l'injection de dépendances, et construire des architectures découplées et testables.
 
 Veux-tu que je continue avec le **Module 11 - Traits** ? (use, résolution conflits, traits vs héritage/composition, best practices, traits avec interfaces)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

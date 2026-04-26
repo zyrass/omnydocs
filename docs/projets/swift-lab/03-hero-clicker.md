@@ -13,6 +13,10 @@ tags: ["PROJET", "GAME", "APPSTORAGE", "SWIFTUI", "ANIMATION"]
   data-time="2 Heures">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "Le pouvoir de la Persistance Locale"
     Pensez au pire cauchemar d'un joueur : réaliser un score incroyable, fermer l'application, et découvrir que l'on repart à zéro. Dans ce projet, le but n'est pas d'apprendre à faire un gros jeu vidéo (pour cela, il y a SpriteKit), mais c'est le prétexte idéal pour découvrir ``@AppStorage``. Une seule ligne de code qui lie intimement une variable de l'interface graphique avec la mémoire dure du téléphone (`UserDefaults`). Et en bonus, on apprend à animer un bouton à 60fps !
 
@@ -292,6 +296,9 @@ _Le cumul de `LinearGradient` en tant que `foregroundStyle()` (Pinceau de rempli
 ---
 
 ## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le développement de ce jeu permet de consolider la gestion d'états et d'interactions répétées en Swift, tout en se familiarisant avec la mise en page (Layout) et les micro-animations (Animations) cruciales pour l'expérience utilisateur mobile.
 
 !!! quote "La Persistance sans effort"
     Avez-vous remarqué l'absence d'instructions manuelles complexes ? 

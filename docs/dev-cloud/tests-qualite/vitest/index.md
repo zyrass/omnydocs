@@ -51,3 +51,12 @@ Vitest se positionne comme le successeur de Jest dans l'écosystème Vite/modern
 - Générer des rapports de coverage et les intégrer en CI/CD
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

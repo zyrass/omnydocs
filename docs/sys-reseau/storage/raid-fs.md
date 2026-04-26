@@ -13,6 +13,10 @@ tags: ["RAID", "FILESYSTEM", "EXT4", "ZFS", "STOCKAGE"]
   data-time="20 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La gestion du stockage (RAID, LVM) et des sauvegardes fonctionne comme la gestion financière d'une entreprise. Le RAID est une assurance contre les pannes matérielles du quotidien (un serveur qui tombe), tandis qu'une sauvegarde hors-ligne (Amanda) est votre coffre-fort dans une banque distante en cas d'incendie majeur._
+
 !!! quote "Gérer le métal et la logique"
     _Avant même de penser aux sauvegardes externes, il faut s'assurer que le serveur lui-même peut survivre à une panne mécanique courante : la mort d'un disque dur. C'est le rôle de la technologie RAID. Ensuite, il faut décider comment le système d'exploitation va formater ce stockage brut pour y ranger des fichiers : c'est le File System._
 
@@ -70,3 +74,14 @@ Un étudiant pense : *"J'ai 2 disques en RAID 1 (Miroir), donc si je perds un di
 
 **Faux.**
 Le RAID vous protège contre la casse *matérielle*. Mais si vous (ou un virus) supprimez le dossier `/var/www`, le RAID exécutera fidèlement cette commande et supprimera le dossier sur **les deux disques simultanément** à la vitesse de la lumière. Seule une Sauvegarde (Backup) stockée *ailleurs* peut vous sauver d'une erreur logicielle ou humaine.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La résilience des données (RAID, sauvegardes) est le filet de sécurité ultime de l'entreprise face aux ransomwares et aux défaillances matérielles. Souvenez-vous : une sauvegarde non testée n'est qu'une illusion de sécurité.
+
+> [Retourner à l'index →](../index.md)

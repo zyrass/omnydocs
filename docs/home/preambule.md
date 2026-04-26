@@ -57,13 +57,11 @@ La stack technique présentée dans cette documentation est un choix parmi d'aut
 
 Ce qui compte, c'est que vous progressiez dans une direction qui a du sens pour vous. Un développeur passionné par son outil sera toujours plus efficace et plus fiable qu'un technicien contraint de travailler avec une technologie qui ne lui convient pas.
 
-!!! tip "En résumé"
-    Apprenez à votre rythme, choisissez ce qui vous correspond, et prenez du plaisir dans chaque étape. Le reste suivra naturellement.
+## Conclusion
 
-<br />
+!!! quote "Ce qu'il faut retenir"
+    Apprenez à votre rythme, choisissez ce qui vous correspond, et prenez du plaisir dans chaque étape. Le reste suivra naturellement. La bienveillance, l'humilité et la curiosité intellectuelle primeront toujours sur la maîtrise absolue d'un outil particulier.
 
----
+> [Passer à l'Introduction →](./introduction.md)
 
-La posture étant posée, place au contenu. L'[Introduction](./introduction.md) présente le périmètre exact de la documentation, son organisation et les conventions utilisées tout au long des guides.
-
-<br />
+<br>

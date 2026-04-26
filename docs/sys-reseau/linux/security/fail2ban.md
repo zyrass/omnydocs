@@ -13,6 +13,10 @@ tags: ["FAIL2BAN", "BRUTEFORCE", "SECURITE", "SSH", "BANNISSEMENT"]
   data-time="30 - 45 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Le durcissement d'un système Linux est comme la construction des fortifications d'un château. Le pare-feu (UFW) correspond aux douves extérieures, les permissions POSIX (chmod/chown) sont les clés des différentes pièces, et la supervision (Fail2Ban/Lynis) agit comme les gardes effectuant des rondes régulières._
+
 !!! quote "La riposte automatisée"
     _Un pare-feu comme UFW est statique : soit la porte est ouverte, soit elle est fermée. Mais que se passe-t-il si la porte est ouverte (ex: le port SSH 22) et qu'un pirate essaie frénétiquement 500 mots de passe par minute pour y entrer ? C'est une attaque par Force Brute (Bruteforce). Pour contrer cela, il nous faut une défense active. **Fail2Ban** observe vos journaux (Logs) en temps réel, détecte les comportements anormaux, et modifie dynamiquement le pare-feu pour bannir l'IP de l'attaquant._
 
@@ -134,3 +138,14 @@ sudo fail2ban-client set sshd unbanip 203.0.113.88
 ## Conclusion
 
 Fail2Ban est le compagnon indispensable d'UFW. À eux deux, ils forment la couche de sécurité périmétrique de base de tout serveur Linux. Gardez en tête que l'idéal pour protéger SSH reste la **désactivation totale de l'authentification par mot de passe** au profit d'une authentification par clé cryptographique (Clé RSA/Ed25519), ce qui rend le bruteforce mathématiquement impossible.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Sécuriser un système Linux exige une approche en couches : du pare-feu avec UFW à la détection d'intrusions avec Fail2Ban, en passant par un durcissement régulier. Aucun outil de sécurité ne remplace une bonne configuration de base.
+
+> [Retourner à l'index Linux →](../index.md)

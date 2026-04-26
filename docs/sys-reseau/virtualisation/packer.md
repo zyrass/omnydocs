@@ -6,6 +6,16 @@ icon: lucide/book-open-check
 
 # HashiCorp Packer : Automatisation et Création d'Images
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="20-30 minutes">
+</div>
+
+!!! quote "Analogie pédagogique"
+    _Packer est l'usine de moulage de votre infrastructure. Au lieu de construire chaque serveur à la main (installer l'OS, configurer les logiciels), vous créez un moule parfait (une image machine) que vous pouvez ensuite cloner à l'identique et à l'infini en quelques secondes._
+
 ## Introduction à Packer
 
 Packer est un outil open source d'**Image as Code** (IaC) développé par HashiCorp. Il permet de construire des images machines (VM, conteneurs, images Cloud) identiques et reproductibles pour de multiples plateformes (VirtualBox, VMware, Proxmox, AWS, Azure, Docker, etc.) **à partir d'un seul fichier de configuration**.
@@ -247,3 +257,14 @@ Une fois le fichier `.pkr.hcl` rédigé, sa génération s'effectue en deux comm
 2. `packer build ubuntu.pkr.hcl` (Lance le processus de A à Z et génère la machine virtuelle éteinte et configurée).
 
 En combinant Packer avec un outil d'Infrastructure as Code (IaC) comme **Terraform**, vous obtiendrez la synergie parfaite : Packer crée les briques (Images) et Terraform construit le mur (déploie les machines virtuelles à partir de ces images sur un hyperviseur).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La virtualisation (KVM, Proxmox) couplée à l'Infrastructure as Code (Packer, Vagrant) permet de déployer des environnements reproductibles, immuables et sécurisés dès leur conception (Security by Design).
+
+> [Retourner à l'index →](../index.md)

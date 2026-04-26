@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟡 Intermédiaire"
   data-version="1.0"
-  data-time="1h00">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le Widget Météo nécessitait une clé API (Phase 3). Le Widget Toto liste exigeait la conception d'un Store Local (Phase 4). Ce dernier Widget est votre "Épreuve Blanche". Vous devez créer de A à Z un client HTTP pour une API publique *sans authentification*, et rafraîchir le texte du DOM au clic.
@@ -129,3 +133,14 @@ C'est l'Architecture Parallèle asynchrone du Navigateur.
 
 Votre Hub Applicatif personnel est achevé. Il agrège la temporalité locale (`setInterval`), le State Local (`localStorage`), les APIs protégées par token asynchrone (`OpenWeather fetch`), et les APIs publiques gérées intelligemment.
 Vous possédez désormais l'intégralité du bagage intellectuel et conceptuel exigé des Développeurs Front-End natifs. La prochaine grande barrière vous mènera à la conception de vos PROPRES API... **Bienvenue dans le développement Back-End PHP, Laravel, ou Go/Gin.**
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

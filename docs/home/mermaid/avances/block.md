@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # Block Diagram (vue macro)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     Le block diagram est adapté aux vues macro : dépendances entre domaines, chaînes de valeur, flux entre briques. Il est utile lorsque l'on souhaite exprimer une structure haut niveau sans entrer dans le détail des échanges entre composants.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -47,6 +59,15 @@ block-beta
 ```
 
 _Ce schéma formalise une progression : socle commun, spécialisations parallèles, convergence technique, puis renforcement GRC[^2]._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

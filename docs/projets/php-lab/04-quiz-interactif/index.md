@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟢 Débutant"
   data-version="8.3"
-  data-time="1 Heure">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Fini de traiter des variables simples. Dans la réalité, on traite des lots massifs de données. 
@@ -201,4 +205,15 @@ Ici, nous allons mélanger le templating HTML et PHP propre grâce aux balises `
       <span class="text-gray-700">Le Formulaire disparait complétement après soumission (il est <code>else</code> par rapport au panel de Résultat).</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

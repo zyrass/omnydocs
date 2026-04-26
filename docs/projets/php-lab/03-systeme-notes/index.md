@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟢 Débutant"
   data-version="8.3"
-  data-time="1 Heure">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Le rectorat a besoin de votre aide pour concevoir un panel prof. Vous devez écrire un script PHP capable d'ingérer une liste de nombres bruts tapée par un professeur, de la nettoyer, d'en calculer la moyenne exacte, et d'attribuer automatiquement une Mention scolaire en utilisant la syntaxe moderne `match()` de PHP 8.
@@ -197,4 +201,15 @@ Collez ce bloc sous le précédent pour gérer l'affichage. L'historique du text
       <span class="text-gray-700">L'instruction Match (PHP 8) renvoie instantanément "Mention très bien 🏆" pour une moyenne de 17.5. Code 0% Legacy !</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

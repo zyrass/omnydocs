@@ -262,5 +262,3 @@ curl -X POST "http://cortex:9001/api/analyzer/VirusTotal_GetReport_3_0/run" \
     TheHive + Cortex + MISP forment la **triade open-source de référence** pour la gestion d'incidents. TheHive structure et coordonne le travail d'équipe, Cortex automatise l'enrichissement des IOC, MISP partage la connaissance des menaces. Ensemble, ils permettent à un CSIRT de traiter plus d'incidents en moins de temps, avec une meilleure traçabilité et une meilleure qualité d'investigation — le tout sans licence commerciale.
 
 > Passez à la **[Phase 4 — Malware Analysis →](../../malware/index.md)** pour comprendre les menaces que vous êtes maintenant équipé pour détecter et gérer.
-
-<br>

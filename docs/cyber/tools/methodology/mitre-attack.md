@@ -119,8 +119,13 @@ Contrairement à un pentest classique où l'on cherche "toutes les failles possi
 
 > Le MITRE classe les attaques. Mais comment l'entreprise évalue-t-elle le risque financier ou humain de ces attaques ? Découvrez le point de vue stratégique français avec la méthode **[EBIOS Risk Manager (Red Team) →](./ebios-redteam.md)**.
 
+<br>
 
+---
 
+## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
 
-
+> [Retour à l'index →](./index.md)

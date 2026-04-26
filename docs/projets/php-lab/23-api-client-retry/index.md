@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="8.3"
-  data-time="2.5 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Le réseau est instable par nature. Quand votre Backend PHP demande d'encaisser un paiement chez Stripe, il arrive que leur API ne réponde pas assez vite (Timeout) ou que vous ayez cliqué 200 fois (Rate Limite : Erreur 429).
@@ -211,4 +215,15 @@ try {
 <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mt-8">
   <h4 class="text-lg font-bold text-gray-900 mt-0 mb-4">✅ Objectifs de Validation</h4>
   <p class="mb-4 text-gray-700">Vous maitrisez maintenant les blocs <code>Try/Catch</code> pour amortir un choc dans une boucle. Vous êtes à présent capable de dialoguer avec toutes les API du monde sans perturber votre Front-End Angular/React qui attend la donnée.</p>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

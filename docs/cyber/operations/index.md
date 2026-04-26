@@ -180,3 +180,12 @@ flowchart TD
 > Commencez par la [Phase 1 — Architecture SOC →](./soc/index.md) pour comprendre comment les briques s'assemblent avant d'apprendre à les utiliser.
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
+
+> [Retour à l'index →](./index.md)

@@ -87,8 +87,13 @@ Si vous attaquez l'entreprise fictive "CyberCorp 2024" basée à "Marseille", au
 Pour briser la sécurité de cette entreprise, il ne faut pas utiliser un dictionnaire mondial, il faut créer un **dictionnaire sur-mesure** fabriqué spécifiquement à partir du champ lexical de l'entreprise cible (ses produits, ses fondateurs, son jargon). 
 C'est exactement ce que fait l'outil d'extraction linguistique automatique : **[CeWL →](./cewl.md)**.
 
+<br>
 
+---
 
+## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Le cassage de mots de passe démontre la faiblesse des politiques d'authentification. L'utilisation de dictionnaires ciblés et de règles de mutation est souvent bien plus efficace qu'une simple attaque par force brute aveugle.
 
-
+> [Retourner à l'index des outils →](../../index.md)

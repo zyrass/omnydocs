@@ -647,3 +647,14 @@ En cas de violation chez un **prestataire de services**, les sanctions peuvent r
 - **Liste QSA** : Auditeurs qualifiés
 
 ---
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

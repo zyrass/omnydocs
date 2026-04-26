@@ -9,8 +9,12 @@ tags: ["PHP", "PROJECTS", "LAB", "PROCÉDURAL", "POO"]
   class="omny-meta"
   data-level="🟢 Débutant à 🔴 Expert"
   data-version="8.3"
-  data-time="50 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     La théorie forge l'esprit, mais seul le code forge l'ingénieur.
@@ -66,3 +70,14 @@ tags: ["PHP", "PROJECTS", "LAB", "PROCÉDURAL", "POO"]
 </div>
 
 *(D'autres exercices seront insérés ici massivement au fur et à mesure de votre progression)*
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

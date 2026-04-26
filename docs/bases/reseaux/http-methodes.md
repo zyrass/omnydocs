@@ -1045,6 +1045,9 @@ Valider systématiquement les données côté serveur, même lorsqu'une validati
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Les notions abordées autour de http methodes sont le système nerveux de l'informatique moderne. Sans une maîtrise parfaite de ces protocoles et modèles, le dépannage de problèmes d'infrastructure ou la sécurisation de communications restent de pures suppositions.
+
 !!! quote "Conclusion"
     _Les méthodes HTTP constituent le vocabulaire fondamental de toute communication web moderne. Leur maîtrise dépasse la simple connaissance syntaxique pour englober la compréhension profonde de leurs propriétés de sécurité, d'idempotence et d'impacts sur l'architecture des applications. Une utilisation correcte garantit des APIs prévisibles, performantes et sécurisées. Une utilisation incorrecte expose les systèmes à des vulnérabilités critiques — CSRF, fuites de données, soumissions dupliquées, suppressions non autorisées. L'idempotence en particulier n'est pas un détail académique : elle détermine directement la stratégie de retry lors des pannes réseau et la fiabilité des opérations distribuées._
 

@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -5910,10 +5912,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -6346,8 +6344,16 @@ Dans cet exemple on assume l'existence d'un Modèle <code>Post</code>.</p>
     end</code></pre>
 <p><br></p>
 <hr />
+<p><br></p>
+<hr />
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>Le flux complet d'un objet (CRUD) a été géré de bout en bout. On identifie rapidement la nécessité de sécuriser les données transmises, d'où la validation serveur abordée dans le module suivant.</p>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Un controller qui grossit est un controller qui ment. La règle d'or reste valide à toutes les échelles : si votre méthode <code>store()</code> dépasse 15 lignes, c'est que de la logique métier s'y cache et attend d'être extraite vers un Service ou une Action. La discipline du 'controller mince' est le premier marqueur d'un code Laravel professionnel.</p>
+</div>
+<blockquote>
+<p><a href=".././12-validation/">Controllers maîtrisés. Sécurisez maintenant les données entrantes avec la validation →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >

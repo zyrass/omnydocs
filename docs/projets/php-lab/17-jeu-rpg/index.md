@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="8.3"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Concevoir un jeu vidéo est l'un des meilleurs moyens d'assimiler la Programmation Orientée Objet !
@@ -241,4 +245,15 @@ if ($barbare->isAlive()) {
       <span class="text-gray-700"><code>class Paladin extends Character</code> : Qui, en plus d'attaquer, possède une fonction <code>$this->heal(5)</code> qu'il s'auto-lance sur lui-même à chaque fin de tour s'il est bas en vie. C'est l'essence des MMoRPG (World of Warcraft) !</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

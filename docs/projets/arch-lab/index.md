@@ -12,6 +12,10 @@ tags: ["LAB", "ARCH", "VIRTUALBOX", "MULTI-OS", "FORMATION", "CYBER", "DEVSECOPS
   data-time="3h à 6h par module">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Concevoir l'architecture d'un projet de bout en bout, c'est passer du métier de maçon à celui d'architecte urbaniste. Vous ne posez plus seulement des briques (code), vous anticipez les flux de circulation, la résistance aux séismes (pannes de serveurs) et l'ajout de futurs quartiers (scalabilité)._
+
 ## Bienvenue dans Arch-Lab
 
 **Arch-Lab** est un laboratoire complet et structuré conçu pour **vous permettre** de maîtriser les systèmes Linux, les réseaux virtuels et l'administration multi-plateformes dans un environnement professionnel simulé.
@@ -522,6 +526,9 @@ Chaque carte ci-dessous affiche :
 ---
 
 ## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La compréhension des principes d'architecture est la vraie barrière entre le simple codeur et l'ingénieur logiciel. Ce lab pose les bases méthodologiques qui vous suivront tout au long de votre carrière, peu importe le langage que vous utiliserez.
 
 !!! quote "Arch-Lab — votre mini-datacenter privé"
     En sept modules progressifs, vous allez passer de zéro à un **laboratoire multi-OS professionnel** : cinq systèmes interconnectés, trois familles Linux maîtrisées, et une infrastructure réseau segmentée identique à celle des entreprises. C'est votre terrain d'entraînement pour Linux, la cybersecurité et le DevSecOps.

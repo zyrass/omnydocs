@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Document en cours de rédaction">
+        <meta name="description" content="Laravel Sanctum — Projet guidé API pure. Authentification stateless par Personal Access Tokens, API RESTful complète, déploiement production sur VPS. 8 phases progressives.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Project Sanctum - OmnyDocs</title>
+        <title>Projet Sanctum — API RESTful Pure & Stateless - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-sanctum" class="md-skip">
+        <a href="#projet-sanctum-api-restful-pure-stateless" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Sanctum
+              Projet Sanctum — API RESTful Pure &amp; Stateless
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1173,6 +1171,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture du Projet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1192,20 +1242,139 @@
                 
                   
 
-<h1 id="project-sanctum">Project Sanctum<a class="headerlink" href="#project-sanctum" title="Permanent link">&para;</a></h1>
+<h1 id="projet-sanctum-api-restful-pure-stateless">Projet Sanctum — API RESTful Pure &amp; Stateless<a class="headerlink" href="#projet-sanctum-api-restful-pure-stateless" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 En construction"
-  data-version="1.0"
-  data-time="Bientôt disponible">
+  data-level="🟡 Intermédiaire & 🔴 Avancé"
+  data-version="Laravel 11"
+  data-time="~10 Heures">
 </div>
 </p>
-<div class="admonition info">
-<p class="admonition-title">Article en cours de rédaction</p>
-<p>Le contenu détaillé de cette page est actuellement en cours de rédaction. Il sera publié lors des prochaines mises à jour d'OmnyDocs.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Qu'est-ce que ce projet ?</p>
+<p><strong>Laravel Sanctum</strong> en mode API Pure est le pattern d'architecture pour les applications qui séparent complètement le backend (Laravel API) du frontend (Angular, React, application mobile). Contrairement au mode SPA (cookies de session), ce mode utilise des <strong>Personal Access Tokens</strong> — chaque requête doit transporter son token dans le header <code>Authorization: Bearer</code>.</p>
 </div>
-<p><br /></p>
+<p>Ce projet guidé construit une <strong>API de gestion de ressources</strong> consommable par n'importe quel client : une application Angular, une app mobile Swift, ou un outil CLI.</p>
+<p><br></p>
+<hr />
+<h2 id="architecture-du-projet">Architecture du Projet<a class="headerlink" href="#architecture-du-projet" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    classDef phase fill:#d1e7dd,stroke:#198754,color:#000
+    classDef client fill:#cce5ff,stroke:#0d6efd,color:#000
 
+    subgraph Backend["Backend Laravel (ce projet)"]
+        P1["Phase 1\nInstall API"] --&gt; P2["Phase 2\nBDD"]
+        P2 --&gt; P3["Phase 3\nMétier"]
+        P3 --&gt; P4["Phase 4\nSanctum Auth"]
+        P4 --&gt; P5["Phase 5\nEndpoints REST"]
+        P5 --&gt; P6["Phase 6\nFonctionnalités+"]
+        P6 --&gt; P7["Phase 7\nTests API"]
+        P7 --&gt; P8["Phase 8\nDéploiement"]
+    end
+
+    subgraph Clients["Clients consommateurs"]
+        C1["Angular SPA"]
+        C2["App Swift iOS"]
+        C3["Client CLI"]
+    end
+
+    Backend --&gt;|"JWT Token"| Clients
+
+    class P1,P2,P3,P4,P5,P6,P7,P8 phase
+    class C1,C2,C3 client</code></pre>
+<p><br></p>
+<hr />
+<h2 id="prerequis">Prérequis<a class="headerlink" href="#prerequis" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Prérequis recommandés</p>
+<ul>
+<li>✅ Maîtriser les Relations Eloquent (module 16)</li>
+<li>✅ Avoir lu le module API et Sanctum (module 42)</li>
+<li>✅ Connaître les Form Requests (module 12)</li>
+<li>✅ Notions de base en Queues (module 41)</li>
+<li>✅ Un client HTTP installé (Postman, Hoppscotch, Bruno)</li>
+</ul>
+</div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Ce projet vous enseigne la compétence la plus demandée du marché Laravel : <strong>concevoir et livrer une API REST professionnelle</strong>. Au terme de ces 8 phases, vous serez capable de construire un backend que n'importe quel frontend peut consommer — Angular, React, Vue, Swift, ou Flutter. C'est l'architecture qui alimente tous les projets modernes découplant le front du back.</p>
+</div>
+<blockquote>
+<p><a href="./01-phase1/">Commencer : Phase 1 — Installation API Laravel + Sanctum →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">LARAVEL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">SANCTUM</span>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">API</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">TOKENS</span>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <span class="md-tag md-tag-icon md-tag--default">REST</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PROJET GUIDÉ</span>
+      
+    
+  </nav>
 
 
 

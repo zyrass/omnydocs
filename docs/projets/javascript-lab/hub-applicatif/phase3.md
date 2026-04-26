@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé (Certifiant)"
   data-version="2.0"
-  data-time="2 Heures">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le navigateur connaît votre position (Latitude, Longitude). Mais il ne connait pas la météo de cette position. Il faut envoyer un "coursier" virturel (La requête HTTP GET) au serveur d'OpenWeatherMap pour lui poser la question : "Quelle température fait-il au point X, Y ?".
@@ -133,3 +137,14 @@ Le composant Météo est achevé. L'Horloge également.
 Dans les deux cas, le cycle de vie est géré par un automate naturel sans sauvegarde sur l'ordinateur. Le prochain très gros composant réclame une toute autre logique métier. **La Todo List CRUD**.
 
 [Passer à la Phase 4 : Architecture State & CRUD →](phase4.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

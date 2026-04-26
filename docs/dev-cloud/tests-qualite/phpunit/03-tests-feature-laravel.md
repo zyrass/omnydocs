@@ -2159,3 +2159,14 @@ Voilà le **Module 3 complet** (10-12 heures de contenu) avec :
 Le Module 3 est maintenant terminé ! Les concepts de tests Feature Laravel sont maintenant maîtrisés. 
 
 Voulez-vous que je continue avec le **Module 4 - Testing Base de Données** (RefreshDatabase, Factories, Relations Eloquent, N+1 queries) ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'écriture de tests n'est pas une perte de temps, c'est un investissement. Une couverture de test robuste via PHPUnit garantit que votre application peut évoluer et être refactorisée en toute confiance sans régressions.
+
+> [Retourner à l'index des tests →](../../index.md)

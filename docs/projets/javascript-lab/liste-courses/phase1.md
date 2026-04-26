@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟢 Débutant"
   data-version="1.0"
-  data-time="45m">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Une aplication dynamique nécessite une "Zone de Capture" (un formulaire) pour que l'utilisateur puisse parler à la machine, et une "Zone de Rendu" (une liste) pour que la machine puisse répondre à l'utilisateur. Nous allons construire cette arène en HTML simple et lui donner de l'allure avec CSS Flexbox.
@@ -158,3 +162,14 @@ Ce décor statique est dressé. Les acteurs peuvent entrer en scène.
 Dans la phase suivante, nous brancherons le "Cerveau" de l'application via JavaScript.
 
 [Passer à la Phase 2 : Logique Algorithmique CRUD →](phase2.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Document en cours de rédaction">
+        <meta name="description" content="Terminaux & Shells — Comparatif et prise en main des principaux shells (Bash, Zsh, PowerShell, Fish). Configuration, personnalisation et commandes fondamentales.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Terminaux Shell - OmnyDocs</title>
+        <title>Terminaux & Shells — Maîtriser la Ligne de Commande - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#terminaux-shell" class="md-skip">
+        <a href="#terminaux-shells-maitriser-la-ligne-de-commande" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Terminaux Shell
+              Terminaux &amp; Shells — Maîtriser la Ligne de Commande
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1173,6 +1171,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparatif-des-shells-principaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparatif des Shells Principaux
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandes-fondamentales-bashzsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commandes Fondamentales (Bash/Zsh)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-zsh-oh-my-zsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Zsh — Oh My Zsh
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1192,20 +1253,220 @@
                 
                   
 
-<h1 id="terminaux-shell">Terminaux Shell<a class="headerlink" href="#terminaux-shell" title="Permanent link">&para;</a></h1>
+<h1 id="terminaux-shells-maitriser-la-ligne-de-commande">Terminaux &amp; Shells — Maîtriser la Ligne de Commande<a class="headerlink" href="#terminaux-shells-maitriser-la-ligne-de-commande" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 En construction"
-  data-version="1.0"
-  data-time="Bientôt disponible">
+  data-level="🟢 Débutant"
+  data-version="2024"
+  data-time="~25 minutes">
 </div>
 </p>
-<div class="admonition info">
-<p class="admonition-title">Article en cours de rédaction</p>
-<p>Le contenu détaillé de cette page est actuellement en cours de rédaction. Il sera publié lors des prochaines mises à jour d'OmnyDocs.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique — Le Cockpit vs les Menus</p>
+<p>Une interface graphique (GUI), c'est un avion moderne avec des écrans tactiles : intuitif, mais limité aux fonctions prévues par le constructeur. Le <strong>terminal</strong>, c'est le cockpit d'un avion de chasse : rien de superflu, mais un accès direct à <strong>chaque paramètre de l'appareil</strong>, sans couche d'abstraction.</p>
+<p>Pour un développeur, la maîtrise du terminal n'est pas optionnelle — c'est la différence entre <em>utiliser</em> un outil et <em>le posséder</em>. Les commandes Git, les déploiements SSH, les scripts d'automatisation, les installations de dépendances : tout passe par le terminal.</p>
 </div>
-<p><br /></p>
+<p>Un <strong>shell</strong> est l'interpréteur de commandes qui reçoit ce que vous tapez et l'exécute. Le <strong>terminal</strong> est l'émulateur qui affiche le shell. Sur Linux/macOS, Bash et Zsh sont les shells par défaut. Sur Windows, PowerShell est natif et WSL2 permet d'utiliser Bash directement.</p>
+<p><br></p>
+<hr />
+<h2 id="comparatif-des-shells-principaux">Comparatif des Shells Principaux<a class="headerlink" href="#comparatif-des-shells-principaux" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TD
+    classDef linux fill:#d1e7dd,stroke:#198754,color:#000
+    classDef win fill:#cce5ff,stroke:#0d6efd,color:#000
+    classDef cross fill:#fff3cd,stroke:#ffc107,color:#000
 
+    subgraph Linux_macOS["Linux / macOS"]
+        BASH["Bash\n(Standard universel)"]
+        ZSH["Zsh + Oh My Zsh\n(Expérience améliorée)"]
+        FISH["Fish\n(Autocomplétion intelligente)"]
+    end
+
+    subgraph Windows["Windows"]
+        PS["PowerShell 7\n(Moderne, cross-platform)"]
+        WSL["WSL2 + Bash\n(Linux dans Windows)"]
+        GT["Windows Terminal\n(Émulateur moderne)"]
+    end
+
+    class BASH,ZSH,FISH linux
+    class PS,WSL,GT win</code></pre>
+<table>
+<thead>
+<tr>
+<th>Shell</th>
+<th>OS</th>
+<th>Points forts</th>
+<th>Usage recommandé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bash</strong></td>
+<td>Linux/macOS</td>
+<td>Standard universel, scripts partout</td>
+<td>Scripts CI/CD, serveurs</td>
+</tr>
+<tr>
+<td><strong>Zsh</strong></td>
+<td>Linux/macOS</td>
+<td>Plugins, thèmes, autocomplétion avancée</td>
+<td>Poste de développement macOS/Linux</td>
+</tr>
+<tr>
+<td><strong>PowerShell 7</strong></td>
+<td>Windows/Linux</td>
+<td>Objets .NET, intégration Windows</td>
+<td>Administration Windows, Azure</td>
+</tr>
+<tr>
+<td><strong>Fish</strong></td>
+<td>Linux/macOS</td>
+<td>Autocomplétion sans config</td>
+<td>Débutants cherchant la productivité immédiate</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="commandes-fondamentales-bashzsh">Commandes Fondamentales (Bash/Zsh)<a class="headerlink" href="#commandes-fondamentales-bashzsh" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><span class="filename">Navigation et gestion de fichiers</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># ── Navigation ──────────────────────────────────────────────</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">pwd</span><span class="w">                          </span><span class="c1"># Afficher le chemin actuel</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ls<span class="w"> </span>-la<span class="w">                       </span><span class="c1"># Lister avec permissions et fichiers cachés</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">cd</span><span class="w"> </span>/var/www/html<span class="w">             </span><span class="c1"># Aller dans un dossier</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">cd</span><span class="w"> </span>..<span class="w">                        </span><span class="c1"># Remonter d&#39;un niveau</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">cd</span><span class="w"> </span>~<span class="w">                         </span><span class="c1"># Aller dans votre home directory</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># ── Fichiers et dossiers ────────────────────────────────────</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>mon-projet/src<span class="w">      </span><span class="c1"># Créer des dossiers (et les parents)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>touch<span class="w"> </span>index.php<span class="w">              </span><span class="c1"># Créer un fichier vide</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>cp<span class="w"> </span>fichier.php<span class="w"> </span>backup.php<span class="w">    </span><span class="c1"># Copier</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>mv<span class="w"> </span>fichier.php<span class="w"> </span>src/<span class="w">          </span><span class="c1"># Déplacer ou renommer</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>rm<span class="w"> </span>-rf<span class="w"> </span>dossier/<span class="w">              </span><span class="c1"># Supprimer récursivement (ATTENTION : irréversible)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># ── Recherche ───────────────────────────────────────────────</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.php&quot;</span><span class="w">         </span><span class="c1"># Trouver tous les fichiers PHP</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;function login&quot;</span><span class="w"> </span>.<span class="w">   </span><span class="c1"># Chercher du texte dans les fichiers</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># ── Affichage et manipulation ────────────────────────────────</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>cat<span class="w"> </span>fichier.txt<span class="w">              </span><span class="c1"># Afficher le contenu</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>less<span class="w"> </span>fichier.txt<span class="w">             </span><span class="c1"># Afficher avec pagination (q pour quitter)</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span>fichier.log<span class="w">       </span><span class="c1"># Afficher les 20 premières lignes</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/nginx/error.log<span class="w">  </span><span class="c1"># Suivre un log en temps réel</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># ── Permissions ─────────────────────────────────────────────</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>script.sh<span class="w">          </span><span class="c1"># Donner les droits d&#39;exécution</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>chown<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html<span class="w">  </span><span class="c1"># Changer le propriétaire</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="configuration-zsh-oh-my-zsh">Configuration Zsh — Oh My Zsh<a class="headerlink" href="#configuration-zsh-oh-my-zsh" title="Permanent link">&para;</a></h2>
+<p><strong>Oh My Zsh</strong> est le framework de configuration Zsh le plus populaire. Il ajoute des thèmes et des plugins en quelques lignes.</p>
+<div class="language-bash highlight"><span class="filename">Installation Oh My Zsh</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Installation</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">~/.zshrc — Configuration recommandée</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Thème : powerlevel10k (installe avec : brew install powerlevel10k)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&quot;powerlevel10k/powerlevel10k&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Plugins utiles (git, autosuggestions, syntaxe colorée)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nv">plugins</span><span class="o">=(</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span>git<span class="w">                    </span><span class="c1"># Alias git (gst, gco, gp...)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span>zsh-autosuggestions<span class="w">    </span><span class="c1"># Suggestions grisées basées sur l&#39;historique</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span>zsh-syntax-highlighting<span class="w"> </span><span class="c1"># Coloration des commandes (vert=valide, rouge=erreur)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span>docker<span class="w">                 </span><span class="c1"># Autocomplétion Docker</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span>composer<span class="w">               </span><span class="c1"># Autocomplétion Composer</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="o">)</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Alias utiles à ajouter dans ~/.zshrc</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Git shortcuts</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">gs</span><span class="o">=</span><span class="s2">&quot;git status&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">ga</span><span class="o">=</span><span class="s2">&quot;git add .&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">gc</span><span class="o">=</span><span class="s2">&quot;git commit -m&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">gp</span><span class="o">=</span><span class="s2">&quot;git push&quot;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">gl</span><span class="o">=</span><span class="s2">&quot;git log --oneline --graph --decorate --all&quot;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Laravel shortcuts</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">art</span><span class="o">=</span><span class="s2">&quot;php artisan&quot;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">tinker</span><span class="o">=</span><span class="s2">&quot;php artisan tinker&quot;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1"># Navigation rapide</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nb">alias</span><span class="w"> </span>..<span class="o">=</span><span class="s2">&quot;cd ..&quot;</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="nb">alias</span><span class="w"> </span>...<span class="o">=</span><span class="s2">&quot;cd ../..&quot;</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">www</span><span class="o">=</span><span class="s2">&quot;cd /var/www/html&quot;</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>La ligne de commande est l'interface la plus universelle et la plus durable qui existe en informatique. Les commandes Bash n'ont pas changé en 30 ans et fonctionnent de la même façon sur un Raspberry Pi, un MacBook Pro et un serveur AWS. Investir dans la maîtrise du terminal, c'est acquérir une compétence qui ne sera jamais obsolète. Commencez par les 20 commandes de navigation et de manipulation de fichiers — c'est 80% de l'utilisation quotidienne.</p>
+</div>
+<blockquote>
+<p><a href="../../github/">GitHub — Versionner votre code →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">TERMINAL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BASH</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">ZSH</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">POWERSHELL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">SHELL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CLI</span>
+      
+    
+  </nav>
 
 
 

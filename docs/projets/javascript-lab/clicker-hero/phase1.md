@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé (POO)"
   data-version="1.0"
-  data-time="45m">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Pour échapper au chaos des dizaines de variables éparpillées (`let gold = 0`, `let dps = 0`, `let clickPower = 1`), nous allons créer un "Plan d'Architecte" appelé `Class`. Ce plan définira ce qu'**est** un Joueur (Ses propriétés) et ce que **sait faire** un Joueur (Ses méthodes). C'est le pilier de l'encapsulation.
@@ -106,3 +110,14 @@ console.log(`Argent restant du Héro : ${hero.gold}`); // 98 (100+3-5)
 Le "Héro" est prêt. Mais dans un vrai "Idle Game", on passe son temps à acheter des bâtiments passifs (Mines, Temples, Usines, Curseur de Souris). Créons l'usine à bâtiments dans la **Phase 2 : La Classe Upgrade**.
 
 [Passer à la Phase 2 : Classe Upgrade et Inflation Mathématique →](phase2.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

@@ -137,5 +137,3 @@ ClamAV est l'antivirus open-source de référence. Son intégration avec Wazuh p
     La détection n'est pas une science exacte — c'est un **équilibre permanent** entre sensibilité (détecter tout) et précision (éviter les faux positifs). Chaque règle que vous écrivez est un pari : trop large, elle noie l'analyste sous les fausses alertes ; trop étroite, elle manque des variantes de l'attaque. L'objectif est de progresser continuellement : chaque incident résolu enrichit vos règles, chaque chasse révèle de nouveaux patterns.
 
 > Commencez par **[IOC & TTP →](./ioc-ttp.md)** — c'est le socle conceptuel indispensable avant d'écrire la moindre règle.
-
-<br>

@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -1529,6 +1531,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2069,11 +2082,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../storage/backup-pra/" class="md-nav__link">
+      <a href="../../../storage/backup-pra.md" class="md-nav__link">
         
   
-  
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
   
   <span class="md-ellipsis">
     
@@ -2713,10 +2724,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2886,6 +2893,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2977,6 +2995,10 @@
 </div>
 </p>
 <div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>Les services réseaux (DNS, FTP, SSH) sont comme les différents guichets spécialisés d'une grande entreprise. Le DNS est l'accueil qui indique où se trouve chaque bureau, SSH est l'entrée de service hyper-sécurisée pour la maintenance, et FTP est le quai de chargement des marchandises. Chaque guichet mal surveillé est une opportunité d'intrusion.</em></p>
+</div>
+<div class="admonition quote">
 <p class="admonition-title">Pas de DNS, pas d'internet</p>
 <p><em>Sur Internet, les machines communiquent avec des adresses IP, pas avec des noms. Le serveur <strong>DNS</strong> (Domain Name System) est l'annuaire qui traduit <code>serveur-web.interne</code> en <code>192.168.1.50</code>. L'erreur la plus commune en informatique est la panne DNS. Gérer son propre DNS local est vital pour une infrastructure d'entreprise.</em></p>
 </div>
@@ -3050,6 +3072,16 @@ On doit déclarer cette zone dans la configuration de BIND, puis créer un fichi
 1. <strong>L'usurpation (DNS Spoofing / Cache Poisoning)</strong> : Si un pirate réussit à corrompre votre serveur BIND, il peut lui faire croire que <code>banque.com</code> est à l'adresse IP <code>192.168.1.99</code> (le serveur du pirate). Vos employés seront redirigés vers un faux site (Phishing parfait).
 2. <strong>L'exfiltration (DNS Tunneling)</strong> : Souvent, les pare-feux bloquent tout le trafic sortant, <em>sauf</em> le port 53 (DNS), car l'ordinateur en a besoin. Un attaquant peut cacher ses données volées à l'intérieur de dizaines de requêtes DNS factices pour contourner le pare-feu sans éveiller les soupçons.</p>
 <p>C'est pour cela que la gestion et la surveillance fine (Observabilité) des requêtes DNS est l'une des tâches primordiales d'un centre de cyberdéfense (SOC).</p>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Chaque service exposé est un vecteur d'attaque potentiel. La configuration sécurisée des services fondamentaux (DNS, SSH, Samba) est la première et souvent la plus critique ligne de défense de l'infrastructure.</p>
+</div>
+<blockquote>
+<p><a href="../../">Retourner à l'index Réseau →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >

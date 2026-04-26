@@ -13,6 +13,10 @@ tags: ["PARCOURS", "CYBERSECURITE", "RED-TEAM", "PENTEST", "OFFENSIF"]
   data-time="5-10 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La transition du Développement vers la Cyber Attaque est similaire au parcours d'un serrurier devenant auditeur de sécurité. Parce que vous savez fabriquer des serrures complexes (code), vous êtes le mieux placé pour comprendre comment les crocheter (pentest) afin d'en démontrer les failles._
+
 !!! warning "**Accessibilité : avancée** — _Ce parcours exige une compréhension réelle du code applicatif pour exploiter les vulnérabilités de manière pertinente._"
 
 ## Que fait ce parcours
@@ -136,8 +140,9 @@ _L'extension vers la **Gouvernance** est pertinente à ce stade : un pentester e
 
 ## Conclusion
 
-Le parcours Dev → Cyber Attaque est l'extension offensive naturelle du parcours Développeur web.  
-Il produit un profil pentester Web et API opérationnel, capable de conduire des tests d'intrusion applicatifs en environnement professionnel dans un cadre légal et éthique explicite.
+!!! quote "Ce qu'il faut retenir"
+    Le parcours Dev → Cyber Attaque est l'extension offensive naturelle du parcours Développeur web.  
+    Il produit un profil pentester Web et API opérationnel, capable de conduire des tests d'intrusion applicatifs en environnement professionnel dans un cadre légal et éthique explicite.
 
 **Point d'entrée recommandé : [Fondamentaux IT](../../bases/index.md) — puis [Développement & Stack TALL](../../dev-cloud/index.md) — puis [Cyber : Attaque](../../cyber/tools/index.md).**
 

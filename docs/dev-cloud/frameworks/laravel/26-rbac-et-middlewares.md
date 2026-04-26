@@ -94,3 +94,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {});
 // L'author est autorisé avec l'admin à créer !
 Route::middleware(['auth', 'role:admin,author'])->group(function () {});
 ```
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le RBAC (Role-Based Access Control) est le standard industriel de la gestion des droits. En combinant les rôles (ce que l'utilisateur *est*) avec les permissions (ce que l'utilisateur *peut faire*), Laravel permet de construire des systèmes d'autorisation granulaires sans bibliothèques externes, en s'appuyant uniquement sur les Gates, les Policies et les Middlewares natifs.
+
+> [Système d'autorisation complet. Consolidez vos acquis avec le module de pratique →](./27-pratique-et-bilan.md)

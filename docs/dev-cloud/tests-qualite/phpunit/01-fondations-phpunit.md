@@ -2045,3 +2045,14 @@ Voilà le **Module 1 complet** (6-8 heures de contenu) avec :
 - Auto-évaluation finale
 
 **Prêt pour la suite ?** Souhaitez-vous que je génère le **Module 2 - Tests Unitaires** maintenant ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'écriture de tests n'est pas une perte de temps, c'est un investissement. Une couverture de test robuste via PHPUnit garantit que votre application peut évoluer et être refactorisée en toute confiance sans régressions.
+
+> [Retourner à l'index des tests →](../../index.md)

@@ -13,6 +13,10 @@ tags: ["PROJET", "SECURITE", "VAPOR", "JWT", "KEYCHAIN", "BIOMETRIE"]
   data-time="10 Heures">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "L'Harmonie du Code Indépendant"
     Nous y sommes. Le Saint Graal. Dans tous les projets précédents, nous captions des API tierces ou sauvegardions les données localement. Mais développer en "Freelance" ou pour une entreprise majeure demande d'être maître total de l'outil. Avec OmnySafe, nous allons construire le coffre-fort de la Base de Données, écrire un serveur Linux (Backend Vapor) qui valide des jetons JWT, et rédiger le client iOS qui exige la lecture de votre visage (FaceID) pour s'ouvrir et conserver de manière militaire vos mots-de-passe.
 
@@ -375,3 +379,14 @@ _Le forcing du Mode Sombre via \`Color.black.ignoresSafeArea()\` et l'ajout d'un
     Félicitations. Vous venez de parcourir le spectre complet de l'écosystème Cloud et Mobile d'Apple. Vous avez architecturé un MCD. Vous l'avez modélisé dans une base de données PostgreSQL. Vous l'avez sécurisé derrière un serveur Linux piloté par SwiftNIO (Vapor). Vous avez crypté vos requêtes, interfacé l'intégrité biologique de la machine (FaceID) pour sceller ce bunker de code.
     
 > Ce socle n'est plus un "composant pédagogique". C'est l'Architecture d'Entreprise, celle utilisée par les grandes banques et les super-applications mondiales. Le cursus Mobile s'achève ici dans sa version absolue.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

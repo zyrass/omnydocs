@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟡 Intermédiaire"
   data-version="1.0"
-  data-time="1h00">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le Joueur a cliqué, la gravité a calculé sa chute, et le 2D Array a stocké le pion ROUGE en case `[4][3]`. Ce fichier va transformer le vide de l'écran en un damier de 42 trous, et s'assurer que le trou `[4][3]` reçoive purement et simplement la class CSS ".red". C'est de l'injection d'État.
@@ -142,3 +146,14 @@ document.getElementById('reset-btn').addEventListener('click', () => {
 Vous êtes face au dernier sommet. Votre jeu tourne parfaitement, mais est absolument interminable et sans enjeux. Il faut que l'ordinateur vérifie des dimensions spatiales. Il lui faut **l'Algorithme de Détection de Lignes**. 
 
 [Passer à la Phase 4 : Conditions de Victoire Mathématique →](phase4.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

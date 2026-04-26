@@ -163,6 +163,13 @@ Eloquent possède une mécanique native **`SoftDeletes`**. Au lieu de purger l'e
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-Le moteur de recherche Eloquent et ses verbes de base ne sont plus un secret. Il faut repérer cependant, qu'un objet est rarement seul dans une base de donnée, il sera forcé d'être rattaché à d'autres objets. Nous aborderons ce concept avec les jointures manuelles en un concept plus simple : Les Relations Modélisées.
+!!! quote "Ce qu'il faut retenir"
+    Eloquent ORM n'est pas un simple wrapper SQL — c'est un langage expressif qui transforme chaque table en objet vivant. La différence entre `Post::where('active', true)->latest()->take(5)->get()` et son équivalent SQL brut illustre parfaitement pourquoi Laravel est considéré comme le framework PHP le plus lisible au monde.
+
+> [CRUD maîtrisé. Découvrez maintenant comment les modèles se parlent entre eux →](./16-relations-modeles.md)

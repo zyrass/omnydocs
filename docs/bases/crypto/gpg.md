@@ -390,6 +390,9 @@ Sauvegarder la clé privée hors ligne sur un support chiffré immédiatement ap
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La cryptographie et l'outil GPG constituent la base de la confiance numérique. Une erreur de configuration dans ce domaine ne produit pas un simple bug, mais une vulnérabilité critique pouvant compromettre l'intégralité d'un système d'information.
+
 !!! quote "Conclusion"
     _GPG n'est pas seulement un outil — c'est un modèle mental de sécurité. Comprendre comment la cryptographie asymétrique sépare ce qui est public de ce qui est privé, comment la signature prouve l'authenticité sans révéler le secret, et comment la confiance peut se distribuer sans autorité centrale — c'est comprendre les fondations sur lesquelles reposent HTTPS, les dépôts de packages, les signatures de commits et l'ensemble de l'infrastructure de confiance numérique moderne. Une fois ce modèle assimilé, il devient immédiatement visible quand un système de confiance est solide ou structurellement fragile._
 

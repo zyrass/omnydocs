@@ -14,6 +14,10 @@ status: stable
   data-time="1h00">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "Le Défi du Client"
     "Les visiteurs décident en 3 secondes s'ils restent ou non sur notre site. Je veux une image pleine largeur de Vancouver en arrière-plan, sombre, avec notre phrase d'accroche en gros blanc éclatant au centre de l'écran. Et un bouton Call To Action."
 
@@ -138,3 +142,14 @@ Remarquez la double classe dans le HTML : `class="btn btn-primary"`. C'est l'ess
 La section Accueil est spectaculaire. Passons au vrai défi de la structuration complexe native : la construction de la **Grille des services**.
 
 [Passer à la Phase 4 : Cartes & CSS Grids →](phase4.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

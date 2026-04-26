@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Nmap (Network Mapper) — Le roi incontesté des scanners de ports. Outil fondamental de l'exploration réseau et de l'audit de sécurité.">
+        <meta name="description" content="Nmap (Network Mapper) — Le roi incontesté des scanners de ports. Guide ultime de l'exploration réseau, de l'évasion de pare-feu et de l'audit automatisé via NSE.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -1029,6 +1031,8 @@
       
         
       
+        
+      
     
     
     
@@ -1107,6 +1111,36 @@
     
   
     Phases d'un Pentest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os-cyber/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-monitor-play" viewBox="0 0 24 24"><path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56zM12 17v4M8 21h8"/><rect width="20" height="14" x="2" y="3" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparatif des OS Cyber
   
 
     
@@ -1925,6 +1959,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2069,77 +2113,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fonctionnement-architecture-les-phases-de-scan" class="md-nav__link">
+  <a href="#fonctionnement-architecture-les-4-phases-de-scan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fonctionnement &amp; Architecture (Les Phases de Scan)
+        🏗️ Fonctionnement &amp; Architecture (Les 4 Phases de Scan)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cas-dusage-complementarite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cas d'usage &amp; Complémentarité
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#les-options-principales" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Les Options Principales
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation &amp; Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#le-workflow-ideal-lenumeration-parfaite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Le Workflow Idéal (L'Énumération Parfaite)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Le Workflow Idéal (L&#x27;Énumération Parfaite)">
+    <nav class="md-nav" aria-label="🏗️ Fonctionnement &amp; Architecture (Les 4 Phases de Scan)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-le-scan-initial-rapide" class="md-nav__link">
+  <a href="#explication-des-phases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Le Scan Initial Rapide
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-le-scan-detaille-ciblee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Le Scan Détaillé Ciblée
+        Explication des phases
       
     </span>
   </a>
@@ -2152,32 +2141,271 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bonnes-mauvaises-pratiques-dos-donts" class="md-nav__link">
+  <a href="#les-options-vitales-du-pentester" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bonnes &amp; Mauvaises Pratiques (Do's &amp; Don'ts)
+        🛠️ Les Options Vitales du Pentester
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Les Options Vitales du Pentester">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#techniques-de-decouverte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Techniques de Découverte
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#avertissement-legal-ethique" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#techniques-de-scan-tcpudp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avertissement Légal &amp; Éthique
+        Techniques de Scan TCP/UDP
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#profilage-scripts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion
+        Profilage &amp; Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export &amp; Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-workflow-parfait-de-lattaquant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Le Workflow Parfait de l'Attaquant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Le Workflow Parfait de l&#x27;Attaquant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-le-fast-scan-balayage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 : Le "Fast Scan" (Balayage)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-le-deep-scan-perforation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 : Le "Deep Scan" (Perforation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evasion-de-pare-feu-furtivite-avancee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👻 Évasion de Pare-Feu &amp; Furtivité Avancée
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👻 Évasion de Pare-Feu &amp; Furtivité Avancée">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fragmentation-de-paquets-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fragmentation de Paquets (-f)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-leurre-ip-decoy-scan-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Leurre IP (Decoy Scan) (-D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-source-port-manipulation-g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Source Port Manipulation (-g)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-scan-tres-lent-t2-ou-t1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Scan très lent (-T2 ou -T1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-puissance-du-nmap-scripting-engine-nse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📜 La puissance du Nmap Scripting Engine (NSE)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📜 La puissance du Nmap Scripting Engine (NSE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auditer-les-failles-connues-vuln" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditer les failles connues (Vuln)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bruteforce-et-decouverte-smb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bruteforce et Découverte (SMB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-son-propre-script-lua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer son propre script (Lua)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approche-purple-team-comment-detecter-nmap-blue-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚨 Approche Purple Team : Comment détecter Nmap ? (Blue Team)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Approche Purple Team : Comment détecter Nmap ? (Blue Team)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-la-signature-du-stealth-scan-ss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. La Signature du "Stealth" Scan (-sS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-regle-de-detection-sigma-siem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Règle de Détection Sigma (SIEM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-la-reponse-defensive-ban-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. La réponse défensive (Ban IP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laboratoire-pratique-playground-inter-outils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Laboratoire Pratique (Playground Inter-Outils)
       
     </span>
   </a>
@@ -2503,6 +2731,156 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pfsense/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    pfSense (Attaques)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openvpn/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenVPN (Bypass)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haproxy/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    HAProxy (Fronting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openssh/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenSSH (Tunnels)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openclient/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenClient
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2668,6 +3046,8 @@
       
         
           
+        
+      
         
       
         
@@ -3006,6 +3386,36 @@
     
   
     Fuzzing (général)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web/dvwa/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    DVWA & Plateformes
   
 
     
@@ -3776,6 +4186,8 @@
       
         
       
+        
+      
     
     
     
@@ -3959,6 +4371,36 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reporting/dradis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dradis Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4080,10 +4522,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -4182,77 +4620,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fonctionnement-architecture-les-phases-de-scan" class="md-nav__link">
+  <a href="#fonctionnement-architecture-les-4-phases-de-scan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fonctionnement &amp; Architecture (Les Phases de Scan)
+        🏗️ Fonctionnement &amp; Architecture (Les 4 Phases de Scan)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cas-dusage-complementarite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cas d'usage &amp; Complémentarité
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#les-options-principales" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Les Options Principales
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation &amp; Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#le-workflow-ideal-lenumeration-parfaite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Le Workflow Idéal (L'Énumération Parfaite)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Le Workflow Idéal (L&#x27;Énumération Parfaite)">
+    <nav class="md-nav" aria-label="🏗️ Fonctionnement &amp; Architecture (Les 4 Phases de Scan)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-le-scan-initial-rapide" class="md-nav__link">
+  <a href="#explication-des-phases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Le Scan Initial Rapide
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-le-scan-detaille-ciblee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Le Scan Détaillé Ciblée
+        Explication des phases
       
     </span>
   </a>
@@ -4265,32 +4648,271 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bonnes-mauvaises-pratiques-dos-donts" class="md-nav__link">
+  <a href="#les-options-vitales-du-pentester" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bonnes &amp; Mauvaises Pratiques (Do's &amp; Don'ts)
+        🛠️ Les Options Vitales du Pentester
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Les Options Vitales du Pentester">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#techniques-de-decouverte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Techniques de Découverte
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#avertissement-legal-ethique" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#techniques-de-scan-tcpudp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avertissement Légal &amp; Éthique
+        Techniques de Scan TCP/UDP
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#profilage-scripts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion
+        Profilage &amp; Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export &amp; Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-workflow-parfait-de-lattaquant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Le Workflow Parfait de l'Attaquant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Le Workflow Parfait de l&#x27;Attaquant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-le-fast-scan-balayage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 : Le "Fast Scan" (Balayage)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-le-deep-scan-perforation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 : Le "Deep Scan" (Perforation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evasion-de-pare-feu-furtivite-avancee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👻 Évasion de Pare-Feu &amp; Furtivité Avancée
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👻 Évasion de Pare-Feu &amp; Furtivité Avancée">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fragmentation-de-paquets-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fragmentation de Paquets (-f)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-leurre-ip-decoy-scan-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Leurre IP (Decoy Scan) (-D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-source-port-manipulation-g" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Source Port Manipulation (-g)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-scan-tres-lent-t2-ou-t1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Scan très lent (-T2 ou -T1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-puissance-du-nmap-scripting-engine-nse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📜 La puissance du Nmap Scripting Engine (NSE)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📜 La puissance du Nmap Scripting Engine (NSE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auditer-les-failles-connues-vuln" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditer les failles connues (Vuln)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bruteforce-et-decouverte-smb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bruteforce et Découverte (SMB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-son-propre-script-lua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer son propre script (Lua)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approche-purple-team-comment-detecter-nmap-blue-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚨 Approche Purple Team : Comment détecter Nmap ? (Blue Team)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Approche Purple Team : Comment détecter Nmap ? (Blue Team)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-la-signature-du-stealth-scan-ss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. La Signature du "Stealth" Scan (-sS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-regle-de-detection-sigma-siem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Règle de Détection Sigma (SIEM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-la-reponse-defensive-ban-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. La réponse défensive (Ban IP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laboratoire-pratique-playground-inter-outils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Laboratoire Pratique (Playground Inter-Outils)
       
     </span>
   </a>
@@ -4364,13 +4986,13 @@
 <h1 id="nmap-le-frappeur-aux-portes">Nmap — Le Frappeur aux Portes<a class="headerlink" href="#nmap-le-frappeur-aux-portes" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 Débutant"
-  data-version="7.90+"
-  data-time="~30 minutes">
+  data-level="🟢 Débutant → 🔴 Avancé"
+  data-version="7.94+"
+  data-time="~45 minutes">
 </div>
 </p>
 <div style="text-align: center; margin: 0 auto;">
-    <img src="/assets/images/cyber/nmap-logo.svg" width="250" align="center" />
+    <img src="/assets/images/cyber/nmap-logo.svg" width="250" align="center" alt="Nmap Logo" />
 </div>
 
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
@@ -4380,10 +5002,11 @@
 Il remonte la rue, frappe à la porte d'un immeuble et regarde si quelqu'un répond (Ping). S'il y a quelqu'un, il va toquer à chacune des 65 535 portes d'appartements à l'intérieur (Scan de Ports). S'il trouve une porte ouverte (ex: le port 80), il crie : <em>"Qui est là ?"</em>. Quelqu'un à l'intérieur répond : <em>"Je suis le serveur Web Apache 2.4 !"</em> (Détection de Service/OS). Nmap note soigneusement tout cela sur son carnet et passe à l'immeuble suivant.</p>
 </div>
 <p>Développé en 1997 par Gordon Lyon (Fyodor), <strong>Nmap (Network Mapper)</strong> est probablement l'outil de cybersécurité le plus célèbre au monde. Il sert à découvrir les hôtes actifs sur un réseau, les ports ouverts sur ces hôtes, et à identifier les services (et leurs versions exactes) qui écoutent derrière ces ports.</p>
+<p>La maîtrise de Nmap marque la différence entre un "script kiddie" (qui lance un scan générique bruyant) et un ingénieur offensif (qui profile discrètement le réseau sans déclencher la moindre alerte SOC).</p>
 <p><br></p>
 <hr />
-<h2 id="fonctionnement-architecture-les-phases-de-scan">Fonctionnement &amp; Architecture (Les Phases de Scan)<a class="headerlink" href="#fonctionnement-architecture-les-phases-de-scan" title="Permanent link">&para;</a></h2>
-<p>Un scan Nmap complet n'est pas une simple requête, c'est une chorégraphie réseau en plusieurs étapes (Host Discovery ➔ Port Scanning ➔ Service Detection ➔ NSE).</p>
+<h2 id="fonctionnement-architecture-les-4-phases-de-scan">🏗️ Fonctionnement &amp; Architecture (Les 4 Phases de Scan)<a class="headerlink" href="#fonctionnement-architecture-les-4-phases-de-scan" title="Permanent link">&para;</a></h2>
+<p>Un scan Nmap complet n'est pas une simple requête, c'est une chorégraphie réseau millimétrée.</p>
 <pre class="mermaid"><code>flowchart TD
     %% Couleurs à fort contraste
     classDef attacker fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000
@@ -4393,145 +5016,247 @@ Il remonte la rue, frappe à la porte d'un immeuble et regarde si quelqu'un rép
     A("💻 Attaquant (Nmap)") --&gt;|"1. Ping Sweep (ICMP/ARP)"| B{"L'hôte répond-il ?"}
 
     B --&gt;|"Non (Firewall)"| C("❌ Hôte ignoré (sauf si -Pn)")
-    B --&gt;|"Oui (Up)"| D("2. TCP SYN Scan (-sS)")
+    B --&gt;|"Oui (Up)"| D("2. Scan de Ports TCP/UDP (-sS / -sU)")
 
-    D --&gt;|"Port 80/TCP Ouvert"| E("3. Détection de Version (-sV)")
+    D --&gt;|"Port 80/TCP Ouvert"| E("3. Détection de Version (-sV) &amp; OS (-O)")
 
-    E --&gt;|"Réponse: Nginx 1.14.0"| F("4. Scripts Nmap (NSE) (-sC)")
+    E --&gt;|"Réponse: Nginx 1.14.0 (Linux)"| F("4. Scripts Nmap (NSE) (-sC)")
 
-    F --&gt;|"Exécution script 'http-title'"| G("✅ Titre de la page web ajouté au rapport")
+    F --&gt;|"Exécution script 'http-vuln*'"| G("✅ Vulnérabilité CVE-XYZ découverte")
 
     class A attacker
     class B,D,E,F logic
     class G success</code></pre>
-<p><br></p>
-<hr />
-<h2 id="cas-dusage-complementarite">Cas d'usage &amp; Complémentarité<a class="headerlink" href="#cas-dusage-complementarite" title="Permanent link">&para;</a></h2>
-<p>Nmap est la <strong>première étape obligatoire</strong> de toute phase d'énumération réseau (Étape 4). Sans une cartographie exacte des ports ouverts, le pentester est aveugle.</p>
+<h3 id="explication-des-phases">Explication des phases<a class="headerlink" href="#explication-des-phases" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Moteur NSE (Nmap Scripting Engine)</strong> : Nmap n'est pas qu'un scanner. Il embarque des centaines de scripts (en langage Lua) capables de détecter des vulnérabilités connues (CVE) directement, ou de bruteforcer des mots de passe FTP/SMB.</li>
-<li><strong>Couplage avec RustScan</strong> : Sur de très grands réseaux, Nmap peut être lent. On utilise souvent <em>RustScan</em> en amont pour trouver les ports ouverts en 3 secondes, puis on passe ces ports à Nmap pour faire l'analyse profonde (version, scripts).</li>
+<li><strong>Host Discovery</strong> : Avant de scanner 65 000 ports, Nmap s'assure que la machine est allumée. En réseau local, il utilise des requêtes ARP. Sur Internet, il utilise un Ping ICMP (souvent bloqué par les pare-feux).</li>
+<li><strong>Port Scanning</strong> : Le cœur de l'outil. Nmap forge des paquets TCP personnalisés (SYN, ACK, FIN) et analyse les bits de retour pour déduire l'état du port (Ouvert, Fermé, Filtré).</li>
+<li><strong>Service &amp; OS Detection</strong> : Un port TCP ouvert ne dit pas quel logiciel tourne derrière. Nmap envoie des requêtes complexes et compare les réponses avec sa base de données <code>nmap-service-probes</code>. Il analyse aussi la façon dont la pile TCP/IP réagit (ex: la taille de la fenêtre TCP) pour deviner si c'est du Linux ou du Windows.</li>
+<li><strong>NSE (Nmap Scripting Engine)</strong> : Le moteur Lua permettant d'exécuter des scripts de vulnérabilité directement sur les services détectés.</li>
 </ol>
 <p><br></p>
 <hr />
-<h2 id="les-options-principales">Les Options Principales<a class="headerlink" href="#les-options-principales" title="Permanent link">&para;</a></h2>
-<p>Nmap possède plus de 100 options. Voici les vitales :</p>
+<h2 id="les-options-vitales-du-pentester">🛠️ Les Options Vitales du Pentester<a class="headerlink" href="#les-options-vitales-du-pentester" title="Permanent link">&para;</a></h2>
+<p>Nmap possède plus de 100 options. Voici les seules que vous utiliserez à 99% du temps.</p>
+<h3 id="techniques-de-decouverte">Techniques de Découverte<a class="headerlink" href="#techniques-de-decouverte" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Option</th>
 <th style="text-align: left;">Fonction</th>
-<th style="text-align: left;">Description approfondie</th>
+<th style="text-align: left;">Explication métier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>-sn</code></td>
+<td style="text-align: left;"><strong>Ping Sweep</strong></td>
+<td style="text-align: left;">Désactive le scan de ports. Sert uniquement à lister quelles IPs sont "Up" sur un réseau (ex: <code>nmap -sn 192.168.1.0/24</code>). Extrêmement rapide.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-Pn</code></td>
+<td style="text-align: left;"><strong>Disable Ping</strong></td>
+<td style="text-align: left;">Demande à Nmap de considérer l'hôte comme "Up" même s'il ne répond pas au Ping. <strong>Obligatoire</strong> face aux serveurs Windows (qui bloquent le Ping par défaut).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="techniques-de-scan-tcpudp">Techniques de Scan TCP/UDP<a class="headerlink" href="#techniques-de-scan-tcpudp" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">Fonction</th>
+<th style="text-align: left;">Explication métier</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>-sS</code></td>
 <td style="text-align: left;"><strong>Stealth SYN Scan</strong></td>
-<td style="text-align: left;">Le scan par défaut en root. Envoie un paquet SYN, reçoit un SYN/ACK, mais <strong>ne termine jamais</strong> la connexion (envoie un RST). Furtif et rapide.</td>
+<td style="text-align: left;">Le scan par défaut en root (sudo). Envoie un SYN, reçoit un SYN/ACK, mais <strong>ne termine jamais la connexion</strong> (envoie un RST). Beaucoup plus furtif qu'un scan complet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-sT</code></td>
+<td style="text-align: left;"><strong>TCP Connect Scan</strong></td>
+<td style="text-align: left;">Le scan par défaut sans <code>sudo</code>. Termine la poignée de main TCP (SYN -&gt; SYN/ACK -&gt; ACK). Très bruyant, l'application journalisera une connexion vide.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-sU</code></td>
+<td style="text-align: left;"><strong>UDP Scan</strong></td>
+<td style="text-align: left;">Scanne les ports UDP (DNS, SNMP). Souvent très lent car l'UDP est un protocole "sans connexion" et ne renvoie pas d'accusé de réception.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>-p-</code></td>
 <td style="text-align: left;"><strong>All Ports</strong></td>
-<td style="text-align: left;">Scanne les 65 535 ports TCP au lieu des 1000 ports par défaut. (Indispensable en audit professionnel).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>-sV</code></td>
-<td style="text-align: left;"><strong>Service Version</strong></td>
-<td style="text-align: left;">N'affiche pas juste "Port 80", mais interagit avec le port pour récupérer la version exacte du logiciel ("Apache 2.4.41").</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>-sC</code></td>
-<td style="text-align: left;"><strong>Default Scripts</strong></td>
-<td style="text-align: left;">Exécute les scripts NSE par défaut (non-intrusifs) sur les ports découverts.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>-Pn</code></td>
-<td style="text-align: left;"><strong>No Ping</strong></td>
-<td style="text-align: left;">Considère que l'hôte est en vie même s'il ne répond pas au Ping. Obligatoire face à un pare-feu Windows.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>-oA [nom]</code></td>
-<td style="text-align: left;"><strong>Output All</strong></td>
-<td style="text-align: left;">Exporte les résultats en 3 formats : txt, xml et greppable. <strong>Toujours l'utiliser.</strong></td>
+<td style="text-align: left;">Scanne les 65 535 ports au lieu du Top 1000 par défaut. <strong>Obligatoire en audit professionnel</strong>.</td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<hr />
-<h2 id="installation-configuration">Installation &amp; Configuration<a class="headerlink" href="#installation-configuration" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><span class="filename">Installation universelle</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Kali Linux, Ubuntu, Debian</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nmap
-</span></code></pre></div>
-<p><br></p>
-<hr />
-<h2 id="le-workflow-ideal-lenumeration-parfaite">Le Workflow Idéal (L'Énumération Parfaite)<a class="headerlink" href="#le-workflow-ideal-lenumeration-parfaite" title="Permanent link">&para;</a></h2>
-<p>Dans un contexte de certification (OSCP) ou de Pentest professionnel, on ne tape pas juste <code>nmap &lt;ip&gt;</code>. On procède en deux temps.</p>
-<h3 id="1-le-scan-initial-rapide">1. Le Scan Initial Rapide<a class="headerlink" href="#1-le-scan-initial-rapide" title="Permanent link">&para;</a></h3>
-<p>L'objectif est d'obtenir très vite la liste des ports ouverts.
-<div class="language-bash highlight"><span class="filename">Fast Scan</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># -p- : Tous les ports</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># -T4 : Vitesse agressive (Timing 4)</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># -n  : Pas de résolution DNS (Gain de temps)</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>-sS<span class="w"> </span>-p-<span class="w"> </span>--min-rate<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-n<span class="w"> </span><span class="m">10</span>.10.10.5<span class="w"> </span>-oA<span class="w"> </span>nmap_initial
-</span></code></pre></div></p>
-<h3 id="2-le-scan-detaille-ciblee">2. Le Scan Détaillé Ciblée<a class="headerlink" href="#2-le-scan-detaille-ciblee" title="Permanent link">&para;</a></h3>
-<p>Maintenant qu'on sait que seuls les ports 22 et 80 sont ouverts, on concentre toute la puissance de Nmap (Versions + Scripts) uniquement sur ces ports.
-<div class="language-bash highlight"><span class="filename">Deep Scan</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># -sC : Scripts par défaut</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># -sV : Détection des versions logicielles</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># -p 22,80 : Uniquement les ports découverts à l&#39;étape 1</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>-sC<span class="w"> </span>-sV<span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,80<span class="w"> </span><span class="m">10</span>.10.10.5<span class="w"> </span>-oA<span class="w"> </span>nmap_detaillé
-</span></code></pre></div>
-<em>L'attaquant ouvre le fichier <code>nmap_detaillé.nmap</code> et planifie ses attaques web (sur le 80) ou de bruteforce (sur le 22).</em></p>
-<p><br></p>
-<hr />
-<h2 id="bonnes-mauvaises-pratiques-dos-donts">Bonnes &amp; Mauvaises Pratiques (Do's &amp; Don'ts)<a class="headerlink" href="#bonnes-mauvaises-pratiques-dos-donts" title="Permanent link">&para;</a></h2>
+<h3 id="profilage-scripts">Profilage &amp; Scripts<a class="headerlink" href="#profilage-scripts" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Action</th>
-<th>Recommandation</th>
-<th>Explication métier</th>
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">Fonction</th>
+<th style="text-align: left;">Explication métier</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>✅ <strong>À FAIRE</strong></td>
-<td><strong>Toujours utiliser <code>-oA</code></strong></td>
-<td>En pentest, "Si ce n'est pas dans les logs, ce n'est pas arrivé". Le format XML généré par <code>-oA</code> peut être importé en 1 clic dans Metasploit ou BloodHound.</td>
+<td style="text-align: left;"><code>-sV</code></td>
+<td style="text-align: left;"><strong>Service Version</strong></td>
+<td style="text-align: left;">Interagit avec le port pour récupérer la bannière exacte du logiciel (ex: "OpenSSH 8.2p1").</td>
 </tr>
 <tr>
-<td>✅ <strong>À FAIRE</strong></td>
-<td><strong>Utiliser <code>sudo</code></strong></td>
-<td>Si vous lancez Nmap sans privilèges administrateur (sans sudo), il fera un <em>TCP Connect Scan</em> (<code>-sT</code>) au lieu d'un <em>SYN Scan</em> (<code>-sS</code>). Le scan sera deux fois plus lent et beaucoup plus visible dans les logs de la cible.</td>
+<td style="text-align: left;"><code>-O</code></td>
+<td style="text-align: left;"><strong>OS Detection</strong></td>
+<td style="text-align: left;">Tente de deviner le système d'exploitation en analysant l'empreinte de la pile TCP/IP.</td>
 </tr>
 <tr>
-<td>❌ <strong>À NE PAS FAIRE</strong></td>
-<td><strong>Faire <code>-p- -A</code> sur tout un sous-réseau</strong></td>
-<td>L'option <code>-A</code> (Agressive) regroupe OS detection, Version et Scripts. La lancer sur 65535 ports pour 254 machines (<code>10.0.0.0/24</code>) prendra littéralement des jours. Scannez large, puis scannez profond.</td>
+<td style="text-align: left;"><code>-sC</code></td>
+<td style="text-align: left;"><strong>Default Scripts</strong></td>
+<td style="text-align: left;">Exécute les scripts NSE par défaut (sûrs et non-intrusifs) sur les ports découverts.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-A</code></td>
+<td style="text-align: left;"><strong>Agressive Scan</strong></td>
+<td style="text-align: left;">Raccourci équivalent à <code>-sV -O -sC --traceroute</code>. Bruyant et agressif.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="export-performance">Export &amp; Performance<a class="headerlink" href="#export-performance" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">Fonction</th>
+<th style="text-align: left;">Explication métier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>-oA [nom]</code></td>
+<td style="text-align: left;"><strong>Output All</strong></td>
+<td style="text-align: left;">Exporte les résultats en 3 formats : txt, xml et greppable. <strong>Règle d'or : tout scan professionnel doit être exporté avec -oA.</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-T4</code></td>
+<td style="text-align: left;"><strong>Timing Template</strong></td>
+<td style="text-align: left;">Règle la vitesse de 0 (Paranoïaque, très lent) à 5 (Insensé, très rapide). <code>-T4</code> est le standard agressif mais fiable.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--min-rate</code></td>
+<td style="text-align: left;"><strong>Vitesse forcée</strong></td>
+<td style="text-align: left;">Oblige Nmap à envoyer un nombre minimum de paquets par seconde (ex: <code>--min-rate 5000</code>). Accélère drastiquement les scans (au risque de rater des ports si le réseau sature).</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
 <hr />
-<h2 id="avertissement-legal-ethique">Avertissement Légal &amp; Éthique<a class="headerlink" href="#avertissement-legal-ethique" title="Permanent link">&para;</a></h2>
-<div class="admonition danger">
-<p class="admonition-title">Le Scan de Ports : Zone Grise et Intention</p>
-<p>Le scan de ports sur Internet est techniquement légal dans la plupart des pays occidentaux, tant qu'il n'impacte pas la disponibilité du système. Le port de la cible est "ouvert" sur l'espace public numérique, venir y toquer n'est pas une intrusion.</p>
-<p><strong>Cependant</strong> :
-1. Si le scan de ports est massif et agressif (Déni de Service accidentel), l'Art. 323-2 s'applique.
-2. Si le scan de ports (Reconnaissance) est suivi d'une tentative d'exploitation, le juge considérera le Nmap comme l'<strong>acte préparatoire qualifiant l'intention malveillante</strong>.
-3. Exécuter certains scripts intrusifs de Nmap (ex: <code>nmap --script exploit</code>) est considéré comme une tentative d'intrusion illégale sans autorisation.</p>
-</div>
+<h2 id="le-workflow-parfait-de-lattaquant">🎯 Le Workflow Parfait de l'Attaquant<a class="headerlink" href="#le-workflow-parfait-de-lattaquant" title="Permanent link">&para;</a></h2>
+<p>L'erreur du débutant : taper <code>nmap -p- -A 10.10.10.5</code> et attendre 45 minutes que ça se termine. 
+Un professionnel procède <strong>toujours en deux temps</strong> : le balayage puis la perforation.</p>
+<h3 id="phase-1-le-fast-scan-balayage">Phase 1 : Le "Fast Scan" (Balayage)<a class="headerlink" href="#phase-1-le-fast-scan-balayage" title="Permanent link">&para;</a></h3>
+<p>L'objectif est d'obtenir la liste des ports ouverts en moins de 30 secondes. On désactive la résolution DNS (<code>-n</code>) et le Ping (<code>-Pn</code>), on met la vitesse au maximum, et on sauvegarde.</p>
+<p><div class="language-bash highlight"><span class="filename">Phase 1 : Découverte ultra-rapide</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>-sS<span class="w"> </span>-p-<span class="w"> </span>--min-rate<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-n<span class="w"> </span>-Pn<span class="w"> </span><span class="m">10</span>.10.10.5<span class="w"> </span>-oA<span class="w"> </span>nmap_initial
+</span></code></pre></div>
+<em>(Résultat obtenu : ports 22, 80, et 443 ouverts).</em></p>
+<h3 id="phase-2-le-deep-scan-perforation">Phase 2 : Le "Deep Scan" (Perforation)<a class="headerlink" href="#phase-2-le-deep-scan-perforation" title="Permanent link">&para;</a></h3>
+<p>Maintenant que l'on a isolé les portes ouvertes, on concentre l'artillerie lourde (Scripts, Versions, OS) <strong>uniquement</strong> sur ces 3 ports.</p>
+<p><div class="language-bash highlight"><span class="filename">Phase 2 : Profilage chirurgical</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Remarquez l&#39;injection des ports découverts via l&#39;option -p</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>-sC<span class="w"> </span>-sV<span class="w"> </span>-O<span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,80,443<span class="w"> </span><span class="m">10</span>.10.10.5<span class="w"> </span>-oA<span class="w"> </span>nmap_detaillé
+</span></code></pre></div>
+Le résultat est chirurgical, détaillé, et obtenu en 2 minutes au lieu de 45.</p>
 <p><br></p>
 <hr />
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<div class="admonition quote">
-<p class="admonition-title">Ce qu'il faut retenir</p>
-<p>Nmap n'est pas un outil que l'on "apprend une fois". C'est un langage réseau en soi. Une parfaite maîtrise des <em>flags</em> Nmap permet d'adapter son scan pour passer sous le nez des IDS (Intrusion Detection Systems) ou pour cartographier un réseau interne de 10 000 machines en quelques minutes.</p>
+<h2 id="evasion-de-pare-feu-furtivite-avancee">👻 Évasion de Pare-Feu &amp; Furtivité Avancée<a class="headerlink" href="#evasion-de-pare-feu-furtivite-avancee" title="Permanent link">&para;</a></h2>
+<p>Face à un équipement de sécurité moderne (Palo Alto, Fortinet) ou un SOC vigilant, un Nmap <code>-T4</code> classique déclenchera une alerte instantanée. Comment tromper l'ennemi ?</p>
+<h3 id="1-fragmentation-de-paquets-f">1. Fragmentation de Paquets (<code>-f</code>)<a class="headerlink" href="#1-fragmentation-de-paquets-f" title="Permanent link">&para;</a></h3>
+<p>Divise l'en-tête TCP en minuscules morceaux (fragments de 8 bytes). Beaucoup d'anciens IDS ou de pare-feux "Stateless" ne réassemblent pas les paquets pour gagner en performance. Le scan passe au travers.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>-f<span class="w"> </span>-sS<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="m">10</span>.10.10.5
+</span></code></pre></div></p>
+<h3 id="2-leurre-ip-decoy-scan-d">2. Leurre IP (Decoy Scan) (<code>-D</code>)<a class="headerlink" href="#2-leurre-ip-decoy-scan-d" title="Permanent link">&para;</a></h3>
+<p>Nmap va forger des paquets avec de fausses adresses IP sources (les "Decoys") mélangées à la vôtre. L'administrateur système verra 10 IP différentes scanner son serveur en même temps, et ne saura pas laquelle est la vraie menace.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># RND:5 génère 5 fausses IP aléatoires en plus de la vôtre</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>-D<span class="w"> </span>RND:5<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="m">10</span>.10.10.5
+</span></code></pre></div></p>
+<h3 id="3-source-port-manipulation-g">3. Source Port Manipulation (<code>-g</code>)<a class="headerlink" href="#3-source-port-manipulation-g" title="Permanent link">&para;</a></h3>
+<p>Beaucoup de pare-feux d'entreprise mal configurés autorisent aveuglément tout trafic entrant provenant des ports DNS (53) ou HTTP (80). Nmap permet de forger ses paquets pour faire croire qu'ils proviennent du port 53.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>-g<span class="w"> </span><span class="m">53</span><span class="w"> </span>-sS<span class="w"> </span>-p-<span class="w"> </span><span class="m">10</span>.10.10.5
+</span></code></pre></div></p>
+<h3 id="4-scan-tres-lent-t2-ou-t1">4. Scan très lent (<code>-T2</code> ou <code>-T1</code>)<a class="headerlink" href="#4-scan-tres-lent-t2-ou-t1" title="Permanent link">&para;</a></h3>
+<p>La méthode ultime face à un SIEM corrélant les requêtes. Un scan <code>-T1</code> (Sneaky) mettra 15 secondes entre chaque paquet envoyé. Les règles de détection (ex: "Plus de 20 paquets SYN en 5 secondes") ne se déclencheront jamais. (Attention : un scan de 65535 ports en T1 prendra des mois).</p>
+<p><br></p>
+<hr />
+<h2 id="la-puissance-du-nmap-scripting-engine-nse">📜 La puissance du Nmap Scripting Engine (NSE)<a class="headerlink" href="#la-puissance-du-nmap-scripting-engine-nse" title="Permanent link">&para;</a></h2>
+<p>NSE propulse Nmap d'un simple scanner de ports au statut d'outil d'exploitation. Les scripts se trouvent dans <code>/usr/share/nmap/scripts/</code>.</p>
+<h3 id="auditer-les-failles-connues-vuln">Auditer les failles connues (Vuln)<a class="headerlink" href="#auditer-les-failles-connues-vuln" title="Permanent link">&para;</a></h3>
+<p>Exécute tous les scripts de la catégorie <code>vuln</code> contre le service. Nmap vérifiera si le serveur est sensible à MS17-010 (EternalBlue), Heartbleed, etc.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nmap<span class="w"> </span>-p<span class="w"> </span><span class="m">443</span><span class="w"> </span>--script<span class="w"> </span>vuln<span class="w"> </span><span class="m">10</span>.10.10.5
+</span></code></pre></div></p>
+<h3 id="bruteforce-et-decouverte-smb">Bruteforce et Découverte (SMB)<a class="headerlink" href="#bruteforce-et-decouverte-smb" title="Permanent link">&para;</a></h3>
+<p>Le script <code>smb-enum-shares</code> permet d'interroger directement un serveur Windows pour lister les dossiers partagés cachés.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nmap<span class="w"> </span>-p<span class="w"> </span><span class="m">139</span>,445<span class="w"> </span>--script<span class="w"> </span>smb-enum-shares<span class="w"> </span>--script-args<span class="w"> </span><span class="nv">smbuser</span><span class="o">=</span>admin,smbpass<span class="o">=</span>password<span class="w"> </span><span class="m">10</span>.10.10.5
+</span></code></pre></div></p>
+<h3 id="creer-son-propre-script-lua">Créer son propre script (Lua)<a class="headerlink" href="#creer-son-propre-script-lua" title="Permanent link">&para;</a></h3>
+<p>Si une nouvelle CVE vient de sortir, vous pouvez créer un script <code>.nse</code> personnalisé pour la détecter. Le langage utilisé est Lua (léger et extrêmement rapide).</p>
+<p><br></p>
+<hr />
+<h2 id="approche-purple-team-comment-detecter-nmap-blue-team">🚨 Approche Purple Team : Comment détecter Nmap ? (Blue Team)<a class="headerlink" href="#approche-purple-team-comment-detecter-nmap-blue-team" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Vue Défensive (Blue Team / SOC)</p>
+<p>Nmap n'est pas invisible, même avec <code>-sS</code>. Un Blue Teamer aguerri ou une règle SIEM bien calibrée reconnaîtra sa signature.</p>
 </div>
-<blockquote>
-<p>Mais que faire quand la vitesse de Nmap n'est pas suffisante et que vous avez des dizaines de milliers d'IPs à scanner ? Confiez la découverte de ports au drone ultra-rapide <strong><a href=".././rustscan/">RustScan →</a></strong>.</p>
-</blockquote>
+<h3 id="1-la-signature-du-stealth-scan-ss">1. La Signature du "Stealth" Scan (-sS)<a class="headerlink" href="#1-la-signature-du-stealth-scan-ss" title="Permanent link">&para;</a></h3>
+<p>Un scan SYN laisse une trace asymétrique très reconnaissable dans un analyseur de paquets (Wireshark) ou un NDR (Zeek) :
+- L'attaquant envoie <strong>SYN</strong>.
+- La cible répond <strong>SYN/ACK</strong>.
+- L'attaquant répond instantanément <strong>RST</strong> (Reset) au lieu d'un ACK.
+<em>Cette séquence répétée des centaines de fois par seconde est la signature absolue d'un scanneur.</em></p>
+<h3 id="2-regle-de-detection-sigma-siem">2. Règle de Détection Sigma (SIEM)<a class="headerlink" href="#2-regle-de-detection-sigma-siem" title="Permanent link">&para;</a></h3>
+<p>Un SOC moderne détecte Nmap via la journalisation du pare-feu (FortiGate, pfSense). Voici une logique de règle de détection Sigma pour un scan agressif :</p>
+<div class="language-yaml highlight"><span class="filename">Règle Sigma - Détection de Scan Horizontal</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Détection de balayage de ports massifs (Nmap)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">logsource</span><span class="p">:</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">firewall</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nt">detection</span><span class="p">:</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">selection</span><span class="p">:</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;blocked&#39;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">timeframe</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">selection | count(dst_port) by src_ip &gt; 50</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="no">Détecte une IP source unique tentant d&#39;accéder à plus de 50 ports</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="no">différents bloqués en moins de 10 secondes.</span>
+</span></code></pre></div>
+<h3 id="3-la-reponse-defensive-ban-ip">3. La réponse défensive (Ban IP)<a class="headerlink" href="#3-la-reponse-defensive-ban-ip" title="Permanent link">&para;</a></h3>
+<p>En cas de détection par le SIEM, un SOAR déclenchera un playbook d'orchestration :
+1. Extraction de l'IP source (<code>src_ip</code>).
+2. Requête via API à pfSense/Fortigate.
+3. Ajout de l'IP dans un <em>Blackhole</em> / <em>Null Route</em> pendant 24h.</p>
+<p><br></p>
+<hr />
+<h2 id="laboratoire-pratique-playground-inter-outils">🧪 Laboratoire Pratique (Playground Inter-Outils)<a class="headerlink" href="#laboratoire-pratique-playground-inter-outils" title="Permanent link">&para;</a></h2>
+<p><strong>Objectif :</strong> De la découverte réseau à la cartographie d'attaque.</p>
+<ol>
+<li>
+<p><strong>Scan et Export XML</strong>
+   Générez un rapport XML complet d'un sous-réseau cible.
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>nmap<span class="w"> </span>-sS<span class="w"> </span>-p-<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>-oX<span class="w"> </span>sub_network.xml
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Integration avec Metasploit</strong>
+   Lancez <strong><a href=".././metasploit/">Metasploit</a></strong> (<code>msfconsole</code>), importez la base de données et populez vos cibles.
+   <div class="language-ruby highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Dans MSF</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">db_import</span><span class="w"> </span><span class="n">sub_network</span><span class="o">.</span><span class="n">xml</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">hosts</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">services</span><span class="w"> </span><span class="o">-</span><span class="nb">p</span><span class="w"> </span><span class="mi">445</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Passage au Web</strong>
+   Si Nmap détecte un port 80/443, passez la main à un fuzzer web comme <strong><a href="../../web/ffuf/">ffuf</a></strong> pour découvrir les dossiers cachés du site.</p>
+</li>
+</ol>
 
 
   <nav class="md-tags" >
@@ -4586,6 +5311,16 @@ Il remonte la rue, frappe à la porte d'un immeuble et regarde si quelqu'un rép
       
       
         <span class="md-tag md-tag-icon">NSE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PURPLE TEAM</span>
       
     
   </nav>

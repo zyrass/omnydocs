@@ -13,6 +13,10 @@ tags: ["PROJET", "CAMERA", "SWIFTDATA", "CHARTS", "SCANNER"]
   data-time="4 Heures">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "Quand l'Hardware rencontre la Data"
     Finis les jouets avec des compteurs de secondes et des monstres imaginaires. On attaque la création d'un outil grand public critique pour le portefeuille de l'utilisateur. En alliant les **capacités physiques de l'iPhone** (L'appareil photo numérique pour lire des EAN-13) avec un moteur de données robuste (**SwiftData** pour mémoriser l'évolution du prix d'une boîte de céréales depuis 2 ans), nous créons une arme redoutable. Et en bonus ? Nous allons dessiner une courbe de l'inflation via le framework graphique maison d'Apple : **Swift Charts**.
 
@@ -340,3 +344,12 @@ _L'utilisation d'un `AreaMark` transparent couplé au composant `GroupBox` tradi
 > Le stockage et le matériel maitrisés, la dernière dimension à étudier reste l'échange d'informations internationales. Entrons dans le réseau de données massive `URLSession` avec le projet 5 : OmnyNews.
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

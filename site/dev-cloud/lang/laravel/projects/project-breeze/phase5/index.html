@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Document en cours de rédaction">
+        <meta name="description" content="Middleware d'authentification, gates et policies pour sécuriser les routes et les actions sur les ressources.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Phase5 - OmnyDocs</title>
+        <title>Phase 5 — Autorisation & Middleware - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#phase5" class="md-skip">
+        <a href="#phase-5-autorisation-middleware" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Phase5
+              Phase 5 — Autorisation &amp; Middleware
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1173,6 +1171,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-de-la-phase-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de la Phase 5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-personnalise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Middleware Personnalisé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Simple
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1192,20 +1242,101 @@
                 
                   
 
-<h1 id="phase5">Phase5<a class="headerlink" href="#phase5" title="Permanent link">&para;</a></h1>
+<h1 id="phase-5-autorisation-middleware">Phase 5 — Autorisation &amp; Middleware<a class="headerlink" href="#phase-5-autorisation-middleware" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 En construction"
-  data-version="1.0"
-  data-time="Bientôt disponible">
+  data-level="🟡 Intermédiaire"
+  data-version="Laravel 11"
+  data-time="~45 minutes">
 </div>
 </p>
+<h2 id="objectifs-de-la-phase-5">Objectifs de la Phase 5<a class="headerlink" href="#objectifs-de-la-phase-5" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
-<p class="admonition-title">Article en cours de rédaction</p>
-<p>Le contenu détaillé de cette page est actuellement en cours de rédaction. Il sera publié lors des prochaines mises à jour d'OmnyDocs.</p>
+<p class="admonition-title">Ce que vous allez faire</p>
+<ul>
+<li>Comprendre les middleware <code>auth</code> et <code>verified</code> de Breeze</li>
+<li>Créer un middleware personnalisé (<code>EnsureProfileIsComplete</code>)</li>
+<li>Implémenter une Policy de base pour protéger des ressources</li>
+<li>Tester les redirections non autorisées</li>
+</ul>
 </div>
-<p><br /></p>
+<h2 id="middleware-personnalise">Middleware Personnalisé<a class="headerlink" href="#middleware-personnalise" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>make:middleware<span class="w"> </span>EnsureProfileIsComplete
+</span></code></pre></div>
+<div class="language-php highlight"><span class="filename">app/Http/Middleware/EnsureProfileIsComplete.php</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">public function handle(Request $request, Closure $next): Response</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="x">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="x">    if (auth()-&gt;check() &amp;&amp; !auth()-&gt;user()-&gt;bio) {</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="x">        return redirect()-&gt;route(&#39;profile.edit&#39;)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="x">            -&gt;with(&#39;warning&#39;, &#39;Veuillez compléter votre profil avant de continuer.&#39;);</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="x">    }</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="x">    return $next($request);</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="x">}</span>
+</span></code></pre></div>
+<div class="language-php highlight"><span class="filename">bootstrap/app.php — Enregistrement du middleware</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">-&gt;withMiddleware(function (Middleware $middleware) {</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="x">    $middleware-&gt;alias([</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="x">        &#39;profile.complete&#39; =&gt; \App\Http\Middleware\EnsureProfileIsComplete::class,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="x">    ]);</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="x">})</span>
+</span></code></pre></div>
+<div class="language-php highlight"><span class="filename">routes/web.php — Application du middleware</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">Route::middleware([&#39;auth&#39;, &#39;verified&#39;, &#39;profile.complete&#39;])-&gt;group(function () {</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="x">    Route::get(&#39;/dashboard&#39;, [DashboardController::class, &#39;index&#39;])-&gt;name(&#39;dashboard&#39;);</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="x">});</span>
+</span></code></pre></div>
+<h2 id="policy-simple">Policy Simple<a class="headerlink" href="#policy-simple" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>make:policy<span class="w"> </span>PostPolicy<span class="w"> </span>--model<span class="o">=</span>Post
+</span></code></pre></div>
+<div class="language-php highlight"><span class="filename">app/Policies/PostPolicy.php</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="x">public function update(User $user, Post $post): bool</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="x">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="x">    // Seul le propriétaire peut modifier son post</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="x">    return $user-&gt;id === $post-&gt;user_id;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="x">}</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Le middleware est le gardien des routes, la Policy est le gardien des ressources. Ces deux niveaux de protection sont complémentaires : le middleware vérifie si l'utilisateur peut <strong>accéder à la route</strong>, la Policy vérifie s'il peut <strong>effectuer l'action sur cette ressource spécifique</strong>. Confondre ces deux niveaux génère des failles de sécurité subtiles difficiles à détecter en revue de code.</p>
+</div>
+<blockquote>
+<p><a href=".././phase6/">Phase 6 — Tests PHPUnit de l'authentification →</a></p>
+</blockquote>
 
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">LARAVEL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BREEZE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PROJET GUIDÉ</span>
+      
+    
+  </nav>
 
 
 

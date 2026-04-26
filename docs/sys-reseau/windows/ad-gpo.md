@@ -13,6 +13,10 @@ tags: ["AD", "GPO", "WINDOWS", "ACTIVE DIRECTORY", "DOMAINE"]
   data-time="30 - 45 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _L'Active Directory (AD) est le cadastre de l'entreprise : il référence tous les employés et ordinateurs. Les GPO (Group Policy Objects) sont le règlement intérieur imposé par la direction : elles dictent magiquement ce que chaque employé a le droit de faire ou non sur sa machine, de manière centralisée._
+
 !!! quote "Le Saint Graal de l'entreprise"
     _Imaginez une entreprise de 2000 salariés. Si vous deviez aller sur chacun des 2000 ordinateurs pour créer le compte de l'utilisateur, définir le fond d'écran de l'entreprise, et configurer les imprimantes, il vous faudrait une armée de techniciens. L'**Active Directory (AD)** résout ce problème en centralisant toute l'identité et les autorisations sur un serveur central (Le Contrôleur de Domaine)._
 
@@ -85,3 +89,14 @@ Ainsi, si un nouveau directeur arrive, il suffit de le mettre dans le groupe `G_
 ## Conclusion et lien avec la Cyber
 
 Pour un attaquant (Pentester ou Ransomware), le Contrôleur de Domaine (DC) est la cible ultime. S'il réussit à compromettre le compte d'un Administrateur du Domaine (Domain Admin), "la partie est finie" (Game Over). Il peut instantanément déployer un malware sur tous les PC de l'entreprise via GPO. C'est pourquoi la sécurité de l'Active Directory, et l'isolation des comptes à hauts privilèges (Méthode de l'Administration en Tiering) sont aujourd'hui au cœur des enjeux de cybersécurité moderne.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'écosystème Windows et Active Directory est le cœur battant de la plupart des réseaux d'entreprise. Son durcissement rigoureux via les GPO et l'administration sécurisée via PowerShell sont critiques pour prévenir les mouvements latéraux.
+
+> [Retourner à l'index →](../index.md)

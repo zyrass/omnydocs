@@ -1777,3 +1777,14 @@ Voilà le **Module 4 - Manipulation de Données complet** (9-11 heures de conten
 Le Module 4 PHP est terminé ! La manipulation de données est maintenant expertisée.
 
 Veux-tu que je continue avec le **Module 5 - Formulaires & Sécurité Web** ? (XSS, CSRF, SQL Injection, upload fichiers sécurisé, headers sécurité - MODULE CRITIQUE pour sécurité)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

@@ -351,3 +351,12 @@ class SearchController
 > Prochaine étape : [DAST →](./dast.md) — les tests dynamiques qui analysent l'application en cours d'exécution.
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

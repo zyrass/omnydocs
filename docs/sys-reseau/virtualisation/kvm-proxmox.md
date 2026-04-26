@@ -13,6 +13,10 @@ tags: ["KVM", "PROXMOX", "VIRTUALISATION", "LINUX", "HYPERVISEUR"]
   data-time="25 - 35 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La virtualisation s'apparente à la construction de plusieurs appartements (Machines Virtuelles) au sein d'un même grand immeuble (Serveur Hyperviseur physique). L'hyperviseur s'assure que chaque locataire reçoit son quota d'électricité et d'eau (CPU, RAM) sans jamais pouvoir entrer par effraction chez son voisin._
+
 !!! quote "Le noyau Linux devient Hyperviseur"
     _Au lieu de développer un hyperviseur de Type 1 massif et fermé (comme VMware ESXi), la communauté Linux a eu une idée de génie : intégrer directement la capacité de virtualisation dans le noyau Linux. C'est la naissance de **KVM** (Kernel-based Virtual Machine). Grâce à un simple module chargé dans le noyau, chaque machine virtuelle devient un simple processus Linux._
 
@@ -69,3 +73,14 @@ Il est 100% gratuit, Open Source, et concurrence directement la solution payante
 ## Conclusion
 
 Dans le monde de l'administration système moderne On-Premise (dans ses propres locaux), **Proxmox VE** est devenu le roi de l'infrastructure Open Source. La première chose qu'un ingénieur système installe sur un nouveau serveur physique n'est plus Ubuntu ou Windows, c'est Proxmox. Ainsi, le serveur "nu" devient une plateforme élastique capable d'accueillir n'importe quel système de manière isolée et supervisée.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La virtualisation (KVM, Proxmox) couplée à l'Infrastructure as Code (Packer, Vagrant) permet de déployer des environnements reproductibles, immuables et sécurisés dès leur conception (Security by Design).
+
+> [Retourner à l'index →](../index.md)

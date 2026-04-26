@@ -140,19 +140,3 @@ Le Fuzzing est l'activité la plus bruyante du piratage. Aujourd'hui, les archit
     Si vous fuzzez le paramètre "action" d'une API, vous pourriez tomber aléatoirement sur `action=delete_all_users`. 
     **Ne fuzzez jamais les requêtes d'état (POST/PUT/DELETE) à l'aveugle en production.**
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Le Fuzzing web n'est pas "un outil", c'est une méthode d'investigation scientifique par force brute intelligente. Les outils (`ffuf`, `gobuster`, `wfuzz`) changeront avec les années, mais la maîtrise du trio "Point d'injection + Dictionnaire + Filtrage" restera la compétence fondamentale pour cartographier et casser des applications web.
-
-> Le web applicatif étant désormais maîtrisé, il est temps de s'attaquer à la vulnérabilité la plus ancienne, la moins patchable et la plus dangereuse de l'histoire de l'informatique : l'Être Humain. Bienvenue dans l'Étape 7 : **[Social Engineering & Phishing →](../se/index.md)**.
-
-
-
-
-
-

@@ -164,21 +164,3 @@ hashcat -m 22000 hashes_prets.hc22000 /usr/share/wordlists/rockyou.txt
     
     Cette action de compromission cryptographique dans le but de casser une authentification tombe sous le coup de l'**Article 323-1 du Code pénal** : *Accès frauduleux dans tout ou partie d'un système de traitement automatisé de données.* Le mandat d'intrusion (autorisation écrite) est obligatoire.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    L'attaque PMKID via `hcxdumptool` a rendu obsolète des années de documentation sur Aircrack-ng. Rapide, silencieuse, sans victimes collatérales (pas de coupure WiFi pour les employés), et ne nécessitant pas d'utilisateurs connectés, elle est devenue le standard industriel absolu pour les tests d'intrusion sur les clés WPA2-PSK (Pré-partagées).
-
-> Toutes les clés WPA ne sont pas vulnérables. Mais que se passe-t-il si le routeur a une "Porte de derrière" numérique (un code PIN à 8 chiffres pour faciliter l'appairage) ? Découvrez la pire faille WiFi de l'histoire avec **[Reaver & Bully (WPS) →](./reaver-bully.md)**.
-
-<br>
-
-
-
-
-
-

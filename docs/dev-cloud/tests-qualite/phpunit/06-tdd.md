@@ -1860,3 +1860,14 @@ Voilà le **Module 6 complet** (10-12 heures de contenu) avec :
 Le Module 6 est terminé ! La philosophie et la pratique du TDD sont maintenant maîtrisées.
 
 Voulez-vous que je continue avec le **Module 7 - Tests d'Intégration** (workflows multi-composants, scénarios end-to-end, intégration de systèmes) ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'écriture de tests n'est pas une perte de temps, c'est un investissement. Une couverture de test robuste via PHPUnit garantit que votre application peut évoluer et être refactorisée en toute confiance sans régressions.
+
+> [Retourner à l'index des tests →](../../index.md)

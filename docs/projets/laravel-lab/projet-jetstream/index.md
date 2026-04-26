@@ -13,6 +13,10 @@ status: stable
   data-time="20-28 heures (8 phases)">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Si Breeze est une serrure de maison individuelle, Jetstream est le système de sécurité d'un immeuble de bureaux complet. Il gère non seulement les badges d'accès (authentification), mais aussi les droits par étage (rôles), les équipes (locataires) et la sécurité renforcée (2FA)._
+
 ## Introduction du projet - Pentest Management Platform
 
 Bienvenue dans ce projet **Pentest Management Platform** combinant **Laravel Jetstream** (backend API SaaS) et **Angular 21 avec Signals** (frontend moderne) ! Cette plateforme permet aux cabinets de cybersécurité de gérer leurs missions clients : création d'organisations Teams, gestion de campagnes pentest, tracking vulnérabilités (CVSS, OWASP), upload de preuves (screenshots, PoC), génération de rapports PDF automatisés, et collaboration en équipe avec rôles granulaires.
@@ -1544,4 +1548,13 @@ ng add @angular/material
 
 </div>
 
-<br />
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les kits de démarrage Laravel font gagner des semaines de développement, mais ils imposent de bien comprendre les flux sous-jacents. Ne traitez jamais l'authentification comme une simple boîte noire.
+
+> [Passer à la phase suivante →](../index.md)

@@ -215,26 +215,3 @@ subfinder -d omnyvia.com -all -o resultats.txt
     
     - **Peine encourue** : 3 ans d'emprisonnement et 100 000 € d'amende (pouvant aller jusqu'à 7 ans et 300 000 € si les serveurs appartiennent à l'État ou à une entité d'importance vitale).
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Là où Amass est exhaustif mais lent, **subfinder** est le roi incontesté de la vitesse. Il est pensé pour s'intégrer dans des chaînes d'automatisation (pipelines UNIX) où chaque seconde compte. C'est le premier maillon parfait de la célèbre trinité offensive "Subfinder ➔ Httpx ➔ Nuclei".
-
-> Mettez immédiatement à profit la vitesse de subfinder en validant l'état de vos cibles avec **[Httpx →](./httpx.md)**.
-
-<br>
-
-[^1]: **Système de Traitement Automatisé de Données (STAD)** : Désigne tout ensemble organisé de moyens (matériels et logiciels) permettant de traiter des données (serveurs web, messageries, annuaires LDAP).
-
-[^2]: **Open Source Intelligence (OSINT)** : Collecte d'informations issues de sources publiques. Méthode purement passive, n'impliquant aucune interaction non sollicitée avec le système cible.
-
-
-
-
-
-
-

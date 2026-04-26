@@ -206,25 +206,3 @@ _En déployant ce script sur un serveur de développement (TDS), vous pouvez cli
     1. **Vie Privée (RGPD)** : Constituer des bases de données massives sur des employés (nom, adresse, téléphone, liens familiaux) pour profiler des cibles viole les principes de la protection des données (CNIL) si c'est fait en dehors d'un mandat de Red Teaming explicite.
     2. **Atteinte au STAD (Art. 323-1 du Code pénal)** : Si vous installez ou développez des *Transforms* qui exécutent des requêtes agressives (ex: exploits, bruteforce direct) vers la cible lorsque vous cliquez sur l'interface, vous sortez du cadre passif. L'intrusion d'un STAD est passible de **3 ans d'emprisonnement et 100 000 € d'amende**.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Maltego est l'outil ultime pour "relier les points" et faire parler des données froides. Il ne sert pas techniquement à "attaquer", il sert à comprendre l'écosystème socio-technique de la cible. Pour un Red Teamer, c'est souvent cet outil qui permet de découvrir que le site web ultra-sécurisé du client est en fait administré par une filiale oubliée, dont le développeur utilise le même pseudonyme sur un forum de hacking.
-
-> L'OSINT visuel est puissant, mais pour une collecte de données de masse silencieuse, non-stop et entièrement automatisée, découvrez des plateformes comme **[SpiderFoot →](./spiderfoot.md)**.
-
-<br>
-
-[^1]: **Système de Traitement Automatisé de Données (STAD)** : Tout ensemble organisé de moyens permettant de traiter des données. Interroger agressivement un STAD sans autorisation constitue un délit pénal.
-
-[^2]: **Open Source Intelligence (OSINT)** : Collecte de renseignements à partir de sources d'information publiques et ouvertes.
-
-
-
-
-
-

@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟡 Intermédiaire"
   data-version="8.3"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Le célèbre système **CRUD** (Create, Read, Update, Delete) est l'essence même d'une application de gestion. Au lieu d'utiliser une base de données MySQL complexe pour l'instant, nous allons tricher intelligemment : nous allons stocker nos contacts dans un tableau PHP géant qui survivra au rafraichissement de la page grâce aux **Sessions**.
@@ -312,4 +316,15 @@ Sous la balise `?>`. C'est un gros bloc, mais c'est du templating hyper classiqu
       <span class="text-gray-700">La persistance : Vous pouvez recharger la page autant de fois que vous le souhaitez, vos nouveaux contacts ajoutés via le Formulaire restent, car le tableau géant réside dans <code>$_SESSION</code> tant que le navigateur n'est pas tué.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

@@ -856,6 +856,9 @@ print(f"Total critiques : {handler.critiques}")
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Le format XML est un standard incontournable de l'échange de données. Savoir le lire, le structurer et l'analyser est une compétence transversale absolument vitale, que ce soit en développement, en administration système ou en analyse de logs cybersécurité.
+
 !!! quote "Conclusion"
     _XML a façonné l'échange de données structurées pendant deux décennies et reste essentiel dans de nombreux domaines malgré la montée de JSON. Sa rigueur syntaxique, sa capacité de validation par XSD et son support natif des métadonnées en font un choix solide pour les systèmes nécessitant fiabilité et traçabilité. Maîtriser XML, c'est aussi comprendre ses vulnérabilités — XXE en tête — et savoir les neutraliser au bon niveau. Dans les environnements legacy, financiers, médicaux et gouvernementaux, XML est incontournable._
 

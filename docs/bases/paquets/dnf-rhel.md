@@ -411,6 +411,9 @@ Sur RHEL 9, `yum` est un alias de `dnf` pour compatibilité — la bonne pratiqu
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La gestion des paquets via dnf rhel est la porte d'entrée de toute administration système Linux. Comprendre ses mécanismes de résolution de dépendances et de dépôts garantit la stabilité et la sécurité de vos serveurs en production.
+
 !!! quote "Conclusion"
     _DNF est le point de bascule entre installer des paquets et administrer un parc. On gagne une vraie capacité d'exploitation quand on maîtrise la gouvernance des dépôts, l'historique de transactions, la modularité AppStream et le diagnostic rigoureux. Et surtout, on arrête de résoudre les problèmes au hasard — on les résout par inspection, preuve et action minimale. La maîtrise de DNF n'est pas dans la mémorisation de commandes : elle est dans la compréhension du pipeline complet, de la clé GPG jusqu'à la rpmdb._
 

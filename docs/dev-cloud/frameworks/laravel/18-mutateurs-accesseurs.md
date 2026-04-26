@@ -130,3 +130,14 @@ try {
 ## Conclusion 
 
 Les filtres et le sécurisateurs transactionnels complètent le bouclier défensif de la base de donnée contre toutes actions du programmeur ou attaques non voulues. Il s'agit des méthodes de gestions Backend de flux avancés. Mais avez vous tout retenu ? C'est l'heure du bilan terminal de Module.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les mutateurs et accesseurs permettent de centraliser les transformations de données au niveau du modèle. Plutôt que de formater une date à 12 endroits différents dans vos vues et contrôleurs, vous la formatez une fois dans l'accesseur du modèle. C'est le principe DRY (Don't Repeat Yourself) appliqué à la couche de données.
+
+> [Transformations de données maîtrisées. Consolidez vos acquis avec le module de pratique Eloquent →](./19-pratique-et-bilan.md)

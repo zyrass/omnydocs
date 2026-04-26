@@ -1616,3 +1616,14 @@ Voilà le **Module 2 PEST complet** (8-10 heures de contenu) avec le même nivea
 Le Module 2 PEST est terminé ! L'API Expectations est maintenant complètement maîtrisée.
 
 Voulez-vous que je continue avec le **Module 3 - Datasets & Higher Order Tests** (éliminer duplication, datasets réutilisables, Higher Order Tests, lazy datasets) ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Pest PHP apporte une syntaxe élégante et expressive aux tests PHP. En réduisant le bruit syntaxique, il permet aux développeurs de se concentrer sur l'essentiel : la qualité et la fiabilité du code métier.
+
+> [Retourner à l'index des tests →](../../index.md)

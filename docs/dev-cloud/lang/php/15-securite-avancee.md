@@ -2455,3 +2455,14 @@ Tu es maintenant un **expert PHP POO** capable de :
 **Félicitations pour cette formation exceptionnelle ! 🏆🚀**
 
 Tu as maintenant toutes les compétences pour créer tes cours de formation PHP POO professionnels. Veux-tu que je t'aide sur un aspect spécifique ou un projet concret ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

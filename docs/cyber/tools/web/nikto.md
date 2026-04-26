@@ -162,19 +162,3 @@ nikto -h http://target.com -evasion 13
     2. Cela va inonder les tableaux de bord des analystes Blue Team avec des alertes de priorité haute (High), masquant potentiellement d'autres attaques réelles en cours (Technique de Diversion).
     3. Si vous ne voulez pas être banni par l'IP du client à la première seconde de l'audit, utilisez Nikto uniquement avec l'accord de la Blue Team ou sur des environnements non surveillés.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Nikto est vieillissant, lent (car écrit en Perl et synchrone) et bruyant. Pourtant, il reste installé par défaut sur Kali Linux car il excelle dans la détection des vulnérabilités de configuration (Headers, méthodes HTTP PUT/DELETE activées). Il incarne la philosophie du "Quick Win" de la cybersécurité du début des années 2000.
-
-> Le monde a évolué. Aujourd'hui, les serveurs web ne sont plus de vieux Apaches avec des scripts CGI, ce sont des applications React interagissant avec des API complexes. Pour scanner ces technologies modernes à la vitesse de la lumière avec des modèles mis à jour toutes les heures, il faut abandonner le dinosaure Perl et passer à l'arme absolue codée en Go : **[Nuclei →](./nuclei.md)**.
-
-
-
-
-
-

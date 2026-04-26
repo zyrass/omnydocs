@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟡 Intermédiaire"
   data-version="1.0"
-  data-time="1h00">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le "Checkbox Hack" CSS (Phase 2 du projet précédent) fonctionnait bien, mais il avait une faille d'expérience utilisateur (UX) : le menu restait ouvert même si l'utilisateur cliquait sur le lien "Services". Or, un menu doit disparaître une fois qu'on a fait un choix. Le JavaScript va réparer cette lacune native.
@@ -115,3 +119,14 @@ Prenez le temps d'observer le flux :
 C'est ce même concept (L'Event Listener couplé au State) qui vous permettra, dans la phase suivante, d'attaquer la bête noire des intégrateurs débutants : Le Dark Mode Local.
 
 [Passer à la Phase 3 : Theme Manager & Dark Mode →](phase3.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

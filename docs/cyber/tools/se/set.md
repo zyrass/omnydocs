@@ -172,8 +172,13 @@ PARAM: pass=MonMotDePasseSuperSecret
 
 > Bien que SET soit incroyable pour un Pentester solo (Red Team) cherchant un accès initial rapide (Spear Phishing), il n'est pas conçu pour de l'évaluation statistique à grande échelle. Pour lancer une campagne de sensibilisation sur 10 000 employés et obtenir des graphiques clairs sur "qui a cliqué", il faut une véritable plateforme de simulation : **[GoPhish →](./gophish.md)**.
 
+<br>
 
+---
 
+## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
 
-
+> [Retour à l'index →](./index.md)

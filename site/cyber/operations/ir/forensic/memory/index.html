@@ -6,11 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Cette documentation a pour vocation d'explorer et de transmettre les concepts fondamentaux de l'informatique à travers
-une approche claire, structurée et progressive. Elle couvre un large spectre de domaines — du développement web à
-l'administration système, en passant par la cybersécurité et le DevSecOps — afin d'offrir à chacun les bases nécessaires
-pour comprendre, apprendre et construire des solutions numériques solides et sécurisées.
-">
+        <meta name="description" content="Analyse Mémoire (RAM Forensic) — Méthodologie et outils pour extraire les processus cachés, malwares résidents et clés de chiffrement de la mémoire vive.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -19,10 +15,10 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
         <link rel="canonical" href="https://omnydocs.netlify.app/cyber/operations/ir/forensic/memory/">
       
       
-        <link rel="prev" href="../disk/">
+        <link rel="prev" href="../disk/carving/">
       
       
-        <link rel="next" href="../logs/">
+        <link rel="next" href="./volatility/">
       
       
         
@@ -33,7 +29,7 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
     
     
       
-        <title>Analyse Mémoire - OmnyDocs</title>
+        <title>Analyse Mémoire (Memory Forensics) - OmnyDocs</title>
       
     
     
@@ -142,7 +138,7 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
     <div data-md-component="skip">
       
         
-        <a href="#analyse-memoire" class="md-skip">
+        <a href="#analyse-memoire-memory-forensics" class="md-skip">
           Aller au contenu
         </a>
       
@@ -197,7 +193,7 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Analyse Mémoire
+              Analyse Mémoire (Memory Forensics)
             
           </span>
         </div>
@@ -568,6 +564,8 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
         
           
+        
+      
         
       
         
@@ -1262,6 +1260,8 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
         
       
+        
+      
     
     
     
@@ -1503,6 +1503,36 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../detection/master-scenario-ransomware/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-skull" viewBox="0 0 24 24"><path d="m12.5 17-.5-1-.5 1z"/><path d="M15 22a1 1 0 0 0 1-1v-1a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20v1a1 1 0 0 0 1 1z"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="12" r="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Master Scenario: Ransomware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1708,6 +1738,8 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
         
       
+        
+      
     
     
     
@@ -1770,11 +1802,45 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
   
   
   
+    <li class="md-nav__item">
+      <a href="../live-analysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-microscope" viewBox="0 0 24 24"><path d="M6 18h8M3 22h18M14 22a7 7 0 1 0 0-14h-1M9 14h2M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2ZM12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Live Forensics — Investigation à Chaud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
       
         
           
+        
+      
+        
+      
         
       
         
@@ -1803,10 +1869,12 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></svg>
+  
   <span class="md-ellipsis">
     
   
-    Acquisition
+    Acquisition Forensic
   
 
     
@@ -1837,6 +1905,14 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
         
       
     
@@ -1863,10 +1939,12 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-hard-drive" viewBox="0 0 24 24"><path d="M10 16h.01M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11zM21.946 12.013H2.054M6 16h.01"/></svg>
+  
   <span class="md-ellipsis">
     
   
-    Analyse Disque
+    Analyse Disque (Disk Forensics)
   
 
     
@@ -1901,6 +1979,10 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
           
         
       
+        
+      
+        
+      
     
     
     
@@ -1916,13 +1998,15 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4_5_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4_5_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
             <a href="././" class="md-nav__link md-nav__link--active">
               
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-cpu" viewBox="0 0 24 24"><path d="M12 20v2M12 2v2M17 20v2M17 2v2M2 12h2M2 17h2M2 7h2M20 12h2M20 17h2M20 7h2M7 20v2M7 2v2"/><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="8" height="8" x="8" y="8" rx="1"/></svg>
   
   <span class="md-ellipsis">
     
@@ -1937,10 +2021,15 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
 
             </a>
             
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_6_4_5_5" id="__nav_6_4_5_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_4_5_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6_4_5_4">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_4_5_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_4_5_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1950,6 +2039,66 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./volatility/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-cpu" viewBox="0 0 24 24"><path d="M12 20v2M12 2v2M17 20v2M17 2v2M2 12h2M2 17h2M2 7h2M20 12h2M20 17h2M20 7h2M7 20v2M7 2v2"/><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="8" height="8" x="8" y="8" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Volatility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./rekall/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-cpu" viewBox="0 0 24 24"><path d="M12 20v2M12 2v2M17 20v2M17 2v2M2 12h2M2 17h2M2 7h2M20 12h2M20 17h2M20 7h2M7 20v2M7 2v2"/><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="8" height="8" x="8" y="8" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Rekall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -1971,6 +2120,10 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
         
           
+        
+      
+        
+      
         
       
     
@@ -1997,10 +2150,12 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-scroll-text" viewBox="0 0 24 24"><path d="M15 12h-5M15 8h-5M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
+  
   <span class="md-ellipsis">
     
   
-    Analyse Logs
+    Analyse des Logs (Timeline Forensics)
   
 
     
@@ -2033,6 +2188,10 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
           
         
       
+        
+      
+        
+      
     
     
     
@@ -2057,10 +2216,12 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-network" viewBox="0 0 24 24"><rect width="6" height="6" x="16" y="16" rx="1"/><rect width="6" height="6" x="2" y="16" rx="1"/><rect width="6" height="6" x="9" y="2" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/></svg>
+  
   <span class="md-ellipsis">
     
   
-    Outils Endpoint
+    Outils Endpoint (Télémétrie &amp; Live Forensics)
   
 
     
@@ -2862,10 +3023,6 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2945,6 +3102,58 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation-du-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Navigation du Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cartographie-de-lanalyse-memoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ Cartographie de l'Analyse Mémoire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3044,16 +3253,132 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
                 
                   
 
-<h1 id="analyse-memoire">Analyse Mémoire<a class="headerlink" href="#analyse-memoire" title="Permanent link">&para;</a></h1>
-<div class="language-text highlight"><pre><span></span><code># --- Analyse Mémoire ---
-# Forensic RAM : analyse de processus, connexions réseau, artefacts volatiles,
-# détection de rootkits et malwares en mémoire.
-{&quot;Analyse Mémoire&quot; = [
-  &quot;cyber/operations/ir/forensic/memory/index.md&quot;,
-  {&quot;Volatility&quot;   = &quot;cyber/operations/ir/forensic/memory/volatility.md&quot;},  # Framework forensic mémoire (Windows/Linux/Mac)
-  {&quot;Rekall&quot;       = &quot;cyber/operations/ir/forensic/memory/rekall.md&quot;}       # Alternative à Volatility (Google)
-]},
-</code></pre></div>
+<h1 id="analyse-memoire-memory-forensics">Analyse Mémoire (Memory Forensics)<a class="headerlink" href="#analyse-memoire-memory-forensics" title="Permanent link">&para;</a></h1>
+<p><div
+  class="omny-meta"
+  data-level="🔴 Avancé"
+  data-version="2026"
+  data-time="~15 minutes">
+</div>
+</p>
+<div style="text-align: center; margin: 0 auto;">
+    <img src="/assets/images/cyber/ram.svg" width="250" align="center" alt="Memory Forensic Logo" />
+</div>
+
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique — La Mémoire Court Terme</p>
+<p>L'analyse disque, c'est comme lire le journal intime de quelqu'un : tout y est écrit noir sur blanc, mais c'est figé. L'analyse mémoire, c'est lire dans les pensées instantanées de la machine. Les malwares modernes "Fileless" (sans fichier) ne touchent jamais le disque dur ; ils existent uniquement dans les pensées (la RAM) de l'ordinateur. Éteignez la machine, et le malware disparaît à jamais.</p>
+</div>
+<p>Le <em>Memory Forensics</em> est l'art d'analyser un dump de RAM pour y trouver des mots de passe en clair, des clés de déchiffrement (ex: BitLocker), des connexions réseau actives et du code malveillant injecté dans des processus légitimes (Process Injection/Hollowing).</p>
+<p><br></p>
+<hr />
+<h2 id="navigation-du-module">🧭 Navigation du Module<a class="headerlink" href="#navigation-du-module" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Rôle Principal</th>
+<th>Cas d'usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="./volatility/">Volatility 3</a></strong></td>
+<td>Le Standard Absolu</td>
+<td>Analyser un dump de RAM pour trouver les processus malveillants (<code>windows.pslist</code>, <code>windows.malfind</code>).</td>
+</tr>
+<tr>
+<td><strong><a href="./rekall/">Rekall</a></strong></td>
+<td>Live Analysis &amp; GUI</td>
+<td>Alternative (issue de Volatility) puissante pour la réponse à incident en temps réel.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="cartographie-de-lanalyse-memoire">🗺️ Cartographie de l'Analyse Mémoire<a class="headerlink" href="#cartographie-de-lanalyse-memoire" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    A[Fichier Dump .raw / .mem] --&gt; B[Volatility 3]
+    B --&gt; C{Que cherche-t-on ?}
+
+    C --&gt;|Processus &amp; Arborescence| D[pslist / pstree]
+    C --&gt;|Code Injecté (Malware)| E[malfind]
+    C --&gt;|Commandes tapées| F[cmdline]
+    C --&gt;|Réseau (Sockets)| G[netscan]
+
+    D --&gt; H[Corrélation et création de Timeline]
+    E --&gt; I[Extraction du payload (dump)]
+    G --&gt; H
+    I --&gt; J[Reverse Engineering]</code></pre>
+<blockquote>
+<p><strong>Prêt à plonger ?</strong> Commencez par le standard de l'industrie : <strong><a href="./volatility/">Volatility</a></strong>.</p>
+</blockquote>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>La réponse à incident (IR) demande méthode et sang-froid. La préservation des preuves, l'endiguement rapide et la remédiation structurée sont essentiels pour limiter l'impact d'une compromission et assurer une reprise d'activité sécurisée.</p>
+</div>
+<blockquote>
+<p><a href="../../">Retour à l'index des opérations →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">FORENSIC</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">MEMORY</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">RAM</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VOLATILITY</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">REKALL</span>
+      
+    
+  </nav>
 
 
 
@@ -3062,6 +3387,8 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
 
 
 
+  
+  
 
 
 
@@ -3093,7 +3420,7 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../disk/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Analyse Disque">
+          <a href="../disk/carving/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Data Carving">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
@@ -3103,20 +3430,20 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Analyse Disque
+                Data Carving
               </div>
             </div>
           </a>
         
         
           
-          <a href="../logs/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Analyse Logs">
+          <a href="./volatility/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Volatility">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Analyse Logs
+                Volatility
               </div>
             </div>
             <div class="md-footer__button md-icon">

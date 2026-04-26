@@ -324,6 +324,13 @@ nav = [
     {"PKI"     = "bases/crypto/pki.md"},
   ]},
 
+  # ==========================================================================
+  # 1.7 — Synthèse
+  # ==========================================================================
+  {"Synthèse" = [
+    {"Projet Fil Rouge" = "bases/projet-fil-rouge.md"},
+  ]},
+
 ]},
 
     # ============================================================================
@@ -1174,6 +1181,7 @@ nav = [
     # - Servir de base pour relier exigences, contrôles et preuves.
     {"Référentiels & Normes" = [
       "cyber/governance/refs-normes/index.md",
+      {"Lois & Cadre Légal (FR/UE/Int)" = "cyber/governance/lois-cyber.md"},
 
       # ------------------------------------------------------------------------
       # Autorités françaises
@@ -1386,6 +1394,7 @@ nav = [
       {"Sigma"          = "cyber/operations/detection/sigma.md"},
       {"Threat Hunting" = "cyber/operations/detection/hunting.md"},
       {"ClamAV"         = "cyber/operations/detection/clamav.md"},
+      {"Master Scenario: Ransomware" = "cyber/operations/detection/master-scenario-ransomware.md"},
     ]},
 
     # ========================================================================
@@ -1414,36 +1423,49 @@ nav = [
       # - analyse d’artefacts
       {"Investigation Numérique" = [
         "cyber/operations/ir/forensic/index.md",
+        "cyber/operations/ir/forensic/live-analysis.md",
 
         # --- Acquisition ---------------------------------------------------
         # Techniques d’acquisition forensique garantissant l’intégrité.
         {"Acquisition" = [
           "cyber/operations/ir/forensic/acq/index.md",
           {"dd / dc3dd" = "cyber/operations/ir/forensic/acq/dd-dc3dd.md"},
+          {"Guymager" = "cyber/operations/ir/forensic/acq/guymager.md"},
+          {"LiME" = "cyber/operations/ir/forensic/acq/lime.md"},
         ]},
 
         # --- Analyse Disque -----------------------------------------------
         # Analyse des systèmes de fichiers et récupération de données.
         {"Analyse Disque" = [
           "cyber/operations/ir/forensic/disk/index.md",
+          {"Autopsy" = "cyber/operations/ir/forensic/disk/autopsy.md"},
+          {"PhotoRec" = "cyber/operations/ir/forensic/disk/photorec.md"},
+          {"Bulk Extractor" = "cyber/operations/ir/forensic/disk/bulk_extractor.md"},
+          {"Data Carving" = "cyber/operations/ir/forensic/disk/carving.md"},
         ]},
 
         # --- Analyse Mémoire ----------------------------------------------
         # Investigation RAM et artefacts volatiles.
         {"Analyse Mémoire" = [
           "cyber/operations/ir/forensic/memory/index.md",
+          {"Volatility" = "cyber/operations/ir/forensic/memory/volatility.md"},
+          {"Rekall" = "cyber/operations/ir/forensic/memory/rekall.md"},
         ]},
 
         # --- Analyse Logs -------------------------------------------------
         # Reconstruction de timeline via journaux système.
         {"Analyse Logs" = [
           "cyber/operations/ir/forensic/logs/index.md",
+          {"Hayabusa" = "cyber/operations/ir/forensic/logs/hayabusa.md"},
+          {"Chainsaw" = "cyber/operations/ir/forensic/logs/chainsaw.md"},
         ]},
 
         # --- Outils Endpoint ---------------------------------------------
         # Collecte distribuée et investigation à grande échelle.
         {"Outils Endpoint" = [
           "cyber/operations/ir/forensic/endpoint/index.md",
+          {"Velociraptor" = "cyber/operations/ir/forensic/endpoint/velociraptor.md"},
+          {"osquery" = "cyber/operations/ir/forensic/endpoint/osquery.md"},
         ]}
       ]}
     ]},
@@ -1554,6 +1576,7 @@ nav = [
 
       # 1. Fondations & Cycle de vie
       {"Phases d'un Pentest"    = "cyber/tools/methodology/pentest-phases.md"},    # De la reconnaissance au reporting
+      {"Comparatif des OS Cyber" = "cyber/tools/os-cyber.md"},                     # Kali, Parrot, BlackArch, CommandoVM
 
       # 2. Cadres Analytiques & Stratégie
       {"MITRE ATT&CK"           = "cyber/tools/methodology/mitre-attack.md"},      # Taxonomie mondiale des tactiques
@@ -1670,7 +1693,14 @@ nav = [
       # 5. Exploitation Active Directory (Mouvement Latéral)
       {"CrackMapExec"     = "cyber/tools/network/cme.md"},           # Exploitation multi-protocoles (SMB, WinRM)
       {"Impacket"         = "cyber/tools/network/impacket.md"},      # PtH, PtT, DCSync, Kerberoasting
-      {"BloodHound (AD)"  = "cyber/tools/network/bloodhound.md"}     # Cartographie des chemins d'escalade AD
+      {"BloodHound (AD)"  = "cyber/tools/network/bloodhound.md"},    # Cartographie des chemins d'escalade AD
+
+      # 6. Évasion & Infrastructure Red Team
+      {"pfSense (Attaques)" = "cyber/tools/network/pfsense.md"},     # Contournement de pare-feu
+      {"OpenVPN (Bypass)"   = "cyber/tools/network/openvpn.md"},     # Tunnels chiffrés et exfiltration
+      {"HAProxy (Fronting)" = "cyber/tools/network/haproxy.md"},     # Reverse proxying et Domain Fronting
+      {"OpenSSH (Tunnels)"  = "cyber/tools/network/openssh.md"},     # Tunnels locaux, distants et dynamiques
+      {"OpenClient"         = "cyber/tools/network/openclient.md"}   # Clients d'accès distants
     ]},
 
     # ========================================================================
@@ -1728,8 +1758,9 @@ nav = [
       {"Nuclei"              = "cyber/tools/web/nuclei.md"},         # Templates YAML (CVE, misconfigs, exposures)
       {"sqlmap"              = "cyber/tools/web/sqlmap.md"},         # Exploitation SQLi automatisée
 
-      # 4. Cadres Théoriques
-      {"Fuzzing (général)"   = "cyber/tools/web/fuzzing.md"}         # Méthodologies de fuzzing applicatif
+      # 4. Cadres Théoriques & Pratique
+      {"Fuzzing (général)"   = "cyber/tools/web/fuzzing.md"},        # Méthodologies de fuzzing applicatif
+      {"DVWA & Plateformes"  = "cyber/tools/web/dvwa.md"}            # Laboratoire d'entraînement vulnérable
     ]},
 
     # ========================================================================
@@ -1850,7 +1881,8 @@ nav = [
 
       # 3. Évaluation & Recommandations
       {"Sévérités (CVSS) & Priorisation" = "cyber/tools/reporting/cvss.md"},              # Scoring et hiérarchisation
-      {"Recommandations & Correctifs"     = "cyber/tools/reporting/remediation.md"}        # Plan de remédiation
+      {"Recommandations & Correctifs"     = "cyber/tools/reporting/remediation.md"},        # Plan de remédiation
+      {"Dradis Framework"                 = "cyber/tools/reporting/dradis.md"}             # Centralisation des rapports
     ]}
 
   ]},
@@ -2157,24 +2189,66 @@ nav = [
     ]},
 
     # --------------------------------------------------------------------------
-    # Lab — Python Desktop (Tkinter)
+    # Lab — Python Desktop (Tkinter) (En attente)
     # --------------------------------------------------------------------------
-    {"Lab — Python Tkinter" = [
-      # Projets GUI
-    ]},
+    # {"Lab — Python Tkinter" = [
+    #   # Projets GUI
+    # ]},
 
     # --------------------------------------------------------------------------
-    # Lab — Web Back-End (Python Flask)
+    # Lab — Web Back-End (Python Flask) (En attente)
     # --------------------------------------------------------------------------
-    {"Lab — Python Flask" = [
-      # Projets API/Web
-    ]},
+    # {"Lab — Python Flask" = [
+    #   # Projets API/Web
+    # ]},
 
     # --------------------------------------------------------------------------
-    # Lab — Web Back-End (Go / Gin)
+    # Lab — Web Back-End (Go / Gin) (En attente)
     # --------------------------------------------------------------------------
-    {"Lab — Go" = [
-      # Projets Performance
+    # {"Lab — Go" = [
+    #   # Projets Performance
+    # ]},
+
+    # --------------------------------------------------------------------------
+    # Lab — Cybersécurité (Blue Team / SOC)
+    # --------------------------------------------------------------------------
+    {"Lab — Cybersécurité" = [
+      "projets/cyber-lab/index.md",
+      {"SOC Homelab" = [
+        "projets/cyber-lab/soc-homelab/index.md",
+        {"01. Comprendre le SOC"          = "projets/cyber-lab/soc-homelab/01-comprendre-soc.md"},
+        {"02. Gouvernance & Processus"    = "projets/cyber-lab/soc-homelab/02-gouvernance-processus.md"},
+        {"03. Architecture HomeLab"       = "projets/cyber-lab/soc-homelab/03-architecture-homelab.md"},
+        {"04. Provisioning Vagrant"       = "projets/cyber-lab/soc-homelab/04-provisioning-vagrant.md"},
+        {"05. Installation Wazuh"         = "projets/cyber-lab/soc-homelab/05-installation-wazuh.md"},
+        {"06. Suricata IDS"               = "projets/cyber-lab/soc-homelab/06-suricata-ids.md"},
+        {"07. Notifications Discord"      = "projets/cyber-lab/soc-homelab/07-notifications-discord.md"},
+        {"08. Scénario d'Attaque"         = "projets/cyber-lab/soc-homelab/08-scenario-attaque.md"},
+        {"09. Analyse KPI & Reporting"    = "projets/cyber-lab/soc-homelab/09-analyse-kpi.md"},
+        {"10. Évolutions & Roadmap"       = "projets/cyber-lab/soc-homelab/10-evolutions-roadmap.md"},
+        {"11. Annexes & Audit"            = "projets/cyber-lab/soc-homelab/11-annexes.md"}
+      ]},
+      {"Analyse Malware & Phishing" = [
+        "projets/cyber-lab/malware-analysis/index.md",
+        {"01. Ingénierie Sociale"         = "projets/cyber-lab/malware-analysis/01-ingenierie-sociale.md"},
+        {"02. Génération Payload"         = "projets/cyber-lab/malware-analysis/02-generation-payload.md"},
+        {"03. Exploitation C2"            = "projets/cyber-lab/malware-analysis/03-exploitation-c2.md"},
+        {"04. Analyse Post-Infection"     = "projets/cyber-lab/malware-analysis/04-analyse-post-infection.md"},
+        {"05. Réponse à Incident"         = "projets/cyber-lab/malware-analysis/05-reponse-incident.md"},
+        {"06. Annexes & Cadre Légal"      = "projets/cyber-lab/malware-analysis/06-annexes.md"}
+      ]},
+      {"Investigation Forensic" = [
+        "projets/cyber-lab/linux-forensic/index.md",
+        {"01. Fondamentaux"               = "projets/cyber-lab/linux-forensic/01-fondamentaux.md"},
+        {"02. Étude de Cas"               = "projets/cyber-lab/linux-forensic/02-etude-de-cas.md"},
+        {"03. Laboratoire Forensic"       = "projets/cyber-lab/linux-forensic/03-laboratoire-forensic.md"},
+        {"04. Simulation Malveillante"    = "projets/cyber-lab/linux-forensic/04-simulation-malveillante.md"},
+        {"05. Acquisition & Preuves"      = "projets/cyber-lab/linux-forensic/05-acquisition-preuves.md"},
+        {"06. Analyse Volatility 3"       = "projets/cyber-lab/linux-forensic/06-analyse-volatility.md"},
+        {"07. Récupération PhotoRec"      = "projets/cyber-lab/linux-forensic/07-recuperation-photorec.md"},
+        {"08. Rapport & Synthèse"         = "projets/cyber-lab/linux-forensic/08-rapport-synthese.md"},
+        {"09. Annexes & Outils"           = "projets/cyber-lab/linux-forensic/09-annexes.md"}
+      ]},
     ]},
 
   ]}

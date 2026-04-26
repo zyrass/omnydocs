@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="1.0"
-  data-time="1h30">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le "Dark Mode" n'est plus un simple gadget. C'est une obligation d'accessibilité visuelle. Mais le défi est algorithmique : si l'utilisateur met le site en noir pour ne pas se brûler les yeux à 2h du matin, puis clique sur "Contact"... Il passe sur une autre page. Comment dire à cette page page **avant même de s'afficher** : "Hé, ce type préfère le noir !" ? Bienvenue dans la manipulation d'état système avec l'API Web `LocalStorage`.
@@ -143,3 +147,14 @@ Prenez cette fonction utilitaire, et placez-la directement dans l'entête `<head
 - [ ] Le crash test ultime : Je clique sur 'Sombre', je ferme complètement l'onglet. J'ouvre un nouvel onglet, je charge mon site. **S'il se lance en sombre dès la milliseconde 0, j'ai réussi.**
 
 [Passer à la Phase 4 : Filtres Portfolio (Data Object Array) →](phase4.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

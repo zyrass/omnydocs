@@ -13,6 +13,10 @@ tags: ["BASH", "SHELL", "LINUX", "SCRIPTING", "CLI"]
   data-time="30 - 45 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Bash est le volant et les pédales de votre serveur Linux. Là où une interface graphique vous limite aux boutons prévus par le constructeur, maîtriser la ligne de commande vous permet de manipuler les rouages internes de la machine avec une précision chirurgicale._
+
 !!! quote "L'interface absolue"
     _Une interface graphique (GUI) vous limite aux actions que son créateur a prévues. L'interface en ligne de commande (CLI), via un shell comme **Bash**, vous donne un accès illimité et programmable à chaque atome du système d'exploitation. C'est l'outil universel de l'administrateur système._
 
@@ -151,3 +155,14 @@ done
 ## Conclusion
 
 Maîtriser Bash, c'est comme apprendre à taper au clavier : c'est un investissement initial qui vous fera gagner des milliers d'heures tout au long de votre carrière. Avant d'installer des usines à gaz comme Ansible ou Chef pour configurer un serveur, demandez-vous toujours : *"Un script Bash de 10 lignes ne suffirait-il pas ?"*
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'administration Linux repose sur la maîtrise de la ligne de commande et la compréhension de la philosophie Unix (tout est fichier). L'automatisation via des scripts Bash est la clé de la scalabilité pour gérer des parcs de serveurs.
+
+> [Retourner à l'index Linux →](./index.md)

@@ -128,19 +128,3 @@ Pourquoi choisir l'un plutôt que l'autre dans un Pentest ?
 | ✅ **À FAIRE** | **Utiliser Medusa pour le "Password Spraying" SMB** | Attaquer le protocole Windows SMB (`-M smbnt`) est souvent douloureux. Medusa le gère très bien en mode "Spraying" (1 mot de passe sur 10 000 utilisateurs) : `medusa -h DC_IP -U users.txt -p Welcome2024! -M smbnt`. |
 | ❌ **À NE PAS FAIRE** | **Attaquer des services protégés par du 2FA** | Comme pour Hydra, si l'accès SSH ou le VPN nécessite un mot de passe ET l'insertion d'un code Google Authenticator (MFA/2FA), Medusa obtiendra toujours un "Access Denied", même s'il trouve le bon mot de passe. N'attaquez que des services mal sécurisés ou "Legacy". |
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Medusa n'est pas révolutionnaire, mais c'est un outil très apprécié par les ingénieurs réseau et les auditeurs qui ont besoin d'attaquer des centaines de routeurs ou serveurs SSH simultanément de manière parfaitement stable. Gardez à l'esprit que ces attaques génèrent énormément de logs et ne passeront jamais inaperçues face à un SOC.
-
-> Que vous utilisiez Hydra, Medusa, Hashcat ou John The Ripper, l'outil en lui-même n'est que l'arme. Les munitions de cette arme, c'est ce qui fait la différence entre un hackeur amateur et un professionnel. Plongeons dans la plus grande bibliothèque de dictionnaires de la planète : **[SecLists →](./seclists.md)**.
-
-
-
-
-
-

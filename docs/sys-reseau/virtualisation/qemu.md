@@ -13,6 +13,10 @@ tags: ["QEMU", "EMULATION", "VIRTUALISATION", "LINUX", "ARM"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La virtualisation s'apparente à la construction de plusieurs appartements (Machines Virtuelles) au sein d'un même grand immeuble (Serveur Hyperviseur physique). L'hyperviseur s'assure que chaque locataire reçoit son quota d'électricité et d'eau (CPU, RAM) sans jamais pouvoir entrer par effraction chez son voisin._
+
 !!! quote "L'illusion absolue"
     _Une Machine Virtuelle classique (VMware/VirtualBox) s'attend à ce que le processeur virtuel soit de la même famille que le processeur physique (ex: x86_64 / Intel). Si vous essayez de faire tourner le système d'une console de jeu des années 90 ou le système d'un Raspberry Pi (qui utilise un processeur ARM) sur votre PC Intel, la virtualisation classique échouera. Il vous faut un **Émulateur**, capable de traduire le langage matériel à la volée._
 
@@ -66,3 +70,14 @@ C'est pourquoi, dans les Data Centers Linux, vous entendez presque toujours le t
 ## Conclusion
 
 QEMU est un couteau suisse technologique. Pour l'administration quotidienne de serveurs x86, il est utilisé conjointement avec KVM de manière invisible (vous ne tapez jamais de commande `qemu` directement). Mais pour l'analyste en sécurité, c'est l'outil qui permet de simuler le firmware d'un routeur compromis, l'OS d'un smartphone Android, ou le calculateur d'une voiture autonome.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La virtualisation (KVM, Proxmox) couplée à l'Infrastructure as Code (Packer, Vagrant) permet de déployer des environnements reproductibles, immuables et sécurisés dès leur conception (Security by Design).
+
+> [Retourner à l'index →](../index.md)

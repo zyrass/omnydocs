@@ -2267,3 +2267,14 @@ Voilà le **Module 2 complet** (8-10 heures de contenu) avec :
 - Data Providers avec 30+ cas de test
 
 Le Module 2 est maintenant prêt ! Souhaitez-vous que je continue avec le **Module 3 - Tests Feature Laravel** ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'écriture de tests n'est pas une perte de temps, c'est un investissement. Une couverture de test robuste via PHPUnit garantit que votre application peut évoluer et être refactorisée en toute confiance sans régressions.
+
+> [Retourner à l'index des tests →](../../index.md)

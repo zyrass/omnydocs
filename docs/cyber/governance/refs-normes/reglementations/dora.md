@@ -404,3 +404,14 @@ gantt
 [^2]: Les **RTS** (*Regulatory Technical Standards*, ou Normes Techniques de Réglementation) sont des textes techniques publiés par les Autorités Européennes de Surveillance (EBA, ESMA, EIOPA) qui détaillent les modalités de mise en œuvre des exigences du règlement DORA. Ils ont force contraignante une fois adoptés par la Commission européenne.
 [^3]: Les **ITS** (*Implementing Technical Standards*, ou Normes Techniques d'Exécution) complètent les RTS avec des modèles, formulaires et procédures standardisés pour la mise en œuvre pratique des obligations DORA (ex : modèles de notification d'incidents, format du registre des prestataires TIC).
 [^4]: Les **TLPT** (*Threat-Led Penetration Testing*) sont des tests d'intrusion avancés réalisés par des équipes de hackers éthiques qui simulent des attaques réelles basées sur des renseignements sur les menaces réelles ciblant le secteur financier. Ils diffèrent des pentests traditionnels par leur durée (plusieurs mois), leur profondeur (toute la chaîne de défense) et leur réalisme (scénarios basés sur des TTPs de groupes d'attaquants connus).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # GitGraph (workflow Git)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     GitGraph permet de visualiser un workflow de branches, merges et releases. C'est utile pour formaliser une stratégie Git (main/develop/feature/hotfix), expliquer un process d'intégration et réduire les incompréhensions lors des revues et déploiements.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -38,6 +50,15 @@ gitGraph
 ```
 
 _Ce schéma illustre une branche feature fusionnée dans develop, puis promue vers main pour une release._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

@@ -1770,3 +1770,14 @@ Voilà le **Module 4 PEST complet** (10-12 heures de contenu) avec le même nive
 Le Module 4 PEST est terminé ! Le testing Laravel avec PEST est maintenant totalement maîtrisé.
 
 Voulez-vous que je continue avec le **Module 5 - Plugins PEST** (écosystème plugins, Faker, Laravel plugin avancé, Livewire, Watch mode, créer plugins custom) ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Pest PHP apporte une syntaxe élégante et expressive aux tests PHP. En réduisant le bruit syntaxique, il permet aux développeurs de se concentrer sur l'essentiel : la qualité et la fiabilité du code métier.
+
+> [Retourner à l'index des tests →](../../index.md)

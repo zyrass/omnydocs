@@ -13,6 +13,10 @@ tags: ["PROJETS", "SWIFTUI", "VAPOR", "PRATIQUE"]
   data-time="Variable">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "L'importance de la pratique"
     La lecture d'une documentation technique forge le **savoir**. Mais l'écriture d'une application de bout en bout forge le **savoir-faire**. Les concepts de `@State`, de Cycle de Vie ou de Middlewares Vapor ne deviendront instinctifs qu'après les avoir intégrés dans des projets utilitaires bien réels. 
 
@@ -49,3 +53,14 @@ Cette section est le cœur pratique de la formation Mobile. Elle propose un curs
    Un coffre-fort numérique encrypté et son gestionnaire d'équipe.
    - **Côté Serveur (Vapor) :** Base de données PostgreSQL, encryptage de mots de passe par l'algorithme fort `BCrypt`, émission de tokens de sécurité `JWT`, et blocage de requêtes par "Rate Limiting". Modélisation stricte MCD/MLD/MPD.
    - **Côté Client (SwiftUI) :** Protection de l'application via `Face ID` / `Touch ID`, sauvegarde des sercrets dans le `Keychain` d'Apple, architecture en Intercepteurs (Rafraichissement du token silencieux).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

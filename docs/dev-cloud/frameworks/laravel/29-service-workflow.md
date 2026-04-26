@@ -121,8 +121,13 @@ class PostController extends Controller
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-Ce Service et son Exécutif valident pour de bons les états par de puissantes Transactions Sécurisant la moindre des informations requiertes et temporelles.
+!!! quote "Ce qu'il faut retenir"
+    Le pattern Service Layer est la réponse architecturale à la question : 'Où mettre la logique métier qui est trop complexe pour un contrôleur mais trop spécifique pour un modèle ?' Un Service encapsule une opération métier complète (inscription, paiement, notification) et reste testable de manière isolée, sans dépendance HTTP.
 
-Il pourrait être intéressant de pousser un dernier concept de sécurité concernant la mécanique de validation des champs, que vous avez très certainement l'habitude d'écrire en `$request->validate()` avec d'infinies variables dans tous vos Controller métiers pour tout et n'importe quoi...  Nous parlerons de ça avec la composante Fichiers qui sont une menace absolu pour la sécurité d'un site.
+> [Services maîtrisés. Gérez maintenant les fichiers et la validation avancée →](./30-validation-et-images.md)

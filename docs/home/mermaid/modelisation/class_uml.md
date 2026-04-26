@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # Class Diagram (UML)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     Le class diagram documente la structure objet : entités, attributs, opérations et relations. C'est un support central pour expliciter un modèle de domaine, clarifier une architecture orientée objet, et sécuriser la cohérence entre conception et implémentation.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -39,6 +51,15 @@ classDiagram
 ```
 
 _Ce schéma représente une relation un-à-plusieurs entre un utilisateur et ses sessions._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

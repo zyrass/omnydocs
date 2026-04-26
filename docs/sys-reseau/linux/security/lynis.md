@@ -13,6 +13,10 @@ tags: ["LYNIS", "AUDIT", "SECURITE", "HARDENING", "CONFORMITE"]
   data-time="15 - 20 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Le durcissement d'un système Linux est comme la construction des fortifications d'un château. Le pare-feu (UFW) correspond aux douves extérieures, les permissions POSIX (chmod/chown) sont les clés des différentes pièces, et la supervision (Fail2Ban/Lynis) agit comme les gardes effectuant des rondes régulières._
+
 !!! quote "Le bilan de santé du serveur"
     _Avant de commencer à fermer des ports ou à installer des antivirus, il est judicieux de faire un état des lieux. **Lynis** est un outil d'audit de sécurité open-source, très respecté dans l'industrie. Il n'installe rien et ne modifie rien sur votre serveur : il se contente de le scanner sous toutes ses coutures pour vérifier s'il respecte les meilleures pratiques de sécurité._
 
@@ -91,3 +95,14 @@ Chaque suggestion est accompagnée d'un identifiant (ex: `AUTH-9262`) et d'un li
 ## Conclusion
 
 Lynis devrait être exécuté systématiquement après l'installation initiale d'un serveur (pour établir une "Baseline" de sécurité), puis régulièrement (via Cron) pour s'assurer que des modifications ultérieures n'ont pas introduit de failles de configuration.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Sécuriser un système Linux exige une approche en couches : du pare-feu avec UFW à la détection d'intrusions avec Fail2Ban, en passant par un durcissement régulier. Aucun outil de sécurité ne remplace une bonne configuration de base.
+
+> [Retourner à l'index Linux →](../index.md)

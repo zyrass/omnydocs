@@ -727,6 +727,9 @@ Quatre règles à appliquer systématiquement.
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ces notions fondamentales sur structure iteratives sont essentielles pour la suite de votre parcours. Consolidez ces acquis théoriques par la pratique avant de passer aux modules spécialisés (Cybersécurité, Infrastructure ou Développement).
+
 !!! quote "Conclusion"
     _Les structures itératives transforment les programmes en systèmes capables de traiter des volumes arbitraires de données. Au début, chaque condition de continuation demande une réflexion consciente. Avec la pratique, le choix de la structure optimale devient un réflexe._
 

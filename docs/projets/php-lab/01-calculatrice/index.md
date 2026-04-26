@@ -10,8 +10,12 @@ tags: ["PHP", "PROCÉDURAL", "MATH", "FORMULAIRE", "SÉCURITÉ"]
   class="omny-meta"
   data-level="🟢 Débutant"
   data-version="8.3"
-  data-time="1 Heure">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Avant de coder des algorithmes bancaires complexes, apprenons à faire parler deux nombres. Votre mission est de créer une calculatrice web. L'utilisateur saisit deux chiffres dans un formulaire, sélectionne une opération (+, -, *, /) et le serveur PHP lui renvoie la réponse.
@@ -170,4 +174,15 @@ L'architecture correcte d'un script PHP basique implique de séparer la logique 
       <span class="text-gray-700">J'essaie du XSS dans l'URL (<code>?a=&lt;script&gt;</code>) : Le navigateur le transforme en texte mort <code>&amp;lt;script&amp;gt;</code>. Sécurité maximale !</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

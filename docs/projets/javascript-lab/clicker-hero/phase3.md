@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé (POO)"
   data-version="1.0"
-  data-time="1h00">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le Joueur (Phase 1) sait gérer son or. L'Usine (Phase 2) sait gérer son prix. Mais "Qu'est ce que le Jeu ?"
@@ -113,3 +117,14 @@ App.init();
 Votre moteur est immaculé. Ses rouages mathématiques tournoient dans le noir absolu de la mémoire RAM, hors de la vue de l'humain assis devant le PC. Il faut matérialiser ce génie informatique sous forme visible. C'est l'objectif de la phase ultime : **Phase 4 - La Vue DOM Reactive**.
 
 [Passer à la Phase 4 : Interface DOM Reactive →](phase4.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

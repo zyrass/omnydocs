@@ -184,20 +184,3 @@ Parce qu'il est la star du Bug Bounty, Nuclei est la cible numéro 1 des WAF (We
     1. Certains templates exploitent des failles aveugles (Blind RCE / Blind SSRF) en forçant le serveur cible à se connecter à un serveur contrôlé par ProjectDiscovery (OAST - interact.sh) pour prouver que la faille a fonctionné. Envoyer des données hors du réseau du client via ces payloads OOB est souvent une violation stricte du contrat de confidentialité de l'audit (NDA).
     2. N'utilisez pas de templates aléatoires sans en comprendre le code YAML. Si un template contient un payload qui supprime une table SQL pour tester une CVE, vous serez responsable des dégâts en production.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Nuclei représente le summum du paradigme "Infrastructure as Code" appliqué à la cybersécurité. Sa conception modulaire basée sur le YAML permet à la communauté mondiale de réagir à une faille zero-day et de produire une arme de détection massive en quelques minutes. C'est le scanner de la génération Cloud/DevSecOps.
-
-> Si Nuclei excelle dans la détection des failles standardisées (CVE), il est inefficace pour exploiter une faille logique très spécifique nécessitant des dizaines d'étapes algorithmiques. Pour automatiser l'exploitation d'une injection SQL (et extraire la base de données entière), il faut faire appel au maître incontesté de la discipline : **[SQLMap →](./sqlmap.md)**.
-
-
-
-
-
-
-

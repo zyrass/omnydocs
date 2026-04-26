@@ -118,5 +118,3 @@ EOF
     ntopng est le **premier réflexe** de l'analyste SOC qui veut comprendre rapidement ce qui se passe sur son réseau. En quelques clics, vous identifiez les anomalies de trafic majeures : une machine qui exfiltre des données, un serveur infecté qui balaye le réseau interne, ou une application non-autorisée qui consomme la bande passante. C'est un outil de **triage rapide** indispensable.
 
 > Terminez la Phase 1 avec le cours sur la **[Threat Intelligence Platform →](../tip.md)** pour comprendre comment enrichir vos alertes avec l'intelligence mondiale sur les menaces.
-
-<br>

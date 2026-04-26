@@ -13,6 +13,10 @@ tags: ["NTOP", "SUPERVISION", "RESEAU", "FLUX", "DIAGNOSTIC"]
   data-time="15 - 20 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La supervision (monitoring, logs) est l'équivalent du tableau de bord d'un avion de ligne. Sans ces cadrans et ces alertes, le pilote (l'administrateur) navigue à l'aveugle et ne s'apercevra d'une baisse de pression moteur que lorsque l'avion commencera à perdre de l'altitude._
+
 !!! quote "Voir le sang couler dans les veines"
     _Grafana/Zabbix vous dit que le lien Internet de l'entreprise est saturé à 100%. C'est bien. Mais Zabbix ne sait pas **pourquoi** il est saturé. Est-ce une attaque DDoS ? Est-ce qu'un employé télécharge un jeu vidéo de 100 Go ? Est-ce que le serveur de base de données est en train de répliquer ses fichiers de sauvegarde ? Pour répondre à la question "Qui fait quoi ?", il faut descendre au niveau de l'inspection de paquets. C'est le domaine de **Ntop**._
 
@@ -63,3 +67,14 @@ Sans être un pare-feu, Ntopng alertera silencieusement l'équipe réseau si :
 - Un ordinateur de la comptabilité commence à émettre des trames de type "Scanner de ports" (Comportement typique d'un Malware qui cherche à se propager).
 - Un serveur commence à télécharger des paquets depuis un pays identifié comme "À haut risque" ou vers le réseau Tor (Darknet).
 - Il détecte des certificats SSL auto-signés ou périmés.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Une supervision efficace transforme le bruit en alertes exploitables. La centralisation des logs et la création de dashboards pertinents réduisent drastiquement le MTTR (Mean Time To Respond) lors d'un incident.
+
+> [Retourner à l'index →](../index.md)

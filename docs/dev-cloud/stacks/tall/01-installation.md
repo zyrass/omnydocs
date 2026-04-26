@@ -1783,3 +1783,14 @@ Le **Module 3** vous apprendra à **installer et configurer Tailwind CSS** dans 
 [^5]: **Vite.js** : Bundler JavaScript ultra-rapide remplaçant Webpack/Laravel Mix dans Laravel 9+. Compile Tailwind CSS, Alpine.js et autres assets avec Hot Module Replacement (~50ms vs 2-5s).
 
 [^6]: **Eloquent ORM** : Object-Relational Mapping de Laravel permettant d'interagir avec la BDD via des objets PHP au lieu de requêtes SQL brutes. Exemple : `User::where('email', 'test@test.com')->first()` au lieu de `SELECT * FROM users WHERE email = 'test@test.com' LIMIT 1`.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La TALL stack (Tailwind, Alpine, Laravel, Livewire) offre une alternative puissante aux SPAs (Single Page Applications) lourdes en JavaScript. Elle permet de construire des interfaces réactives tout en gardant la logique métier solidement ancrée côté serveur.
+
+> [Retourner à l'index TALL →](../index.md)

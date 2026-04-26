@@ -342,3 +342,14 @@ L'AI Act crée plusieurs points d'intersection directs avec le SMSI ISO 27001 :
 [^1]: Un **système d'IA** est défini par l'AI Act comme "un système basé sur une machine qui est conçu pour fonctionner avec des niveaux d'autonomie variables et qui peut, à partir des entrées qu'il reçoit, déduire des éléments tels que des prédictions, du contenu, des recommandations ou des décisions pouvant influencer des environnements physiques ou virtuels."
 [^2]: Les **attaques adversariales** (*adversarial attacks*) sont des techniques qui consistent à introduire de légères perturbations dans les données d'entrée d'un système d'IA pour le faire produire des résultats erronés ou malveillants. Exemples : modifier imperceptiblement une image pour tromper un système de reconnaissance faciale, ou empoisonner les données d'entraînement pour introduire des biais malveillants dans un modèle.
 [^3]: **CSAM** (*Child Sexual Abuse Material*, ou Matériel d'Abus Sexuel sur Enfants) : Les fournisseurs de GPAI sont explicitement tenus de mettre en place des politiques pour éviter que leurs modèles génèrent ou facilitent la génération de tels contenus.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟡 Intermédiaire"
   data-version="8.3"
-  data-time="1 Heure">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Vous êtes fatigués d'intercaler vos balises `< ?php echo $variable ? >` en plein milieu de votre HTML. Le code devient un plat de spaghettis illisible.
@@ -165,4 +169,15 @@ Dans `vues/accueil.php`. Le code le plus minimaliste du monde.
       <span class="text-gray-700">L'utilisation combinée d'<code>ob_start()</code> et <code>extract()</code> est la fondation pure du MVC complet que nous aborderons dans le summum du PHP Produit.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

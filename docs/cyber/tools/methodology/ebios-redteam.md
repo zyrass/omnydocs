@@ -127,8 +127,13 @@ Un Pentest classique tape sur tout ce qui bouge. Une opération Red Team basée 
 
 > Pour garantir le succès d'une opération Red Team sans se faire repérer par la Blue Team avant d'atteindre l'objectif stratégique défini, la maîtrise parfaite de la furtivité est indispensable. Poursuivez avec les règles d'**[OpSec et Anonymisation →](./opsec.md)**.
 
+<br>
 
+---
 
+## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
 
-
+> [Retour à l'index →](./index.md)

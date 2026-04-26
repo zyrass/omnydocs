@@ -1021,6 +1021,9 @@ wsl --import Ubuntu-24.04 C:\WSL\Ubuntu D:\Backups\ubuntu-backup.tar
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    L'outil wsl est un compagnon quotidien dans la vie d'un professionnel de l'IT. Sa maîtrise ne s'acquiert pas en le lisant, mais par une pratique constante. Automatisez au maximum son utilisation pour qu'il devienne une seconde nature.
+
 !!! quote "Conclusion"
     _WSL2 a transformé le développement sous Windows en apportant Linux de manière native, performante et parfaitement intégrée. Ce qui était autrefois un choix binaire — Windows ou Linux — est devenu Windows et Linux harmonieusement couplés. Maîtriser WSL, c'est comprendre ses forces (performances natives dans le système Linux, intégration VSCode, Docker) et ses limites (réseau complexe pour l'exposition externe, performances cross-filesystem réduites). Stocker les projets dans le système de fichiers Linux, activer systemd pour un environnement authentique, et exploiter l'interopérabilité Windows-Linux : ces trois réflexes font de WSL un environnement de développement de classe professionnelle._
 

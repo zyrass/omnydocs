@@ -327,3 +327,12 @@ docker run -t zaproxy/zap-stable zap-baseline.py \
 > Prochaine étape : [Fuzzing →](./fuzzing.md) — générer des entrées aléatoires pour découvrir les comportements inattendus.
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

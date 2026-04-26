@@ -110,6 +110,9 @@ Le pentest WiFi intervient **après la reconnaissance OSINT** et **avant le pent
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ce module vous dote des outils fondamentaux pour cette catégorie d'attaque ou d'analyse. Gardez à l'esprit qu'un outil ne remplace pas la compréhension du concept : c'est votre capacité à interpréter les résultats qui fait de vous un véritable expert technique en cybersécurité.
+
 !!! quote "La sécurité par-delà les murs"
     Le périmètre de sécurité d'une entreprise s'arrête là où s'arrêtent ses ondes. Maîtriser le pentest sans fil, c'est savoir transformer une vulnérabilité invisible en un accès total à l'infrastructure.
 

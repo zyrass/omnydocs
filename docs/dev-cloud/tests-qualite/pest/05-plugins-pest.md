@@ -1615,3 +1615,14 @@ Voilà le **Module 5 PEST complet** (8-10 heures de contenu) avec le même nivea
 Le Module 5 PEST est terminé ! L'écosystème complet des plugins PEST est maintenant maîtrisé.
 
 Voulez-vous que je continue avec le **Module 6 - TDD avec PEST** (Red-Green-Refactor élégant, construire features test-first, patterns TDD, katas classiques en PEST) ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Pest PHP apporte une syntaxe élégante et expressive aux tests PHP. En réduisant le bruit syntaxique, il permet aux développeurs de se concentrer sur l'essentiel : la qualité et la fiabilité du code métier.
+
+> [Retourner à l'index des tests →](../../index.md)

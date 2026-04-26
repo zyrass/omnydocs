@@ -32,3 +32,14 @@ Avec des fichiers atteignant 66 Ko pour la formation PHPUnit (tests unitaires au
 **Recommandations :**
 1. **Élision :** Un module de 66 Ko sur PHPUnit découragera l'apprenant. Il faut absolument extraire la partie sur les Doubles de test (Mocks/Stubs) dans ses propres modules dédiés.
 2. Respecter la syntaxe des titres de fichiers (`0X-nom.md`).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'écriture de tests n'est pas une perte de temps, c'est un investissement. Une couverture de test robuste via PHPUnit garantit que votre application peut évoluer et être refactorisée en toute confiance sans régressions.
+
+> [Retourner à l'index des tests →](../../index.md)

@@ -171,19 +171,3 @@ Comme tous les outils écrits en Go pour la performance, la furtivité n'est pas
     1. **Coûts financiers pour la cible** : De nombreuses entreprises paient leur solution de centralisation de logs (comme Splunk ou Datadog) au Giga-octet (Go). Remplir leurs journaux web avec 500 000 erreurs 404 peut engendrer une sur-facturation massive pour le client.
     2. Modérez le scan ou prévenez l'équipe Blue Team qu'elle peut ignorer les logs provenant de votre adresse IP d'audit pour la journée afin de ne pas déclencher toutes leurs alertes inutilement.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Gobuster est l'exemple parfait de l'outil UNIX "Do one thing and do it well". Il est moins flexible que `ffuf`, mais sa syntaxe à base de commandes (`dir`, `dns`, `vhost`) le rend infiniment plus rapide à dégainer pour un pentester sous pression. Il est le point de départ systématique de la phase active sur n'importe quel test d'intrusion web.
-
-> Et si nous voulions aller encore plus loin ? Gobuster découvre des dossiers, mais il faut le relancer à la main pour fouiller à l'intérieur de ces nouveaux dossiers. Pour automatiser cette exploration en profondeur comme un virus qui se répand, nous devons utiliser un outil de brute-force **récursif** : **[Feroxbuster →](./feroxbuster.md)**.
-
-
-
-
-
-

@@ -749,6 +749,9 @@ kdig -d @1.1.1.1 +tls example.com
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Les notions abordées autour de dns notions sont le système nerveux de l'informatique moderne. Sans une maîtrise parfaite de ces protocoles et modèles, le dépannage de problèmes d'infrastructure ou la sécurisation de communications restent de pures suppositions.
+
 !!! quote "Conclusion"
     _Le DNS traduit les noms de domaine en adresses IP via un système hiérarchique distribué — racine, TLD, domaine de second niveau, sous-domaines. La résolution récursive implique quatre acteurs : résolveur récursif, serveur racine, serveur TLD et serveur autoritaire. Les neuf types d'enregistrements principaux couvrent l'intégralité des cas d'usage — A et AAAA pour les adresses, MX pour le mail, CNAME pour les alias, TXT pour les vérifications et l'authentification, NS et SOA pour l'administration de zone, PTR pour la résolution inverse, CAA pour la sécurité des certificats. Le TTL contrôle la durée de mise en cache et détermine le délai de propagation lors des modifications. DNSSEC garantit l'intégrité des réponses — DoH et DoT garantissent la confidentialité des requêtes. Le DNS est une cible privilégiée : spoofing, amplification DDoS et tunneling sont les vecteurs d'attaque à maîtriser pour protéger toute infrastructure._
 

@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # Timeline (évolution)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     La timeline sert à représenter une évolution dans le temps : projet, programme, conformité. Elle donne une lecture historique utile pour contextualiser une décision, une refonte ou une montée en maturité sur un axe temporel.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -29,6 +41,15 @@ timeline
 ```
 
 _Ce schéma présente une chronologie structurée par années avec un événement marquant par période._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

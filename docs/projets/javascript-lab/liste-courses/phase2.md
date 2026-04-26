@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟡 Intermédiaire"
   data-version="1.0"
-  data-time="1h00">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le Formulaire est inerte. Nous allons capturer sa puissance (L'événement `submit`), l'empêcher de recharger la page, et construire une "Banque de Données" dans la RAM de l'ordinateur (Un Array de la forme `[{id:1, text:"Lait", done:false}]`).
@@ -111,3 +115,14 @@ La Logique est impeccable. L'utilisateur enregistre des paires de données valid
 Il nous faut convertir ces données abstraites en véritables balises `<li>`, `<span>` et `<button>` générées "à la volée"... C'est la Révélation de la Phase Finale !
 
 [Passer à la Phase 3 : Le Rendu DOM et LocalStorage →](phase3.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

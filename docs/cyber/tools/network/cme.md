@@ -156,19 +156,3 @@ nxc smb 10.0.0.2 -u "Administrateur" -H "aad3b435b51404eeaad3b435b51404ee:31d6cf
     
     CME fait "briller les yeux" car ses lignes s'affichent en vert vif, mais son usage sans autorisation (même "pour tester") sur le réseau de son employeur est le motif classique de licenciement pour faute grave (et de poursuites judiciaires).
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Avoir le mot de passe d'un utilisateur, c'est bien. Savoir sur quel poste ce mot de passe permet d'être "Administrateur Local" pour rebondir vers de nouvelles victimes, c'est ça, le vrai métier du Pentester. CrackMapExec (NetExec) est l'outil qui automatise cette réflexion logique complexe, transformant des mois d'exploration manuelle en quelques secondes de console.
-
-> Vous avez trouvé des serveurs vulnérables, mais vous aimeriez exploiter ces failles "à la main" en profondeur sans automatisation ? Passez de l'orchestrateur de haut niveau à l'artillerie de précision bas niveau avec l'incroyable collection de scripts **[Impacket →](./impacket.md)**.
-
-
-
-
-
-

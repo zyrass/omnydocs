@@ -155,6 +155,9 @@ OpenSSL est le point d'entrée — il rend visibles les objets cryptographiques 
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La cryptographie et l'outil INDEX constituent la base de la confiance numérique. Une erreur de configuration dans ce domaine ne produit pas un simple bug, mais une vulnérabilité critique pouvant compromettre l'intégralité d'un système d'information.
+
 !!! quote "Conclusion"
     _La cryptographie n'est pas une option technique — c'est la fondation invisible de toute sécurité numérique. Comprendre comment les clés sont générées, comment les certificats sont émis et vérifiés, et comment la confiance est propagée dans une PKI, c'est comprendre pourquoi HTTPS fonctionne, pourquoi un certificat expiré coupe un service, et comment un attaquant peut exploiter une PKI mal conçue. Ces trois guides constituent la base opérationnelle minimale pour tout professionnel de la cybersécurité._
 

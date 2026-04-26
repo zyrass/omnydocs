@@ -102,6 +102,7 @@
       {"Sigma"          = "cyber/operations/detection/sigma.md"},
       {"Threat Hunting" = "cyber/operations/detection/hunting.md"},
       {"ClamAV"         = "cyber/operations/detection/clamav.md"},
+      {"Master Scenario: Ransomware" = "cyber/operations/detection/master-scenario-ransomware.md"},
     ]},
 
     # ========================================================================
@@ -130,36 +131,49 @@
       # - analyse d’artefacts
       {"Investigation Numérique" = [
         "cyber/operations/ir/forensic/index.md",
+        "cyber/operations/ir/forensic/live-analysis.md",
 
         # --- Acquisition ---------------------------------------------------
         # Techniques d’acquisition forensique garantissant l’intégrité.
         {"Acquisition" = [
           "cyber/operations/ir/forensic/acq/index.md",
           {"dd / dc3dd" = "cyber/operations/ir/forensic/acq/dd-dc3dd.md"},
+          {"Guymager" = "cyber/operations/ir/forensic/acq/guymager.md"},
+          {"LiME" = "cyber/operations/ir/forensic/acq/lime.md"},
         ]},
 
         # --- Analyse Disque -----------------------------------------------
         # Analyse des systèmes de fichiers et récupération de données.
         {"Analyse Disque" = [
           "cyber/operations/ir/forensic/disk/index.md",
+          {"Autopsy" = "cyber/operations/ir/forensic/disk/autopsy.md"},
+          {"PhotoRec" = "cyber/operations/ir/forensic/disk/photorec.md"},
+          {"Bulk Extractor" = "cyber/operations/ir/forensic/disk/bulk_extractor.md"},
+          {"Data Carving" = "cyber/operations/ir/forensic/disk/carving.md"},
         ]},
 
         # --- Analyse Mémoire ----------------------------------------------
         # Investigation RAM et artefacts volatiles.
         {"Analyse Mémoire" = [
           "cyber/operations/ir/forensic/memory/index.md",
+          {"Volatility" = "cyber/operations/ir/forensic/memory/volatility.md"},
+          {"Rekall" = "cyber/operations/ir/forensic/memory/rekall.md"},
         ]},
 
         # --- Analyse Logs -------------------------------------------------
         # Reconstruction de timeline via journaux système.
         {"Analyse Logs" = [
           "cyber/operations/ir/forensic/logs/index.md",
+          {"Hayabusa" = "cyber/operations/ir/forensic/logs/hayabusa.md"},
+          {"Chainsaw" = "cyber/operations/ir/forensic/logs/chainsaw.md"},
         ]},
 
         # --- Outils Endpoint ---------------------------------------------
         # Collecte distribuée et investigation à grande échelle.
         {"Outils Endpoint" = [
           "cyber/operations/ir/forensic/endpoint/index.md",
+          {"Velociraptor" = "cyber/operations/ir/forensic/endpoint/velociraptor.md"},
+          {"osquery" = "cyber/operations/ir/forensic/endpoint/osquery.md"},
         ]}
       ]}
     ]},

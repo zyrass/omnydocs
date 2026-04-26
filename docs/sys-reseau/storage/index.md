@@ -12,6 +12,10 @@ tags: ["STOCKAGE", "RAID", "SAUVEGARDE", "PRA", "INFRASTRUCTURE"]
   data-time="Hub Stockage">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La gestion du stockage (RAID, LVM) et des sauvegardes fonctionne comme la gestion financière d'une entreprise. Le RAID est une assurance contre les pannes matérielles du quotidien (un serveur qui tombe), tandis qu'une sauvegarde hors-ligne (Amanda) est votre coffre-fort dans une banque distante en cas d'incendie majeur._
+
 !!! quote "Les données sont l'entreprise"
     _Un serveur qui grille, cela coûte 5 000 euros et se remplace en 24 heures. Les données (Base de données clients, codes sources, comptabilité) perdues dans ce serveur qui grille, cela coûte l'existence même de l'entreprise. L'ingénieur infrastructure a pour mission absolue de garantir l'intégrité, la disponibilité et la pérennité de la donnée._
 
@@ -48,3 +52,14 @@ La perte de données a généralement deux causes : la panne matérielle (le dis
 
 Le **Ransomware** (Rançongiciel) est aujourd'hui la menace numéro un dans le monde. La seule véritable défense absolue contre un ransomware n'est ni un pare-feu, ni un antivirus, c'est **la Sauvegarde Déconnectée**.
 Si le pirate chiffre votre serveur, vous effacez tout, vous restaurez la sauvegarde d'hier, et vous reprenez le travail sans payer la rançon. C'est pourquoi les pirates modernes cherchent en priorité à détruire les serveurs de sauvegarde *avant* de lancer le ransomware. Sécuriser l'architecture de sauvegarde est donc le cœur de la défense Cyber.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La résilience des données (RAID, sauvegardes) est le filet de sécurité ultime de l'entreprise face aux ransomwares et aux défaillances matérielles. Souvenez-vous : une sauvegarde non testée n'est qu'une illusion de sécurité.
+
+> [Retourner à l'index →](../index.md)

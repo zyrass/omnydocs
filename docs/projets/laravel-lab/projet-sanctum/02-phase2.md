@@ -13,6 +13,10 @@ tags: ["RPG", "LOGIC", "MODELS", "ELOQUENT", "ALGORITHM"]
   data-time="3h - 4h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Sécuriser une API avec Sanctum s'apparente à donner un jeton d'accès temporaire à un livreur. Au lieu de lui donner les clés de la maison (authentification de session), vous lui donnez un badge qui ne permet d'ouvrir que la porte du garage, et qui peut être révoqué à tout moment._
+
 ## Objectif de la Phase
 
 > Le développement d'un jeu vidéo, même textuel ou en grille 2D, implique une logique algorithmique complexe. Cette phase est consacrée à la modélisation de notre **Dungeon RPG**. Nous allons concevoir les tables pour les Personnages (Joueurs), les Monstres (Bestiaire), les Objets (Inventaire) et les Combats (Historique des tours). L'accent sera mis sur la **logique métier (Calcul de dégâts, gestion des Points de Vie (HP) et de Magie (MP), algorithme de Level Up)**, qui doit être strictement gérée côté serveur pour éviter la triche (anti-cheat).
@@ -307,3 +311,14 @@ Les fondations mathématiques de notre monde virtuel sont en place :
 - ✅ **Bestiaire initialisé** avec différents niveaux de difficulté.
 
 Dans la **Phase 3**, nous allons ouvrir les "portes du donjon" en créant les **Endpoints API REST** qui permettront au Frontend d'exécuter des actions (Attaquer, Fuir, Se soigner) en appelant ces algorithmes.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La conception du schéma de base de données d'une API est une décision durable. Les migrations Laravel sont versionnées et partagées — un changement de schéma mal planifié peut bloquer une équipe entière. La règle : migrez d'abord dans un environnement de staging, mesurez l'impact sur les données existantes, puis déployez en production.
+
+> [Schéma de données défini. Implementez maintenant la logique métier et les services →](./03-phase3.md)

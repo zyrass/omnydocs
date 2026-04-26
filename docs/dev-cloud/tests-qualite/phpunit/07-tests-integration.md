@@ -1406,3 +1406,14 @@ Voilà le **Module 7 complet** (8-10 heures de contenu) avec :
 Le Module 7 est terminé ! Tous les concepts de tests d'intégration sont maintenant maîtrisés.
 
 Voulez-vous que je continue avec le **Module 8 (FINAL) - CI/CD & Couverture** (GitHub Actions, automatisation, quality gates, déploiement) ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'écriture de tests n'est pas une perte de temps, c'est un investissement. Une couverture de test robuste via PHPUnit garantit que votre application peut évoluer et être refactorisée en toute confiance sans régressions.
+
+> [Retourner à l'index des tests →](../../index.md)

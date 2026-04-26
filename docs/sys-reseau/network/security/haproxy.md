@@ -13,6 +13,10 @@ tags: ["HAPROXY", "REVERSE PROXY", "LOAD BALANCING", "RESEAU", "INFRASTRUCTURE"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La sécurité réseau moderne (Zero Trust, WAF, VPN) s'apparente aux contrôles stricts dans un aéroport international. Le pare-feu classique est la porte d'entrée, le WAF est le portique de sécurité vérifiant le contenu des bagages, et le VPN est le tunnel VIP sécurisé réservé aux employés identifiés._
+
 !!! quote "Le chef d'orchestre du trafic"
     _Un serveur web unique, c'est ce qu'on appelle un **SPOF** (Single Point Of Failure : Point Individuel de Défaillance). S'il tombe en panne, le site est mort. Pour assurer une disponibilité 24/7, il faut plusieurs serveurs qui hébergent le même site. Le **Reverse Proxy** se place devant eux : il reçoit toutes les requêtes des internautes et les distribue intelligemment aux différents serveurs. **HAProxy** est la référence absolue dans ce domaine._
 
@@ -79,3 +83,14 @@ HAProxy écoute sur le port 80/443 de votre IP publique. Il lit la requête (`Ho
 Le Reverse Proxy est la porte d'entrée de l'architecture applicative. Placer un HAProxy devant ses serveurs a un énorme effet bénéfique en cybersécurité :
 1. **Dissimulation** : Les attaquants ne voient jamais la vraie IP de vos serveurs (qui restent cachés dans un réseau privé, non accessibles depuis Internet).
 2. **DDoS Mitigation** : Encaisser des millions de requêtes en répartissant intelligemment la charge empêche un serveur unique de s'effondrer.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La sécurité réseau ne s'arrête plus au simple pare-feu périmétrique. L'implémentation de VPNs robustes (OpenVPN/WireGuard) et d'une segmentation stricte forme l'épine dorsale d'une architecture résiliente.
+
+> [Retourner à l'index Réseau →](../index.md)

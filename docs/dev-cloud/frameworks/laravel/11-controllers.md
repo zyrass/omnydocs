@@ -255,6 +255,13 @@ sequenceDiagram
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-Le flux complet d'un objet (CRUD) a été géré de bout en bout. On identifie rapidement la nécessité de sécuriser les données transmises, d'où la validation serveur abordée dans le module suivant.
+!!! quote "Ce qu'il faut retenir"
+    Un controller qui grossit est un controller qui ment. La règle d'or reste valide à toutes les échelles : si votre méthode `store()` dépasse 15 lignes, c'est que de la logique métier s'y cache et attend d'être extraite vers un Service ou une Action. La discipline du 'controller mince' est le premier marqueur d'un code Laravel professionnel.
+
+> [Controllers maîtrisés. Sécurisez maintenant les données entrantes avec la validation →](./12-validation.md)

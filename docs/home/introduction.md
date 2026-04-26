@@ -1,100 +1,101 @@
 ---
-description: 'Introduction sur le projet en cours de rédaction'
-icon: lucide/pin
+description: "Introduction officielle au projet OmnyDocs. Découvrez notre philosophie pédagogique, la structure du portail et les conventions utilisées."
+icon: lucide/book-open-check
+tags: ["INTRODUCTION", "OMNYDOCS", "PEDAGOGIE", "SKILL"]
 ---
 
-# Introduction
+# Introduction à OmnyDocs
 
-**Objectif** : les fondamentaux de l'informatique constituent le socle indispensable pour comprendre et exceller dans tout domaine technique.
+<div
+  class="omny-meta"
+  data-level="🟢 Débutant"
+  data-version="2.0"
+  data-time="5 minutes">
+</div>
 
-!!! quote "Partage de connaissance"
-    _Ce partage est le fruit de mon apprentissage au quotidien. Par souci de transparence, une partie du contenu de cette documentation est générée avec l'assistance de l'intelligence artificielle — mais chaque page est relue, orientée et enrichie avec les connaissances que j'ai acquises avec le temps. Rien n'est publié sans être passé par le filtre d'une révision humaine attentive._
+!!! quote "Analogie pédagogique — L'Architecte et l'Ouvrier"
+    _Apprendre l'informatique en copiant-collant des tutoriels, c'est comme construire une maison en suivant un plan IKEA : vous obtiendrez un résultat, mais à la première fondation qui fissure, vous ne saurez pas comment réparer. OmnyDocs ne vous apprend pas seulement à assembler les pièces. Nous vous enseignons la physique des matériaux, la résistance des structures et l'art de l'architecture. Notre but n'est pas de faire de vous un simple exécutant, mais un ingénieur capable de raisonner par lui-même._
 
-    _Je suis quelqu'un de minutieux. La moindre zone d'ombre me dérange, et c'est précisément pour cette raison que vous trouverez régulièrement des diagrammes et des schémas explicatifs : là où un texte seul ne suffit pas à rendre un concept limpide, une représentation visuelle prend le relais._
+L'informatique moderne repose sur un socle commun de compétences extrêmement imbriquées. Que vous souhaitiez devenir développeur Full-Stack, ingénieur système, analyste SOC ou pentester, les fondations restent les mêmes : comprendre comment l'information circule, comment elle est stockée, et comment elle peut être manipulée ou protégée.
 
-    _Ce savoir vous donnera les moyens de poser un premier pied dans l'univers de l'informatique, tout en comprenant réellement ce que vous faites — pas uniquement en reproduisant des instructions._
+**OmnyDocs** a été conçu avec une philosophie unique : la technique sans la pédagogie n'est que du bruit. Chaque module de ce portail est structuré pour démystifier la complexité, en privilégiant la compréhension profonde (le "Pourquoi") avant l'exécution technique (le "Comment").
 
-L'informatique repose sur un socle commun de compétences et de concepts transversaux. Ces fondations, bien que souvent sous-estimées, sont indispensables à toute montée en compétence : du **développement logiciel** à l'**administration système**, du **réseau** à la **cybersécurité**.
-
-> **Nous avons conçu cette documentation pour que chaque concept soit compris, pas seulement exécuté.**  
-> Chaque guide, chaque exemple et chaque exercice poursuit un seul objectif : vous donner les moyens de raisonner par vous-même, et non de reproduire mécaniquement des instructions.
-
-<br />
-
----
-
-## À qui s'adresse cette documentation
-
-Nous ne supposons aucun prérequis particulier pour commencer. Les sections sont conçues pour être abordées dans l'ordre proposé, mais un lecteur ayant déjà des bases solides peut naviguer directement vers le domaine qui l'intéresse.
-
-Nous nous adressons aussi bien aux personnes qui découvrent l'informatique qu'aux professionnels souhaitant consolider ou élargir leurs compétences. Ce qui nous importe, c'est que vous progressiez avec méthode et que vous compreniez ce que vous faites à chaque étape.
+<br>
 
 ---
 
-## Comment naviguer
+## À qui s'adresse ce portail ?
+
+Cette documentation a été pensée pour s'adapter à votre niveau d'expertise :
+
+* **Les Débutants** : Vous y trouverez des parcours guidés partant des fondamentaux absolus, sans jargon inutile, avec de nombreuses analogies pour raccrocher la technique à des concepts familiers.
+* **Les Professionnels (Reconversion/Montée en compétence)** : Vous pouvez plonger directement dans des Masterclasses denses (Laravel, Cybersécurité) pour structurer vos connaissances existantes avec les standards de l'industrie.
+
+> **Aucun prérequis mathématique ou académique n'est exigé.** Seule une curiosité insatiable et une rigueur intellectuelle sont nécessaires.
+
+---
+
+## L'Architecture du Savoir
+
+OmnyDocs est divisé en grands piliers technologiques. La navigation a été pensée pour vous permettre de créer votre propre parcours.
 
 <div class="grid cards" markdown>
 
 - ### :lucide-layers: Fondamentaux IT
     ---
-    Le point d'entrée que nous recommandons à tout nouveau lecteur. Concepts transversaux, logique, formats de données, outils de développement et modélisation.
+    Le point d'entrée universel. Concepts transversaux, formats de données, architecture des ordinateurs, et modélisation. **Le socle indispensable.**
+
+- ### :lucide-code-2: Développement (Dev & Cloud)
+    ---
+    L'ingénierie logicielle moderne. Masterclass PHP, framework Laravel, écosystème TALL (Tailwind, Alpine, Livewire), et ingénierie de la qualité (Tests unitaires, TDD).
 
 </div>
 
 <div class="grid cards" markdown>
 
-- ### :lucide-server: Systèmes & Infrastructure
+- ### :lucide-server: Sys & Réseau
     ---
-    Administration Linux et Windows, réseaux, services, virtualisation, supervision. Une approche orientée exploitation et environnements de production.
+    L'infrastructure de production. Administration Linux/Windows, architecture réseau, virtualisation (Proxmox, KVM), et supervision en environnement d'entreprise.
 
-- ### :lucide-code-2: Développement & Stack TALL
+- ### :lucide-scale: Cybersécurité (GRC)
     ---
-    HTML/CSS, PHP, Laravel, Alpine.js, Livewire, bases de données, tests et introduction au DevSecOps. Un parcours complet, du premier fichier HTML au déploiement.
-
+    La gouvernance, les risques et la conformité. Normes ISO (27001, 27005), réglementations (RGPD, NIS2, DORA), et construction d'un SMSI. La vision stratégique.
 
 </div>
 
 <div class="grid cards" markdown>
 
-- ### :lucide-scale: Cyber : Gouvernance
+- ### :lucide-shield: Cybersécurité (Blue Team)
     ---
-    Référentiels et normes (ISO 27001, NIST, PCI DSS), réglementations européennes (RGPD, NIS2, DORA), démarche SMSI et analyse de risques. La couche stratégique et juridique de la cybersécurité.
+    La cyber-défense opérationnelle. Architecture SOC, détection (SIEM, YARA), réponse à incident (DFIR) et analyse de malwares (Reverse Engineering).
+
+- ### :lucide-sword: Cybersécurité (Red Team)
+    ---
+    La sécurité offensive. OSINT, tests de pénétration (Web, Réseau, Active Directory), exploitation de vulnérabilités et ingénierie sociale.
 
 </div>
 
-<div class="grid cards" markdown>
-
-- ### :lucide-shield: Cyber : Défense
-    ---
-    Architecture SOC, détection et analyse (SIEM, IDS/IPS, YARA, Sigma), réponse à incident, investigation numérique (DFIR) et analyse de malwares. L'axe opérationnel de la protection.
-
-- ### :lucide-sword: Cyber : Attaque
-    ---
-    OSINT, pentest Web et API, tests réseau et Active Directory, exploitation, password attacks et ingénierie sociale. Une approche offensive encadrée par un cadre légal et éthique explicite.
-
-</div>
-
-_Chaque section expose ses prérequis en introduction. En cas de doute sur le parcours adapté à vos objectifs, la page [Compréhension](./comprehension.md) propose des chemins guidés selon les métiers visés._
-
-<br />
+<br>
 
 ---
 
-## Progression recommandée
+## Progression Recommandée
+
+Il n'y a pas de chemin unique, mais il existe une logique d'apprentissage. Voici comment les différents domaines s'alimentent entre eux :
 
 ```mermaid
 flowchart TB
     F[Fondamentaux IT]
 
-    DEV["Développement<br />Stack TALL"]
-    SYS["Systèmes &<br />Infrastructure"]
+    DEV["Développement<br />(Ingénierie Logicielle)"]
+    SYS["Systèmes &<br />Réseaux"]
 
-    BLUE["Cyber Défense<br />SOC / DFIR"]
-    RED["Cyber Attaque<br />Red Team"]
-    GRC["Cyber Gouvernance<br />GRC"]
+    BLUE["Cyber Défense<br />(Blue Team)"]
+    RED["Cyber Attaque<br />(Red Team)"]
+    GRC["Cyber Gouvernance<br />(GRC)"]
 
     F -->|Volet applicatif| DEV
-    F -->|Volet exploitation| SYS
+    F -->|Volet infrastructure| SYS
 
     DEV --> BLUE
     SYS --> BLUE
@@ -106,18 +107,18 @@ flowchart TB
     RED --> GRC
 ```
 
-<p><em>Les Fondamentaux IT alimentent deux branches techniques de même niveau. Elles convergent ensuite vers la cybersécurité opérationnelle. La gouvernance constitue la couche stratégique supérieure, accessible une fois le socle technique établi.</em></p>
+_Note : Il est illusoire de vouloir protéger (Blue Team) ou attaquer (Red Team) un système si l'on ne comprend pas comment il a été développé (Dev) ou configuré (Sys/Réseau)._
 
-<br />
+<br>
 
 ---
 
-## Conventions utilisées
+## Conventions du Standard SKILL
 
-Nous utilisons des blocs visuels distincts tout au long de la documentation pour structurer l'information selon sa nature. Voici leur signification.
+OmnyDocs respecte le standard de documentation **SKILL v2.0.0 (Zensical)**. Vous rencontrerez régulièrement des balises visuelles (Admonitions) pour structurer l'information :
 
 !!! tip "Conseil"
-    Bonne pratique recommandée ou retour d'expérience directement applicable.
+    Bonne pratique recommandée, optimisation des performances, de la sécurité ou de la maintenabilité directement applicable.
 
 !!! info "Information"
     Contexte complémentaire utile à la compréhension sans être bloquant.
@@ -126,16 +127,16 @@ Nous utilisons des blocs visuels distincts tout au long de la documentation pour
     Précision technique ou rappel factuel à garder en tête pour la suite.
 
 !!! warning "Attention"
-    Point de vigilance ou risque à ne pas ignorer avant de poursuivre.
+    Point de vigilance critique. Ignorer ce type de message peut entraîner des erreurs de configuration ou des vulnérabilités.
 
-!!! danger "Danger"
-    Erreur critique pouvant entraîner une perte de données, une faille de sécurité ou un dysfonctionnement majeur. À lire impérativement.
+!!! danger "Alerte de Sécurité"
+    Action destructrice (perte de données) ou commande offensive devant être exécutée exclusivement dans des environnements de test isolés.
 
-!!! quote "Réflexion"
-    Prise de recul, analogie ou note éditoriale hors contenu technique strict.
+!!! quote "Analogie pédagogique"
+    Vulgarisation d'un concept complexe en utilisant une image du quotidien, généralement placée au début d'un module technique.
 
-!!! quote "Note"
-    Variante contextuelle, utilisée pour des apartés éditoriaux plus courts.
+!!! quote "Note / Réflexion"
+    Prise de recul, variante contextuelle ou aparté éditorial hors contenu technique strict.
 
 !!! example "Exemple"
     Illustration concrète d'un concept, utilisée principalement dans les projets guidés et les modules pratiques.
@@ -145,20 +146,13 @@ Nous utilisons des blocs visuels distincts tout au long de la documentation pour
 
 Les blocs de code sont systématiquement commentés pour expliquer chaque instruction, sans supposer que le contexte est évident.
 
-<br />
-
 ---
 
-> Prenez le temps nécessaire pour assimiler chaque notion.  
-> **Se fixer une durée stricte n'est pas pertinent** face à la diversité des profils et des rythmes d'apprentissage.
+## Conclusion
 
-!!! tip "Conseil"
-    Avancez méthodiquement, sans brûler les étapes : **c'est cette rigueur qui fera de vous un professionnel fiable, compétent et recherché**.
+!!! quote "Ce qu'il faut retenir"
+    OmnyDocs n'est pas un dictionnaire technique, c'est une plateforme d'ingénierie pédagogique. Avancez méthodiquement, lisez les analogies, comprenez les diagrammes, et surtout : **pratiquez**. La théorie vous donne la carte, mais seule la pratique vous apprendra à naviguer.
 
-<br />
+> [Découvrir les parcours métiers →](./comprehension.md)
 
----
-
-Pour choisir le parcours le mieux adapté à vos objectifs et visualiser les dépendances entre domaines, consultez la page [Compréhension](./comprehension.md).
-
-<br />
+<br>

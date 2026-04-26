@@ -92,6 +92,13 @@ php artisan migrate:fresh
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-Vous comprenez désormais comment l'utilisateur déclenche un cycle de vie, et comment vous, le développeur, utilisez `php artisan` pour intervenir sur ces cycles depuis la console. L'étape suivante concerne la configuration globale.
+!!! quote "Ce qu'il faut retenir"
+    Artisan est le couteau suisse du développeur Laravel. Comprendre le cycle de vie d'une requête — de l'entrée HTTP jusqu'à la réponse — est ce qui distingue un utilisateur de framework d'un architecte de framework. Chaque commande `php artisan` que vous lancez déclenche ce même cycle.
+
+> [Cycle de vie maîtrisé. Configurez maintenant votre environnement de travail →](./05-configuration-et-pratique.md)

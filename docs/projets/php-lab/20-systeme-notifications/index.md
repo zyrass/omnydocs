@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="8.3"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     PHP ne permet pas "l'Héritage Multiple". Une classe `User` ne peut pas hériter à la fois de `Person` ET de `Notifiable`.
@@ -184,4 +188,15 @@ $user->notify("Tentative de Fraude depuis la Russie détectée !", ['email', 'pu
       <span class="text-gray-700">Vous avez évité un Code Spaghetti ou un héritage trop tordu (Exemple: Créer un <code>UserWithSmsAndMail extends User</code> inutile). Les Traits sont une architecture transversale parfaite pour des méthodes isolées (Loggers, Notifications, TimeStamps...).</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

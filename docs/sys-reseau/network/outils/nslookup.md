@@ -13,6 +13,10 @@ tags: ["NSLOOKUP", "DIG", "DNS", "RESEAU", "DIAGNOSTIC"]
   data-time="15 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Utiliser des outils d'analyse réseau (comme tcpdump ou scapy), c'est comme brancher un stéthoscope sur les artères d'une ville. Vous ne regardez plus simplement si les camions arrivent à destination, mais vous examinez le contenu de chaque paquet transporté pour détecter une anomalie ou une maladie (latence, perte, malware)._
+
 !!! quote "L'annuaire de l'Internet"
     _Le DNS (Domain Name System) traduit des noms lisibles par les humains (`google.com`) en adresses IP compréhensibles par les machines (`142.250.179.110`). Quand un utilisateur dit "Le site web est cassé", dans 50% des cas, c'est en réalité un problème de résolution DNS. **`nslookup`** et **`dig`** sont les outils pour diagnostiquer cela._
 
@@ -93,3 +97,14 @@ dig @8.8.8.8 github.com TXT
 ## Conclusion
 
 Le premier réflexe face à une erreur `ERR_NAME_NOT_RESOLVED` dans un navigateur ne doit pas être de redémarrer le serveur web, mais d'ouvrir un terminal et de taper `nslookup le-domaine.com`. Maîtriser ces outils évite des heures de débogage inutiles sur la couche applicative (Niveau 7) alors que le problème se situe au niveau de la résolution de nom.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La visibilité réseau est primordiale pour l'analyse d'incidents et le troubleshooting. Maîtriser tcpdump, netstat ou scapy permet de diagnostiquer la majorité des anomalies avant qu'elles ne s'aggravent.
+
+> [Retourner à l'index Réseau →](../index.md)

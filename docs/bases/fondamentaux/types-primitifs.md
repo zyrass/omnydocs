@@ -388,6 +388,9 @@ var_dump(0 === "");  // false
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ces notions fondamentales sur types primitifs sont essentielles pour la suite de votre parcours. Consolidez ces acquis théoriques par la pratique avant de passer aux modules spécialisés (Cybersécurité, Infrastructure ou Développement).
+
 !!! quote "Conclusion"
     _Les types primitifs, c'est apprendre à tenir un crayon. Ça paraît basique — c'est pourtant la fondation de tout ce qui sera écrit ensuite. Prendre le temps de bien les comprendre réduit drastiquement les bugs et les comportements inexpliqués dans les projets plus avancés._
 

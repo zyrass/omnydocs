@@ -300,3 +300,14 @@ mindmap
 [^1]: Les **VLOP** (*Very Large Online Platforms*, ou Très Grandes Plateformes en Ligne) et **VLOSE** (*Very Large Online Search Engines*, ou Très Grands Moteurs de Recherche) sont les entités dépassant 45 millions d'utilisateurs actifs mensuels dans l'UE. Elles sont désignées par la Commission européenne et soumises aux obligations les plus strictes du DSA. Les premières désignations (2023) incluent Meta, Google, TikTok, Amazon, Apple, Booking.com et une vingtaine d'autres.
 [^2]: Les **signaleurs de confiance** (*trusted flaggers*) sont des entités officiellement désignées par les coordinateurs nationaux (ARCOM en France) qui ont une expertise reconnue pour identifier les contenus illicites dans leur domaine. Leurs signalements doivent être traités en priorité par les plateformes. Exemples : associations de protection de l'enfance, organismes anti-haine en ligne, autorités de protection des consommateurs.
 [^3]: L'**ARCOM** (*Autorité de Régulation de la Communication Audiovisuelle et Numérique*) est le régulateur français désigné comme coordinateur national des services numériques (DSC) au titre du DSA. Elle est issue de la fusion du CSA et de la HADOPI en 2022.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

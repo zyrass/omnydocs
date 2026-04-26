@@ -212,7 +212,7 @@ Les diagrammes avancés exploitent des syntaxes récentes ou en version bêta. L
 
 ## Conclusion
 
-!!! note
-    Si les diagrammes essentiels et de modélisation sont correctement rendus, OmnyDocs dispose d'une base visuelle solide pour documenter développement, systèmes et cybersécurité. Les diagrammes avancés renforcent la qualité pédagogique à condition d'être supportés par Zensical — chaque page de la section Avancés indique le statut de rendu constaté.
+!!! quote "Ce qu'il faut retenir"
+    Si les diagrammes essentiels et de modélisation sont correctement rendus, OmnyDocs dispose d'une base visuelle solide pour documenter avec clarté le code, les systèmes et la cybersécurité. Les diagrammes avancés renforcent la qualité pédagogique à condition d'être supportés par Zensical — chaque page de la section Avancés indique le statut de rendu constaté.
 
-<br />
+> [Commencer par les diagrammes essentiels →](./essentiels/flowchart.md)

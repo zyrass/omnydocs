@@ -13,6 +13,10 @@ tags: ["PFSENSE", "FIREWALL", "ROUTEUR", "NAT", "RESEAU"]
   data-time="25 - 35 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La sécurité réseau moderne (Zero Trust, WAF, VPN) s'apparente aux contrôles stricts dans un aéroport international. Le pare-feu classique est la porte d'entrée, le WAF est le portique de sécurité vérifiant le contenu des bagages, et le VPN est le tunnel VIP sécurisé réservé aux employés identifiés._
+
 !!! quote "Le gardien du temple"
     _Un pare-feu hôte (comme UFW sur Linux) protège la machine sur laquelle il est installé. Un **Pare-Feu Périmétrique** protège l'intégralité d'un réseau (qui peut contenir des milliers de machines). **pfSense** est l'un des pare-feux Open Source les plus reconnus au monde. Basé sur le robuste système FreeBSD, il transforme un simple ordinateur (ou une machine virtuelle) en un routeur de classe entreprise._
 
@@ -83,3 +87,14 @@ Lui, va ouvrir le paquet réseau en temps réel, lire la charge utile (le texte 
 ## Conclusion
 
 La maîtrise de pfSense (ou d'équipements propriétaires équivalents comme Fortinet ou Palo Alto) est la compétence numéro un demandée à un administrateur réseau (Network Engineer). C'est le point central de l'infrastructure, d'où l'on gère le routage, la sécurité, le DHCP, le DNS Resolver, et les connexions distantes (VPN).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La sécurité réseau ne s'arrête plus au simple pare-feu périmétrique. L'implémentation de VPNs robustes (OpenVPN/WireGuard) et d'une segmentation stricte forme l'épine dorsale d'une architecture résiliente.
+
+> [Retourner à l'index Réseau →](../index.md)

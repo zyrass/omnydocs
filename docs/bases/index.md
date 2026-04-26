@@ -204,11 +204,7 @@ Il est important de comprendre ce que cette section **ne couvre pas**, pour évi
 
 ## Conclusion
 
-!!! note "Notre recommandation"
-    Toute lacune dans les Fondamentaux IT se répercute directement sur les sections suivantes — souvent de manière non évidente. Un profil qui ne comprend pas le modèle OSI diagnostique mal un incident réseau. Un profil qui ne maîtrise pas Git introduit des risques dans tout environnement collaboratif.
+!!! quote "Ce qu'il faut retenir"
+    Toute lacune dans les Fondamentaux IT se répercute directement sur les sections suivantes — souvent de manière non évidente. Un profil qui ne comprend pas le modèle OSI diagnostique mal un incident réseau. Un profil qui ne maîtrise pas Git introduit des risques dans tout environnement collaboratif. Investir dans ces bases est le seul raccourci réel vers l'expertise.
 
-    Investir ces bases est le seul raccourci réel vers l'expertise.
-
-**Point d'entrée recommandé : [Fondamentaux techniques](./fondamentaux/index.md)**
-
-<br />
+> Le premier grand chapitre vous attend. Plongez dans les **[Fondamentaux techniques](./fondamentaux/index.md)**.

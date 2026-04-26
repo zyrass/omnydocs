@@ -12,6 +12,10 @@ tags: ["ISO", "27001", "27002", "22301", "31000", "NORMES"]
   data-time="8-10 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Les normes ISO sont le système métrique de la sécurité. Elles permettent à une entreprise japonaise et une entreprise française de s'accorder sur un niveau de conformité commun et auditable._
+
 ## Introduction
 
 **Les normes ISO** fournissent des **cadres internationaux de management** applicables à la sécurité de l'information, la continuité d'activité, la gestion des services IT et la qualité. Elles constituent la **quatrième couche** de l'écosystème de conformité, offrant des standards reconnus mondialement pour structurer et certifier les systèmes de management.
@@ -199,4 +203,13 @@ _Les normes ISO forment le socle méthodologique qui transforme les obligations 
 
 > Les fiches suivantes détaillent les exigences, processus de certification et liens réglementaires pour chaque norme ISO.
 
-<br />
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes ISO ne sont pas interchangeables : chacune répond à un besoin précis. ISO 27001 certifie le SMSI, ISO 22301 certifie la continuité d'activité, ISO 31000 structure le management du risque. La clé d'une certification réussie est de choisir la norme adaptée à son contexte avant d'en implémenter les exigences — pas l'inverse.
+
+> [Revenez aux référentiels sectoriels pour compléter votre vision de conformité →](../)

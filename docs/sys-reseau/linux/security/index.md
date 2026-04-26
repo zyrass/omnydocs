@@ -12,6 +12,10 @@ tags: ["SECURITE", "LINUX", "HARDENING", "DURCISSEMENT", "FIREWALL"]
   data-time="Sous-Hub Sécurité">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Le durcissement d'un système Linux est comme la construction des fortifications d'un château. Le pare-feu (UFW) correspond aux douves extérieures, les permissions POSIX (chmod/chown) sont les clés des différentes pièces, et la supervision (Fail2Ban/Lynis) agit comme les gardes effectuant des rondes régulières._
+
 !!! quote "Réduire la surface d'attaque"
     _Un serveur fraîchement installé est comme une maison dont toutes les portes et fenêtres seraient grandes ouvertes. Le "Durcissement" (Hardening) consiste à configurer le système d'exploitation de manière à réduire au maximum les possibilités d'intrusion, avant même de s'occuper de la sécurité des applications web qui y seront hébergées._
 
@@ -70,4 +74,15 @@ Dans ce sous-hub, nous allons détailler les outils et logiciels spécifiques qu
 
     [:octicons-arrow-right-24: Débusquer les Rootkits](./chkrootkit.md)
 
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Sécuriser un système Linux exige une approche en couches : du pare-feu avec UFW à la détection d'intrusions avec Fail2Ban, en passant par un durcissement régulier. Aucun outil de sécurité ne remplace une bonne configuration de base.
+
+> [Retourner à l'index Linux →](../index.md)

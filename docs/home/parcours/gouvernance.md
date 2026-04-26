@@ -13,6 +13,10 @@ tags: ["PARCOURS", "CYBERSECURITE", "GRC", "GOUVERNANCE", "CONFORMITE"]
   data-time="5-10 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La Gouvernance est le rôle du législateur et du diplomate. Pendant que les techniciens construisent et défendent le château, vous rédigez les lois de la cité, évaluez les risques d'invasion et vous assurez que le royaume respecte les traités internationaux (RGPD, ISO 27001)._
+
 !!! note "**Accessibilité : modérée** — _Ce parcours est accessible sans expertise technique poussée, mais une culture système et réseau reste indispensable pour maintenir une crédibilité opérationnelle face aux équipes terrain._"
 
 ## Que fait ce parcours
@@ -132,8 +136,9 @@ _Contrairement aux autres parcours, les orientations ici sont des **retours en a
 
 ## Conclusion
 
-Le parcours Gouvernance GRC est le seul de la documentation dont la valeur augmente avec l'expérience accumulée dans les autres parcours.  
-Il produit un profil RSSI, auditeur ou consultant GRC opérationnel, capable de piloter la conformité et la gestion des risques avec une lecture réaliste des enjeux techniques.
+!!! quote "Ce qu'il faut retenir"
+    Le parcours Gouvernance GRC est le seul de la documentation dont la valeur augmente avec l'expérience accumulée dans les autres parcours.  
+    Il produit un profil RSSI, auditeur ou consultant GRC opérationnel, capable de piloter la conformité et la gestion des risques avec une lecture réaliste des enjeux techniques.
 
 **Point d'entrée recommandé : [Fondamentaux IT](../../bases/index.md) — puis [Cyber : Gouvernance](../../cyber/grc/index.md).**
 

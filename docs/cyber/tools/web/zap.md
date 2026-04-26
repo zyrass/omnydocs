@@ -186,19 +186,3 @@ Comme Burp, ZAP est un proxy, il permet de modifier les requêtes à la volée g
     1. Si le pipeline CI/CD est configuré pour déployer directement en production, et que le conteneur ZAP teste l'URL de Production (au lieu de l'URL de *Staging* ou de *Dev*), ZAP attaquera les vrais clients et la vraie base de données.
     2. Les requêtes de ZAP contiennent par défaut des payloads de test. Altérer une base de données de production avec des fausses données issues d'un scanner automatisé est considéré comme une modification non autorisée de données (Délit pénal).
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Burp Suite est le roi des Pentesters manuels, mais ZAP est le roi des Ingénieurs DevSecOps. Entièrement scriptable, puissant, et porté par une communauté immense, ZAP est l'outil parfait pour ceux qui refusent de payer des licences à 400€/an pour avoir un fuzzer non bridé. Sa maîtrise via Docker et son API REST est une compétence vitale en 2026.
-
-> Les Proxys (Burp, ZAP) nous permettent de manipuler le trafic que nous voyons. Mais comment attaquer des dossiers cachés, des API secrètes et des fichiers que le site ne nous montre pas ? C'est le royaume du Fuzzing aveugle. Préparez-vous à découvrir la vitesse absolue avec le roi de la découverte web : **[ffuf →](./ffuf.md)**.
-
-
-
-
-
-

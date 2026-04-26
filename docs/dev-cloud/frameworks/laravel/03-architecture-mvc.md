@@ -120,6 +120,13 @@ Le contrôleur ayant retourné `'users.index'`, Laravel cherche le fichier `reso
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-Le flux complet MVC : **requête → router → controller → model → base de données → vue → réponse**. Vous savez désormais où placer les éléments constitutifs de vos pages. La prochaine étape nous plonge dans le cycle de vie précis d'une requête HTTP.
+!!! quote "Ce qu'il faut retenir"
+    Le pattern MVC n'est pas une contrainte, c'est une libération. Il établit un contrat clair entre les couches de l'application : le Modèle ne sait pas qu'une vue existe, la Vue ne sait pas que la base de données existe. Cette séparation est ce qui rend le code Laravel testable, maintenable et évolutif.
+
+> [Architecture comprise. Place à l'outil d'automatisation central de Laravel →](./04-cycle-vie-artisan.md)

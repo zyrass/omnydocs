@@ -818,6 +818,9 @@ git commit -m "chore: upgrade to Node 20"
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    L'outil nvm est un compagnon quotidien dans la vie d'un professionnel de l'IT. Sa maîtrise ne s'acquiert pas en le lisant, mais par une pratique constante. Automatisez au maximum son utilisation pour qu'il devienne une seconde nature.
+
 !!! quote "Conclusion"
     _NVM a transformé la gestion des versions Node.js en rendant une tâche autrefois laborieuse — désinstaller et réinstaller Node — transparente et instantanée. La flexibilité de basculer entre versions n'est pas un confort optionnel : c'est une nécessité professionnelle imposée par la coexistence de projets legacy, de contraintes de production et de migrations progressives. Le fichier .nvmrc standardise la version au niveau projet et garantit la cohérence dans une équipe. Automatisé via un hook shell, le changement de version devient aussi naturel que de changer de répertoire. Que ce soit nvm classique, fnm pour la performance ou volta pour l'automatisation par projet, le principe reste identique : isolation des versions, bascule transparente, configuration déclarative par projet._
 

@@ -1448,3 +1448,14 @@ Avant de passer au Module 7, assurez-vous d'avoir compris ces concepts fondament
 [^1]: **Netplan** : outil de configuration réseau introduit par Canonical dans Ubuntu 17.10. Utilise des fichiers YAML pour définir les interfaces réseau. Génère ensuite la configuration pour systemd-networkd ou NetworkManager. Syntaxe stricte (indentation YAML critique).
 
 [^2]: **Minimal Install (Rocky/RHEL)** : installation sans interface graphique, uniquement les paquets essentiels du système. Idéal pour serveurs ou VMs de lab. Équivalent Ubuntu : "Ubuntu Server (minimized)". Occupe 1-2 Go contre 10-20 Go pour une installation complète avec bureau.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'architecture logicielle et système demande une vision globale. Les décisions prises lors de cette phase auront un impact déterminant sur la maintenabilité, les coûts et la sécurité du projet sur les prochaines années.
+
+> [Passer à la phase suivante →](../index.md)

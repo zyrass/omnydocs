@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # Flowchart — Styles & Classes
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     Les styles et classes permettent de normaliser la lecture d'un diagramme : états OK/Warning/Erreur, composants critiques, chemins à risque. C'est particulièrement utile en runbook, triage ou documentation sécurité où la signalétique visuelle accélère la prise de décision.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -37,6 +49,15 @@ flowchart TB
 ```
 
 _Ce schéma applique des styles différenciés pour guider la lecture : vert (OK), jaune (avertissement), rouge (erreur)._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

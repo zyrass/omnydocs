@@ -51,3 +51,12 @@ tags: ["JEST", "JAVASCRIPT", "TESTS", "MOCKING", "COVERAGE", "CICD"]
 - Bases JavaScript (ES6 : modules, async/await)
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

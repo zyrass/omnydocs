@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -1569,6 +1571,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2089,11 +2102,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../storage/backup-pra/" class="md-nav__link">
+      <a href="../../../storage/backup-pra.md" class="md-nav__link">
         
   
-  
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
   
   <span class="md-ellipsis">
     
@@ -2733,10 +2744,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2956,6 +2963,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3047,6 +3065,10 @@
 </div>
 </p>
 <div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>Utiliser des outils d'analyse réseau (comme tcpdump ou scapy), c'est comme brancher un stéthoscope sur les artères d'une ville. Vous ne regardez plus simplement si les camions arrivent à destination, mais vous examinez le contenu de chaque paquet transporté pour détecter une anomalie ou une maladie (latence, perte, malware).</em></p>
+</div>
+<div class="admonition quote">
 <p class="admonition-title">Plonger dans la matrice</p>
 <p><em>Lorsque deux machines n'arrivent pas à communiquer malgré un pare-feu en apparence ouvert, le seul moyen d'avoir la vérité absolue est de capturer les paquets sur le fil. <strong>Tcpdump</strong> est l'analyseur de paquets (Packet Sniffer) en ligne de commande le plus célèbre et le plus puissant d'Unix.</em></p>
 </div>
@@ -3117,6 +3139,16 @@
 <h2 id="lien-avec-la-cybersecurite-le-sniffing">Lien avec la Cybersécurité (Le Sniffing)<a class="headerlink" href="#lien-avec-la-cybersecurite-le-sniffing" title="Permanent link">&para;</a></h2>
 <p>En Ops, <code>tcpdump</code> est l'outil de diagnostic réseau ultime (Pourquoi la requête API plante ? Regardons le paquet HTTP brut).</p>
 <p>En Cybersécurité offensive (Red Team), intercepter les paquets s'appelle le <strong>Sniffing</strong>. Si un pirate s'introduit sur votre réseau interne et lance un tcpdump sur des protocoles non chiffrés (HTTP, Telnet, FTP), il verra les noms d'utilisateurs et les mots de passe passer <strong>en clair</strong>. C'est la raison absolue pour laquelle on impose aujourd'hui le chiffrement partout (HTTPS, SSH, SFTP).</p>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>La visibilité réseau est primordiale pour l'analyse d'incidents et le troubleshooting. Maîtriser tcpdump, netstat ou scapy permet de diagnostiquer la majorité des anomalies avant qu'elles ne s'aggravent.</p>
+</div>
+<blockquote>
+<p><a href="../../">Retourner à l'index Réseau →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >

@@ -13,6 +13,10 @@ tags: ["SAMBA", "SMB", "CIFS", "RESEAU", "PARTAGE"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Les services réseaux (DNS, FTP, SSH) sont comme les différents guichets spécialisés d'une grande entreprise. Le DNS est l'accueil qui indique où se trouve chaque bureau, SSH est l'entrée de service hyper-sécurisée pour la maintenance, et FTP est le quai de chargement des marchandises. Chaque guichet mal surveillé est une opportunité d'intrusion._
+
 !!! quote "Le pont entre deux mondes"
     _Les entreprises utilisent des serveurs Linux (pour leur stabilité, gratuité, et résistance aux ransomwares classiques) mais possèdent un parc d'ordinateurs pour les employés sous Windows. Comment faire pour qu'un employé Windows puisse faire un simple "clic-droit -> Partager" ou monter un "Lecteur réseau Z:" qui pointe en réalité vers un serveur Linux ? La réponse est **Samba**._
 
@@ -146,3 +150,14 @@ La défense (Ops) contre ce scénario repose sur trois piliers :
 1. Les permissions strictes (Alice ne doit pas avoir accès au dossier RH).
 2. L'activation des **Snapshots** sur le système de fichiers (ZFS ou LVM) côté Linux.
 3. Le durcissement strict du protocole : **Désactivez absolument SMBv1** dans la configuration Samba globale (`server min protocol = SMB2_02`).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Chaque service exposé est un vecteur d'attaque potentiel. La configuration sécurisée des services fondamentaux (DNS, SSH, Samba) est la première et souvent la plus critique ligne de défense de l'infrastructure.
+
+> [Retourner à l'index Réseau →](../index.md)

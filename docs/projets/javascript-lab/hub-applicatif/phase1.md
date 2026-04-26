@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟡 Intermédiaire"
   data-version="2.0"
-  data-time="1h00">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Un Hub Applicatif (Dashboard) n'est pas un site web descendant que l'on fait défiler. C'est un écran de contrôle massif affichant simultanément plusieurs blocs d'informations vitales. Votre mission est de poser les fondations architecturales strictes et de paver l'écran avec une Grille Bento (Bento Grid) pour recevoir les futurs widgets.
@@ -175,3 +179,14 @@ document.addEventListener('DOMContentLoaded', () => {
 Parfait. Votre salle des machines est prête. Il est temps de brancher l'antenne extérieure vers les serveurs de la planète Terre.
 
 [Passer à la Phase 2 : Asynchrone & Geolocation API →](phase2.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

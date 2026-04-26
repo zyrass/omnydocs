@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # Pie Chart (répartition)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     Le pie chart est un support simple de répartition : charges, couverture documentaire, répartition d'efforts. Il ne remplace pas une analyse, mais améliore la lisibilité d'un état macro sans nécessiter de lecture de données brutes.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -29,6 +41,15 @@ pie title Répartition (exemple)
 ```
 
 _Ce schéma illustre une répartition proportionnelle entre domaines — les valeurs sont relatives, pas absolues._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

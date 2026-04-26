@@ -377,3 +377,12 @@ describe('Timers virtuels', () => {
 > Module suivant : [Coverage & CI/CD →](./04-coverage-cicd.md) — mesurer la couverture et intégrer Vitest dans une pipeline CI.
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

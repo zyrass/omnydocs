@@ -12,6 +12,10 @@ tags: ["SMSI", "ISO 27001", "ANALYSE RISQUES", "BIA", "PSSI", "SDSI"]
   data-time="6-8 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Un SMSI (Système de Management de la Sécurité de l'Information) est comme le système immunitaire de votre entreprise : il identifie les menaces, organise la défense et s'adapte en continu._
+
 ## Introduction
 
 **Le Système de Management de la Sécurité de l'Information (SMSI)** constitue le **cadre organisationnel structuré** pour gérer la sécurité de l'information de manière systématique et continue. Conforme à la norme **ISO 27001**, il repose sur une approche par les risques et l'amélioration continue selon le cycle **PDCA** (Plan-Do-Check-Act).
@@ -130,4 +134,13 @@ La démarche SMSI constitue **le cœur opérationnel** de la gouvernance de la s
 
 > Les fiches suivantes détaillent chaque composante du SMSI avec méthodologies, livrables attendus et bonnes pratiques de mise en œuvre.
 
-<br />
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Un SMSI n'est pas un projet — c'est un processus vivant. La erreur classique est d'implémenter ISO 27001 comme un chantier ponctuel à l'occasion d'un audit, puis d'oublier le cycle PDCA. La vraie valeur du SMSI se mesure au bout de 2 à 3 ans de cycle d'amélioration continue, quand les indicateurs démontrent une réduction tangible de l'exposition aux risques.
+
+> [Approfondissez avec les méthodologies d'analyse de risques qui alimentent le SMSI →](./risques/)

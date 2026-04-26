@@ -78,3 +78,14 @@ Celui ci permet au modale d'écran de se fermer ou au menus si l'utilisateur ne 
 
 La suite n'est qu'affaire de documentation et est incroyablement agréable. Mais si nous puissions mélanger à la fois la puissance magique du Front et le coté Dynamique PHP Côté base de données ? 
 Allons voir le `L` de la stack. Livewire !
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Alpine.js est la réponse de la Stack TALL à une question fondamentale : 'Ai-je vraiment besoin de React pour afficher ou masquer un menu déroulant ?' La réponse est non. Alpine résout 80% des besoins d'interactivité côté client en 15kb, sans build step, sans complexité de state management.
+
+> [Interactivité côté client maîtrisée. Passez maintenant à la réactivité côté serveur avec Livewire →](./38-livewire-reactif.md)

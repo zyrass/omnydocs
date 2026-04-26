@@ -233,5 +233,3 @@ Sysmon64.exe -u
     Sysmon est **indispensable** dans tout SOC surveillant des endpoints Windows. Sans lui, vous voyez des événements tronqués : un processus créé sans son hash, une connexion réseau sans le processus source. Avec Sysmon, chaque événement devient une **empreinte complète** permettant une investigation précise. La configuration SwiftOnSecurity est un excellent point de départ — peaufinez-la selon votre environnement.
 
 > Continuez avec **[YARA →](./yara.md)** pour apprendre à écrire des signatures de détection de malwares sur les fichiers que Sysmon vous a permis d'identifier.
-
-<br>

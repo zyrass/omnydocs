@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -5932,10 +5934,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -6290,8 +6288,16 @@
 <p>Eloquent possède une mécanique native <strong><code>SoftDeletes</code></strong>. Au lieu de purger l'entrée de la table, Eloquent remplira un champs <code>deleted_at</code>, et <strong>cachera instantanément les résultats</strong> de toutes les requêtes frontales. Vous conservez ainsi vos archives pour les administrateurs sans risquer d'exoser au moteur de recherche des pages supprimées par des auteurs avec des remords.</p>
 <p><br></p>
 <hr />
+<p><br></p>
+<hr />
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>Le moteur de recherche Eloquent et ses verbes de base ne sont plus un secret. Il faut repérer cependant, qu'un objet est rarement seul dans une base de donnée, il sera forcé d'être rattaché à d'autres objets. Nous aborderons ce concept avec les jointures manuelles en un concept plus simple : Les Relations Modélisées.</p>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Eloquent ORM n'est pas un simple wrapper SQL — c'est un langage expressif qui transforme chaque table en objet vivant. La différence entre <code>Post::where('active', true)-&gt;latest()-&gt;take(5)-&gt;get()</code> et son équivalent SQL brut illustre parfaitement pourquoi Laravel est considéré comme le framework PHP le plus lisible au monde.</p>
+</div>
+<blockquote>
+<p><a href=".././16-relations-modeles/">CRUD maîtrisé. Découvrez maintenant comment les modèles se parlent entre eux →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >

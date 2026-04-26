@@ -819,6 +819,9 @@ L'opérateur ternaire permet d'écrire une condition IF/ELSE simple sur une seul
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ces notions fondamentales sur logique conditionnelle sont essentielles pour la suite de votre parcours. Consolidez ces acquis théoriques par la pratique avant de passer aux modules spécialisés (Cybersécurité, Infrastructure ou Développement).
+
 !!! quote "Conclusion"
     _La logique conditionnelle transforme les programmes en systèmes intelligents capables de s'adapter aux situations. Au début, chaque décision et chaque branche demandent une réflexion consciente. Avec la pratique, les structures optimales deviennent un réflexe — et les règles métier s'expriment naturellement dans le code._
 

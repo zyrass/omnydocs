@@ -13,6 +13,10 @@ tags: ["PARCOURS", "CYBERSECURITE", "DOUBLE-COMPETENCE", "AVANCE"]
   data-time="5-10 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La Double Compétence, c'est maîtriser à la fois l'architecture du bâtiment (Développement) et l'urbanisme de la ville (Systèmes/Réseaux). C'est le parcours le plus exigeant, mais celui qui offre la vision la plus complète pour devenir un architecte technique de haut niveau._
+
 !!! danger "**Accessibilité : difficile** — _Ce parcours est le plus exigeant. Il ne s'aborde pas sans avoir solidement consolidé les deux volets techniques au préalable._"
 
 ## Que fait ce parcours
@@ -139,8 +143,9 @@ _L'extension vers la **Gouvernance** est la seule orientation pertinente à ce s
 
 ## Conclusion
 
-Le parcours Double compétence technique est le chemin le plus long et le plus exigeant de la documentation.  
-Il produit un profil expert sécurité technique capable d'intervenir aussi bien en Red Team qu'en Blue Team, avec une compréhension profonde des deux faces de la cybersécurité.
+!!! quote "Ce qu'il faut retenir"
+    Le parcours Double compétence technique est le chemin le plus long et le plus exigeant de la documentation.  
+    Il produit un profil expert sécurité technique capable d'intervenir aussi bien en Red Team qu'en Blue Team, avec une compréhension profonde des deux faces de la cybersécurité.
 
 **Point d'entrée recommandé : [Fondamentaux IT](../../bases/index.md) — puis [Développement & Stack TALL](../../dev-cloud/index.md) et [Systèmes & Infrastructure](../../sys-reseau/index.md) en parallèle — puis [Cyber : Défense](../../cyber/operations/index.md) et [Cyber : Attaque](../../cyber/tools/index.md).**
 

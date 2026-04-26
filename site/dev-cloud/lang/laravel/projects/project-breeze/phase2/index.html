@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Document en cours de rédaction">
+        <meta name="description" content="Personnalisation du modèle User, création de migrations complémentaires (profil, avatar) et relations Eloquent.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Phase2 - OmnyDocs</title>
+        <title>Phase 2 — Base de Données & Modèles - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#phase2" class="md-skip">
+        <a href="#phase-2-base-de-donnees-modeles" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Phase2
+              Phase 2 — Base de Données &amp; Modèles
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1173,6 +1171,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-de-la-phase-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de la Phase 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-nouvelle-migration-colonnes-de-profil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Nouvelle Migration — Colonnes de Profil
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mise-a-jour-du-modele-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Mise à Jour du Modèle User
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-factory-mise-a-jour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Factory Mise à Jour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1192,20 +1253,120 @@
                 
                   
 
-<h1 id="phase2">Phase2<a class="headerlink" href="#phase2" title="Permanent link">&para;</a></h1>
+<h1 id="phase-2-base-de-donnees-modeles">Phase 2 — Base de Données &amp; Modèles<a class="headerlink" href="#phase-2-base-de-donnees-modeles" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟢 En construction"
-  data-version="1.0"
-  data-time="Bientôt disponible">
+  data-level="🟢 Débutant"
+  data-version="Laravel 11"
+  data-time="~1 heure">
 </div>
 </p>
+<h2 id="objectifs-de-la-phase-2">Objectifs de la Phase 2<a class="headerlink" href="#objectifs-de-la-phase-2" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
-<p class="admonition-title">Article en cours de rédaction</p>
-<p>Le contenu détaillé de cette page est actuellement en cours de rédaction. Il sera publié lors des prochaines mises à jour d'OmnyDocs.</p>
+<p class="admonition-title">Ce que vous allez faire</p>
+<ul>
+<li>Ajouter des colonnes au modèle User (<code>bio</code>, <code>avatar</code>, <code>last_login_at</code>)</li>
+<li>Créer une migration propre avec <code>php artisan make:migration</code></li>
+<li>Mettre à jour le modèle User (fillable, casts)</li>
+<li>Créer une relation User → Posts si applicable</li>
+</ul>
 </div>
-<p><br /></p>
+<h2 id="1-nouvelle-migration-colonnes-de-profil">1. Nouvelle Migration — Colonnes de Profil<a class="headerlink" href="#1-nouvelle-migration-colonnes-de-profil" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>add_profile_columns_to_users_table<span class="w"> </span>--table<span class="o">=</span>users
+</span></code></pre></div>
+<div class="language-php highlight"><span class="filename">database/migrations/xxxx_add_profile_columns_to_users_table.php</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">public function up(): void</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="x">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="x">    Schema::table(&#39;users&#39;, function (Blueprint $table) {</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="x">        $table-&gt;text(&#39;bio&#39;)-&gt;nullable()-&gt;after(&#39;email&#39;);</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="x">        $table-&gt;string(&#39;avatar&#39;)-&gt;nullable()-&gt;after(&#39;bio&#39;);</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="x">        $table-&gt;timestamp(&#39;last_login_at&#39;)-&gt;nullable()-&gt;after(&#39;remember_token&#39;);</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="x">    });</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="x">}</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="x">public function down(): void</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="x">{</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="x">    Schema::table(&#39;users&#39;, function (Blueprint $table) {</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="x">        $table-&gt;dropColumn([&#39;bio&#39;, &#39;avatar&#39;, &#39;last_login_at&#39;]);</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="x">    });</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="x">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>migrate
+</span></code></pre></div>
+<h2 id="2-mise-a-jour-du-modele-user">2. Mise à Jour du Modèle User<a class="headerlink" href="#2-mise-a-jour-du-modele-user" title="Permanent link">&para;</a></h2>
+<div class="language-php highlight"><span class="filename">app/Models/User.php</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">protected $fillable = [</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="x">    &#39;name&#39;,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="x">    &#39;email&#39;,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="x">    &#39;password&#39;,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="x">    &#39;bio&#39;,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="x">    &#39;avatar&#39;,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="x">];</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="x">protected $casts = [</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="x">    &#39;email_verified_at&#39; =&gt; &#39;datetime&#39;,</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="x">    &#39;last_login_at&#39;     =&gt; &#39;datetime&#39;,</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="x">    &#39;password&#39;          =&gt; &#39;hashed&#39;,</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="x">];</span>
+</span></code></pre></div>
+<h2 id="3-factory-mise-a-jour">3. Factory Mise à Jour<a class="headerlink" href="#3-factory-mise-a-jour" title="Permanent link">&para;</a></h2>
+<div class="language-php highlight"><span class="filename">database/factories/UserFactory.php</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="x">public function definition(): array</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="x">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="x">    return [</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="x">        &#39;name&#39;     =&gt; fake()-&gt;name(),</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="x">        &#39;email&#39;    =&gt; fake()-&gt;unique()-&gt;safeEmail(),</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="x">        &#39;password&#39; =&gt; static::$password ??= Hash::make(&#39;password&#39;),</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="x">        &#39;bio&#39;      =&gt; fake()-&gt;sentence(10),</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="x">    ];</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="x">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Créer 10 utilisateurs de test</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>php<span class="w"> </span>artisan<span class="w"> </span>tinker
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>User::factory<span class="o">(</span><span class="m">10</span><span class="o">)</span>-&gt;create<span class="o">()</span><span class="p">;</span>
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Les migrations sont le contrat historique de votre base de données. Chaque modification doit passer par une migration dédiée — jamais directement dans la base. Cette discipline vous permet de reproduire l'état exact de votre BDD sur n'importe quel environnement (dev, staging, prod) avec un simple <code>php artisan migrate</code>.</p>
+</div>
+<blockquote>
+<p><a href=".././phase3/">Phase 3 — Personnalisation des vues Blade →</a></p>
+</blockquote>
 
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">LARAVEL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BREEZE</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PROJET GUIDÉ</span>
+      
+    
+  </nav>
 
 
 

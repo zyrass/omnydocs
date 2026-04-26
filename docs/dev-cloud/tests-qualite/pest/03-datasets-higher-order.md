@@ -1621,3 +1621,14 @@ Voilà le **Module 3 PEST complet** (8-10 heures de contenu) avec le même nivea
 Le Module 3 PEST est terminé ! Les Datasets sont maintenant totalement maîtrisés.
 
 Voulez-vous que je continue avec le **Module 4 - Testing Laravel avec PEST** (tests HTTP élégants, database avec expectations, authentification, workflows Laravel complets) ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Pest PHP apporte une syntaxe élégante et expressive aux tests PHP. En réduisant le bruit syntaxique, il permet aux développeurs de se concentrer sur l'essentiel : la qualité et la fiabilité du code métier.
+
+> [Retourner à l'index des tests →](../../index.md)

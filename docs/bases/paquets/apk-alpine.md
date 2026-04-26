@@ -650,6 +650,9 @@ La bibliothèque musl libc crée des incompatibilités avec Oracle Java (utilise
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La gestion des paquets via apk alpine est la porte d'entrée de toute administration système Linux. Comprendre ses mécanismes de résolution de dépendances et de dépôts garantit la stabilité et la sécurité de vos serveurs en production.
+
 !!! quote "Conclusion"
     _APK représente l'aboutissement d'une philosophie radicale : moins, c'est plus. Dans un monde où les distributions Linux gonflent avec des fonctionnalités superflues, Alpine Linux et APK offrent une alternative structurée : un système qui fait exactement ce dont il a besoin, sans plus. La force d'APK réside dans sa spécialisation — il ne cherche pas à rivaliser avec apt ou dnf sur le nombre de fonctionnalités. Il excelle dans son domaine : vitesse, légèreté et efficacité. Réduire une image Docker de 150 MB à 30 MB ou faire démarrer une application en 100 ms au lieu de 2 secondes justifie l'investissement. Alpine n'est pas pour tous les cas — la compatibilité logicielle maximale appartient à Debian et Ubuntu. Mais pour les microservices, les conteneurs de production et les systèmes embarqués, maîtriser APK revient à optimiser au niveau du système d'exploitation lui-même, avant même d'écrire une ligne de code applicatif._
 

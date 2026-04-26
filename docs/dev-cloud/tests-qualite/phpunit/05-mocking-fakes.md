@@ -1993,3 +1993,14 @@ Voilà le **Module 5 complet** (10-12 heures de contenu) avec :
 Le Module 5 est terminé ! Tous les concepts de mocking, fakes et isolation sont maintenant maîtrisés.
 
 Souhaitez-vous que je continue avec le **Module 6 - TDD Test-Driven Development** (Red-Green-Refactor, construire features en TDD, philosophie TDD) ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'écriture de tests n'est pas une perte de temps, c'est un investissement. Une couverture de test robuste via PHPUnit garantit que votre application peut évoluer et être refactorisée en toute confiance sans régressions.
+
+> [Retourner à l'index des tests →](../../index.md)

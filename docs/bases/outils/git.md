@@ -1228,6 +1228,9 @@ gitleaks detect
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    L'outil git est un compagnon quotidien dans la vie d'un professionnel de l'IT. Sa maîtrise ne s'acquiert pas en le lisant, mais par une pratique constante. Automatisez au maximum son utilisation pour qu'il devienne une seconde nature.
+
 !!! quote "Conclusion"
     _Git a transformé le développement logiciel en permettant une collaboration massive et asynchrone à une échelle jamais vue. Des milliers de développeurs contribuent simultanément au noyau Linux ou à Kubernetes sans coordination centralisée, grâce à l'architecture distribuée de Git. La courbe d'apprentissage est réelle — staging area, commits, branches, merge versus rebase, remote tracking branches — mais cette complexité cache une puissance remarquable. Une fois maîtrisé, Git devient invisible : on ne pense plus à l'outil, on pense au code et à son évolution. Git n'est pas qu'un système de versioning — c'est un système de gestion de l'historique qui permet de tracer chaque décision, chaque modification, chaque bug introduit et corrigé. L'historique Git bien entretenu devient une documentation vivante du projet. Maîtriser Git, c'est comprendre que le versioning est une discipline, pas une contrainte. Les pratiques qui semblent fastidieuses au départ — messages de commit détaillés, commits atomiques, branches descriptives — deviennent naturelles et multiplient l'efficacité de toute l'équipe._
 

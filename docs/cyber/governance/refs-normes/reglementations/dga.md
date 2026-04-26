@@ -166,3 +166,14 @@ Un **Comité européen de l'innovation des données** (CEID) est créé pour coo
 - **Commission européenne — Stratégie des données** : digital-strategy.ec.europa.eu
 - **Gaia-X** : gaia-x.eu (espace de données européen)
 - **CNIL** : cnil.fr (autorité nationale compétente France)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

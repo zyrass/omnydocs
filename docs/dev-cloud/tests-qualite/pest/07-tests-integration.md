@@ -1541,3 +1541,14 @@ Voilà le **Module 7 PEST complet** (8-10 heures de contenu) avec le même nivea
 Le Module 7 PEST est terminé ! L'Architecture Testing avec PEST Arch est maintenant totalement maîtrisé.
 
 Prêt pour le **Module 8 - CI/CD & Production** (FINAL) ? (CI/CD complet, coverage, mutation testing, déploiement auto, monitoring production)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Pest PHP apporte une syntaxe élégante et expressive aux tests PHP. En réduisant le bruit syntaxique, il permet aux développeurs de se concentrer sur l'essentiel : la qualité et la fiabilité du code métier.
+
+> [Retourner à l'index des tests →](../../index.md)

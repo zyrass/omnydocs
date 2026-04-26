@@ -13,6 +13,10 @@ tags: ["DNS", "BIND9", "RESEAU", "SERVEUR", "INFRASTRUCTURE"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Les services réseaux (DNS, FTP, SSH) sont comme les différents guichets spécialisés d'une grande entreprise. Le DNS est l'accueil qui indique où se trouve chaque bureau, SSH est l'entrée de service hyper-sécurisée pour la maintenance, et FTP est le quai de chargement des marchandises. Chaque guichet mal surveillé est une opportunité d'intrusion._
+
 !!! quote "Pas de DNS, pas d'internet"
     _Sur Internet, les machines communiquent avec des adresses IP, pas avec des noms. Le serveur **DNS** (Domain Name System) est l'annuaire qui traduit `serveur-web.interne` en `192.168.1.50`. L'erreur la plus commune en informatique est la panne DNS. Gérer son propre DNS local est vital pour une infrastructure d'entreprise._
 
@@ -105,3 +109,14 @@ Le protocole DNS est vieux et n'était pas chiffré.
 2. **L'exfiltration (DNS Tunneling)** : Souvent, les pare-feux bloquent tout le trafic sortant, *sauf* le port 53 (DNS), car l'ordinateur en a besoin. Un attaquant peut cacher ses données volées à l'intérieur de dizaines de requêtes DNS factices pour contourner le pare-feu sans éveiller les soupçons.
 
 C'est pour cela que la gestion et la surveillance fine (Observabilité) des requêtes DNS est l'une des tâches primordiales d'un centre de cyberdéfense (SOC).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Chaque service exposé est un vecteur d'attaque potentiel. La configuration sécurisée des services fondamentaux (DNS, SSH, Samba) est la première et souvent la plus critique ligne de défense de l'infrastructure.
+
+> [Retourner à l'index Réseau →](../index.md)

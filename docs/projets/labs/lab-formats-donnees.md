@@ -685,6 +685,9 @@ ip,hostname,port,protocol,state,service,version,banner,first_seen,last_seen
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La manipulation de formats comme JSON, YAML et CSV est omniprésente en développement et automatisation. Savoir les lire, les structurer et les convertir est une compétence transversale qui vous servira au quotidien.
+
 !!! quote "Conclusion"
     _Ces exemples ne sont pas des exercices académiques — ce sont des structures rencontrées quotidiennement dans les environnements de sécurité. Un analyste SOC lit des JSON de threat intelligence, un ingénieur DevSecOps écrit des pipelines YAML, un auditeur produit des rapports XCCDF, un pentester exporte des résultats Nmap en CSV. Savoir lire ces formats à vue, identifier ce qui est suspect et les manipuler programmatiquement est une compétence fondamentale._
 

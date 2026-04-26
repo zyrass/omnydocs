@@ -17,7 +17,7 @@ tags: ["GLOSSAIRE", "DEFINITIONS", "LEXIQUE", "JARGON"]
     _La précision du vocabulaire est le premier outil du professionnel de la tech. On ne parle pas de "piratage" mais "d'exploitation", pas de "page web" mais de "réponse serveur", ni de "cadenas de navigateur" mais de "certificat X.509". Le glossaire est le traducteur universel de cette ingénierie._
 
 !!! abstract "Résumé"
-    Cet index alphabétique a pour vocation de regrouper et définir formellement l'ensemble des termes techniques, des technologies et des standards abordés au sein du projet OmnyDocs, qu'il s'agisse de Développement, de Systèmes ou de Cybersécurité.
+    Cet index alphabétique a pour vocation de regrouper et définir formellement l'ensemble des termes techniques, des technologies et des standards abordés au sein du projet OmnyDocs, qu'il s'agisse de Développement, de Systèmes ou de Cybersécurité. L'intégralité des définitions a été standardisée sous la nouvelle architecture ABI pour garantir une navigation et une clarté maximales.
 
 <br />
 

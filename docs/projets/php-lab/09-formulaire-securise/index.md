@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="8.3"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Le formulaire de contact, présent sur 99% des sites web, est la 1ère porte d'entrée pour les pirates informatiques. Spam, Déni de Service, Vol de Session (XSS), Soumission Forcée (CSRF).
@@ -249,4 +253,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <span class="text-gray-700">Spammez le bouton "Transmettre" comme un bot affolée en rafraichissant la page avec F5 pendant 3 secondes. Le Rate Limiter prendra le relais et affichera la page rouge "Alerte Spam".</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

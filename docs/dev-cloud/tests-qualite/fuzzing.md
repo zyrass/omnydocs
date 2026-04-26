@@ -352,3 +352,12 @@ public function test_apply_discount(): void
 > **P6 complet** — La section Tests & Qualité dispose maintenant de 5 modules thématiques complets en plus des formations PHPUnit et Pest.
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

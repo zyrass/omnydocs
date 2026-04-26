@@ -384,6 +384,9 @@ La Root CA doit être strictement hors ligne — activée uniquement pour signer
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La cryptographie et l'outil PKI constituent la base de la confiance numérique. Une erreur de configuration dans ce domaine ne produit pas un simple bug, mais une vulnérabilité critique pouvant compromettre l'intégralité d'un système d'information.
+
 !!! quote "Conclusion"
     _Une PKI n'est pas un outil — c'est une architecture de confiance. Lorsqu'elle est bien conçue, la hiérarchie Root CA hors ligne, CA intermédiaires opérationnelles et révocation active rend l'usurpation d'identité cryptographique pratiquement impossible. Lorsqu'elle est mal conçue — Root CA exposée, durées excessives, absence de révocation — elle donne une illusion de sécurité plus dangereuse que l'absence de sécurité. Maîtriser les PKI, c'est comprendre comment la confiance numérique est construite, déléguée, vérifiée et révoquée à l'échelle d'Internet._
 

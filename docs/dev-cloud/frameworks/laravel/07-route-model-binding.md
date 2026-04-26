@@ -109,6 +109,13 @@ class Post extends Model
 
 ---
 
+<br>
+
+---
+
 ## Conclusion
 
-Cette syntaxe accélère drastiquement le développement et nettoie la lisibilité de vos methodes Controller. La gestion de la donnée transmise se clôture par son atterrissage vers une vue ou une redirection.
+!!! quote "Ce qu'il faut retenir"
+    Le Route Model Binding est l'une des abstractions les plus élégantes de Laravel. En déclarant un type dans la signature d'une méthode, vous éliminez une ligne de `findOrFail()` et une ligne de gestion de 404 dans **chaque** méthode de contrôleur. Sur une application de 50 routes, c'est 100 lignes de code que vous n'écrirez jamais.
+
+> [Injection automatique maîtrisée. Abordez maintenant la gestion des flux et redirections →](./08-redirections-groupes.md)

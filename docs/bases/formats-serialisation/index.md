@@ -106,6 +106,9 @@ Ces formats jouent un rôle transversal dans tous les domaines de l'informatique
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Le format INDEX est un standard incontournable de l'échange de données. Savoir le lire, le structurer et l'analyser est une compétence transversale absolument vitale, que ce soit en développement, en administration système ou en analyse de logs cybersécurité.
+
 !!! quote "Conclusion"
     _Ces formats sont omniprésents — dans les APIs que l'on interroge, les pipelines que l'on configure, les données que l'on analyse. Les comprendre n'est pas optionnel : c'est ce qui permet de travailler avec n'importe quel outil, service ou environnement sans devoir repartir de zéro à chaque fois._
 

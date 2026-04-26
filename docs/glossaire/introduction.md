@@ -13,6 +13,10 @@ tags: ["GLOSSAIRE", "GUIDE", "INTRODUCTION"]
   data-time="Lecture rapide">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Un glossaire n'est pas qu'un simple dictionnaire technique. C'est une carte de navigation qui relie les concepts entre eux pour vous donner une vision d'ensemble d'un écosystème complexe._
+
 ## Domaines couverts
 
 Le glossaire est organisé en sept domaines de spécialisation, couvrant l'ensemble du périmètre d'OmnyDocs.
@@ -23,7 +27,7 @@ Le glossaire est organisé en sept domaines de spécialisation, couvrant l'ensem
 | **Administration Système** | Systèmes d'exploitation, services, virtualisation, sécurité système, monitoring |
 | **Administration Réseau** | Protocoles, routage, commutation, QoS, sécurité réseau, haute disponibilité |
 | **Développement Web** | Frontend, backend, APIs, frameworks, bases de données, sécurité web, performance |
-| **Développement Mobile** | à éditer |
+| **Développement Mobile** | Écosystème mobile (Swift, SwiftUI, iOS), architectures natives, sécurité embarquée |
 | **Développement Cloud** | Plateformes cloud, conteneurisation, Infrastructure as Code, serverless, observabilité |
 | **DevSecOps** | CI/CD, automatisation, monitoring, sécurité intégrée, culture DevOps, métriques |
 | **Cybersécurité** | Cryptographie, détection d'intrusion, réponse aux incidents, gouvernance, conformité |
@@ -34,25 +38,29 @@ Le glossaire est organisé en sept domaines de spécialisation, couvrant l'ensem
 
 ## Format des définitions
 
-Chaque terme suit une structure standardisée et homogène.
+Chaque terme suit une structure standardisée et homogène (format ABI), optimisée pour la navigation et le référencement interne.
 
-!!! note "Exemple de terme"
-    > Définition principale — claire, factuelle et concise.
+### [Nom du Terme]
 
-    Contexte d'utilisation du terme dans l'industrie.
+!!! note "Définition"
+    Définition principale — claire, factuelle et concise.
 
-    - **Acronyme :** développé entre parenthèses si applicable
-    - **Synonymes :** termes équivalents reconnus
-    - **Variantes :** déclinaisons ou sous-catégories
+Contexte d'utilisation du terme dans l'industrie.
 
-    ```mermaid
-    graph LR
-        A[Terme] --> B[Concept lié 1]
-        A --> C[Concept lié 2]
-        A --> D[Concept lié 3]
-    ```
+- **Acronyme :** développé entre parenthèses si applicable
+- **Synonymes :** termes équivalents reconnus
+- **Variantes :** déclinaisons ou sous-catégories
 
-Les relations Mermaid indiquent les **connexions sémantiques** avec d'autres termes du glossaire — elles permettent d'explorer les domaines de manière transversale.
+```mermaid
+graph TB
+    A[Terme] --> B[Concept lié 1]
+    A --> C[Concept lié 2]
+    A --> D[Concept lié 3]
+```
+
+_Explication : [Terme] est défini comme : définition principale — claire, factuelle et concise._
+
+Les relations Mermaid (toujours présentées de haut en bas) indiquent les **connexions sémantiques** avec d'autres termes du glossaire — elles permettent d'explorer les domaines de manière transversale.
 
 <br>
 

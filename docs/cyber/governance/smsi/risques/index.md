@@ -12,6 +12,10 @@ tags: ["RISQUES", "EBIOS RM", "MEHARI", "ISO 27005", "ANALYSE"]
   data-time="6-8 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _L'analyse de risques est comme la souscription d'une assurance. Vous n'allez pas payer un coffre-fort à 10 000€ pour protéger un stylo. C'est l'art de proportionner les mesures de sécurité à la valeur de l'actif défendu._
+
 ## Introduction
 
 **L'analyse de risques** constitue le **socle fondamental** de toute démarche de sécurité de l'information. Elle permet d'identifier les menaces pesant sur les actifs critiques, d'évaluer leur probabilité et leur impact, puis de définir les mesures de traitement appropriées selon l'appétit au risque de l'organisation.
@@ -83,4 +87,13 @@ L'analyse de risques constitue **l'étape fondatrice** du SMSI (ISO 27001). Elle
 
 > Les fiches suivantes détaillent chaque méthodologie avec ses étapes, ses outils et ses livrables attendus.
 
-<br />
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le choix de la méthodologie d'analyse de risques dépend du contexte : EBIOS RM est la référence pour les OIV/OSE et les projets sensibles en France (préconisé par l'ANSSI), MEHARI est plus adaptée aux démarches outillées en entreprise, et ISO 27005 offre le cadre international le plus portable. Quelle que soit la méthode, la rigueur du processus prime sur l'outil choisi.
+
+> [Complétez votre vision GRC avec la gestion opérationnelle des vulnérabilités →](../../vuln/)

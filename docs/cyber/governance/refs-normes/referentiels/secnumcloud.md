@@ -713,3 +713,14 @@ Consulter la liste officielle à jour sur le site de l'ANSSI, car les qualificat
     **Dernière mise à jour** : Novembre 2025  
     **Durée de lecture** : 50-60 minutes  
     **Niveau** : Débutant & Intermédiaire
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

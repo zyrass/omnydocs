@@ -1631,3 +1631,14 @@ Le **Module 8** vous apprendra à **combiner le meilleur des deux mondes** en ut
 [^7]: **Route Model Binding** : Fonctionnalité Laravel résolvant paramètres route en objets Eloquent automatiquement. Exemple : `Route::delete('/api/tasks/{task}')` + `destroy(Task $task)` → Laravel exécute `Task::findOrFail($id)`. Erreur 404 si ID inexistant. Évite code boilerplate. Fonctionne avec API REST.
 
 [^8]: **CSRF (Cross-Site Request Forgery)** : Attaque forçant utilisateur authentifié à exécuter actions non désirées. Protection Laravel : Token unique vérifié à chaque POST/PUT/DELETE. Formulaires classiques : `@csrf`. fetch() : Header `X-CSRF-TOKEN` avec valeur depuis `<meta name="csrf-token">`. Obligatoire pour sécurité API.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La TALL stack (Tailwind, Alpine, Laravel, Livewire) offre une alternative puissante aux SPAs (Single Page Applications) lourdes en JavaScript. Elle permet de construire des interfaces réactives tout en gardant la logique métier solidement ancrée côté serveur.
+
+> [Retourner à l'index TALL →](../index.md)

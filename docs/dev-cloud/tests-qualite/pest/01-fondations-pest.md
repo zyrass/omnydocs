@@ -1741,3 +1741,14 @@ Voilà le **Module 1 PEST complet** (6-8 heures de contenu) avec le même niveau
 Le Module 1 PEST est terminé ! Les fondations sont maintenant solides.
 
 Voulez-vous que je continue avec le **Module 2 - Expectations & Assertions** (toutes les expectations disponibles, chaînage, expectations custom, types complexes) ?
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Pest PHP apporte une syntaxe élégante et expressive aux tests PHP. En réduisant le bruit syntaxique, il permet aux développeurs de se concentrer sur l'essentiel : la qualité et la fiabilité du code métier.
+
+> [Retourner à l'index des tests →](../../index.md)

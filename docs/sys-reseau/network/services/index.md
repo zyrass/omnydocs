@@ -12,6 +12,10 @@ tags: ["SERVICES", "RESEAU", "INFRASTRUCTURE", "SERVEUR"]
   data-time="Sous-Hub Services">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Les services réseaux (DNS, FTP, SSH) sont comme les différents guichets spécialisés d'une grande entreprise. Le DNS est l'accueil qui indique où se trouve chaque bureau, SSH est l'entrée de service hyper-sécurisée pour la maintenance, et FTP est le quai de chargement des marchandises. Chaque guichet mal surveillé est une opportunité d'intrusion._
+
 !!! quote "Les fondations de la communication"
     _Une infrastructure réseau ne sert à rien s'il n'y a rien au bout des câbles. L'administrateur système (Ops) passe la majorité de son temps à installer, configurer et dépanner ces **services fondamentaux**. Si un seul de ces services s'effondre (comme le DNS), c'est l'intégralité de l'entreprise qui s'arrête de fonctionner._
 
@@ -56,4 +60,15 @@ Cette section détaille les protocoles et les logiciels les plus couramment dép
 
     [:octicons-arrow-right-24: Centraliser l'identité](./ldap-pam.md)
 
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Chaque service exposé est un vecteur d'attaque potentiel. La configuration sécurisée des services fondamentaux (DNS, SSH, Samba) est la première et souvent la plus critique ligne de défense de l'infrastructure.
+
+> [Retourner à l'index Réseau →](../index.md)

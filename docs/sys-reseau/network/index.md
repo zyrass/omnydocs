@@ -12,8 +12,27 @@ tags: ["RESEAU", "NETWORK", "INFRASTRUCTURE", "SERVICES", "SECURITE"]
   data-time="Hub Réseau">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _L'administration des systèmes et réseaux s'apparente à l'urbanisme. Vous construisez des routes (routage), définissez des quartiers (VLANs), et établissez des lois de circulation (pare-feu) pour que les flux de données circulent de manière fluide et sécurisée._
+
 !!! quote "Les fondations du système nerveux"
     _Comme pour l'administration système, **il est inutile de s'attaquer à la cybersécurité (hacking, pentest) si vous ne maîtrisez pas le réseau**. Avant d'intercepter un paquet réseau pour en extraire un mot de passe (Sniffing), vous devez comprendre ce qu'est le protocole ARP, comment fonctionne le modèle TCP/IP, et comment un administrateur configure un pare-feu périmétrique. C'est l'objectif de ce hub._
+
+## 🗺️ Cartographie de l'Écosystème Réseau
+
+```mermaid
+graph TD
+    A[Client Externe / Hacker] -->|Internet| B[Pare-feu Périmétrique pfsense]
+    B -->|Filtrage| C[DMZ - Reverse Proxy HAProxy]
+    C -->|Routage L7| D[Réseau Interne LAN]
+    
+    D --> E[Services Core DNS, DHCP]
+    D --> F[Stockage Samba, FTP]
+    D --> G[Administration SSH, VPN]
+    
+    H[Admin Réseau / Blue Team] -.->|Monitoring Nmap, Wireshark| D
+```
 
 ## L'approche Opérationnelle (Ops)
 
@@ -51,3 +70,14 @@ Contrairement à la section des fondamentaux théoriques (Modèle OSI, familles 
 **La Red Team (Attaque)** passe 80% de son temps à utiliser (ou détourner) les outils de la section *Outils d'Analyse* (tcpdump, scapy, nmap). Pour attaquer, il faut comprendre l'état des ports et savoir injecter des paquets illégitimes dans le réseau.
 
 Dans tous les cas, **la maîtrise de l'administration réseau est le prérequis**.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Comprendre le modèle OSI et les protocoles TCP/IP est indispensable pour tout ingénieur. Une infrastructure réseau mal conçue sera toujours un cauchemar à sécuriser et à maintenir.
+
+> [Retourner à l'index →](../index.md)

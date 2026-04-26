@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="à éditer">
+        <meta name="description" content="GitHub — La plateforme de collaboration et d'hébergement de code source basée sur Git. Maîtrisez les Pull Requests, les Issues, les Actions CI/CD et les bonnes pratiques en équipe.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Github - OmnyDocs</title>
+        <title>GitHub — La Place Publique du Code - OmnyDocs</title>
       
     
     
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#github" class="md-skip">
+        <a href="#github-la-place-publique-du-code" class="md-skip">
           Aller au contenu
         </a>
       
@@ -189,7 +189,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Github
+              GitHub — La Place Publique du Code
             
           </span>
         </div>
@@ -558,6 +558,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,10 +1091,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -1190,6 +1188,139 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#concepts-fondamentaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Fondamentaux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts Fondamentaux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-entites-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les entités clés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-workflow-gitgithub-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le workflow Git/GitHub standard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandes-essentielles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commandes Essentielles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commandes Essentielles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cloner-un-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cloner un repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-creer-et-basculer-sur-une-branche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Créer et basculer sur une branche
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-travailler-committer-et-pousser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Travailler, committer et pousser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-rester-synchronise-avec-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Rester synchronisé avec main
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-actions-automatisation-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions — Automatisation CI/CD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques-professionnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes Pratiques Professionnelles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1211,16 +1342,259 @@
                 
                   
 
-<h1 id="github">Github<a class="headerlink" href="#github" title="Permanent link">&para;</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<h1 id="github-la-place-publique-du-code">GitHub — La Place Publique du Code<a class="headerlink" href="#github-la-place-publique-du-code" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
   data-level="🟢 Débutant & 🟡 Intermédiaire"
-  data-version="0"
-  data-time="??-?? minutes">
+  data-version="2024"
+  data-time="~30 minutes">
 </div>
 </p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique — Google Drive pour le Code Professionnel</p>
+<p>Imaginez que vous travaillez sur un roman avec 5 co-auteurs. Si tout le monde modifie le même fichier Word en même temps, vous obtenez un chaos de conflits et de versions perdues. <strong>GitHub</strong> est le système qui donne un exemplaire à chaque auteur, trace chaque modification (qui a changé quoi, quand et pourquoi), et permet de fusionner proprement le travail de tous.</p>
+<p>La différence avec Google Drive ? GitHub sait comparer deux versions d'un fichier ligne par ligne, nommer précisément chaque ensemble de modifications (un <strong>commit</strong>), et gérer des dizaines de branches de travail en parallèle sans jamais perdre l'historique.</p>
+</div>
+<p>GitHub est construit sur <strong>Git</strong> (le système de versioning local) mais y ajoute une couche de collaboration en ligne, de revue de code, d'automatisation (CI/CD) et de gestion de projet. Il est devenu le standard de facto de l'industrie du logiciel.</p>
+<p><br></p>
+<hr />
+<h2 id="concepts-fondamentaux">Concepts Fondamentaux<a class="headerlink" href="#concepts-fondamentaux" title="Permanent link">&para;</a></h2>
+<h3 id="les-entites-cles">Les entités clés<a class="headerlink" href="#les-entites-cles" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Entité</th>
+<th>Définition</th>
+<th>Analogie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Repository</strong></td>
+<td>Dossier de projet versionné (local + distant)</td>
+<td>Le dossier partagé de l'équipe</td>
+</tr>
+<tr>
+<td><strong>Branch</strong></td>
+<td>Ligne de développement parallèle</td>
+<td>Une copie de travail isolée</td>
+</tr>
+<tr>
+<td><strong>Commit</strong></td>
+<td>Snapshot nommé d'un ensemble de modifications</td>
+<td>Une sauvegarde avec un titre</td>
+</tr>
+<tr>
+<td><strong>Pull Request (PR)</strong></td>
+<td>Demande de fusion d'une branche dans une autre</td>
+<td>La soumission d'un travail pour relecture</td>
+</tr>
+<tr>
+<td><strong>Issue</strong></td>
+<td>Ticket de suivi (bug, feature, tâche)</td>
+<td>Un post-it numérique</td>
+</tr>
+<tr>
+<td><strong>Fork</strong></td>
+<td>Copie indépendante d'un repository externe</td>
+<td>Un clone sous votre propre contrôle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="le-workflow-gitgithub-standard">Le workflow Git/GitHub standard<a class="headerlink" href="#le-workflow-gitgithub-standard" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    classDef local fill:#cce5ff,stroke:#0d6efd,color:#000
+    classDef remote fill:#d1e7dd,stroke:#198754,color:#000
 
+    A("🖥️ Clone local") --&gt; B("🌿 Nouvelle branche\nfeature/ma-feature")
+    B --&gt; C("📝 Modifications\n+ git add + git commit")
+    C --&gt; D("⬆️ git push origin feature/...")
+    D --&gt; E("🔁 Pull Request sur GitHub")
+    E --&gt; F("👀 Code Review par l'équipe")
+    F --&gt; G("✅ Merge dans main")
+
+    class A,B,C,D local
+    class E,F,G remote</code></pre>
+<p><em>Le flux de travail <strong>Git Flow</strong> est universel : on ne travaille jamais directement sur <code>main</code>. On crée une branche, on pousse, on demande une revue via Pull Request, et on fusionne après validation.</em></p>
+<p><br></p>
+<hr />
+<h2 id="commandes-essentielles">Commandes Essentielles<a class="headerlink" href="#commandes-essentielles" title="Permanent link">&para;</a></h2>
+<h3 id="1-cloner-un-repository">1. Cloner un repository<a class="headerlink" href="#1-cloner-un-repository" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Récupérer un projet distant</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Cloner via HTTPS (mot de passe ou token)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/username/mon-projet.git
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Cloner via SSH (clé SSH configurée — recommandé)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:username/mon-projet.git
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">cd</span><span class="w"> </span>mon-projet
+</span></code></pre></div>
+<p><em>Après le clone, votre répertoire local est synchronisé avec la branche principale (<code>main</code>) du dépôt distant.</em></p>
+<h3 id="2-creer-et-basculer-sur-une-branche">2. Créer et basculer sur une branche<a class="headerlink" href="#2-creer-et-basculer-sur-une-branche" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Gestion des branches</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Créer et basculer en une commande</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/ajout-login
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Vérifier sur quelle branche vous êtes</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>git<span class="w"> </span>branch
+</span></code></pre></div>
+<h3 id="3-travailler-committer-et-pousser">3. Travailler, committer et pousser<a class="headerlink" href="#3-travailler-committer-et-pousser" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Cycle commit → push</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Voir les fichiers modifiés</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>status
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Ajouter des fichiers au prochain commit</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>git<span class="w"> </span>add<span class="w"> </span>src/auth/login.php
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Tout ajouter (attention : vérifier git status avant)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Créer le commit avec un message explicite</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: ajouter le formulaire de connexion avec validation CSRF&quot;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># Pousser la branche vers GitHub</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/ajout-login
+</span></code></pre></div>
+<p><em>La convention de nommage des commits <strong>Conventional Commits</strong> (<code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>chore:</code>) est adoptée dans la majorité des projets professionnels. Elle permet de générer des changelogs automatiques et de lire l'historique d'un coup d'œil.</em></p>
+<h3 id="4-rester-synchronise-avec-main">4. Rester synchronisé avec <code>main</code><a class="headerlink" href="#4-rester-synchronise-avec-main" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Mise à jour de votre branche</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Récupérer les derniers changements de main</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git<span class="w"> </span>rebase<span class="w"> </span>origin/main
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># OU (merge)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</span></code></pre></div>
+<p><br></p>
+<hr />
+<h2 id="github-actions-automatisation-cicd">GitHub Actions — Automatisation CI/CD<a class="headerlink" href="#github-actions-automatisation-cicd" title="Permanent link">&para;</a></h2>
+<p>Les <strong>GitHub Actions</strong> permettent de déclencher des workflows automatiques à chaque Push, Pull Request, ou selon un calendrier.</p>
+<div class="language-yaml highlight"><span class="filename">.github/workflows/ci.yml — Pipeline de test automatique</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI Pipeline</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Déclencher à chaque Pull Request vers main</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nt">on</span><span class="p">:</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nt">jobs</span><span class="p">:</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="c1"># 1. Récupérer le code</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">      </span><span class="c1"># 2. Installer PHP</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup PHP</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shivammathur/setup-php@v2</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">          </span><span class="nt">php-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;8.3&#39;</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">      </span><span class="c1"># 3. Installer les dépendances</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">composer install</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">      </span><span class="c1"># 4. Lancer les tests</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run PHPUnit</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">php artisan test</span>
+</span></code></pre></div>
+<p><em>Ce workflow garantit qu'aucun code cassé ne sera fusionné dans <code>main</code> : GitHub bloquera automatiquement la Pull Request si les tests échouent.</em></p>
+<p><br></p>
+<hr />
+<h2 id="bonnes-pratiques-professionnelles">Bonnes Pratiques Professionnelles<a class="headerlink" href="#bonnes-pratiques-professionnelles" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Règle</th>
+<th>Explication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Branch protection</strong> sur <code>main</code></td>
+<td>Interdire les pushes directs, exiger une PR et une review</td>
+</tr>
+<tr>
+<td><strong>Commits atomiques</strong></td>
+<td>Un commit = une modification logique. Jamais <code>fix stuff</code></td>
+</tr>
+<tr>
+<td><strong><code>.gitignore</code> exhaustif</strong></td>
+<td>Ne jamais committer <code>.env</code>, <code>node_modules/</code>, <code>vendor/</code></td>
+</tr>
+<tr>
+<td><strong>Secrets via GitHub Secrets</strong></td>
+<td>Les tokens et clés API via <code>Settings → Secrets</code>, jamais dans le code</td>
+</tr>
+<tr>
+<td><strong>Releases taguées</strong></td>
+<td>Utiliser les tags sémantiques (<code>v1.2.0</code>) pour marquer les versions de production</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>GitHub n'est pas un simple hébergement de code — c'est un <strong>système nerveux de collaboration</strong> pour les équipes de développement. La Pull Request est l'unité de travail fondamentale : elle centralise le code, la discussion, les tests automatiques et la décision de fusion. Maîtriser le workflow <code>branche → commit → PR → merge</code> est le prérequis absolu pour tout développeur professionnel.</p>
+</div>
+<blockquote>
+<p><a href=".././gitlab/">GitLab — L'alternative auto-hébergée →</a></p>
+</blockquote>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GIT</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GITHUB</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">COLLABORATION</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CI/CD</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">VERSIONING</span>
+      
+    
+  </nav>
 
 
 

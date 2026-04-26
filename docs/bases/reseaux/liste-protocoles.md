@@ -1064,6 +1064,9 @@ Maintenir les systèmes à jour pour corriger les vulnérabilités connues — C
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Les notions abordées autour de liste protocoles sont le système nerveux de l'informatique moderne. Sans une maîtrise parfaite de ces protocoles et modèles, le dépannage de problèmes d'infrastructure ou la sécurisation de communications restent de pures suppositions.
+
 !!! quote "Conclusion"
     _Les protocoles réseau constituent l'infrastructure invisible qui permet au monde numérique de fonctionner. Leur compréhension dépasse la simple mémorisation de ports et de noms pour englober une vision holistique de la communication réseau, des compromis entre performance et fiabilité, et des implications de sécurité. TCP garantit la livraison au prix de la latence — UDP sacrifie la fiabilité pour la vitesse. TLS chiffre les échanges mais ne protège pas contre les erreurs de configuration. Chaque protocole a été conçu pour résoudre un problème précis. Choisir le protocole adapté, l'implémenter correctement et le sécuriser rigoureusement — c'est là que se joue la différence entre une infrastructure robuste et une surface d'attaque ouverte._
 

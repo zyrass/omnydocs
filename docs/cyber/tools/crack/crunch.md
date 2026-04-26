@@ -115,18 +115,3 @@ crunch 8 8 0123456789 | aircrack-ng -e MonWifi -w - capture.cap
 | ✅ **À FAIRE** | **Utiliser Hashcat (Mask) plutôt que Crunch + Hashcat** | Crunch a été conçu à une époque où les craqueurs n'avaient pas de moteur combinatoire. Aujourd'hui, **Hashcat** possède un moteur de masque natif (`-a 3 -m 1000 ?d?d?d?d`) qui est infiniment plus rapide car le mot est généré directement sur la carte graphique (GPU). Crunch ne doit être utilisé que si l'outil cible (ex: Hydra, Aircrack) n'a pas de moteur de masque interne. |
 | ❌ **À NE PAS FAIRE** | **Tenter un "Vrai" Bruteforce > 8 caractères** | Si vous lancez `crunch 10 10`, le terminal va vous avertir que la taille du fichier sera de plusieurs Pétaoctets. Vous ne craquerez jamais un mot de passe complexe en essayant *toutes* les lettres de l'alphabet. Vous devez utiliser des dictionnaires probabilistes (SecLists) et des règles. |
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Crunch est l'incarnation de la force brute pure. Il est extrêmement utile pour des missions "exotiques" où vous connaissez la structure mathématique ou réglementaire d'un identifiant ou d'un mot de passe (numéro de téléphone, format de ticket, code PIN de porte d'immeuble). Pour le reste, privilégiez toujours les Wordlists et les Rulesets pour casser des mots de passe générés par des humains.
-
-> La boucle est bouclée. Du scan externe initial (`Nmap`) jusqu'à l'extraction et le craquage des mots de passe en interne (`Hashcat`), vous avez désormais accès au réseau cible. Mais que se passe-t-il une fois le mot de passe récupéré ? L'accès initial n'est que la première étape. L'Étape 9 regroupe l'arsenal d'**[Exploitation et Post-Exploitation →](../exploit/index.md)** pour automatiser votre maintien dans la place.
-
-
-
-
-

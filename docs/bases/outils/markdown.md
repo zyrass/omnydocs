@@ -791,6 +791,9 @@ pour sécuriser leurs comptes.
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    L'outil markdown est un compagnon quotidien dans la vie d'un professionnel de l'IT. Sa maîtrise ne s'acquiert pas en le lisant, mais par une pratique constante. Automatisez au maximum son utilisation pour qu'il devienne une seconde nature.
+
 !!! quote "Conclusion"
     _Markdown a réussi là où des dizaines de formats propriétaires ont échoué : créer un langage universel pour l'écriture structurée. Sa force réside dans son équilibre parfait entre simplicité d'écriture et puissance de formatage. On peut écrire du Markdown dans un terminal SSH, un éditeur de texte basique ou un IDE sophistiqué — le résultat sera toujours lisible, portable et versionnable. La philosophie Markdown — contenu d'abord, présentation ensuite — libère l'écrivain des préoccupations de mise en forme. L'adoption massive par GitHub, GitLab, Stack Overflow, Reddit, Discord, Notion et Obsidian témoigne de sa pertinence. Maîtriser Markdown, c'est acquérir une compétence transversale qui reste pertinente quelle que soit la plateforme, l'outil ou le langage de programmation. Markdown n'est pas parfait — il a ses limites avec les tableaux complexes et les mises en page sophistiquées — mais pour la documentation technique, les notes personnelles et la communication écrite professionnelle, c'est l'outil optimal. Simple, rapide, portable, pérenne._
 

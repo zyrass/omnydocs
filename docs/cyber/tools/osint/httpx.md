@@ -209,24 +209,3 @@ subfinder -d omnyvia.com -silent | httpx -silent -mc 200 | nuclei -t cves/
 
     *Assurez-vous toujours que le domaine audité vous appartient ou que vous disposez d'un mandat explicite de Red Teaming autorisant le scan actif.*
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    httpx est le pont indispensable entre la phase de collecte (OSINT) et la phase d'exploitation (Pentest). Il purifie vos listes de cibles en écartant les serveurs morts ou les faux positifs DNS. Il est l'outil central qui valide le travail de Subfinder avant de donner le feu vert à Nuclei.
-
-> Maintenant que vos cibles sont qualifiées et que vous connaissez leurs technologies (CMS, Serveurs), vous pouvez initier l'analyse de vulnérabilités applicatives ciblée avec **[Nuclei →](../web/nuclei.md)**.
-
-<br>
-
-[^1]: **Système de Traitement Automatisé de Données (STAD)** : Tout équipement informatique capable de traiter des données. Un serveur web interrogé par httpx est un STAD, et la loi punit quiconque tente d'y accéder sans droit.
-
-
-
-
-
-
-

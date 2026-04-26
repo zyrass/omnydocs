@@ -1753,3 +1753,14 @@ La formation est officiellement **TERMINÉE**. Tu maîtrises maintenant :
 - Mutation Testing pour qualité maximale
 
 Tu peux maintenant construire des applications Laravel de **qualité production** avec PEST en toute confiance ! 💪
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Pest PHP apporte une syntaxe élégante et expressive aux tests PHP. En réduisant le bruit syntaxique, il permet aux développeurs de se concentrer sur l'essentiel : la qualité et la fiabilité du code métier.
+
+> [Retourner à l'index des tests →](../../index.md)

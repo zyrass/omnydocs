@@ -159,3 +159,14 @@ Sans oublier de demander à votre fonction de délogement de supprimer par `make
 ## Conclusion 
 
 Le système complet de routage protégé des requêtes URL et de gestions d'informations par session d'une durée illimité est en place. Un système complet vous évitera alors la lourde tache de réinventer l'Authentication par vous même comme nous venons de l'apprendre. Mais avant de passer aux starter-kits de l'écosystème Laravel, il est temps de boucler nos connaissance de sécurisation sur les Failles Hackeurs.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Un middleware est un gardien transparent. Il intercepte la requête avant qu'elle n'atteigne le contrôleur, applique une règle (est-ce que l'utilisateur est authentifié ? son email est-il vérifié ?) et laisse passer ou bloque. Cette séparation évite de polluer chaque méthode de contrôleur avec des vérifications d'accès répétitives.
+
+> [Middlewares maîtrisés. Approfondissez avec la sécurité CSRF et l'anti-bruteforce →](./23-securite-csrf-bruteforce.md)

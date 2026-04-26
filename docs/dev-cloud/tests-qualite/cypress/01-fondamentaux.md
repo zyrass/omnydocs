@@ -283,3 +283,12 @@ cy.get('[data-cy="article-title"]')
 > Module suivant : [Tests Avancés →](./02-tests-avances.md) — intercept réseau, fixtures, commandes personnalisées, CI/CD.
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

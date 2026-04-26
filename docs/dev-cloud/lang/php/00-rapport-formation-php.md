@@ -67,3 +67,14 @@ Les modules vont de `module1.md` (Fondations, Variables, Installation) à `modul
 **Recommandations :**
 1. **Renommage optionnel :** Passer de `moduleX.md` à `01-fondations.md`, `02-fonctions.md` pour un repère visuel plus évident dans la hiérarchie des dossiers (si le moteur Zensical est configurer pour trier par alpha).
 2. Autrement, la réécriture récente atteste d'une grande conformité avec nos standards d'excellence.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

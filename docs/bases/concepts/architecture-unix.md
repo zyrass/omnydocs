@@ -1047,6 +1047,9 @@ journalctl --since "1 hour ago"   # Logs depuis une heure
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise du concept de architecture unix est un pilier de l'informatique fondamentale. Au-delà de la syntaxe technique, c'est cette compréhension théorique qui différencie un simple technicien d'un véritable ingénieur capable de concevoir des systèmes robustes et maintenables.
+
 !!! quote "Conclusion"
     _L'architecture Unix représente plus de 50 ans d'évolution vers la simplicité, la modularité et l'élégance. Ses principes fondamentaux — tout est fichier, programmes composables, interface textuelle — ont créé un écosystème où des milliers d'outils collaborent harmonieusement. Comprendre l'architecture Unix va bien au-delà de la mémorisation de répertoires ou de commandes : c'est saisir une philosophie de conception qui valorise la clarté, la réutilisabilité et l'ouverture. Ces principes transcendent Unix et influencent profondément l'architecture moderne — microservices, conteneurs, APIs REST et organisation du code. La hiérarchie des fichiers n'est pas arbitraire — chaque répertoire a une raison d'être précise. Le modèle de permissions protège le système tout en permettant la collaboration. Les processus communiquent via des abstractions élégantes. Maîtriser Unix, c'est acquérir une vision systémique de l'informatique où chaque problème complexe se résout par la composition de solutions simples._
 

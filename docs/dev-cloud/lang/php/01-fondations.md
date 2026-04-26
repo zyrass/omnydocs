@@ -994,3 +994,14 @@ La théorie n'est rien sans la pratique. Voici vos deux premiers défis pour val
     Félicitations ! Vous venez de franchir la première étape, et sans doute la plus cruciale, de votre apprentissage. Vous ne vous contentez pas de "faire marcher" du code PHP : vous comprenez désormais comment l'installer proprement, comment structurer vos données de manière typée et surtout comment protéger votre application dès les premières lignes. Ces fondations sont le socle sur lequel reposent tous les frameworks modernes comme Laravel ou Symfony.
 
 > Prêt à donner de l'intelligence à vos scripts ? Dans le **Module 2**, nous allons apprendre à prendre des décisions avec les structures de contrôle et à automatiser des tâches répétitives avec les boucles.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le langage PHP a radicalement évolué. Il n'est plus le langage de script désordonné d'il y a 15 ans, mais un langage typé, orienté objet et performant. La maîtrise de ses concepts avancés est essentielle pour utiliser correctement un framework comme Laravel.
+
+> [Retourner à la Masterclass PHP →](../index.md)

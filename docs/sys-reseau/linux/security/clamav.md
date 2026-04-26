@@ -13,6 +13,10 @@ tags: ["CLAMAV", "ANTIVIRUS", "MALWARE", "SECURITE", "LINUX"]
   data-time="15 - 20 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Le durcissement d'un système Linux est comme la construction des fortifications d'un château. Le pare-feu (UFW) correspond aux douves extérieures, les permissions POSIX (chmod/chown) sont les clés des différentes pièces, et la supervision (Fail2Ban/Lynis) agit comme les gardes effectuant des rondes régulières._
+
 !!! quote "Les virus sous Linux ?"
     _On entend souvent dire que Linux n'a pas besoin d'antivirus. C'est vrai dans le sens où l'immense majorité des virus (.exe) sont conçus pour Windows et ne fonctionneront jamais sous Linux. Cependant, si votre serveur héberge un service Email, un serveur de fichiers (Samba/Nextcloud) ou un site web autorisant l'upload de documents, il peut devenir un **porteur sain**. Le serveur Linux ne sera pas infecté, mais il distribuera le virus à tous vos clients Windows ! C'est pour couper cette chaîne de transmission qu'on installe **ClamAV**._
 
@@ -98,3 +102,14 @@ Pour cela, on utilise le démon **`clamd`**. Les applications modernes (comme Ne
 ## Conclusion
 
 ClamAV n'est pas conçu pour empêcher votre serveur Linux de se faire hacker (c'est le rôle de `UFW` ou des permissions). Son rôle est **sanitaire** : empêcher votre infrastructure de devenir une plateforme de distribution de malwares pour vos utilisateurs et clients. C'est un prérequis indispensable dès lors que vous gérez des fichiers provenant de l'extérieur.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Sécuriser un système Linux exige une approche en couches : du pare-feu avec UFW à la détection d'intrusions avec Fail2Ban, en passant par un durcissement régulier. Aucun outil de sécurité ne remplace une bonne configuration de base.
+
+> [Retourner à l'index Linux →](../index.md)

@@ -70,3 +70,14 @@ $user = User::where('email', $request->email)->first(); // Auto Echappé des bal
 
 
 Méfiez vous des champs de texte de type "Formulaires", qui n'ont pas subi le passage par les objets Laravel. Il n'en tiendra qu'à vous de les sécuriser.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La sécurité n'est pas une fonctionnalité que l'on ajoute à la fin — c'est une discipline que l'on intègre à chaque décision d'architecture. Laravel protège contre la majorité de l'OWASP Top 10 par défaut (CSRF, XSS via Blade, injection SQL via Eloquent), mais la responsabilité du développeur reste entière sur la validation des entrées, la gestion des permissions et la protection des données sensibles.
+
+> [Sécurité maîtrisée. Optimisez maintenant les performances avec les queues et jobs asynchrones →](./41-file-attente-et-jobs.md)

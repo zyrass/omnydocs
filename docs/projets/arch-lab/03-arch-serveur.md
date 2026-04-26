@@ -14,6 +14,10 @@ status: beta
   data-time="90-120 minutes (total module)">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Concevoir l'architecture d'un projet de bout en bout, c'est passer du métier de maçon à celui d'architecte urbaniste. Vous ne posez plus seulement des briques (code), vous anticipez les flux de circulation, la résistance aux séismes (pannes de serveurs) et l'ajout de futurs quartiers (scalabilité)._
+
 ## Introduction
 
 Bienvenue dans le module le plus technique et le plus formateur d'Arch-Lab. Vous allez **installer manuellement** un serveur Arch Linux minimal sous VirtualBox, en mode UEFI/GPT avec systemd-boot comme bootloader.
@@ -2166,3 +2170,14 @@ Vous disposez maintenant d'un **serveur Arch Linux minimal stable**. Le prochain
 [^4]: **vmlinuz-linux** : noyau Linux compressé. Le "z" indique la compression (gzip historiquement). C'est le cœur du système d'exploitation.
 
 [^5]: **initramfs** : système de fichiers temporaire en RAM utilisé pendant le boot. Contient les drivers nécessaires pour monter la vraie partition root. Une fois le système démarré, il est remplacé par le vrai système.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'architecture logicielle et système demande une vision globale. Les décisions prises lors de cette phase auront un impact déterminant sur la maintenabilité, les coûts et la sécurité du projet sur les prochaines années.
+
+> [Passer à la phase suivante →](../index.md)

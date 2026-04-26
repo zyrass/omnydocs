@@ -167,19 +167,3 @@ Par défaut, Hydra est l'inverse de la furtivité.
     - 50 échecs de connexion sur un compte Root en 10 secondes déclencheront des alertes instantanées sur les téléphones de l'équipe de défense.
     - Lors d'une vraie opération d'intrusion (Red Team), Hydra n'est jamais utilisé de manière agressive. Il est relégué aux tests automatisés "bruyants" ou configuré en Password Spraying très lent (1 tentative par heure) sur l'OWA (Outlook) de l'entreprise.
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Aussi vieux qu'Internet, Hydra reste l'outil de référence absolu pour taper sur les protocoles réseau (SSH, FTP, MySQL, RDP). C'est un marteau. Il ne demande pas de finesse, juste un bon dictionnaire et une cible dont le pare-feu est mal configuré. Ne l'utilisez jamais pour le Web (Burp/ffuf sont meilleurs), et méfiez-vous de la stratégie de verrouillage de compte (Lockout) de votre client.
-
-> Mais si Hydra est trop vieux, existe-t-il une alternative plus stable, plus rapide et codée dans une logique similaire ? Bien sûr. L'éternel frère ennemi d'Hydra, qui le remplace parfois dans certains workflows réseau : **[Medusa →](./medusa.md)**.
-
-
-
-
-
-

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Responder — L'outil de compromission initiale ultime en réseau local Windows. Empoisonne les protocoles LLMNR, NBT-NS et MDNS pour capturer les empreintes NTLMv2.">
+        <meta name="description" content="Responder — L'outil de compromission initiale ultime en réseau local Windows. Guide avancé d'empoisonnement LLMNR/NBT-NS, NTLM Relaying et de détection Purple Team.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -1029,6 +1031,8 @@
       
         
       
+        
+      
     
     
     
@@ -1107,6 +1111,36 @@
     
   
     Phases d'un Pentest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os-cyber/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-monitor-play" viewBox="0 0 24 24"><path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56zM12 17v4M8 21h8"/><rect width="20" height="14" x="2" y="3" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparatif des OS Cyber
   
 
     
@@ -1925,6 +1959,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2292,7 +2336,7 @@
   <a href="#fonctionnement-architecture-lempoisonnement-llmnr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fonctionnement &amp; Architecture (L'Empoisonnement LLMNR)
+        🏗️ Fonctionnement &amp; Architecture (L'Empoisonnement LLMNR)
       
     </span>
   </a>
@@ -2300,10 +2344,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cas-dusage-complementarite" class="md-nav__link">
+  <a href="#cas-dusage-complementarite-strategique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cas d'usage &amp; Complémentarité
+        🎯 Cas d'usage &amp; Complémentarité Stratégique
       
     </span>
   </a>
@@ -2311,44 +2355,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-options-principales" class="md-nav__link">
+  <a href="#configuration-workflow-operationnel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Options Principales
+        🛠️ Configuration &amp; Workflow Opérationnel
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation &amp; Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#le-workflow-ideal-lembuscade-sur-reseau-local" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Le Workflow Idéal (L'Embuscade sur Réseau Local)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Le Workflow Idéal (L&#x27;Embuscade sur Réseau Local)">
+    <nav class="md-nav" aria-label="🛠️ Configuration &amp; Workflow Opérationnel">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-lactivation" class="md-nav__link">
+  <a href="#1-la-reconnaissance-lecoute-passive" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. L'Activation
+        1. La Reconnaissance (L'Écoute Passive)
       
     </span>
   </a>
@@ -2356,10 +2378,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-lattente-et-la-capture" class="md-nav__link">
+  <a href="#2-lembuscade-active" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. L'Attente et la Capture
+        2. L'Embuscade Active
       
     </span>
   </a>
@@ -2367,10 +2389,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-le-cassage-hashcat" class="md-nav__link">
+  <a href="#3-la-capture-et-le-cassage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Le Cassage (Hashcat)
+        3. La Capture et le Cassage
       
     </span>
   </a>
@@ -2383,10 +2405,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bonnes-mauvaises-pratiques-dos-donts" class="md-nav__link">
+  <a href="#techniques-avancees-wpad-et-dhcp-poisoning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bonnes &amp; Mauvaises Pratiques (Do's &amp; Don'ts)
+        🥷 Techniques Avancées : WPAD et DHCP Poisoning
       
     </span>
   </a>
@@ -2394,10 +2416,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#avertissement-legal-ethique" class="md-nav__link">
+  <a href="#approche-purple-team-comment-detecter-responder-blue-team" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avertissement Légal &amp; Éthique
+        🚨 Approche Purple Team : Comment détecter Responder ? (Blue Team)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Approche Purple Team : Comment détecter Responder ? (Blue Team)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-la-remediation-absolue-desactivation-par-gpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. La Remédiation Absolue (Désactivation par GPO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-regle-sigma-detection-via-event-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Règle Sigma (Détection via Event Logs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-honeypots-le-piege-inverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Honeypots (Le piège inversé)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-legalite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion &amp; Légalité
       
     </span>
   </a>
@@ -2501,6 +2573,156 @@
     
   
     BloodHound (AD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pfsense/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    pfSense (Attaques)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openvpn/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenVPN (Bypass)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haproxy/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    HAProxy (Fronting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openssh/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenSSH (Tunnels)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openclient/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenClient
   
 
     
@@ -2679,6 +2901,8 @@
       
         
           
+        
+      
         
       
         
@@ -3017,6 +3241,36 @@
     
   
     Fuzzing (général)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web/dvwa/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    DVWA & Plateformes
   
 
     
@@ -3787,6 +4041,8 @@
       
         
       
+        
+      
     
     
     
@@ -3970,6 +4226,36 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reporting/dradis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dradis Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4091,10 +4377,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -4196,7 +4478,7 @@
   <a href="#fonctionnement-architecture-lempoisonnement-llmnr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fonctionnement &amp; Architecture (L'Empoisonnement LLMNR)
+        🏗️ Fonctionnement &amp; Architecture (L'Empoisonnement LLMNR)
       
     </span>
   </a>
@@ -4204,10 +4486,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cas-dusage-complementarite" class="md-nav__link">
+  <a href="#cas-dusage-complementarite-strategique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cas d'usage &amp; Complémentarité
+        🎯 Cas d'usage &amp; Complémentarité Stratégique
       
     </span>
   </a>
@@ -4215,44 +4497,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-options-principales" class="md-nav__link">
+  <a href="#configuration-workflow-operationnel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Les Options Principales
+        🛠️ Configuration &amp; Workflow Opérationnel
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation &amp; Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#le-workflow-ideal-lembuscade-sur-reseau-local" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Le Workflow Idéal (L'Embuscade sur Réseau Local)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Le Workflow Idéal (L&#x27;Embuscade sur Réseau Local)">
+    <nav class="md-nav" aria-label="🛠️ Configuration &amp; Workflow Opérationnel">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-lactivation" class="md-nav__link">
+  <a href="#1-la-reconnaissance-lecoute-passive" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. L'Activation
+        1. La Reconnaissance (L'Écoute Passive)
       
     </span>
   </a>
@@ -4260,10 +4520,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-lattente-et-la-capture" class="md-nav__link">
+  <a href="#2-lembuscade-active" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. L'Attente et la Capture
+        2. L'Embuscade Active
       
     </span>
   </a>
@@ -4271,10 +4531,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-le-cassage-hashcat" class="md-nav__link">
+  <a href="#3-la-capture-et-le-cassage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Le Cassage (Hashcat)
+        3. La Capture et le Cassage
       
     </span>
   </a>
@@ -4287,10 +4547,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bonnes-mauvaises-pratiques-dos-donts" class="md-nav__link">
+  <a href="#techniques-avancees-wpad-et-dhcp-poisoning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bonnes &amp; Mauvaises Pratiques (Do's &amp; Don'ts)
+        🥷 Techniques Avancées : WPAD et DHCP Poisoning
       
     </span>
   </a>
@@ -4298,10 +4558,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#avertissement-legal-ethique" class="md-nav__link">
+  <a href="#approche-purple-team-comment-detecter-responder-blue-team" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avertissement Légal &amp; Éthique
+        🚨 Approche Purple Team : Comment détecter Responder ? (Blue Team)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Approche Purple Team : Comment détecter Responder ? (Blue Team)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-la-remediation-absolue-desactivation-par-gpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. La Remédiation Absolue (Désactivation par GPO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-regle-sigma-detection-via-event-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Règle Sigma (Détection via Event Logs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-honeypots-le-piege-inverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Honeypots (Le piège inversé)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-legalite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion &amp; Légalité
       
     </span>
   </a>
@@ -4386,13 +4696,13 @@
 <h1 id="responder-le-voisin-trop-serviable">Responder — Le Voisin Trop Serviable<a class="headerlink" href="#responder-le-voisin-trop-serviable" title="Permanent link">&para;</a></h1>
 <p><div
   class="omny-meta"
-  data-level="🟡 Intermédiaire"
+  data-level="🟡 Intermédiaire → 🔴 Avancé"
   data-version="3.1+"
-  data-time="~15 minutes">
+  data-time="~45 minutes">
 </div>
 </p>
 <div style="text-align: center; margin: 0 auto;">
-    <img src="/assets/images/cyber/responder-logo.svg" width="250" align="center" />
+    <img src="/assets/images/cyber/responder-logo.svg" width="250" align="center" alt="Responder Logo" />
 </div>
 
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
@@ -4404,26 +4714,26 @@ Normalement, c'est le vrai serveur DNS qui répond. Mais si le DNS ne connaît p
 <p>Créé par Laurent Gaffié, <strong>Responder</strong> est un empoisonneur de résolutions de noms (Poisoner) pour les réseaux locaux. C'est invariablement le premier outil lancé par une équipe Red Team dès qu'elle connecte un câble réseau dans un bâtiment. Il exploite la candeur des vieux protocoles Microsoft (LLMNR, NBT-NS) qui, lorsqu'ils ne trouvent pas un serveur, demandent à la cantonade si quelqu'un le connaît.</p>
 <p><br></p>
 <hr />
-<h2 id="fonctionnement-architecture-lempoisonnement-llmnr">Fonctionnement &amp; Architecture (L'Empoisonnement LLMNR)<a class="headerlink" href="#fonctionnement-architecture-lempoisonnement-llmnr" title="Permanent link">&para;</a></h2>
-<p>L'attaque repose sur une faille logique des réseaux Windows : la résolution de noms de secours.</p>
+<h2 id="fonctionnement-architecture-lempoisonnement-llmnr">🏗️ Fonctionnement &amp; Architecture (L'Empoisonnement LLMNR)<a class="headerlink" href="#fonctionnement-architecture-lempoisonnement-llmnr" title="Permanent link">&para;</a></h2>
+<p>L'attaque repose sur une faille logique des réseaux Windows : la résolution de noms de secours. Si un ordinateur Windows ne trouve pas un nom via le serveur DNS classique, il n'abandonne pas. Il utilise des protocoles de secours (LLMNR - UDP 5355, et NBT-NS - UDP 137) pour demander de l'aide à ses "voisins" locaux.</p>
 <pre class="mermaid"><code>flowchart TD
     %% Couleurs à fort contraste
     classDef attacker fill:#f8d7da,stroke:#dc3545,stroke-width:2px,color:#000
     classDef victim fill:#d1e7dd,stroke:#198754,stroke-width:2px,color:#000
     classDef infra fill:#e2e8f0,stroke:#64748b,stroke-width:2px,color:#000
 
-    A("📱 Employé&lt;br&gt;(Tape '\\\\SRV-FILS' au lieu de FILES)") --&gt;|"1. Requête DNS standard"| B("🏢 Serveur DNS de l'entreprise")
+    A("📱 Employé&lt;br&gt;(Tape '\\\\SRV-FILS' au lieu de FILES)") --&gt;|"1. Requête DNS Unicast"| B("🏢 Serveur DNS de l'entreprise")
 
     B --&gt;|"2. Réponse: 'Nom inconnu' (NXDOMAIN)"| A
 
-    A --&gt;|"3. Demande à tout le réseau local&lt;br&gt;(Protocole LLMNR Broadcast)"| C{"L'Avis de Recherche"}
+    A --&gt;|"3. Demande de secours à tout le LAN&lt;br&gt;(Protocole LLMNR Broadcast)"| C{"L'Avis de Recherche Multicast"}
 
     C --&gt;|"Le vrai SRV-FILES l'ignore"| D("Silencieux")
     C --&gt;|"Requête interceptée"| E("💻 Attaquant (Responder)")
 
-    E --&gt;|"4. Réponse Empoisonnée&lt;br&gt;'C'est moi SRV-FILS, authentifie-toi !'"| A
+    E --&gt;|"4. Réponse Empoisonnée (Poisoning)&lt;br&gt;'C'est moi SRV-FILS, authentifie-toi via SMB!'"| A
 
-    A --&gt;|"5. Envoi du Hash NTLMv2"| E
+    A --&gt;|"5. Envoi automatique du Hash NTLMv2&lt;br&gt;(Processus SSO de Windows)"| E
 
     E --&gt;|"6. Affichage sur l'écran de l'attaquant"| F("✅ Empreinte volée (Hashcat ready)")
 
@@ -4432,16 +4742,31 @@ Normalement, c'est le vrai serveur DNS qui répond. Mais si le DNS ne connaît p
     class B,C,D infra</code></pre>
 <p><br></p>
 <hr />
-<h2 id="cas-dusage-complementarite">Cas d'usage &amp; Complémentarité<a class="headerlink" href="#cas-dusage-complementarite" title="Permanent link">&para;</a></h2>
-<p>L'objectif de Responder n'est pas d'exécuter du code, mais de <strong>voler des identifiants (Credentials)</strong>.</p>
+<h2 id="cas-dusage-complementarite-strategique">🎯 Cas d'usage &amp; Complémentarité Stratégique<a class="headerlink" href="#cas-dusage-complementarite-strategique" title="Permanent link">&para;</a></h2>
+<p>L'objectif de Responder n'est pas d'exécuter du code, mais d'<strong>obtenir des Credentials (identifiants)</strong>. Dans une matrice MITRE ATT&amp;CK, il correspond à la tactique <em>Credential Access</em> (T1557.001 - Adversary-in-the-Middle).</p>
+<p>Il sert deux objectifs diamétralement opposés selon la configuration du réseau :</p>
 <ol>
-<li><strong>La Pêche au Hash (NTLMv2)</strong> : C'est son rôle principal. On le lance, on attend quelques heures (que les gens fassent des fautes de frappe ou redémarrent leur PC), et on récolte les hash NTLMv2 pour les casser sur un GPU à la maison (Hashcat).</li>
-<li><strong>Le Relais NTLM (NTLM Relay)</strong> : Si le réseau le permet (Pas de signature SMB), au lieu de garder le hash pour le casser, l'attaquant s'associe à l'outil <code>ntlmrelayx</code> (d'Impacket) pour relayer instantanément l'authentification vers un vrai serveur, entrant ainsi dans l'AD sans même avoir à connaître le mot de passe.</li>
+<li>
+<p><strong>La Pêche au Hash (NTLMv2 Cracking)</strong> :
+   C'est son rôle natif. On lance Responder, on attend qu'une victime fasse une faute de frappe, et on récupère son empreinte (Hash). Le hash NTLMv2 ne peut pas être "Passé" (Contrairement au NTLMv1), il doit obligatoirement être cassé par force brute hors ligne (via Hashcat/John) pour récupérer le mot de passe en clair.</p>
+</li>
+<li>
+<p><strong>Le Relais NTLM (NTLM Relaying)</strong> :
+   Si le réseau cible <strong>n'impose pas la signature SMB</strong> (SMB Signing), le hash n'a même pas besoin d'être cassé. L'attaquant désactive les serveurs SMB/HTTP natifs de Responder et lance un second outil (<code>ntlmrelayx.py</code> d'Impacket). Dès que l'employé envoie son hash à l'attaquant, l'attaquant le relaie instantanément au vrai Contrôleur de Domaine pour usurper l'identité de l'employé en temps réel.</p>
+</li>
 </ol>
 <p><br></p>
 <hr />
-<h2 id="les-options-principales">Les Options Principales<a class="headerlink" href="#les-options-principales" title="Permanent link">&para;</a></h2>
-<p>Responder est incroyablement automatisé. Sa configuration fine se fait dans le fichier <code>Responder.conf</code>, mais la ligne de commande permet de l'adapter au réseau.</p>
+<h2 id="configuration-workflow-operationnel">🛠️ Configuration &amp; Workflow Opérationnel<a class="headerlink" href="#configuration-workflow-operationnel" title="Permanent link">&para;</a></h2>
+<p>Responder est incroyablement automatisé. Sa configuration fine se fait dans le fichier <code>Responder.conf</code> (généralement situé dans <code>/etc/responder/</code> ou <code>/usr/share/responder/</code>), mais la ligne de commande permet de s'adapter à la volée.</p>
+<h3 id="1-la-reconnaissance-lecoute-passive">1. La Reconnaissance (L'Écoute Passive)<a class="headerlink" href="#1-la-reconnaissance-lecoute-passive" title="Permanent link">&para;</a></h3>
+<p>Lancer directement Responder en mode attaque dans un environnement industriel (OT) ou bancaire peut créer des instabilités (conflits d'IPs). Un professionnel commence <strong>toujours</strong> par écouter le bruit de fond.</p>
+<p><div class="language-bash highlight"><span class="filename">Mode Analyse Passive</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Le flag -A (Analyze) empêche Responder de répondre. Il se contente d&#39;afficher les requêtes.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-A
+</span></code></pre></div>
+<em>Si vous voyez des dizaines de requêtes LLMNR s'afficher (ex: des machines cherchant <code>WPAD</code> ou d'anciens serveurs déclassés), vous savez que le réseau est vulnérable. Il est temps de passer à l'attaque.</em></p>
+<h3 id="2-lembuscade-active">2. L'Embuscade Active<a class="headerlink" href="#2-lembuscade-active" title="Permanent link">&para;</a></h3>
+<p>On relance l'outil sans le flag <code>-A</code> pour activer l'empoisonnement.</p>
 <table>
 <thead>
 <tr>
@@ -4454,97 +4779,97 @@ Normalement, c'est le vrai serveur DNS qui répond. Mais si le DNS ne connaît p
 <tr>
 <td style="text-align: left;"><code>-I [eth0]</code></td>
 <td style="text-align: left;"><strong>Interface</strong></td>
-<td style="text-align: left;">La carte réseau branchée sur le LAN cible. C'est souvent la seule option obligatoire.</td>
+<td style="text-align: left;">La carte réseau branchée sur le LAN cible. C'est l'option fondamentale.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>-rdw</code></td>
 <td style="text-align: left;"><strong>Analyse Discrète</strong></td>
-<td style="text-align: left;">Répond aux requêtes (NetBIOS/LLMNR) mais limite certaines attaques agressives pour rester sous le radar (Souvent utilisé : <code>-I eth0 -r -d -w</code>).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>-A</code></td>
-<td style="text-align: left;"><strong>Mode Analyse (Passif)</strong></td>
-<td style="text-align: left;">Mode très utile. Responder ne répondra à aucune requête (pas d'empoisonnement), mais il écoutera et affichera toutes les requêtes LLMNR du réseau. Parfait pour vérifier si le réseau est vulnérable sans rien pirater.</td>
+<td style="text-align: left;">Répond aux requêtes mais limite certaines attaques agressives de NetBIOS (<code>-r</code>), DNS (<code>-d</code>) et désactive le faux proxy WPAD (<code>-w</code>). Mode "Safe" pour ne rien crasher.</td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<hr />
-<h2 id="installation-configuration">Installation &amp; Configuration<a class="headerlink" href="#installation-configuration" title="Permanent link">&para;</a></h2>
-<p>Installé par défaut sur Kali Linux. </p>
-<p><div class="language-bash highlight"><span class="filename">Installation</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>responder
+<p><div class="language-bash highlight"><span class="filename">Mode Empoisonnement Classique</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-r<span class="w"> </span>-d<span class="w"> </span>-w
 </span></code></pre></div>
-<em>Note : Si vous utilisez Responder pour faire du relais NTLM avec d'autres outils (Impacket), vous devrez ouvrir <code>/etc/responder/Responder.conf</code> et mettre <code>SMB = Off</code> et <code>HTTP = Off</code> pour ne pas bloquer les ports.</em></p>
-<p><br></p>
-<hr />
-<h2 id="le-workflow-ideal-lembuscade-sur-reseau-local">Le Workflow Idéal (L'Embuscade sur Réseau Local)<a class="headerlink" href="#le-workflow-ideal-lembuscade-sur-reseau-local" title="Permanent link">&para;</a></h2>
-<p>L'attaque avec Responder demande de la patience. C'est une technique d'opportunité.</p>
-<h3 id="1-lactivation">1. L'Activation<a class="headerlink" href="#1-lactivation" title="Permanent link">&para;</a></h3>
-<p>On branche son ordinateur sur une prise murale de l'entreprise (ou sur le WiFi Interne). On identifie sa carte (<code>eth0</code> ou <code>wlan0</code>) et on lance l'outil.
-<div class="language-bash highlight"><span class="filename">Lancer l&#x27;empoisonneur</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>responder<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span>-v
+Le terminal affiche les serveurs fictifs (SMB, SQL, FTP, HTTP) qu'il vient de créer sur votre machine.</p>
+<h3 id="3-la-capture-et-le-cassage">3. La Capture et le Cassage<a class="headerlink" href="#3-la-capture-et-le-cassage" title="Permanent link">&para;</a></h3>
+<p>C'est le moment d'attendre. Lorsqu'une victime mord à l'hameçon, le terminal Responder s'illumine en <strong>jaune vif</strong> :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[SMB] NTLMv2-SSP Client   : 192.168.1.50
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>[SMB] NTLMv2-SSP Username : CORP\j.dupont
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>[SMB] NTLMv2-SSP Hash     : j.dupont::CORP:1122334455667788:1A2B3C...
 </span></code></pre></div>
-Le terminal affichera un grand panneau "Responder" et la liste des serveurs fictifs qu'il vient de créer sur votre machine (un faux serveur SMB, un faux serveur SQL, un faux serveur LDAP...).</p>
-<h3 id="2-lattente-et-la-capture">2. L'Attente et la Capture<a class="headerlink" href="#2-lattente-et-la-capture" title="Permanent link">&para;</a></h3>
-<p>C'est le moment d'attendre.
-*   À 10h15, la secrétaire fait une faute de frappe : elle tape <code>\\serveur-docm</code> au lieu de <code>\\serveur-docs</code>.
-*   À 10h16, son PC diffuse l'erreur sur le réseau en LLMNR. Responder lui répond qu'il est ce serveur.
-*   À 10h16 et 1 milliseconde, le terminal Responder s'illumine en <strong>jaune vif</strong> :
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[+] NTLMv2-SSP Hash   : j.dupont::CORP:1122334455667788:1A2B3C...
-</span></code></pre></div>
-<em>Vous venez de capturer l'empreinte NTLMv2 de l'employée.</em></p>
-<h3 id="3-le-cassage-hashcat">3. Le Cassage (Hashcat)<a class="headerlink" href="#3-le-cassage-hashcat" title="Permanent link">&para;</a></h3>
-<p>On sauvegarde cette empreinte dans un fichier <code>hash.txt</code> et on utilise la puissance des cartes graphiques.
-<div class="language-bash highlight"><span class="filename">Cassage NTLMv2 (Mode 5600)</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">5600</span><span class="w"> </span>hash.txt<span class="w"> </span>/usr/share/wordlists/rockyou.txt
+<em>(Le Hash est sauvegardé automatiquement dans <code>/usr/share/responder/logs/</code>)</em></p>
+<p>On utilise ensuite Hashcat pour le casser en utilisant les puissants GPUs de notre machine de cracking.
+<div class="language-bash highlight"><span class="filename">Cassage NTLMv2 (Mode 5600)</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">5600</span><span class="w"> </span>/usr/share/responder/logs/SMB-NTLMv2-SSP-192.168.1.50.txt<span class="w"> </span>/usr/share/wordlists/rockyou.txt
 </span></code></pre></div></p>
 <p><br></p>
 <hr />
-<h2 id="bonnes-mauvaises-pratiques-dos-donts">Bonnes &amp; Mauvaises Pratiques (Do's &amp; Don'ts)<a class="headerlink" href="#bonnes-mauvaises-pratiques-dos-donts" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Action</th>
-<th>Recommandation</th>
-<th>Explication métier</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>✅ <strong>À FAIRE</strong></td>
-<td><strong>Analyser avant de frapper (<code>-A</code>)</strong></td>
-<td>Lancez toujours Responder avec le flag <code>-A</code> pendant 5 minutes. Regardez s'il y a des requêtes bizarres (des scripts automatisés qui cherchent des serveurs morts). Si oui, vous savez que l'empoisonnement sera un succès total.</td>
-</tr>
-<tr>
-<td>✅ <strong>À FAIRE</strong></td>
-<td><strong>Expliquer la remédiation au client</strong></td>
-<td>La présence de Responder dans un rapport d'audit est systématique. La solution pour l'entreprise est simple (et gratuite) : <strong>Désactiver LLMNR et NBT-NS via une GPO (Stratégie de groupe)</strong>.</td>
-</tr>
-<tr>
-<td>❌ <strong>À NE PAS FAIRE</strong></td>
-<td><strong>Activer le WPAD par défaut si vous n'êtes pas sûr</strong></td>
-<td>Le fichier de configuration permet d'activer le faux serveur proxy (WPAD). C'est dévastateur pour récupérer des mots de passe, mais cela peut couper l'accès internet de toute l'entreprise si c'est mal géré. Attention aux dénis de service réseau.</td>
-</tr>
-</tbody>
-</table>
+<h2 id="techniques-avancees-wpad-et-dhcp-poisoning">🥷 Techniques Avancées : WPAD et DHCP Poisoning<a class="headerlink" href="#techniques-avancees-wpad-et-dhcp-poisoning" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>WPAD (Web Proxy Auto-Discovery) Poisoning</strong>
+   Dans une entreprise, les navigateurs (Chrome/Edge) cherchent souvent automatiquement un serveur nommé "WPAD" pour savoir quel serveur Proxy utiliser pour aller sur Internet. Responder peut prétendre être ce serveur (<code>WPAD = On</code> dans <code>Responder.conf</code>). Il fournira un faux fichier de configuration <code>.pac</code> demandant au navigateur de s'authentifier auprès de l'attaquant pour TOUTES les requêtes HTTP. C'est dévastateur, mais ça peut couper Internet à la victime.</li>
+<li><strong>DHCP Poisoning</strong>
+   Si DHCP n'est pas sécurisé (DHCP Snooping désactivé sur les switchs), Responder peut injecter de faux paramètres DNS directement lors de l'attribution des adresses IP aux machines, redirigeant ainsi le trafic global.</li>
+</ol>
 <p><br></p>
 <hr />
-<h2 id="avertissement-legal-ethique">Avertissement Légal &amp; Éthique<a class="headerlink" href="#avertissement-legal-ethique" title="Permanent link">&para;</a></h2>
+<h2 id="approche-purple-team-comment-detecter-responder-blue-team">🚨 Approche Purple Team : Comment détecter Responder ? (Blue Team)<a class="headerlink" href="#approche-purple-team-comment-detecter-responder-blue-team" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Vue Défensive (Blue Team / SOC)</p>
+<p>Détecter Responder n'est pas une question d'Antivirus, puisque Responder s'exécute sur le PC de l'attaquant (ex: son propre Kali Linux), qui est hors de contrôle de l'entreprise (Bring Your Own Device). La détection doit se faire <strong>sur le réseau</strong> ou <strong>sur les terminaux cibles</strong>.</p>
+</div>
+<h3 id="1-la-remediation-absolue-desactivation-par-gpo">1. La Remédiation Absolue (Désactivation par GPO)<a class="headerlink" href="#1-la-remediation-absolue-desactivation-par-gpo" title="Permanent link">&para;</a></h3>
+<p>Avant même de chercher à détecter l'attaque, il faut la rendre impossible. LLMNR et NBT-NS sont des reliques de Windows 2000. Ils <strong>doivent</strong> être désactivés.
+- <strong>LLMNR</strong> : GPO &gt; Modèles d'administration &gt; Réseau &gt; Client DNS &gt; <em>Désactiver la résolution de noms de multidiffusion (LLMNR)</em>.
+- <strong>NBT-NS</strong> : Scripts PowerShell pour le désactiver sur chaque carte réseau (DHCP Option 43).</p>
+<h3 id="2-regle-sigma-detection-via-event-logs">2. Règle Sigma (Détection via Event Logs)<a class="headerlink" href="#2-regle-sigma-detection-via-event-logs" title="Permanent link">&para;</a></h3>
+<p>Même si le PC attaquant échappe au contrôle, le PC de la victime (qui se fait empoisonner) génère un journal d'audit Windows (Event ID <code>4624</code> - Logon) lorsqu'il tente de se connecter au faux serveur SMB de Responder.</p>
+<div class="language-yaml highlight"><span class="filename">Règle Sigma - Détection d&#x27;authentification NTLM downgrade</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Détection potentielle de Responder (NTLMv2 Downgrade / Relay)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">logsource</span><span class="p">:</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">product</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">windows</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nt">detection</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">selection</span><span class="p">:</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="nt">EventID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4624</span><span class="w">                     </span><span class="c1"># Succès de connexion (ou tentative)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="nt">LogonType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="w">                      </span><span class="c1"># Network Logon</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="nt">AuthenticationPackageName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;NTLM&#39;</span><span class="w"> </span><span class="c1"># Le protocole forcé par Responder</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="nt">filter</span><span class="p">:</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="c1"># On exclut les anciens serveurs légitimes qui utilisent encore NTLM</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="nt">SourceNetworkAddress</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;192.168.10.5&#39;</span><span class="w"> </span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">selection and not filter</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="no">Une entreprise moderne utilise Kerberos. Une authentification réseau (LogonType 3) </span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="no">qui rétrograde en NTLM depuis un poste de travail vers une IP inconnue</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="no">est la signature classique d&#39;un empoisonnement LLMNR par Responder.</span>
+</span></code></pre></div>
+<h3 id="3-honeypots-le-piege-inverse">3. Honeypots (Le piège inversé)<a class="headerlink" href="#3-honeypots-le-piege-inverse" title="Permanent link">&para;</a></h3>
+<p>Une technique Red/Blue très élégante consiste à créer un script qui tente volontairement, toutes les 10 minutes, de contacter un serveur qui n'existe pas (ex: <code>\\SERVEUR-FANTOME-99</code>). Si la requête LLMNR obtient une réponse, cela signifie qu'un Responder est branché sur le LAN. Le SOC lance alors une alerte P1.</p>
+<p><br></p>
+<hr />
+<h2 id="conclusion-legalite">Conclusion &amp; Légalité<a class="headerlink" href="#conclusion-legalite" title="Permanent link">&para;</a></h2>
 <div class="admonition danger">
 <p class="admonition-title">Altération du Routage Local</p>
-<p>Bien que Responder ne crée pas de dommage visible (comme un ransomware), il modifie le comportement normal des communications des ordinateurs de la cible (Man-in-the-Middle).</p>
+<p>Bien que Responder ne détruise pas de données (comme un ransomware), il modifie le comportement normal du routage local (Man-in-the-Middle).</p>
 <ol>
-<li>Fournir de fausses résolutions de nom aux ordinateurs de l'entreprise est une <strong>entrave au fonctionnement du système</strong> (Article 323-2 du Code pénal).</li>
-<li>La capture et le vol des hachages NTLMv2 (des secrets d'authentification) pour les casser est le prérequis à l'intrusion frauduleuse. Sans accord d'audit de l'infrastructure Interne, brancher Responder sur une prise réseau (même d'un espace de coworking) est pénalement condamnable.</li>
+<li>Fournir de fausses résolutions de nom aux ordinateurs d'une entreprise est une <strong>entrave au fonctionnement d'un STAD</strong> (Article 323-2 du Code pénal).</li>
+<li>La capture de hachages NTLMv2 (secrets d'authentification) pour les casser sans autorisation explicite est un délit grave. Brancher un Kali avec Responder sur une prise RJ45 publique d'une bibliothèque ou d'un coworking est pénalement condamnable.</li>
 </ol>
 </div>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Si vous n'aviez le droit de garder qu'un seul outil pour compromettre une infrastructure Windows (Active Directory) de l'intérieur, ce serait Responder. Il profite de la philosophie de Windows qui privilégie la "facilité d'utilisation" à la sécurité stricte. S'il ne trouve pas un nom de serveur via la voie officielle, il fera confiance au premier inconnu qui lui dira "Suis-moi, c'est par là".</p>
+</div>
+<blockquote>
+<p>Vous avez récupéré le mot de passe de l'utilisateur <code>j.dupont</code> grâce à Responder et Hashcat. Mais ce compte est-il administrateur de sa machine ? De 10 autres machines ? De tout le domaine ? Pour tester ce mot de passe sur tout le réseau d'un coup, on utilise le "Passe-Partout" de l'Active Directory : <strong><a href=".././cme/">CrackMapExec →</a></strong>.</p>
+</blockquote>
 <p><br></p>
 <hr />
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">Ce qu'il faut retenir</p>
-<p>Si vous n'aviez le droit de garder qu'un seul outil pour compromettre une PME Windows de l'intérieur, ce serait Responder. Il profite du fait que Windows privilégie la "facilité d'utilisation" à la sécurité. S'il ne trouve pas un nom de serveur proprement, il fera confiance au premier inconnu (Responder) qui lui dira "Suis-moi, c'est par là".</p>
+<p>L'infrastructure réseau reste le cœur de l'entreprise. La découverte minutieuse des services, des ports ouverts et des vulnérabilités associées est le point de départ de toute compromission interne.</p>
 </div>
 <blockquote>
-<p>Vous avez récupéré le mot de passe de <code>j.dupont</code> grâce à Responder. Mais ce compte est-il administrateur de sa machine ? De 10 autres machines ? De tout le domaine ? Pour tester ce mot de passe sur tout le réseau d'un coup, on utilise le fameux "Passe-Partout" de la Red Team : <strong><a href=".././cme/">CrackMapExec →</a></strong>.</p>
+<p><a href="../../../">Retourner à l'index des outils →</a></p>
 </blockquote>
 
 
@@ -4598,6 +4923,16 @@ Le terminal affichera un grand panneau "Responder" et la liste des serveurs fict
       
       
         <span class="md-tag md-tag-icon">NTLM</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PURPLE TEAM</span>
       
     
   </nav>

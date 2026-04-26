@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="8.3"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Votre application doit sauvegarder des factures. Au début, vous les enregistrez sur le Disque Dur (`LocalStorage`). Demain, l'entreprise grandit et veut tout mettre sur Amazon S3 Cloud.
@@ -217,4 +221,15 @@ echo "Lecture RAM : " . $serviceTest->readInvoice('facture_fictive.txt') . "\n";
       <span class="text-gray-700">Vous avez réalisé l'<strong>Injection de Dépendance par l'Interface</strong>. Demain, si l'entreprise achète l'accès Amazon AWS S3, vous n'aurez qu'à coder <code>CloudS3Storage implements StorageInterface</code> et faire <code>new FileService($aws)</code>. Pas une seule ligne de la logique métier principale (<code>FileService</code>) ne sera modifiée ! C'est le principe Ouvert/Fermé (Open/Closed Principle) du modèle SOLID.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

@@ -13,6 +13,10 @@ tags: ["PROJET", "API", "RESEAU", "ASYNC", "JSON"]
   data-time="2 Heures">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "Branchement sur le Cloud"
     Jusqu'à présent, toutes nos applications vivaient en autarcie sur le téléphone (même le lecteur EAN13 `OmnyScan` fonctionnait hors-ligne). Dans ce projet,  nous allons ouvrir la fenêtre sur le monde. **90% des applications** professionnelles ne sont que des "visualiseurs JSON". Elles lisent une adresse web, téléchargent du texte structuré, et le transforment en belles listes interactives avec des images. C'est exactement l'objectif de notre agrégateur d'informations `OmnyNews`.
 
@@ -358,3 +362,12 @@ _La bascule d'un `HStack` (Texte à côté de l'image) vers un `ZStack` (Texte _
 > Vos applications savent maintenant lire n'importe quel site internet de la planète tant que son format respecte le JSON. Le prochain niveau ? Quitter l'API de Spaceflight et appeler... **Votre propre Serveur Backend (Le Saint Graal).**
 
 <br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

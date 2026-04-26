@@ -131,20 +131,3 @@ dig +short CNAME blog.omnyvia.com
     
     Les informations d'un DNS public sont faites pour être publiques (sinon, personne ne trouverait le site web). Extraire les IP, les serveurs MX ou les champs SPF ne constitue pas un accès frauduleux à un STAD (Art 323-1), tant que vous n'essayez pas de pirater le serveur DNS lui-même (via une faille Bind) ou de provoquer un Déni de Service (DDoS via DNS Amplification).
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    `dig` est la vérité absolue en matière de routage Internet. Contrairement au navigateur ou à l'outil `ping` qui gardent les informations en cache, `dig` parle directement aux serveurs maîtres. Si vous ne comprenez pas pourquoi un site web ne charge pas ou pourquoi vous n'arrivez pas à atteindre une cible lors d'un test d'intrusion, `dig` vous donnera la réponse technique exacte sans filtre.
-
-> Vous avez l'habitude de `dig` sous Linux, mais vous venez de compromettre un vieux serveur Windows d'une mairie, et vous devez faire du diagnostic réseau. Comment faire sans `dig` ? Utilisez son ancêtre universel : **[nslookup →](./nslookup.md)**.
-
-
-
-
-
-
-

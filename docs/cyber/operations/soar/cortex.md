@@ -205,5 +205,3 @@ cortex {
     Cortex est le **multiplicateur de force** de TheHive. Sans Cortex, chaque analyste doit manuellement copier-coller les IOC dans VirusTotal, Shodan et MISP. Avec Cortex, cette enrichissement se fait en un clic (ou automatiquement). Les Responders vont plus loin en **agissant** : bloquer une IP sur le firewall, désactiver un compte AD, mettre un fichier en quarantaine — sans quitter TheHive. C'est le cœur de la réponse automatisée.
 
 > **La Phase 5 (SOAR & Automatisation) est terminée.** Dernière étape : **[Phase 6 — Gestion Opérationnelle →](../management/index.md)**.
-
-<br>

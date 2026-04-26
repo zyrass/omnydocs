@@ -326,3 +326,14 @@ gantt
 [^3]: Le **MTPD** (*Maximum Tolerable Period of Disruption*, ou Durée Maximale de Perturbation Acceptable) est la durée au-delà de laquelle les impacts d'une interruption menacent la survie de l'organisation. Il est toujours supérieur au RTO.
 [^4]: Le **MBCO** (*Minimum Business Continuity Objective*, ou Objectif Minimum de Continuité d'Activité) est le niveau minimal de service que l'organisation doit maintenir pendant une interruption pour rester viable contractuellement et légalement.
 [^5]: Un **single point of failure** (ou point unique de défaillance) est un composant d'un système (technique, humain ou organisationnel) dont la défaillance entraîne l'arrêt total d'un processus ou d'un service. Son identification et son élimination (par redondance ou suppléance) est l'un des principaux apports du BIA.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le SMSI (Système de Management de la Sécurité de l'Information) est le moteur de l'amélioration continue en cybersécurité. Il transforme une approche réactive en une stratégie proactive, mesurable et alignée avec la direction.
+
+> [Retour à l'index du SMSI →](../index.md)

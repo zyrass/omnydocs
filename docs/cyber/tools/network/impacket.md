@@ -159,19 +159,3 @@ impacket-secretsdump CORP.LOCAL/Administrateur:SuperSecret123@10.0.0.8
     2. Télécharger la base NTDS.dit (l'annuaire des mots de passe via secretsdump) constitue un vol massif de données d'identification, aggravant les peines encourues (Vol de données, atteinte à l'intégrité).
     3. Toute opération post-exploitation laisse des traces dans l'Observateur d'Évènements Windows (Event Viewer : 4624 Logon, 4672 Special Privileges).
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Si vous regardez des professionnels de la cybersécurité (HackTheBox, OSCP, Red Team), ils vivent à 90 % dans le dossier des scripts Impacket. C'est l'essence même du piratage Windows. Maîtriser comment construire des tickets Kerberos à la main ou comment manipuler le MSRPC via Python est ce qui sépare un "Script Kiddie" d'un véritable ingénieur en sécurité offensive.
-
-> L'ingénierie c'est bien, mais si l'entreprise possède 10 000 ordinateurs et 50 000 utilisateurs, comment trouver LE chemin pour aller de la secrétaire jusqu'à l'administrateur sans essayer les scripts Impacket au hasard ? Il vous faut la carte au trésor : **[BloodHound →](./bloodhound.md)**.
-
-
-
-
-
-

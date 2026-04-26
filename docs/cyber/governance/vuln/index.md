@@ -12,6 +12,10 @@ tags: ["VULNÉRABILITÉS", "CVE", "CVSS", "OWASP", "PATCH MANAGEMENT"]
   data-time="6-8 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La gestion des vulnérabilités, c'est comme l'entretien régulier de la coque d'un navire. Si vous ne cherchez et ne colmatez pas en continu les petites brèches, l'accumulation d'eau finira par vous couler de manière inévitable._
+
 ## Introduction
 
 **La gestion des vulnérabilités** constitue un **processus continu** de veille, d'évaluation, de priorisation et de traitement des failles de sécurité identifiées dans les systèmes d'information. Elle s'inscrit dans une démarche de conformité et de gouvernance des risques, répondant aux exigences des réglementations (NIS2, DORA) et des référentiels (ISO 27001, PCI DSS).
@@ -115,4 +119,13 @@ La gestion des vulnérabilités constitue **l'interface opérationnelle** entre 
 
 > Les fiches suivantes détaillent chaque composante avec méthodologies, outils et bonnes pratiques de mise en œuvre.
 
-<br />
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La gestion des vulnérabilités est le baromètre quotidien de la posture de sécurité. Elle ne remplace pas l'analyse de risques stratégique — elle l'alimente en données concrètes. Un CVE critique sur un actif non inventorié, c'est un angle mort qui peut invalider la meilleure politique de sécurité du monde. L'inventaire des actifs est le préalable absolu à tout le reste.
+
+> [Retour à l'hub GRC pour explorer les autres composantes →](../)

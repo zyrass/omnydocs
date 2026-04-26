@@ -13,6 +13,10 @@ tags: ["UFW", "FIREWALL", "IPTABLES", "SECURITE", "RESEAU"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Le durcissement d'un système Linux est comme la construction des fortifications d'un château. Le pare-feu (UFW) correspond aux douves extérieures, les permissions POSIX (chmod/chown) sont les clés des différentes pièces, et la supervision (Fail2Ban/Lynis) agit comme les gardes effectuant des rondes régulières._
+
 !!! quote "Garder les portes fermées"
     _Au cœur du noyau Linux (Kernel) réside `Netfilter`, le véritable moteur de filtrage réseau, souvent manipulé via les complexes commandes `iptables` ou `nftables`. Pour éviter les erreurs catastrophiques de syntaxe, Canonical (Ubuntu) a créé **UFW (Uncomplicated Firewall)**. Son but : rendre la configuration du pare-feu aussi simple que de dire "Ouvre le port 80" et "Ferme tout le reste"._
 
@@ -117,3 +121,14 @@ sudo ufw delete 2
 
 ## Conclusion
 UFW cache l'immense complexité de `iptables` derrière une interface intuitive. Activer UFW (en n'oubliant pas SSH) devrait être la **toute première action** que vous effectuez lors de l'acquisition d'un nouveau serveur Linux.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Sécuriser un système Linux exige une approche en couches : du pare-feu avec UFW à la détection d'intrusions avec Fail2Ban, en passant par un durcissement régulier. Aucun outil de sécurité ne remplace une bonne configuration de base.
+
+> [Retourner à l'index Linux →](../index.md)

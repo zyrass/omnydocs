@@ -13,6 +13,10 @@ tags: ["JETSTREAM", "INSTALLATION", "TEAMS", "SANCTUM", "API"]
   data-time="1h30 - 2h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Si Breeze est une serrure de maison individuelle, Jetstream est le système de sécurité d'un immeuble de bureaux complet. Il gère non seulement les badges d'accès (authentification), mais aussi les droits par étage (rôles), les équipes (locataires) et la sécurité renforcée (2FA)._
+
 ## Objectif de la Phase
 
 > Cette première phase consiste à poser les **fondations backend** de notre plateforme SaaS de Pentest. Contrairement au projet Breeze, nous n'allons pas utiliser les vues Blade fournies par Jetstream. Nous allons utiliser Jetstream uniquement comme une **API d'authentification robuste** (avec gestion des Teams, 2FA et Tokens API) qui sera consommée par notre frontend Angular 21.
@@ -191,3 +195,14 @@ Vous avez posé les bases backend :
 - ✅ Les règles **CORS** sont paramétrées pour autoriser les flux de données croisés.
 
 Dans la **Phase 2**, nous plongerons dans la modélisation de notre base de données métier (Missions, Findings, Évidences).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'installation de Laravel avec Jetstream n'est pas anodine — Teams, 2FA, Sanctum : chaque option cochée génère des migrations, des modèles et des vues que vous devrez maîtriser. Avant de lancer `composer require laravel/jetstream`, définissez l'architecture cible. Une décision d'installation mal pensée génère une dette technique immédiate.
+
+> [Installation maîtrisée. Modélisez maintenant la base de données relationnelle de la plateforme →](./02-phase2.md)

@@ -92,3 +92,14 @@ Il ne suffit pas de critiquer, il faut aider. Si vous connaissez le langage util
     La reproductibilité est la marque de fabrique d'un auditeur d'élite. Si un développeur vous appelle deux semaines après la fin du test pour vous dire "Je n'arrive pas à reproduire votre attaque, ça ne marche pas", c'est que votre fiche de preuve (PoC) était mal rédigée. Un bon PoC ne laisse aucune place à l'interprétation.
 
 > La rédaction d'une fiche implique obligatoirement de donner une note (une gravité) à la vulnérabilité découverte. Cette notation ne doit jamais se faire "au doigt mouillé" ou à l'instinct. C'est le rôle du standard mondial de notation : **[Le Score CVSS →](./cvss.md)**.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
+
+> [Retour à l'index →](./index.md)

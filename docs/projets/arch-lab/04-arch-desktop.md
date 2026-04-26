@@ -1009,3 +1009,14 @@ Dépannage avancé
 [^SDDM]: **SDDM (Simple Desktop Display Manager)** : Display Manager léger et moderne, développé en Qt, recommandé pour KDE Plasma.
 
 [^4]: **GDM (GNOME Display Manager)** : Display Manager officiel de GNOME, supporte nativement Xorg et Wayland.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'architecture logicielle et système demande une vision globale. Les décisions prises lors de cette phase auront un impact déterminant sur la maintenabilité, les coûts et la sécurité du projet sur les prochaines années.
+
+> [Passer à la phase suivante →](../index.md)

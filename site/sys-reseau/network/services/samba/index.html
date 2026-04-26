@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -1597,6 +1599,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2047,11 +2060,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../storage/backup-pra/" class="md-nav__link">
+      <a href="../../../storage/backup-pra.md" class="md-nav__link">
         
   
-  
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
   
   <span class="md-ellipsis">
     
@@ -2691,10 +2702,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2842,6 +2849,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2932,6 +2950,10 @@
   data-time="20 - 30 minutes">
 </div>
 </p>
+<div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>Les services réseaux (DNS, FTP, SSH) sont comme les différents guichets spécialisés d'une grande entreprise. Le DNS est l'accueil qui indique où se trouve chaque bureau, SSH est l'entrée de service hyper-sécurisée pour la maintenance, et FTP est le quai de chargement des marchandises. Chaque guichet mal surveillé est une opportunité d'intrusion.</em></p>
+</div>
 <div class="admonition quote">
 <p class="admonition-title">Le pont entre deux mondes</p>
 <p><em>Les entreprises utilisent des serveurs Linux (pour leur stabilité, gratuité, et résistance aux ransomwares classiques) mais possèdent un parc d'ordinateurs pour les employés sous Windows. Comment faire pour qu'un employé Windows puisse faire un simple "clic-droit -&gt; Partager" ou monter un "Lecteur réseau Z:" qui pointe en réalité vers un serveur Linux ? La réponse est <strong>Samba</strong>.</em></p>
@@ -3048,6 +3070,16 @@ Alice doit exister en tant qu'utilisatrice Linux, MAIS elle doit aussi avoir un 
 1. Les permissions strictes (Alice ne doit pas avoir accès au dossier RH).
 2. L'activation des <strong>Snapshots</strong> sur le système de fichiers (ZFS ou LVM) côté Linux.
 3. Le durcissement strict du protocole : <strong>Désactivez absolument SMBv1</strong> dans la configuration Samba globale (<code>server min protocol = SMB2_02</code>).</p>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Chaque service exposé est un vecteur d'attaque potentiel. La configuration sécurisée des services fondamentaux (DNS, SSH, Samba) est la première et souvent la plus critique ligne de défense de l'infrastructure.</p>
+</div>
+<blockquote>
+<p><a href="../../">Retourner à l'index Réseau →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >

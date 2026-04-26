@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟡 Intermédiaire"
   data-version="8.3"
-  data-time="1 Heure">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     Sur le Web, le principe fondamental est de **NE JAMAIS FAIRE CONFIANCE À L'UTILISATEUR**. Qu'il soit malveillant ou maladroit, il va entrer des données corrompues.
@@ -196,4 +200,15 @@ function badgeResultat(bool $resultat): string {
       <span class="text-gray-700">Vous constatez sur l'écran que <strong>31/02/2020</strong> est INVALIDE. Même si la structure en Regex <code>DD/MM/YYYY</code> est parfaite, la fonction native PHP <code>checkdate()</code> l'a rejeté car la date n'existe pas d'un point de vue calendrier Grégorien.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

@@ -31,3 +31,14 @@ La section Vitest (tests unitaires côté Javascript moderne/Vite) n'a pas encor
 
 **Recommandations :**
 - **Création from scratch :** Programmer la conception d'un module court (2 à 3 fichiers) couvrant la migration depuis Jest, la syntaxe de base, et l'intégration Vue/React le cas échéant.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ces concepts de développement moderne est cruciale pour construire des applications scalables, maintenables et sécurisées.
+
+> [Retour à l'index →](./index.md)

@@ -108,3 +108,14 @@ class PostPolicy
     }
 }
 ```
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les Policies formalisent une règle fondamentale : la propriété d'une ressource ne doit jamais être vérifiée dans la vue ou dans le contrôleur. En déléguant cette logique à une Policy, vous créez un contrat explicite, testable et centralisé qui garantit qu'un utilisateur ne pourra jamais modifier l'article d'un autre, quelle que soit la route empruntée.
+
+> [Policies maîtrisées. Structurez maintenant votre système de rôles applicatif →](./26-rbac-et-middlewares.md)

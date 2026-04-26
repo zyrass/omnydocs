@@ -402,6 +402,9 @@ print(f"Bonjour {nom}")
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ces notions fondamentales sur logique booleenne sont essentielles pour la suite de votre parcours. Consolidez ces acquis théoriques par la pratique avant de passer aux modules spécialisés (Cybersécurité, Infrastructure ou Développement).
+
 !!! quote "Conclusion"
     _La logique booléenne représente le langage fondamental des décisions informatiques. Au début, chaque condition et chaque opérateur demandent une réflexion consciente. Avec la pratique, cette logique devient un réflexe — et les conditions se structurent naturellement, clairement, efficacement._
 

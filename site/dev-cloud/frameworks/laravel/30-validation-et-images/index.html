@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -3297,6 +3299,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5916,10 +5929,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -6053,6 +6062,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
   
 </li>
       
@@ -6221,6 +6241,16 @@ Cela crée un lien <code>public/storage</code> → <code>storage/app/public</cod
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="x">// Ou suppression par Disque Dur Local et non plus DB </span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="x">return Storage::delete($this-&gt;path); </span>
 </span></code></pre></div></p>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>La gestion de fichiers en production est un terrain miné si l'on n'applique pas des règles strictes : validation du type MIME (pas seulement de l'extension), stockage hors du dossier public, génération de noms uniques avec <code>Storage::put()</code>. Laravel's Filesystem abstraction permet de switcher entre stockage local et S3 sans modifier une ligne de code applicatif.</p>
+</div>
+<blockquote>
+<p><a href=".././31-interface-moderation/">Gestion de fichiers maîtrisée. Consolidez l'interface de modération de contenu →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >

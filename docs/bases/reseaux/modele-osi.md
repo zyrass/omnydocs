@@ -373,6 +373,9 @@ flowchart TB
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Les notions abordées autour de modele osi sont le système nerveux de l'informatique moderne. Sans une maîtrise parfaite de ces protocoles et modèles, le dépannage de problèmes d'infrastructure ou la sécurisation de communications restent de pures suppositions.
+
 !!! quote "Conclusion"
     _Le modèle OSI n'est pas un protocole à implémenter — c'est un langage commun pour raisonner sur les réseaux. Ses sept couches permettent de décomposer n'importe quel problème réseau en une question précise : à quelle couche se situe la défaillance ? Un attaquant qui empoisonne une table ARP opère en couche 2. Un firewall qui filtre par IP opère en couche 3. Un WAF qui bloque une injection SQL opère en couche 7. Un certificat TLS expiré est un problème de couche 6. Maîtriser ce découpage transforme le diagnostic réseau d'un exercice intuitif en une démarche méthodique et reproductible. Dans un contexte de cybersécurité, identifier la couche d'une attaque détermine immédiatement les contre-mesures à déployer._
 

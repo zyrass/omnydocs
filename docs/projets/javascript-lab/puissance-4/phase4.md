@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé (Certifiant)"
   data-version="1.0"
-  data-time="1h30">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le vrai test de logique mathématique d'un développeur commence ici.
@@ -127,3 +131,14 @@ updateStatusText();
 Ce projet est un Monument du Développement Front-End. Il valide vos acquis en Modélisations Spatialles (Matrices 2D), en algorithme de tri (`For Loop`), et confirme que vous avez compris que **Le HTML n'est que la peinture, Le Javascript en est le Cerveau**.
 
 Vous pouvez utiliser cette base mathématique pour cloner des monstres de logique comme _Tetris_, le _Démineur_, ou un _Morpion_. L'architecture MVC est en vous.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

@@ -12,6 +12,10 @@ tags: ["VIRTUALISATION", "HYPERVISEUR", "INFRASTRUCTURE", "KVM", "QEMU"]
   data-time="Hub Virtualisation">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La virtualisation s'apparente à la construction de plusieurs appartements (Machines Virtuelles) au sein d'un même grand immeuble (Serveur Hyperviseur physique). L'hyperviseur s'assure que chaque locataire reçoit son quota d'électricité et d'eau (CPU, RAM) sans jamais pouvoir entrer par effraction chez son voisin._
+
 !!! quote "Diviser pour mieux régner"
     _Avant la virtualisation, un serveur physique n'hébergeait qu'un seul système d'exploitation. Si le serveur web plantait et faisait un "Kernel Panic", toute la machine s'éteignait, emportant la base de données avec elle. La virtualisation a permis d'isoler chaque application dans sa propre "boîte" (Machine Virtuelle), partageant mathématiquement le processeur et la mémoire du serveur hôte._
 
@@ -47,3 +51,14 @@ Ce hub clôture l'infrastructure classique (avant l'ère des conteneurs Docker/K
 ## Le lien avec la Cybersécurité (Sandbox)
 
 La virtualisation est l'outil quotidien des chercheurs en cybersécurité. Lorsqu'ils analysent un Ransomware (Malware Analysis), ils ne l'exécutent jamais sur leur propre PC. Ils créent une Machine Virtuelle (Une "Sandbox" ou bac à sable), coupée d'Internet, et lancent le virus à l'intérieur pour observer son comportement en toute sécurité. Une fois l'analyse terminée, ils détruisent la VM en un clic.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La virtualisation (KVM, Proxmox) couplée à l'Infrastructure as Code (Packer, Vagrant) permet de déployer des environnements reproductibles, immuables et sécurisés dès leur conception (Security by Design).
+
+> [Retourner à l'index →](../index.md)

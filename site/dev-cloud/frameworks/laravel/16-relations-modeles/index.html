@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -2890,6 +2892,17 @@
       
         <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Conclusion
@@ -5938,10 +5951,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -6091,6 +6100,17 @@
       
         <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Conclusion
@@ -6299,6 +6319,16 @@ Si l'application dispose de la liste suivante : (Users, Posts, Categories, Tags,
 <hr />
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <p>Le modèle est maintenant une architecture riche d'objets inter-connectés très facilement via l'Orienté Objet pur sans écriture brutale en code SQL. Le système devient ludique. Ne manque plus qu'à ce système des données à traiter, ce qui nous emmène dans une logique d'hydratation de test par Seeders.</p>
+<p><br></p>
+<hr />
+<h2 id="conclusion_1">Conclusion<a class="headerlink" href="#conclusion_1" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Les relations Eloquent sont le cœur du modèle de données Laravel. Un <code>User</code> qui <code>hasMany(Post::class)</code> ou un <code>Post</code> qui <code>belongsTo(User::class)</code> : ces déclarations semblent simples, mais elles évitent des dizaines de JOINs SQL manuels. La clé de la performance reste le chargement anticipé (<code>with()</code>) pour éviter le piège classique du problème N+1.</p>
+</div>
+<blockquote>
+<p><a href=".././17-factory-seeder-scopes/">Relations comprises. Peuplez maintenant vos bases de données avec les factories et seeders →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >

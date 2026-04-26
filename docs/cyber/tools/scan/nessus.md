@@ -210,8 +210,13 @@ Nessus n'est **absolument pas furtif**. C'est un outil d'audit, pas d'infiltrati
 
 > L'infrastructure de bas niveau (les ports, les systèmes d'exploitation) a été scannée. Mais aujourd'hui, les pare-feux bloquent quasiment tout, sauf un seul port : le trafic Web (443 - HTTPS). Pour entrer dans l'entreprise, il va falloir intercepter et altérer la logique même de leurs applications web. Préparez-vous à entrer dans la Matrice (Étape 6) avec les Maîtres de l'Interception : **[Burp Suite & OWASP ZAP →](../web/index.md)**.
 
+<br>
 
+---
 
+## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
 
-
+> [Retour à l'index →](./index.md)

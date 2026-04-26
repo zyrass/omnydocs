@@ -13,6 +13,10 @@ tags: ["TESTS", "DEPLOYMENT", "PRODUCTION", "OPTIMIZATION", "VPS"]
   data-time="3h - 4h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Si Breeze est une serrure de maison individuelle, Jetstream est le système de sécurité d'un immeuble de bureaux complet. Il gère non seulement les badges d'accès (authentification), mais aussi les droits par étage (rôles), les équipes (locataires) et la sécurité renforcée (2FA)._
+
 ## Objectif de la Phase
 
 > Une plateforme SaaS manipulant des données de cybersécurité ne peut pas être mise en production sans une couverture de tests irréprochable (en particulier sur l'isolation des données entre les clients). Dans cette ultime phase, nous écrirons des tests automatisés (PHPUnit/Pest) pour garantir l'étanchéité de notre architecture Multi-Tenancy. Enfin, nous optimiserons les performances et déploierons le Backend et le Frontend sur des environnements de production distincts.
@@ -181,3 +185,14 @@ Félicitations ! Vous avez couvert le cycle de vie complet d'une application Saa
 - ✅ **Architecture de déploiement** décidée (Frontend CDN + Backend API).
 
 Votre plateforme de Pentest SaaS est maintenant **Production-Ready**. Passez à la conclusion du projet Jetstream pour le bilan final de vos compétences.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le déploiement n'est pas la dernière étape — c'est une étape récurrente. Une pipeline CI/CD robuste (tests automatisés → build → déploiement zero-downtime via Laravel Forge) transforme le déploiement d'un événement risqué en opération routinière. La couverture de tests est votre filet de sécurité : sans elle, chaque déploiement est un saut dans le vide.
+
+> [Projet Jetstream terminé. Consultez la synthèse et les leçons apprises →](./conclusion.md)

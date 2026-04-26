@@ -180,19 +180,3 @@ Par défaut, ffuf va générer une tornade de requêtes (jusqu'à 10 000 par sec
     1. Si vous lancez `ffuf -t 200` sur un petit serveur mutualisé (ex: un vieux blog WordPress), la charge du processeur de la cible montera à 100%, l'Apache crashera, et la base de données MySQL bloquera les connexions (Too many connections). C'est un Déni de Service avéré, lourdement sanctionné pénalement.
     2. Modérez toujours vos threads (`-t`) en fonction des capacités de l'infrastructure cible (déterminées lors de la phase de reconnaissance passive).
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    `ffuf` est le fer de lance du pentester web moderne. Sa capacité à injecter le mot `FUZZ` littéralement n'importe où (URL, JSON, Headers, Cookies) le rend incroyablement plus souple que l'ancienne génération d'outils. Maîtriser ses options de filtrage (`-mc`, `-fc`, `-fs`) est ce qui sépare l'ingénieur red-team du simple bidouilleur bruyant.
-
-> Si `ffuf` est un outil universel puissant, certains auditeurs préfèrent des outils dédiés ayant des comportements très spécifiques. Pour le fuzzing récursif automatisé (qui explore de lui-même les sous-dossiers trouvés), il est temps de découvrir la brutalité de **[Feroxbuster →](./feroxbuster.md)**.
-
-
-
-
-
-

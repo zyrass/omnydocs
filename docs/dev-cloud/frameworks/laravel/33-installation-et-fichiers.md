@@ -79,3 +79,14 @@ php artisan serve
 ```
 
 Vous constaterez l'interface Tailwindcss et son dashboard tout neuf pré à vous accueillir avec un `Login` !
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'installation d'un kit de démarrage (Breeze, Jetstream) est une décision d'architecture, pas une simple commande. Ces kits génèrent du code que vous *possédez* et que vous *devez comprendre* — ils ne sont pas des boîtes noires. Chaque fichier publié (vues, contrôleurs, migrations) est sous votre responsabilité et doit être audité avant toute mise en production.
+
+> [Installation maîtrisée. Comprenez maintenant les patterns architecturaux sous-jacents →](./34-comprendre-patterns.md)

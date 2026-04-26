@@ -164,6 +164,9 @@ Les différences majeures à retenir entre les gestionnaires portent sur quatre 
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La gestion des paquets via index est la porte d'entrée de toute administration système Linux. Comprendre ses mécanismes de résolution de dépendances et de dépôts garantit la stabilité et la sécurité de vos serveurs en production.
+
 !!! quote "Conclusion"
     _La gestion de paquets ne se résume pas à installer un outil. C'est maîtriser la chaîne d'approvisionnement logicielle de ses serveurs et de ses conteneurs. Savoir lire ses dépôts, contrôler ses versions, diagnostiquer un conflit et sécuriser les sources, c'est passer d'un usage utilisateur à un usage administration et production._
 

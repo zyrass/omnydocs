@@ -209,6 +209,13 @@ OpenVAS **n'est pas** un outil furtif. Par conception, il est fait pour faire é
 
 > Si l'Open Source est un excellent point de départ, les cabinets d'audit exigeant zéro faux positif et des rapports acceptés par les compagnies d'assurance se tournent vers l'étalon-or propriétaire de l'industrie : **[Nessus →](./nessus.md)**.
 
+<br>
 
+---
 
+## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
+
+> [Retour à l'index →](./index.md)

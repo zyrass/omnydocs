@@ -133,8 +133,13 @@ Voici comment une Red Team mène une opération de compromission de domaine avec
 
 [^1]: **Système de Traitement Automatisé de Données (STAD)** : Serveur, ordinateur ou téléphone. L'infection par un agent (Beacon) pour prendre le contrôle à distance caractérise l'infraction suprême au STAD.
 
+<br>
 
+---
 
+## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
 
-
+> [Retour à l'index →](./index.md)

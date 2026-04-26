@@ -13,6 +13,10 @@ tags: ["ANGULAR", "SIGNALS", "SPA", "FRONTEND", "INTERCEPTOR"]
   data-time="1h30 - 2h">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Si Breeze est une serrure de maison individuelle, Jetstream est le système de sécurité d'un immeuble de bureaux complet. Il gère non seulement les badges d'accès (authentification), mais aussi les droits par étage (rôles), les équipes (locataires) et la sécurité renforcée (2FA)._
+
 ## Objectif de la Phase
 
 > Notre API Laravel (Backend) est opérationnelle. Il est temps de construire l'interface utilisateur. Pour une plateforme SaaS de Pentest exigeant une grande réactivité et une expérience utilisateur fluide, nous choisissons **Angular 21**. Cette phase couvre la création du projet, la mise en place du routing, l'installation d'Angular Material et l'implémentation de la logique d'authentification en utilisant le nouveau paradigme de gestion d'état : les **Signals**.
@@ -266,3 +270,14 @@ Votre socle Frontend est désormais solidement arrimé :
 - ✅ **Intercepteurs** et **Guards** opérationnels pour sécuriser l'accès.
 
 Dans la **Phase 5**, nous allons utiliser la puissance de Material Design et des Signals pour construire l'interface de notre Dashboard de Pentest.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'authentification Sanctum SPA est fondamentalement différente du token stateless : elle repose sur les cookies de session HTTP-only, ce qui la rend plus sécurisée pour les SPA hébergées sur le même domaine. Les Policies, quant à elles, garantissent que chaque ressource n'est accessible qu'aux membres de l'équipe propriétaire — jamais aux autres.
+
+> [Authentification et autorisation maîtrisées. Construisez maintenant les endpoints API REST →](./05-phase5.md)

@@ -578,6 +578,8 @@
       
         
       
+        
+      
     
     
     
@@ -1644,6 +1646,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2064,11 +2077,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../storage/backup-pra/" class="md-nav__link">
+      <a href="../../../storage/backup-pra.md" class="md-nav__link">
         
   
-  
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
   
   <span class="md-ellipsis">
     
@@ -2708,10 +2719,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2876,6 +2883,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2967,6 +2985,10 @@
 </div>
 </p>
 <div class="admonition quote">
+<p class="admonition-title">Analogie pédagogique</p>
+<p><em>LDAP et PAM agissent comme la sécurité d'un aéroport. LDAP est la grande base de données des passeports valides (qui existe), tandis que PAM est le douanier à chaque porte d'embarquement (SSH, Sudo) qui vérifie l'identité avant d'autoriser le passage.</em></p>
+</div>
+<div class="admonition quote">
 <p class="admonition-title">Un pour les gouverner tous</p>
 <p><em>Imaginez que vous deviez gérer l'informatique d'une PME avec 50 serveurs Linux, un wiki interne, un système de chat (Mattermost), et un GitLab. Si vous devez créer le compte de l'employé "John" 54 fois, sur 54 bases de données différentes avec 54 mots de passe différents, c'est l'enfer. C'est ici qu'intervient <strong>LDAP</strong> : une base de données centralisée qui stocke l'identité (Single Sign-On philosophique).</em></p>
 </div>
@@ -3018,6 +3040,16 @@ Un administrateur système (Ops) sérieux ne déploie <strong>jamais</strong> un
 <p>En cybersécurité moderne, l'identité (LDAP/AD/EntraID) est devenue le <strong>nouveau périmètre</strong>. 
 Les pare-feux réseau (UFW, pfSense) ne suffisent plus car les employés travaillent en télétravail depuis leurs réseaux wifi personnels. La sécurité se fonde désormais sur l'authentification forte de l'identité : "Même si je n'ai pas de pare-feu réseau, tu dois prouver de façon indéniable qui tu es (MFA/LDAP) pour accéder à cette ressource". </p>
 <p>Gérer un serveur LDAP de manière robuste et sécurisée est donc la pierre angulaire de l'architecture "Zero Trust".</p>
+<p><br></p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Ce qu'il faut retenir</p>
+<p>Chaque service exposé est un vecteur d'attaque potentiel. La configuration sécurisée des services fondamentaux (DNS, SSH, Samba) est la première et souvent la plus critique ligne de défense de l'infrastructure.</p>
+</div>
+<blockquote>
+<p><a href="../../">Retourner à l'index Réseau →</a></p>
+</blockquote>
 
 
   <nav class="md-tags" >

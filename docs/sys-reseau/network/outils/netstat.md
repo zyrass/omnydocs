@@ -13,6 +13,10 @@ tags: ["NETSTAT", "SS", "PORTS", "RESEAU", "DIAGNOSTIC"]
   data-time="15 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Utiliser des outils d'analyse réseau (comme tcpdump ou scapy), c'est comme brancher un stéthoscope sur les artères d'une ville. Vous ne regardez plus simplement si les camions arrivent à destination, mais vous examinez le contenu de chaque paquet transporté pour détecter une anomalie ou une maladie (latence, perte, malware)._
+
 !!! quote "Qui écoute sur mon serveur ?"
     _Quand vous démarrez un serveur web, il ouvre le port 80 pour "écouter" les requêtes entrantes. L'outil **`netstat`** (et son remplaçant moderne **`ss`**) permet de lister instantanément tous les ports ouverts sur une machine, de voir les connexions actives en cours, et surtout d'identifier **quel processus** se cache derrière chaque port._
 
@@ -91,3 +95,14 @@ ss dst 198.51.100.45
 Pour un administrateur système, `netstat`/`ss` sert à vérifier qu'un service a bien démarré ("*Pourquoi mon site ne marche pas ? Ah, Nginx n'écoute pas sur le port 80*").
 
 Dans un contexte de Cybersécurité (Incident Response / Chasse aux menaces), c'est l'un des premiers outils utilisés. Si l'on tape `ss -tulpen` et que l'on voit un programme inconnu nommé `netcat` ou `bash` en écoute sur le port `4444`, c'est le signe évident d'une compromission (Backdoor / Reverse Shell).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La visibilité réseau est primordiale pour l'analyse d'incidents et le troubleshooting. Maîtriser tcpdump, netstat ou scapy permet de diagnostiquer la majorité des anomalies avant qu'elles ne s'aggravent.
+
+> [Retourner à l'index Réseau →](../index.md)

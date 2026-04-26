@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # Séquence (fondamental)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     Le diagramme de séquence est indispensable pour comprendre l'ordre des échanges entre acteurs et composants (client, API, base de données, services). Il est particulièrement efficace pour documenter une authentification, un appel API, un traitement asynchrone, ou un scénario d'incident.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -34,6 +46,15 @@ sequenceDiagram
 ```
 
 _Ce diagramme décrit la chronologie d'un login : requête, accès base, puis réponse applicative._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

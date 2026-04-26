@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="8.3"
-  data-time="2 Heures">
+  data-time="1 - 2 heures">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Le Pitch"
     L'argent est un domaine sensible. On ne peut pas simplement faire `$solde = $solde + 200` dans un tableau associatif perdu dans un fichier `traitement.php`.
@@ -244,4 +248,15 @@ echo $accountBob->printStatement();
       <span class="text-gray-700">Vous observez le comportement d'une "Injection de Dépendance" basique : La méthode <code>transfer(BankAccount $destination, $amount)</code> prend <strong>une Classe comme paramètre</strong> obligatoire au lieu d'un vulgaire string de type (<code>"FR-BOB-POOR-42"</code>). L'Objet parle à un Objet ! C'est le Graal de PHP OO.</span>
     </li>
   </ul>
-</div>
+</div
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

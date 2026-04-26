@@ -121,8 +121,13 @@ Voici comment une Red Team exfiltre un petit volume de données très critiques 
 
 > Comment orchestrer ces communications cachées à grande échelle pour piloter des centaines de machines infectées ? C'est le rôle des infrastructures avancées détaillées dans **[C2 (Command & Control) Frameworks →](./c2-frameworks.md)**.
 
+<br>
 
+---
 
+## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise théorique et pratique de ces concepts est indispensable pour consolider votre posture de cybersécurité. L'évolution constante des menaces exige une veille technique régulière et une remise en question permanente des acquis.
 
-
+> [Retour à l'index →](./index.md)

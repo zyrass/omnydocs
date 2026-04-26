@@ -70,6 +70,9 @@ L'ingénierie sociale est souvent la **phase de moindre résistance**. Un pare-f
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ce module vous dote des outils fondamentaux pour cette catégorie d'attaque ou d'analyse. Gardez à l'esprit qu'un outil ne remplace pas la compréhension du concept : c'est votre capacité à interpréter les résultats qui fait de vous un véritable expert technique en cybersécurité.
+
 !!! quote "L'humain, maillon fort ou faible ?"
     La technologie peut être patchée, mais l'humain doit être éduqué. Les outils de cette section ne servent pas qu'à pirater, ils servent à identifier où l'organisation doit investir dans sa culture de sécurité.
 

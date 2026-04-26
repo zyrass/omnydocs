@@ -82,6 +82,9 @@ Le scan de vulnérabilités s'insère entre la **reconnaissance passive** (OSINT
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ce module vous dote des outils fondamentaux pour cette catégorie d'attaque ou d'analyse. Gardez à l'esprit qu'un outil ne remplace pas la compréhension du concept : c'est votre capacité à interpréter les résultats qui fait de vous un véritable expert technique en cybersécurité.
+
 !!! quote "L'automatisation au service de l'expertise"
     Le scanner ne remplace pas le pentester, il lui libère du temps. En automatisant la découverte des vulnérabilités triviales, il permet à l'auditeur de se concentrer sur les failles logiques complexes que seule l'intelligence humaine peut déceler.
 

@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # Quadrant Chart (priorisation)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     Le quadrant chart sert à prioriser : effort vs impact, risque vs valeur, urgence vs importance. C'est utile pour arbitrer des chantiers et communiquer une logique de décision sans surcharger en texte.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -36,6 +48,15 @@ quadrantChart
 ```
 
 _Ce schéma positionne quatre initiatives selon leur effort et leur impact pour guider la décision de priorisation._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

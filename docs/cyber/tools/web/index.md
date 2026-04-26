@@ -110,6 +110,9 @@ Le pentest web et API s'inscrit dans la phase d'**accès initial**. Une vulnéra
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ce module vous dote des outils fondamentaux pour cette catégorie d'attaque ou d'analyse. Gardez à l'esprit qu'un outil ne remplace pas la compréhension du concept : c'est votre capacité à interpréter les résultats qui fait de vous un véritable expert technique en cybersécurité.
+
 !!! quote "La porte d'entrée numérique"
     Dans un monde où tout est exposé via HTTP, maîtriser le pentest web n'est plus une option, c'est une nécessité. C'est souvent là que se joue le destin de la sécurité d'une entreprise.
 

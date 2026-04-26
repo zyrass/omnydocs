@@ -4,8 +4,20 @@ icon: lucide/square-library
 
 # Radar (compétences multi-axes)
 
+<div
+  class="omny-meta"
+  data-level="Intermédiaire"
+  data-version="1.0"
+  data-time="5 minutes">
+</div>
+
+
 !!! note "Importance"
     Le radar permet de représenter une matrice de compétences multi-axes sur une échelle normalisée. C'est utile pour comparer des profils, matérialiser une progression ou exposer un objectif cible par domaine. Il est utilisé dans OmnyDocs pour les diagrammes de compétences par parcours.
+
+
+!!! quote "Analogie pédagogique"
+    _Apprendre la syntaxe de ce diagramme, c'est comme apprendre un nouveau vocabulaire : cela vous permet d'exprimer des idées complexes de manière concise et visuelle._
 
 ## Cas d'utilisation
 
@@ -38,6 +50,15 @@ ticks 5
 ```
 
 _Ce schéma positionne un profil sur cinq axes techniques avec une échelle de 0 à 5._
+
+<br />
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La maîtrise de ce diagramme enrichit considérablement la clarté de votre documentation. Utilisez-le dès qu'une explication textuelle devient trop dense.
 
 <br />
 

@@ -758,3 +758,14 @@ flowchart TD
 - **Commission européenne** : [https://digital-strategy.ec.europa.eu](https://digital-strategy.ec.europa.eu)
 
 ---
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Les normes et référentiels ne sont pas des contraintes administratives, mais des cadres structurants. Ils garantissent que la cybersécurité s'aligne sur les objectifs métiers de l'organisation et offre une assurance raisonnable face aux risques.
+
+> [Retour à l'index de la gouvernance →](../../index.md)

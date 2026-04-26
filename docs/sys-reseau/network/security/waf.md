@@ -13,6 +13,10 @@ tags: ["WAF", "SECURITE", "WEB", "MODSECURITY", "OWASP"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _La sécurité réseau moderne (Zero Trust, WAF, VPN) s'apparente aux contrôles stricts dans un aéroport international. Le pare-feu classique est la porte d'entrée, le WAF est le portique de sécurité vérifiant le contenu des bagages, et le VPN est le tunnel VIP sécurisé réservé aux employés identifiés._
+
 !!! quote "Le pare-feu intelligent"
     _Si votre site web est vulnérable à une Injection SQL, le pare-feu réseau de votre entreprise (pfSense) ne vous sauvera pas. Pourquoi ? Parce que le pare-feu voit une requête HTTP arriver sur le port 80/443, port qu'il est obligé de laisser ouvert pour que le site fonctionne. Il laisse donc passer l'attaque. Pour bloquer des attaques logiques liées au code web, il faut un **WAF** (Web Application Firewall), qui travaille au niveau de la Couche 7 (Application)._
 
@@ -73,3 +77,14 @@ La mise en place d'un WAF sur un site existant demande donc toujours une longue 
 ## Conclusion
 
 Le WAF est la "rustine" de sécurité par excellence. Si le code source de l'application web a été mal développé (failles béantes), le WAF est souvent le seul rempart qui empêche le piratage immédiat de la base de données. Cependant, il ne doit jamais remplacer la pratique d'un développement sécurisé (Secure Coding).
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La sécurité réseau ne s'arrête plus au simple pare-feu périmétrique. L'implémentation de VPNs robustes (OpenVPN/WireGuard) et d'une segmentation stricte forme l'épine dorsale d'une architecture résiliente.
+
+> [Retourner à l'index Réseau →](../index.md)

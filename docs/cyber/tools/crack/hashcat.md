@@ -145,6 +145,24 @@ hashcat -m 1000 -a 0 hashes.txt rockyou.txt -w 3 -O
 
 ---
 
+## 🛡️ Blue Team & Défense Proactive
+
+Hashcat s'exécutant *hors-ligne* (offline) sur la machine de l'attaquant, il est **indétectable** une fois que les hashes ont été volés. La Blue Team doit agir sur deux autres fronts : empêcher le vol, et rendre le craquage inutile.
+
+### 1. Empêcher l'Exfiltration (Détection du vol)
+L'attaque Hashcat est toujours précédée par l'exfiltration de la base NTDS.dit (l'annuaire de mots de passe de Windows).
+*   **Alerte SIEM** : Détecter l'utilisation de l'outil `ntdsutil.exe` ou de la commande PowerShell `vssadmin create shadow` (création de cliché instantané) par un administrateur sur le contrôleur de domaine.
+*   **Alerte Réseau** : Transfert d'un volume anormal de données depuis le Contrôleur de Domaine vers un poste de travail interne.
+
+### 2. Hashcat en mode "Défensif" (Password Auditing)
+Les meilleures Blue Teams utilisent elles-mêmes Hashcat contre leur propre base Active Directory.
+*   **Principe** : L'équipe SOC dumpe le NTDS.dit de manière légitime une fois par mois, et lance un dictionnaire de mots de passe faibles (ex: nom de l'entreprise + année) avec Hashcat.
+*   **Remédiation** : Si le compte d'un employé est cassé par le SOC, l'employé est forcé de changer son mot de passe, *avant* qu'un véritable attaquant ne le fasse.
+
+<br>
+
+---
+
 ## Avertissement Hardware (Le Danger Physique)
 
 !!! danger "Risque d'Incendie et de Destruction Matérielle"
@@ -152,20 +170,4 @@ hashcat -m 1000 -a 0 hashes.txt rockyou.txt -w 3 -O
     
     1. **Tension Thermique (Thermal Throttling)** : Hashcat pousse les GPU à 100% de leur capacité pendant des jours entiers. Si le système de refroidissement de la tour ou du PC portable est défaillant, la carte mère ou la batterie peut fondre.
     2. **Température Limite** : Par défaut, Hashcat s'arrête en urgence (Abort) si le capteur de la carte graphique atteint **90°C**. N'utilisez **JAMAIS** le flag `--hwmon-disable` (qui désactive la sonde thermique) sauf si vous êtes dans un centre de données climatisé professionnel.
-
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Hashcat est le prédateur ultime des bases de données hachées. Si le hachage est considéré "faible" par les standards modernes (comme le NTLM de Microsoft utilisé dans 90% des réseaux mondiaux), un cluster Hashcat bien configuré le considérera comme du "texte en clair chiffré dans du papier aluminium". C'est pour contrer Hashcat que les mots de passe de moins de 14 caractères sont désormais considérés comme obsolètes en entreprise.
-
-> Mais que faire si vous n'arrivez pas à obtenir la base de données hachée (pas de faille Web, pas d'accès local) ? Il ne vous reste plus qu'à attaquer le portail d'authentification par la porte de devant, en essayant les mots de passe directement via le réseau. C'est le rôle des bruteforceurs en ligne : **[Hydra →](./hydra.md)**.
-
-
-
-
-
 

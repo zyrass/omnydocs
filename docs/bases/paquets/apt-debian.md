@@ -872,6 +872,9 @@ apt -o Debug::pkgProblemResolver=yes install paquet
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    La gestion des paquets via apt debian est la porte d'entrée de toute administration système Linux. Comprendre ses mécanismes de résolution de dépendances et de dépôts garantit la stabilité et la sécurité de vos serveurs en production.
+
 !!! quote "Conclusion"
     _APT représente plus de 25 ans d'évolution dans la gestion de paquets Linux. Ce qui commençait comme un outil pour automatiser l'installation de logiciels est devenu un écosystème complet gérant des dizaines de milliers de paquets avec une fiabilité éprouvée sur des millions de systèmes critiques. La force d'APT réside dans sa maturité — chaque comportement a été pensé, testé et raffiné au fil des années. La résolution de dépendances garantit la cohérence du système. Les mécanismes de signature GPG assurent la sécurité de la chaîne d'approvisionnement. Le système de dépôts multiples permet la flexibilité sans compromettre la stabilité. Debian et Ubuntu dominent les serveurs web, les clouds publics et constituent la base de distributions spécialisées comme Kali Linux. Maîtriser APT, c'est comprendre la fondation sur laquelle repose une part substantielle de l'infrastructure numérique mondiale. APT n'est pas le plus rapide — APK est plus léger — ni le plus moderne — dnf offre plus de fonctionnalités — mais il est le plus fiable et le plus documenté. En administration système professionnelle, cette fiabilité éprouvée est non négociable._
 

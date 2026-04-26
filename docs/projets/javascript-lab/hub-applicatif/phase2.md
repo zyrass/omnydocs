@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🔴 Avancé"
   data-version="1.0"
-  data-time="1h30">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Pour afficher la météo, nous avons besoin de savoir où se trouve l'utilisateur. Historiquement, on demandait à l'utilisateur de taper son code postal. Aujourd'hui, les navigateurs modernes embarquent la `Geolocation API`. Mais attention : obtenir une position par satellite ou par triangulation IP n'est **pas immédiat**. Cela prend 2 à 5 secondes. C'est votre premier combat contre le "Temps".
@@ -115,3 +119,14 @@ Pendant que `getCurrentPosition` cherche la position, le DOM affiche "Localisati
 Nous avons les coordonnées de longitude et latitude ! Il est temps d'envoyer ces chiffres à un véritable serveur public et de formater le retour JSON. **Direction la Phase 3.**
 
 [Passer à la Phase 3 : Fetch API & Parsing JSON →](phase3.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

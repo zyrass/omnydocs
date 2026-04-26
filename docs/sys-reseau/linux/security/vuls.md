@@ -13,6 +13,10 @@ tags: ["VULS", "CVE", "VULNERABILITE", "SECURITE", "SCANNER"]
   data-time="20 - 30 minutes">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Le durcissement d'un système Linux est comme la construction des fortifications d'un château. Le pare-feu (UFW) correspond aux douves extérieures, les permissions POSIX (chmod/chown) sont les clés des différentes pièces, et la supervision (Fail2Ban/Lynis) agit comme les gardes effectuant des rondes régulières._
+
 !!! quote "Garder une longueur d'avance"
     _Une fois votre pare-feu fermé et vos accès sécurisés, la principale menace vient des logiciels que vous utilisez légitimement (Apache, Nginx, OpenSSL, PHP). Chaque jour, de nouvelles failles (CVE - Common Vulnerabilities and Exposures) sont découvertes dans ces composants. Comment savoir si votre serveur est concerné sans lire la presse spécialisée H24 ? C'est le rôle de **Vuls**._
 
@@ -101,3 +105,14 @@ L'utilisation de Vuls est une brique fondamentale du **Patch Management** (Gesti
 ## Conclusion
 
 L'audit système de configuration (via Lynis) et l'audit de vulnérabilités des logiciels (via Vuls) sont complémentaires. L'un vérifie que vous avez bien mis un cadenas à votre porte, l'autre vérifie que la marque de votre cadenas n'a pas été piratée récemment. Ces deux outils garantissent que l'administrateur reste proactif plutôt que réactif.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Sécuriser un système Linux exige une approche en couches : du pare-feu avec UFW à la détection d'intrusions avec Fail2Ban, en passant par un durcissement régulier. Aucun outil de sécurité ne remplace une bonne configuration de base.
+
+> [Retourner à l'index Linux →](../index.md)

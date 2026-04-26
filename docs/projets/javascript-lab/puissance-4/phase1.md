@@ -11,8 +11,12 @@ status: stable
   class="omny-meta"
   data-level="🟢 Débutant"
   data-version="1.0"
-  data-time="45m">
+  data-time="30 - 45 minutes">
 </div>
+
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
 
 !!! quote "Objectif de la Phase"
     Le Puissance 4 physique n'est rien d'autre qu'un bloc de plastique bleu percé de 42 trous circulaires. Votre mission est de traduire ce bloc physique en CSS pur sans recourir au Canvas JS afin d'apprendre la puissance architecturale de Grid.
@@ -193,3 +197,14 @@ Le plus simple en CSS moderne est de donner un fond Bleu au Board Global (`.boar
 Le décor du jeu d'arcade est finalisé. Mais ce jeu est encore aveugle et idiot. Le Cerveau arrive en **Phase 2 : La Gravité Mathématique**.
 
 [Passer à la Phase 2 : Gravité et Moteur de Jeu →](phase2.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

@@ -155,20 +155,3 @@ On lance l'usurpation (Spoofing) et on active le mouchard pour lire les données
     
     Le MITM ne doit être utilisé qu'avec l'accord explicite du client (Mandat écrit) et, si des données personnelles sont interceptées par erreur, elles doivent être détruites immédiatement (RGPD).
 
-<br>
-
----
-
-## Conclusion
-
-!!! quote "Ce qu'il faut retenir"
-    Aujourd'hui, l'écrasante majorité du Web est en HTTPS. Lire le contenu des messages via Bettercap est donc devenu très difficile (SSL Stripping obsolète face à HSTS). Cependant, Bettercap reste redoutable pour deux choses : comprendre précisément vers quels serveurs les machines internes tentent de communiquer, et rediriger ces requêtes vers des serveurs pirates.
-
-> Bettercap force le trafic à passer par vous. Mais sur un réseau Microsoft Windows, il y a un outil encore plus pervers, qui *attend patiemment* qu'un ordinateur Windows pose une question, pour lui mentir et voler son mot de passe. C'est l'outil ultime de la Red Team : **[Responder →](./responder.md)**.
-
-
-
-
-
-
-

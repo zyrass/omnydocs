@@ -163,5 +163,3 @@ _En ajoutant ces balises, l'alerte apparaît automatiquement dans le module **MI
     La distinction **IOC vs TTP** est fondamentale en cybersécurité défensive. Les IOC sont utiles à court terme pour bloquer une menace connue. Les TTP permettent de détecter les attaques **même quand l'attaquant change tous ses outils**. Un SOC mature base sa détection principalement sur les TTP (comportements) plutôt que sur les IOC (indicateurs ponctuels). MITRE ATT&CK est la carte qui vous permet de construire cette détection comportementale de manière systématique.
 
 > Passez maintenant au cours **[Sysmon →](./sysmon.md)** pour apprendre à enrichir la télémétrie Windows et rendre vos règles comportementales réellement opérationnelles.
-
-<br>

@@ -14,6 +14,10 @@ status: stable
   data-time="1 Heure">
 </div>
 
+
+!!! quote "Analogie pédagogique"
+    _Travailler sur un projet complet est comparable à l'assemblage final d'une voiture sur une ligne de production. C'est ici que toutes les pièces individuelles (concepts appris précédemment) doivent s'emboîter parfaitement pour créer un produit fonctionnel et sécurisé._
+
 !!! quote "Objectif de la Phase"
     Le but d'un développeur professionnel n'est pas de coder immédiatement des animations, c'est de bâtir des fondations résilientes. Dans cette première étape, vous allez configurer l'espace de travail, lier vos fichiers et créer la "palette" de votre application web : le **Design System**.
 
@@ -126,3 +130,14 @@ body {
 **Vous venez de construire le ciment de l'application.** C'est dans ce cadre rigide que nous allons désormais bâtir le composant le plus complexe du projet : la Navigation.
 
 [Passer à la Phase 2 : Navbar & Mobile Menu →](phase2.md)
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    La validation de cette étape confirme votre capacité à intégrer des concepts avancés dans un flux de travail professionnel. L'architecture globale prend maintenant tout son sens.
+
+> [Retour à l'index du projet →](../index.md)

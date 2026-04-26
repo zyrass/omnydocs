@@ -173,3 +173,14 @@ public function logout(Request $request)
 ## Conclusion 
 
 L'inscription est maintenant active sur votre projet et vous permets d'utiliser la mécanique d'identifiant et d'authentification manuelle. Vous avez abordé l'utilisation des middlewares `guest` et `auth` dans le routing, mais il va nous falloir les construire correctement au moment de sécuriser les URLs de notre site internet au module suivant !
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    L'authentification est le point le plus sensible de toute application web. Laravel fournit une infrastructure éprouvée — hachage bcrypt, protection CSRF, gestion des sessions — mais la responsabilité de l'architecte est de comprendre ce qui se passe derrière chaque façade pour pouvoir auditer, étendre et adapter ces mécanismes aux besoins métier.
+
+> [Authentification maîtrisée. Sécurisez maintenant l'accès aux routes avec les middlewares →](./22-middlewares-auth.md)

@@ -90,6 +90,9 @@ Les outils DNS s'insèrent dans la **phase de reconnaissance** — la première 
 
 ## Conclusion
 
+!!! quote "Ce qu'il faut retenir"
+    Ce module vous dote des outils fondamentaux pour cette catégorie d'attaque ou d'analyse. Gardez à l'esprit qu'un outil ne remplace pas la compréhension du concept : c'est votre capacité à interpréter les résultats qui fait de vous un véritable expert technique en cybersécurité.
+
 !!! quote "La visibilité par le nom"
     Le DNS est souvent le premier domino qui tombe lors d'une reconnaissance. Un enregistrement oublié ou un serveur mal configuré peut révéler des pans entiers de l'infrastructure que l'organisation pensait cachés.
 
