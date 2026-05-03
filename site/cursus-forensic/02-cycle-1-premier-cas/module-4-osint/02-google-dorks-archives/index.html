@@ -1,0 +1,6117 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Reconnaissance passive via opérateurs avancés Google, Bing, DuckDuckGo. Wayback Machine pour versions historiques. Google Hacking Database (GHDB). Archives publiques françaises (Pappers, BODACC, INPI, Société.com).">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/cursus-forensic/02-cycle-1-premier-cas/module-4-osint/02-google-dorks-archives/">
+      
+      
+        <link rel="prev" href="../01-methodologie-osint/">
+      
+      
+        <link rel="next" href="../03-theharvester-emails/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.37">
+    
+    
+      
+        <title>4.2 Reconnaissance passive - Google dorks et archives - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.a2001754.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#42-reconnaissance-passive-google-dorks-et-archives" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.2 Reconnaissance passive - Google dorks et archives
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/governance/" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  Cursus Forensic
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infrastructure (Sys-Réseau)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/governance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : GRC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opérations &amp; SOC (Blue Team)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../glossaire/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cursus Forensic
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cursus Forensic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../00-meta-outillages/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outillage du cursus
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_2" id="__nav_10_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outillage du cursus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/evolution-carriere-2026/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Évolution de Carrière (2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/carnet-doutes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Carnet de Doutes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/inventaire-materiel/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventaire Matériel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/progression/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Suivi de Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/ressources-externes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources Externes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../01-cycle-0-fondations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 0 : Fondations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_3" id="__nav_10_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 0 : Fondations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-1-legislation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 - Législation française et cadre juridique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-2-prerequis-techniques/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 - Prérequis techniques et théoriques
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-3-configuration-laboratoire/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 - Configuration du laboratoire forensic physique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 1 : Premier cas complet
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4" id="__nav_10_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 1 : Premier cas complet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IV - OSINT et reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4_2" id="__nav_10_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IV - OSINT et reconnaissance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-methodologie-osint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1 Méthodologie OSINT - framework et matrice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2 Reconnaissance passive - Google dorks et archives
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2 Reconnaissance passive - Google dorks et archives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-operateurs-avances-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Opérateurs avancés Google
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Opérateurs avancés Google">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-operateurs-essentiels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Opérateurs essentiels
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-combinaisons-puissantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Combinaisons puissantes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-dorks-pour-fuites-accidentelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Dorks pour fuites accidentelles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-outil-dorks-collections-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4 Outil dorks-collections-list
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bing-et-duckduckgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Bing et DuckDuckGo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Bing et DuckDuckGo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-specificites-bing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Spécificités Bing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-duckduckgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 DuckDuckGo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-yandex" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Yandex
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-google-hacking-database-ghdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Google Hacking Database (GHDB)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Google Hacking Database (GHDB)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-categories-ghdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Catégories GHDB
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-recherche-dans-ghdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Recherche dans GHDB
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-wayback-machine-archivesorg" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Wayback Machine - Archives.org
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Wayback Machine - Archives.org">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pourquoi-cest-precieux" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Pourquoi c'est précieux
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-utilisation-basique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Utilisation basique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-wayback-cdx-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Wayback CDX API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-outil-waybackurls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Outil waybackurls
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-preservation-forensic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Préservation forensic
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-archives-publiques-francaises" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Archives publiques françaises
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Archives publiques françaises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-societecom-pappers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Société.com / Pappers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-bodacc" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 BODACC
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-inpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 INPI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-annuaire-des-entreprises-datagouvfr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.4 Annuaire des entreprises (data.gouv.fr)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-open-corporates" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.5 Open Corporates
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-methodologie-pratique-pour-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Méthodologie pratique pour ARTECH
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Méthodologie pratique pour ARTECH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-workflow-en-6-etapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 Workflow en 6 étapes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-checklist-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Checklist exécution
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cas-pratique-une-session-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Cas pratique - Une session ARTECH
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cas pratique - Une session ARTECH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-mise-en-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Mise en situation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-deroulement-minute-par-minute" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Déroulement minute par minute
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-sortie-attendue" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Sortie attendue
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-pieges-et-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Pièges et bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Pièges et bonnes pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-pieges-frequents" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1 Pièges fréquents
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2 Bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Synthèse
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-theharvester-emails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3 theHarvester et énumération emails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-wigle-bssid-ssid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.4 Recherche par BSSID Wigle.net et SSID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-profilage-linkedin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.5 Profilage humain LinkedIn et réseaux sociaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-hunter-formats-emails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.6 Hunter.io et formats d'emails entreprise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-maltego-ce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.7 Maltego CE pour cartographie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-wardriving-passif/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.8 Wardriving passif sur le terrain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-rapport-osint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.9 Production du rapport OSINT structuré
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-cas-pratique-artech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.10 Cas pratique ARTECH profilage complet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-5-wifi-wpa2/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 5 - Attaque Wi-Fi WPA2 simple
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-6-phishing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 6 - Phishing basique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-7-acquisition-memoire-windows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 - Acquisition mémoire Windows
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-7bis-acquisition-memoire-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 bis : Acquisition mémoire macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-8-acquisition-disque/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 8 : Acquisition disque
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-9-volatility-autopsy/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 9 : Analyse Volatility et Autopsy
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-10-premier-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Premier rapport
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../03-cycle-2-avance/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 2 : Cas avancé
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_5" id="__nav_10_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 2 : Cas avancé
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-11-osint/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 11 : OSINT approfondi
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-12-pivoting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 12 : Pivoting multi-postes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-13-persistance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Persistance Windows et Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14-bitlocker-luks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : BitLocker et LUKS extraction
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14bis-filevault/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 bis : FileVault et Apple Silicon
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15-detection/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 : Détection sans SIEM (Win/Lin)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15bis-detection-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 bis : Détection sur macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-16-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 16 : Rapport judiciaire complet
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-17-rgpd/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 17 : RGPD et notification CNIL
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../04-cycle-3-maitrise/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 3 : Maîtrise
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_6" id="__nav_10_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 3 : Maîtrise
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-18-educrypt/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 18 : EduCrypt (Dev Pédagogique)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19-chiffrement-actif/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 : Cas de chiffrement actif
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19bis-outil-swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 bis : Outil forensic Swift (macOS)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-20-chiffrage/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 20 : Chiffrage prestation PME
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-21-cas-autonomes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 21 : 5 cas autonomes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-22-formation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 22 : Préparation formation vidéo
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../05-menace-malware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spécialisation : Menace Malware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spécialisation : Menace Malware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-operateurs-avances-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Opérateurs avancés Google
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Opérateurs avancés Google">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-operateurs-essentiels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Opérateurs essentiels
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-combinaisons-puissantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Combinaisons puissantes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-dorks-pour-fuites-accidentelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Dorks pour fuites accidentelles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-outil-dorks-collections-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4 Outil dorks-collections-list
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bing-et-duckduckgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Bing et DuckDuckGo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Bing et DuckDuckGo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-specificites-bing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Spécificités Bing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-duckduckgo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 DuckDuckGo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-yandex" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Yandex
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-google-hacking-database-ghdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Google Hacking Database (GHDB)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Google Hacking Database (GHDB)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-categories-ghdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Catégories GHDB
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-recherche-dans-ghdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Recherche dans GHDB
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-wayback-machine-archivesorg" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Wayback Machine - Archives.org
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Wayback Machine - Archives.org">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pourquoi-cest-precieux" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Pourquoi c'est précieux
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-utilisation-basique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Utilisation basique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-wayback-cdx-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Wayback CDX API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-outil-waybackurls" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Outil waybackurls
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-preservation-forensic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Préservation forensic
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-archives-publiques-francaises" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Archives publiques françaises
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Archives publiques françaises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-societecom-pappers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Société.com / Pappers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-bodacc" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 BODACC
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-inpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 INPI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-annuaire-des-entreprises-datagouvfr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.4 Annuaire des entreprises (data.gouv.fr)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-open-corporates" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.5 Open Corporates
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-methodologie-pratique-pour-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Méthodologie pratique pour ARTECH
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Méthodologie pratique pour ARTECH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-workflow-en-6-etapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 Workflow en 6 étapes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-checklist-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Checklist exécution
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cas-pratique-une-session-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Cas pratique - Une session ARTECH
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cas pratique - Une session ARTECH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-mise-en-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Mise en situation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-deroulement-minute-par-minute" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Déroulement minute par minute
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-sortie-attendue" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Sortie attendue
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-pieges-et-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Pièges et bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Pièges et bonnes pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-pieges-frequents" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1 Pièges fréquents
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2 Bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Synthèse
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cursus Forensic
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cycle 1 : Premier cas complet
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    IV - OSINT et reconnaissance
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="42-reconnaissance-passive-google-dorks-et-archives">4.2 Reconnaissance passive - Google dorks et archives<a class="headerlink" href="#42-reconnaissance-passive-google-dorks-et-archives" title="Permanent link">&para;</a></h1>
+<div class="admonition quote">
+<p class="admonition-title">L'analogie de l'archiviste municipal</p>
+<p>Dans chaque mairie, il existe un archiviste municipal qui connaît mieux que personne l'histoire de la commune. Il sait que les permis de construire de 1985 sont au sous-sol, que les comptes-rendus de conseil sont au troisième étage, que les bulletins paroissiaux remontent à 1920. Quand un chercheur arrive avec une question précise, l'archiviste lui ouvre les bonnes étagères. Sans lui, le chercheur passerait des semaines à errer. Google et les archives Internet sont vos archivistes pour ARTECH. Ils savent où sont les documents publics, les versions effacées du site, les organigrammes oubliés. Encore faut-il leur poser les bonnes questions.</p>
+</div>
+<h2 id="metadonnees-du-chapitre">Métadonnées du chapitre<a class="headerlink" href="#metadonnees-du-chapitre" title="Permanent link">&para;</a></h2>
+<p>Ce chapitre approfondit les techniques de recherche passive sur les moteurs et archives. Voici ses caractéristiques.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Durée estimée</td>
+<td>3 heures</td>
+</tr>
+<tr>
+<td>Niveau</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>Prérequis</td>
+<td>4.1</td>
+</tr>
+<tr>
+<td>Livrables</td>
+<td>Mémo de dorks personnels, captures Wayback ARTECH</td>
+</tr>
+<tr>
+<td>Auto-explication</td>
+<td>12 minutes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="objectifs-pedagogiques">Objectifs pédagogiques<a class="headerlink" href="#objectifs-pedagogiques" title="Permanent link">&para;</a></h2>
+<p>À l'issue de ce chapitre, vous serez capable de :</p>
+<ul>
+<li>Maîtriser les opérateurs avancés Google, Bing et DuckDuckGo</li>
+<li>Construire des requêtes ciblées (dorks) efficaces</li>
+<li>Exploiter Wayback Machine pour les versions historiques</li>
+<li>Utiliser la Google Hacking Database (GHDB)</li>
+<li>Consulter les archives publiques françaises</li>
+<li>Documenter chaque source trouvée</li>
+</ul>
+<hr />
+<h2 id="1-operateurs-avances-google">1. Opérateurs avancés Google<a class="headerlink" href="#1-operateurs-avances-google" title="Permanent link">&para;</a></h2>
+<p>Google supporte une vingtaine d'opérateurs avancés peu connus du grand public. Maîtrisés ensemble, ils décuplent l'efficacité de vos recherches.</p>
+<h3 id="11-operateurs-essentiels">1.1 Opérateurs essentiels<a class="headerlink" href="#11-operateurs-essentiels" title="Permanent link">&para;</a></h3>
+<p>Voici les 10 opérateurs les plus utiles en OSINT.</p>
+<table>
+<thead>
+<tr>
+<th>Opérateur</th>
+<th>Effet</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>site:</code></td>
+<td>Restreint à un domaine</td>
+<td><code>site:artech.fr</code></td>
+</tr>
+<tr>
+<td><code>inurl:</code></td>
+<td>Mot dans l'URL</td>
+<td><code>inurl:admin</code></td>
+</tr>
+<tr>
+<td><code>intitle:</code></td>
+<td>Mot dans le titre</td>
+<td><code>intitle:"organigramme"</code></td>
+</tr>
+<tr>
+<td><code>intext:</code></td>
+<td>Mot dans le contenu</td>
+<td><code>intext:"sophie.dupont"</code></td>
+</tr>
+<tr>
+<td><code>filetype:</code></td>
+<td>Type de fichier</td>
+<td><code>filetype:pdf</code></td>
+</tr>
+<tr>
+<td><code>cache:</code></td>
+<td>Version en cache Google</td>
+<td><code>cache:artech.fr</code></td>
+</tr>
+<tr>
+<td><code>link:</code></td>
+<td>Pages qui pointent vers</td>
+<td><code>link:artech.fr</code> (deprecated mais tenter)</td>
+</tr>
+<tr>
+<td><code>related:</code></td>
+<td>Sites similaires</td>
+<td><code>related:artech.fr</code></td>
+</tr>
+<tr>
+<td><code>OR</code> ou <code>\|</code></td>
+<td>Alternative</td>
+<td><code>compta OR finance</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Exclusion</td>
+<td><code>artech -recettes</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-combinaisons-puissantes">1.2 Combinaisons puissantes<a class="headerlink" href="#12-combinaisons-puissantes" title="Permanent link">&para;</a></h3>
+<p>L'art du Google dorking consiste à combiner plusieurs opérateurs. Voici quelques combinaisons classiques.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>COMBINAISONS UTILES
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a># Documents publics ARTECH
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>site:artech.fr filetype:pdf
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a># Documents Office
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>site:artech.fr (filetype:doc OR filetype:docx OR filetype:xls OR filetype:xlsx)
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a># Pages d&#39;admin oubliées
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>site:artech.fr inurl:admin
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a># Sous-domaines
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>site:*.artech.fr -site:www.artech.fr
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a># Mentions presse
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>&quot;ARTECH&quot; &quot;Lyon&quot; -site:artech.fr
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a># Profils LinkedIn
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>site:linkedin.com/in/ &quot;ARTECH&quot;
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a># Documents internes échappés
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>intext:&quot;confidentiel&quot; site:artech.fr
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>intext:&quot;interne&quot; filetype:pdf &quot;ARTECH&quot;
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a># Recherche contact
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>&quot;ARTECH&quot; intext:&quot;@artech.fr&quot; -site:artech.fr
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a># Trombinoscope
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>site:artech.fr (intitle:&quot;équipe&quot; OR intitle:&quot;team&quot; OR intitle:&quot;about&quot;)
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a># Annuaires professionnels
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>&quot;ARTECH&quot; site:societe.com OR site:pappers.fr OR site:verif.com
+</span></code></pre></div>
+<h3 id="13-dorks-pour-fuites-accidentelles">1.3 Dorks pour fuites accidentelles<a class="headerlink" href="#13-dorks-pour-fuites-accidentelles" title="Permanent link">&para;</a></h3>
+<p>Certains dorks permettent de trouver des fichiers qui n'auraient jamais dû être publics. Cette catégorie illustre l'importance d'auditer son propre site.</p>
+<table>
+<thead>
+<tr>
+<th>Dork</th>
+<th>Cible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>site:artech.fr ext:log</code></td>
+<td>Fichiers de log oubliés</td>
+</tr>
+<tr>
+<td><code>site:artech.fr ext:env</code></td>
+<td>Fichiers .env (variables)</td>
+</tr>
+<tr>
+<td><code>site:artech.fr inurl:.git</code></td>
+<td>Repositories Git exposés</td>
+</tr>
+<tr>
+<td><code>site:artech.fr inurl:backup</code></td>
+<td>Sauvegardes accessibles</td>
+</tr>
+<tr>
+<td><code>site:artech.fr (ext:sql OR ext:dump)</code></td>
+<td>Dumps base de données</td>
+</tr>
+<tr>
+<td><code>site:artech.fr "Index of /"</code></td>
+<td>Listings de répertoires</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-outil-dorks-collections-list">1.4 Outil dorks-collections-list<a class="headerlink" href="#14-outil-dorks-collections-list" title="Permanent link">&para;</a></h3>
+<p>Pour aller plus loin, plusieurs collections de dorks sont maintenues par la communauté. Voici les plus utilisées.</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Hacking Database (Exploit-DB)</td>
+<td>exploit-db.com/google-hacking-database</td>
+</tr>
+<tr>
+<td>Pentest-Tools dorks</td>
+<td>pentest-tools.com/information-gathering/google-hacking</td>
+</tr>
+<tr>
+<td>Awesome Google Dorks</td>
+<td>github.com/Z0fhadi/Awesome-Google-Dorking-Cheat-Sheet</td>
+</tr>
+<tr>
+<td>OSINT Industries</td>
+<td>osint.industries</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-bing-et-duckduckgo">2. Bing et DuckDuckGo<a class="headerlink" href="#2-bing-et-duckduckgo" title="Permanent link">&para;</a></h2>
+<p>Google n'est pas le seul moteur. Bing et DuckDuckGo retournent souvent des résultats différents, et certains opérateurs n'existent que chez l'un.</p>
+<h3 id="21-specificites-bing">2.1 Spécificités Bing<a class="headerlink" href="#21-specificites-bing" title="Permanent link">&para;</a></h3>
+<p>Bing supporte des opérateurs propres particulièrement utiles pour l'OSINT.</p>
+<table>
+<thead>
+<tr>
+<th>Opérateur Bing</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ip:</code></td>
+<td>Sites hébergés sur cette IP</td>
+</tr>
+<tr>
+<td><code>language:</code></td>
+<td>Langue cible</td>
+</tr>
+<tr>
+<td><code>location:</code></td>
+<td>Géolocalisation</td>
+</tr>
+<tr>
+<td><code>feed:</code></td>
+<td>Recherche dans flux RSS</td>
+</tr>
+<tr>
+<td><code>hasfeed:</code></td>
+<td>Pages avec flux RSS</td>
+</tr>
+</tbody>
+</table>
+<p>L'opérateur <code>ip:</code> est particulièrement utile pour identifier d'autres sites hébergés sur la même IP qu'ARTECH (mutualisation, vulnérabilités partagées).</p>
+<h3 id="22-duckduckgo">2.2 DuckDuckGo<a class="headerlink" href="#22-duckduckgo" title="Permanent link">&para;</a></h3>
+<p>DuckDuckGo respecte la vie privée et propose des <strong>bangs</strong> (raccourcis) pour rediriger vers d'autres moteurs.</p>
+<table>
+<thead>
+<tr>
+<th>Bang</th>
+<th>Redirection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>!g terme</code></td>
+<td>Google</td>
+</tr>
+<tr>
+<td><code>!w terme</code></td>
+<td>Wikipedia</td>
+</tr>
+<tr>
+<td><code>!l terme</code></td>
+<td>LinkedIn</td>
+</tr>
+<tr>
+<td><code>!ggi terme</code></td>
+<td>Google Images</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-yandex">2.3 Yandex<a class="headerlink" href="#23-yandex" title="Permanent link">&para;</a></h3>
+<p>Yandex (moteur russe) excelle particulièrement sur la <strong>reverse image search</strong> des visages. C'est un complément précieux quand Google échoue.</p>
+<h2 id="3-google-hacking-database-ghdb">3. Google Hacking Database (GHDB)<a class="headerlink" href="#3-google-hacking-database-ghdb" title="Permanent link">&para;</a></h2>
+<p>La GHDB est la collection de référence des dorks pour la sécurité offensive. Maintenue par Exploit-DB depuis 2002.</p>
+<h3 id="31-categories-ghdb">3.1 Catégories GHDB<a class="headerlink" href="#31-categories-ghdb" title="Permanent link">&para;</a></h3>
+<p>La base classe les dorks en 14 catégories. Voici les plus pertinentes pour ARTECH.</p>
+<table>
+<thead>
+<tr>
+<th>Catégorie</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Footholds</td>
+<td>Points d'entrée potentiels</td>
+</tr>
+<tr>
+<td>Files containing usernames</td>
+<td>Fichiers avec utilisateurs</td>
+</tr>
+<tr>
+<td>Sensitive Directories</td>
+<td>Répertoires sensibles</td>
+</tr>
+<tr>
+<td>Web Server Detection</td>
+<td>Identification de serveurs</td>
+</tr>
+<tr>
+<td>Vulnerable Files</td>
+<td>Fichiers exploitables</td>
+</tr>
+<tr>
+<td>Vulnerable Servers</td>
+<td>Serveurs vulnérables</td>
+</tr>
+<tr>
+<td>Error Messages</td>
+<td>Messages d'erreur révélateurs</td>
+</tr>
+<tr>
+<td>Network or vulnerability data</td>
+<td>Données réseau</td>
+</tr>
+<tr>
+<td>Pages containing login portals</td>
+<td>Portails d'authentification</td>
+</tr>
+<tr>
+<td>Various Online Devices</td>
+<td>IoT exposés</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-recherche-dans-ghdb">3.2 Recherche dans GHDB<a class="headerlink" href="#32-recherche-dans-ghdb" title="Permanent link">&para;</a></h3>
+<p>Pour interroger la GHDB, vous accédez à <code>exploit-db.com/google-hacking-database</code> et utilisez la recherche par mot-clé.</p>
+<p>Voici quelques exemples de requêtes utiles pour auditer ARTECH.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>EXEMPLES DE REQUÊTES GHDB
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Recherche : &quot;phpinfo&quot; → catégorie Sensitive Directories
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  Trouve les pages phpinfo() exposées qui révèlent
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  la configuration PHP du serveur
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Recherche : &quot;wp-admin&quot; → catégorie Pages containing login portals
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  Trouve les pages d&#39;admin WordPress exposées
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Recherche : &quot;intitle:Index of&quot; &quot;/etc/passwd&quot; → Footholds
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  Cas extrême - serveur mal configuré exposant /etc
+</span></code></pre></div>
+<h2 id="4-wayback-machine-archivesorg">4. Wayback Machine - Archives.org<a class="headerlink" href="#4-wayback-machine-archivesorg" title="Permanent link">&para;</a></h2>
+<p>Wayback Machine est l'archive du web depuis 1996. Elle conserve des <strong>snapshots</strong> historiques de sites web.</p>
+<h3 id="41-pourquoi-cest-precieux">4.1 Pourquoi c'est précieux<a class="headerlink" href="#41-pourquoi-cest-precieux" title="Permanent link">&para;</a></h3>
+<p>Plusieurs cas d'usage rendent cet outil indispensable en OSINT.</p>
+<table>
+<thead>
+<tr>
+<th>Cas</th>
+<th>Apport</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Site refondu</td>
+<td>Retrouver l'ancienne organisation</td>
+</tr>
+<tr>
+<td>Trombinoscope effacé</td>
+<td>Récupérer noms et photos</td>
+</tr>
+<tr>
+<td>Pages d'erreur révélées</td>
+<td>Voir si pages d'admin ont existé</td>
+</tr>
+<tr>
+<td>Documents retirés</td>
+<td>Récupérer fichiers PDF supprimés</td>
+</tr>
+<tr>
+<td>Évolution des produits</td>
+<td>Tracer changements d'offre</td>
+</tr>
+<tr>
+<td>Articles supprimés</td>
+<td>Garder traces de communications</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-utilisation-basique">4.2 Utilisation basique<a class="headerlink" href="#42-utilisation-basique" title="Permanent link">&para;</a></h3>
+<p>L'accès se fait via <code>web.archive.org</code>. Vous saisissez l'URL et choisissez une date dans le calendrier.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>EXEMPLE D&#39;USAGE
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>================
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>URL d&#39;origine     : https://artech.fr/equipe
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>URL Wayback       : https://web.archive.org/web/*/artech.fr/equipe
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Date archivage    : 2018-03-15 (par exemple)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Capture complète  : page + images + CSS + JS
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>INTÉRÊT
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  Si la page actuelle ne mentionne plus
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  l&#39;ancien DSI parti en 2020, l&#39;archive
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  de 2018 le mentionne encore.
+</span></code></pre></div>
+<h3 id="43-wayback-cdx-api">4.3 Wayback CDX API<a class="headerlink" href="#43-wayback-cdx-api" title="Permanent link">&para;</a></h3>
+<p>Pour automatiser, Wayback expose une API CDX. Voici un exemple d'utilisation pour récupérer toutes les URL archivées d'un domaine.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Récupération de toutes les URLs uniques archivées pour artech.fr</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;http://web.archive.org/cdx/search/cdx?url=artech.fr/*&amp;output=json&amp;fl=original&amp;collapse=urlkey&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.[][]&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span>&gt;<span class="w"> </span>artech-archived-urls.txt
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Comptage</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>wc<span class="w"> </span>-l<span class="w"> </span>artech-archived-urls.txt
+</span></code></pre></div>
+<h3 id="44-outil-waybackurls">4.4 Outil waybackurls<a class="headerlink" href="#44-outil-waybackurls" title="Permanent link">&para;</a></h3>
+<p>L'outil <strong>waybackurls</strong> automatise cette extraction. Voici son installation et son usage.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Installation (Go requis)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>go<span class="w"> </span>install<span class="w"> </span>github.com/tomnomnom/waybackurls@latest
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Usage</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>waybackurls<span class="w"> </span>artech.fr<span class="w"> </span>&gt;<span class="w"> </span>artech-wayback-urls.txt
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Filtrage par extension</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>cat<span class="w"> </span>artech-wayback-urls.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;\.(pdf|doc|docx|xlsx)</span>$<span class="s2">&quot;</span>
+</span></code></pre></div>
+<h3 id="45-preservation-forensic">4.5 Préservation forensic<a class="headerlink" href="#45-preservation-forensic" title="Permanent link">&para;</a></h3>
+<p>Pour vos propres captures Wayback, sauvegardez avec horodatage.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Capture forcée d&#39;une page actuelle dans Wayback</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://web.archive.org/save/https://artech.fr/page&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span>-o<span class="w"> </span>/tmp/wayback-result.html
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Lecture du header pour confirmation</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>curl<span class="w"> </span>-s<span class="w"> </span>-I<span class="w"> </span><span class="s2">&quot;https://web.archive.org/save/https://artech.fr/page&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;content-location&quot;</span>
+</span></code></pre></div>
+<h2 id="5-archives-publiques-francaises">5. Archives publiques françaises<a class="headerlink" href="#5-archives-publiques-francaises" title="Permanent link">&para;</a></h2>
+<p>La France dispose de plusieurs registres publics consultables gratuitement.</p>
+<h3 id="51-societecom-pappers">5.1 Société.com / Pappers<a class="headerlink" href="#51-societecom-pappers" title="Permanent link">&para;</a></h3>
+<p><strong>Pappers.fr</strong> est devenu en 2026 la référence pour les informations sur entreprises françaises. <strong>Société.com</strong> reste utile en complément.</p>
+<p>Voici les informations accessibles gratuitement sur Pappers.</p>
+<table>
+<thead>
+<tr>
+<th>Information</th>
+<th>Disponibilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raison sociale</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>SIRET / SIREN</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>Adresse siège</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>Activité (code NAF)</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>Date création</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>Effectif (tranche)</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>Capital social</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>Dirigeants actuels</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>Dirigeants historiques</td>
+<td>Payant ou Pappers Pro</td>
+</tr>
+<tr>
+<td>Liens entre sociétés</td>
+<td>Gratuit (graphique)</td>
+</tr>
+<tr>
+<td>Comptes annuels</td>
+<td>Gratuit (PDF intégral !)</td>
+</tr>
+<tr>
+<td>Annonces BODACC</td>
+<td>Gratuit</td>
+</tr>
+</tbody>
+</table>
+<p>Pour ARTECH, recherche directe : <code>pappers.fr</code> puis taper "ARTECH".</p>
+<h3 id="52-bodacc">5.2 BODACC<a class="headerlink" href="#52-bodacc" title="Permanent link">&para;</a></h3>
+<p>Le <strong>Bulletin Officiel des Annonces Civiles et Commerciales</strong> publie toutes les opérations légales (créations, modifications, cessations). Accès libre via <code>bodacc.fr</code>.</p>
+<p>Voici les types d'annonces utiles en OSINT.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Création</td>
+<td>Date, dirigeants initiaux</td>
+</tr>
+<tr>
+<td>Modification</td>
+<td>Changements dirigeants, capital</td>
+</tr>
+<tr>
+<td>Cessation</td>
+<td>Liquidation, redressement</td>
+</tr>
+<tr>
+<td>Cession</td>
+<td>Achats/ventes</td>
+</tr>
+<tr>
+<td>Procédures collectives</td>
+<td>Difficultés financières (vulnérabilité)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-inpi">5.3 INPI<a class="headerlink" href="#53-inpi" title="Permanent link">&para;</a></h3>
+<p>L'<strong>INPI</strong> (Institut National de la Propriété Industrielle) fournit accès aux marques déposées. Site : <code>data.inpi.fr</code>.</p>
+<p>Pour ARTECH, vérifiez les marques déposées qui pourraient révéler des produits ou des projets non publics.</p>
+<h3 id="54-annuaire-des-entreprises-datagouvfr">5.4 Annuaire des entreprises (data.gouv.fr)<a class="headerlink" href="#54-annuaire-des-entreprises-datagouvfr" title="Permanent link">&para;</a></h3>
+<p>Le site <code>annuaire-entreprises.data.gouv.fr</code> croise INSEE, BODACC et INPI dans une interface unique. Particulièrement pratique pour une vue rapide.</p>
+<h3 id="55-open-corporates">5.5 Open Corporates<a class="headerlink" href="#55-open-corporates" title="Permanent link">&para;</a></h3>
+<p><strong>OpenCorporates</strong> (<code>opencorporates.com</code>) est la version internationale, particulièrement utile pour les groupes ayant des filiales à l'étranger.</p>
+<h2 id="6-methodologie-pratique-pour-artech">6. Méthodologie pratique pour ARTECH<a class="headerlink" href="#6-methodologie-pratique-pour-artech" title="Permanent link">&para;</a></h2>
+<p>Voici un workflow concret applicable à ARTECH dans votre lab.</p>
+<h3 id="61-workflow-en-6-etapes">6.1 Workflow en 6 étapes<a class="headerlink" href="#61-workflow-en-6-etapes" title="Permanent link">&para;</a></h3>
+<p>L'enchaînement type d'une session de reconnaissance passive ARTECH suit le schéma ci-dessous.</p>
+<pre class="mermaid"><code>flowchart TB
+    A[1. Pappers.fr&lt;br&gt;Identité légale] --&gt; B[2. BODACC&lt;br&gt;Historique annonces]
+    B --&gt; C[3. Site web ARTECH&lt;br&gt;navigation complète]
+    C --&gt; D[4. Wayback Machine&lt;br&gt;versions antérieures]
+    D --&gt; E[5. Google dorks&lt;br&gt;documents publics]
+    E --&gt; F[6. Bing ip:&lt;br&gt;autres sites mêmes IP]</code></pre>
+<h3 id="62-checklist-execution">6.2 Checklist exécution<a class="headerlink" href="#62-checklist-execution" title="Permanent link">&para;</a></h3>
+<p>Pour ne rien oublier, voici la checklist à compléter par session.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>CHECKLIST RECONNAISSANCE PASSIVE - ARTECH
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>==========================================
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>PAPPERS.FR
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>[ ] Raison sociale exacte
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>[ ] SIREN / SIRET
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>[ ] Capital social
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>[ ] Dirigeants actuels (noms et fonctions)
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>[ ] Effectif (tranche)
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>[ ] Activité NAF
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>[ ] Comptes annuels téléchargés (3 derniers exercices)
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>BODACC
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>[ ] Annonces des 5 dernières années
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>[ ] Modifications statutaires
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>[ ] Pas de procédures collectives en cours
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>SITE WEB ARTECH
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>[ ] Navigation complète
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>[ ] Mentions légales
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>[ ] Page contact
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>[ ] Page équipe / about
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>[ ] Blog / actualités
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>[ ] Documents PDF accessibles
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>WAYBACK MACHINE
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>[ ] 3-5 captures récentes
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>[ ] 1-2 captures anciennes (3-5 ans)
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>[ ] Comparaison versions
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>GOOGLE DORKS
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>[ ] site:artech.fr filetype:pdf
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>[ ] site:artech.fr filetype:docx
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>[ ] &quot;ARTECH&quot; &quot;lyon&quot; -site:artech.fr
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>[ ] site:linkedin.com/in/ &quot;ARTECH&quot;
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>[ ] site:*.artech.fr -site:www.artech.fr
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>BING SPÉCIFIQUE
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>[ ] ip:[IP_ARTECH]
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>[ ] (autres sites sur la même IP)
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>DOCUMENTATION
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>[ ] Toutes captures hashées
+</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>[ ] Toutes URLs sauvegardées dans Wayback
+</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>[ ] Journal horodaté à jour
+</span></code></pre></div>
+<h2 id="7-cas-pratique-une-session-artech">7. Cas pratique - Une session ARTECH<a class="headerlink" href="#7-cas-pratique-une-session-artech" title="Permanent link">&para;</a></h2>
+<h3 id="71-mise-en-situation">7.1 Mise en situation<a class="headerlink" href="#71-mise-en-situation" title="Permanent link">&para;</a></h3>
+<p>Vous êtes en début de mission OSINT ARTECH. Voici la session de 1 heure type pour épuiser la reconnaissance passive.</p>
+<h3 id="72-deroulement-minute-par-minute">7.2 Déroulement minute par minute<a class="headerlink" href="#72-deroulement-minute-par-minute" title="Permanent link">&para;</a></h3>
+<p>Voici le déroulé pédagogique d'une heure d'OSINT passif productif.</p>
+<table>
+<thead>
+<tr>
+<th>Minute</th>
+<th>Action</th>
+<th>Outil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-5</td>
+<td>Pappers.fr → identité, dirigeants, comptes</td>
+<td>Navigateur</td>
+</tr>
+<tr>
+<td>5-10</td>
+<td>BODACC → historique annonces</td>
+<td>Navigateur</td>
+</tr>
+<tr>
+<td>10-15</td>
+<td>INPI → marques déposées</td>
+<td>Navigateur</td>
+</tr>
+<tr>
+<td>15-25</td>
+<td>Site artech.fr → navigation exhaustive</td>
+<td>Navigateur + Hunchly</td>
+</tr>
+<tr>
+<td>25-35</td>
+<td>Wayback → 5 captures historiques</td>
+<td>Navigateur</td>
+</tr>
+<tr>
+<td>35-50</td>
+<td>Google dorks → 10 requêtes ciblées</td>
+<td>Navigateur</td>
+</tr>
+<tr>
+<td>50-55</td>
+<td>Bing ip: → autres sites</td>
+<td>Navigateur</td>
+</tr>
+<tr>
+<td>55-60</td>
+<td>Documentation et hashes</td>
+<td>Terminal</td>
+</tr>
+</tbody>
+</table>
+<p>À l'issue : vous avez 80 % des informations exploitables sur ARTECH.</p>
+<h3 id="73-sortie-attendue">7.3 Sortie attendue<a class="headerlink" href="#73-sortie-attendue" title="Permanent link">&para;</a></h3>
+<p>Voici le format du fichier de session que vous tenez à jour.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SESSION OSINT PASSIF ARTECH - 2026-XX-XX
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>==========================================
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>DURÉE : 1h00 (08:30 - 09:30 UTC)
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>ANALYSTE : Zyrass
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>PAPPERS.FR
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  ARTECH SAS
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  SIRET : 123 456 789 00012
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>  Capital : 100 000 €
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  Effectif : 20-49
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>  Dirigeante : Lefebvre Hélène (Présidente)
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>  NAF : 4646Z (Commerce de gros de produits pharmaceutiques)
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>BODACC
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>  Création 2018
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>  Augmentation de capital 2021
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>  Aucune procédure collective
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>SITE WEB
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>  Pages identifiées : 23
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>  Documents PDF : 12 (factures types, plaquettes)
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>  Page équipe : présente, 8 employés visibles
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>WAYBACK
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>  2018 : site basique
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>  2020 : refonte
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>  2024 : ajout blog
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>  2025 : ajout newsletter
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>GOOGLE DORKS RÉVÉLATIONS
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>  - 1 fichier .docx contenant ancien organigramme
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>  - Profils LinkedIn de 12 employés
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>  - Mention dans article presse local 2023
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>ARTEFACTS COLLECTÉS
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>  Fichier 1 : pappers-artech-2026XX.pdf [SHA-256: ...]
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>  Fichier 2 : wayback-artech-2018.pdf [SHA-256: ...]
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>  ...
+</span></code></pre></div>
+<h2 id="8-pieges-et-bonnes-pratiques">8. Pièges et bonnes pratiques<a class="headerlink" href="#8-pieges-et-bonnes-pratiques" title="Permanent link">&para;</a></h2>
+<p>Voici les pièges classiques de cette phase et comment les éviter.</p>
+<h3 id="81-pieges-frequents">8.1 Pièges fréquents<a class="headerlink" href="#81-pieges-frequents" title="Permanent link">&para;</a></h3>
+<p>Cette phase est piégée par plusieurs erreurs typiques.</p>
+<table>
+<thead>
+<tr>
+<th>Piège</th>
+<th>Évitement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cliquer sur des liens hors périmètre</td>
+<td>Time-boxer sa session</td>
+</tr>
+<tr>
+<td>Sauvegarder les fichiers sans hash</td>
+<td>Hash systématique</td>
+</tr>
+<tr>
+<td>Confondre ARTECH labo et homonymes</td>
+<td>Vérifier SIRET à chaque pas</td>
+</tr>
+<tr>
+<td>Faire des captures non datées</td>
+<td>wkhtmltopdf avec timestamp</td>
+</tr>
+<tr>
+<td>Oublier de sauver dans Wayback</td>
+<td>curl save systématique</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-bonnes-pratiques">8.2 Bonnes pratiques<a class="headerlink" href="#82-bonnes-pratiques" title="Permanent link">&para;</a></h3>
+<p>À l'inverse, voici les pratiques qui font la différence entre amateur et professionnel.</p>
+<table>
+<thead>
+<tr>
+<th>Pratique</th>
+<th>Bénéfice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hunchly actif</td>
+<td>Documentation automatique</td>
+</tr>
+<tr>
+<td>Sessions courtes (50 min)</td>
+<td>Concentration optimale</td>
+</tr>
+<tr>
+<td>Pause entre sessions</td>
+<td>Recul nécessaire</td>
+</tr>
+<tr>
+<td>Croiser au moins 2 sources par fait</td>
+<td>Fiabilité</td>
+</tr>
+<tr>
+<td>Notes en temps réel</td>
+<td>Pas d'oubli</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-auto-evaluation">9. Auto-évaluation<a class="headerlink" href="#9-auto-evaluation" title="Permanent link">&para;</a></h2>
+<p>Vérifiez votre maîtrise par les questions suivantes.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Réponse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Opérateur pour limiter à un domaine ?</td>
+<td><code>site:</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Opérateur Bing pour sites sur même IP ?</td>
+<td><code>ip:</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>URL Wayback Machine ?</td>
+<td>web.archive.org</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Site français pour info entreprise ?</td>
+<td>Pappers.fr</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Site officiel annonces légales ?</td>
+<td>bodacc.fr</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Outil pour extraire URLs Wayback ?</td>
+<td>waybackurls</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Catégorie GHDB pour fuites accidentelles ?</td>
+<td>Sensitive Directories</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Combien de captures Wayback recommandées ?</td>
+<td>3-5 récentes + 1-2 anciennes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-synthese">10. Synthèse<a class="headerlink" href="#10-synthese" title="Permanent link">&para;</a></h2>
+<p>Voici les points clés à retenir.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>RECONNAISSANCE PASSIVE - ESSENTIELS
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>GOOGLE DORKS
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  site: inurl: intitle: intext:
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  filetype: cache: related:
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  Combiner pour précision
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>BING SPÉCIFIQUE
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  ip: pour mêmes IP
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>WAYBACK MACHINE
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>  web.archive.org
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>  3-5 captures récentes
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>  1-2 captures anciennes
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>  waybackurls pour extraction
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>ARCHIVES FRANCE
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>  Pappers.fr (référence 2026)
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>  BODACC pour annonces
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>  INPI pour marques
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>  data.gouv.fr pour synthèse
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>GHDB
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>  exploit-db.com/google-hacking-database
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>  14 catégories
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>  Sensitive Directories
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>WORKFLOW 6 ÉTAPES
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>  Pappers
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>  BODACC
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>  Site web
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>  Wayback
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>  Google dorks
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>  Bing ip:
+</span></code></pre></div>
+<hr />
+<p><strong>Chapitre précédent</strong> : <a href="../4-1-methodologie-osint/">4.1 Méthodologie OSINT</a></p>
+<p><strong>Chapitre suivant</strong> : <a href="../4-3-theharvester-emails/">4.3 theHarvester et énumération emails</a></p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Google dorks</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Wayback Machine</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Archives</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">GHDB</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../01-methodologie-osint/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: 4.1 Méthodologie OSINT - framework et matrice">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                4.1 Méthodologie OSINT - framework et matrice
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-theharvester-emails/" class="md-footer__link md-footer__link--next" aria-label="Suivant: 4.3 theHarvester et énumération emails">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                4.3 theHarvester et énumération emails
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+        <script src="../../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

@@ -14,7 +14,7 @@ tags:
 data-level: 🔴
 ---
 
-# Module 1 - Législation française et cadre juridique
+# I - Législation
 
 !!! quote "L'analogie du chirurgien et du scalpel"
 

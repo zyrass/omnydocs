@@ -16,7 +16,7 @@ tags:
 data-level: 🟡
 ---
 
-# Module 2 - Prérequis techniques et théoriques
+# II - Prérequis techniques
 
 !!! quote "L'analogie de l'orchestre symphonique"
 

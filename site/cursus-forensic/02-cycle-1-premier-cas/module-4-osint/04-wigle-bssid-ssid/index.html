@@ -1,0 +1,6076 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cartographie de réseaux Wi-Fi via Wigle.net et services équivalents. Recherche par BSSID, SSID, géolocalisation. Préparation du wardriving sur ARTECH. Implications RGPD et considérations légales.">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/cursus-forensic/02-cycle-1-premier-cas/module-4-osint/04-wigle-bssid-ssid/">
+      
+      
+        <link rel="prev" href="../03-theharvester-emails/">
+      
+      
+        <link rel="next" href="../05-profilage-linkedin/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.37">
+    
+    
+      
+        <title>4.4 Recherche par BSSID Wigle.net et SSID - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.a2001754.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#44-recherche-par-bssid-wiglenet-et-ssid" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.4 Recherche par BSSID Wigle.net et SSID
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/governance/" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  Cursus Forensic
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infrastructure (Sys-Réseau)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/governance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : GRC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opérations &amp; SOC (Blue Team)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../glossaire/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cursus Forensic
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cursus Forensic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../00-meta-outillages/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outillage du cursus
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_2" id="__nav_10_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outillage du cursus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/evolution-carriere-2026/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Évolution de Carrière (2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/carnet-doutes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Carnet de Doutes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/inventaire-materiel/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventaire Matériel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/progression/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Suivi de Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/ressources-externes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources Externes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../01-cycle-0-fondations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 0 : Fondations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_3" id="__nav_10_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 0 : Fondations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-1-legislation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 - Législation française et cadre juridique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-2-prerequis-techniques/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 - Prérequis techniques et théoriques
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-3-configuration-laboratoire/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 - Configuration du laboratoire forensic physique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 1 : Premier cas complet
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4" id="__nav_10_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 1 : Premier cas complet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IV - OSINT et reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4_2" id="__nav_10_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IV - OSINT et reconnaissance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-methodologie-osint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1 Méthodologie OSINT - framework et matrice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-google-dorks-archives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2 Reconnaissance passive - Google dorks et archives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-theharvester-emails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3 theHarvester et énumération emails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.4 Recherche par BSSID Wigle.net et SSID
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.4 Recherche par BSSID Wigle.net et SSID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-vocabulaire-wi-fi-essentiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Vocabulaire Wi-Fi essentiel
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Vocabulaire Wi-Fi essentiel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-identifiants-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Identifiants Wi-Fi
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pourquoi-le-bssid-est-un-pivot-puissant" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Pourquoi le BSSID est un pivot puissant
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-prefixes-oui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Préfixes OUI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-wiglenet-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Wigle.net - Présentation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Wigle.net - Présentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-histoire-et-fonctionnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Histoire et fonctionnement
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-donnees-collectees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Données collectées
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-precision-geographique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Précision géographique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-inscription-et-premieres-recherches" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Inscription et premières recherches
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Inscription et premières recherches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-creation-de-compte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Création de compte
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-recherche-par-ssid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Recherche par SSID
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-recherche-par-bssid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Recherche par BSSID
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-recherche-geographique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Recherche géographique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-utilisation-de-lapi-wigle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Utilisation de l'API Wigle
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Utilisation de l&#x27;API Wigle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-recuperation-des-credentials-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Récupération des credentials API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-recherche-par-ssid-via-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Recherche par SSID via API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-recherche-par-bssid-via-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Recherche par BSSID via API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-limite-et-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Limite et quotas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cas-pratique-cartographie-wifi-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Cas pratique - Cartographie WiFi ARTECH
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Cas pratique - Cartographie WiFi ARTECH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-mise-en-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Mise en situation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-workflow-didentification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 Workflow d'identification
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-commandes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 Commandes pratiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.4 Interprétation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-outils-et-bases-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Outils et bases alternatives
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Outils et bases alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-openbmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 OpenBmap
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-apple-geolocation-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Apple Geolocation API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-google-geolocation-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 Google Geolocation API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-synthese-comparative" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4 Synthèse comparative
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-implications-rgpd-et-legales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Implications RGPD et légales
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Implications RGPD et légales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-statut-juridique-du-bssid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Statut juridique du BSSID
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-wardriving-chapitre-48-dedie" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Wardriving (chapitre 4.8 dédié)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-articles-penaux-applicables" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Articles pénaux applicables
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Bonnes pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-avant-la-recherche" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1 Avant la recherche
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-pendant-la-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2 Pendant la session
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-apres-la-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3 Après la session
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Synthèse
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-profilage-linkedin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.5 Profilage humain LinkedIn et réseaux sociaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-hunter-formats-emails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.6 Hunter.io et formats d'emails entreprise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-maltego-ce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.7 Maltego CE pour cartographie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-wardriving-passif/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.8 Wardriving passif sur le terrain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-rapport-osint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.9 Production du rapport OSINT structuré
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-cas-pratique-artech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.10 Cas pratique ARTECH profilage complet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-5-wifi-wpa2/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 5 - Attaque Wi-Fi WPA2 simple
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-6-phishing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 6 - Phishing basique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-7-acquisition-memoire-windows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 - Acquisition mémoire Windows
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-7bis-acquisition-memoire-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 bis : Acquisition mémoire macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-8-acquisition-disque/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 8 : Acquisition disque
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-9-volatility-autopsy/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 9 : Analyse Volatility et Autopsy
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-10-premier-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Premier rapport
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../03-cycle-2-avance/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 2 : Cas avancé
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_5" id="__nav_10_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 2 : Cas avancé
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-11-osint/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 11 : OSINT approfondi
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-12-pivoting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 12 : Pivoting multi-postes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-13-persistance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Persistance Windows et Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14-bitlocker-luks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : BitLocker et LUKS extraction
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14bis-filevault/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 bis : FileVault et Apple Silicon
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15-detection/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 : Détection sans SIEM (Win/Lin)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15bis-detection-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 bis : Détection sur macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-16-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 16 : Rapport judiciaire complet
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-17-rgpd/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 17 : RGPD et notification CNIL
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../04-cycle-3-maitrise/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 3 : Maîtrise
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_6" id="__nav_10_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 3 : Maîtrise
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-18-educrypt/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 18 : EduCrypt (Dev Pédagogique)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19-chiffrement-actif/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 : Cas de chiffrement actif
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19bis-outil-swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 bis : Outil forensic Swift (macOS)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-20-chiffrage/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 20 : Chiffrage prestation PME
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-21-cas-autonomes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 21 : 5 cas autonomes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-22-formation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 22 : Préparation formation vidéo
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../05-menace-malware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spécialisation : Menace Malware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spécialisation : Menace Malware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-vocabulaire-wi-fi-essentiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Vocabulaire Wi-Fi essentiel
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Vocabulaire Wi-Fi essentiel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-identifiants-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Identifiants Wi-Fi
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pourquoi-le-bssid-est-un-pivot-puissant" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Pourquoi le BSSID est un pivot puissant
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-prefixes-oui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Préfixes OUI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-wiglenet-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Wigle.net - Présentation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Wigle.net - Présentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-histoire-et-fonctionnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Histoire et fonctionnement
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-donnees-collectees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Données collectées
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-precision-geographique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Précision géographique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-inscription-et-premieres-recherches" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Inscription et premières recherches
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Inscription et premières recherches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-creation-de-compte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Création de compte
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-recherche-par-ssid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Recherche par SSID
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-recherche-par-bssid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Recherche par BSSID
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-recherche-geographique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Recherche géographique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-utilisation-de-lapi-wigle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Utilisation de l'API Wigle
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Utilisation de l&#x27;API Wigle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-recuperation-des-credentials-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Récupération des credentials API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-recherche-par-ssid-via-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Recherche par SSID via API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-recherche-par-bssid-via-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Recherche par BSSID via API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-limite-et-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Limite et quotas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cas-pratique-cartographie-wifi-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Cas pratique - Cartographie WiFi ARTECH
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Cas pratique - Cartographie WiFi ARTECH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-mise-en-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Mise en situation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-workflow-didentification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 Workflow d'identification
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-commandes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 Commandes pratiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.4 Interprétation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-outils-et-bases-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Outils et bases alternatives
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Outils et bases alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-openbmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 OpenBmap
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-apple-geolocation-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Apple Geolocation API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-google-geolocation-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 Google Geolocation API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-synthese-comparative" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4 Synthèse comparative
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-implications-rgpd-et-legales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Implications RGPD et légales
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Implications RGPD et légales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-statut-juridique-du-bssid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Statut juridique du BSSID
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-wardriving-chapitre-48-dedie" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Wardriving (chapitre 4.8 dédié)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-articles-penaux-applicables" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Articles pénaux applicables
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Bonnes pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-avant-la-recherche" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1 Avant la recherche
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-pendant-la-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2 Pendant la session
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-apres-la-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3 Après la session
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Synthèse
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cursus Forensic
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cycle 1 : Premier cas complet
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    IV - OSINT et reconnaissance
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="44-recherche-par-bssid-wiglenet-et-ssid">4.4 Recherche par BSSID Wigle.net et SSID<a class="headerlink" href="#44-recherche-par-bssid-wiglenet-et-ssid" title="Permanent link">&para;</a></h1>
+<div class="admonition quote">
+<p class="admonition-title">L'analogie du cadastre des ondes</p>
+<p>Imaginez un cadastre géant qui répertorierait, au mètre près, chaque point Wi-Fi détecté en France depuis 20 ans. Vous saisissez un nom de réseau, et le cadastre vous indique exactement où il se trouve. Vous saisissez une coordonnée GPS, et il vous liste tous les Wi-Fi visibles depuis cette position. C'est exactement ce qu'est Wigle.net. Cette base massive, alimentée par des milliers de wardrivers volontaires depuis 2001, est le rêve d'un attaquant et le cauchemar d'un défenseur. Pour ARTECH, savoir que votre Wi-Fi y figure (ou pas) change votre niveau d'exposition.</p>
+</div>
+<h2 id="metadonnees-du-chapitre">Métadonnées du chapitre<a class="headerlink" href="#metadonnees-du-chapitre" title="Permanent link">&para;</a></h2>
+<p>Ce chapitre est dédié à la reconnaissance Wi-Fi à distance via les bases publiques. Voici ses caractéristiques.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Durée estimée</td>
+<td>2 heures</td>
+</tr>
+<tr>
+<td>Niveau</td>
+<td>Pratique</td>
+</tr>
+<tr>
+<td>Prérequis</td>
+<td>4.1, 4.2</td>
+</tr>
+<tr>
+<td>Livrables</td>
+<td>Cartographie Wi-Fi ARTECH par BSSID/SSID</td>
+</tr>
+<tr>
+<td>Auto-explication</td>
+<td>8 minutes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="objectifs-pedagogiques">Objectifs pédagogiques<a class="headerlink" href="#objectifs-pedagogiques" title="Permanent link">&para;</a></h2>
+<p>À l'issue de ce chapitre, vous serez capable de :</p>
+<ul>
+<li>Comprendre la différence BSSID / SSID / ESSID</li>
+<li>Utiliser Wigle.net pour cartographier un Wi-Fi cible</li>
+<li>Comprendre la précision (et imprécisions) des données</li>
+<li>Comparer Wigle avec d'autres bases (WifiInfoView, OpenBmap)</li>
+<li>Identifier les implications RGPD du wardriving en France</li>
+</ul>
+<hr />
+<h2 id="1-vocabulaire-wi-fi-essentiel">1. Vocabulaire Wi-Fi essentiel<a class="headerlink" href="#1-vocabulaire-wi-fi-essentiel" title="Permanent link">&para;</a></h2>
+<p>Avant de manipuler ces outils, il convient de poser le vocabulaire technique avec précision.</p>
+<h3 id="11-identifiants-wi-fi">1.1 Identifiants Wi-Fi<a class="headerlink" href="#11-identifiants-wi-fi" title="Permanent link">&para;</a></h3>
+<p>Trois identifiants principaux caractérisent un réseau Wi-Fi.</p>
+<table>
+<thead>
+<tr>
+<th>Identifiant</th>
+<th>Définition</th>
+<th>Format</th>
+<th>Variabilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BSSID</td>
+<td>Basic Service Set ID = adresse MAC du point d'accès</td>
+<td>XX:XX:XX:XX:XX:XX</td>
+<td>Unique au matériel</td>
+</tr>
+<tr>
+<td>SSID</td>
+<td>Service Set Identifier = nom diffusé du réseau</td>
+<td>Texte 1-32 caractères</td>
+<td>Modifiable</td>
+</tr>
+<tr>
+<td>ESSID</td>
+<td>Extended SSID = SSID dans réseau multi-AP</td>
+<td>Texte 1-32 caractères</td>
+<td>Modifiable</td>
+</tr>
+</tbody>
+</table>
+<p>Le <strong>BSSID</strong> est la signature <strong>stable</strong> d'un routeur, même si on change le SSID.</p>
+<h3 id="12-pourquoi-le-bssid-est-un-pivot-puissant">1.2 Pourquoi le BSSID est un pivot puissant<a class="headerlink" href="#12-pourquoi-le-bssid-est-un-pivot-puissant" title="Permanent link">&para;</a></h3>
+<p>Voici les raisons pour lesquelles le BSSID est précieux en OSINT.</p>
+<table>
+<thead>
+<tr>
+<th>Raison</th>
+<th>Explication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stabilité</td>
+<td>Ne change pas (sauf MAC randomization)</td>
+</tr>
+<tr>
+<td>Géolocalisation</td>
+<td>Permet de placer un AP physiquement</td>
+</tr>
+<tr>
+<td>Association</td>
+<td>Identifie le matériel précis</td>
+</tr>
+<tr>
+<td>Historicisation</td>
+<td>Wigle conserve l'historique des positions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-prefixes-oui">1.3 Préfixes OUI<a class="headerlink" href="#13-prefixes-oui" title="Permanent link">&para;</a></h3>
+<p>Les 3 premiers octets d'un BSSID sont un <strong>OUI</strong> (Organizationally Unique Identifier) attribué par l'IEEE. Voici quelques préfixes courants.</p>
+<table>
+<thead>
+<tr>
+<th>OUI</th>
+<th>Constructeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00:1A:11</td>
+<td>Cisco</td>
+</tr>
+<tr>
+<td>00:24:01</td>
+<td>TP-Link</td>
+</tr>
+<tr>
+<td>14:CC:20</td>
+<td>TP-Link</td>
+</tr>
+<tr>
+<td>04:D9:F5</td>
+<td>TP-Link</td>
+</tr>
+<tr>
+<td>64:70:02</td>
+<td>TP-Link Archer C7</td>
+</tr>
+<tr>
+<td>28:CD:C1</td>
+<td>Netgear</td>
+</tr>
+<tr>
+<td>C8:54:4B</td>
+<td>Linksys</td>
+</tr>
+<tr>
+<td>F8:E4:E3</td>
+<td>Apple</td>
+</tr>
+</tbody>
+</table>
+<p>Pour rechercher un OUI précis, voici l'outil officiel.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Sur Linux avec ieee-data installé</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ouilookup<span class="w"> </span><span class="m">64</span>:70:02
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Sortie attendue</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 64:70:02 = TP-LINK TECHNOLOGIES CO.,LTD.</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Alternative en ligne</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># https://standards-oui.ieee.org/oui/oui.txt</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Ou : https://www.wireshark.org/tools/oui-lookup.html</span>
+</span></code></pre></div>
+<h2 id="2-wiglenet-presentation">2. Wigle.net - Présentation<a class="headerlink" href="#2-wiglenet-presentation" title="Permanent link">&para;</a></h2>
+<h3 id="21-histoire-et-fonctionnement">2.1 Histoire et fonctionnement<a class="headerlink" href="#21-histoire-et-fonctionnement" title="Permanent link">&para;</a></h3>
+<p><strong>Wigle.net</strong> (Wireless Geographic Logging Engine) est un projet collaboratif lancé en 2001. Voici ses caractéristiques principales.</p>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>Précision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lancement</td>
+<td>2001</td>
+</tr>
+<tr>
+<td>Modèle</td>
+<td>Crowdsourcé (volontaires)</td>
+</tr>
+<tr>
+<td>Volume 2026</td>
+<td>~1 milliard d'observations Wi-Fi</td>
+</tr>
+<tr>
+<td>Couverture</td>
+<td>Mondiale, dense en zones urbaines</td>
+</tr>
+<tr>
+<td>Données</td>
+<td>BSSID, SSID, GPS, sécurité, dernière vue</td>
+</tr>
+<tr>
+<td>Accès</td>
+<td>Gratuit (compte requis)</td>
+</tr>
+<tr>
+<td>API</td>
+<td>Oui (gratuit limité, payant étendu)</td>
+</tr>
+<tr>
+<td>Application mobile</td>
+<td>WiGLE WiFi Wardriving (Android)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-donnees-collectees">2.2 Données collectées<a class="headerlink" href="#22-donnees-collectees" title="Permanent link">&para;</a></h3>
+<p>Pour chaque point Wi-Fi observé, Wigle conserve les informations suivantes.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BSSID</td>
+<td>Adresse MAC AP</td>
+</tr>
+<tr>
+<td>SSID</td>
+<td>Nom du réseau (peut être vide)</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>WEP / WPA / WPA2 / WPA3 / Open</td>
+</tr>
+<tr>
+<td>Latitude</td>
+<td>Position GPS approximative</td>
+</tr>
+<tr>
+<td>Longitude</td>
+<td>Position GPS approximative</td>
+</tr>
+<tr>
+<td>First seen</td>
+<td>Date première observation</td>
+</tr>
+<tr>
+<td>Last seen</td>
+<td>Date dernière observation</td>
+</tr>
+<tr>
+<td>QoS</td>
+<td>Qualité signal moyenne</td>
+</tr>
+<tr>
+<td>Trilat</td>
+<td>Trilatéralisation (calcul position précise)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-precision-geographique">2.3 Précision géographique<a class="headerlink" href="#23-precision-geographique" title="Permanent link">&para;</a></h3>
+<p>La précision dépend de plusieurs facteurs. Voici les niveaux typiques.</p>
+<table>
+<thead>
+<tr>
+<th>Cas</th>
+<th>Précision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AP observé une seule fois</td>
+<td>50-200 mètres</td>
+</tr>
+<tr>
+<td>AP observé 5-10 fois</td>
+<td>20-50 mètres</td>
+</tr>
+<tr>
+<td>AP observé 100+ fois</td>
+<td>&lt; 10 mètres</td>
+</tr>
+<tr>
+<td>AP en milieu rural</td>
+<td>Plus précis (peu d'interférences)</td>
+</tr>
+<tr>
+<td>AP en milieu urbain dense</td>
+<td>Moins précis (interférences)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-inscription-et-premieres-recherches">3. Inscription et premières recherches<a class="headerlink" href="#3-inscription-et-premieres-recherches" title="Permanent link">&para;</a></h2>
+<h3 id="31-creation-de-compte">3.1 Création de compte<a class="headerlink" href="#31-creation-de-compte" title="Permanent link">&para;</a></h3>
+<p>L'inscription se fait sur <code>wigle.net</code>. Voici les étapes.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>PROCÉDURE D&#39;INSCRIPTION WIGLE
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>==============================
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>1. Aller sur https://wigle.net
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>2. Cliquer &quot;Login or Register&quot;
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>3. Choisir &quot;New Account&quot;
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>4. Renseigner email + username + mot de passe
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>5. Confirmer email
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>6. Connexion
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>LIMITES COMPTE GRATUIT 2026
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  - 1000 requêtes API/jour
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  - Recherche web illimitée
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  - Téléchargement data limité
+</span></code></pre></div>
+<h3 id="32-recherche-par-ssid">3.2 Recherche par SSID<a class="headerlink" href="#32-recherche-par-ssid" title="Permanent link">&para;</a></h3>
+<p>L'interface web propose plusieurs modes de recherche. Pour ARTECH, vous commencez par le SSID.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>RECHERCHE SSID
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>===============
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>URL : https://wigle.net/search
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Champs :
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  SSID : ARTECH-WIFI
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  Match : exact ou like (avec %)
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  Country : FR
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>Résultat attendu : un ou plusieurs APs avec ce nom
+</span></code></pre></div>
+<p>Si le SSID est unique (peu probable pour un nom non-générique), vous obtenez immédiatement la position. Si le SSID est commun (<code>Livebox-XXXX</code>), vous filtrez par pays et zone.</p>
+<h3 id="33-recherche-par-bssid">3.3 Recherche par BSSID<a class="headerlink" href="#33-recherche-par-bssid" title="Permanent link">&para;</a></h3>
+<p>Si vous connaissez déjà le BSSID, la recherche est plus directe.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>RECHERCHE BSSID
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>================
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>URL : https://wigle.net/search
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Champs :
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  BSSID : 64:70:02:XX:XX:XX
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Résultat : positions GPS, historique, SSID associés
+</span></code></pre></div>
+<p>Cette recherche révèle si le BSSID a changé de SSID au fil du temps (changement de mot de passe, refonte réseau).</p>
+<h3 id="34-recherche-geographique">3.4 Recherche géographique<a class="headerlink" href="#34-recherche-geographique" title="Permanent link">&para;</a></h3>
+<p>Vous pouvez également partir d'une zone géographique pour lister tous les Wi-Fi visibles.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>RECHERCHE GÉOGRAPHIQUE
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>=======================
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>URL : https://wigle.net/map
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Action :
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  1. Zoomer sur la zone d&#39;ARTECH (Lyon Vaise)
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  2. Activer &quot;Show Networks&quot;
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  3. Lister les SSID visibles dans la zone
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  4. Filtrer par sécurité (WPA2 par exemple)
+</span></code></pre></div>
+<h2 id="4-utilisation-de-lapi-wigle">4. Utilisation de l'API Wigle<a class="headerlink" href="#4-utilisation-de-lapi-wigle" title="Permanent link">&para;</a></h2>
+<p>L'API Wigle permet d'automatiser les recherches. Voici comment la configurer et l'utiliser.</p>
+<h3 id="41-recuperation-des-credentials-api">4.1 Récupération des credentials API<a class="headerlink" href="#41-recuperation-des-credentials-api" title="Permanent link">&para;</a></h3>
+<p>Voici la procédure pour obtenir les clés API depuis votre compte Wigle.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>RÉCUPÉRATION API
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>=================
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>1. Connexion sur Wigle.net
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>2. Aller dans Account → My Account
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>3. Section &quot;API Tokens&quot;
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>4. Cliquer &quot;Show Token&quot; pour révéler
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>5. Conserver Encoded for use in API
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>Format token :
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>  Authorization: Basic &lt;token-encoded&gt;
+</span></code></pre></div>
+<h3 id="42-recherche-par-ssid-via-api">4.2 Recherche par SSID via API<a class="headerlink" href="#42-recherche-par-ssid-via-api" title="Permanent link">&para;</a></h3>
+<p>Voici un script bash type pour interroger l'API Wigle.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># wigle-search.sh - Recherche Wigle par SSID</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Token API encodé en base64 (récupéré sur le site)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nv">TOKEN</span><span class="o">=</span><span class="s2">&quot;VOTRE_TOKEN_ENCODE&quot;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nv">SSID</span><span class="o">=</span><span class="s2">&quot;ARTECH-WIFI&quot;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nv">COUNTRY</span><span class="o">=</span><span class="s2">&quot;FR&quot;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Requête</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://api.wigle.net/api/v2/network/search?ssid=</span><span class="nv">$SSID</span><span class="s2">&amp;country=</span><span class="nv">$COUNTRY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Basic </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.&#39;</span>
+</span></code></pre></div>
+<p>La réponse contient toutes les correspondances avec leurs coordonnées GPS.</p>
+<h3 id="43-recherche-par-bssid-via-api">4.3 Recherche par BSSID via API<a class="headerlink" href="#43-recherche-par-bssid-via-api" title="Permanent link">&para;</a></h3>
+<p>La même API supporte la recherche par BSSID.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># wigle-bssid.sh</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nv">TOKEN</span><span class="o">=</span><span class="s2">&quot;VOTRE_TOKEN&quot;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nv">BSSID</span><span class="o">=</span><span class="s2">&quot;64:70:02:XX:XX:XX&quot;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://api.wigle.net/api/v2/network/search?netid=</span><span class="nv">$BSSID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Basic </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.results[] | {ssid: .ssid, lat: .trilat, lon: .trilong, lastSeen: .lastupdt}&#39;</span>
+</span></code></pre></div>
+<h3 id="44-limite-et-quotas">4.4 Limite et quotas<a class="headerlink" href="#44-limite-et-quotas" title="Permanent link">&para;</a></h3>
+<p>L'API gratuite est limitée. Voici les contraintes en 2026.</p>
+<table>
+<thead>
+<tr>
+<th>Métrique</th>
+<th>Limite gratuite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requêtes par jour</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Requêtes par seconde</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Téléchargement data</td>
+<td>Limité</td>
+</tr>
+<tr>
+<td>Historique complet</td>
+<td>Premium</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-cas-pratique-cartographie-wifi-artech">5. Cas pratique - Cartographie WiFi ARTECH<a class="headerlink" href="#5-cas-pratique-cartographie-wifi-artech" title="Permanent link">&para;</a></h2>
+<h3 id="51-mise-en-situation">5.1 Mise en situation<a class="headerlink" href="#51-mise-en-situation" title="Permanent link">&para;</a></h3>
+<p>Vous voulez identifier le Wi-Fi <code>ARTECH-WIFI</code> du laboratoire et préparer le wardriving du chapitre 4.8. La station de votre laboratoire émet déjà ce SSID, donc Wigle pourrait l'avoir capté si vous êtes hébergé en zone fréquentée.</p>
+<p><strong>Note importante</strong> : votre SSID <code>ARTECH-WIFI</code> est privé et ne doit pas être réellement référencé sur Wigle. Pour l'exercice, utilisez un SSID test et désactivez le wardriving externe vers votre lab.</p>
+<h3 id="52-workflow-didentification">5.2 Workflow d'identification<a class="headerlink" href="#52-workflow-didentification" title="Permanent link">&para;</a></h3>
+<p>Voici les étapes de votre session Wigle ARTECH.</p>
+<pre class="mermaid"><code>flowchart TB
+    A[1. Recherche SSID exact&lt;br&gt;ARTECH-WIFI] --&gt; B{Trouvé ?}
+    B --&gt;|Oui| C[Position GPS]
+    B --&gt;|Non| D[Recherche partielle&lt;br&gt;ARTECH%]
+    C --&gt; E[Vérification BSSID&lt;br&gt;OUI constructeur]
+    D --&gt; F{Trouvé ?}
+    F --&gt;|Oui| C
+    F --&gt;|Non| G[Recherche zone&lt;br&gt;Lyon Vaise]
+    G --&gt; H[Liste tous Wi-Fi zone]
+    H --&gt; I[Filtrage manuel&lt;br&gt;par cohérence]
+    E --&gt; J[Documentation]
+    I --&gt; J</code></pre>
+<h3 id="53-commandes-pratiques">5.3 Commandes pratiques<a class="headerlink" href="#53-commandes-pratiques" title="Permanent link">&para;</a></h3>
+<p>Voici les commandes successives à utiliser dans votre lab.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Préparation</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/osint/artech-2026/wifi
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">cd</span><span class="w"> </span>~/osint/artech-2026/wifi
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># Configuration token (sécurisé)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nb">read</span><span class="w"> </span>-s<span class="w"> </span>WIGLE_TOKEN
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nb">export</span><span class="w"> </span>WIGLE_TOKEN
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Token saisi sans écho</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1"># Étape 1 - Recherche SSID exact</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://api.wigle.net/api/v2/network/search?ssid=ARTECH-WIFI&amp;country=FR&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Basic </span><span class="nv">$WIGLE_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span>&gt;<span class="w"> </span>recherche-ssid-exact.json
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c1"># Étape 2 - Si rien, recherche LIKE</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://api.wigle.net/api/v2/network/search?ssidlike=ARTECH%25&amp;country=FR&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Basic </span><span class="nv">$WIGLE_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span>&gt;<span class="w"> </span>recherche-ssid-like.json
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="c1"># Étape 3 - Recherche zone géographique (Lyon Vaise centre)</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://api.wigle.net/api/v2/network/search?latrange1=45.766&amp;latrange2=45.770&amp;longrange1=4.798&amp;longrange2=4.805&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Basic </span><span class="nv">$WIGLE_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span>&gt;<span class="w"> </span>recherche-zone-lyon-vaise.json
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="c1"># Étape 4 - Extraction informations utiles</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>jq<span class="w"> </span><span class="s1">&#39;.results[] | {ssid: .ssid, bssid: .netid, encryption: .encryption, lat: .trilat, lon: .trilong}&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">    </span>recherche-zone-lyon-vaise.json<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">    </span>&gt;<span class="w"> </span>resultats-zone.json
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="c1"># Hashing</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>sha256sum<span class="w"> </span>*.json<span class="w"> </span>&gt;<span class="w"> </span>MANIFEST.sha256
+</span></code></pre></div>
+<h3 id="54-interpretation">5.4 Interprétation<a class="headerlink" href="#54-interpretation" title="Permanent link">&para;</a></h3>
+<p>Une fois les résultats obtenus, vous extrayez les informations clés.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>INFORMATIONS À DOCUMENTER POUR ARTECH
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>======================================
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>POUR CHAQUE BSSID SUSPECT :
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  - SSID : ...
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  - BSSID : ...
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>  - OUI constructeur : ... (TP-Link, Cisco, etc.)
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>  - Sécurité : WPA2-PSK / WPA3 / Open
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>  - Dernière observation Wigle : YYYY-MM-DD
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>  - Position GPS : lat, long
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>  - Cohérence avec adresse ARTECH : oui/non
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>CARTOGRAPHIE FINALE :
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>  - 1-N AP appartenant à ARTECH (probablement)
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>  - Voisins Wi-Fi (autres entreprises de la zone)
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>  - Wi-Fi public éventuel (cafés)
+</span></code></pre></div>
+<h2 id="6-outils-et-bases-alternatives">6. Outils et bases alternatives<a class="headerlink" href="#6-outils-et-bases-alternatives" title="Permanent link">&para;</a></h2>
+<p>Wigle n'est pas le seul service. Voici les alternatives utiles.</p>
+<h3 id="61-openbmap">6.1 OpenBmap<a class="headerlink" href="#61-openbmap" title="Permanent link">&para;</a></h3>
+<p><strong>OpenBmap</strong> (<code>openbmap.org</code>) est l'alternative open source européenne. Couverture moindre que Wigle mais respecte mieux la RGPD.</p>
+<h3 id="62-apple-geolocation-api">6.2 Apple Geolocation API<a class="headerlink" href="#62-apple-geolocation-api" title="Permanent link">&para;</a></h3>
+<p>L'API Apple permet de géolocaliser un BSSID, mais nécessite des moyens techniques avancés (rétro-ingénierie du protocole). Réservé à la recherche.</p>
+<h3 id="63-google-geolocation-api">6.3 Google Geolocation API<a class="headerlink" href="#63-google-geolocation-api" title="Permanent link">&para;</a></h3>
+<p>Similaire à Apple, intégrée dans le service Google Geolocation. Tarif commercial.</p>
+<h3 id="64-synthese-comparative">6.4 Synthèse comparative<a class="headerlink" href="#64-synthese-comparative" title="Permanent link">&para;</a></h3>
+<p>Voici la comparaison des services pour vos besoins OSINT.</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Couverture</th>
+<th>Coût</th>
+<th>RGPD-friendly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wigle.net</td>
+<td>Excellente mondiale</td>
+<td>Gratuit limité</td>
+<td>Modéré</td>
+</tr>
+<tr>
+<td>OpenBmap</td>
+<td>Limitée Europe</td>
+<td>Gratuit</td>
+<td>Bon</td>
+</tr>
+<tr>
+<td>Apple Geolocation</td>
+<td>Très bonne</td>
+<td>Réservé app dev</td>
+<td>Variable</td>
+</tr>
+<tr>
+<td>Google Geolocation</td>
+<td>Très bonne</td>
+<td>Payant</td>
+<td>Variable</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-implications-rgpd-et-legales">7. Implications RGPD et légales<a class="headerlink" href="#7-implications-rgpd-et-legales" title="Permanent link">&para;</a></h2>
+<h3 id="71-statut-juridique-du-bssid">7.1 Statut juridique du BSSID<a class="headerlink" href="#71-statut-juridique-du-bssid" title="Permanent link">&para;</a></h3>
+<p>Le BSSID est-il une donnée personnelle ?</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>DOCTRINE CNIL ET CJUE
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>======================
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Position : OUI dans certaines circonstances.
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>Le BSSID associé à une géolocalisation
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>peut permettre d&#39;identifier indirectement
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>une personne physique (le propriétaire du Wi-Fi).
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>Conséquence :
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>  - Collecte massive = traitement de données
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    personnelles
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>  - Base légale RGPD nécessaire
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>  - Article 6.1.f intérêt légitime documenté
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>CAS WIGLE :
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>  Wigle est en zone juridique grise en Europe.
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>  Plusieurs pays européens ont demandé des
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>  retraits de leurs zones.
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>  Pour la France, l&#39;usage défensif (audit
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>  son propre Wi-Fi) reste sans difficulté.
+</span></code></pre></div>
+<h3 id="72-wardriving-chapitre-48-dedie">7.2 Wardriving (chapitre 4.8 dédié)<a class="headerlink" href="#72-wardriving-chapitre-48-dedie" title="Permanent link">&para;</a></h3>
+<p>Le <strong>wardriving</strong> consiste à conduire avec une carte Wi-Fi en mode monitor pour cartographier les réseaux. Ce sera le sujet du chapitre 4.8. À ce stade, retenez que le wardriving en France est dans une zone grise tant qu'il reste <strong>passif</strong> (pas de tentative de connexion ni de capture de trafic chiffré).</p>
+<h3 id="73-articles-penaux-applicables">7.3 Articles pénaux applicables<a class="headerlink" href="#73-articles-penaux-applicables" title="Permanent link">&para;</a></h3>
+<p>Voici les articles à connaître pour ne pas déraper.</p>
+<table>
+<thead>
+<tr>
+<th>Article</th>
+<th>Infraction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>226-15</td>
+<td>Interception de communications privées (1 an / 45k €)</td>
+</tr>
+<tr>
+<td>323-1</td>
+<td>Tentative d'accès à STAD (3 ans / 100k €)</td>
+</tr>
+<tr>
+<td>226-3</td>
+<td>Possession équipements interception (5 ans / 300k €)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pour OmnyAcademy</strong> : votre laboratoire est à vous, donc l'usage est légal.</p>
+<h2 id="8-bonnes-pratiques">8. Bonnes pratiques<a class="headerlink" href="#8-bonnes-pratiques" title="Permanent link">&para;</a></h2>
+<p>Voici les bonnes pratiques à intégrer dans toute investigation Wigle.</p>
+<h3 id="81-avant-la-recherche">8.1 Avant la recherche<a class="headerlink" href="#81-avant-la-recherche" title="Permanent link">&para;</a></h3>
+<p>Plusieurs précautions s'imposent avant de lancer la session.</p>
+<table>
+<thead>
+<tr>
+<th>Pratique</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mandat documenté</td>
+<td>Justification de l'intérêt légitime</td>
+</tr>
+<tr>
+<td>Token API sécurisé</td>
+<td>Pas de leak via export public</td>
+</tr>
+<tr>
+<td>Périmètre géographique précis</td>
+<td>Minimisation données collectées</td>
+</tr>
+<tr>
+<td>Période courte</td>
+<td>Pas de surveillance continue</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-pendant-la-session">8.2 Pendant la session<a class="headerlink" href="#82-pendant-la-session" title="Permanent link">&para;</a></h3>
+<p>Pendant la session, respectez les règles suivantes.</p>
+<table>
+<thead>
+<tr>
+<th>Pratique</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Documentation horodatée</td>
+<td>Traçabilité forensic</td>
+</tr>
+<tr>
+<td>Hashes des extracts</td>
+<td>Intégrité</td>
+</tr>
+<tr>
+<td>Filtrage minimal</td>
+<td>Ne conserver que ce qui est utile</td>
+</tr>
+</tbody>
+</table>
+<h3 id="83-apres-la-session">8.3 Après la session<a class="headerlink" href="#83-apres-la-session" title="Permanent link">&para;</a></h3>
+<p>À l'issue, plusieurs actions sont nécessaires.</p>
+<table>
+<thead>
+<tr>
+<th>Pratique</th>
+<th>Délai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anonymisation rapport</td>
+<td>Avant livrable</td>
+</tr>
+<tr>
+<td>Destruction data brute</td>
+<td>Selon mandat (typiquement 6 mois)</td>
+</tr>
+<tr>
+<td>Inventaire final</td>
+<td>Mention dans rapport</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-auto-evaluation">9. Auto-évaluation<a class="headerlink" href="#9-auto-evaluation" title="Permanent link">&para;</a></h2>
+<p>Vérifiez votre maîtrise par les questions suivantes.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Réponse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Différence BSSID / SSID ?</td>
+<td>BSSID = MAC, SSID = nom</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Date de lancement Wigle ?</td>
+<td>2001</td>
+</tr>
+<tr>
+<td>3</td>
+<td>OUI dans BSSID ?</td>
+<td>3 premiers octets, identifient le fabricant</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Recherche par zone géographique sur Wigle ?</td>
+<td>latrange / longrange dans API</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Limite API gratuite ?</td>
+<td>1000 requêtes/jour</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Alternative open source européenne ?</td>
+<td>OpenBmap</td>
+</tr>
+<tr>
+<td>7</td>
+<td>BSSID = donnée personnelle ?</td>
+<td>Oui, indirectement (CJUE)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Article pénal interception WiFi ?</td>
+<td>226-15</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-synthese">10. Synthèse<a class="headerlink" href="#10-synthese" title="Permanent link">&para;</a></h2>
+<p>Voici les points clés à retenir.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>WIGLE ET BSSID OSINT
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>VOCABULAIRE
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  BSSID = MAC AP (signature stable)
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  SSID = nom diffusé (modifiable)
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>  OUI = 3 premiers octets BSSID = constructeur
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>WIGLE.NET
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  Lancé 2001
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>  ~1 milliard observations
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>  Gratuit avec compte
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>  API limitée à 1000 req/jour
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>RECHERCHES POSSIBLES
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>  Par SSID exact ou like
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>  Par BSSID
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>  Par zone géographique (lat/long range)
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>DONNÉES OBTENUES
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>  Position GPS
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>  Historique observations
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>  Type sécurité
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>  SSID associés au même BSSID
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>CADRE LÉGAL FRANCE
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>  BSSID = donnée personnelle indirecte
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>  RGPD 6.1.f intérêt légitime
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>  Articles 226-15, 323-1, 226-3 à connaître
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>OUTILS COMPLÉMENTAIRES
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>  OpenBmap (Europe, open source)
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>  Apple Geolocation (avancé)
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>  Google Geolocation (commercial)
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>USAGE FORENSIC OMNYACADEMY
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>  Préparation wardriving (chapitre 4.8)
+</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>  Cartographie zone d&#39;attaque
+</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>  Audit défensif (votre Wi-Fi exposé ?)
+</span></code></pre></div>
+<hr />
+<p><strong>Chapitre précédent</strong> : <a href="../4-3-theharvester-emails/">4.3 theHarvester et énumération emails</a></p>
+<p><strong>Chapitre suivant</strong> : <a href="../4-5-profilage-linkedin/">4.5 Profilage humain LinkedIn et réseaux sociaux</a></p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Wigle</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">WiFi</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">BSSID</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Géolocalisation</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../03-theharvester-emails/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: 4.3 theHarvester et énumération emails">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                4.3 theHarvester et énumération emails
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05-profilage-linkedin/" class="md-footer__link md-footer__link--next" aria-label="Suivant: 4.5 Profilage humain LinkedIn et réseaux sociaux">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                4.5 Profilage humain LinkedIn et réseaux sociaux
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+        <script src="../../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

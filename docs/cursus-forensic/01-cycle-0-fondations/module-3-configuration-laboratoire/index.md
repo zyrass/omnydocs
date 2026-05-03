@@ -14,7 +14,7 @@ tags:
 data-level: 🔴
 ---
 
-# Module 3 - Configuration du laboratoire forensic physique
+# III - Configuration du labo
 
 !!! quote "L'analogie du gymnase de l'athlète"
 

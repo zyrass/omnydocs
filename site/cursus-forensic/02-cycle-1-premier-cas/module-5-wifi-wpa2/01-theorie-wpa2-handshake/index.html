@@ -1,0 +1,6130 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cryptographie WPA2 expliquée en détail. PMK, PTK, GTK, le 4-way handshake message par message. Pourquoi la capture passive permet le cracking offline. Différences avec WPA3-SAE et fondements PBKDF2.">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/01-theorie-wpa2-handshake/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-mode-monitor-injection/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.37">
+    
+    
+      
+        <title>5.1 Théorie WPA2 - 4-way handshake et PMK/PTK - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.a2001754.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#51-theorie-wpa2-4-way-handshake-et-pmkptk" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5.1 Théorie WPA2 - 4-way handshake et PMK/PTK
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/governance/" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  Cursus Forensic
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infrastructure (Sys-Réseau)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/governance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : GRC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opérations &amp; SOC (Blue Team)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../glossaire/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cursus Forensic
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cursus Forensic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../00-meta-outillages/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outillage du cursus
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_2" id="__nav_10_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outillage du cursus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/evolution-carriere-2026/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Évolution de Carrière (2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/carnet-doutes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Carnet de Doutes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/inventaire-materiel/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventaire Matériel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/progression/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Suivi de Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/ressources-externes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources Externes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../01-cycle-0-fondations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 0 : Fondations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_3" id="__nav_10_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 0 : Fondations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-1-legislation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 - Législation française et cadre juridique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-2-prerequis-techniques/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 - Prérequis techniques et théoriques
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-3-configuration-laboratoire/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 - Configuration du laboratoire forensic physique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 1 : Premier cas complet
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4" id="__nav_10_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 1 : Premier cas complet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-4-osint/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 4 - OSINT et reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    V - Attaque WiFi WPA2 simple
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4_3" id="__nav_10_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    V - Attaque WiFi WPA2 simple
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.1 Théorie WPA2 - 4-way handshake et PMK/PTK
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.1 Théorie WPA2 - 4-way handshake et PMK/PTK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-vocabulaire-cryptographique-wpa2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Vocabulaire cryptographique WPA2
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Vocabulaire cryptographique WPA2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-termes-essentiels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Termes essentiels
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-authenticator-vs-supplicant" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Authenticator vs Supplicant
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-genese-cryptographique-du-psk-au-pmk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Genèse cryptographique - du PSK au PMK
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Genèse cryptographique - du PSK au PMK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-le-psk-humain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Le PSK humain
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-derivation-pmk-via-pbkdf2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Dérivation PMK via PBKDF2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-pourquoi-4096-iterations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Pourquoi 4096 itérations
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-salt-ssid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 Salt = SSID
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-le-4-way-handshake-en-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Le 4-way handshake en détail
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Le 4-way handshake en détail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Vue d'ensemble
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-message-1-ap-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Message 1 - AP → Client
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-calcul-de-la-ptk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Calcul de la PTK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-message-2-client-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Message 2 - Client → AP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-message-3-ap-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5 Message 3 - AP → Client
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-message-4-client-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.6 Message 4 - Client → AP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pourquoi-la-capture-passive-permet-le-cracking-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Pourquoi la capture passive permet le cracking offline
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Pourquoi la capture passive permet le cracking offline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-donnees-necessaires-pour-cracker" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Données nécessaires pour cracker
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-algorithme-de-cracking-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Algorithme de cracking offline
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-cout-computationnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Coût computationnel
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-vitesse-de-cracking-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Vitesse de cracking 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-estimation-pour-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Estimation pour ARTECH
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-la-gtk-et-la-communication-broadcast" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. La GTK et la communication broadcast
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. La GTK et la communication broadcast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-role-de-la-gtk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Rôle de la GTK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-limitation-de-la-gtk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 Limitation de la GTK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-differences-avec-wpa3-sae" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Différences avec WPA3-SAE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Différences avec WPA3-SAE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-sae-dragonfly" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 SAE Dragonfly
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-vulnerabilites-wpa3-connues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Vulnérabilités WPA3 connues
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cas-particulier-pmkid-attack-2018" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Cas particulier - PMKID attack (2018)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cas particulier - PMKID attack (2018)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-principe-pmkid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Principe PMKID
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-vulnerabilite-residuelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Vulnérabilité résiduelle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-schema-synthetique-pour-memorisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Schéma synthétique pour mémorisation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-implications-defensives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Implications défensives
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Implications défensives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-recommandations-psk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9.1 Recommandations PSK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-recommandations-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9.2 Recommandations infrastructure
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Synthèse
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-mode-monitor-injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.2 Mode moniteur et passage en injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-airodump-ng-capture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.3 airodump-ng capture passive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-deauth-handshake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.4 Déauthentification ciblée et capture handshake
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-dictionnaires-francais/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.5 Construction de dictionnaires français
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-hashcat-gpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.6 hashcat et attaque GPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-aircrack-ng-cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.7 aircrack-ng en mode CPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-connexion-reseau-cible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.8 Connexion au réseau cible et reconnaissance interne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-nmap-silencieux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.9 nmap silencieux et énumération
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-documentation-intrusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.10 Documentation de la phase d'intrusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-6-phishing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 6 - Phishing basique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-7-acquisition-memoire-windows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 - Acquisition mémoire Windows
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-7bis-acquisition-memoire-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 bis : Acquisition mémoire macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-8-acquisition-disque/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 8 : Acquisition disque
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-9-volatility-autopsy/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 9 : Analyse Volatility et Autopsy
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-10-premier-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Premier rapport
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../03-cycle-2-avance/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 2 : Cas avancé
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_5" id="__nav_10_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 2 : Cas avancé
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-11-osint/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 11 : OSINT approfondi
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-12-pivoting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 12 : Pivoting multi-postes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-13-persistance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Persistance Windows et Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14-bitlocker-luks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : BitLocker et LUKS extraction
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14bis-filevault/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 bis : FileVault et Apple Silicon
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15-detection/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 : Détection sans SIEM (Win/Lin)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15bis-detection-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 bis : Détection sur macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-16-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 16 : Rapport judiciaire complet
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-17-rgpd/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 17 : RGPD et notification CNIL
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../04-cycle-3-maitrise/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 3 : Maîtrise
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_6" id="__nav_10_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 3 : Maîtrise
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-18-educrypt/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 18 : EduCrypt (Dev Pédagogique)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19-chiffrement-actif/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 : Cas de chiffrement actif
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19bis-outil-swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 bis : Outil forensic Swift (macOS)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-20-chiffrage/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 20 : Chiffrage prestation PME
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-21-cas-autonomes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 21 : 5 cas autonomes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-22-formation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 22 : Préparation formation vidéo
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../05-menace-malware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spécialisation : Menace Malware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spécialisation : Menace Malware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-vocabulaire-cryptographique-wpa2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Vocabulaire cryptographique WPA2
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Vocabulaire cryptographique WPA2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-termes-essentiels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Termes essentiels
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-authenticator-vs-supplicant" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Authenticator vs Supplicant
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-genese-cryptographique-du-psk-au-pmk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Genèse cryptographique - du PSK au PMK
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Genèse cryptographique - du PSK au PMK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-le-psk-humain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Le PSK humain
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-derivation-pmk-via-pbkdf2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Dérivation PMK via PBKDF2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-pourquoi-4096-iterations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Pourquoi 4096 itérations
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-salt-ssid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 Salt = SSID
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-le-4-way-handshake-en-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Le 4-way handshake en détail
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Le 4-way handshake en détail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Vue d'ensemble
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-message-1-ap-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Message 1 - AP → Client
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-calcul-de-la-ptk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Calcul de la PTK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-message-2-client-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Message 2 - Client → AP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-message-3-ap-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5 Message 3 - AP → Client
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-message-4-client-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.6 Message 4 - Client → AP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pourquoi-la-capture-passive-permet-le-cracking-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Pourquoi la capture passive permet le cracking offline
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Pourquoi la capture passive permet le cracking offline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-donnees-necessaires-pour-cracker" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Données nécessaires pour cracker
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-algorithme-de-cracking-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Algorithme de cracking offline
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-cout-computationnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Coût computationnel
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-vitesse-de-cracking-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Vitesse de cracking 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-estimation-pour-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Estimation pour ARTECH
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-la-gtk-et-la-communication-broadcast" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. La GTK et la communication broadcast
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. La GTK et la communication broadcast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-role-de-la-gtk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Rôle de la GTK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-limitation-de-la-gtk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 Limitation de la GTK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-differences-avec-wpa3-sae" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Différences avec WPA3-SAE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Différences avec WPA3-SAE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-sae-dragonfly" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 SAE Dragonfly
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-vulnerabilites-wpa3-connues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Vulnérabilités WPA3 connues
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cas-particulier-pmkid-attack-2018" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Cas particulier - PMKID attack (2018)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cas particulier - PMKID attack (2018)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-principe-pmkid" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Principe PMKID
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-vulnerabilite-residuelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Vulnérabilité résiduelle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-schema-synthetique-pour-memorisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Schéma synthétique pour mémorisation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-implications-defensives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Implications défensives
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Implications défensives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-recommandations-psk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9.1 Recommandations PSK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-recommandations-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9.2 Recommandations infrastructure
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Synthèse
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cursus Forensic
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cycle 1 : Premier cas complet
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    V - Attaque WiFi WPA2 simple
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="51-theorie-wpa2-4-way-handshake-et-pmkptk">5.1 Théorie WPA2 - 4-way handshake et PMK/PTK<a class="headerlink" href="#51-theorie-wpa2-4-way-handshake-et-pmkptk" title="Permanent link">&para;</a></h1>
+<div class="admonition quote">
+<p class="admonition-title">L'analogie du protocole d'accueil dans une ambassade</p>
+<p>Dans une ambassade, deux personnes qui ne se sont jamais rencontrées doivent établir une communication confidentielle. Elles ont chacune une preuve d'identité, un secret partagé d'avance (le code de l'ambassade). Le protocole d'accueil prévoit qu'elles s'échangent quatre messages standardisés. À l'issue, elles disposent toutes deux d'une clé de session dérivée du secret partagé et de quatre nombres aléatoires uniques à cet échange. Si un espion enregistre les quatre messages, il a tout ce qu'il faut pour deviner le secret partagé hors-ligne, à condition d'être patient et bien équipé. Le 4-way handshake WPA2 est ce protocole. Le secret partagé est le mot de passe Wi-Fi. Et l'espion patient bien équipé est aujourd'hui un GPU à 1500 euros.</p>
+</div>
+<h2 id="metadonnees-du-chapitre">Métadonnées du chapitre<a class="headerlink" href="#metadonnees-du-chapitre" title="Permanent link">&para;</a></h2>
+<p>Ce chapitre est entièrement théorique. Il conditionne la compréhension de tous les chapitres suivants. Voici ses caractéristiques.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Durée estimée</td>
+<td>3 heures</td>
+</tr>
+<tr>
+<td>Niveau</td>
+<td>Théorique</td>
+</tr>
+<tr>
+<td>Prérequis</td>
+<td>Module 2 cycle 0 (cryptographie de base)</td>
+</tr>
+<tr>
+<td>Livrables</td>
+<td>Schéma du 4-way handshake mémorisé</td>
+</tr>
+<tr>
+<td>Auto-explication</td>
+<td>12 minutes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="objectifs-pedagogiques">Objectifs pédagogiques<a class="headerlink" href="#objectifs-pedagogiques" title="Permanent link">&para;</a></h2>
+<p>À l'issue de ce chapitre, vous serez capable de :</p>
+<ul>
+<li>Expliquer la dérivation PSK → PMK → PTK étape par étape</li>
+<li>Détailler les 4 messages du handshake et leur contenu</li>
+<li>Justifier pourquoi la capture passive permet le cracking offline</li>
+<li>Distinguer PMK, PTK, GTK et leur rôle respectif</li>
+<li>Comprendre la fonction PBKDF2 et son coût computationnel</li>
+<li>Articuler avec les attaques pratiques des chapitres suivants</li>
+</ul>
+<hr />
+<h2 id="1-vocabulaire-cryptographique-wpa2">1. Vocabulaire cryptographique WPA2<a class="headerlink" href="#1-vocabulaire-cryptographique-wpa2" title="Permanent link">&para;</a></h2>
+<p>Avant tout détail technique, voici les termes à maîtriser parfaitement.</p>
+<h3 id="11-termes-essentiels">1.1 Termes essentiels<a class="headerlink" href="#11-termes-essentiels" title="Permanent link">&para;</a></h3>
+<p>Voici la table des sigles à mémoriser.</p>
+<table>
+<thead>
+<tr>
+<th>Sigle</th>
+<th>Signification</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PSK</td>
+<td>Pre-Shared Key</td>
+<td>Mot de passe Wi-Fi tel que saisi</td>
+</tr>
+<tr>
+<td>PMK</td>
+<td>Pairwise Master Key</td>
+<td>Clé maîtresse dérivée du PSK</td>
+</tr>
+<tr>
+<td>PTK</td>
+<td>Pairwise Transient Key</td>
+<td>Clé de session par client</td>
+</tr>
+<tr>
+<td>GTK</td>
+<td>Group Temporal Key</td>
+<td>Clé de groupe (broadcast/multicast)</td>
+</tr>
+<tr>
+<td>KCK</td>
+<td>Key Confirmation Key</td>
+<td>Sous-clé pour MIC</td>
+</tr>
+<tr>
+<td>KEK</td>
+<td>Key Encryption Key</td>
+<td>Sous-clé pour chiffrer GTK</td>
+</tr>
+<tr>
+<td>TK</td>
+<td>Temporal Key</td>
+<td>Sous-clé pour chiffrer données</td>
+</tr>
+<tr>
+<td>MIC</td>
+<td>Message Integrity Code</td>
+<td>Empreinte HMAC pour intégrité</td>
+</tr>
+<tr>
+<td>ANonce</td>
+<td>Authenticator Nonce</td>
+<td>Aléa généré par le routeur</td>
+</tr>
+<tr>
+<td>SNonce</td>
+<td>Supplicant Nonce</td>
+<td>Aléa généré par le client</td>
+</tr>
+<tr>
+<td>EAPOL</td>
+<td>Extensible Auth Protocol over LAN</td>
+<td>Protocole d'échange clés</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-authenticator-vs-supplicant">1.2 Authenticator vs Supplicant<a class="headerlink" href="#12-authenticator-vs-supplicant" title="Permanent link">&para;</a></h3>
+<p>Dans la terminologie WPA2, deux rôles s'opposent. Voici leur distinction.</p>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Acteur</th>
+<th>Fonction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authenticator</td>
+<td>Routeur Wi-Fi (AP)</td>
+<td>Vérifie l'authentification</td>
+</tr>
+<tr>
+<td>Supplicant</td>
+<td>Client Wi-Fi (laptop, phone)</td>
+<td>Demande l'authentification</td>
+</tr>
+</tbody>
+</table>
+<p>Cette distinction est essentielle car les messages du handshake alternent entre les deux.</p>
+<h2 id="2-genese-cryptographique-du-psk-au-pmk">2. Genèse cryptographique - du PSK au PMK<a class="headerlink" href="#2-genese-cryptographique-du-psk-au-pmk" title="Permanent link">&para;</a></h2>
+<h3 id="21-le-psk-humain">2.1 Le PSK humain<a class="headerlink" href="#21-le-psk-humain" title="Permanent link">&para;</a></h3>
+<p>Le PSK est le mot de passe que l'utilisateur saisit dans la configuration de son routeur. Pour ARTECH, c'est <code>ArtechMedical2020!</code>.</p>
+<p>Ce PSK est <strong>humain</strong>, donc faible. Voici pourquoi.</p>
+<table>
+<thead>
+<tr>
+<th>Caractéristique humaine</th>
+<th>Conséquence cryptographique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8-20 caractères typiques</td>
+<td>Espace de recherche limité</td>
+</tr>
+<tr>
+<td>Mots de dictionnaire</td>
+<td>Vulnérable au dictionnary attack</td>
+</tr>
+<tr>
+<td>Caractères ASCII</td>
+<td>26 lettres + 10 chiffres + ~10 spéciaux</td>
+</tr>
+<tr>
+<td>Patterns prévisibles</td>
+<td>Année + nom de la société, etc.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-derivation-pmk-via-pbkdf2">2.2 Dérivation PMK via PBKDF2<a class="headerlink" href="#22-derivation-pmk-via-pbkdf2" title="Permanent link">&para;</a></h3>
+<p>Le PSK n'est <strong>jamais</strong> utilisé directement comme clé de chiffrement. Il est d'abord dérivé en <strong>PMK</strong> par la fonction PBKDF2.</p>
+<p>Voici la formule mathématique exacte.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>PMK = PBKDF2(PSK, SSID, 4096, 256)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Où :
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  PBKDF2 = Password-Based Key Derivation Function 2
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  PSK    = mot de passe (entre 8 et 63 caractères)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  SSID   = nom du réseau (sert de salt)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  4096   = nombre d&#39;itérations HMAC-SHA1
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  256    = taille de la PMK en bits (32 octets)
+</span></code></pre></div>
+<h3 id="23-pourquoi-4096-iterations">2.3 Pourquoi 4096 itérations<a class="headerlink" href="#23-pourquoi-4096-iterations" title="Permanent link">&para;</a></h3>
+<p>Les 4096 itérations sont conçues pour ralentir l'attaque par dictionnaire. Voici l'effet pratique.</p>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 itération</td>
+<td>1 PSK testé = 1 hash SHA-1</td>
+</tr>
+<tr>
+<td>4096 itérations</td>
+<td>1 PSK testé = 4096 hashes SHA-1 + dérivations</td>
+</tr>
+<tr>
+<td>Vitesse CPU</td>
+<td>~1 000 hashes/sec (Intel i7 typique)</td>
+</tr>
+<tr>
+<td>Vitesse GPU</td>
+<td>~600 000 hashes/sec (RTX 4090)</td>
+</tr>
+<tr>
+<td>Vitesse cluster</td>
+<td>10 millions+/sec</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-salt-ssid">2.4 Salt = SSID<a class="headerlink" href="#24-salt-ssid" title="Permanent link">&para;</a></h3>
+<p>Le <strong>SSID</strong> sert de salt à PBKDF2. C'est crucial à comprendre.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>CONSÉQUENCE DU SSID COMME SALT
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>================================
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Deux réseaux DIFFÉRENTS avec le MÊME PSK
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>auront des PMK DIFFÉRENTES.
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Exemple :
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  PSK = &quot;Password123!&quot;
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  SSID = &quot;Livebox&quot; → PMK = X
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  SSID = &quot;Freebox&quot; → PMK = Y (différent)
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Conséquence positive (défense) :
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  Pas de table arc-en-ciel universelle possible.
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>Conséquence négative (attaque) :
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>  Pour SSID populaires (Livebox-XXXX, FreeWifi),
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>  des tables pré-calculées EXISTENT.
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>  Voir attaque par tables PMK plus tard.
+</span></code></pre></div>
+<h2 id="3-le-4-way-handshake-en-detail">3. Le 4-way handshake en détail<a class="headerlink" href="#3-le-4-way-handshake-en-detail" title="Permanent link">&para;</a></h2>
+<h3 id="31-vue-densemble">3.1 Vue d'ensemble<a class="headerlink" href="#31-vue-densemble" title="Permanent link">&para;</a></h3>
+<p>Le 4-way handshake est l'échange qui se produit chaque fois qu'un client se connecte à un réseau WPA2. Voici son séquencement.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant C as Client (Supplicant)
+    participant AP as Routeur (Authenticator)
+
+    Note over C,AP: Association 802.11 préalable réussie
+
+    AP-&gt;&gt;C: Message 1 - ANonce
+    Note over C: Génère SNonce&lt;br&gt;Calcule PTK&lt;br&gt;Calcule MIC
+
+    C-&gt;&gt;AP: Message 2 - SNonce + MIC
+    Note over AP: Calcule PTK&lt;br&gt;Vérifie MIC
+
+    AP-&gt;&gt;C: Message 3 - GTK chiffrée + MIC
+    Note over C: Vérifie MIC&lt;br&gt;Déchiffre GTK&lt;br&gt;Installe clés
+
+    C-&gt;&gt;AP: Message 4 - ACK + MIC
+    Note over AP: Vérifie MIC&lt;br&gt;Installe clés
+
+    Note over C,AP: Communication chiffrée maintenant possible</code></pre>
+<h3 id="32-message-1-ap-client">3.2 Message 1 - AP → Client<a class="headerlink" href="#32-message-1-ap-client" title="Permanent link">&para;</a></h3>
+<p>Voici le contenu détaillé du premier message.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>MESSAGE 1 - Authenticator vers Supplicant
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>============================================
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Contenu :
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  - ANonce (32 octets aléatoires généré par AP)
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  - Adresse MAC AP (BSSID)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  - Replay counter (initialisé)
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Pas de chiffrement à ce stade.
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>Pas de MIC à ce stade.
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>Côté CLIENT à réception :
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  - Stocke ANonce
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>  - Génère SNonce (32 octets aléatoires)
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>  - Calcule PTK = PRF(PMK, &quot;Pairwise key expansion&quot;,
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>                      Min(MAC_AP, MAC_Client) ||
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>                      Max(MAC_AP, MAC_Client) ||
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>                      Min(ANonce, SNonce) ||
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>                      Max(ANonce, SNonce))
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>  - Extrait KCK, KEK, TK depuis PTK
+</span></code></pre></div>
+<h3 id="33-calcul-de-la-ptk">3.3 Calcul de la PTK<a class="headerlink" href="#33-calcul-de-la-ptk" title="Permanent link">&para;</a></h3>
+<p>Le calcul de la PTK est l'étape la plus importante. Voici sa formule précise.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>PTK = PRF-X(PMK, &quot;Pairwise key expansion&quot;, B)
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Où B = combinaison ordonnée de :
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  - MAC_AP
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  - MAC_Client
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  - ANonce
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  - SNonce
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>X = 384 bits (CCMP) ou 512 bits (autres)
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>PTK est ensuite scindée en :
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  KCK = bits 0-127 (16 octets)
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  KEK = bits 128-255 (16 octets)
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>  TK  = bits 256-383 (16 octets pour CCMP)
+</span></code></pre></div>
+<h3 id="34-message-2-client-ap">3.4 Message 2 - Client → AP<a class="headerlink" href="#34-message-2-client-ap" title="Permanent link">&para;</a></h3>
+<p>Voici le contenu détaillé du deuxième message.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>MESSAGE 2 - Supplicant vers Authenticator
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>============================================
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Contenu :
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  - SNonce (32 octets aléatoires du client)
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  - MAC adresse client
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  - Replay counter
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  - MIC = HMAC-SHA1(KCK, message)
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Le MIC prouve que le client connaît KCK,
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>donc PTK, donc PMK, donc PSK.
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>Côté AP à réception :
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  - Stocke SNonce
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  - Calcule PTK (même formule, mêmes inputs)
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>  - Vérifie MIC avec son KCK calculé
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>  - Si MIC valide : PSK correct
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>  - Si MIC invalide : PSK incorrect → abandon
+</span></code></pre></div>
+<h3 id="35-message-3-ap-client">3.5 Message 3 - AP → Client<a class="headerlink" href="#35-message-3-ap-client" title="Permanent link">&para;</a></h3>
+<p>Voici le contenu détaillé du troisième message.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>MESSAGE 3 - Authenticator vers Supplicant
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>============================================
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Contenu :
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  - GTK chiffrée avec KEK
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  - Replay counter
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  - MIC = HMAC-SHA1(KCK, message)
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>Le GTK est la clé de groupe utilisée pour
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>les paquets broadcast/multicast.
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>Tous les clients du réseau ont la même GTK.
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>Côté CLIENT à réception :
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>  - Vérifie MIC
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>  - Déchiffre GTK avec KEK
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>  - Stocke TK (Temporal Key)
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>  - Stocke GTK
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>  - Prêt à envoyer message 4
+</span></code></pre></div>
+<h3 id="36-message-4-client-ap">3.6 Message 4 - Client → AP<a class="headerlink" href="#36-message-4-client-ap" title="Permanent link">&para;</a></h3>
+<p>Voici le contenu détaillé du quatrième message.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>MESSAGE 4 - Supplicant vers Authenticator
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>============================================
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Contenu :
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  - ACK simple
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  - Replay counter
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  - MIC = HMAC-SHA1(KCK, message)
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Confirmation que le client a bien reçu
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>les clés et qu&#39;il est prêt à communiquer.
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>Côté AP à réception :
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  - Vérifie MIC
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>  - Active TK pour communication unicast
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  - Active GTK pour broadcast/multicast
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>  - Connection établie
+</span></code></pre></div>
+<h2 id="4-pourquoi-la-capture-passive-permet-le-cracking-offline">4. Pourquoi la capture passive permet le cracking offline<a class="headerlink" href="#4-pourquoi-la-capture-passive-permet-le-cracking-offline" title="Permanent link">&para;</a></h2>
+<p>C'est le cœur de la vulnérabilité. Comprenons-le précisément.</p>
+<h3 id="41-donnees-necessaires-pour-cracker">4.1 Données nécessaires pour cracker<a class="headerlink" href="#41-donnees-necessaires-pour-cracker" title="Permanent link">&para;</a></h3>
+<p>L'attaquant qui veut cracker le PSK a besoin de <strong>5 éléments</strong> présents dans le handshake.</p>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Présence dans handshake</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSID</td>
+<td>Connu (beacon non chiffré)</td>
+</tr>
+<tr>
+<td>MAC AP</td>
+<td>Présent dans tous les messages</td>
+</tr>
+<tr>
+<td>MAC Client</td>
+<td>Présent dans tous les messages</td>
+</tr>
+<tr>
+<td>ANonce</td>
+<td>Message 1 (en clair)</td>
+</tr>
+<tr>
+<td>SNonce</td>
+<td>Message 2 (en clair)</td>
+</tr>
+<tr>
+<td>MIC du message 2</td>
+<td>Message 2 (en clair)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tous ces éléments sont en clair</strong>. L'attaquant peut les enregistrer passivement, sans interaction.</p>
+<h3 id="42-algorithme-de-cracking-offline">4.2 Algorithme de cracking offline<a class="headerlink" href="#42-algorithme-de-cracking-offline" title="Permanent link">&para;</a></h3>
+<p>Une fois le handshake capturé, voici l'algorithme exécuté hors-ligne pour chaque candidat PSK.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ALGORITHME DE CRACKING OFFLINE
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>================================
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Pour chaque PSK candidat dans le dictionnaire :
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  1. Calculer PMK_candidate = PBKDF2(PSK_candidate, SSID, 4096, 256)
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  2. Calculer PTK_candidate = PRF(PMK_candidate, ...)
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>  3. Extraire KCK_candidate de PTK_candidate
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>  4. Calculer MIC_candidate = HMAC-SHA1(KCK_candidate, message_2)
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  5. Comparer MIC_candidate avec MIC_observed du message 2
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>  6. Si égaux : PSK trouvé !
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>     Si différents : passer au PSK suivant
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>Ce calcul se fait COMPLÈTEMENT HORS-LIGNE.
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>Ni le routeur ni le réseau ne sont sollicités.
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>Aucune trace forensic côté AP.
+</span></code></pre></div>
+<h3 id="43-cout-computationnel">4.3 Coût computationnel<a class="headerlink" href="#43-cout-computationnel" title="Permanent link">&para;</a></h3>
+<p>Le coût par PSK testé est <strong>fixe</strong>. Voici les ordres de grandeur.</p>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Coût en SHA-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PBKDF2 (4096 itérations)</td>
+<td>8192 (2 × 4096 pour HMAC)</td>
+</tr>
+<tr>
+<td>Dérivation PTK</td>
+<td>4-5</td>
+</tr>
+<tr>
+<td>HMAC pour MIC</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Total par PSK</strong></td>
+<td><strong>~8200 SHA-1</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-vitesse-de-cracking-2026">4.4 Vitesse de cracking 2026<a class="headerlink" href="#44-vitesse-de-cracking-2026" title="Permanent link">&para;</a></h3>
+<p>Voici les vitesses typiques en 2026.</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>PSK/seconde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU Intel i9 (16 threads)</td>
+<td>8 000</td>
+</tr>
+<tr>
+<td>GPU NVIDIA RTX 3060</td>
+<td>500 000</td>
+</tr>
+<tr>
+<td>GPU NVIDIA RTX 4090</td>
+<td>1 800 000</td>
+</tr>
+<tr>
+<td>8x RTX 4090 cluster</td>
+<td>14 400 000</td>
+</tr>
+<tr>
+<td>AWS p4d.24xlarge (8x A100)</td>
+<td>1 800 000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-estimation-pour-artech">4.5 Estimation pour ARTECH<a class="headerlink" href="#45-estimation-pour-artech" title="Permanent link">&para;</a></h3>
+<p>Avec un dictionnaire de 100 millions de mots de passe (typique pour le français), voici les durées d'attaque pour ARTECH.</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Durée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU i9</td>
+<td>3 heures</td>
+</tr>
+<tr>
+<td>RTX 3060</td>
+<td>3 minutes</td>
+</tr>
+<tr>
+<td>RTX 4090</td>
+<td>56 secondes</td>
+</tr>
+<tr>
+<td>Cluster 8x</td>
+<td>7 secondes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-la-gtk-et-la-communication-broadcast">5. La GTK et la communication broadcast<a class="headerlink" href="#5-la-gtk-et-la-communication-broadcast" title="Permanent link">&para;</a></h2>
+<p>La <strong>GTK</strong> est différente de la PTK. Voici sa fonction.</p>
+<h3 id="51-role-de-la-gtk">5.1 Rôle de la GTK<a class="headerlink" href="#51-role-de-la-gtk" title="Permanent link">&para;</a></h3>
+<p>Voici la différence d'usage entre PTK et GTK.</p>
+<table>
+<thead>
+<tr>
+<th>Clé</th>
+<th>Usage</th>
+<th>Portée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PTK</td>
+<td>Communication unicast AP ↔ client</td>
+<td>Spécifique à chaque paire</td>
+</tr>
+<tr>
+<td>GTK</td>
+<td>Communication broadcast/multicast</td>
+<td>Partagée entre tous les clients du réseau</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-limitation-de-la-gtk">5.2 Limitation de la GTK<a class="headerlink" href="#52-limitation-de-la-gtk" title="Permanent link">&para;</a></h3>
+<p>La GTK partagée a une conséquence importante. Tous les clients du réseau peuvent <strong>déchiffrer le trafic broadcast</strong> des autres clients.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>CONSÉQUENCE PRATIQUE
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>=====================
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Si vous êtes connecté au réseau ARTECH-WIFI,
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>vous pouvez voir TOUT le trafic broadcast :
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  - ARP requests (MAC addresses, IPs)
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>  - DHCP traffic
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>  - mDNS / NBNS / LLMNR
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  - Discovery protocols
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>C&#39;est une mine d&#39;information forensic.
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>Mais vous ne voyez PAS le trafic unicast des
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>autres clients (chiffré avec leur PTK propre).
+</span></code></pre></div>
+<h2 id="6-differences-avec-wpa3-sae">6. Différences avec WPA3-SAE<a class="headerlink" href="#6-differences-avec-wpa3-sae" title="Permanent link">&para;</a></h2>
+<p>WPA3 introduit le <strong>SAE Dragonfly</strong> qui résout les principales failles. Voici les différences clés.</p>
+<h3 id="61-sae-dragonfly">6.1 SAE Dragonfly<a class="headerlink" href="#61-sae-dragonfly" title="Permanent link">&para;</a></h3>
+<p>Voici comment SAE diffère de PSK.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>WPA2-PSK</th>
+<th>WPA3-SAE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Échange clé</td>
+<td>4-way handshake</td>
+<td>SAE puis 4-way</td>
+</tr>
+<tr>
+<td>Capture pour cracking</td>
+<td>Possible</td>
+<td>Impossible (sauf failles spécifiques)</td>
+</tr>
+<tr>
+<td>Forward secrecy</td>
+<td>Non</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>Protection dictionnaire</td>
+<td>Faible</td>
+<td>Forte (résistant offline)</td>
+</tr>
+<tr>
+<td>Échange ECP</td>
+<td>Non</td>
+<td>ECDH avec courbe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-vulnerabilites-wpa3-connues">6.2 Vulnérabilités WPA3 connues<a class="headerlink" href="#62-vulnerabilites-wpa3-connues" title="Permanent link">&para;</a></h3>
+<p>WPA3 n'est pas parfait. Voici les vulnérabilités publiées.</p>
+<table>
+<thead>
+<tr>
+<th>Vulnérabilité</th>
+<th>Année</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dragonblood</td>
+<td>2019</td>
+<td>Side-channel sur courbe ECC</td>
+</tr>
+<tr>
+<td>KRACK adapté</td>
+<td>2017</td>
+<td>Sur transition WPA2/WPA3</td>
+</tr>
+<tr>
+<td>FragAttacks</td>
+<td>2021</td>
+<td>Sur fragmentation</td>
+</tr>
+</tbody>
+</table>
+<p>Néanmoins, en pratique, <strong>WPA3 reste très significativement plus sûr</strong> que WPA2-PSK.</p>
+<h2 id="7-cas-particulier-pmkid-attack-2018">7. Cas particulier - PMKID attack (2018)<a class="headerlink" href="#7-cas-particulier-pmkid-attack-2018" title="Permanent link">&para;</a></h2>
+<p>En 2018, une vulnérabilité a été publiée permettant le cracking <strong>sans capturer le 4-way handshake complet</strong>.</p>
+<h3 id="71-principe-pmkid">7.1 Principe PMKID<a class="headerlink" href="#71-principe-pmkid" title="Permanent link">&para;</a></h3>
+<p>Voici comment l'attaque PMKID fonctionne.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ATTAQUE PMKID
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>===============
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Le PMKID est un identifiant de PMK qui apparaît
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>dans le premier message du handshake si l&#39;AP
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>le supporte (la plupart le font).
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>Calcul :
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>  PMKID = HMAC-SHA1(PMK, &quot;PMK Name&quot; || MAC_AP || MAC_Client)
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>Si l&#39;attaquant capture le PMKID :
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>  - Il peut tester chaque PSK candidat
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>  - Calculer PMK_candidate = PBKDF2(PSK_candidate, ...)
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>  - Calculer PMKID_candidate
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>  - Comparer avec PMKID observé
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>AVANTAGE :
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>  Pas besoin d&#39;attendre qu&#39;un client se reconnecte.
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>  Capture instantanée depuis n&#39;importe quel
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>  paquet d&#39;association.
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>INCONVÉNIENT :
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>  Pas tous les AP envoient le PMKID.
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>  Mises à jour firmware progressives.
+</span></code></pre></div>
+<h3 id="72-vulnerabilite-residuelle">7.2 Vulnérabilité résiduelle<a class="headerlink" href="#72-vulnerabilite-residuelle" title="Permanent link">&para;</a></h3>
+<p>En 2026, le PMKID reste exploitable sur de nombreux routeurs grand public, particulièrement les anciens modèles.</p>
+<table>
+<thead>
+<tr>
+<th>Routeur</th>
+<th>PMKID exposé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Livebox 4</td>
+<td>Souvent</td>
+</tr>
+<tr>
+<td>TP-Link Archer C7 v2</td>
+<td>Oui (firmware ancien)</td>
+</tr>
+<tr>
+<td>Cisco WAP551</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>UniFi récent</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>Routeurs récents WPA3</td>
+<td>Non</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-schema-synthetique-pour-memorisation">8. Schéma synthétique pour mémorisation<a class="headerlink" href="#8-schema-synthetique-pour-memorisation" title="Permanent link">&para;</a></h2>
+<p>Pour mémoriser tout le processus, voici le schéma synthétique.</p>
+<pre class="mermaid"><code>flowchart TB
+    A[PSK utilisateur&lt;br&gt;ArtechMedical2020!] --&gt;|PBKDF2 4096 iter&lt;br&gt;SSID = ARTECH-WIFI| B[PMK&lt;br&gt;32 octets]
+    B --&gt;|PRF avec ANonce SNonce&lt;br&gt;MAC AP MAC Client| C[PTK&lt;br&gt;48 octets]
+    C --&gt; D[KCK&lt;br&gt;16 octets]
+    C --&gt; E[KEK&lt;br&gt;16 octets]
+    C --&gt; F[TK&lt;br&gt;16 octets]
+    D --&gt;|HMAC-SHA1 sur message| G[MIC]
+    F --&gt;|AES-CCMP| H[Trafic unicast chiffré]</code></pre>
+<h2 id="9-implications-defensives">9. Implications défensives<a class="headerlink" href="#9-implications-defensives" title="Permanent link">&para;</a></h2>
+<p>Comprendre ces fondations permet de formuler des recommandations défensives précises.</p>
+<h3 id="91-recommandations-psk">9.1 Recommandations PSK<a class="headerlink" href="#91-recommandations-psk" title="Permanent link">&para;</a></h3>
+<p>Voici les recommandations pour rendre un PSK résistant au cracking offline.</p>
+<table>
+<thead>
+<tr>
+<th>Recommandation</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Longueur 16+ caractères</td>
+<td>Espace de recherche exponentiel</td>
+</tr>
+<tr>
+<td>Caractères mixtes complets</td>
+<td>Évite les dictionnaires usuels</td>
+</tr>
+<tr>
+<td>Pas de mot du dictionnaire</td>
+<td>Élimine les attaques rapides</td>
+</tr>
+<tr>
+<td>Pas de pattern prévisible</td>
+<td>NomSociete + année = catastrophique</td>
+</tr>
+<tr>
+<td>Rotation périodique (1-2 ans)</td>
+<td>Périmer les anciens dumps</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-recommandations-infrastructure">9.2 Recommandations infrastructure<a class="headerlink" href="#92-recommandations-infrastructure" title="Permanent link">&para;</a></h3>
+<p>Voici les mesures infrastructurelles complémentaires.</p>
+<table>
+<thead>
+<tr>
+<th>Recommandation</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Migration WPA3-SAE</td>
+<td>Protection cracking offline</td>
+</tr>
+<tr>
+<td>WPA2-Enterprise (RADIUS)</td>
+<td>Authentification certificat</td>
+</tr>
+<tr>
+<td>Désactiver PMKID si possible</td>
+<td>Élimine l'attaque PMKID</td>
+</tr>
+<tr>
+<td>Réduire portée Wi-Fi</td>
+<td>Limite la zone de capture</td>
+</tr>
+<tr>
+<td>Détection deauth (DoS Wi-Fi)</td>
+<td>Alertes sur attaques actives</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-auto-evaluation">10. Auto-évaluation<a class="headerlink" href="#10-auto-evaluation" title="Permanent link">&para;</a></h2>
+<p>Vérifiez votre maîtrise par les questions suivantes.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Réponse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Combien d'itérations PBKDF2 ?</td>
+<td>4096</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Que sert de salt à PBKDF2 ?</td>
+<td>SSID</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Combien de messages dans le handshake ?</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Qui génère ANonce ?</td>
+<td>Authenticator (AP)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Qui génère SNonce ?</td>
+<td>Supplicant (client)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Quelle clé chiffre les données unicast ?</td>
+<td>TK (extraite de PTK)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Quelle clé chiffre les données broadcast ?</td>
+<td>GTK</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Vitesse cracking RTX 4090 typique ?</td>
+<td>~1.8 million PSK/sec</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11-synthese">11. Synthèse<a class="headerlink" href="#11-synthese" title="Permanent link">&para;</a></h2>
+<p>Voici les points clés à mémoriser.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>THÉORIE WPA2 - ESSENTIELS
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>DÉRIVATION DES CLÉS
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  PSK → PMK : PBKDF2(PSK, SSID, 4096 iter, 256 bits)
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  PMK → PTK : PRF(PMK, ANonce, SNonce, MAC_AP, MAC_C)
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>  PTK → KCK | KEK | TK
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>4-WAY HANDSHAKE
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  Msg 1 : AP envoie ANonce
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>  Msg 2 : Client envoie SNonce + MIC
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>  Msg 3 : AP envoie GTK chiffrée + MIC
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>  Msg 4 : Client envoie ACK + MIC
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>VULNÉRABILITÉ FONDAMENTALE
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>  Capture passive du handshake
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>  Cracking offline par dictionnaire
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>  Aucune trace côté AP
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>VITESSES CRACKING 2026
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>  CPU i9 : 8 000 PSK/sec
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>  RTX 4090 : 1 800 000 PSK/sec
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>  Cluster 8x : 14 400 000 PSK/sec
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>PMKID (2018)
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>  Vulnérabilité alternative
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>  Encore active sur routeurs anciens
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>WPA3-SAE
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>  Résout cracking offline
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>  Forward secrecy
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>  Recommandé pour 2026+
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>DÉFENSES
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>  PSK 16+ caractères aléatoires
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>  Migration WPA3
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>  WPA2-Enterprise si possible
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>  Désactiver PMKID
+</span></code></pre></div>
+<hr />
+<p><strong>Chapitre suivant</strong> : <a href="../5-2-mode-monitor-injection/">5.2 Mode moniteur et passage en injection</a></p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">WPA2</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Cryptographie</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PMK</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PTK</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">PBKDF2</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Module 5 - Attaque Wi-Fi WPA2 simple">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Module 5 - Attaque Wi-Fi WPA2 simple
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-mode-monitor-injection/" class="md-footer__link md-footer__link--next" aria-label="Suivant: 5.2 Mode moniteur et passage en injection">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                5.2 Mode moniteur et passage en injection
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+        <script src="../../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

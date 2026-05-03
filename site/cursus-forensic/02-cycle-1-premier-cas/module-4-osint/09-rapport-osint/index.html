@@ -1,0 +1,6223 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Construction d'un rapport OSINT professionnel exploitable - structure type, vocabulaire, traçabilité, captures hashées. Exemple complet appliqué à ARTECH avec annexes et recommandations défensives.">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/cursus-forensic/02-cycle-1-premier-cas/module-4-osint/09-rapport-osint/">
+      
+      
+        <link rel="prev" href="../08-wardriving-passif/">
+      
+      
+        <link rel="next" href="../10-cas-pratique-artech/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.37">
+    
+    
+      
+        <title>4.9 Production du rapport OSINT structuré - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.a2001754.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#49-production-du-rapport-osint-structure" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.9 Production du rapport OSINT structuré
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/governance/" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  Cursus Forensic
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infrastructure (Sys-Réseau)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/governance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : GRC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opérations &amp; SOC (Blue Team)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../glossaire/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cursus Forensic
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cursus Forensic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../00-meta-outillages/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outillage du cursus
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_2" id="__nav_10_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outillage du cursus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/evolution-carriere-2026/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Évolution de Carrière (2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/carnet-doutes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Carnet de Doutes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/inventaire-materiel/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventaire Matériel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/progression/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Suivi de Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/ressources-externes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources Externes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../01-cycle-0-fondations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 0 : Fondations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_3" id="__nav_10_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 0 : Fondations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-1-legislation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 - Législation française et cadre juridique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-2-prerequis-techniques/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 - Prérequis techniques et théoriques
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-3-configuration-laboratoire/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 - Configuration du laboratoire forensic physique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 1 : Premier cas complet
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4" id="__nav_10_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 1 : Premier cas complet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IV - OSINT et reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4_2" id="__nav_10_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IV - OSINT et reconnaissance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-methodologie-osint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1 Méthodologie OSINT - framework et matrice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-google-dorks-archives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2 Reconnaissance passive - Google dorks et archives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-theharvester-emails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3 theHarvester et énumération emails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-wigle-bssid-ssid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.4 Recherche par BSSID Wigle.net et SSID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-profilage-linkedin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.5 Profilage humain LinkedIn et réseaux sociaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-hunter-formats-emails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.6 Hunter.io et formats d'emails entreprise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-maltego-ce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.7 Maltego CE pour cartographie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-wardriving-passif/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.8 Wardriving passif sur le terrain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.9 Production du rapport OSINT structuré
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.9 Production du rapport OSINT structuré
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-vocabulaire-et-tonalite-du-rapport" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Vocabulaire et tonalité du rapport
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Vocabulaire et tonalité du rapport">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-principes-redactionnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Principes rédactionnels
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-vocabulaire-a-eviter-vs-a-privilegier" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Vocabulaire à éviter vs à privilégier
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-echelle-de-confiance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Échelle de confiance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-structure-dun-rapport-osint-professionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Structure d'un rapport OSINT professionnel
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Structure d&#x27;un rapport OSINT professionnel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-architecture-en-9-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Architecture en 9 sections
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-page-de-garde" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Page de garde
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-synthese-executive" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Synthèse exécutive
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-cadrage-et-methodologie" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 Cadrage et méthodologie
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-resultats-par-categorie" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Résultats par catégorie
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Résultats par catégorie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-identite-organisationnelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Identité organisationnelle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-empreinte-numerique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Empreinte numérique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-empreinte-humaine" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Empreinte humaine
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-empreinte-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Empreinte Wi-Fi
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-fuites-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5 Fuites de données
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cartographie-des-relations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Cartographie des relations
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cibles-privilegiees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Cibles privilégiées
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-surface-dattaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Surface d'attaque
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-recommandations-defensives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Recommandations défensives
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Recommandations défensives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-hierarchisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Hiérarchisation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-exemple-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Exemple ARTECH
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-annexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Annexes
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Annexes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-annexes-recommandees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1 Annexes recommandées
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-manifest-des-annexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2 Manifest des annexes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-mise-en-forme-et-signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Mise en forme et signature
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Mise en forme et signature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-format-de-livrable" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9.1 Format de livrable
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-signature-numerique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9.2 Signature numérique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9.3 Versioning
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-cas-pratique-redaction-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Cas pratique - Rédaction ARTECH
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Cas pratique - Rédaction ARTECH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-preparation-materielle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10.1 Préparation matérielle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-conversion-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10.2 Conversion PDF
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-pieges-et-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Pièges et bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Pièges et bonnes pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-pieges-frequents" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11.1 Pièges fréquents
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11.2 Bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. Synthèse
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-cas-pratique-artech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.10 Cas pratique ARTECH profilage complet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-5-wifi-wpa2/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 5 - Attaque Wi-Fi WPA2 simple
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-6-phishing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 6 - Phishing basique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-7-acquisition-memoire-windows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 - Acquisition mémoire Windows
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-7bis-acquisition-memoire-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 bis : Acquisition mémoire macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-8-acquisition-disque/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 8 : Acquisition disque
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-9-volatility-autopsy/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 9 : Analyse Volatility et Autopsy
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-10-premier-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Premier rapport
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../03-cycle-2-avance/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 2 : Cas avancé
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_5" id="__nav_10_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 2 : Cas avancé
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-11-osint/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 11 : OSINT approfondi
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-12-pivoting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 12 : Pivoting multi-postes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-13-persistance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Persistance Windows et Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14-bitlocker-luks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : BitLocker et LUKS extraction
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14bis-filevault/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 bis : FileVault et Apple Silicon
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15-detection/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 : Détection sans SIEM (Win/Lin)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15bis-detection-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 bis : Détection sur macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-16-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 16 : Rapport judiciaire complet
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-17-rgpd/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 17 : RGPD et notification CNIL
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../04-cycle-3-maitrise/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 3 : Maîtrise
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_6" id="__nav_10_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 3 : Maîtrise
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-18-educrypt/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 18 : EduCrypt (Dev Pédagogique)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19-chiffrement-actif/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 : Cas de chiffrement actif
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19bis-outil-swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 bis : Outil forensic Swift (macOS)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-20-chiffrage/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 20 : Chiffrage prestation PME
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-21-cas-autonomes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 21 : 5 cas autonomes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-22-formation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 22 : Préparation formation vidéo
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../05-menace-malware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spécialisation : Menace Malware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spécialisation : Menace Malware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-vocabulaire-et-tonalite-du-rapport" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Vocabulaire et tonalité du rapport
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Vocabulaire et tonalité du rapport">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-principes-redactionnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Principes rédactionnels
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-vocabulaire-a-eviter-vs-a-privilegier" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Vocabulaire à éviter vs à privilégier
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-echelle-de-confiance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Échelle de confiance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-structure-dun-rapport-osint-professionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Structure d'un rapport OSINT professionnel
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Structure d&#x27;un rapport OSINT professionnel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-architecture-en-9-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Architecture en 9 sections
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-page-de-garde" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Page de garde
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-synthese-executive" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Synthèse exécutive
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-cadrage-et-methodologie" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 Cadrage et méthodologie
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-resultats-par-categorie" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Résultats par catégorie
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Résultats par catégorie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-identite-organisationnelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Identité organisationnelle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-empreinte-numerique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Empreinte numérique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-empreinte-humaine" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Empreinte humaine
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-empreinte-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Empreinte Wi-Fi
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-fuites-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5 Fuites de données
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cartographie-des-relations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Cartographie des relations
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cibles-privilegiees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Cibles privilégiées
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-surface-dattaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Surface d'attaque
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-recommandations-defensives" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Recommandations défensives
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Recommandations défensives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-hierarchisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Hiérarchisation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-exemple-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Exemple ARTECH
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-annexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Annexes
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Annexes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-annexes-recommandees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1 Annexes recommandées
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-manifest-des-annexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2 Manifest des annexes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-mise-en-forme-et-signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Mise en forme et signature
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Mise en forme et signature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-format-de-livrable" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9.1 Format de livrable
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-signature-numerique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9.2 Signature numérique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9.3 Versioning
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-cas-pratique-redaction-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Cas pratique - Rédaction ARTECH
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Cas pratique - Rédaction ARTECH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-preparation-materielle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10.1 Préparation matérielle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-conversion-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10.2 Conversion PDF
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-pieges-et-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Pièges et bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Pièges et bonnes pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-pieges-frequents" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11.1 Pièges fréquents
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11.2 Bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. Synthèse
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cursus Forensic
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cycle 1 : Premier cas complet
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    IV - OSINT et reconnaissance
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="49-production-du-rapport-osint-structure">4.9 Production du rapport OSINT structuré<a class="headerlink" href="#49-production-du-rapport-osint-structure" title="Permanent link">&para;</a></h1>
+<div class="admonition quote">
+<p class="admonition-title">L'analogie de l'expert qui présente devant un magistrat</p>
+<p>Un expert technique convoqué par un magistrat dispose de quinze minutes pour exposer ses conclusions. Il a passé trois mois sur l'affaire. Si son rapport est confus, mal structuré ou plein de jargon, son expertise s'évapore en cinq minutes. À l'inverse, un rapport limpide, factuel, documenté étaye chacune de ses conclusions avec une preuve traçable. Le magistrat peut alors statuer en confiance. Votre rapport OSINT joue exactement ce rôle pour la suite des opérations. Que ce soit pour informer un commanditaire, briefer une équipe d'attaque autorisée ou archiver vos travaux, sa qualité conditionne sa valeur. Ce chapitre vous donne la grille pour produire un rapport qui survit à l'épreuve du temps.</p>
+</div>
+<h2 id="metadonnees-du-chapitre">Métadonnées du chapitre<a class="headerlink" href="#metadonnees-du-chapitre" title="Permanent link">&para;</a></h2>
+<p>Ce chapitre synthétise tout le travail OSINT en un livrable professionnel. Voici ses caractéristiques.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Durée estimée</td>
+<td>3 heures</td>
+</tr>
+<tr>
+<td>Niveau</td>
+<td>Synthèse</td>
+</tr>
+<tr>
+<td>Prérequis</td>
+<td>4.1 à 4.8</td>
+</tr>
+<tr>
+<td>Livrables</td>
+<td>Template rapport OSINT, rapport ARTECH partiel</td>
+</tr>
+<tr>
+<td>Auto-explication</td>
+<td>12 minutes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="objectifs-pedagogiques">Objectifs pédagogiques<a class="headerlink" href="#objectifs-pedagogiques" title="Permanent link">&para;</a></h2>
+<p>À l'issue de ce chapitre, vous serez capable de :</p>
+<ul>
+<li>Structurer un rapport OSINT complet</li>
+<li>Appliquer un vocabulaire neutre et factuel</li>
+<li>Garantir la traçabilité de chaque information</li>
+<li>Produire un rapport ARTECH exploitable</li>
+<li>Distinguer faits avérés et hypothèses</li>
+<li>Formuler des recommandations défensives</li>
+</ul>
+<hr />
+<h2 id="1-vocabulaire-et-tonalite-du-rapport">1. Vocabulaire et tonalité du rapport<a class="headerlink" href="#1-vocabulaire-et-tonalite-du-rapport" title="Permanent link">&para;</a></h2>
+<p>Un rapport OSINT n'est pas un roman. Sa qualité repose largement sur le respect de règles linguistiques strictes.</p>
+<h3 id="11-principes-redactionnels">1.1 Principes rédactionnels<a class="headerlink" href="#11-principes-redactionnels" title="Permanent link">&para;</a></h3>
+<p>Voici les règles fondamentales à appliquer dans tout rapport OSINT.</p>
+<table>
+<thead>
+<tr>
+<th>Règle</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phrases courtes</td>
+<td>Maximum 25 mots</td>
+</tr>
+<tr>
+<td>Voix active privilégiée</td>
+<td>"L'analyste a identifié" plutôt que "il a été identifié"</td>
+</tr>
+<tr>
+<td>Vocabulaire neutre</td>
+<td>Pas de termes émotionnels</td>
+</tr>
+<tr>
+<td>Pas de spéculation</td>
+<td>Faits avérés vs hypothèses balisés</td>
+</tr>
+<tr>
+<td>Citations sourcées</td>
+<td>Chaque affirmation référencée</td>
+</tr>
+<tr>
+<td>Temps : passé composé</td>
+<td>Cohérence temporelle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-vocabulaire-a-eviter-vs-a-privilegier">1.2 Vocabulaire à éviter vs à privilégier<a class="headerlink" href="#12-vocabulaire-a-eviter-vs-a-privilegier" title="Permanent link">&para;</a></h3>
+<p>Voici la liste des termes à éviter et leur équivalent neutre.</p>
+<table>
+<thead>
+<tr>
+<th>À éviter</th>
+<th>À privilégier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"L'attaquant a piraté"</td>
+<td>"L'utilisateur identifié a accédé"</td>
+</tr>
+<tr>
+<td>"Système compromis"</td>
+<td>"Système présentant des indicateurs d'accès non autorisé"</td>
+</tr>
+<tr>
+<td>"Évidemment"</td>
+<td>"Sur la base des éléments collectés"</td>
+</tr>
+<tr>
+<td>"Mot de passe faible"</td>
+<td>"PSK susceptible d'être bruteforcé en N heures"</td>
+</tr>
+<tr>
+<td>"Erreur de l'admin"</td>
+<td>"Configuration constatée le YYYY-MM-DD"</td>
+</tr>
+<tr>
+<td>"C'est sûr"</td>
+<td>"Les éléments concordent à 80%"</td>
+</tr>
+<tr>
+<td>"Cible facile"</td>
+<td>"Surface d'attaque étendue"</td>
+</tr>
+<tr>
+<td>"Hacker"</td>
+<td>"Acteur malveillant identifié"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-echelle-de-confiance">1.3 Échelle de confiance<a class="headerlink" href="#13-echelle-de-confiance" title="Permanent link">&para;</a></h3>
+<p>Pour qualifier vos affirmations, voici l'échelle de confiance à utiliser.</p>
+<table>
+<thead>
+<tr>
+<th>Niveau</th>
+<th>Critère</th>
+<th>Formulation type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Confirmé</td>
+<td>3+ sources indépendantes concordantes</td>
+<td>"Il est établi que..."</td>
+</tr>
+<tr>
+<td>Probable</td>
+<td>2 sources concordantes</td>
+<td>"Les éléments suggèrent que..."</td>
+</tr>
+<tr>
+<td>Hypothétique</td>
+<td>1 source ou inférence</td>
+<td>"Il est possible que..."</td>
+</tr>
+<tr>
+<td>À vérifier</td>
+<td>Information non corroborée</td>
+<td>"L'information reste à confirmer"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-structure-dun-rapport-osint-professionnel">2. Structure d'un rapport OSINT professionnel<a class="headerlink" href="#2-structure-dun-rapport-osint-professionnel" title="Permanent link">&para;</a></h2>
+<h3 id="21-architecture-en-9-sections">2.1 Architecture en 9 sections<a class="headerlink" href="#21-architecture-en-9-sections" title="Permanent link">&para;</a></h3>
+<p>Voici la structure standard recommandée pour un rapport OSINT.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>RAPPORT OSINT - STRUCTURE TYPE
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>================================
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>I.    Page de garde
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>II.   Synthèse exécutive (1 page)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>III.  Cadrage et méthodologie
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>IV.   Résultats par catégorie
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>V.    Cartographie des relations
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>VI.   Cibles privilégiées identifiées
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>VII.  Surface d&#39;attaque
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>VIII. Recommandations défensives
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>IX.   Annexes
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>       - Annexe A : sources et URLs
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>       - Annexe B : captures hashées
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>       - Annexe C : journal des actions
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>       - Annexe D : glossaire
+</span></code></pre></div>
+<h3 id="22-page-de-garde">2.2 Page de garde<a class="headerlink" href="#22-page-de-garde" title="Permanent link">&para;</a></h3>
+<p>La page de garde contient les informations essentielles d'identification.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Exemple de page de garde
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>==========================
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>OmnyVia
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Audit OSINT défensif - ARTECH SAS
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Référence : OmnyVia-OSINT-2026-001
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Document confidentiel
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Date d&#39;émission : 2026-XX-XX
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Auteur : Zyrass / OmnyVia
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Destinataire : Hélène Lefebvre, PDG ARTECH SAS
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Classification : Confidentiel
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Empreinte SHA-256 du document signé :
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>a1b2c3...
+</span></code></pre></div>
+<h3 id="23-synthese-executive">2.3 Synthèse exécutive<a class="headerlink" href="#23-synthese-executive" title="Permanent link">&para;</a></h3>
+<p>La synthèse exécutive <strong>doit tenir en 1 page</strong> maximum. Elle s'adresse aux décideurs non techniques.</p>
+<p>Voici la structure type d'une synthèse exécutive.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SYNTHÈSE EXÉCUTIVE - exemple
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>================================
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>CONTEXTE
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  ARTECH SAS, distributeur médical Lyon Vaise,
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  a mandaté OmnyVia pour évaluer son exposition
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  publique à l&#39;OSINT, dans le cadre d&#39;une
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  démarche de durcissement de la posture sécurité.
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>PÉRIODE DE COLLECTE
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  Du AAAA-MM-JJ au AAAA-MM-JJ (5 jours).
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>SOURCES UTILISÉES
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>  Pappers, BODACC, LinkedIn, theHarvester,
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>  Hunter.io, Wigle.net, Maltego CE.
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>  L&#39;ensemble en sources publiques, sans contact
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>  direct avec ARTECH ni ses employés.
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>FAITS MARQUANTS
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>  - 14 employés identifiables publiquement
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>  - Format d&#39;emails déduit (prenom.nom@artech.fr)
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>  - 3 cibles privilégiées de phishing identifiées
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>  - Wi-Fi ARTECH-WIFI cartographié sur Wigle
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>  - 2 fuites historiques contenant des emails ARTECH
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>NIVEAU D&#39;EXPOSITION
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>  Modéré à élevé. ARTECH présente une
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>  surface d&#39;attaque OSINT typique d&#39;une PME
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>  française, avec quelques améliorations
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>  prioritaires identifiées.
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>RECOMMANDATIONS PRIORITAIRES
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>  1. Sensibilisation employés au profilage LinkedIn
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>  2. Renommage du SSID Wi-Fi
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>  3. Réinitialisation des comptes affectés par fuites
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>  4. Migration WPA3-SAE
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>  5. Audit OSINT trimestriel récurrent
+</span></code></pre></div>
+<h3 id="24-cadrage-et-methodologie">2.4 Cadrage et méthodologie<a class="headerlink" href="#24-cadrage-et-methodologie" title="Permanent link">&para;</a></h3>
+<p>Cette section précise les conditions de la mission. Voici son contenu type.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>CADRAGE ET MÉTHODOLOGIE
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>==========================
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Mandat
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  Référence : OmnyVia-OSINT-2026-001
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  Signataire : Hélène Lefebvre, PDG ARTECH SAS
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  Date signature : YYYY-MM-DD
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  Durée : 5 jours ouvrés
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Périmètre autorisé
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  - Reconnaissance OSINT passive
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  - Sources publiques uniquement
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  - Pas de scan actif d&#39;infrastructure
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>  - Pas de sock puppet engageant les employés
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>Périmètre exclu
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>  - Tentative de connexion Wi-Fi
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>  - Phishing actif
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>  - Vol de credentials
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>  - Récupération de données via fuites illégales
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>Base légale RGPD
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>  Article 6.1.f - Intérêt légitime
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>  Test de mise en balance : Annexe E
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>Conservation
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>  6 mois post-livrable, anonymisation immédiate.
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>  Destruction garantie au 2026-XX-XX (J + 6 mois).
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>Méthodologie suivie
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>  Framework OSINT Bazzell
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>  Workflow OmnyAcademy en 7 étapes
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>  Documentation continue (Hunchly + Manifest SHA-256)
+</span></code></pre></div>
+<h2 id="3-resultats-par-categorie">3. Résultats par catégorie<a class="headerlink" href="#3-resultats-par-categorie" title="Permanent link">&para;</a></h2>
+<p>Cette section est le <strong>cœur du rapport</strong>. Elle organise les résultats par thématique.</p>
+<h3 id="31-identite-organisationnelle">3.1 Identité organisationnelle<a class="headerlink" href="#31-identite-organisationnelle" title="Permanent link">&para;</a></h3>
+<p>Voici la structure type pour cette sous-section.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>IDENTITÉ ORGANISATIONNELLE
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>============================
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Données légales (source : Pappers, BODACC)
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  Raison sociale : ARTECH SAS
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  SIRET : XXX XXX XXX 00012
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  Forme juridique : SAS
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  Capital : 100 000 €
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Date création : YYYY-MM
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  Effectif : 20 à 49 (tranche INSEE)
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  NAF : 4646Z (commerce de gros pharmaceutique)
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  Adresse : N rue X, 69009 Lyon
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>Dirigeants
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  Hélène Lefebvre, Présidente
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>  Date prise de fonction : YYYY
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>Filiales
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>  Aucune identifiée
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>Annonces BODACC notables (5 dernières années)
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>  YYYY : Création
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>  YYYY : Modification statutaire
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>  YYYY : Augmentation capital
+</span></code></pre></div>
+<h3 id="32-empreinte-numerique">3.2 Empreinte numérique<a class="headerlink" href="#32-empreinte-numerique" title="Permanent link">&para;</a></h3>
+<p>Cette sous-section détaille la présence en ligne. Voici le contenu type.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>EMPREINTE NUMÉRIQUE
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>=====================
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Domaine principal
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  artech.fr
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  Hébergement : France (Cloudflare CDN devant)
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  IP publique : XX.XX.XX.XX
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  AS : ASNNN (FR)
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>Sous-domaines identifiés (par theHarvester + crt.sh)
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>  www.artech.fr
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>  mail.artech.fr (MX)
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>  intranet.artech.fr (résolution interne)
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>  api.artech.fr
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>  shop.artech.fr
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>Versions historiques (Wayback)
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>  Captures 2018, 2020, 2022, 2024
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>  Refonte majeure : 2020
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>  Ajout boutique en ligne : 2022
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>Présence réseaux sociaux entreprise
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>  LinkedIn Company : 800+ followers
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>  Twitter/X : 150 followers, peu actif
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>  Facebook : 200 likes, peu actif
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>  YouTube : non présent
+</span></code></pre></div>
+<h3 id="33-empreinte-humaine">3.3 Empreinte humaine<a class="headerlink" href="#33-empreinte-humaine" title="Permanent link">&para;</a></h3>
+<p>Cette sous-section détaille les employés identifiés.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>EMPREINTE HUMAINE
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>===================
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Effectif identifiable publiquement
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  14 sur ~30 estimés (47%)
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Format d&#39;emails déduit
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  prenom.nom@artech.fr
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  Confiance : 92% (Hunter.io)
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>Liste des employés identifiés (anonymisée pour ce rapport)
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  [Liste détaillée dans Annexe F]
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>Concentration géographique
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  90% Lyon métropole
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>  10% télétravail provincial
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>Plateformes les plus utilisées
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>  LinkedIn : 14/14 employés identifiés
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>  X : 4/14
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>  GitHub : 2/14 (techniques)
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>  Strava : 1/14 (visible publique)
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>Profils actifs
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>  Posts LinkedIn fréquents : 3 employés
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>  Engagement public quotidien : 1 employé
+</span></code></pre></div>
+<h3 id="34-empreinte-wi-fi">3.4 Empreinte Wi-Fi<a class="headerlink" href="#34-empreinte-wi-fi" title="Permanent link">&para;</a></h3>
+<p>Cette sous-section présente les résultats du wardriving.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>EMPREINTE WI-FI
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>=================
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Wi-Fi détectés autour du bâtiment ARTECH
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  47 AP visibles (zone urbaine dense)
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>ARTECH-WIFI identifié
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  BSSID : 64:70:02:XX:XX:XX
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  Constructeur : TP-Link
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>  Modèle probable : Archer C7
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  Sécurité : WPA2-PSK CCMP
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>  Canal : 6
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>  RSSI depuis trottoir : -67 dBm
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  Position GPS : 45.7682, 4.8014
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>Référencement public
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>  Présent dans Wigle.net depuis 2022
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>  Position trilatéralisée à ~10 m du bâtiment
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>Voisinage
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>  3 entreprises voisines identifiables
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>  Plusieurs Livebox résidentielles
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>  2 cafés Wi-Fi public à 50 m
+</span></code></pre></div>
+<h3 id="35-fuites-de-donnees">3.5 Fuites de données<a class="headerlink" href="#35-fuites-de-donnees" title="Permanent link">&para;</a></h3>
+<p>Voici comment présenter les résultats de cette catégorie.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>FUITES DE DONNÉES (HIBP)
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>==========================
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Recherche : domain audit @artech.fr (HIBP Pro)
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>Résultats
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>  Total emails @artech.fr exposés : 5
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  CRITIQUE
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    - PDG (LinkedIn 2021, Adobe 2013)
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>      Mot de passe vu dans Pwned Passwords
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>  ÉLEVÉ
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    - DSI (Dropbox 2012, MyFitnessPal 2018)
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>  MODÉRÉ
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    - 3 employés (LinkedIn 2021)
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>Action recommandée
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>  Reset immédiat des comptes CRITIQUE
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>  Activation MFA obligatoire
+</span></code></pre></div>
+<h2 id="4-cartographie-des-relations">4. Cartographie des relations<a class="headerlink" href="#4-cartographie-des-relations" title="Permanent link">&para;</a></h2>
+<p>Cette section présente le <strong>graphe Maltego</strong> ou équivalent. Voici comment l'introduire.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>CARTOGRAPHIE DES RELATIONS
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>============================
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>L&#39;analyse a permis de construire une cartographie
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>des relations entre entités identifiées (Annexe B
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>contient le graphe Maltego complet en PDF).
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>Pivots clés identifiés
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>  - Domaine artech.fr lie infrastructure et employés
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>  - Email format permet inférence systématique
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>  - Trois employés ont fréquenté la même école
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    (potentiel cercle de confiance interne)
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>  - Strava du DSI révèle parcours quotidien
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    domicile-travail
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>Découvertes notables
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>  Le profilage croisé révèle que deux employés
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>  partagent un nom de famille rare. Vérification
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>  ouverte (lien familial probable).
+</span></code></pre></div>
+<h2 id="5-cibles-privilegiees">5. Cibles privilégiées<a class="headerlink" href="#5-cibles-privilegiees" title="Permanent link">&para;</a></h2>
+<p>Cette section synthétise les cibles identifiées au chapitre 4.5.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>CIBLES PRIVILÉGIÉES
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>=====================
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Trois cibles ont été identifiées comme prioritaires
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>pour une éventuelle attaque de phishing.
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>CIBLE 1 - Profil &quot;stagiaire commerce&quot;
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>  Score : 78/90
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  Justification synthétique :
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    - Profil junior, formation cybersécurité limitée
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    - Forte exposition publique
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    - Tagué publiquement avec collègues identifiables
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>  Vecteur recommandé :
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    Phishing ciblé &quot;instruction tutrice&quot;
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    avec macro Word
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>  Heure d&#39;envoi optimale :
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>    Lundi matin 8h-9h
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>CIBLE 2 - Profil &quot;comptable senior&quot;
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>  Score : 72/90
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>  Justification synthétique :
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    - Validation factures et virements
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>    - Procédures établies (vulnérable au CEO fraud)
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>    - Profil discret en ligne mais position critique
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>  Vecteur recommandé :
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>    Phishing facture fournisseur usurpée
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>CIBLE 3 - Profil &quot;PDG&quot;
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>  Score : 68/90
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>  Justification synthétique :
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>    - Whaling = bénéfice maximum
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>    - Authority bias chez subordonnés
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>    - Présence publique conférences
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>  Vecteur recommandé :
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>    Usurpation identité pour ordre virement comptable
+</span></code></pre></div>
+<h2 id="6-surface-dattaque">6. Surface d'attaque<a class="headerlink" href="#6-surface-dattaque" title="Permanent link">&para;</a></h2>
+<p>Cette section synthétise tous les points d'entrée potentiels.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>SURFACE D&#39;ATTAQUE - SYNTHÈSE
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>==============================
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>VECTEUR PHYSIQUE
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  Wi-Fi débordant sur trottoir
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>  Bâtiment dans zone passante
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  Pas de vidéosurveillance extérieure visible
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>VECTEUR HUMAIN
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>  3 cibles privilégiées identifiées
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>  Profilage permettant phishing ciblé crédible
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>  Mots de passe fragilisés par fuites
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>  Format d&#39;emails connu
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>VECTEUR INFRASTRUCTURE
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>  Domaine ARTECH identifié
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>  Sous-domaines exposés
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>  Version logicielle CMS détectée (Wappalyzer)
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>  Mises à jour mensuelles non visibles côté public
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>VECTEUR ORGANISATIONNEL
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>  Pas de mention publique d&#39;EDR ou SIEM
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>  Pas de mention de DPO
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>  Trombinoscope visible (cartographie facilitée)
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>  Annonces récentes BODACC (changements internes)
+</span></code></pre></div>
+<h2 id="7-recommandations-defensives">7. Recommandations défensives<a class="headerlink" href="#7-recommandations-defensives" title="Permanent link">&para;</a></h2>
+<p>Cette section transforme les vulnérabilités en actions concrètes.</p>
+<h3 id="71-hierarchisation">7.1 Hiérarchisation<a class="headerlink" href="#71-hierarchisation" title="Permanent link">&para;</a></h3>
+<p>Voici comment hiérarchiser les recommandations dans le rapport.</p>
+<table>
+<thead>
+<tr>
+<th>Priorité</th>
+<th>Critère</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Critique</td>
+<td>Action immédiate (heures-jours)</td>
+</tr>
+<tr>
+<td>Haute</td>
+<td>Action court terme (semaines)</td>
+</tr>
+<tr>
+<td>Moyenne</td>
+<td>Action moyen terme (1-3 mois)</td>
+</tr>
+<tr>
+<td>Basse</td>
+<td>Amélioration long terme (6 mois+)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-exemple-artech">7.2 Exemple ARTECH<a class="headerlink" href="#72-exemple-artech" title="Permanent link">&para;</a></h3>
+<p>Voici l'extrait de recommandations type appliqué à ARTECH.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>RECOMMANDATIONS - ARTECH
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>==========================
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>PRIORITÉ CRITIQUE
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>R1 - Reset des comptes affectés par fuites
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  Concerne : PDG, DSI
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>  Délai : 48 heures
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>  Effort : 2 heures
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>  Impact : élimine vecteur connu
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>R2 - Activation MFA généralisée
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>  Concerne : tous comptes professionnels
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>  Délai : 1 semaine
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>  Effort : 1 jour
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>  Impact : neutralise réutilisation credentials
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>PRIORITÉ HAUTE
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>R3 - Renommage SSID Wi-Fi
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>  Action : &quot;ARTECH-WIFI&quot; → &quot;Reseau-Pro-01&quot;
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>  Délai : 1 semaine
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>  Effort : 2 heures
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>  Impact : élimine identification publique
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>R4 - Sensibilisation phishing
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>  Action : formation 1h à toute l&#39;équipe
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>  Délai : 1 mois
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>  Effort : 1 jour analyste + 1h x 14 employés
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>  Impact : durcit les 3 cibles privilégiées
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a>PRIORITÉ MOYENNE
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a>
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>R5 - Migration WPA3-SAE
+</span><span id="__span-12-35"><a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a>  Action : reconfigurer routeur, recréer PSK
+</span><span id="__span-12-36"><a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a>  Délai : 2 mois
+</span><span id="__span-12-37"><a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a>  Effort : 1 jour technique
+</span><span id="__span-12-38"><a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a>  Impact : robustesse cryptographique accrue
+</span><span id="__span-12-39"><a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a>
+</span><span id="__span-12-40"><a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a>R6 - Audit OSINT trimestriel
+</span><span id="__span-12-41"><a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a>  Action : suivi récurrent
+</span><span id="__span-12-42"><a id="__codelineno-12-42" name="__codelineno-12-42" href="#__codelineno-12-42"></a>  Délai : récurrent
+</span><span id="__span-12-43"><a id="__codelineno-12-43" name="__codelineno-12-43" href="#__codelineno-12-43"></a>  Effort : 1 jour par trimestre
+</span><span id="__span-12-44"><a id="__codelineno-12-44" name="__codelineno-12-44" href="#__codelineno-12-44"></a>  Impact : détection précoce nouvelles fuites
+</span><span id="__span-12-45"><a id="__codelineno-12-45" name="__codelineno-12-45" href="#__codelineno-12-45"></a>
+</span><span id="__span-12-46"><a id="__codelineno-12-46" name="__codelineno-12-46" href="#__codelineno-12-46"></a>PRIORITÉ BASSE
+</span><span id="__span-12-47"><a id="__codelineno-12-47" name="__codelineno-12-47" href="#__codelineno-12-47"></a>
+</span><span id="__span-12-48"><a id="__codelineno-12-48" name="__codelineno-12-48" href="#__codelineno-12-48"></a>R7 - Politique LinkedIn
+</span><span id="__span-12-49"><a id="__codelineno-12-49" name="__codelineno-12-49" href="#__codelineno-12-49"></a>  Action : guide employés posts publics
+</span><span id="__span-12-50"><a id="__codelineno-12-50" name="__codelineno-12-50" href="#__codelineno-12-50"></a>  Délai : 6 mois
+</span><span id="__span-12-51"><a id="__codelineno-12-51" name="__codelineno-12-51" href="#__codelineno-12-51"></a>  Effort : ½ jour rédaction
+</span><span id="__span-12-52"><a id="__codelineno-12-52" name="__codelineno-12-52" href="#__codelineno-12-52"></a>  Impact : réduit progressivement la surface
+</span></code></pre></div>
+<h2 id="8-annexes">8. Annexes<a class="headerlink" href="#8-annexes" title="Permanent link">&para;</a></h2>
+<p>Les annexes contiennent tous les éléments factuels permettant de vérifier le rapport.</p>
+<h3 id="81-annexes-recommandees">8.1 Annexes recommandées<a class="headerlink" href="#81-annexes-recommandees" title="Permanent link">&para;</a></h3>
+<p>Voici la liste type des annexes pour un rapport OSINT.</p>
+<table>
+<thead>
+<tr>
+<th>Annexe</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A - Sources et URLs</td>
+<td>Toutes les URLs consultées, datées</td>
+</tr>
+<tr>
+<td>B - Captures hashées</td>
+<td>Tous les screenshots avec hash SHA-256</td>
+</tr>
+<tr>
+<td>C - Journal des actions</td>
+<td>Log horodaté de toute la mission</td>
+</tr>
+<tr>
+<td>D - Glossaire</td>
+<td>Définitions des termes techniques</td>
+</tr>
+<tr>
+<td>E - Test de mise en balance RGPD</td>
+<td>Document daté</td>
+</tr>
+<tr>
+<td>F - Liste détaillée des employés</td>
+<td>Pseudonymisée</td>
+</tr>
+<tr>
+<td>G - Graphe Maltego</td>
+<td>PDF du graphe complet</td>
+</tr>
+<tr>
+<td>H - Wardriving</td>
+<td>Carte KML et CSV Wigle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-manifest-des-annexes">8.2 Manifest des annexes<a class="headerlink" href="#82-manifest-des-annexes" title="Permanent link">&para;</a></h3>
+<p>Le manifest agrège tous les hashes pour vérification d'intégrité.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>MANIFEST.sha256 - exemple
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>============================
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>a1b2c3...  rapport-osint-artech-2026.pdf
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>d4e5f6...  annexe-A-sources.pdf
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>g7h8i9...  annexe-B-captures.zip
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>j0k1l2...  annexe-C-journal.txt
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>m3n4o5...  annexe-D-glossaire.md
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>p6q7r8...  annexe-E-mise-en-balance.pdf
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>s9t0u1...  annexe-F-employes-pseudo.csv
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>v2w3x4...  annexe-G-maltego-graphe.pdf
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>y5z6a7...  annexe-H-wardriving.kml
+</span></code></pre></div>
+<h2 id="9-mise-en-forme-et-signature">9. Mise en forme et signature<a class="headerlink" href="#9-mise-en-forme-et-signature" title="Permanent link">&para;</a></h2>
+<h3 id="91-format-de-livrable">9.1 Format de livrable<a class="headerlink" href="#91-format-de-livrable" title="Permanent link">&para;</a></h3>
+<p>Voici les recommandations de format pour le livrable final.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Recommandation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Format principal</td>
+<td>PDF/A pour archivage</td>
+</tr>
+<tr>
+<td>Police</td>
+<td>Sans serif lisible (Inter, Roboto)</td>
+</tr>
+<tr>
+<td>Taille</td>
+<td>11pt minimum corps</td>
+</tr>
+<tr>
+<td>Marges</td>
+<td>2.5 cm minimum</td>
+</tr>
+<tr>
+<td>Pagination</td>
+<td>Pied de page systématique</td>
+</tr>
+<tr>
+<td>Numérotation</td>
+<td>Hiérarchique (1.1.1)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-signature-numerique">9.2 Signature numérique<a class="headerlink" href="#92-signature-numerique" title="Permanent link">&para;</a></h3>
+<p>Pour les rapports formels, une signature numérique est recommandée.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Signature avec OpenSSL (clé privée pré-existante)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>openssl<span class="w"> </span>dgst<span class="w"> </span>-sha256<span class="w"> </span>-sign<span class="w"> </span>cle-privee.pem<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span>-out<span class="w"> </span>rapport-osint-artech.sig<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span>rapport-osint-artech.pdf
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="c1"># Vérification</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>openssl<span class="w"> </span>dgst<span class="w"> </span>-sha256<span class="w"> </span>-verify<span class="w"> </span>cle-publique.pem<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span>-signature<span class="w"> </span>rapport-osint-artech.sig<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span>rapport-osint-artech.pdf
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1"># Doit afficher : Verified OK</span>
+</span></code></pre></div>
+<h3 id="93-versioning">9.3 Versioning<a class="headerlink" href="#93-versioning" title="Permanent link">&para;</a></h3>
+<p>Pour gérer les versions, voici la convention recommandée.</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1 - 0.9</td>
+<td>Brouillons internes</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>Première version livrée</td>
+</tr>
+<tr>
+<td>1.1 - 1.9</td>
+<td>Corrections mineures</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>Évolution majeure</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-cas-pratique-redaction-artech">10. Cas pratique - Rédaction ARTECH<a class="headerlink" href="#10-cas-pratique-redaction-artech" title="Permanent link">&para;</a></h2>
+<h3 id="101-preparation-materielle">10.1 Préparation matérielle<a class="headerlink" href="#101-preparation-materielle" title="Permanent link">&para;</a></h3>
+<p>Voici la structure de dossier à créer pour le rapport.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Préparation</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/osint/artech-2026/rapport/<span class="o">{</span>annexes,figures,sources<span class="o">}</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nb">cd</span><span class="w"> </span>~/osint/artech-2026/rapport/
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># Initialisation</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>touch<span class="w"> </span>rapport.md
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>touch<span class="w"> </span>CHANGELOG.md
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>touch<span class="w"> </span>MANIFEST.sha256
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1"># Structure markdown</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>rapport.md<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="s">---</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="s">title: Audit OSINT défensif - ARTECH SAS</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="s">subtitle: Référence OmnyVia-OSINT-2026-001</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="s">author: Zyrass / OmnyVia</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="s">date: 2026-XX-XX</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="s">classification: Confidentiel</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="s">---</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="s"># I. Synthèse exécutive</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="s">[à rédiger]</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="s"># II. Cadrage et méthodologie</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="s">[à rédiger]</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="s"># III. Résultats par catégorie</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="s">[à rédiger]</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="s"># IV. Cartographie des relations</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="s">[à rédiger]</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="s"># V. Cibles privilégiées</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="s">[à rédiger]</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a><span class="s"># VI. Surface d&#39;attaque</span>
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a><span class="s">[à rédiger]</span>
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a><span class="s"># VII. Recommandations défensives</span>
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a><span class="s">[à rédiger]</span>
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a>
+</span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="s"># VIII. Annexes</span>
+</span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a><span class="s">[à rédiger]</span>
+</span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a><span class="s">EOF</span>
+</span></code></pre></div>
+<h3 id="102-conversion-pdf">10.2 Conversion PDF<a class="headerlink" href="#102-conversion-pdf" title="Permanent link">&para;</a></h3>
+<p>Pour convertir le markdown en PDF professionnel, voici la commande type.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Avec pandoc</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>pandoc<span class="w"> </span>rapport.md<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span>-o<span class="w"> </span>rapport-osint-artech-v1.0.pdf<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span>--pdf-engine<span class="o">=</span>xelatex<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span>--template<span class="o">=</span>eisvogel<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span>-V<span class="w"> </span>titlepage<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span>-V<span class="w"> </span>titlepage-color<span class="o">=</span><span class="s2">&quot;003366&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span>-V<span class="w"> </span>titlepage-text-color<span class="o">=</span><span class="s2">&quot;FFFFFF&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span>-V<span class="w"> </span><span class="nv">toc</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span>-V<span class="w"> </span>toc-depth<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span>-V<span class="w"> </span>geometry:margin<span class="o">=</span><span class="m">2</span>.5cm<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">    </span>-V<span class="w"> </span><span class="nv">mainfont</span><span class="o">=</span><span class="s2">&quot;Inter&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span>-V<span class="w"> </span><span class="nv">monofont</span><span class="o">=</span><span class="s2">&quot;JetBrains Mono&quot;</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1"># Hash final</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>sha256sum<span class="w"> </span>rapport-osint-artech-v1.0.pdf<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>MANIFEST.sha256
+</span></code></pre></div>
+<h2 id="11-pieges-et-bonnes-pratiques">11. Pièges et bonnes pratiques<a class="headerlink" href="#11-pieges-et-bonnes-pratiques" title="Permanent link">&para;</a></h2>
+<h3 id="111-pieges-frequents">11.1 Pièges fréquents<a class="headerlink" href="#111-pieges-frequents" title="Permanent link">&para;</a></h3>
+<p>Voici les erreurs courantes en rédaction de rapport OSINT.</p>
+<table>
+<thead>
+<tr>
+<th>Piège</th>
+<th>Évitement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vocabulaire trop technique</td>
+<td>Glossaire systématique</td>
+</tr>
+<tr>
+<td>Trop d'annexes mêlées au corps</td>
+<td>Séparation stricte</td>
+</tr>
+<tr>
+<td>Absence d'horodatages</td>
+<td>Hunchly ou journal manuel</td>
+</tr>
+<tr>
+<td>Hypothèses non balisées</td>
+<td>Échelle de confiance</td>
+</tr>
+<tr>
+<td>Recommandations vagues</td>
+<td>Délai + effort + impact</td>
+</tr>
+</tbody>
+</table>
+<h3 id="112-bonnes-pratiques">11.2 Bonnes pratiques<a class="headerlink" href="#112-bonnes-pratiques" title="Permanent link">&para;</a></h3>
+<p>À l'inverse, voici les pratiques qui distinguent un rapport pro.</p>
+<table>
+<thead>
+<tr>
+<th>Pratique</th>
+<th>Bénéfice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synthèse exécutive 1 page</td>
+<td>Décideur saisit l'essentiel</td>
+</tr>
+<tr>
+<td>Hiérarchie visuelle claire</td>
+<td>Navigation facile</td>
+</tr>
+<tr>
+<td>Graphes plutôt que listes</td>
+<td>Relations visibles</td>
+</tr>
+<tr>
+<td>Citations sourcées partout</td>
+<td>Vérifiabilité</td>
+</tr>
+<tr>
+<td>Signature numérique</td>
+<td>Intégrité prouvée</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-auto-evaluation">12. Auto-évaluation<a class="headerlink" href="#12-auto-evaluation" title="Permanent link">&para;</a></h2>
+<p>Vérifiez votre maîtrise par les questions suivantes.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Réponse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Longueur max synthèse exécutive ?</td>
+<td>1 page</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Échelle de confiance niveaux ?</td>
+<td>Confirmé / Probable / Hypothétique / À vérifier</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Format archivage recommandé ?</td>
+<td>PDF/A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Annexe pour fichiers et hashes ?</td>
+<td>Annexe B</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Voix grammaticale privilégiée ?</td>
+<td>Active</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Outil de conversion MD → PDF ?</td>
+<td>pandoc + xelatex</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Comment garantir l'intégrité ?</td>
+<td>Signature numérique + manifest</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Hiérarchisation recommandations ?</td>
+<td>Critique / Haute / Moyenne / Basse</td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-synthese">13. Synthèse<a class="headerlink" href="#13-synthese" title="Permanent link">&para;</a></h2>
+<p>Voici les points clés à retenir.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>RAPPORT OSINT STRUCTURÉ
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>VOCABULAIRE
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  Phrases courtes
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>  Voix active
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>  Termes neutres
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>  Confiance balisée
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>STRUCTURE 9 SECTIONS
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>  Page de garde
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>  Synthèse exécutive (1 page)
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>  Cadrage
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>  Résultats par catégorie
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>  Cartographie
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>  Cibles privilégiées
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>  Surface d&#39;attaque
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>  Recommandations
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>  Annexes
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>ÉCHELLE DE CONFIANCE
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>  Confirmé (3+ sources)
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>  Probable (2 sources)
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>  Hypothétique (1 source)
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>  À vérifier
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>RECOMMANDATIONS
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>  Critique / Haute / Moyenne / Basse
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>  Délai + effort + impact
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>LIVRABLE
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a>  PDF/A pour archivage
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>  Signature numérique
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a>  Manifest SHA-256
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a>  Versioning sémantique
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a>
+</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a>OUTILS
+</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a>  Markdown + pandoc
+</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a>  xelatex + template eisvogel
+</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a>  OpenSSL pour signature
+</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a>  Hunchly pour traçabilité
+</span></code></pre></div>
+<hr />
+<p><strong>Chapitre précédent</strong> : <a href="../4-8-wardriving-passif/">4.8 Wardriving passif sur le terrain</a></p>
+<p><strong>Chapitre suivant</strong> : <a href="../4-10-cas-pratique-artech/">4.10 Cas pratique ARTECH profilage complet</a></p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Rapport OSINT</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Documentation</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Livrable</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">ARTECH</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../08-wardriving-passif/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: 4.8 Wardriving passif sur le terrain">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                4.8 Wardriving passif sur le terrain
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../10-cas-pratique-artech/" class="md-footer__link md-footer__link--next" aria-label="Suivant: 4.10 Cas pratique ARTECH profilage complet">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                4.10 Cas pratique ARTECH profilage complet
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+        <script src="../../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

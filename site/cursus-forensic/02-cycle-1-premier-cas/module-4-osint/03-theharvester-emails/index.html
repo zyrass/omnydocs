@@ -1,0 +1,6122 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Énumération exhaustive d'emails et sous-domaines avec theHarvester. Configuration des sources, clés API, exploitation des résultats. Outils complémentaires (emailharvester, EmailFinder, Snov.io).">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/cursus-forensic/02-cycle-1-premier-cas/module-4-osint/03-theharvester-emails/">
+      
+      
+        <link rel="prev" href="../02-google-dorks-archives/">
+      
+      
+        <link rel="next" href="../04-wigle-bssid-ssid/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.37">
+    
+    
+      
+        <title>4.3 theHarvester et énumération emails - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.a2001754.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#43-theharvester-et-enumeration-emails" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.3 theHarvester et énumération emails
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/governance/" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  Cursus Forensic
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infrastructure (Sys-Réseau)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/governance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : GRC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opérations &amp; SOC (Blue Team)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../glossaire/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cursus Forensic
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cursus Forensic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../00-meta-outillages/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outillage du cursus
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_2" id="__nav_10_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outillage du cursus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/evolution-carriere-2026/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Évolution de Carrière (2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/carnet-doutes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Carnet de Doutes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/inventaire-materiel/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventaire Matériel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/progression/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Suivi de Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/ressources-externes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources Externes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../01-cycle-0-fondations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 0 : Fondations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_3" id="__nav_10_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 0 : Fondations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-1-legislation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 - Législation française et cadre juridique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-2-prerequis-techniques/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 - Prérequis techniques et théoriques
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../01-cycle-0-fondations/module-3-configuration-laboratoire/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 - Configuration du laboratoire forensic physique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 1 : Premier cas complet
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4" id="__nav_10_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 1 : Premier cas complet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IV - OSINT et reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4_2" id="__nav_10_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IV - OSINT et reconnaissance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-methodologie-osint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1 Méthodologie OSINT - framework et matrice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-google-dorks-archives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2 Reconnaissance passive - Google dorks et archives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3 theHarvester et énumération emails
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3 theHarvester et énumération emails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-presentation-de-theharvester" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Présentation de theHarvester
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Présentation de theHarvester">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-caracteristiques-de-loutil" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Caractéristiques de l'outil
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-sources-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Sources de données
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installation-et-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Installation et configuration
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Installation et configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-installation-sur-kali-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Installation sur Kali Linux
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-configuration-des-cles-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Configuration des clés API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-utilisation-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Utilisation pratique
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Utilisation pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-syntaxe-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Syntaxe de base
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-premiere-session-sur-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Première session sur ARTECH
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-session-complete-multi-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Session complète multi-sources
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-dns-bruteforce-et-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 DNS bruteforce et résolution
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-interpretation-des-resultats" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Interprétation des résultats
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Interprétation des résultats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-format-de-sortie-typique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Format de sortie typique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-nettoyage-des-resultats" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Nettoyage des résultats
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-valeur-des-emails-personnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Valeur des emails personnels
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-validation-des-emails-avec-precaution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Validation des emails (avec précaution)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Validation des emails (avec précaution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-pourquoi-valider" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Pourquoi valider
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-methodes-de-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 Méthodes de validation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-outil-holehe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 Outil holehe
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-outils-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Outils complémentaires
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Outils complémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-emailharvester" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 emailharvester
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-emailfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 EmailFinder
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-snovio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 Snov.io
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-comparaison-synthetique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4 Comparaison synthétique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cas-pratique-enumeration-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Cas pratique - Énumération ARTECH
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cas pratique - Énumération ARTECH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-mise-en-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Mise en situation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-workflow-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Workflow complet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-commandes-de-la-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Commandes de la session
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-livrable-attendu" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4 Livrable attendu
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-limites-et-precautions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Limites et précautions
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Limites et précautions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-faux-positifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1 Faux positifs
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-limites-de-couverture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2 Limites de couverture
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-legalite" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3 Légalité
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-discretion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.4 Discrétion
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Synthèse
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-wigle-bssid-ssid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.4 Recherche par BSSID Wigle.net et SSID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-profilage-linkedin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.5 Profilage humain LinkedIn et réseaux sociaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-hunter-formats-emails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.6 Hunter.io et formats d'emails entreprise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-maltego-ce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.7 Maltego CE pour cartographie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-wardriving-passif/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.8 Wardriving passif sur le terrain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-rapport-osint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.9 Production du rapport OSINT structuré
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-cas-pratique-artech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.10 Cas pratique ARTECH profilage complet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-5-wifi-wpa2/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 5 - Attaque Wi-Fi WPA2 simple
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-6-phishing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 6 - Phishing basique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-7-acquisition-memoire-windows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 - Acquisition mémoire Windows
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-7bis-acquisition-memoire-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 bis : Acquisition mémoire macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-8-acquisition-disque/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 8 : Acquisition disque
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-9-volatility-autopsy/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 9 : Analyse Volatility et Autopsy
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-10-premier-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Premier rapport
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../03-cycle-2-avance/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 2 : Cas avancé
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_5" id="__nav_10_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 2 : Cas avancé
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-11-osint/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 11 : OSINT approfondi
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-12-pivoting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 12 : Pivoting multi-postes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-13-persistance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Persistance Windows et Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14-bitlocker-luks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : BitLocker et LUKS extraction
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14bis-filevault/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 bis : FileVault et Apple Silicon
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15-detection/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 : Détection sans SIEM (Win/Lin)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15bis-detection-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 bis : Détection sur macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-16-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 16 : Rapport judiciaire complet
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-17-rgpd/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 17 : RGPD et notification CNIL
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../04-cycle-3-maitrise/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 3 : Maîtrise
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_6" id="__nav_10_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 3 : Maîtrise
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-18-educrypt/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 18 : EduCrypt (Dev Pédagogique)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19-chiffrement-actif/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 : Cas de chiffrement actif
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19bis-outil-swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 bis : Outil forensic Swift (macOS)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-20-chiffrage/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 20 : Chiffrage prestation PME
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-21-cas-autonomes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 21 : 5 cas autonomes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-22-formation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 22 : Préparation formation vidéo
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../05-menace-malware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spécialisation : Menace Malware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spécialisation : Menace Malware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-presentation-de-theharvester" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Présentation de theHarvester
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Présentation de theHarvester">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-caracteristiques-de-loutil" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Caractéristiques de l'outil
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-sources-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Sources de données
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installation-et-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Installation et configuration
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Installation et configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-installation-sur-kali-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Installation sur Kali Linux
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-configuration-des-cles-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Configuration des clés API
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-utilisation-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Utilisation pratique
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Utilisation pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-syntaxe-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Syntaxe de base
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-premiere-session-sur-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Première session sur ARTECH
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-session-complete-multi-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Session complète multi-sources
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-dns-bruteforce-et-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 DNS bruteforce et résolution
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-interpretation-des-resultats" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Interprétation des résultats
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Interprétation des résultats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-format-de-sortie-typique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Format de sortie typique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-nettoyage-des-resultats" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Nettoyage des résultats
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-valeur-des-emails-personnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Valeur des emails personnels
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-validation-des-emails-avec-precaution" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Validation des emails (avec précaution)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Validation des emails (avec précaution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-pourquoi-valider" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Pourquoi valider
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-methodes-de-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 Méthodes de validation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-outil-holehe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 Outil holehe
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-outils-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Outils complémentaires
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Outils complémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-emailharvester" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 emailharvester
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-emailfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 EmailFinder
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-snovio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 Snov.io
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-comparaison-synthetique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4 Comparaison synthétique
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cas-pratique-enumeration-artech" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Cas pratique - Énumération ARTECH
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cas pratique - Énumération ARTECH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-mise-en-situation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Mise en situation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-workflow-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Workflow complet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-commandes-de-la-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Commandes de la session
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-livrable-attendu" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4 Livrable attendu
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-limites-et-precautions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Limites et précautions
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Limites et précautions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-faux-positifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1 Faux positifs
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-limites-de-couverture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2 Limites de couverture
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-legalite" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3 Légalité
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-discretion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.4 Discrétion
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Synthèse
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cursus Forensic
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cycle 1 : Premier cas complet
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    IV - OSINT et reconnaissance
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="43-theharvester-et-enumeration-emails">4.3 theHarvester et énumération emails<a class="headerlink" href="#43-theharvester-et-enumeration-emails" title="Permanent link">&para;</a></h1>
+<div class="admonition quote">
+<p class="admonition-title">L'analogie du pêcheur au filet</p>
+<p>Un pêcheur à la canne attrape un poisson à la fois. Patient, mais lent. Un pêcheur au filet, lui, ratisse une zone entière en une seule passe. Ce qui prendrait des heures à la canne se fait en quelques minutes. Pour un attaquant, lister manuellement les employés d'ARTECH page par page sur LinkedIn prend des journées. Avec theHarvester, le filet ramasse en une commande des dizaines d'emails depuis Google, Bing, LinkedIn, Hunter.io, et bien d'autres sources combinées. La compétence ne consiste pas à connaître l'outil, mais à savoir interpréter et nettoyer les prises.</p>
+</div>
+<h2 id="metadonnees-du-chapitre">Métadonnées du chapitre<a class="headerlink" href="#metadonnees-du-chapitre" title="Permanent link">&para;</a></h2>
+<p>Ce chapitre est le premier chapitre purement pratique du module 4. Voici ses caractéristiques.</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Durée estimée</td>
+<td>2 heures</td>
+</tr>
+<tr>
+<td>Niveau</td>
+<td>Pratique</td>
+</tr>
+<tr>
+<td>Prérequis</td>
+<td>4.1, 4.2, Kali fonctionnel</td>
+</tr>
+<tr>
+<td>Livrables</td>
+<td>Liste emails ARTECH structurée, sous-domaines identifiés</td>
+</tr>
+<tr>
+<td>Auto-explication</td>
+<td>8 minutes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="objectifs-pedagogiques">Objectifs pédagogiques<a class="headerlink" href="#objectifs-pedagogiques" title="Permanent link">&para;</a></h2>
+<p>À l'issue de ce chapitre, vous serez capable de :</p>
+<ul>
+<li>Installer et configurer theHarvester dans votre lab</li>
+<li>Configurer les clés API gratuites pour étendre la collecte</li>
+<li>Lancer une énumération multi-sources sur ARTECH</li>
+<li>Nettoyer et corréler les résultats</li>
+<li>Comparer avec d'autres outils (emailharvester, EmailFinder)</li>
+</ul>
+<hr />
+<h2 id="1-presentation-de-theharvester">1. Présentation de theHarvester<a class="headerlink" href="#1-presentation-de-theharvester" title="Permanent link">&para;</a></h2>
+<p><strong>theHarvester</strong> est l'outil de référence pour l'énumération OSINT. Maintenu par Christian Martorella depuis 2011, il est intégré par défaut dans Kali Linux.</p>
+<h3 id="11-caracteristiques-de-loutil">1.1 Caractéristiques de l'outil<a class="headerlink" href="#11-caracteristiques-de-loutil" title="Permanent link">&para;</a></h3>
+<p>Voici les points forts qui en font un outil incontournable.</p>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>Précision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open source</td>
+<td>Oui (licence Apache 2.0)</td>
+</tr>
+<tr>
+<td>Intégration Kali</td>
+<td>Oui par défaut</td>
+</tr>
+<tr>
+<td>Sources supportées</td>
+<td>30+ moteurs et services</td>
+</tr>
+<tr>
+<td>Langages</td>
+<td>Python 3.10+</td>
+</tr>
+<tr>
+<td>Format de sortie</td>
+<td>JSON, XML, HTML</td>
+</tr>
+<tr>
+<td>API requises</td>
+<td>Certaines (gratuites pour la plupart)</td>
+</tr>
+<tr>
+<td>Maintenu</td>
+<td>Activement (commits récents)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-sources-de-donnees">1.2 Sources de données<a class="headerlink" href="#12-sources-de-donnees" title="Permanent link">&para;</a></h3>
+<p>theHarvester interroge en parallèle de nombreuses sources. Les principales sources actives en 2026 sont listées ci-dessous.</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Type</th>
+<th>Clé API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>anubis</td>
+<td>DNS / sous-domaines</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>baidu</td>
+<td>Moteur recherche</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>bing</td>
+<td>Moteur recherche</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>crtsh</td>
+<td>Certificate Transparency</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>duckduckgo</td>
+<td>Moteur recherche</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>google</td>
+<td>Moteur (limité par captcha)</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>hackertarget</td>
+<td>Multi-source</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>hunter</td>
+<td>Hunter.io</td>
+<td>Oui (gratuite limitée)</td>
+</tr>
+<tr>
+<td>linkedin</td>
+<td>Profils LinkedIn</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>otx</td>
+<td>AlienVault</td>
+<td>Oui (gratuite)</td>
+</tr>
+<tr>
+<td>rapiddns</td>
+<td>DNS</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>securityTrails</td>
+<td>DNS étendu</td>
+<td>Oui (gratuite limitée)</td>
+</tr>
+<tr>
+<td>shodan</td>
+<td>Infrastructure</td>
+<td>Oui (payante)</td>
+</tr>
+<tr>
+<td>sublist3r</td>
+<td>Sous-domaines</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>threatcrowd</td>
+<td>Threat intel</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>urlscan</td>
+<td>URL scan</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>virustotal</td>
+<td>Domaines, IPs</td>
+<td>Oui (gratuite limitée)</td>
+</tr>
+<tr>
+<td>yahoo</td>
+<td>Moteur recherche</td>
+<td>Non</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-installation-et-configuration">2. Installation et configuration<a class="headerlink" href="#2-installation-et-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="21-installation-sur-kali-linux">2.1 Installation sur Kali Linux<a class="headerlink" href="#21-installation-sur-kali-linux" title="Permanent link">&para;</a></h3>
+<p>theHarvester est déjà installé sur Kali Linux. Si nécessaire, voici la procédure de mise à jour.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Mise à jour</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>theharvester<span class="w"> </span>-y
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Ou installation directe depuis le repo (version la plus récente)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/laramies/theHarvester.git
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">cd</span><span class="w"> </span>theHarvester
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements/base.txt
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Vérification version</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>theHarvester<span class="w"> </span>--version
+</span></code></pre></div>
+<h3 id="22-configuration-des-cles-api">2.2 Configuration des clés API<a class="headerlink" href="#22-configuration-des-cles-api" title="Permanent link">&para;</a></h3>
+<p>Plusieurs sources nécessitent une clé API gratuite. Voici la procédure pour les obtenir.</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>URL d'inscription</th>
+<th>Niveau</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hunter.io</td>
+<td>hunter.io/api</td>
+<td>Gratuit limité (50 req/mois)</td>
+</tr>
+<tr>
+<td>AlienVault OTX</td>
+<td>otx.alienvault.com/api</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>SecurityTrails</td>
+<td>securitytrails.com</td>
+<td>Gratuit limité (50 req/mois)</td>
+</tr>
+<tr>
+<td>VirusTotal</td>
+<td>virustotal.com/api</td>
+<td>Gratuit limité</td>
+</tr>
+<tr>
+<td>Shodan</td>
+<td>shodan.io</td>
+<td>Gratuit basique</td>
+</tr>
+</tbody>
+</table>
+<p>Une fois les clés obtenues, vous les configurez dans le fichier de configuration.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Localisation du fichier (Kali récent)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/theHarvester/api-keys.yaml
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Ou depuis l&#39;install git</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>vi<span class="w"> </span>~/theHarvester/api-keys.yaml
+</span></code></pre></div>
+<p>Voici la structure du fichier de configuration.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># /etc/theHarvester/api-keys.yaml</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">apikeys</span><span class="p">:</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">bing</span><span class="p">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_BING</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">github</span><span class="p">:</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_GITHUB</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nt">hunter</span><span class="p">:</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_HUNTER</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="nt">intelx</span><span class="p">:</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_INTELX</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="nt">pentestTools</span><span class="p">:</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_PENTESTTOOLS</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">  </span><span class="nt">projectDiscovery</span><span class="p">:</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_PROJECTDISCOVERY</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">  </span><span class="nt">rocketreach</span><span class="p">:</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_ROCKETREACH</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">  </span><span class="nt">securityTrails</span><span class="p">:</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_SECURITYTRAILS</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">  </span><span class="nt">shodan</span><span class="p">:</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_SHODAN</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">  </span><span class="nt">virustotal</span><span class="p">:</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_VIRUSTOTAL</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">  </span><span class="nt">zoomeye</span><span class="p">:</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VOTRE_CLE_ZOOMEYE</span>
+</span></code></pre></div>
+<p><strong>Sécurité</strong> : ce fichier contient des secrets. Restreignez les permissions à 600.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/theHarvester/api-keys.yaml
+</span></code></pre></div>
+<h2 id="3-utilisation-pratique">3. Utilisation pratique<a class="headerlink" href="#3-utilisation-pratique" title="Permanent link">&para;</a></h2>
+<h3 id="31-syntaxe-de-base">3.1 Syntaxe de base<a class="headerlink" href="#31-syntaxe-de-base" title="Permanent link">&para;</a></h3>
+<p>La commande theHarvester suit une syntaxe simple. Voici les arguments principaux.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>theHarvester<span class="w"> </span>-d<span class="w"> </span>&lt;domaine&gt;<span class="w"> </span>-b<span class="w"> </span>&lt;sources&gt;<span class="w"> </span>-l<span class="w"> </span>&lt;limite&gt;<span class="w"> </span><span class="o">[</span>autres<span class="w"> </span>options<span class="o">]</span>
+</span></code></pre></div>
+<p>Voici le détail des options principales.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-d</code></td>
+<td>Domaine cible</td>
+</tr>
+<tr>
+<td><code>-b</code></td>
+<td>Source(s) à utiliser (séparées par virgules ou <code>all</code>)</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>Nombre de résultats max par source</td>
+</tr>
+<tr>
+<td><code>-s</code></td>
+<td>Décalage (offset pour sources avec pagination)</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>Préfixe des fichiers de sortie</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>DNS lookup activé</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>DNS bruteforce</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>Port scan rapide</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>Vérification reverse DNS</td>
+</tr>
+<tr>
+<td><code>-h</code></td>
+<td>HTTP headers</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-premiere-session-sur-artech">3.2 Première session sur ARTECH<a class="headerlink" href="#32-premiere-session-sur-artech" title="Permanent link">&para;</a></h3>
+<p>Pour démarrer simplement, vous lancez une session basique sur les sources ne nécessitant pas de clé API.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Recherche simple</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>theHarvester<span class="w"> </span>-d<span class="w"> </span>artech.fr<span class="w"> </span>-b<span class="w"> </span>bing,duckduckgo,crtsh,rapiddns<span class="w"> </span>-l<span class="w"> </span><span class="m">500</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Sortie avec rapport HTML</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>theHarvester<span class="w"> </span>-d<span class="w"> </span>artech.fr<span class="w"> </span>-b<span class="w"> </span>bing,duckduckgo,crtsh,rapiddns,hackertarget<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span>-l<span class="w"> </span><span class="m">500</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span>-f<span class="w"> </span>artech-osint
+</span></code></pre></div>
+<p>La commande génère plusieurs fichiers dans le répertoire courant.</p>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>artech-osint.json</code></td>
+<td>Tous résultats au format JSON</td>
+</tr>
+<tr>
+<td><code>artech-osint.html</code></td>
+<td>Rapport HTML lisible</td>
+</tr>
+<tr>
+<td><code>artech-osint.xml</code></td>
+<td>Format XML</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-session-complete-multi-sources">3.3 Session complète multi-sources<a class="headerlink" href="#33-session-complete-multi-sources" title="Permanent link">&para;</a></h3>
+<p>Quand toutes vos clés API sont configurées, vous lancez une session exhaustive.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Session complète avec toutes les sources</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>theHarvester<span class="w"> </span>-d<span class="w"> </span>artech.fr<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span>-b<span class="w"> </span><span class="s2">&quot;anubis,bing,crtsh,duckduckgo,hackertarget,hunter,otx,rapiddns,securityTrails,sublist3r,threatcrowd,urlscan,virustotal,yahoo&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span>-l<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span>-f<span class="w"> </span>artech-osint-complet
+</span></code></pre></div>
+<p>Cette session prend 5-15 minutes selon la latence des sources et peut produire 50-200 résultats.</p>
+<h3 id="34-dns-bruteforce-et-resolution">3.4 DNS bruteforce et résolution<a class="headerlink" href="#34-dns-bruteforce-et-resolution" title="Permanent link">&para;</a></h3>
+<p>Pour aller plus loin, vous activez le bruteforce de sous-domaines.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Avec DNS bruteforce et résolution</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>theHarvester<span class="w"> </span>-d<span class="w"> </span>artech.fr<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span>-b<span class="w"> </span><span class="s2">&quot;bing,crtsh,sublist3r,otx&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span>-c<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span>-n<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span>-l<span class="w"> </span><span class="m">500</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span>-f<span class="w"> </span>artech-dns
+</span></code></pre></div>
+<p>L'option <code>-c</code> active le bruteforce en utilisant le wordlist par défaut. L'option <code>-n</code> résout les sous-domaines trouvés en IPs.</p>
+<h2 id="4-interpretation-des-resultats">4. Interprétation des résultats<a class="headerlink" href="#4-interpretation-des-resultats" title="Permanent link">&para;</a></h2>
+<h3 id="41-format-de-sortie-typique">4.1 Format de sortie typique<a class="headerlink" href="#41-format-de-sortie-typique" title="Permanent link">&para;</a></h3>
+<p>Voici un exemple de sortie typique theHarvester sur ARTECH.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>*******************************************************************
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>*  _   _                                            _             *
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>* | __|  _ \ / _ \  / /_/ / _` | &#39;__\ \ / / _ \/ __| __/ _ \ &#39;__| *
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>*                                                                 *
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>* theHarvester 4.X.X                                              *
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>*******************************************************************
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>[*] Target: artech.fr
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>[*] Searching Bing.
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>[*] Searching DuckDuckGo.
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>[*] Searching CRTsh.
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>[*] Searching Hackertarget.
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>[*] No IPs Found.
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>[*] Emails found: 12
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>----------------------
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>contact@artech.fr
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>commercial@artech.fr
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>support@artech.fr
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>sophie.dupont@artech.fr
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>helene.lefebvre@artech.fr
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>jean.martin@artech.fr
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>paul.dubois@artech.fr
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>recrutement@artech.fr
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>sav@artech.fr
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>direction@artech.fr
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>compta@artech.fr
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>admin@artech.fr
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>[*] Hosts found: 8
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>---------------------
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>artech.fr:88.188.X.X
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>www.artech.fr:88.188.X.X
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>mail.artech.fr:88.188.X.Y
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>intranet.artech.fr:192.168.50.10 (interne, à exclure)
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>ftp.artech.fr:88.188.X.Z
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a>admin.artech.fr:88.188.X.X
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>api.artech.fr:88.188.X.X
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>shop.artech.fr:88.188.X.W
+</span></code></pre></div>
+<h3 id="42-nettoyage-des-resultats">4.2 Nettoyage des résultats<a class="headerlink" href="#42-nettoyage-des-resultats" title="Permanent link">&para;</a></h3>
+<p>Les résultats bruts contiennent souvent du bruit. Voici les étapes de nettoyage typiques.</p>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Doublons</td>
+<td>dédupliquer la liste</td>
+</tr>
+<tr>
+<td>Faux positifs</td>
+<td>retirer adresses non-ARTECH</td>
+</tr>
+<tr>
+<td>Adresses internes</td>
+<td>retirer si laboratoire</td>
+</tr>
+<tr>
+<td>Génériques</td>
+<td>classer (contact@, support@)</td>
+</tr>
+<tr>
+<td>Personnelles</td>
+<td>classer (prenom.nom@)</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>vérifier existence (à éviter sans précaution)</td>
+</tr>
+</tbody>
+</table>
+<p>Voici un exemple de script de nettoyage simple.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Extraction des emails uniques d&#39;un export JSON</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>cat<span class="w"> </span>artech-osint.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.emails[]&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span>&gt;<span class="w"> </span>emails-uniques.txt
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Tri par catégorie</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;^(contact|support|info|sav|admin|webmaster)@&quot;</span><span class="w"> </span>emails-uniques.txt<span class="w"> </span>&gt;<span class="w"> </span>emails-generiques.txt
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>grep<span class="w"> </span>-vE<span class="w"> </span><span class="s2">&quot;^(contact|support|info|sav|admin|webmaster)@&quot;</span><span class="w"> </span>emails-uniques.txt<span class="w"> </span>&gt;<span class="w"> </span>emails-personnels.txt
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># Comptage</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>wc<span class="w"> </span>-l<span class="w"> </span>emails-*.txt
+</span></code></pre></div>
+<h3 id="43-valeur-des-emails-personnels">4.3 Valeur des emails personnels<a class="headerlink" href="#43-valeur-des-emails-personnels" title="Permanent link">&para;</a></h3>
+<p>Les emails personnels (<code>prenom.nom@</code>) sont <strong>les plus précieux</strong> pour préparer un phishing ciblé. Ils permettent de croiser avec LinkedIn pour identifier la fonction de la personne, sa séniorité, ses points faibles.</p>
+<h2 id="5-validation-des-emails-avec-precaution">5. Validation des emails (avec précaution)<a class="headerlink" href="#5-validation-des-emails-avec-precaution" title="Permanent link">&para;</a></h2>
+<h3 id="51-pourquoi-valider">5.1 Pourquoi valider<a class="headerlink" href="#51-pourquoi-valider" title="Permanent link">&para;</a></h3>
+<p>Tous les emails listés ne sont pas forcément actifs. Une partie peut concerner d'anciens employés. Il est utile de savoir quelles adresses sont <strong>encore en service</strong>.</p>
+<h3 id="52-methodes-de-validation">5.2 Méthodes de validation<a class="headerlink" href="#52-methodes-de-validation" title="Permanent link">&para;</a></h3>
+<p>Plusieurs méthodes existent, avec des niveaux de risque différents pour la discrétion de votre opération.</p>
+<table>
+<thead>
+<tr>
+<th>Méthode</th>
+<th>Détectabilité</th>
+<th>Recommandation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vérification syntaxique</td>
+<td>Aucune</td>
+<td>Toujours</td>
+</tr>
+<tr>
+<td>Vérification MX records</td>
+<td>Aucune</td>
+<td>Toujours</td>
+</tr>
+<tr>
+<td>SMTP VRFY</td>
+<td>Détectable</td>
+<td>Éviter</td>
+</tr>
+<tr>
+<td>SMTP RCPT TO test</td>
+<td>Détectable</td>
+<td>Éviter</td>
+</tr>
+<tr>
+<td>holehe (services tiers)</td>
+<td>Aucune sur la cible</td>
+<td>Recommandé</td>
+</tr>
+<tr>
+<td>Hunter.io email-verifier</td>
+<td>Aucune</td>
+<td>Recommandé (clé API)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-outil-holehe">5.3 Outil holehe<a class="headerlink" href="#53-outil-holehe" title="Permanent link">&para;</a></h3>
+<p><strong>holehe</strong> vérifie si un email a un compte sur 100+ services en ligne, sans alerter la cible. Voici son installation et son usage.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Installation</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>pip3<span class="w"> </span>install<span class="w"> </span>holehe
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Vérification d&#39;un email</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>holehe<span class="w"> </span>sophie.dupont@artech.fr
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Sortie typique</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>sophie.dupont@artech.fr
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>LinkedIn<span class="w"> </span>:<span class="w"> </span>Email<span class="w"> </span>used
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Twitter<span class="w"> </span>:<span class="w"> </span>Email<span class="w"> </span>not<span class="w"> </span>used
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Adobe<span class="w"> </span>:<span class="w"> </span>Email<span class="w"> </span>used
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Spotify<span class="w"> </span>:<span class="w"> </span>Email<span class="w"> </span>used
+</span></code></pre></div>
+<p>Une adresse listée sur LinkedIn et Adobe est probablement <strong>active et en usage personnel/professionnel</strong>.</p>
+<h2 id="6-outils-complementaires">6. Outils complémentaires<a class="headerlink" href="#6-outils-complementaires" title="Permanent link">&para;</a></h2>
+<p>theHarvester n'est pas le seul outil. Voici les principaux compléments.</p>
+<h3 id="61-emailharvester">6.1 emailharvester<a class="headerlink" href="#61-emailharvester" title="Permanent link">&para;</a></h3>
+<p><strong>emailharvester</strong> est plus simple et ciblé sur les emails uniquement.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Installation</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>pip3<span class="w"> </span>install<span class="w"> </span>emailharvester
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Usage</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>emailharvester<span class="w"> </span>-d<span class="w"> </span>artech.fr<span class="w"> </span>-e<span class="w"> </span>bing
+</span></code></pre></div>
+<h3 id="62-emailfinder">6.2 EmailFinder<a class="headerlink" href="#62-emailfinder" title="Permanent link">&para;</a></h3>
+<p><strong>EmailFinder</strong> est un agrégateur récent intégrant plusieurs API.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Installation depuis GitHub</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Josue87/EmailFinder.git
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">cd</span><span class="w"> </span>EmailFinder
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># Configuration des clés</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>vi<span class="w"> </span>config/api_keys.json
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># Usage</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>python3<span class="w"> </span>emailfinder.py<span class="w"> </span>-d<span class="w"> </span>artech.fr
+</span></code></pre></div>
+<h3 id="63-snovio">6.3 Snov.io<a class="headerlink" href="#63-snovio" title="Permanent link">&para;</a></h3>
+<p><strong>Snov.io</strong> est un service commercial mais avec un palier gratuit. Il offre une qualité supérieure aux outils gratuits.</p>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tarif gratuit</td>
+<td>100 vérifications/mois</td>
+</tr>
+<tr>
+<td>Tarif payant</td>
+<td>À partir de 39 USD/mois</td>
+</tr>
+<tr>
+<td>Qualité</td>
+<td>Supérieure à theHarvester</td>
+</tr>
+<tr>
+<td>Discrétion</td>
+<td>Très bonne</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-comparaison-synthetique">6.4 Comparaison synthétique<a class="headerlink" href="#64-comparaison-synthetique" title="Permanent link">&para;</a></h3>
+<p>Voici la comparaison des outils selon plusieurs critères pratiques.</p>
+<table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Gratuité</th>
+<th>Sources</th>
+<th>Qualité</th>
+<th>Recommandé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>theHarvester</td>
+<td>Oui</td>
+<td>30+</td>
+<td>Bonne</td>
+<td>Oui (référence)</td>
+</tr>
+<tr>
+<td>emailharvester</td>
+<td>Oui</td>
+<td>5</td>
+<td>Modérée</td>
+<td>Complément</td>
+</tr>
+<tr>
+<td>EmailFinder</td>
+<td>Oui</td>
+<td>5+ avec API</td>
+<td>Très bonne</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>Snov.io</td>
+<td>Limité</td>
+<td>Commercial</td>
+<td>Excellente</td>
+<td>Si budget</td>
+</tr>
+<tr>
+<td>Hunter.io</td>
+<td>Limité</td>
+<td>Commercial</td>
+<td>Excellente</td>
+<td>Si budget</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-cas-pratique-enumeration-artech">7. Cas pratique - Énumération ARTECH<a class="headerlink" href="#7-cas-pratique-enumeration-artech" title="Permanent link">&para;</a></h2>
+<h3 id="71-mise-en-situation">7.1 Mise en situation<a class="headerlink" href="#71-mise-en-situation" title="Permanent link">&para;</a></h3>
+<p>Vous démarrez l'énumération emails ARTECH. Cible : produire la liste exhaustive des employés et leurs adresses pour préparer le phishing du module 6.</p>
+<h3 id="72-workflow-complet">7.2 Workflow complet<a class="headerlink" href="#72-workflow-complet" title="Permanent link">&para;</a></h3>
+<p>Voici l'enchaînement d'actions à mener pour cette session.</p>
+<pre class="mermaid"><code>flowchart TB
+    A[1. theHarvester multi-sources&lt;br&gt;30 minutes] --&gt; B[2. Nettoyage doublons&lt;br&gt;10 minutes]
+    B --&gt; C[3. Catégorisation&lt;br&gt;générique vs personnel&lt;br&gt;10 minutes]
+    C --&gt; D[4. holehe sur emails personnels&lt;br&gt;20 minutes]
+    D --&gt; E[5. Croisement LinkedIn&lt;br&gt;30 minutes]
+    E --&gt; F[6. Tableau cibles privilégiées&lt;br&gt;20 minutes]</code></pre>
+<h3 id="73-commandes-de-la-session">7.3 Commandes de la session<a class="headerlink" href="#73-commandes-de-la-session" title="Permanent link">&para;</a></h3>
+<p>Voici les commandes successives à exécuter dans le lab.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Étape 1 - theHarvester</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/osint/artech-2026/emails
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">cd</span><span class="w"> </span>~/osint/artech-2026/emails
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>theHarvester<span class="w"> </span>-d<span class="w"> </span>artech.fr<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span>-b<span class="w"> </span><span class="s2">&quot;bing,duckduckgo,crtsh,rapiddns,hackertarget,otx&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span>-l<span class="w"> </span><span class="m">500</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span>-f<span class="w"> </span>session-1
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># Étape 2 - Extraction emails uniques</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>cat<span class="w"> </span>session-1.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.emails[]?&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span>&gt;<span class="w"> </span>emails-bruts.txt
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>wc<span class="w"> </span>-l<span class="w"> </span>emails-bruts.txt
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="c1"># Étape 3 - Catégorisation</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;^(contact|support|info|sav|admin|webmaster|root|noreply|hello)@&quot;</span><span class="w"> </span>emails-bruts.txt<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">    </span>&gt;<span class="w"> </span>emails-generiques.txt
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>grep<span class="w"> </span>-vE<span class="w"> </span><span class="s2">&quot;^(contact|support|info|sav|admin|webmaster|root|noreply|hello)@&quot;</span><span class="w"> </span>emails-bruts.txt<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">    </span>&gt;<span class="w"> </span>emails-personnels.txt
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="c1"># Étape 4 - Validation holehe</span>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>email<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== </span><span class="nv">$email</span><span class="s2"> ===&quot;</span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">    </span>holehe<span class="w"> </span>--no-color<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$email</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>emails-personnels.txt<span class="w"> </span>&gt;<span class="w"> </span>validation-holehe.txt
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="c1"># Étape 5 - Documentation</span>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>sha256sum<span class="w"> </span>*.txt<span class="w"> </span>session-1.*<span class="w"> </span>&gt;<span class="w"> </span>MANIFEST.sha256
+</span></code></pre></div>
+<h3 id="74-livrable-attendu">7.4 Livrable attendu<a class="headerlink" href="#74-livrable-attendu" title="Permanent link">&para;</a></h3>
+<p>À l'issue, vous avez constitué le dossier suivant.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>~/osint/artech-2026/emails/
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>├── session-1.json         (export theHarvester)
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>├── session-1.html         (rapport visuel)
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>├── session-1.xml
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>├── emails-bruts.txt       (liste totale)
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>├── emails-generiques.txt  (sans intérêt phishing)
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>├── emails-personnels.txt  (cibles potentielles)
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>├── validation-holehe.txt  (services associés)
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>└── MANIFEST.sha256        (intégrité)
+</span></code></pre></div>
+<h2 id="8-limites-et-precautions">8. Limites et précautions<a class="headerlink" href="#8-limites-et-precautions" title="Permanent link">&para;</a></h2>
+<h3 id="81-faux-positifs">8.1 Faux positifs<a class="headerlink" href="#81-faux-positifs" title="Permanent link">&para;</a></h3>
+<p>theHarvester peut remonter des emails inexacts. Causes principales.</p>
+<table>
+<thead>
+<tr>
+<th>Cause</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anciens employés</td>
+<td>Vérifier avec LinkedIn</td>
+</tr>
+<tr>
+<td>Erreur typo dans une source</td>
+<td>Vérifier le format</td>
+</tr>
+<tr>
+<td>Email d'un partenaire mentionnant ARTECH</td>
+<td>Lire le contexte source</td>
+</tr>
+<tr>
+<td>Adresse personnelle utilisant le nom ARTECH</td>
+<td>Vérification holehe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-limites-de-couverture">8.2 Limites de couverture<a class="headerlink" href="#82-limites-de-couverture" title="Permanent link">&para;</a></h3>
+<p>theHarvester ne trouvera <strong>jamais</strong> :</p>
+<ul>
+<li>Les emails non publiquement référencés</li>
+<li>Les emails créés récemment (latence indexation)</li>
+<li>Les emails employés sans présence web</li>
+<li>Les emails de filiales avec domaines différents</li>
+</ul>
+<h3 id="83-legalite">8.3 Légalité<a class="headerlink" href="#83-legalite" title="Permanent link">&para;</a></h3>
+<p>L'énumération d'emails est légale en France quand elle :</p>
+<ul>
+<li>Vise une organisation cliente sous mandat</li>
+<li>Reste dans les sources publiques</li>
+<li>N'utilise pas de SMTP brute force (intrusion)</li>
+<li>Documente l'intérêt légitime RGPD</li>
+</ul>
+<h3 id="84-discretion">8.4 Discrétion<a class="headerlink" href="#84-discretion" title="Permanent link">&para;</a></h3>
+<p>Les requêtes theHarvester ne sont pas adressées à la cible directement, donc <strong>non détectables côté ARTECH</strong>. C'est un avantage majeur de la phase passive.</p>
+<h2 id="9-auto-evaluation">9. Auto-évaluation<a class="headerlink" href="#9-auto-evaluation" title="Permanent link">&para;</a></h2>
+<p>Vérifiez votre maîtrise par les questions suivantes.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Réponse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Auteur theHarvester ?</td>
+<td>Christian Martorella</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Combien de sources environ ?</td>
+<td>30+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Option pour bruteforce DNS ?</td>
+<td><code>-c</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Outil pour vérifier services associés à un email ?</td>
+<td>holehe</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Format de sortie HTML ?</td>
+<td>Option <code>-f</code> puis fichier <code>.html</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Localisation clés API Kali ?</td>
+<td><code>/etc/theHarvester/api-keys.yaml</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Email à privilégier pour phishing ?</td>
+<td>prenom.nom@ (personnels)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Détectabilité theHarvester ?</td>
+<td>Faible (sources tierces)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-synthese">10. Synthèse<a class="headerlink" href="#10-synthese" title="Permanent link">&para;</a></h2>
+<p>Voici les points clés à retenir.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>THEHARVESTER ET ÉNUMÉRATION
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>OUTIL DE RÉFÉRENCE
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  theHarvester (Kali Linux)
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>  30+ sources combinées
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>  Open source
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>CLÉS API GRATUITES UTILES
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>  Hunter.io
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>  AlienVault OTX
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>  SecurityTrails
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>  VirusTotal
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>  Shodan basique
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>COMMANDE TYPE
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>  theHarvester -d artech.fr -b sources -l 500 -f sortie
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>WORKFLOW SESSION
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>  1. theHarvester multi-sources
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>  2. Nettoyage doublons
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>  3. Catégorisation générique vs personnel
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>  4. holehe sur personnels
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>  5. Croisement LinkedIn
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>  6. Liste cibles privilégiées
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>OUTILS COMPLÉMENTAIRES
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>  emailharvester
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>  EmailFinder
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a>  Snov.io (commercial)
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a>  Hunter.io (commercial)
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a>VALEUR FORENSIC
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a>  Liste exploitable pour phishing module 6
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>  Identification cibles privilégiées
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a>  Cartographie infrastructure email
+</span></code></pre></div>
+<hr />
+<p><strong>Chapitre précédent</strong> : <a href="../4-2-google-dorks-archives/">4.2 Reconnaissance passive - Google dorks et archives</a></p>
+<p><strong>Chapitre suivant</strong> : <a href="../4-4-wigle-bssid-ssid/">4.4 Recherche par BSSID Wigle.net et SSID</a></p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">theHarvester</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Énumération</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Emails</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Sous-domaines</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../02-google-dorks-archives/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: 4.2 Reconnaissance passive - Google dorks et archives">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                4.2 Reconnaissance passive - Google dorks et archives
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../04-wigle-bssid-ssid/" class="md-footer__link md-footer__link--next" aria-label="Suivant: 4.4 Recherche par BSSID Wigle.net et SSID">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                4.4 Recherche par BSSID Wigle.net et SSID
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+        <script src="../../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

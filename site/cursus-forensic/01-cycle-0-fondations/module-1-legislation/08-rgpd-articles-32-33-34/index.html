@@ -1,0 +1,7328 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cadre RGPD appliqué au forensic - sécurité des traitements (art. 32), notification de violation à l'autorité de contrôle (art. 33), communication aux personnes concernées (art. 34). Procédure CNIL, sanctions, articulation NIS2 et obligations forensic.">
+      
+      
+        <meta name="author" content="Alain GUILLON">
+      
+      
+        <link rel="canonical" href="https://omnydocs.netlify.app/cursus-forensic/01-cycle-0-fondations/module-1-legislation/08-rgpd-articles-32-33-34/">
+      
+      
+        <link rel="prev" href="../07-nis2-loi-resillience.md">
+      
+      
+        <link rel="next" href="../09-dora-pour-secteur-financier/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.37">
+    
+    
+      
+        <title>1.8 RGPD - Focus articles 32, 33, 34 - OmnyDocs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../../assets/stylesheets/classic/main.a2001754.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20class%3D%22lucide%20lucide-hash%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16M10%203%208%2021M16%203l-2%2018%22/%3E%3C/svg%3E');}.md-tag.md-tag--go_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M400.1%20194.8c-10.9%202.8-19.9%204.3-29.1%207.6-7.3%201.9-14.7%203.9-23.2%206.1l-.6.1c-4.2%201.2-4.6%201.3-8.5-3.2-4.7-5.3-8.1-8.7-14.6-11.9-19.7-9.6-38.7-6.8-56.4%204.7-21.2%2013.7-32.1%2034-31.8%2059.2.3%2025%2017.4%2045.5%2041.2%2048.9%2022%202.8%2039.8-4.6%2053.8-20.5%202.1-2.6%204-5.3%206.1-8.3.8-1%201.5-2.1%202.3-3.3h-60.1c-6.5%200-8.1-4-5.9-9.3%204-9.7%2011.5-25.9%2015.9-34%20.9-1.8%203.1-5.8%206.9-5.8h101.1c4.5-13.4%2011.8-26.9%2021.6-39.7%2022.7-29.9%2049.3-45.5%2087.2-52%2031.8-5.6%2061.7-2.5%2088.9%2015.9%2024.6%2016.8%2039.8%2039.6%2043.9%2069.5%205.3%2042.1-6.9%2076.3-36.7%20105.6-19.7%2020.9-44.9%2034-73.9%2039.9-5.6%201-11.1%201.5-16.5%202-2.9.2-5.7.5-8.5.8-28.3-.6-54.2-8.7-76-27.4-15.3-13.3-25.9-29.6-31.1-48.5-3.7%207.3-8%2014.4-14%2021.1-21.6%2029.6-50.9%2048-87.9%2052.9-30.6%204.1-58.9-1.8-83.9-20.5-23-17.5-36.1-40.5-39.5-69.2-4.1-34%205.9-65.4%2026.4-91.3%2022.2-29%2051.5-47.4%2087.3-53.9%2029.3-6.2%2057.3-1.9%2082.6%2015.3%2016.5%2010.9%2028.3%2025.8%2036.1%2043.9%201.9%202.8.6%204.4-3.1%205.3m-351.8%205.6c-1.3%200-1.6-.6-.9-1.6l6.6-8.4c.6-.9%202.2-1.5%203.4-1.5h111.3c1.2%200%201.5.9.9%201.8l-5.3%208.1c-.6%201-2.2%201.9-3.1%201.9l-112.8-.3zM1.2%20229.1c-1.2%200-1.6-.7-.9-1.6l6.5-8.4c.6-.9%202.2-1.6%203.4-1.6h142.1c1.2%200%201.8%201%201.5%201.9l-2.5%207.5c-.3%201.2-1.5%201.9-2.8%201.9zm74.5%2026.8c-.6.9-.3%201.8.9%201.8l68%20.3c.9%200%202.2-.9%202.2-2.1l.6-7.5c0-1.3-.6-2.2-1.9-2.2H83.2c-1.2%200-2.5.9-3.1%201.9zm501.5-18c-.2-2.6-.3-4.8-.7-7-5.6-30.8-34-48.3-63.6-41.4-29%206.5-47.7%2024.9-54.5%2054.2-5.6%2024.3%206.2%2048.9%2028.6%2058.9%2017.2%207.5%2034.3%206.6%2050.8-1.9%2024.6-13.6%2038-32.7%2039.6-59.5-.1-1.2-.1-2.3-.2-3.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--javascript_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M0%2032v448h448V32zm243.8%20349.4c0%2043.6-25.6%2063.5-62.9%2063.5-33.7%200-53.2-17.4-63.2-38.5l34.3-20.7c6.6%2011.7%2012.6%2021.6%2027.1%2021.6%2013.8%200%2022.6-5.4%2022.6-26.5V237.7h42.1zm99.6%2063.5c-39.1%200-64.4-18.6-76.7-43l34.3-19.8c9%2014.7%2020.8%2025.6%2041.5%2025.6%2017.4%200%2028.6-8.7%2028.6-20.8%200-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5%200-31.6%2024.1-55.6%2061.6-55.6%2026.8%200%2046%209.3%2059.8%2033.7L368%20290c-7.2-12.9-15-18-27.1-18-12.3%200-20.1%207.8-20.1%2018%200%2012.6%207.8%2017.7%2025.9%2025.6l10.5%204.5c35.8%2015.3%2055.9%2031%2055.9%2066.2%200%2037.8-29.8%2058.6-69.7%2058.6%22/%3E%3C/svg%3E');}.md-tag.md-tag--php_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M320%20104.5c171.4%200%20303.2%2072.2%20303.2%20151.5S491.3%20407.5%20320%20407.5c-171.4%200-303.2-72.2-303.2-151.5S148.7%20104.5%20320%20104.5m0-16.8C143.3%2087.7%200%20163%200%20256s143.3%20168.3%20320%20168.3S640%20349%20640%20256%20496.7%2087.7%20320%2087.7M218.2%20242.5c-7.9%2040.5-35.8%2036.3-70.1%2036.3l13.7-70.6c38%200%2063.8-4.1%2056.4%2034.3M97.4%20350.3h36.7l8.7-44.8c41.1%200%2066.6%203%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7zm185.7-213.6h36.5l-8.7%2044.8c31.5%200%2060.7-2.3%2074.8%2010.7%2014.8%2013.6%207.7%2031-8.3%20113.1h-37c15.4-79.4%2018.3-86%2012.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8%2096.6h-36.5zM505%20242.5c-8%2041.1-36.7%2036.3-70.1%2036.3l13.7-70.6c38.2%200%2063.8-4.1%2056.4%2034.3M384.2%20350.3H421l8.7-44.8c43.2%200%2067.1%202.5%2090.2-19.1%2026.1-24%2032.9-66.7%2014.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417z%22/%3E%3C/svg%3E');}.md-tag.md-tag--python_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M439.8%20200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0%2036.8-31.2%2067.8-66.8%2067.8H172.7c-29.2%200-53.4%2025-53.4%2054.3v101.8c0%2029%2025.2%2046%2053.4%2054.3%2033.8%209.9%2066.3%2011.7%20106.8%200%2026.9-7.8%2053.4-23.5%2053.4-54.3v-40.7H226.2v-13.6h160.2c31.1%200%2042.6-21.7%2053.4-54.2%2011.2-33.5%2010.7-65.7%200-108.6M286.2%20444.7a20.4%2020.4%200%201%201%200-40.7%2020.4%2020.4%200%201%201%200%2040.7M167.8%20248.1h106.8c29.7%200%2053.4-24.5%2053.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2%208-53.4%2024.7-53.4%2055.6v40.7h106.9v13.6h-147c-31.1%200-58.3%2018.7-66.8%2054.2-9.8%2040.7-10.2%2066.1%200%20108.6%207.6%2031.6%2025.7%2054.2%2056.8%2054.2H101v-48.8c0-35.3%2030.5-66.4%2066.8-66.4m-6.6-183.4a20.4%2020.4%200%201%201%200%2040.8%2020.4%2020.4%200%201%201%200-40.8%22/%3E%3C/svg%3E');}.md-tag.md-tag--rust_tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.2.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202026%20Fonticons%2C%20Inc.--%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22m508.5%20249.8-21.8-13.5c-.2-2-.3-3.9-.5-5.9l18.7-17.5c.9-.9%201.6-1.9%202-3.1s.5-2.5.2-3.7-.8-2.4-1.6-3.3-1.8-1.7-3-2.1l-24-9c-.5-1.9-1.1-3.8-1.7-5.6l15-20.8c.7-1%201.2-2.2%201.3-3.4s0-2.5-.5-3.7-1.2-2.2-2.2-2.9-2.1-1.3-3.4-1.5l-25.4-4.2c-.9-1.7-1.8-3.4-2.7-5.2l10.7-23.4c.5-1.1.7-2.4.6-3.6s-.5-2.4-1.2-3.5-1.6-1.9-2.8-2.5-2.4-.8-3.6-.8l-25.8.9c-1.2-1.5-2.4-2.9-3.6-4.4l5.8-25.3c.3-1.2.3-2.5-.1-3.7s-1-2.3-1.9-3.2-2-1.5-3.2-1.9-2.5-.4-3.7-.1l-25.1%206c-1.4-1.2-2.9-2.4-4.4-3.6l.9-25.8c.1-1.3-.2-2.5-.8-3.6s-1.4-2.1-2.5-2.8-2.2-1.1-3.5-1.2-2.5.1-3.7.6l-23.3%2010.7-5.1-2.7-4.2-25.4c-.2-1.2-.7-2.4-1.5-3.4s-1.8-1.7-2.9-2.2-2.4-.7-3.7-.5-2.4.6-3.4%201.3l-20.9%2015c-1.9-.6-3.8-1.1-5.6-1.7l-9-24c-.4-1.2-1.2-2.2-2.1-3S307.2%205.2%20306%205s-2.5-.2-3.7.2-2.3%201.1-3.1%202l-17.6%2018.7c-2-.2-3.9-.4-5.9-.5L262.3%203.5c-.7-1.1-1.6-1.9-2.7-2.6S257.3%200%20256%200s-2.5.3-3.6.9-2%201.5-2.7%202.6l-13.5%2021.8c-2%20.2-3.9.3-5.9.6L212.9%207.1c-.9-.9-1.9-1.6-3.1-2s-2.5-.5-3.7-.2-2.4.8-3.3%201.6-1.7%201.8-2.1%203l-9%2024c-1.9.6-3.8%201.1-5.7%201.7l-20.8-15c-1-.7-2.2-1.2-3.4-1.3s-2.5%200-3.7.5-2.2%201.2-2.9%202.2-1.3%202.1-1.5%203.4l-4.2%2025.4c-1.7.9-3.4%201.8-5.2%202.7l-23.4-10.5c-1.1-.5-2.4-.7-3.7-.6s-2.5.5-3.5%201.2-1.9%201.7-2.5%202.8-.8%202.4-.8%203.6l.9%2025.8c-1.5%201.2-3%202.4-4.4%203.6l-25.1-6c-1.2-.3-2.5-.3-3.7.1s-2.3%201-3.2%201.9-1.5%202-1.9%203.2-.4%202.5-.1%203.7l6%2025.1c-1.2%201.4-2.4%202.9-3.6%204.4l-25.8-.9c-1.3%200-2.5.2-3.6.8s-2.1%201.4-2.8%202.4-1.1%202.2-1.2%203.5.1%202.5.6%203.6l10.7%2023.4c-.9%201.7-1.8%203.4-2.7%205.2l-25.4%204.1c-1.2.2-2.4.7-3.4%201.5s-1.7%201.8-2.2%202.9-.7%202.4-.5%203.7.6%202.4%201.3%203.4l15%2020.8c-.6%201.9-1.1%203.8-1.7%205.7l-24%209c-1.2.4-2.2%201.2-3%202.1s-1.4%202.1-1.6%203.3-.2%202.5.2%203.7%201.1%202.3%202%203.1l18.7%2017.5c-.2%202-.4%203.9-.6%205.9L3.5%20249.8c-1.1.7-1.9%201.6-2.6%202.7s-.9%202.3-.9%203.6.3%202.5.9%203.6%201.5%202%202.6%202.7l21.8%2013.5c.2%202%20.3%203.9.6%205.9L7.1%20299.1c-.9.9-1.6%201.9-2%203.1s-.5%202.5-.2%203.7.8%202.4%201.6%203.3%201.8%201.7%203%202.1l24%209c.6%201.9%201.1%203.8%201.7%205.6l-15%2020.8c-.7%201-1.2%202.2-1.3%203.4s0%202.5.5%203.7%201.2%202.2%202.2%202.9%202.1%201.3%203.4%201.5l25.4%204.2%202.7%205.1-10.5%2023.6c-.5%201.1-.7%202.4-.6%203.6s.5%202.5%201.2%203.5c.7%201.1%201.6%201.9%202.7%202.5s2.4.8%203.6.8l25.8-.9c1.2%201.5%202.4%202.9%203.6%204.4L73%20430.2c-.3%201.2-.3%202.5.1%203.7s1%202.3%201.9%203.2%202%201.5%203.2%201.9%202.5.4%203.7.1l25.2-5.9c1.5%201.2%202.9%202.4%204.4%203.6l-.9%2025.8c0%201.3.2%202.5.8%203.6s1.4%202.1%202.5%202.8%202.2%201.1%203.5%201.2%202.5-.1%203.6-.6l23.4-10.7%205.1%202.7%204.2%2025.4c.2%201.2.7%202.4%201.5%203.4s1.8%201.8%202.9%202.2%202.4.7%203.7.5%202.4-.6%203.4-1.3l20.8-15c1.9.6%203.8%201.1%205.6%201.7l9%2024c.4%201.2%201.2%202.2%202.1%203s2.1%201.4%203.3%201.6%202.5.2%203.7-.2%202.3-1.1%203.1-2l17.5-18.7c2%20.2%203.9.4%205.9.6l13.5%2021.8c.7%201.1%201.6%201.9%202.7%202.6s2.3.9%203.6.9%202.5-.3%203.6-.9%202-1.5%202.7-2.6l13.5-21.8c2-.2%203.9-.3%205.9-.6l17.5%2018.7c.9.9%201.9%201.6%203.1%202s2.5.5%203.7.2%202.4-.8%203.3-1.6%201.7-1.8%202.1-3l9-24c1.9-.6%203.8-1.1%205.6-1.7l20.8%2015c1%20.7%202.2%201.2%203.4%201.3s2.5%200%203.7-.5%202.2-1.2%202.9-2.2%201.3-2.1%201.5-3.4l4.2-25.4%205.1-2.7%2023.4%2010.7c1.1.5%202.4.7%203.6.6s2.4-.5%203.5-1.2%201.9-1.6%202.5-2.8.8-2.4.8-3.6l-.9-25.8c1.5-1.2%202.9-2.4%204.4-3.6l25.2%205.9c1.2.3%202.5.3%203.7-.1s2.3-1%203.2-1.9%201.5-2%201.9-3.2.4-2.5.1-3.7l-5.9-25.2c1.2-1.4%202.4-2.9%203.6-4.4l25.8.9c1.3.1%202.5-.2%203.6-.8s2.1-1.4%202.8-2.5c.7-1%201.1-2.2%201.2-3.5s-.1-2.5-.6-3.6l-10.7-23.4%202.7-5.1%2025.4-4.2c1.2-.2%202.4-.7%203.4-1.5s1.8-1.8%202.2-2.9.7-2.4.5-3.7-.6-2.4-1.3-3.4l-15-20.8c.6-1.9%201.1-3.8%201.7-5.6l24-9c1.2-.4%202.2-1.2%203-2.1s1.4-2.1%201.6-3.3.2-2.5-.2-3.7-1.1-2.3-2-3.1l-18.7-17.5c.2-1.9.4-3.9.6-5.9l21.8-13.5c1.1-.7%201.9-1.6%202.6-2.7s.9-2.3.9-3.6-.3-2.5-.9-3.6-1.5-2-2.6-2.7m-151%20129.1c-3.6-.8-7.4-.1-10.5%201.9s-5.3%205.2-6%208.8l-7.6%2035.7c-24.6%2011.1-51.3%2016.8-78.3%2016.7s-53.6-6.1-78.1-17.4l-7.6-35.7c-.4-1.8-1.1-3.5-2.1-5s-2.4-2.8-3.9-3.8-3.2-1.7-5-2-3.6-.3-5.4.1l-31.5%206.8c-5.8-6-11.3-12.5-16.3-19.2h153.2c1.7%200%202.9-.3%202.9-1.9v-54.2c0-1.6-1.2-1.9-2.9-1.9h-44.8v-34.4h48.5c4.4%200%2023.7%201.3%2029.8%2025.9%201.9%207.5%206.2%2032.1%209.1%2040%202.9%208.8%2014.6%2026.5%2027.1%2026.5h79c-5.3%207.1-11.1%2013.8-17.3%2020.1l-32.1-6.9zm25.8%2034.5c0%203-.9%206-2.6%208.5s-4%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.8-8.8%203.1-5.2%205.6-6.9%205.4-2.6%208.5-2.6h.4c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zm-225.6-.7c0%203-.9%206-2.6%208.5s-4.1%204.5-6.8%205.6-5.8%201.5-8.8.9-5.7-2-7.8-4.2-3.6-4.8-4.2-7.8-.3-6%20.9-8.8%203.1-5.2%205.6-6.8%205.4-2.6%208.5-2.6h.5c4%20.1%207.7%201.8%2010.5%204.6s4.3%206.7%204.3%2010.6h.1zM69.6%20234.2l32.8-14.6c1.7-.7%203.2-1.8%204.4-3.1s2.2-2.9%202.9-4.6%201-3.5.9-5.3-.5-3.6-1.2-5.3l-6.8-15.2h26.6v119.7H75.6c-6.6-23.2-8.7-47.6-6.1-71.6zm-11.3-36.1c0-2%20.4-4%201.2-5.8s1.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.5c3%20.1%205.9%201%208.3%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204.1-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zm155.2%2024.5v-35.3h63.3c3.3%200%2023.1%203.8%2023.1%2018.6%200%2012.3-15.2%2016.7-27.7%2016.7zM399%20306.7c-9.8%201.1-20.6-4.1-22-10.1-5.8-32.5-15.4-39.4-30.6-51.4%2018.9-12%2038.5-29.6%2038.5-53.3%200-25.5-17.5-41.6-29.4-49.5-16.8-11-35.3-13.2-40.3-13.2H116.3c27.5-30.7%2064.4-51.5%20104.9-59.2l23.5%2024.6c1.3%201.3%202.8%202.4%204.4%203.1s3.5%201.1%205.3%201.2%203.6-.3%205.3-.9%203.2-1.7%204.6-2.9l26.3-25c26.8%205%2052.1%2015.8%2074.3%2031.6s40.6%2036.2%2054.1%2059.9l-18%2040.6c-1.5%203.4-1.5%207.2-.2%2010.6s3.9%206.2%207.3%207.7l34.6%2015.3c1.1%2010.8%201.2%2021.7.4%2032.5h-19.3c-1.9%200-2.7%201.3-2.7%203.1v8.8c0%2020.8-11.7%2025.3-22%2026.5zM240%2060.2c0-4%201.6-7.9%204.5-10.7s6.7-4.5%2010.7-4.5h.4c3%20.1%205.9%201%208.4%202.8s4.3%204.1%205.4%206.9%201.3%205.8.7%208.8-2.1%205.6-4.3%207.7-4.9%203.5-7.8%204-6%20.2-8.7-.9-5.1-3.1-6.8-5.6-2.5-5.4-2.5-8.4zM436.8%20214c-2%200-4-.4-5.8-1.2s-3.5-1.9-4.9-3.3-2.5-3.1-3.3-4.9-1.2-3.8-1.2-5.8.4-4%201.2-5.8%201.9-3.5%203.3-4.9%203.1-2.5%204.9-3.3%203.8-1.2%205.8-1.2h.4c4%20.1%207.9%201.7%2010.7%204.6s4.4%206.8%204.3%2010.8-1.7%207.9-4.6%2010.7-6.8%204.4-10.8%204.3%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetbrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#18-rgpd-focus-articles-32-33-34" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Ne plus montrer cela">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+<!-- Add announcement here, including arbitrary HTML -->
+<small>
+    <em>Cette documentation est en cours de consolidation. Cette exigence de relecture s'inscrit dans une démarche de transmission, visant à proposer un apprentissage structuré et durable en langue française, afin de favoriser une compréhension approfondie et une réelle montée en compétence.</em>
+</small>
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="OmnyDocs" class="md-header__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OmnyDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.8 RGPD - Focus articles 32, 33, 34
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Change pour le mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Change pour le mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Change pour le mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../bases/" class="md-tabs__link">
+          
+  
+  Fondamentaux IT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../sys-reseau/" class="md-tabs__link">
+          
+  
+  Systèmes & Infra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../dev-cloud/" class="md-tabs__link">
+          
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/governance/" class="md-tabs__link">
+          
+  
+  Cyber : Gouvernance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/operations/" class="md-tabs__link">
+          
+  
+  Cyber : Défense
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cyber/tools/" class="md-tabs__link">
+          
+  
+  Cyber : Attaque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../glossaire/" class="md-tabs__link">
+          
+  
+  Glossaire
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../projets/arch-lab/" class="md-tabs__link">
+          
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  Cursus Forensic
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="OmnyDocs" class="md-nav__button md-logo" aria-label="OmnyDocs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo-dark.png" alt="OmnyDocs">
+
+    </a>
+    OmnyDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../bases/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Fondamentaux IT
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../sys-reseau/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes &amp; Infrastructure (Sys-Réseau)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../dev-cloud/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Web &amp; Cloud
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/governance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : GRC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/operations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Opérations &amp; SOC (Blue Team)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../cyber/tools/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cyber : Outils &amp; Red Team
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../glossaire/" class="md-nav__link">
+      
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../../projets/arch-lab/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projets
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cursus Forensic
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cursus Forensic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../00-meta-outillages/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outillage du cursus
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_2" id="__nav_10_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outillage du cursus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/evolution-carriere-2026/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Évolution de Carrière (2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/carnet-doutes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Carnet de Doutes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/inventaire-materiel/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventaire Matériel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/progression/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Suivi de Progression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-meta-outillages/ressources-externes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open-check" viewBox="0 0 24 24"><path d="M12 21V7M16 12l2 2 4-4"/><path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources Externes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 0 : Fondations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_3" id="__nav_10_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 0 : Fondations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I - Législation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_3_2" id="__nav_10_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    I - Législation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-hierarchie-normes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-scale" viewBox="0 0 24 24"><path d="M12 3v18M19 8l3 8a5 5 0 0 1-6 0zV7"/><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7M7 21h10"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Hiérarchie des normes en France
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-loi-godfrain/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-gavel" viewBox="0 0 24 24"><path d="m14 13-8.381 8.38a1 1 0 0 1-3.001-3l8.384-8.381M16 16l6-6M21.5 10.5l-8-8M8 8l6-6M8.5 7.5l8 8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Loi Godfrain de 1988 et son contexte historique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-articles-323/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3 Articles 323-1 à 323-7 du Code pénal en détail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-article-226-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.4 Article 226-15 et atteintes au secret des correspondances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-lcen-2004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5 LCEN 2004 et conservation des données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-lpm-oiv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.6 Loi de Programmation Militaire 2013 et OIV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-nis2-loi-resillience.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    none
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.8 RGPD - Focus articles 32, 33, 34
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.8 RGPD - Focus articles 32, 33, 34
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexte-et-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Contexte et architecture
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Contexte et architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-le-rgpd-vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Le RGPD - Vue d'ensemble
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pourquoi-ces-trois-articles-specifiquement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Pourquoi ces trois articles spécifiquement
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-vocabulaire-fondamental" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Vocabulaire fondamental
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-cas-typiques-en-forensic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4 Cas typiques en forensic
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-article-32-securite-du-traitement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Article 32 - Sécurité du traitement
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Article 32 - Sécurité du traitement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-texte-integral" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Texte intégral
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-decomposition-de-larticle-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Décomposition de l'article 32
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-la-triade-cidr-alinea-1b" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 La triade CIDR (alinéa 1.b)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-pseudonymisation-et-chiffrement-alinea-1a" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 Pseudonymisation et chiffrement (alinéa 1.a)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-tests-et-audits-alinea-1d" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.5 Tests et audits (alinéa 1.d)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-articulation-avec-nis2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.6 Articulation avec NIS2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-sanctions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.7 Sanctions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-article-33-notification-a-lautorite-de-controle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Article 33 - Notification à l'autorité de contrôle
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Article 33 - Notification à l&#x27;autorité de contrôle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-texte-integral" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Texte intégral
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-notion-de-violation-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Notion de "violation de données"
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-cas-pratiques-de-qualification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Cas pratiques de qualification
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-le-delai-de-72-heures" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Le délai de 72 heures
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-cas-ou-la-notification-nest-pas-requise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5 Cas où la notification n'est pas requise
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-construction-de-la-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.6 Construction de la notification
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-modalites-pratiques-en-france" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.7 Modalités pratiques en France
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-le-sous-traitant-article-33-paragraphe-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.8 Le sous-traitant - Article 33 paragraphe 2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-le-registre-des-violations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.9 Le registre des violations
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-article-34-communication-a-la-personne-concernee" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Article 34 - Communication à la personne concernée
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Article 34 - Communication à la personne concernée">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-texte-integral" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Texte intégral
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-la-distinction-risque-vs-risque-eleve" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 La distinction risque vs risque élevé
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-criteres-du-risque-eleve" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Critères du risque élevé
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-cas-ou-la-communication-nest-pas-requise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Cas où la communication n'est pas requise
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-modalites-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Modalités pratiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-modele-de-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.6 Modèle de communication
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-procedure-complete-de-gestion-dune-violation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Procédure complète de gestion d'une violation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Procédure complète de gestion d&#x27;une violation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-workflow-operationnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Workflow opérationnel
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-role-de-lanalyste-forensic-dans-cette-chaine" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 Rôle de l'analyste forensic dans cette chaîne
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-articulation-forensic-dpo-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 Articulation forensic - DPO - Direction
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-sanctions-et-jurisprudence-cnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Sanctions et jurisprudence CNIL
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Sanctions et jurisprudence CNIL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-regime-des-sanctions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 Régime des sanctions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-criteres-de-modulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Critères de modulation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-sanctions-notables-2024-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 Sanctions notables 2024-2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-effet-aggravant-du-retard-de-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4 Effet aggravant du retard de notification
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-articulation-avec-dautres-cadres" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Articulation avec d'autres cadres
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Articulation avec d&#x27;autres cadres">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-rgpd-vs-nis2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 RGPD vs NIS2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-rgpd-vs-lcen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 RGPD vs LCEN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-rgpd-vs-dora" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 RGPD vs DORA
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-rgpd-et-secret-des-correspondances-226-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4 RGPD et secret des correspondances (226-15)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-pieges-et-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Pièges et bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Pièges et bonnes pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#piege-1-confondre-72-heures-calendaires-et-72-heures-ouvrees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Piège 1 - Confondre 72 heures calendaires et 72 heures ouvrées
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piege-2-sous-estimer-le-perimetre-des-donnees-personnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Piège 2 - Sous-estimer le périmètre des données personnelles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piege-3-oublier-leffet-de-cascade" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Piège 3 - Oublier l'effet de cascade
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonne-pratique-1-preparer-les-modeles-a-lavance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bonne pratique 1 - Préparer les modèles à l'avance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonne-pratique-2-documenter-des-la-decouverte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bonne pratique 2 - Documenter dès la découverte
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonne-pratique-3-notifier-en-cas-de-doute" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bonne pratique 3 - Notifier en cas de doute
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-manipulation-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Manipulation pratique
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Manipulation pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-91-qualifier-des-violations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exercice 9.1 - Qualifier des violations
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-92-construction-dune-notification-cnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exercice 9.2 - Construction d'une notification CNIL
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-93-evaluation-du-risque" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exercice 9.3 - Évaluation du risque
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-synthese-memo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Synthèse mémo
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-pour-aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Pour aller plus loin
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-auto-explication" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. Auto-explication
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-dora-pour-secteur-financier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.9 DORA pour le secteur financier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-cadre-pentest-legal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.10 Cadre du pentest légal - Mandat, périmètre, NDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-affaire-bluetouff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.11 Étude de l'affaire Bluetouff (2013-2015)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-affaire-kitetoa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.12 Étude de l'affaire Kitetoa (2002)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-affaire-recentes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    none
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-modele-mandat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.14 Construction d'un modèle de mandat de pentest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-modele-nda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.15 Construction d'un modèle de NDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-synthese-carnet-juridique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.16 Synthèse personnelle - Carnet juridique permanent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-2-prerequis-techniques/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 - Prérequis techniques et théoriques
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../module-3-configuration-laboratoire/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 - Configuration du laboratoire forensic physique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../02-cycle-1-premier-cas/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 1 : Premier cas complet
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_4" id="__nav_10_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 1 : Premier cas complet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../02-cycle-1-premier-cas/module-4-osint/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 4 - OSINT et reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../02-cycle-1-premier-cas/module-5-wifi-wpa2/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 5 - Attaque Wi-Fi WPA2 simple
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../02-cycle-1-premier-cas/module-6-phishing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 6 - Phishing basique
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../02-cycle-1-premier-cas/module-7-acquisition-memoire-windows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 - Acquisition mémoire Windows
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../02-cycle-1-premier-cas/module-7bis-acquisition-memoire-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 bis : Acquisition mémoire macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../02-cycle-1-premier-cas/module-8-acquisition-disque/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 8 : Acquisition disque
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../02-cycle-1-premier-cas/module-9-volatility-autopsy/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 9 : Analyse Volatility et Autopsy
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../02-cycle-1-premier-cas/module-10-premier-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Premier rapport
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../03-cycle-2-avance/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 2 : Cas avancé
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_5" id="__nav_10_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 2 : Cas avancé
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-11-osint/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 11 : OSINT approfondi
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-12-pivoting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 12 : Pivoting multi-postes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-13-persistance/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Persistance Windows et Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14-bitlocker-luks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : BitLocker et LUKS extraction
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-14bis-filevault/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 bis : FileVault et Apple Silicon
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15-detection/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 : Détection sans SIEM (Win/Lin)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-15bis-detection-macos/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 bis : Détection sur macOS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-16-rapport/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 16 : Rapport judiciaire complet
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../03-cycle-2-avance/module-17-rgpd/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 17 : RGPD et notification CNIL
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../04-cycle-3-maitrise/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cycle 3 : Maîtrise
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_6" id="__nav_10_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cycle 3 : Maîtrise
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-18-educrypt/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 18 : EduCrypt (Dev Pédagogique)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19-chiffrement-actif/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 : Cas de chiffrement actif
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-19bis-outil-swift/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 19 bis : Outil forensic Swift (macOS)
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-20-chiffrage/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 20 : Chiffrage prestation PME
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-21-cas-autonomes/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 21 : 5 cas autonomes
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../04-cycle-3-maitrise/module-22-formation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 22 : Préparation formation vidéo
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../05-menace-malware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spécialisation : Menace Malware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spécialisation : Menace Malware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadonnees-du-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Métadonnées du chapitre
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-contexte-et-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Contexte et architecture
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Contexte et architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-le-rgpd-vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Le RGPD - Vue d'ensemble
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pourquoi-ces-trois-articles-specifiquement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Pourquoi ces trois articles spécifiquement
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-vocabulaire-fondamental" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Vocabulaire fondamental
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-cas-typiques-en-forensic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4 Cas typiques en forensic
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-article-32-securite-du-traitement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Article 32 - Sécurité du traitement
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Article 32 - Sécurité du traitement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-texte-integral" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Texte intégral
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-decomposition-de-larticle-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Décomposition de l'article 32
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-la-triade-cidr-alinea-1b" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 La triade CIDR (alinéa 1.b)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-pseudonymisation-et-chiffrement-alinea-1a" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 Pseudonymisation et chiffrement (alinéa 1.a)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-tests-et-audits-alinea-1d" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.5 Tests et audits (alinéa 1.d)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-articulation-avec-nis2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.6 Articulation avec NIS2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-sanctions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.7 Sanctions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-article-33-notification-a-lautorite-de-controle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Article 33 - Notification à l'autorité de contrôle
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Article 33 - Notification à l&#x27;autorité de contrôle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-texte-integral" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Texte intégral
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-notion-de-violation-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Notion de "violation de données"
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-cas-pratiques-de-qualification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Cas pratiques de qualification
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-le-delai-de-72-heures" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Le délai de 72 heures
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-cas-ou-la-notification-nest-pas-requise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5 Cas où la notification n'est pas requise
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-construction-de-la-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.6 Construction de la notification
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-modalites-pratiques-en-france" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.7 Modalités pratiques en France
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-le-sous-traitant-article-33-paragraphe-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.8 Le sous-traitant - Article 33 paragraphe 2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-le-registre-des-violations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.9 Le registre des violations
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-article-34-communication-a-la-personne-concernee" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Article 34 - Communication à la personne concernée
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Article 34 - Communication à la personne concernée">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-texte-integral" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Texte intégral
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-la-distinction-risque-vs-risque-eleve" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 La distinction risque vs risque élevé
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-criteres-du-risque-eleve" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Critères du risque élevé
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-cas-ou-la-communication-nest-pas-requise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Cas où la communication n'est pas requise
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-modalites-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Modalités pratiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-modele-de-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.6 Modèle de communication
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-procedure-complete-de-gestion-dune-violation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Procédure complète de gestion d'une violation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Procédure complète de gestion d&#x27;une violation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-workflow-operationnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Workflow opérationnel
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-role-de-lanalyste-forensic-dans-cette-chaine" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 Rôle de l'analyste forensic dans cette chaîne
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-articulation-forensic-dpo-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 Articulation forensic - DPO - Direction
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-sanctions-et-jurisprudence-cnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Sanctions et jurisprudence CNIL
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Sanctions et jurisprudence CNIL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-regime-des-sanctions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 Régime des sanctions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-criteres-de-modulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Critères de modulation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-sanctions-notables-2024-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 Sanctions notables 2024-2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-effet-aggravant-du-retard-de-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4 Effet aggravant du retard de notification
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-articulation-avec-dautres-cadres" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Articulation avec d'autres cadres
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Articulation avec d&#x27;autres cadres">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-rgpd-vs-nis2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 RGPD vs NIS2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-rgpd-vs-lcen" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 RGPD vs LCEN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-rgpd-vs-dora" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 RGPD vs DORA
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-rgpd-et-secret-des-correspondances-226-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4 RGPD et secret des correspondances (226-15)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-pieges-et-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Pièges et bonnes pratiques
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Pièges et bonnes pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#piege-1-confondre-72-heures-calendaires-et-72-heures-ouvrees" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Piège 1 - Confondre 72 heures calendaires et 72 heures ouvrées
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piege-2-sous-estimer-le-perimetre-des-donnees-personnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Piège 2 - Sous-estimer le périmètre des données personnelles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piege-3-oublier-leffet-de-cascade" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Piège 3 - Oublier l'effet de cascade
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonne-pratique-1-preparer-les-modeles-a-lavance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bonne pratique 1 - Préparer les modèles à l'avance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonne-pratique-2-documenter-des-la-decouverte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bonne pratique 2 - Documenter dès la découverte
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonne-pratique-3-notifier-en-cas-de-doute" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bonne pratique 3 - Notifier en cas de doute
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-manipulation-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Manipulation pratique
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Manipulation pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-91-qualifier-des-violations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exercice 9.1 - Qualifier des violations
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-92-construction-dune-notification-cnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exercice 9.2 - Construction d'une notification CNIL
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-93-evaluation-du-risque" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Exercice 9.3 - Évaluation du risque
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-auto-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Auto-évaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-synthese-memo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        11. Synthèse mémo
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-pour-aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        12. Pour aller plus loin
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-auto-explication" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        13. Auto-explication
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cursus Forensic
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cycle 0 : Fondations
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    I - Législation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="18-rgpd-focus-articles-32-33-34">1.8 RGPD - Focus articles 32, 33, 34<a class="headerlink" href="#18-rgpd-focus-articles-32-33-34" title="Permanent link">&para;</a></h1>
+<div class="admonition quote">
+<p class="admonition-title">L'analogie du médecin et du diagnostic</p>
+<p>Quand un médecin diagnostique une maladie contagieuse, il ne se contente pas de soigner son patient. Il doit déclarer la pathologie aux autorités sanitaires, informer les personnes potentiellement exposées, mettre en place des mesures pour limiter la propagation. Cette obligation de déclaration n'est pas un détail administratif : elle est ce qui distingue une médecine moderne d'une médecine archaïque. Le RGPD applique exactement cette logique aux violations de données personnelles. Une attaque qui touche des données est une pathologie contagieuse. Le responsable du traitement doit la diagnostiquer, la déclarer à la CNIL sous 72 heures, communiquer aux personnes concernées si nécessaire, prendre les mesures correctives. Pour vous, analyste forensic, comprendre les articles 32, 33 et 34 est doublement vital : ce sont les seules dispositions qui transforment votre travail technique en obligation juridique opposable au client. Sans rapport forensic, le client ne peut pas notifier correctement. Sans notification correcte, il s'expose à des sanctions colossales.</p>
+</div>
+<h2 id="metadonnees-du-chapitre">Métadonnées du chapitre<a class="headerlink" href="#metadonnees-du-chapitre" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Durée estimée</td>
+<td>4 heures</td>
+</tr>
+<tr>
+<td>Niveau</td>
+<td>Exhaustif</td>
+</tr>
+<tr>
+<td>Prérequis</td>
+<td>Chapitres 1.1 à 1.7</td>
+</tr>
+<tr>
+<td>Livrables</td>
+<td>Modèle de notification CNIL, registre des violations, fiche obligations</td>
+</tr>
+<tr>
+<td>Auto-explication</td>
+<td>18 minutes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="objectifs-pedagogiques">Objectifs pédagogiques<a class="headerlink" href="#objectifs-pedagogiques" title="Permanent link">&para;</a></h2>
+<p>À la fin de ce chapitre, vous serez capable de :</p>
+<ul>
+<li>Citer le texte des articles 32, 33 et 34 du RGPD.</li>
+<li>Distinguer responsable de traitement, sous-traitant, et leurs responsabilités respectives.</li>
+<li>Qualifier une violation de données personnelles (confidentialité, intégrité, disponibilité).</li>
+<li>Évaluer le risque pour les droits et libertés des personnes concernées.</li>
+<li>Construire une notification CNIL conforme dans les 72 heures.</li>
+<li>Construire une communication aux personnes concernées si requise.</li>
+<li>Identifier les sanctions encourues et les éléments aggravants.</li>
+<li>Articuler le RGPD avec NIS2 et le secret des correspondances.</li>
+</ul>
+<hr />
+<h2 id="1-contexte-et-architecture">1. Contexte et architecture<a class="headerlink" href="#1-contexte-et-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="11-le-rgpd-vue-densemble">1.1 Le RGPD - Vue d'ensemble<a class="headerlink" href="#11-le-rgpd-vue-densemble" title="Permanent link">&para;</a></h3>
+<p>Le <strong>Règlement Général sur la Protection des Données</strong> (Règlement UE 2016/679) du 27 avril 2016, entré en application le 25 mai 2018, est le texte de référence en matière de données personnelles dans l'Union européenne.</p>
+<pre class="mermaid"><code>flowchart TB
+    A[RGPD - 99 articles] --&gt; B[Chapitre I&lt;br&gt;Dispositions générales&lt;br&gt;articles 1-4]
+    A --&gt; C[Chapitre II&lt;br&gt;Principes&lt;br&gt;articles 5-11]
+    A --&gt; D[Chapitre III&lt;br&gt;Droits personnes&lt;br&gt;articles 12-23]
+    A --&gt; E[Chapitre IV&lt;br&gt;Responsable et sous-traitant&lt;br&gt;articles 24-43]
+    A --&gt; F[Chapitre V&lt;br&gt;Transferts internationaux&lt;br&gt;articles 44-50]
+    A --&gt; G[Chapitre VI&lt;br&gt;Autorités contrôle&lt;br&gt;articles 51-59]
+    A --&gt; H[Chapitre VII&lt;br&gt;Coopération&lt;br&gt;articles 60-76]
+    A --&gt; I[Chapitre VIII&lt;br&gt;Recours et sanctions&lt;br&gt;articles 77-84]
+
+    E -.-&gt;|Focus chapitre| Sec[Articles 32-33-34&lt;br&gt;Sécurité et violations]</code></pre>
+<h3 id="12-pourquoi-ces-trois-articles-specifiquement">1.2 Pourquoi ces trois articles spécifiquement<a class="headerlink" href="#12-pourquoi-ces-trois-articles-specifiquement" title="Permanent link">&para;</a></h3>
+<p>Les <strong>articles 32, 33 et 34</strong> forment un <strong>triptyque opérationnel</strong> central pour le forensic :</p>
+<table>
+<thead>
+<tr>
+<th>Article</th>
+<th>Objet</th>
+<th>Lien forensic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Article 32</td>
+<td>Sécurité du traitement</td>
+<td>Mesures préventives audit forensic</td>
+</tr>
+<tr>
+<td>Article 33</td>
+<td>Notification à l'autorité (CNIL)</td>
+<td>Le rapport forensic alimente la notification</td>
+</tr>
+<tr>
+<td>Article 34</td>
+<td>Communication aux personnes concernées</td>
+<td>Évaluation issue du rapport forensic</td>
+</tr>
+</tbody>
+</table>
+<p>Ce sont <strong>les articles qui se déclenchent en cas d'incident</strong>, donc <strong>les articles que vous mobilisez en forensic</strong>.</p>
+<h3 id="13-vocabulaire-fondamental">1.3 Vocabulaire fondamental<a class="headerlink" href="#13-vocabulaire-fondamental" title="Permanent link">&para;</a></h3>
+<p>Avant tout, sept termes RGPD à maîtriser. Leur méconnaissance est la première cause d'erreur de qualification.</p>
+<table>
+<thead>
+<tr>
+<th>Terme</th>
+<th>Définition</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Donnée à caractère personnel</td>
+<td>Toute information relative à une personne physique identifiée ou identifiable</td>
+<td>Nom, IP, email, ADN, photo</td>
+</tr>
+<tr>
+<td>Traitement</td>
+<td>Toute opération sur des données</td>
+<td>Collecte, stockage, transmission, suppression</td>
+</tr>
+<tr>
+<td>Responsable du traitement</td>
+<td>Personne qui détermine finalités et moyens</td>
+<td>Entreprise cliente</td>
+</tr>
+<tr>
+<td>Sous-traitant</td>
+<td>Personne qui traite pour le responsable</td>
+<td>Hébergeur, prestataire SaaS</td>
+</tr>
+<tr>
+<td>Personne concernée</td>
+<td>La personne dont les données sont traitées</td>
+<td>Client, salarié, utilisateur</td>
+</tr>
+<tr>
+<td>Violation de données</td>
+<td>Atteinte à confidentialité, intégrité, disponibilité</td>
+<td>Fuite, perte, chiffrement</td>
+</tr>
+<tr>
+<td>Autorité de contrôle</td>
+<td>Autorité nationale (CNIL en France)</td>
+<td>CNIL</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    A[Personne concernée&lt;br&gt;Salarié de ARTECH] --&gt;|Ses données| B[Responsable&lt;br&gt;traitement&lt;br&gt;ARTECH SAS]
+    B --&gt;|Confie| C[Sous-traitant&lt;br&gt;OVH SAS]
+    C --&gt;|Stocke| D[Données]
+    E[Autorité contrôle&lt;br&gt;CNIL] -.-&gt;|Supervise| B
+    E -.-&gt;|Supervise| C
+    F[Délégué Protection&lt;br&gt;Données DPO] -.-&gt;|Conseille| B</code></pre>
+<h3 id="14-cas-typiques-en-forensic">1.4 Cas typiques en forensic<a class="headerlink" href="#14-cas-typiques-en-forensic" title="Permanent link">&para;</a></h3>
+<p>Toute investigation forensic implique presque inévitablement le RGPD. Voici les cas fréquents.</p>
+<table>
+<thead>
+<tr>
+<th>Situation forensic</th>
+<th>Implication RGPD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acquisition mémoire d'un poste utilisateur</td>
+<td>Données personnelles dans la RAM (sessions, cookies, emails)</td>
+</tr>
+<tr>
+<td>Acquisition disque d'un serveur web</td>
+<td>Base de clients, logs IP, sessions</td>
+</tr>
+<tr>
+<td>Analyse de logs de connexion</td>
+<td>Adresses IP = données personnelles selon CJUE</td>
+</tr>
+<tr>
+<td>Analyse de boîte mail</td>
+<td>Données très sensibles</td>
+</tr>
+<tr>
+<td>Récupération de fichiers supprimés</td>
+<td>Toutes les données récupérées sont des DCP</td>
+</tr>
+<tr>
+<td>Investigation sur smartphone</td>
+<td>Photos, contacts, géolocalisation</td>
+</tr>
+<tr>
+<td>Analyse réseau Wireshark</td>
+<td>Trafic = données personnelles</td>
+</tr>
+</tbody>
+</table>
+<p>Dans <strong>chacun de ces cas</strong>, vous traitez des données personnelles au sens du RGPD et tombez sous des obligations.</p>
+<hr />
+<h2 id="2-article-32-securite-du-traitement">2. Article 32 - Sécurité du traitement<a class="headerlink" href="#2-article-32-securite-du-traitement" title="Permanent link">&para;</a></h2>
+<h3 id="21-texte-integral">2.1 Texte intégral<a class="headerlink" href="#21-texte-integral" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Article 32 - Sécurité du traitement</strong></p>
+<p><em>1. Compte tenu de l'état des connaissances, des coûts de mise en œuvre et de la nature, de la portée, du contexte et des finalités du traitement ainsi que des risques, dont le degré de probabilité et de gravité varie, pour les droits et libertés des personnes physiques, le responsable du traitement et le sous-traitant mettent en œuvre les mesures techniques et organisationnelles appropriées afin de garantir un niveau de sécurité adapté au risque, y compris entre autres, selon les besoins :</em></p>
+<p><em>a) la pseudonymisation et le chiffrement des données à caractère personnel ;</em></p>
+<p><em>b) des moyens permettant de garantir la confidentialité, l'intégrité, la disponibilité et la résilience constantes des systèmes et des services de traitement ;</em></p>
+<p><em>c) des moyens permettant de rétablir la disponibilité des données à caractère personnel et l'accès à celles-ci dans des délais appropriés en cas d'incident physique ou technique ;</em></p>
+<p><em>d) une procédure visant à tester, à analyser et à évaluer régulièrement l'efficacité des mesures techniques et organisationnelles pour assurer la sécurité du traitement.</em></p>
+<p><em>2. Lors de l'évaluation du niveau de sécurité approprié, il est tenu compte en particulier des risques que présente le traitement, résultant notamment de la destruction, de la perte, de l'altération, de la divulgation non autorisée de données à caractère personnel transmises, conservées ou traitées d'une autre manière, ou de l'accès non autorisé à de telles données, de manière accidentelle ou illicite.</em></p>
+</blockquote>
+<h3 id="22-decomposition-de-larticle-32">2.2 Décomposition de l'article 32<a class="headerlink" href="#22-decomposition-de-larticle-32" title="Permanent link">&para;</a></h3>
+<p>L'article 32 impose <strong>quatre obligations de moyens</strong> (alinéa 1, points a à d) et un <strong>principe d'évaluation du risque</strong> (alinéa 2).</p>
+<pre class="mermaid"><code>flowchart TB
+    A[Article 32 RGPD&lt;br&gt;Sécurité du traitement] --&gt; B[Obligations de moyens]
+    A --&gt; C[Évaluation du risque]
+
+    B --&gt; B1[a Pseudonymisation et chiffrement]
+    B --&gt; B2[b Confidentialité Intégrité&lt;br&gt;Disponibilité Résilience CIDR]
+    B --&gt; B3[c Continuité d'activité&lt;br&gt;Sauvegardes restauration]
+    B --&gt; B4[d Tests et audits réguliers]
+
+    C --&gt; C1[Risques destruction perte&lt;br&gt;altération divulgation]
+    C --&gt; C2[Probabilité et gravité&lt;br&gt;pour droits et libertés]</code></pre>
+<h3 id="23-la-triade-cidr-alinea-1b">2.3 La triade CIDR (alinéa 1.b)<a class="headerlink" href="#23-la-triade-cidr-alinea-1b" title="Permanent link">&para;</a></h3>
+<p>L'article 32 introduit explicitement la <strong>CIDR</strong> (Confidentialité, Intégrité, Disponibilité, Résilience). C'est un <strong>standard de sécurité</strong> que vous évaluerez systématiquement.</p>
+<table>
+<thead>
+<tr>
+<th>Lettre</th>
+<th>Définition</th>
+<th>Mesure typique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**C**onfidentialité</td>
+<td>Seules les personnes autorisées accèdent</td>
+<td>Chiffrement, contrôle d'accès</td>
+</tr>
+<tr>
+<td>**I**ntégrité</td>
+<td>Les données ne sont pas altérées</td>
+<td>Hash, signatures, journaux</td>
+</tr>
+<tr>
+<td>**D**isponibilité</td>
+<td>Les données sont accessibles quand nécessaire</td>
+<td>Sauvegardes, redondance</td>
+</tr>
+<tr>
+<td>**R**ésilience</td>
+<td>Le système se rétablit après incident</td>
+<td>PRA, PCA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-pseudonymisation-et-chiffrement-alinea-1a">2.4 Pseudonymisation et chiffrement (alinéa 1.a)<a class="headerlink" href="#24-pseudonymisation-et-chiffrement-alinea-1a" title="Permanent link">&para;</a></h3>
+<p>L'article 32 cite explicitement <strong>deux techniques</strong> :</p>
+<p><strong>Pseudonymisation</strong> : remplacer les identifiants directs par des pseudonymes, de sorte que les données ne soient plus rattachables à une personne sans information complémentaire conservée séparément.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Donnée brute      : &quot;Alain Guillon a acheté pour 500€ le 15/03/2026&quot;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Pseudonymisée     : &quot;USER_X7K2 a acheté pour 500€ le 15/03/2026&quot;
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                    + table de correspondance USER_X7K2 = Alain Guillon
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                    (conservée séparément, accès limité)
+</span></code></pre></div>
+<p><strong>Chiffrement</strong> : transformation cryptographique rendant les données illisibles sans clé.</p>
+<table>
+<thead>
+<tr>
+<th>Type de chiffrement</th>
+<th>Cas d'usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chiffrement au repos</td>
+<td>Disques, sauvegardes (LUKS, BitLocker, FileVault)</td>
+</tr>
+<tr>
+<td>Chiffrement en transit</td>
+<td>Communications (TLS, VPN)</td>
+</tr>
+<tr>
+<td>Chiffrement de bout en bout</td>
+<td>Messageries (Signal, WhatsApp)</td>
+</tr>
+<tr>
+<td>Chiffrement applicatif</td>
+<td>Champs spécifiques en base (carte bancaire)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="25-tests-et-audits-alinea-1d">2.5 Tests et audits (alinéa 1.d)<a class="headerlink" href="#25-tests-et-audits-alinea-1d" title="Permanent link">&para;</a></h3>
+<p>L'article 32 impose explicitement de <strong>tester régulièrement l'efficacité</strong> des mesures. C'est précisément ce qui ouvre le marché des <strong>audits forensic et tests d'intrusion</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Type de test</th>
+<th>Fréquence recommandée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audit organisationnel</td>
+<td>Annuel</td>
+</tr>
+<tr>
+<td>Test d'intrusion externe</td>
+<td>Annuel ou semestriel</td>
+</tr>
+<tr>
+<td>Test d'intrusion interne</td>
+<td>Annuel</td>
+</tr>
+<tr>
+<td>Audit de code applicatif</td>
+<td>À chaque release majeure</td>
+</tr>
+<tr>
+<td>Exercice de restauration sauvegardes</td>
+<td>Trimestriel</td>
+</tr>
+<tr>
+<td>Exercice de gestion de crise</td>
+<td>Annuel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="26-articulation-avec-nis2">2.6 Articulation avec NIS2<a class="headerlink" href="#26-articulation-avec-nis2" title="Permanent link">&para;</a></h3>
+<p>L'article 32 RGPD et l'article 21 NIS2 (chapitre 1.7) se <strong>chevauchent largement</strong>. L'entité assujettie aux deux doit respecter le plus exigeant.</p>
+<table>
+<thead>
+<tr>
+<th>Sujet</th>
+<th>RGPD article 32</th>
+<th>NIS2 article 21</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Périmètre</td>
+<td>Données personnelles</td>
+<td>Tout le SI</td>
+</tr>
+<tr>
+<td>Obligation de moyens</td>
+<td>Oui (CIDR)</td>
+<td>Oui (10 mesures)</td>
+</tr>
+<tr>
+<td>Précision technique</td>
+<td>Générale</td>
+<td>Plus prescriptive</td>
+</tr>
+<tr>
+<td>Sanction</td>
+<td>Jusqu'à 2% CA / 10M€</td>
+<td>Jusqu'à 2% CA / 10M€</td>
+</tr>
+<tr>
+<td>Compatibilité</td>
+<td>Cumulatif</td>
+<td>Cumulatif</td>
+</tr>
+</tbody>
+</table>
+<h3 id="27-sanctions">2.7 Sanctions<a class="headerlink" href="#27-sanctions" title="Permanent link">&para;</a></h3>
+<p>Le manquement à l'article 32 est sanctionné par l'<strong>article 83.4.a du RGPD</strong> : amende administrative jusqu'à <strong>10 000 000 €</strong> ou <strong>2% du chiffre d'affaires annuel mondial total</strong>, le montant le plus élevé étant retenu.</p>
+<hr />
+<h2 id="3-article-33-notification-a-lautorite-de-controle">3. Article 33 - Notification à l'autorité de contrôle<a class="headerlink" href="#3-article-33-notification-a-lautorite-de-controle" title="Permanent link">&para;</a></h2>
+<h3 id="31-texte-integral">3.1 Texte intégral<a class="headerlink" href="#31-texte-integral" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Article 33 - Notification à l'autorité de contrôle d'une violation de données à caractère personnel</strong></p>
+<p><em>1. En cas de violation de données à caractère personnel, le responsable du traitement en notifie la violation en question à l'autorité de contrôle compétente conformément à l'article 55, dans les meilleurs délais et, si possible, 72 heures au plus tard après en avoir pris connaissance, à moins que la violation en question ne soit pas susceptible d'engendrer un risque pour les droits et libertés des personnes physiques. Lorsque la notification à l'autorité de contrôle n'a pas lieu dans les 72 heures, elle est accompagnée des motifs du retard.</em></p>
+<p><em>2. Le sous-traitant notifie au responsable du traitement toute violation de données à caractère personnel dans les meilleurs délais après en avoir pris connaissance.</em></p>
+<p><em>3. La notification visée au paragraphe 1 doit, à tout le moins :</em></p>
+<p><em>a) décrire la nature de la violation de données à caractère personnel y compris, si possible, les catégories et le nombre approximatif de personnes concernées par la violation et les catégories et le nombre approximatif d'enregistrements de données à caractère personnel concernés ;</em></p>
+<p><em>b) communiquer le nom et les coordonnées du délégué à la protection des données ou d'un autre point de contact auprès duquel des informations supplémentaires peuvent être obtenues ;</em></p>
+<p><em>c) décrire les conséquences probables de la violation de données à caractère personnel ;</em></p>
+<p><em>d) décrire les mesures prises ou que le responsable du traitement propose de prendre pour remédier à la violation de données à caractère personnel, y compris, le cas échéant, les mesures pour en atténuer les éventuelles conséquences négatives.</em></p>
+<p><em>4. Si, et dans la mesure où, il n'est pas possible de fournir toutes les informations en même temps, les informations peuvent être communiquées de manière échelonnée sans autre retard indu.</em></p>
+<p><em>5. Le responsable du traitement documente toute violation de données à caractère personnel, en indiquant les faits concernant la violation des données à caractère personnel, ses effets et les mesures prises pour y remédier. La documentation ainsi constituée permet à l'autorité de contrôle de vérifier le respect du présent article.</em></p>
+</blockquote>
+<h3 id="32-notion-de-violation-de-donnees">3.2 Notion de "violation de données"<a class="headerlink" href="#32-notion-de-violation-de-donnees" title="Permanent link">&para;</a></h3>
+<p>Le RGPD définit la violation à l'<strong>article 4.12</strong> : <em>"une violation de la sécurité entraînant, de manière accidentelle ou illicite, la destruction, la perte, l'altération, la divulgation non autorisée de données à caractère personnel transmises, conservées ou traitées d'une autre manière, ou l'accès non autorisé à de telles données."</em></p>
+<p>Cette définition englobe <strong>trois types</strong> de violations correspondant à la triade CIA.</p>
+<pre class="mermaid"><code>flowchart TB
+    A[Violation de données&lt;br&gt;article 4.12 RGPD]
+    A --&gt; B[Confidentialité&lt;br&gt;Divulgation ou accès non autorisé]
+    A --&gt; C[Intégrité&lt;br&gt;Altération non autorisée]
+    A --&gt; D[Disponibilité&lt;br&gt;Destruction ou perte&lt;br&gt;même temporaire]
+
+    B --&gt; B1[Vol de base de données&lt;br&gt;Email à mauvais destinataire&lt;br&gt;Fuite documents]
+    C --&gt; C1[Modification frauduleuse&lt;br&gt;Altération comptable&lt;br&gt;Empoisonnement données]
+    D --&gt; D1[Ransomware&lt;br&gt;Suppression accidentelle&lt;br&gt;Panne avec perte données&lt;br&gt;Destruction matérielle]</code></pre>
+<h3 id="33-cas-pratiques-de-qualification">3.3 Cas pratiques de qualification<a class="headerlink" href="#33-cas-pratiques-de-qualification" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Type de violation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ransomware chiffrant les bases de données</td>
+<td>Disponibilité (et possiblement confidentialité si exfiltration)</td>
+</tr>
+<tr>
+<td>Email envoyé à mauvais destinataire</td>
+<td>Confidentialité</td>
+</tr>
+<tr>
+<td>Vol d'ordinateur portable contenant des données</td>
+<td>Confidentialité</td>
+</tr>
+<tr>
+<td>Disque dur défaillant sans sauvegarde</td>
+<td>Disponibilité</td>
+</tr>
+<tr>
+<td>Modification frauduleuse d'écritures comptables</td>
+<td>Intégrité</td>
+</tr>
+<tr>
+<td>Hacking d'un site web et défacement</td>
+<td>Intégrité (potentiellement confidentialité)</td>
+</tr>
+<tr>
+<td>Phishing aboutissant au vol de credentials</td>
+<td>Préparatoire à confidentialité</td>
+</tr>
+<tr>
+<td>Erreur de configuration exposant un bucket S3</td>
+<td>Confidentialité (même sans accès prouvé)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="34-le-delai-de-72-heures">3.4 Le délai de 72 heures<a class="headerlink" href="#34-le-delai-de-72-heures" title="Permanent link">&para;</a></h3>
+<p>Le délai est compté <strong>à partir de la prise de connaissance</strong>, pas à partir de la survenance des faits. C'est une distinction cruciale.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Faits de violation&lt;br&gt;10 mars 03:14] --&gt;|Période ignorée| B[Découverte&lt;br&gt;17 mars 07:30]
+    B --&gt;|Délai 72h| C[Échéance&lt;br&gt;20 mars 07:30]
+    B -.-&gt;|Documentation| D[Registre violations]</code></pre>
+<p>Le délai de 72h commence le <strong>17 mars 07:30</strong> dans cet exemple, pas le 10 mars.</p>
+<p><strong>Seuils horaires à mémoriser</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Échéance</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H+0</td>
+<td>Découverte</td>
+</tr>
+<tr>
+<td>H+1 à H+12</td>
+<td>Qualification, première analyse, mobilisation forensic</td>
+</tr>
+<tr>
+<td>H+12 à H+48</td>
+<td>Approfondissement, premières conclusions</td>
+</tr>
+<tr>
+<td>H+48 à H+72</td>
+<td>Rédaction notification, validation, envoi</td>
+</tr>
+<tr>
+<td>H+72</td>
+<td>Échéance impérative</td>
+</tr>
+</tbody>
+</table>
+<h3 id="35-cas-ou-la-notification-nest-pas-requise">3.5 Cas où la notification n'est pas requise<a class="headerlink" href="#35-cas-ou-la-notification-nest-pas-requise" title="Permanent link">&para;</a></h3>
+<p>L'article 33 paragraphe 1 prévoit une <strong>exception</strong> : la notification n'est pas obligatoire si la violation <strong>n'est pas susceptible d'engendrer un risque pour les droits et libertés</strong> des personnes.</p>
+<pre class="mermaid"><code>flowchart TB
+    A[Violation détectée] --&gt; B{Risque pour droits&lt;br&gt;et libertés ?}
+    B --&gt;|Aucun risque| C[Pas de notification CNIL&lt;br&gt;Documenter dans registre]
+    B --&gt;|Risque| D[Notification CNIL&lt;br&gt;sous 72 heures]
+    B --&gt;|Risque élevé| E[Notification CNIL&lt;br&gt;+ Communication personnes&lt;br&gt;article 34]</code></pre>
+<p>Exemples de violations sans risque significatif :</p>
+<table>
+<thead>
+<tr>
+<th>Cas</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Email envoyé à un destinataire interne erroné</td>
+<td>Pas de divulgation externe, données restent dans l'entreprise</td>
+</tr>
+<tr>
+<td>Perte d'un disque dur correctement chiffré (clé non compromise)</td>
+<td>Données illisibles</td>
+</tr>
+<tr>
+<td>Suppression accidentelle de données disponibles en sauvegarde</td>
+<td>Pas d'impact réel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="36-construction-de-la-notification">3.6 Construction de la notification<a class="headerlink" href="#36-construction-de-la-notification" title="Permanent link">&para;</a></h3>
+<p>L'article 33 paragraphe 3 liste les <strong>éléments minimaux</strong> de la notification. Voici la décomposition.</p>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Article RGPD</th>
+<th>Source forensic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nature de la violation</td>
+<td>33.3.a</td>
+<td>Rapport forensic phase qualification</td>
+</tr>
+<tr>
+<td>Catégories de personnes</td>
+<td>33.3.a</td>
+<td>Inventaire des bases impactées</td>
+</tr>
+<tr>
+<td>Nombre approximatif personnes</td>
+<td>33.3.a</td>
+<td>Comptage SQL ou estimation</td>
+</tr>
+<tr>
+<td>Catégories de données</td>
+<td>33.3.a</td>
+<td>Schéma des bases affectées</td>
+</tr>
+<tr>
+<td>Nombre approximatif enregistrements</td>
+<td>33.3.a</td>
+<td>Volumétrie estimée</td>
+</tr>
+<tr>
+<td>Coordonnées DPO ou contact</td>
+<td>33.3.b</td>
+<td>Annuaire interne</td>
+</tr>
+<tr>
+<td>Conséquences probables</td>
+<td>33.3.c</td>
+<td>Analyse du risque</td>
+</tr>
+<tr>
+<td>Mesures prises</td>
+<td>33.3.d</td>
+<td>Plan de remédiation forensic</td>
+</tr>
+<tr>
+<td>Mesures d'atténuation</td>
+<td>33.3.d</td>
+<td>Plan correctif</td>
+</tr>
+</tbody>
+</table>
+<h3 id="37-modalites-pratiques-en-france">3.7 Modalités pratiques en France<a class="headerlink" href="#37-modalites-pratiques-en-france" title="Permanent link">&para;</a></h3>
+<p>En France, la notification se fait via le <strong>téléservice CNIL</strong> : <code>notifications.cnil.fr</code>.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Violation détectée] --&gt; B[Création compte CNIL&lt;br&gt;si pas existant]
+    B --&gt; C[Connexion notifications.cnil.fr]
+    C --&gt; D[Saisie formulaire&lt;br&gt;champs obligatoires]
+    D --&gt; E[Soumission]
+    E --&gt; F[Numéro de référence&lt;br&gt;unique attribué]
+    F --&gt; G[Conservation preuve&lt;br&gt;dans registre interne]</code></pre>
+<p>Le formulaire CNIL comporte une <strong>vingtaine de champs</strong> structurés selon l'article 33. Vous pouvez sauvegarder en brouillon et compléter par étapes.</p>
+<h3 id="38-le-sous-traitant-article-33-paragraphe-2">3.8 Le sous-traitant - Article 33 paragraphe 2<a class="headerlink" href="#38-le-sous-traitant-article-33-paragraphe-2" title="Permanent link">&para;</a></h3>
+<p>Si vous êtes sous-traitant (par exemple, hébergeur de données pour un client) et que la violation se produit dans votre périmètre, vous devez <strong>notifier le responsable du traitement</strong> dans les meilleurs délais.</p>
+<p>C'est ensuite le responsable qui notifie la CNIL. Vous n'avez <strong>pas</strong> à notifier directement la CNIL en tant que sous-traitant.</p>
+<p><strong>Implication contractuelle</strong> : votre contrat de sous-traitance doit contenir une <strong>clause de notification rapide</strong> (généralement 24 heures) pour permettre au responsable de respecter le délai de 72h vis-à-vis de la CNIL.</p>
+<h3 id="39-le-registre-des-violations">3.9 Le registre des violations<a class="headerlink" href="#39-le-registre-des-violations" title="Permanent link">&para;</a></h3>
+<p>L'article 33 paragraphe 5 impose la <strong>documentation</strong> de toute violation, même celles non notifiées. Ce registre est tenu par le DPO ou le responsable.</p>
+<p>Modèle de registre :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>REGISTRE DES VIOLATIONS DE DONNÉES PERSONNELLES
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>================================================
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>ENTRÉE N° : 2026-014
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Date découverte    : 17/03/2026 07:30 UTC
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Date faits         : 10/03/2026 (estimation)
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Nature             : Confidentialité + Disponibilité (ransomware)
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Catégories         : Clients particuliers, salariés
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Nombre personnes   : ~1 247 (clients) + 42 (salariés)
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Catégories données : Identité, IBAN, données santé partielles, RH
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Nombre enregistr.  : ~14 000 enregistrements
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Conséquences       : Usurpation identité, fraude bancaire, intimité
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>Notification CNIL  : Oui, ref. CNIL-2026-XYZ du 20/03/2026
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Communication      : Oui, courrier individuel envoyé le 25/03/2026
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>Mesures prises     : Isolation, restauration, dépôt plainte, audit complet
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>Statut             : Clos le 30/04/2026
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>Signataire DPO : ________________________
+</span></code></pre></div>
+<hr />
+<h2 id="4-article-34-communication-a-la-personne-concernee">4. Article 34 - Communication à la personne concernée<a class="headerlink" href="#4-article-34-communication-a-la-personne-concernee" title="Permanent link">&para;</a></h2>
+<h3 id="41-texte-integral">4.1 Texte intégral<a class="headerlink" href="#41-texte-integral" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Article 34 - Communication à la personne concernée d'une violation de données à caractère personnel</strong></p>
+<p><em>1. Lorsqu'une violation de données à caractère personnel est susceptible d'engendrer un risque élevé pour les droits et libertés d'une personne physique, le responsable du traitement communique la violation de données à caractère personnel à la personne concernée dans les meilleurs délais.</em></p>
+<p><em>2. La communication à la personne concernée visée au paragraphe 1 du présent article décrit, en des termes clairs et simples, la nature de la violation de données à caractère personnel et contient au moins les informations et mesures visées à l'article 33, paragraphe 3, points b), c) et d).</em></p>
+<p><em>3. La communication à la personne concernée visée au paragraphe 1 n'est pas nécessaire si l'une ou l'autre des conditions suivantes est remplie :</em></p>
+<p><em>a) le responsable du traitement a mis en œuvre les mesures de protection techniques et organisationnelles appropriées et ces dernières ont été appliquées aux données à caractère personnel affectées par ladite violation, en particulier les mesures qui rendent les données à caractère personnel incompréhensibles pour toute personne qui n'est pas autorisée à y avoir accès, telles que le chiffrement ;</em></p>
+<p><em>b) le responsable du traitement a pris des mesures ultérieures qui garantissent que le risque élevé pour les droits et libertés des personnes concernées visé au paragraphe 1 n'est plus susceptible de se matérialiser ;</em></p>
+<p><em>c) elle exigerait des efforts disproportionnés. Dans ce cas, il est plutôt procédé à une communication publique ou à une mesure similaire permettant aux personnes concernées d'être informées de manière tout aussi efficace.</em></p>
+</blockquote>
+<h3 id="42-la-distinction-risque-vs-risque-eleve">4.2 La distinction risque vs risque élevé<a class="headerlink" href="#42-la-distinction-risque-vs-risque-eleve" title="Permanent link">&para;</a></h3>
+<p>L'article 33 (notification CNIL) se déclenche dès qu'il y a <strong>risque</strong>. L'article 34 (communication aux personnes) se déclenche au <strong>risque élevé</strong>. Cette distinction est cruciale.</p>
+<pre class="mermaid"><code>flowchart TB
+    A[Violation] --&gt; B{Évaluation&lt;br&gt;du risque}
+    B --&gt;|Pas de risque| C[Pas de notification&lt;br&gt;Pas de communication&lt;br&gt;Documenter dans registre]
+    B --&gt;|Risque| D[Notification CNIL article 33&lt;br&gt;sous 72h]
+    B --&gt;|Risque élevé| E[Notification CNIL article 33&lt;br&gt;+ Communication personnes article 34]</code></pre>
+<h3 id="43-criteres-du-risque-eleve">4.3 Critères du risque élevé<a class="headerlink" href="#43-criteres-du-risque-eleve" title="Permanent link">&para;</a></h3>
+<p>La CNIL et le CEPD (Comité européen de la protection des données) ont défini des critères pour qualifier le risque élevé.</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Indicateurs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type de données</td>
+<td>Données sensibles (santé, religion, orientation sexuelle, données enfants)</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Grand nombre de personnes concernées</td>
+</tr>
+<tr>
+<td>Identifiabilité</td>
+<td>Données directement identifiantes (nom + adresse + téléphone)</td>
+</tr>
+<tr>
+<td>Possibilité d'usurpation</td>
+<td>Combinaison nom + date naissance + IBAN</td>
+</tr>
+<tr>
+<td>Vulnérabilité des personnes</td>
+<td>Mineurs, personnes âgées, victimes</td>
+</tr>
+<tr>
+<td>Caractère permanent</td>
+<td>Impossibilité de remédier (ex : ADN)</td>
+</tr>
+<tr>
+<td>Conséquences potentielles</td>
+<td>Discrimination, vol identité, dommage financier</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-cas-ou-la-communication-nest-pas-requise">4.4 Cas où la communication n'est pas requise<a class="headerlink" href="#44-cas-ou-la-communication-nest-pas-requise" title="Permanent link">&para;</a></h3>
+<p>L'article 34 paragraphe 3 prévoit <strong>trois exceptions</strong> à l'obligation de communication.</p>
+<table>
+<thead>
+<tr>
+<th>Exception</th>
+<th>Cas concret</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mesures de protection appropriées (chiffrement)</td>
+<td>Disque chiffré perdu avec clé non compromise</td>
+</tr>
+<tr>
+<td>Mesures ultérieures évitant la matérialisation</td>
+<td>Réinitialisation forcée de tous les mots de passe</td>
+</tr>
+<tr>
+<td>Efforts disproportionnés</td>
+<td>Communication publique alternative possible</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-modalites-pratiques">4.5 Modalités pratiques<a class="headerlink" href="#45-modalites-pratiques" title="Permanent link">&para;</a></h3>
+<p>La communication doit être faite <strong>dans les meilleurs délais</strong> (sans délai précis). Elle doit être :</p>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>Précision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claire et simple</td>
+<td>Compréhensible par non-techniques</td>
+</tr>
+<tr>
+<td>Individuelle de préférence</td>
+<td>Email, courrier, téléphone</td>
+</tr>
+<tr>
+<td>Publique si efforts disproportionnés</td>
+<td>Communiqué de presse, page web dédiée</td>
+</tr>
+<tr>
+<td>Documentée</td>
+<td>Conservation des preuves d'envoi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="46-modele-de-communication">4.6 Modèle de communication<a class="headerlink" href="#46-modele-de-communication" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[Logo entreprise]
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>[Date]
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Madame, Monsieur,
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Nous tenons à vous informer d&#39;un événement de sécurité affectant
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>certaines de vos données personnelles.
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>NATURE DE L&#39;INCIDENT
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>Le 10 mars 2026, notre système d&#39;information a fait l&#39;objet d&#39;une
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>attaque informatique. Nous avons découvert cet incident le 17 mars 2026.
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>DONNÉES CONCERNÉES
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>Les données vous concernant susceptibles d&#39;avoir été touchées sont :
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>- Votre identité (nom, prénom)
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>- Votre adresse postale
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>- Votre adresse email
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>- Vos coordonnées bancaires (IBAN)
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>CONSÉQUENCES POSSIBLES
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>Cette violation pourrait être exploitée par des acteurs malveillants
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>à des fins de :
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>- Tentatives de phishing ciblé
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>- Tentatives d&#39;usurpation d&#39;identité
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>- Tentatives de fraude bancaire
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>MESURES QUE NOUS AVONS PRISES
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>- Isolement immédiat des systèmes concernés
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>- Restauration depuis sauvegardes saines
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>- Mandat d&#39;un cabinet forensic indépendant
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>- Dépôt de plainte auprès des autorités
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>- Notification à la CNIL le 20 mars 2026
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>MESURES QUE NOUS VOUS RECOMMANDONS
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>- Surveiller vos relevés bancaires dans les 6 prochains mois
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>- Méfiance accrue face aux emails et appels demandant des informations
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>- Possibilité de demander à votre banque la mise en surveillance de
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>  votre compte
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>- En cas de prélèvement frauduleux, contacter immédiatement votre
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>  banque et déposer plainte
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>CONTACT
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>Pour toute question, vous pouvez contacter notre DPO :
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>- Email : dpo@artech.fr
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>- Téléphone : 01 XX XX XX XX
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>- Courrier : ARTECH SAS, Service DPO, [adresse]
+</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>
+</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>VOS DROITS
+</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>Conformément au RGPD, vous disposez d&#39;un droit d&#39;accès,
+</span><span id="__span-2-50"><a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>de rectification, d&#39;effacement et d&#39;opposition concernant vos données.
+</span><span id="__span-2-51"><a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>
+</span><span id="__span-2-52"><a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>Nous présentons nos plus sincères excuses pour le préjudice causé
+</span><span id="__span-2-53"><a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a>et restons mobilisés pour vous accompagner.
+</span><span id="__span-2-54"><a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>
+</span><span id="__span-2-55"><a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a>[Signature]
+</span><span id="__span-2-56"><a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a>Hélène Lefebvre
+</span><span id="__span-2-57"><a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a>Directrice générale ARTECH SAS
+</span></code></pre></div>
+<hr />
+<h2 id="5-procedure-complete-de-gestion-dune-violation">5. Procédure complète de gestion d'une violation<a class="headerlink" href="#5-procedure-complete-de-gestion-dune-violation" title="Permanent link">&para;</a></h2>
+<h3 id="51-workflow-operationnel">5.1 Workflow opérationnel<a class="headerlink" href="#51-workflow-operationnel" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    A[H+0 Détection violation] --&gt; B[H+1 Mobilisation équipe]
+    B --&gt; C[H+2 Préservation preuves&lt;br&gt;arrêt propagation]
+    C --&gt; D[H+4 Investigation forensic]
+    D --&gt; E[H+8 Premières conclusions]
+    E --&gt; F{Risque pour personnes ?}
+    F --&gt;|Non| G[Documenter registre&lt;br&gt;Pas de notification]
+    F --&gt;|Risque| H[Préparer notification CNIL]
+    F --&gt;|Risque élevé| I[Préparer notification CNIL&lt;br&gt;+ Préparer communication personnes]
+    H --&gt; J[H+72 Notification CNIL]
+    I --&gt; J
+    I --&gt; K[H+72 à H+10j&lt;br&gt;Communication personnes]
+    J --&gt; L[Suivi action correctrice]
+    K --&gt; L
+    L --&gt; M[Rapport final&lt;br&gt;1 mois post-incident]</code></pre>
+<h3 id="52-role-de-lanalyste-forensic-dans-cette-chaine">5.2 Rôle de l'analyste forensic dans cette chaîne<a class="headerlink" href="#52-role-de-lanalyste-forensic-dans-cette-chaine" title="Permanent link">&para;</a></h3>
+<p>Vous êtes <strong>central</strong> dans cette procédure. Voici votre apport à chaque étape.</p>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Apport forensic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H+1 Mobilisation</td>
+<td>Activation de votre intervention</td>
+</tr>
+<tr>
+<td>H+2 Préservation</td>
+<td>Acquisitions mémoire et disque, hash, scellés</td>
+</tr>
+<tr>
+<td>H+4 Investigation</td>
+<td>Analyse Volatility, Autopsy, timeline</td>
+</tr>
+<tr>
+<td>H+8 Premières conclusions</td>
+<td>Périmètre des données touchées, vecteur, durée</td>
+</tr>
+<tr>
+<td>H+24 Approfondissement</td>
+<td>Identification des bases impactées, volumétrie</td>
+</tr>
+<tr>
+<td>H+48 Consolidation</td>
+<td>Évaluation finale du risque</td>
+</tr>
+<tr>
+<td>H+72 Notification CNIL</td>
+<td>Données factuelles pour le formulaire</td>
+</tr>
+<tr>
+<td>Communication personnes</td>
+<td>Soutien rédactionnel sur les conséquences</td>
+</tr>
+<tr>
+<td>Rapport 1 mois</td>
+<td>Rapport complet exploitable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-articulation-forensic-dpo-direction">5.3 Articulation forensic - DPO - Direction<a class="headerlink" href="#53-articulation-forensic-dpo-direction" title="Permanent link">&para;</a></h3>
+<p>Trois acteurs internes au client, plus vous comme prestataire externe, doivent se coordonner.</p>
+<pre class="mermaid"><code>flowchart TB
+    A[Direction générale] --&gt;|Décide| B[Plan de réponse]
+    B --&gt; C[DPO interne ou externe]
+    C --&gt;|Coordonne| D[Notification CNIL]
+    C --&gt;|Coordonne| E[Communication personnes]
+    F[Vous - Forensic externe] --&gt;|Fournit| G[Rapport technique]
+    G -.-&gt;|Alimente| D
+    G -.-&gt;|Alimente| E
+    F -.-&gt;|Conseille| C
+    F -.-&gt;|Conseille| A</code></pre>
+<hr />
+<h2 id="6-sanctions-et-jurisprudence-cnil">6. Sanctions et jurisprudence CNIL<a class="headerlink" href="#6-sanctions-et-jurisprudence-cnil" title="Permanent link">&para;</a></h2>
+<h3 id="61-regime-des-sanctions">6.1 Régime des sanctions<a class="headerlink" href="#61-regime-des-sanctions" title="Permanent link">&para;</a></h3>
+<p>Les sanctions du RGPD sont définies par l'<strong>article 83</strong>. Elles se répartissent en deux catégories.</p>
+<table>
+<thead>
+<tr>
+<th>Catégorie</th>
+<th>Plafond</th>
+<th>Articles concernés</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sanctions courantes</td>
+<td>10 M€ ou 2% CA mondial</td>
+<td>Articles 8, 11, 25-39, 42, 43</td>
+</tr>
+<tr>
+<td>Sanctions élevées</td>
+<td>20 M€ ou 4% CA mondial</td>
+<td>Articles 5-9, 12-22, 44-49</td>
+</tr>
+</tbody>
+</table>
+<p>Les articles 32, 33, 34 relèvent du <strong>plafond de 10 M€ / 2% CA</strong>.</p>
+<h3 id="62-criteres-de-modulation">6.2 Critères de modulation<a class="headerlink" href="#62-criteres-de-modulation" title="Permanent link">&para;</a></h3>
+<p>L'article 83 paragraphe 2 liste 11 critères de modulation des sanctions :</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Précision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nature, gravité, durée de la violation</td>
+<td>Combien de temps les données sont restées exposées</td>
+</tr>
+<tr>
+<td>Caractère intentionnel ou non</td>
+<td>Erreur vs négligence vs acte volontaire</td>
+</tr>
+<tr>
+<td>Mesures prises pour atténuer</td>
+<td>Réactivité, qualité du forensic</td>
+</tr>
+<tr>
+<td>Degré de responsabilité</td>
+<td>Responsable seul ou avec sous-traitant</td>
+</tr>
+<tr>
+<td>Antériorité</td>
+<td>Premier manquement ou récidive</td>
+</tr>
+<tr>
+<td>Coopération</td>
+<td>Avec la CNIL pendant l'enquête</td>
+</tr>
+<tr>
+<td>Catégories de données</td>
+<td>Sensibles ou non</td>
+</tr>
+<tr>
+<td>Notification</td>
+<td>Spontanée ou suite à plainte tierce</td>
+</tr>
+<tr>
+<td>Respect d'un code de conduite</td>
+<td>Adhésion à des codes sectoriels</td>
+</tr>
+<tr>
+<td>Bénéfices financiers tirés</td>
+<td>De la violation</td>
+</tr>
+<tr>
+<td>Toute autre circonstance</td>
+<td>Aggravante ou atténuante</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-sanctions-notables-2024-2026">6.3 Sanctions notables 2024-2026<a class="headerlink" href="#63-sanctions-notables-2024-2026" title="Permanent link">&para;</a></h3>
+<p>Pour vous donner des ordres de grandeur, voici quelques sanctions CNIL ou d'autres autorités européennes récentes (illustratives, à vérifier sur le site CNIL).</p>
+<table>
+<thead>
+<tr>
+<th>Entité</th>
+<th>Manquement</th>
+<th>Sanction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grands acteurs Tech US</td>
+<td>Cookies non conformes, transferts</td>
+<td>Centaines de millions €</td>
+</tr>
+<tr>
+<td>Distributeurs grand public</td>
+<td>Sécurité insuffisante</td>
+<td>Plusieurs millions €</td>
+</tr>
+<tr>
+<td>Établissements bancaires</td>
+<td>Violations multiples</td>
+<td>Plusieurs millions €</td>
+</tr>
+<tr>
+<td>PME mid-market</td>
+<td>Sécurité insuffisante simple</td>
+<td>Dizaines à centaines de milliers €</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-effet-aggravant-du-retard-de-notification">6.4 Effet aggravant du retard de notification<a class="headerlink" href="#64-effet-aggravant-du-retard-de-notification" title="Permanent link">&para;</a></h3>
+<p>Le <strong>retard ou l'absence de notification</strong> est un facteur aggravant majeur. Plusieurs sanctions CNIL ont triplé pour ce motif.</p>
+<p><strong>Conséquence opérationnelle</strong> : même si la violation est minime, <strong>notifiez par excès de prudence</strong> plutôt que de prendre le risque d'une non-notification reprochée plus tard.</p>
+<hr />
+<h2 id="7-articulation-avec-dautres-cadres">7. Articulation avec d'autres cadres<a class="headerlink" href="#7-articulation-avec-dautres-cadres" title="Permanent link">&para;</a></h2>
+<h3 id="71-rgpd-vs-nis2">7.1 RGPD vs NIS2<a class="headerlink" href="#71-rgpd-vs-nis2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>RGPD</th>
+<th>NIS2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Périmètre</td>
+<td>Données personnelles</td>
+<td>SI au sens large</td>
+</tr>
+<tr>
+<td>Délai notification</td>
+<td>72 heures</td>
+<td>24h pre-notif + 72h</td>
+</tr>
+<tr>
+<td>Plafond sanction</td>
+<td>10 M€ ou 2% CA (art. 32-34)</td>
+<td>10 M€ ou 2% CA (essentielle)</td>
+</tr>
+<tr>
+<td>Autorité</td>
+<td>CNIL</td>
+<td>ANSSI</td>
+</tr>
+<tr>
+<td>Personnes concernées</td>
+<td>Communication possible</td>
+<td>Pas d'obligation directe</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cumul</strong>: oui. Une attaque ransomware touchant données personnelles déclenche <strong>les deux</strong> notifications.</p>
+<h3 id="72-rgpd-vs-lcen">7.2 RGPD vs LCEN<a class="headerlink" href="#72-rgpd-vs-lcen" title="Permanent link">&para;</a></h3>
+<p>La LCEN impose la conservation, le RGPD impose la minimisation. Les durées doivent respecter les deux : on conserve <strong>le minimum</strong> imposé par la LCEN, <strong>pas plus</strong>.</p>
+<h3 id="73-rgpd-vs-dora">7.3 RGPD vs DORA<a class="headerlink" href="#73-rgpd-vs-dora" title="Permanent link">&para;</a></h3>
+<p>DORA s'applique au secteur financier comme <strong>lex specialis</strong>. RGPD reste applicable en parallèle pour les données personnelles.</p>
+<h3 id="74-rgpd-et-secret-des-correspondances-226-15">7.4 RGPD et secret des correspondances (226-15)<a class="headerlink" href="#74-rgpd-et-secret-des-correspondances-226-15" title="Permanent link">&para;</a></h3>
+<p>Les emails sont à la fois :
+- Des <strong>données personnelles</strong> (RGPD)
+- Des <strong>correspondances</strong> (article 226-15)</p>
+<p>Vos investigations doivent respecter les deux régimes simultanément.</p>
+<hr />
+<h2 id="8-pieges-et-bonnes-pratiques">8. Pièges et bonnes pratiques<a class="headerlink" href="#8-pieges-et-bonnes-pratiques" title="Permanent link">&para;</a></h2>
+<h3 id="piege-1-confondre-72-heures-calendaires-et-72-heures-ouvrees">Piège 1 - Confondre 72 heures calendaires et 72 heures ouvrées<a class="headerlink" href="#piege-1-confondre-72-heures-calendaires-et-72-heures-ouvrees" title="Permanent link">&para;</a></h3>
+<p>Les 72 heures sont <strong>calendaires</strong>. Une violation découverte le vendredi à 18h doit être notifiée avant le lundi 18h, week-end inclus.</p>
+<h3 id="piege-2-sous-estimer-le-perimetre-des-donnees-personnelles">Piège 2 - Sous-estimer le périmètre des données personnelles<a class="headerlink" href="#piege-2-sous-estimer-le-perimetre-des-donnees-personnelles" title="Permanent link">&para;</a></h3>
+<p>Beaucoup d'éléments sont considérés comme données personnelles :</p>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Données personnelles ?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adresse IP</td>
+<td>Oui (CJUE Breyer 2016)</td>
+</tr>
+<tr>
+<td>Cookies de tracking</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>Identifiant publicitaire mobile</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>Voix enregistrée</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>Photo de visage</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>Identifiant pseudonyme</td>
+<td>Oui si recoupable</td>
+</tr>
+<tr>
+<td>Plaque d'immatriculation</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>Adresse MAC</td>
+<td>Oui dans certains contextes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="piege-3-oublier-leffet-de-cascade">Piège 3 - Oublier l'effet de cascade<a class="headerlink" href="#piege-3-oublier-leffet-de-cascade" title="Permanent link">&para;</a></h3>
+<p>Une violation chez un sous-traitant déclenche les obligations chez le responsable. Si vous êtes sous-traitant, votre <strong>lenteur à notifier</strong> met votre client en faute envers la CNIL.</p>
+<h3 id="bonne-pratique-1-preparer-les-modeles-a-lavance">Bonne pratique 1 - Préparer les modèles à l'avance<a class="headerlink" href="#bonne-pratique-1-preparer-les-modeles-a-lavance" title="Permanent link">&para;</a></h3>
+<p>Tenez prêts dans un dossier dédié :
+- Modèle de notification CNIL pré-rempli
+- Modèle de communication aux personnes
+- Modèle de procès-verbal d'incident
+- Liste de contrôle 72h</p>
+<p>Cela divise par deux le temps de mobilisation en cas d'incident réel.</p>
+<h3 id="bonne-pratique-2-documenter-des-la-decouverte">Bonne pratique 2 - Documenter dès la découverte<a class="headerlink" href="#bonne-pratique-2-documenter-des-la-decouverte" title="Permanent link">&para;</a></h3>
+<p>Le <strong>registre des violations</strong> doit être renseigné <strong>avant</strong> l'envoi à la CNIL. Cela force à structurer la pensée et constitue la trace du raisonnement décisionnel.</p>
+<h3 id="bonne-pratique-3-notifier-en-cas-de-doute">Bonne pratique 3 - Notifier en cas de doute<a class="headerlink" href="#bonne-pratique-3-notifier-en-cas-de-doute" title="Permanent link">&para;</a></h3>
+<p>La CNIL ne sanctionne pas une notification "excessive", elle sanctionne l'absence de notification. <strong>En cas de doute, notifiez</strong>.</p>
+<hr />
+<h2 id="9-manipulation-pratique">9. Manipulation pratique<a class="headerlink" href="#9-manipulation-pratique" title="Permanent link">&para;</a></h2>
+<h3 id="exercice-91-qualifier-des-violations">Exercice 9.1 - Qualifier des violations<a class="headerlink" href="#exercice-91-qualifier-des-violations" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Cas</th>
+<th>Type</th>
+<th>Risque</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Email envoyé à mauvais destinataire interne</td>
+<td>Confidentialité limitée</td>
+<td>Faible</td>
+<td>Documenter registre</td>
+</tr>
+<tr>
+<td>Vol portable chiffré, clé non compromise</td>
+<td>Confidentialité</td>
+<td>Faible (chiffrement protège)</td>
+<td>Documenter, peut-être notifier</td>
+</tr>
+<tr>
+<td>Ransomware sur serveur de paie</td>
+<td>Disponibilité + Confidentialité</td>
+<td>Élevé</td>
+<td>Notification + Communication</td>
+</tr>
+<tr>
+<td>Erreur cloud bucket S3 ouvert 1 mois</td>
+<td>Confidentialité</td>
+<td>Élevé selon données</td>
+<td>Notification + souvent Communication</td>
+</tr>
+<tr>
+<td>Modification frauduleuse écritures comptables</td>
+<td>Intégrité</td>
+<td>Variable</td>
+<td>Notification</td>
+</tr>
+<tr>
+<td>Phishing vol credentials administrateur</td>
+<td>Confidentialité (initial)</td>
+<td>Élevé (effets en cascade)</td>
+<td>Notification</td>
+</tr>
+<tr>
+<td>Plantage avec perte 1h données récentes</td>
+<td>Disponibilité</td>
+<td>Faible</td>
+<td>Documenter</td>
+</tr>
+</tbody>
+</table>
+<h3 id="exercice-92-construction-dune-notification-cnil">Exercice 9.2 - Construction d'une notification CNIL<a class="headerlink" href="#exercice-92-construction-dune-notification-cnil" title="Permanent link">&para;</a></h3>
+<p>Pour le cas ARTECH (ransomware mars 2026), construisez les éléments de la notification CNIL.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>NOTIFICATION DE VIOLATION DE DONNÉES À CARACTÈRE PERSONNEL
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>=============================================================
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>A) Nature de la violation
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>- Type : Ransomware avec exfiltration probable
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>- Confidentialité : Oui (exfiltration confirmée par analyse forensic)
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>- Intégrité : Non (données chiffrées mais restaurées depuis sauvegarde)
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>- Disponibilité : Oui pendant 4 jours (du 14 au 18 mars 2026)
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>B) Catégories et nombre de personnes concernées
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>- Clients particuliers : ~1 247 personnes
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>- Clients professionnels : ~85 entités
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>- Salariés : 42 personnes
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>- Total : ~1 374 personnes physiques concernées
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>C) Catégories et nombre d&#39;enregistrements
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>- Données identité (nom, adresse, téléphone) : ~14 000 enregistrements
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>- Données bancaires (IBAN clients) : ~1 247 enregistrements
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>- Données santé partielles (suivi clients matériel médical) : ~340 enregistrements
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>- Données RH salariés : ~42 dossiers complets
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>D) Coordonnées DPO
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>M. Lemoine (DPO mutualisé)
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>Email : dpo@artech.fr
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>Téléphone : 01 XX XX XX XX
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>E) Conséquences probables
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>- Risque de phishing ciblé sur les clients
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>- Risque d&#39;usurpation d&#39;identité
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>- Risque de fraude bancaire (IBAN exposés)
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>- Risque de divulgation indirecte de données santé
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>- Risque d&#39;atteinte à la vie privée des salariés
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>F) Mesures prises
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>- Isolement immédiat des systèmes (14/03/2026 09:30)
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>- Mandat cabinet forensic OmnyVia (14/03/2026 11:00)
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>- Acquisition forensic des 3 postes et serveur (14-15/03/2026)
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>- Restauration complète depuis sauvegardes saines (16-18/03/2026)
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>- Réinitialisation de tous les mots de passe (15/03/2026)
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>- Audit de toute l&#39;infrastructure (en cours)
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>- Dépôt de plainte au commissariat (15/03/2026)
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>- Notification CNIL (20/03/2026)
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>- Communication aux personnes concernées (25/03/2026)
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>G) Mesures correctives à venir
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>- Mise en place EDR sur tous les postes (avril 2026)
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>- Mise en place SOC managé (mai 2026)
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>- Sensibilisation phishing tous salariés (avril 2026)
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>- Audit de conformité NIS2 et ReCyF (juin 2026)
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>- Mise en place sauvegardes immuables (mai 2026)
+</span></code></pre></div>
+<h3 id="exercice-93-evaluation-du-risque">Exercice 9.3 - Évaluation du risque<a class="headerlink" href="#exercice-93-evaluation-du-risque" title="Permanent link">&para;</a></h3>
+<p>Pour chaque cas, évaluez le risque et l'obligation de communication.</p>
+<table>
+<thead>
+<tr>
+<th>Cas</th>
+<th>Risque</th>
+<th>Communication article 34 ?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vol de 50 000 emails sans contenu sensible</td>
+<td>Modéré</td>
+<td>Probablement non</td>
+</tr>
+<tr>
+<td>Vol de 5 000 dossiers patients d'un hôpital</td>
+<td>Élevé</td>
+<td>Oui obligatoire</td>
+</tr>
+<tr>
+<td>Exposition d'une base de 10 000 IBAN</td>
+<td>Élevé</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>Vol de 100 candidatures avec CV</td>
+<td>Variable</td>
+<td>Selon données sensibles dans CV</td>
+</tr>
+<tr>
+<td>Compromission d'1 compte administrateur</td>
+<td>Élevé (effet cascade potentiel)</td>
+<td>Oui pour personnes dont données ont été accessibles</td>
+</tr>
+<tr>
+<td>Erreur expédiant une lettre par email à 2 personnes au lieu d'1</td>
+<td>Faible</td>
+<td>Non, registre suffit</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-auto-evaluation">10. Auto-évaluation<a class="headerlink" href="#10-auto-evaluation" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Réponse attendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Trois articles centraux du RGPD pour le forensic ?</td>
+<td>32, 33, 34</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Délai de notification CNIL ?</td>
+<td>72 heures à compter de la prise de connaissance</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Plafond de sanction articles 32-34 ?</td>
+<td>10 M€ ou 2% CA mondial</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Définition d'une violation ?</td>
+<td>Atteinte à C, I ou D des données personnelles</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Quand communiquer aux personnes ?</td>
+<td>Risque élevé pour droits et libertés</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Le sous-traitant notifie qui ?</td>
+<td>Le responsable du traitement, pas la CNIL directement</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Que contient le registre des violations ?</td>
+<td>Toutes violations même non notifiées</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Qu'est-ce que la CIDR ?</td>
+<td>Confidentialité Intégrité Disponibilité Résilience</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Adresse IP est-elle DCP ?</td>
+<td>Oui (CJUE Breyer 2016)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Articulation 33 et NIS2 23 ?</td>
+<td>Cumul, deux notifications distinctes possibles</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-synthese-memo">11. Synthèse mémo<a class="headerlink" href="#11-synthese-memo" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>RGPD - Articles 32, 33, 34
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>ARTICLE 32 - Sécurité du traitement
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  Mesures : pseudonymisation, chiffrement, CIDR
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  Tests réguliers obligatoires
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  Sanction : 10 M€ ou 2% CA mondial
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>ARTICLE 33 - Notification à la CNIL
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Délai : 72 heures après prise de connaissance
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  Si pas de risque : pas de notification (registre)
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  Contenu : nature, personnes, données, conséquences, mesures
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  Plateforme : notifications.cnil.fr
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>ARTICLE 34 - Communication aux personnes
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  Si risque ELEVÉ
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>  Délai : meilleurs délais
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>  Exceptions : chiffrement, mesures ultérieures, efforts disproportionnés
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>REGISTRE DES VIOLATIONS
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>  Obligatoire pour TOUTES violations
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>  Tenu par DPO ou responsable
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>VOTRE RÔLE FORENSIC
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>  Acquisition + analyse alimentent les notifications
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>  Le rapport forensic est CENTRAL
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>  Délai 72h impose une réactivité de votre part
+</span></code></pre></div>
+<hr />
+<h2 id="12-pour-aller-plus-loin">12. Pour aller plus loin<a class="headerlink" href="#12-pour-aller-plus-loin" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Ressource</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Texte RGPD complet</td>
+<td>EUR-Lex</td>
+</tr>
+<tr>
+<td>Lignes directrices CEPD sur les violations</td>
+<td>09/2022</td>
+</tr>
+<tr>
+<td>FAQ CNIL violations</td>
+<td>cnil.fr</td>
+</tr>
+<tr>
+<td>Guide CNIL sécurité données personnelles</td>
+<td>2018 mis à jour</td>
+</tr>
+<tr>
+<td>Téléservice notifications.cnil.fr</td>
+<td>Plateforme officielle</td>
+</tr>
+<tr>
+<td>Loi Informatique et Libertés modifiée</td>
+<td>Légifrance</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="13-auto-explication">13. Auto-explication<a class="headerlink" href="#13-auto-explication" title="Permanent link">&para;</a></h2>
+<p>Pour valider ce chapitre, enregistrez une vidéo de 18 minutes où vous expliquez :</p>
+<ol>
+<li>Vocabulaire RGPD essentiel (2 minutes)</li>
+<li>Article 32 et la CIDR (3 minutes)</li>
+<li>Article 33 et le délai 72 heures (3 minutes)</li>
+<li>Article 34 et le risque élevé (2 minutes)</li>
+<li>Procédure complète de gestion d'une violation (3 minutes)</li>
+<li>Articulation avec NIS2 et 226-15 (2 minutes)</li>
+<li>Sanctions et leur modulation (2 minutes)</li>
+<li>Votre rôle forensic dans la chaîne (1 minute)</li>
+</ol>
+<hr />
+<p><strong>Chapitre précédent</strong> : <a href="../01-7-nis2-loi-resilience/">1.7 NIS et NIS2 - Loi Résilience 2026</a></p>
+<p><strong>Chapitre suivant</strong> : <a href="../01-9-dora/">1.9 DORA pour le secteur financier</a></p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">RGPD</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">CNIL</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Articles 32-33-34</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Violation données</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Forensic</span>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../07-nis2-loi-resillience.md" class="md-footer__link md-footer__link--prev" aria-label="Précédent: none">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m12 8-4 4 4 4M16 12H8"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                none
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../09-dora-pour-secteur-financier/" class="md-footer__link md-footer__link--next" aria-label="Suivant: 1.9 DORA pour le secteur financier">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                1.9 DORA pour le secteur financier
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-square-arrow-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8M12 16l4-4-4-4"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025/26 - Alain GUILLON
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zyrass/omnydocs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.expand","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.prune","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","toc.follow"],"search":"../../../../assets/javascripts/workers/search.e2d2d235.min.js","tags":{"API":"default","ARCHITECTURE":"default","ERREUR":"default","GO":"go_tag","HTTP":"default","JS":"javascript_tag","LINUX":"default","PHILOSOPHIE":"default","PHP":"php_tag","PROTOCOLES":"default","PYTHON":"python_tag","RESEAU":"default","REST":"default","RUST":"rust_tag","SECURITE":"default","STATUT":"default","SYSTEME":"default","TCP":"default","UDP":"default","UNIX":"default"},"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+        <script src="../../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

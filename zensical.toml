@@ -2251,7 +2251,266 @@ nav = [
       ]},
     ]},
 
-  ]}
+  ]},
+
+  # ============================================================================
+  # 9 — CURSUS FORENSIC
+  # ============================================================================
+  # Cette section regroupe l'intégralité du cursus d'apprentissage en forensic
+  # physique, structuré en 4 cycles progressifs, de l'acquisition des bases
+  # à la maîtrise complète sur environnements Windows, Linux et macOS.
+  # ============================================================================
+  
+  {"Cursus Forensic" = [
+  
+    # --------------------------------------------------------------------------
+    # Index maître du cursus
+    # --------------------------------------------------------------------------
+    "cursus-forensic/index.md",
+  
+    # --------------------------------------------------------------------------
+    # Outillage et ressources transverses
+    # --------------------------------------------------------------------------
+    # Éléments récurrents et ressources de suivi pour l'apprenant.
+    # --------------------------------------------------------------------------
+    {"Outillage du cursus" = [
+      "cursus-forensic/00-meta-outillages/index.md",
+      "cursus-forensic/00-meta-outillages/evolution-carriere-2026.md",
+      "cursus-forensic/00-meta-outillages/carnet-doutes.md",
+      "cursus-forensic/00-meta-outillages/inventaire-materiel.md",
+      "cursus-forensic/00-meta-outillages/progression.md",
+      "cursus-forensic/00-meta-outillages/ressources-externes.md",
+    ]},
+  
+    # ==========================================================================
+    # CYCLE 0 : Fondations (165 h)
+    # ==========================================================================
+    # La base indispensable avant toute investigation : cadre juridique,
+    # prérequis techniques (OS, Réseau, FS) et mise en place du laboratoire.
+    # ==========================================================================
+    {"Cycle 0 : Fondations" = [
+      "cursus-forensic/01-cycle-0-fondations/index.md",
+  
+      # Cadre légal et juridique encadrant l'investigation et la réponse à incident
+      {"I - Législation" = [
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/index.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/01-hierarchie-normes.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/02-loi-godfrain.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/03-articles-323.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/04-article-226-15.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/05-lcen-2004.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/06-lpm-oiv.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/07-nis2-loi-resillience.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/08-rgpd-articles-32-33-34.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/09-dora-pour-secteur-financier.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/10-cadre-pentest-legal.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/11-affaire-bluetouff.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/12-affaire-kitetoa.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/13-affaire-recentes.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/14-modele-mandat.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/15-modele-nda.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/16-synthese-carnet-juridique.md",
+      ]},
+      
+      # Compréhension profonde des OS, systèmes de fichiers, et réseaux
+      {"II - Prérequis techniques" = [
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/index.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/01-auto-evaluation.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/02-linux-fondamentaux.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/03-linux-avances.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/04-windows.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/04bis-macos.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/05-powershell.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/05bis-bash-zsh.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/06-reseaux.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/07-cryptographie.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/08-hash-signatures.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/09-ntfs.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/10-ext4.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/10bis-apfs.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/11-mitre-attack.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/12-cyber-kill-chain.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/13-diamond-pyramid.md",
+        "cursus-forensic/01-cycle-0-fondations/module-2-prerequis-techniques/14-pratique-kill-chain-artech.md",
+      ]},
+  
+      # Déploiement de l'environnement physique multi-OS (le laboratoire)
+      {"III - Configuration du labo" = [
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/index.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/01-liste-materiel-budget.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/02-achats-reconditionne.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/03-topologie-adressage.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/04-openwrt-archer-c7.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/05-wifi-wpa2-faible.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/06-debian-server.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/07-config-serveur.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/08-windows11-poste-compta.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/09-windows11-poste-stagiaire.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/10-ad-mini.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/11-kali-attaquant.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/12-caine-analyste.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/13-alfa-wifi.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/14-write-blocker.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/15-kit-acquisition.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/16-documentation.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/17-script-validation.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/18-mackbook-m1-prep.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/19-outils-forensic-macos.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/20-recovery-dfu-apple-silicon.md",
+      ]},
+    ]},
+  
+    # ==========================================================================
+    # CYCLE 1 : Premier cas complet (225 h)
+    # ==========================================================================
+    # Premier passage complet : OSINT, attaque (WPA2, Phishing),
+    # acquisition (RAM, Disque), analyse et rapport initial.
+    # ==========================================================================
+    {"Cycle 1 : Premier cas complet" = [
+      "cursus-forensic/02-cycle-1-premier-cas/index.md",
+
+      # OSINT et reconnaissance passive (10 chapitres)
+      {"IV - OSINT et reconnaissance" = [
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/index.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/01-methodologie-osint.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/02-google-dorks-archives.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/03-theharvester-emails.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/04-wigle-bssid-ssid.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/05-profilage-linkedin.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/06-hunter-formats-emails.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/07-maltego-ce.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/08-wardriving-passif.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/09-rapport-osint.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-4-osint/10-cas-pratique-artech.md",
+      ]},
+
+      # Attaque WiFi WPA2 — aircrack-ng, hashcat, nmap (10 chapitres)
+      {"V - Attaque WiFi WPA2 simple" = [
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/index.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/01-theorie-wpa2-handshake.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/02-mode-monitor-injection.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/03-airodump-ng-capture.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/04-deauth-handshake.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/05-dictionnaires-francais.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/06-hashcat-gpu.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/07-aircrack-ng-cpu.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/08-connexion-reseau-cible.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/09-nmap-silencieux.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-5-wifi-wpa2/10-documentation-intrusion.md",
+      ]},
+
+      # Phishing — VBA, Sliver C2, encodage payload (8 chapitres)
+      {"VI - Phishing basique" = [
+        "cursus-forensic/02-cycle-1-premier-cas/module-6-phishing/index.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-6-phishing/01-anatomie-phishing.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-6-phishing/02-infrastructure-smtp-postfix.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-6-phishing/03-document-word-macro-vba.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-6-phishing/04-encodage-payload-evasion.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-6-phishing/05-sliver-c2-installation.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-6-phishing/06-generation-beacon-test.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-6-phishing/07-envoi-email-capture-beacon.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-6-phishing/08-enumeration-windows-triage.md",
+      ]},
+
+      # Acquisition mémoire Windows — RFC 3227, BitLocker, DumpIt (en cours)
+      {"VII - Acquisition mémoire Windows" = [
+        "cursus-forensic/02-cycle-1-premier-cas/module-7-acquisition-memoire-windows/index.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-7-acquisition-memoire-windows/01-theorie-volatilite-rfc-3227.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-7-acquisition-memoire-windows/02-decision-allumer-eteindre.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-7-acquisition-memoire-windows/03-bitlocker-actif.md",
+        "cursus-forensic/02-cycle-1-premier-cas/module-7-acquisition-memoire-windows/04-ransomware-en-cours.md",
+      ]},
+
+      {"VII bis - Acquisition mémoire macOS" = [
+        "cursus-forensic/02-cycle-1-premier-cas/module-7bis-acquisition-memoire-macos/index.md",
+      ]},
+      {"VIII - Acquisition disque" = [
+        "cursus-forensic/02-cycle-1-premier-cas/module-8-acquisition-disque/index.md",
+      ]},
+      {"IX - Analyse Volatility et Autopsy" = [
+        "cursus-forensic/02-cycle-1-premier-cas/module-9-volatility-autopsy/index.md",
+      ]},
+      {"X - Premier rapport" = [
+        "cursus-forensic/02-cycle-1-premier-cas/module-10-premier-rapport/index.md",
+      ]},
+    ]},
+  
+    # ==========================================================================
+    # CYCLE 2 : Cas avancé (270 h)
+    # ==========================================================================
+    # Complexification de la menace : Pivoting, persistance,
+    # contournement de BitLocker/LUKS, et notification légale CNIL/RGPD.
+    # ==========================================================================
+    {"Cycle 2 : Cas avancé" = [
+      "cursus-forensic/03-cycle-2-avance/index.md",
+      {"XI - OSINT approfondi" = [
+        "cursus-forensic/03-cycle-2-avance/module-11-osint/index.md",
+      ]},
+      {"XII - Pivoting multi-postes" = [
+        "cursus-forensic/03-cycle-2-avance/module-12-pivoting/index.md",
+      ]},
+      {"XIII - Persistance Windows et Linux" = [
+        "cursus-forensic/03-cycle-2-avance/module-13-persistance/index.md",
+      ]},
+      {"XIV - BitLocker et LUKS extraction" = [
+        "cursus-forensic/03-cycle-2-avance/module-14-bitlocker-luks/index.md",
+      ]},
+      {"XIV bis - FileVault et Apple Silicon" = [
+        "cursus-forensic/03-cycle-2-avance/module-14bis-filevault/index.md",
+      ]},
+      {"XV - Détection sans SIEM (Win/Lin)" = [
+        "cursus-forensic/03-cycle-2-avance/module-15-detection/index.md",
+      ]},
+      {"XV bis - Détection sur macOS" = [
+        "cursus-forensic/03-cycle-2-avance/module-15bis-detection-macos/index.md",
+      ]},
+      {"XVI - Rapport judiciaire complet" = [
+        "cursus-forensic/03-cycle-2-avance/module-16-rapport/index.md",
+      ]},
+      {"XVII - RGPD et notification CNIL" = [
+        "cursus-forensic/03-cycle-2-avance/module-17-rgpd/index.md",
+      ]},
+    ]},
+  
+    # ==========================================================================
+    # CYCLE 3 : Maîtrise (190 h)
+    # ==========================================================================
+    # Expertise finale : Chiffrement actif, outils dédiés, business (chiffrage),
+    # validation par des cas autonomes et préparation à l'enseignement.
+    # ==========================================================================
+    {"Cycle 3 : Maîtrise" = [
+      "cursus-forensic/04-cycle-3-maitrise/index.md",
+      {"XVIII - EduCrypt (Dev Pédagogique)" = [
+        "cursus-forensic/04-cycle-3-maitrise/module-18-educrypt/index.md",
+      ]},
+      {"XIX - Cas de chiffrement actif" = [
+        "cursus-forensic/04-cycle-3-maitrise/module-19-chiffrement-actif/index.md",
+      ]},
+      {"XIX bis - Outil forensic Swift (macOS)" = [
+        "cursus-forensic/04-cycle-3-maitrise/module-19bis-outil-swift/index.md",
+      ]},
+      {"XX - Chiffrage prestation PME" = [
+        "cursus-forensic/04-cycle-3-maitrise/module-20-chiffrage/index.md",
+      ]},
+      {"XXI - 5 cas autonomes" = [
+        "cursus-forensic/04-cycle-3-maitrise/module-21-cas-autonomes/index.md",
+      ]},
+      {"XXII - Préparation formation vidéo" = [
+        "cursus-forensic/04-cycle-3-maitrise/module-22-formation/index.md",
+      ]},
+    ]},
+  
+    # ==========================================================================
+    # MODULE SPÉCIAL : Menace Malware
+    # ==========================================================================
+    # Anatomie complète d'un malware : du Trojan reverse shell à la réponse
+    # à incident. Analyse d'infrastructure, payload et plan d'action (ISO 27001).
+    # ==========================================================================
+    {"Spécialisation : Menace Malware" = [
+      "cursus-forensic/05-menace-malware/index.md",
+    ]},
+  
+  ]},
 
 ]
 
