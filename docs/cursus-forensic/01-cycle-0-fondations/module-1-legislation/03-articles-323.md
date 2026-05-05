@@ -50,7 +50,7 @@ Les articles 323-1 à 323-8 sont regroupés dans le **chapitre III** du **titre 
 ### 1.1 Architecture du chapitre
 
 ```mermaid
-flowchart TB
+flowchart LR
     A[Chapitre III du Code pénal<br>Atteintes aux STAD]
     A --> B[Article 323-1<br>Accès et maintien frauduleux]
     A --> C[Article 323-2<br>Entrave au fonctionnement]
@@ -500,7 +500,7 @@ Trois critères supplémentaires distinguent la bande organisée du simple group
 Les groupes ransomware modernes (LockBit, Conti, BlackCat, Akira, ALPHV) répondent **typiquement** à la définition de bande organisée :
 
 ```mermaid
-flowchart TB
+flowchart LR
     A[Bande organisée ransomware]
     A --> B[Développeurs<br>Création du malware]
     A --> C[Affiliés / Operators<br>Déploiement]

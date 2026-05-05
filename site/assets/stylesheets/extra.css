@@ -115,6 +115,22 @@ p > img {
   }
 }
 
+/* 
+ * Optimisation supplémentaire pour les très grands écrans (Ultrawide / 1440p+)
+ * Élargissement des barres latérales gauche (Navigation) et droite (TOC)
+ */
+@media screen and (min-width: 1440px) {
+  :root {
+    --md-sidebar-width: 24rem !important; 
+  }
+  
+  /* Force la largeur sur les éléments pour s'assurer que MkDocs l'applique */
+  .md-sidebar {
+    width: 24rem !important;
+    flex: 0 0 24rem !important;
+  }
+}
+
 /** 
    * ============================================================================
    *  Conteneur du contenu principal

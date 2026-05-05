@@ -10,7 +10,23 @@ tags:
 
 # Évolution de Carrière en Forensic (2026)
 
-!!! quote "L'analogie du médecin spécialiste"
+<div
+  class="omny-meta"
+  data-level="🔵 Transversal"
+  data-version="Marché 2026"
+  data-time="Outils continus">
+</div>
+
+!!! note "**Livrables :** _Avoir un objectif clair de type de poste et de secteur cible_"
+!!! note "**Auto-explication :** _Comprendre ce que les recruteurs attendent d'un profil DFIR en 2026_"
+
+<br>
+
+---
+
+<br>
+
+!!! abstract "L'analogie du médecin spécialiste"
     
     Un développeur web est comme un médecin généraliste : indispensable, omniprésent, avec un parcours connu. L'analyste forensic est un médecin légiste ou un chirurgien d'urgence. Les postes sont moins nombreux, mais l'expertise est critique, extrêmement difficile à trouver, et la rémunération est indexée sur cette rareté et la gestion du stress en temps de crise.
 
@@ -71,3 +87,5 @@ Pour être le candidat idéal dans 24 mois (fin de ce cursus), vous ne devez pas
 !!! quote "Le marathon"
     
     > Le chemin est exigeant, mais la sécurité de l'emploi et l'intellect de la profession sont incomparables. Gardez ce document en tête lors des baisses de motivation : vous vous formez pour le sommet de la pyramide Cyber.
+
+<br>

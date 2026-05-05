@@ -11,6 +11,22 @@ tags:
 
 # Inventaire Matériel du Laboratoire
 
+<div
+  class="omny-meta"
+  data-level="🔵 Transversal"
+  data-version="Forensic & DFIR (2026)"
+  data-time="Outils continus">
+</div>
+
+!!! note "**Livrables :** _Avoir budgété et planifié les achats matériels pour le cursus_"
+!!! note "**Auto-explication :** _Savoir justifier pourquoi la virtualisation seule est insuffisante en forensic_"
+
+<br>
+
+---
+
+<br>
+
 !!! abstract "Physique vs Virtuel : L'importance du matériel réel"
     
     Il est tentant de tout virtualiser (VMware, Proxmox) pour économiser du budget. C'est suffisant pour faire du développement ou de l'analyse basique de malware, mais **totalement insuffisant pour un cursus Forensic complet**.
@@ -125,3 +141,5 @@ Voici une projection budgétaire. **Rappel : cet équipement doit être acquis p
 !!! quote "Le prix de l'excellence"
     
     > Un budget d'environ 2500 € à 3000 € étalé sur deux ans représente le prix d'un seul module dans une formation d'ingénieur en sécurité. Posséder ce matériel vous permettra de manipuler la réalité du terrain et de vous présenter devant un recruteur ou un juge avec une crédibilité absolue.
+
+<br>

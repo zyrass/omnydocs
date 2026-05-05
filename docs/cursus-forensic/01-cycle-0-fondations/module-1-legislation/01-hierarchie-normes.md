@@ -4,7 +4,7 @@ icon: lucide/scale
 tags: ["LÉGISLATION", "CONSTITUTION", "DROIT", "FORENSIC", "NORME"]
 ---
 
-# 1.1 Hiérarchie des normes en France
+# Hiérarchie des normes en France
 
 <div
   class="omny-meta"

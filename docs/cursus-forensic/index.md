@@ -26,10 +26,18 @@ Ce parcours de 850 heures est un carnet d'apprentissage structuré pour transfor
 
 ---
 
+<br>
+
 ## Architecture du Parcours
 
+!!! quote "Le schéma suivant représente l'architecture du parcours. Il est constitué de 4 cycles et d'une spécialisation. Les cycles sont séquentiels, mais la spécialisation peut être abordée en parallèle du Cycle 1."
+    
 ```mermaid
-flowchart LR
+---
+title: "Schéma du cursus"
+config: "dark"
+---
+flowchart TB
     CF[Cursus Forensic]
 
     C0["Cycle 0 — Fondations (165h)"]
@@ -39,7 +47,7 @@ flowchart LR
     M["Spécialisation Malware"]
 
     CF --> C0
-    CF --> M
+    C1 -.-> | Démarrage en parallèle possible | M
     C0 --> C1
     C1 --> C2
     C2 --> C3
@@ -51,7 +59,9 @@ _Le Cycle 0 est le prérequis universel. La Spécialisation Malware est un fil r
 
 ---
 
-## Les Cycles d'Apprentissage
+<br>
+
+## Outillages
 
 <div class="grid cards" markdown>
 
@@ -61,15 +71,24 @@ _Le Cycle 0 est le prérequis universel. La Spécialisation Malware est un fil r
 
     [Consulter les outillages](./00-meta-outillages/index.md)
 
+</div>
+
+<br>
+
+---
+
+<br>
+
+
+## Les Cycles d'Apprentissage
+
+<div class="grid cards" markdown>
+
 - ### :lucide-book-open-check: Cycle 0 — Fondations
     ---
     **Le socle (165h).** Législation française (LPM, NIS2, RGPD), prérequis techniques pointus (APFS, NTFS, registres Windows) et configuration du laboratoire physique.
 
     [Poser les fondations](./01-cycle-0-fondations/index.md)
-
-</div>
-
-<div class="grid cards" markdown>
 
 - ### :lucide-shield-alert: Cycle 1 — Premier Cas Pratique
     ---
@@ -83,15 +102,23 @@ _Le Cycle 0 est le prérequis universel. La Spécialisation Malware est un fil r
 
     [Voir le programme](./03-cycle-2-avance/index.md)
 
-</div>
-
-<div class="grid cards" markdown>
-
 - ### :lucide-award: Cycle 3 — Maîtrise
     ---
     **Autonomie totale (250h).** Développement d'outils Swift pour macOS, analyse de ransomwares en direct, chiffrage de prestations et 5 cas indépendants.
 
     [Voir le programme](./04-cycle-3-maitrise/index.md)
+
+</div>
+
+<br>
+
+---
+
+<br>
+
+## La Spécialisation
+
+<div class="grid cards" markdown>
 
 - ### :lucide-bug: Spécialisation — Menace Malware
     ---
@@ -104,6 +131,8 @@ _Le Cycle 0 est le prérequis universel. La Spécialisation Malware est un fil r
 <br>
 
 ---
+
+<br>
 
 ## Ce que ce parcours vous apporte concrètement
 
@@ -120,6 +149,8 @@ _Le Cycle 0 est le prérequis universel. La Spécialisation Malware est un fil r
 
 ---
 
+<br>
+
 ## Règle d'Or de la Validation
 
 !!! info "Méthode d'auto-évaluation"
@@ -132,6 +163,8 @@ _Le Cycle 0 est le prérequis universel. La Spécialisation Malware est un fil r
 <br>
 
 ---
+
+<br>
 
 ## Conclusion
 
