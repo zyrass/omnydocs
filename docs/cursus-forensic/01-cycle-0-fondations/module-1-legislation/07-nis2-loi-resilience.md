@@ -1,84 +1,88 @@
 ---
-title: 1.7 NIS et NIS2 - Loi Résilience 2026
-description: Cadre européen de cybersécurité - directive NIS de 2016, refonte NIS2 de 2022, transposition française par la Loi Résilience attendue 2026. Critères d'assujettissement, obligations, sanctions, articulation avec OIV et ReCyF de l'ANSSI.
-authors:
-  - Zyrass
-date:
-  created: 2026-04-29
-tags:
-  - NIS2
-  - Loi Résilience
-  - ANSSI
-  - ReCyF
-  - Cybersécurité
-data-level: 🔴
+description: "Cadre européen de cybersécurité - directive NIS de 2016, refonte NIS2 de 2022, transposition française par la Loi Résilience attendue 2026. Critères d'assujettissement, obligations, sanctions, articulation avec OIV et ReCyF de l'ANSSI."
+icon: lucide/globe-lock
+tags: ["LÉGISLATION", "NIS2", "LOI RÉSILIENCE", "ANSSI", "RECYF", "CYBERSÉCURITÉ"]
 ---
 
-# 1.7 NIS et NIS2 - Loi Résilience 2026
+# NIS et NIS2 - Loi Résilience 2026
+
+<div
+  class="omny-meta"
+  data-level="🔴 Exhaustif"
+  data-version="Droit Français / UE (2026)"
+  data-time="2 heures">
+</div>
+
+!!! note "**Livrables :** _Cartographie des secteurs NIS2, fiche obligations comparative_"
+!!! note "**Auto-explication :** _15 minutes_"
+
+<br>
+
+---
+
+<br>
 
 !!! quote "L'analogie de la pandémie sanitaire"
 
     Quand une épidémie sanitaire se propage, on n'attend pas qu'elle touche les hôpitaux pour réagir. On vaccine massivement, on impose des protocoles, on contrôle les frontières, on informe le public. La logique de NIS2 applique ce raisonnement aux pandémies cyber. NIS1 en 2016 vaccinait seulement quelques centaines d'opérateurs jugés essentiels. Avec NIS2, l'Europe vaccine quinze mille entreprises françaises et près de cent mille européennes parce que les attaques modernes ne touchent plus seulement les centrales nucléaires, elles touchent les boulangeries qui dépendent du logiciel SaaS, les laboratoires médicaux indépendants, les transporteurs régionaux. Pour vous, analyste forensic, NIS2 est le cadre qui va définir vos clients pour la prochaine décennie. Comprendre cette directive, c'est comprendre où sera votre marché.
 
-## Métadonnées du chapitre
-
-| Champ | Valeur |
-|---|---|
-| Durée estimée | 2 heures |
-| Niveau | Exhaustif |
-| Prérequis | Chapitres 1.1 à 1.6 |
-| Livrables | Cartographie des secteurs NIS2, fiche obligations comparative |
-| Auto-explication | 15 minutes |
-
 ## Objectifs pédagogiques
 
-À la fin de ce chapitre, vous serez capable de :
+!!! tip "À la fin de ce chapitre, vous serez capable de :"
 
-- Citer les dates clés de NIS, NIS2 et de la Loi Résilience.
-- Distinguer entités essentielles et entités importantes selon les critères taille et secteur.
-- Lister les 18 secteurs concernés répartis en hautement critiques et critiques.
-- Citer les 10 mesures techniques de l'article 21 NIS2.
-- Identifier les obligations de notification d'incident et leurs délais.
-- Connaître le ReCyF et son articulation avec NIS2.
-- Estimer le marché forensic ouvert par NIS2 pour OmnyVia.
+    - Citer les dates clés de NIS, NIS2 et de la Loi Résilience.
+    - Distinguer entités essentielles et entités importantes selon les critères taille et secteur.
+    - Lister les 18 secteurs concernés répartis en hautement critiques et critiques.
+    - Citer les 10 mesures techniques de l'article 21 NIS2.
+    - Identifier les obligations de notification d'incident et leurs délais.
+    - Connaître le ReCyF et son articulation avec NIS2.
+    - Estimer le marché forensic ouvert par NIS2 pour OmnyVia.
+
+<br>
 
 ---
 
-## 1. Histoire et architecture du cadre européen
+<br>
 
-### 1.1 Genèse de NIS
+## Histoire et architecture du cadre européen
+
+### Genèse de NIS
 
 La **directive NIS** (Network and Information Security) du 6 juillet 2016 a été le premier texte européen général de cybersécurité. Elle a été transposée en France par la **loi du 26 février 2018** et son décret d'application.
 
+> Évolution temporelle du cadre NIS :
+
 ```mermaid
 flowchart LR
-    A[2013<br>LPM française<br>OIV nationaux]
-    B[2016<br>Directive NIS<br>OSE européens]
-    C[2018<br>Transposition NIS<br>France]
-    D[2022<br>Directive NIS2<br>Élargissement massif]
-    E[2024<br>Échéance transposition<br>France en retard]
-    F[2026<br>Loi Résilience<br>en cours]
+    A["2013<br>LPM française<br>OIV nationaux"]
+    B["2016<br>Directive NIS<br>OSE européens"]
+    C["2018<br>Transposition NIS<br>France"]
+    D["2022<br>Directive NIS2<br>Élargissement massif"]
+    E["2024<br>Échéance transposition<br>France en retard"]
+    F["2026<br>Loi Résilience<br>en cours"]
 
     A --> B --> C --> D --> E --> F
 ```
 
-### 1.2 Pourquoi NIS2 remplace NIS
+### Pourquoi NIS2 remplace NIS
 
-Trois constats ont motivé la refonte de 2022 :
+Trois constats majeurs ont motivé la refonte de 2022 :
 
 | Constat NIS1 | Réponse NIS2 |
 |---|---|
 | Périmètre trop étroit (~500 OSE en France) | Élargissement à ~15 000 entités |
-| Inégalité de transposition entre États | Cadre plus prescriptif |
-| Sanctions insuffisamment dissuasives | Plafonds alignés sur RGPD |
-| Pas de couverture chaîne d'approvisionnement | Inclusion des fournisseurs critiques |
-| Notification d'incident peu cadrée | Délais et procédures harmonisés |
+| Inégalité de transposition entre États | Cadre plus prescriptif et harmonisé |
+| Sanctions insuffisamment dissuasives | Plafonds alignés sur les sanctions du RGPD |
+| Pas de couverture de la chaîne d'approvisionnement | Inclusion des fournisseurs critiques |
+| Notification d'incident peu cadrée | Délais et procédures strictement harmonisés |
 
-### 1.3 Calendrier législatif français en avril 2026
+### Calendrier législatif français en avril 2026
+
+> Ce calendrier met en évidence le décalage de transposition de la France :
 
 | Date | Étape |
 |---|---|
-| 14 décembre 2022 | Adoption directive NIS2 par UE |
+| 14 décembre 2022 | Adoption de la directive NIS2 par l'UE |
 | 17 octobre 2024 | Échéance européenne de transposition (France en retard) |
 | 15 octobre 2024 | Présentation du projet de loi Résilience au Conseil des ministres |
 | 11-12 mars 2025 | Adoption en première lecture au Sénat |
@@ -87,568 +91,484 @@ Trois constats ont motivé la refonte de 2022 :
 | Q1-Q2 2026 | Promulgation attendue de la Loi Résilience |
 | Q2-Q3 2026 | Décrets d'application ANSSI |
 | 2027 | Premiers contrôles structurés ANSSI |
-| 2029 | Conformité totale exigée (période transitoire 3 ans) |
+| 2029 | Conformité totale exigée (période transitoire de 3 ans) |
 
-### 1.4 Position française par rapport à l'Europe
+### Position française par rapport à l'Europe
 
-Au 28 avril 2026, seuls quatre États européens ont transposé NIS2 dans les délais : **Belgique, Croatie, Italie, Lituanie**. La France fait partie des États en retard, ce qui peut entraîner :
+Au 28 avril 2026, seuls quatre États européens ont transposé NIS2 dans les délais : **Belgique, Croatie, Italie, Lituanie**. La France fait partie des États en retard, ce qui entraîne deux conséquences juridiques :
 
-- **Procédure d'infraction** par la Commission européenne contre la France
-- **Effet direct vertical** de la directive : possibilité pour des particuliers d'invoquer NIS2 contre l'État français devant les juridictions
+- **Procédure d'infraction** par la Commission européenne contre la France.
+- **Effet direct vertical** de la directive : possibilité pour des particuliers ou des concurrents d'invoquer NIS2 contre l'État français devant les juridictions.
 
-Cela signifie que **certaines obligations sont déjà invocables** indépendamment de la Loi Résilience.
+!!! danger "Attention au piège de l'attente"
+    Cela signifie que **certaines obligations sont déjà invocables** indépendamment de la Loi Résilience. Vos clients ne doivent pas attendre la publication des décrets français pour commencer leur mise en conformité.
+
+<br>
 
 ---
 
-## 2. Périmètre d'assujettissement
+<br>
 
-### 2.1 Les 18 secteurs concernés
+## Périmètre d'assujettissement
 
-NIS2 couvre **18 secteurs** répartis en deux annexes : **hautement critiques** (annexe I, 11 secteurs) et **critiques** (annexe II, 7 secteurs).
+### Les 18 secteurs concernés
+
+NIS2 couvre **18 secteurs d'activité** répartis en deux annexes : **hautement critiques** (annexe I, 11 secteurs) et **critiques** (annexe II, 7 secteurs).
 
 ```mermaid
 flowchart TB
-    A[NIS2 - 18 secteurs]
-    A --> B[Annexe I<br>11 secteurs<br>Hautement critiques]
-    A --> C[Annexe II<br>7 secteurs<br>Critiques]
+    A["NIS2 - 18 secteurs"]
+    A --> B["Annexe I<br>11 secteurs<br>Hautement critiques"]
+    A --> C["Annexe II<br>7 secteurs<br>Critiques"]
 
-    B --> B1[Énergie]
-    B --> B2[Transports]
-    B --> B3[Banque]
-    B --> B4[Marchés financiers]
-    B --> B5[Santé]
-    B --> B6[Eau potable]
-    B --> B7[Eaux usées]
-    B --> B8[Infrastructure numérique]
-    B --> B9[Gestion services TIC B2B]
-    B --> B10[Administration publique]
-    B --> B11[Espace]
+    B --> B1["Énergie"]
+    B --> B2["Transports"]
+    B --> B3["Banque"]
+    B --> B4["Marchés financiers"]
+    B --> B5["Santé"]
+    B --> B6["Eau potable"]
+    B --> B7["Eaux usées"]
+    B --> B8["Infrastructure numérique"]
+    B --> B9["Gestion services TIC B2B"]
+    B --> B10["Administration publique"]
+    B --> B11["Espace"]
 
-    C --> C1[Services postaux]
-    C --> C2[Gestion des déchets]
-    C --> C3[Chimie]
-    C --> C4[Alimentation]
-    C --> C5[Fabrication industrielle]
-    C --> C6[Fournisseurs numériques]
-    C --> C7[Recherche]
+    C --> C1["Services postaux"]
+    C --> C2["Gestion des déchets"]
+    C --> C3["Chimie"]
+    C --> C4["Alimentation"]
+    C --> C5["Fabrication industrielle"]
+    C --> C6["Fournisseurs numériques"]
+    C --> C7["Recherche"]
 ```
 
-### 2.2 Critères de taille
+### Critères de taille
 
-L'assujettissement combine **secteur** et **taille**. Une entreprise est concernée si elle dépasse l'un des seuils suivants ET opère dans un secteur listé.
+L'assujettissement combine obligatoirement **le secteur** et **la taille**. Une entreprise est concernée si elle dépasse l'un des seuils suivants ET opère dans un secteur listé.
 
-| Catégorie | Seuils cumulatifs (l'un d'entre eux) |
+| Catégorie | Seuils cumulatifs (il suffit de dépasser l'un d'entre eux) |
 |---|---|
-| Entité essentielle | ≥ 250 salariés OU CA ≥ 50 M€ OU bilan ≥ 43 M€ |
-| Entité importante | 50 à 249 salariés OU CA 10 à 50 M€ OU bilan 10 à 43 M€ |
+| Entité Essentielle (EE) | ≥ 250 salariés OU CA ≥ 50 M€ OU bilan ≥ 43 M€ |
+| Entité Importante (EI) | 50 à 249 salariés OU CA 10 à 50 M€ OU bilan 10 à 43 M€ |
 
-### 2.3 Matrice de classification
+### Matrice de classification
+
+> Logigramme de décision pour qualifier une entité :
 
 ```mermaid
 flowchart TB
-    A[Entreprise<br>secteur listé NIS2] --> B{Taille}
-    B -->|≥ 250 salariés<br>OU CA 50M€<br>OU bilan 43M€| C{Secteur}
-    B -->|50-249 salariés<br>OU CA 10-50M€<br>OU bilan 10-43M€| D{Secteur}
-    B -->|< 50 salariés<br>ET < 10M€| E[Hors NIS2]
+    A["Entreprise<br>secteur listé NIS2"] --> B{"Taille de l'entreprise"}
+    B -->|"≥ 250 salariés<br>OU CA 50M€<br>OU bilan 43M€"| C{"Critique de son Secteur"}
+    B -->|"50-249 salariés<br>OU CA 10-50M€<br>OU bilan 10-43M€"| D{"Critique de son Secteur"}
+    B -->|"< 50 salariés<br>ET CA < 10M€"| E["Hors NIS2 (Généralement)"]
 
-    C -->|Annexe I<br>hautement critique| F[ENTITÉ ESSENTIELLE]
-    C -->|Annexe II<br>critique| G[ENTITÉ IMPORTANTE]
+    C -->|"Annexe I<br>Hautement critique"| F["ENTITÉ ESSENTIELLE"]
+    C -->|"Annexe II<br>Critique"| G["ENTITÉ IMPORTANTE"]
 
-    D -->|Annexe I| G
-    D -->|Annexe II| G
+    D -->|"Annexe I"| G
+    D -->|"Annexe II"| G
 ```
 
-### 2.4 Cas particuliers d'assujettissement automatique
+### Cas particuliers d'assujettissement automatique
 
-Certaines entités sont **assujetties indépendamment de leur taille** :
+Certaines entités sont **assujetties indépendamment de leur taille** (même une TPE de 3 personnes sera concernée) :
 
 | Cas | Justification |
 |---|---|
-| Fournisseurs de services DNS, registres TLD | Rôle névralgique infrastructure |
-| Prestataires de services de confiance qualifiés (eIDAS) | Confiance numérique |
-| Fournisseurs de services de communications électroniques | Infrastructure critique |
-| Administrations centrales | Service public |
-| Tout opérateur identifié comme critique par l'État | Décision discrétionnaire |
+| Fournisseurs de services DNS, registres TLD | Rôle névralgique pour l'infrastructure internet mondiale |
+| Prestataires de services de confiance qualifiés (eIDAS) | Confiance numérique et cryptographie |
+| Fournisseurs de services de communications électroniques | Infrastructure critique de transport de l'information |
+| Administrations centrales | Service public continu de l'État |
+| Tout opérateur identifié comme critique par l'État | Décision discrétionnaire du Premier Ministre |
 
-### 2.5 Effet de cascade sur la chaîne de fournisseurs
+### Effet de cascade sur la chaîne de fournisseurs
 
-NIS2 oblige les entités essentielles et importantes à **gérer les risques de leur chaîne d'approvisionnement** (article 21). En pratique, cela signifie qu'une PME non assujettie directement peut être contrainte par ses clients de **respecter les mêmes standards**.
+NIS2 oblige les entités essentielles et importantes à **gérer les risques de leur chaîne d'approvisionnement** (article 21). En pratique, cela signifie qu'une PME non assujettie directement peut (et va) être contrainte par ses gros clients de **respecter les mêmes standards de sécurité**.
 
 ```mermaid
 flowchart LR
-    A[Entité essentielle<br>EDF] -->|Exigences contractuelles| B[Sous-traitant<br>PME 30 salariés]
-    B -->|Exigences contractuelles| C[Sous-sous-traitant<br>TPE 10 salariés]
-    A -->|Audit chaîne fournisseurs| B
-    B -->|Audit| C
+    A["Entité essentielle<br>EDF"] -->|"Exigences contractuelles"| B["Sous-traitant direct<br>PME de 30 salariés"]
+    B -->|"Exigences contractuelles"| C["Sous-sous-traitant<br>TPE de 10 salariés"]
+    A -->|"Droit d'audit cyber"| B
+    B -->|"Droit d'audit cyber"| C
 ```
 
-**Implication forensic** : votre marché potentiel inclut non seulement les 15 000 entités directement assujetties, mais aussi **plusieurs dizaines de milliers** de sous-traitants soumis indirectement.
+!!! abstract "Implication opérationnelle pour le Forensic"
+    Votre marché potentiel inclut non seulement les 15 000 entités directement assujetties, mais aussi **plusieurs dizaines de milliers** de sous-traitants (TPE, PME) soumis indirectement par la pression commerciale de leurs donneurs d'ordres.
+
+<br>
 
 ---
 
-## 3. Les 10 mesures de l'article 21 NIS2
+<br>
 
-L'**article 21 de la directive NIS2** fixe **10 mesures techniques et organisationnelles** que les entités assujetties doivent mettre en œuvre.
+## Les 10 mesures de l'article 21 NIS2
 
-### 3.1 Liste exhaustive des 10 mesures
+L'**article 21 de la directive NIS2** fixe le socle : **10 mesures techniques et organisationnelles** que les entités assujetties doivent impérativement mettre en œuvre.
 
-| # | Mesure | Description |
+### Liste exhaustive des 10 mesures
+
+| # | Mesure de l'article 21 | Application concrète |
 |---|---|---|
-| 1 | Politiques d'analyse des risques et de sécurité des systèmes d'information | Cartographie risques, analyse régulière, plan de traitement |
-| 2 | Gestion des incidents | Procédures détection, réponse, retour à la normale |
-| 3 | Continuité des activités et gestion des crises | Plan de continuité (PCA), plan de reprise (PRA) |
-| 4 | Sécurité de la chaîne d'approvisionnement | Évaluation fournisseurs, exigences contractuelles |
-| 5 | Sécurité de l'acquisition, du développement et de la maintenance des SI | Cycle de vie sécurisé, gestion des vulnérabilités |
-| 6 | Politiques et procédures pour évaluer l'efficacité | Audit interne, tableaux de bord |
-| 7 | Pratiques de cyberhygiène et formation à la cybersécurité | Sensibilisation, formation continue |
-| 8 | Politiques et procédures relatives à l'utilisation de la cryptographie et du chiffrement | Standards crypto, gestion des clés |
-| 9 | Sécurité des ressources humaines, contrôle d'accès et gestion des actifs | Profils, accès, inventaire |
-| 10 | Utilisation de solutions d'authentification multi-facteurs ou continue, communications sécurisées vocales, vidéo et texte, communications sécurisées d'urgence | MFA, communications chiffrées |
+| 1 | Politiques d'analyse des risques et de SSI | Cartographie des risques, analyse régulière, plan de traitement |
+| 2 | Gestion des incidents | Procédures de détection, réponse (SOC/CERT), retour à la normale |
+| 3 | Continuité des activités et gestion de crise | Plan de continuité (PCA), plan de reprise (PRA), gestion des sauvegardes |
+| 4 | Sécurité de la chaîne d'approvisionnement | Évaluation des fournisseurs, clauses d'audit |
+| 5 | Sécurité de l'acquisition, dev et maintenance | Cycle de vie sécurisé (SecOps), gestion des vulnérabilités logicielles |
+| 6 | Politiques pour évaluer l'efficacité | Audits internes, pentests réguliers, tableaux de bord de sécurité |
+| 7 | Cyberhygiène et formation à la cybersécurité | Sensibilisation du personnel, formation continue technique |
+| 8 | Politiques d'utilisation de la cryptographie | Standards crypto robustes, gestion sécurisée des clés de chiffrement |
+| 9 | Sécurité des ressources humaines, contrôle d'accès | Moindre privilège, gestion des identités, inventaire des actifs |
+| 10 | MFA et communications sécurisées | Authentification multi-facteurs partout, canaux de crise sécurisés |
 
-### 3.2 Articulation avec ReCyF
+### Articulation avec le ReCyF de l'ANSSI
 
-L'**ANSSI a publié le ReCyF (Référentiel Cyber France) le 17 mars 2026**. C'est la déclinaison française des 10 mesures de l'article 21.
+L'**ANSSI a publié le ReCyF (Référentiel Cyber France) le 17 mars 2026**. C'est la déclinaison extrêmement précise et "à la française" des 10 mesures de l'article 21.
 
-| Caractéristique ReCyF | Précision |
+| Caractéristique du ReCyF | Précision opérationnelle |
 |---|---|
-| Statut | Référentiel non obligatoire mais opposable en cas de contrôle |
-| Source | ANSSI |
-| Contenu | Mesures détaillées, justifications, correspondances normes ISO |
-| Avantage | Présomption de conformité si appliqué |
-| Date publication | 17 mars 2026 |
+| Statut | Référentiel non "strictement" obligatoire, mais opposable en cas de contrôle ANSSI |
+| Source | L'autorité nationale (ANSSI) |
+| Contenu | Mesures détaillées, exigences par catégorie, équivalences ISO 27001 |
+| Avantage juridique | Offre une "présomption de conformité" si l'entité démontre qu'elle l'applique |
 
-Si une entité applique le ReCyF, elle peut s'en prévaloir auprès de l'ANSSI lors d'un contrôle pour démontrer sa conformité.
+Si une entité applique scrupuleusement le ReCyF, elle sera à l'abri des sanctions de l'ANSSI lors d'un contrôle. C'est votre bible pour l'accompagnement des PME.
 
-### 3.3 Détail de la mesure 10 - Authentification multifacteur
+### Focus : La mesure 10 (MFA)
 
-Cette mesure mérite une attention particulière car elle modifie significativement les architectures.
+Cette mesure mérite une attention particulière car c'est celle qui modifie le plus drastiquement l'architecture au quotidien pour les utilisateurs.
 
 ```mermaid
 flowchart TB
-    A[Mesure 10 NIS2] --> B[MFA obligatoire<br>accès systèmes critiques]
-    A --> C[Communications<br>chiffrées vocales]
-    A --> D[Communications<br>chiffrées vidéo]
-    A --> E[Communications<br>chiffrées texte]
-    A --> F[Canal d'urgence<br>sécurisé]
+    A["Mesure 10 NIS2"] --> B["MFA obligatoire<br>pour l'accès aux systèmes critiques"]
+    A --> C["Communications<br>chiffrées vocales"]
+    A --> D["Communications<br>chiffrées vidéo"]
+    A --> E["Communications<br>chiffrées texte"]
+    A --> F["Canal d'urgence<br>hors bande sécurisé"]
 ```
 
-| Type d'accès | MFA exigé |
+Le MFA n'est plus une simple bonne pratique, il devient une contrainte légale.
+
+| Type d'accès | Le MFA est-il exigé ? |
 |---|---|
-| Accès administrateur | Toujours, sans exception |
+| Accès administrateur | Toujours, sans aucune exception |
 | Accès distant (VPN, RDP) | Toujours |
-| Accès aux applications critiques | Toujours |
+| Accès aux applications métier critiques | Toujours |
 | Accès aux données personnelles sensibles | Toujours |
-| Accès utilisateur standard | Recommandé |
+| Accès utilisateur standard interne | Fortement recommandé |
+
+<br>
 
 ---
 
-## 4. Obligations de notification d'incident
+<br>
 
-### 4.1 Délais à respecter
+## Obligations de notification d'incident
 
-L'**article 23 de NIS2** impose des délais stricts de notification aux autorités (en France, l'ANSSI) en cas d'incident significatif.
+### Délais à respecter
+
+L'**article 23 de NIS2** impose des délais extrêmement stricts de notification à l'ANSSI en cas d'incident "significatif".
 
 ```mermaid
 flowchart LR
-    A[Incident significatif détecté] --> B[24 heures<br>Alerte préalable<br>Pre-notification]
-    B --> C[72 heures<br>Notification<br>complète]
-    C --> D[1 mois<br>Rapport final<br>incluant analyse]
+    A["Incident significatif détecté"] --> B["24 heures<br>Alerte préalable<br>Pre-notification"]
+    B --> C["72 heures<br>Notification<br>complète"]
+    C --> D["1 mois<br>Rapport final<br>incluant analyse Forensic"]
 ```
 
-| Délai | Contenu |
+| Délai maximal | Contenu exigé par le législateur |
 |---|---|
-| 24 heures | Pre-notification : nature, impact estimé, mesures initiales |
-| 72 heures | Notification complète : description, indicateurs, premières corrélations |
-| 1 mois | Rapport final : analyse, IOC, mesures correctives définitives |
+| 24 heures | Pre-notification : nature de la menace, impact estimé, premières mesures |
+| 72 heures | Notification complète : description technique, premiers indicateurs (IoC) |
+| 1 mois | Rapport final : analyse complète, cause racine, mesures correctives définitives |
 
-### 4.2 Définition d'un incident significatif
+### Définition d'un incident "significatif"
 
-Un incident est **significatif** au sens de NIS2 lorsqu'il :
+Un incident est considéré comme **significatif** (et déclenche l'alerte 24h) lorsqu'il :
 
-| Critère | Précision |
-|---|---|
-| Cause une perturbation grave | Disponibilité dégradée ou interrompue |
-| Affecte un grand nombre d'utilisateurs | Critère quantitatif variable selon secteur |
-| Cause des dommages importants | Financiers, réputationnels, matériels |
-| Affecte la sécurité ou la santé | Critère lié au secteur (santé, transport) |
-| Implique des données sensibles | Données à caractère personnel notamment |
+- Cause une perturbation grave de la continuité du service (panne, ransomware).
+- Affecte un grand nombre d'utilisateurs.
+- Cause des dommages matériels ou financiers importants.
+- Implique une atteinte massive à des données sensibles.
 
-### 4.3 Articulation avec autres notifications
+### Articulation avec les autres notifications
 
-Une attaque significative peut déclencher **simultanément** plusieurs obligations de notification.
+!!! warning "Le cauchemar administratif de la notification multiple"
+    Une attaque majeure peut déclencher **simultanément** plusieurs obligations de déclaration à des autorités différentes, chacune avec ses propres délais et formulaires.
 
 ```mermaid
 flowchart TB
-    A[Attaque détectée] --> B[Notification ANSSI<br>NIS2 24h-72h]
-    A --> C[Notification CNIL<br>RGPD 72h<br>si données perso]
-    A --> D[Notification ACPR<br>secteur financier<br>si concerné]
-    A --> E[Notification ARCEP<br>communications<br>si concerné]
-    A --> F[Notification CERT-FR<br>OIV<br>si applicable]
-    A --> G[Dépôt de plainte<br>police judiciaire]
+    A["Attaque détectée"] --> B["Notification ANSSI<br>NIS2 : 24h et 72h"]
+    A --> C["Notification CNIL<br>RGPD : 72h<br>(Si données persos touchées)"]
+    A --> D["Notification ACPR<br>Secteur financier<br>(Si concerné)"]
+    A --> E["Dépôt de plainte pénal<br>Police / Gendarmerie"]
 ```
 
-**Pratique** : tenir un **canevas de notification multiple** pré-rempli, prêt à diffuser en quelques minutes.
+<br>
 
 ---
 
-## 5. Sanctions
+<br>
 
-### 5.1 Plafonds de sanctions
+## Sanctions applicables
 
-NIS2 introduit des sanctions **alignées sur le RGPD** en gravité.
+### Plafonds de sanctions (Alignement RGPD)
 
-| Catégorie | Sanction maximale |
+NIS2 dote enfin l'ANSSI d'un pouvoir de sanction dissuasif, calqué sur les montants du RGPD.
+
+| Catégorie | Sanction pécuniaire maximale encourue |
 |---|---|
-| Entité essentielle | 10 M€ ou 2% du CA mondial annuel (le plus élevé) |
-| Entité importante | 7 M€ ou 1,4% du CA mondial annuel (le plus élevé) |
+| Entité Essentielle (EE) | 10 M€ ou 2% du Chiffre d'Affaires mondial annuel (le plus élevé retenu) |
+| Entité Importante (EI) | 7 M€ ou 1,4% du Chiffre d'Affaires mondial annuel (le plus élevé retenu) |
 
-### 5.2 Sanctions complémentaires
+### Sanctions administratives complémentaires
 
-Au-delà des amendes, l'ANSSI peut prononcer :
+Au-delà des amendes, l'ANSSI a le pouvoir de prononcer des décisions impactant gravement la vie de l'entreprise :
 
-| Type de sanction | Effet |
-|---|---|
-| Avertissement public | Communication officielle, impact réputationnel |
-| Injonction de mise en conformité | Obligation d'agir sous délai |
-| Suspension temporaire de certification | Perte d'agrément ou qualification |
-| Interdiction d'exercer certaines fonctions | Pour les dirigeants responsables |
-| Communication publique de la sanction | "Name and shame" |
+- Avertissement public (Name and Shame).
+- Injonction de mise en conformité (sous astreinte financière).
+- Suspension temporaire de certification ou d'agrément.
+- Interdiction temporaire d'exercer des fonctions de direction.
 
-### 5.3 Période transitoire pour les sanctions
+### Responsabilité personnelle des dirigeants
 
-La Loi Résilience prévoit une **période transitoire de 3 ans** pendant laquelle les sanctions ne seront pas appliquées dans toute leur rigueur. Cela laisse le temps aux entités de se conformer.
+NIS2 introduit une **responsabilité personnelle et inaliénable des dirigeants** (article 20). Le comité de direction de l'entité :
 
-| Période | Régime |
-|---|---|
-| Promulgation à 2027 | Pédagogie, aucune sanction lourde |
-| 2027 à 2028 | Premières sanctions modérées |
-| 2029 et après | Régime plein de sanctions |
+- Est **personnellement responsable** de la non-mise en conformité de son entreprise.
+- Peut subir une **suspension temporaire de fonction** en cas de manquement grave.
+- Est tenu légalement de **suivre une formation à la cybersécurité** (et de financer celle de ses équipes).
 
-### 5.4 Responsabilité personnelle des dirigeants
+!!! info "La fin du parapluie du RSSI"
+    Avec NIS2, un directeur général ne peut plus rejeter la faute sur son RSSI en cas de piratage dû à une négligence d'investissement. C'est le DG qui porte le risque administratif et personnel.
 
-NIS2 introduit une **responsabilité personnelle des dirigeants** (article 20) qui ne peut être déléguée. Le directeur de l'entité essentielle ou importante est :
-
-- **Personnellement responsable** de la mise en conformité
-- Susceptible de **suspension temporaire de fonction** en cas de manquement grave
-- Tenu de **suivre une formation cybersécurité** et de garantir la formation des équipes
+<br>
 
 ---
 
-## 6. Architecture de gouvernance en France
+<br>
 
-### 6.1 ANSSI - Autorité centrale
+## Architecture de gouvernance en France
 
-L'**ANSSI** (Agence nationale de la sécurité des systèmes d'information) est désignée comme **autorité nationale unique** pour NIS2.
+### L'ANSSI - Autorité centrale
+
+L'**ANSSI** (Agence nationale de la sécurité des systèmes d'information) a été désignée comme l'**autorité nationale unique et centrale** pour la supervision de NIS2 en France.
 
 ```mermaid
 flowchart TB
-    A[ANSSI] --> B[Pilotage transposition]
-    A --> C[Auto-évaluation<br>MonEspaceNIS2]
-    A --> D[Référentiel ReCyF]
-    A --> E[Contrôles et audits]
-    A --> F[Sanctions administratives]
-    A --> G[Coordination<br>CSIRT-FR / CERT-FR]
-    A --> H[Coopération européenne<br>ENISA]
+    A["ANSSI"] --> B["Pilotage de la transposition"]
+    A --> C["Plateforme MonEspaceNIS2"]
+    A --> D["Maintien du Référentiel ReCyF"]
+    A --> E["Contrôles et audits sur site"]
+    A --> F["Prononciation des sanctions"]
+    A --> G["Coordination avec les CSIRT"]
 ```
 
-### 6.2 MonEspaceNIS2
+### MonEspaceNIS2
 
-L'ANSSI a déployé un **portail dédié** pour les entités assujetties : **MonEspaceNIS2**. Il permet :
+L'ANSSI déploie un **portail dédié** pour les entreprises : **MonEspaceNIS2**. C'est le guichet unique qui permet l'auto-évaluation du statut, l'auto-déclaration de l'entreprise, et la notification sécurisée des incidents sous 24h.
 
-- Auto-évaluation du statut (essentielle, importante, hors champ)
-- Auto-déclaration auprès de l'ANSSI
-- Suivi des obligations
-- Notification d'incidents
-- Accès aux référentiels
-
-### 6.3 Autres acteurs institutionnels
-
-| Acteur | Rôle |
-|---|---|
-| ANSSI | Autorité centrale |
-| CSIRT-FR / CERT-FR | Réponse à incident |
-| CNIL | Articulation RGPD |
-| ARCEP | Secteur télécoms |
-| ACPR | Secteur financier (DORA) |
-| Ministères coordonnateurs | Sectoriels (santé, énergie...) |
+<br>
 
 ---
 
-## 7. Coûts de mise en conformité
+<br>
 
-### 7.1 Estimations ANSSI
+## Articulation avec les OIV, DORA et RGPD
 
-| Catégorie | Coût initial | Coût annuel maintien |
+Le marché français subit un véritable "millefeuille" de réglementations. 
+
+> Synthèse de la superposition des cadres en 2026 :
+
+| Cadre Juridique | Périmètre d'application | Spécificité et Compatibilité |
 |---|---|---|
-| Entité importante | 100 000 à 200 000 € | 10 000 à 20 000 € |
-| Entité essentielle | 450 000 à 880 000 € | 45 000 à 90 000 € |
+| OIV (LPM 2013) | ~250 entités (Sécurité nationale) | Confidentialité absolue. Se cumule avec NIS2 sur le reste du SI. |
+| OSE (NIS 2016) | ~600 services essentiels | Devient **obsolète** et est remplacé par NIS2. |
+| NIS2 (Loi Résilience) | ~15 000 entités + Sous-traitants | Le nouveau socle général européen. |
+| DORA (UE 2022) | Strictement le Secteur financier | Lex specialis : **DORA remplace NIS2** pour les banques/assurances. |
+| RGPD | Toute entité traitant de la donnée | Protection de la vie privée. Se cumule avec NIS2. |
 
-### 7.2 Décomposition typique
-
-```mermaid
-flowchart TB
-    A[Budget conformité NIS2]
-    A --> B[Audit initial<br>20-30k€]
-    A --> C[Outils et licences<br>30-100k€]
-    A --> D[Conseils et certifications<br>40-100k€]
-    A --> E[Formation des équipes<br>10-30k€]
-    A --> F[Procédures et documentation<br>20-50k€]
-    A --> G[Tests et exercices<br>10-30k€]
-```
-
-### 7.3 Marché ouvert pour OmnyVia
-
-Avec 15 000 entités assujetties + dizaines de milliers de fournisseurs indirects, le marché total NIS2 en France représente plusieurs **milliards d'euros sur 5 ans**.
-
-| Prestation | Tarification indicative |
-|---|---|
-| Audit initial NIS2 | 5 000 à 25 000 € selon taille |
-| Mise en conformité accompagnée | 30 000 à 200 000 € |
-| Tests d'intrusion annuels | 10 000 à 50 000 € |
-| Forensic post-incident | 20 000 à 100 000 € (cas) |
-| Astreinte CSIRT | 5 000 à 30 000 €/an |
+<br>
 
 ---
 
-## 8. Articulation avec OIV et autres cadres
+<br>
 
-### 8.1 Tableau synoptique
+## Impact Forensic et Potentiel Marché (OmnyVia)
 
-| Cadre | Périmètre | Spécificité | Compatibilité |
-|---|---|---|---|
-| OIV (LPM 2013) | ~250 entités sécurité nationale | Confidentialité Défense | Cumul avec NIS2 |
-| OSE (NIS 2016) | ~600 services essentiels | Devient obsolète avec NIS2 | Remplacé |
-| NIS2 (Loi Résilience) | ~15 000 entités | Cadre général | - |
-| DORA (UE 2022/2554) | Secteur financier uniquement | Lex specialis | NIS2 ne s'applique pas si DORA |
-| RGPD | Toute entité | Données personnelles | Cumul possible |
+### L'explosion de la Demande
 
-### 8.2 Cas typique de superposition
+NIS2 fait passer le marché français qualifié de 850 entités régulées (OIV+OSE) à **plus de 15 000 entités directes**.
 
-EDF est **simultanément** :
+| Prestation d'expertise | Déclencheur NIS2 |
+|---|---|
+| Tests d'intrusion / Red Teaming | Mesure 6 de l'art. 21 (Évaluation de l'efficacité des mesures) |
+| Intervention Forensic et Réponse (DFIR) | Mesure 2 (Gestion des incidents) et article 23 (Notification ANSSI) |
+| Audit de la Supply Chain Cyber | Mesure 4 (Sécurité de la chaîne d'approvisionnement) |
+| Formation C-Level | Article 20 (Obligation de formation des dirigeants) |
 
-- OIV (LPM, 5 SIIV identifiés)
-- Entité essentielle NIS2 (secteur énergie, taille)
-- Soumis à RGPD (données clients)
+### Spécificités du DFIR en contexte NIS2
 
-Les obligations se cumulent. EDF doit respecter le **plus exigeant** sur chaque sujet.
+Si vous êtes appelé en urgence chez un client fraîchement assujetti à NIS2, votre temporalité d'investigation change :
+1. **La course contre la montre (24h) :** Vous devez trouver la root cause ou l'impact initial très vite pour rédiger la pre-notification.
+2. **Le rapport sous 1 mois :** Votre rapport forensic de fin d'incident sera lu par l'ANSSI. Il doit être formel, exhaustif, et justifier des mesures de remédiation conformes au référentiel ReCyF.
 
-### 8.3 Cas du secteur financier
-
-Le règlement **DORA** (Digital Operational Resilience Act) du 14 décembre 2022 s'applique au secteur financier depuis le 17 janvier 2025. Pour ce secteur, **DORA prime sur NIS2** comme lex specialis.
-
-```mermaid
-flowchart TB
-    A[Banque ou assurance] --> B{Soumise à DORA ?}
-    B -->|Oui| C[DORA seul<br>NIS2 ne s'applique pas]
-    B -->|Non| D{Critères NIS2 ?}
-    D -->|Oui| E[NIS2 applicable]
-    D -->|Non| F[Hors champ]
-```
-
-Voir chapitre 1.9 pour DORA en détail.
+<br>
 
 ---
 
-## 9. Impact sur le forensic
+<br>
 
-### 9.1 Multiplication des clients potentiels
+## Pièges et bonnes pratiques
 
-NIS2 fait passer le marché français de 250 OIV + 600 OSE à **15 000 entités**, soit une multiplication par 18.
+!!! failure "Piège 1 - Attendre bêtement les décrets d'application"
+    La directive a déjà un effet direct partiel. La mesure 2 sur la notification d'incident et la gestion de la chaîne d'approvisionnement forcent déjà les grands groupes à exiger la conformité de leurs petits fournisseurs en 2026, décrets publiés ou non.
 
-```mermaid
-flowchart LR
-    A[Avant NIS2<br>~850 entités assujetties] -->|Loi Résilience 2026| B[Après NIS2<br>~15 000 entités directes]
-    B -->|Effet cascade| C[+ dizaines de milliers<br>de fournisseurs]
-```
+!!! failure "Piège 2 - Le syndrome de la case à cocher"
+    NIS2 (via le ReCyF) exige une **efficacité prouvée**, pas juste du papier. Avoir une politique de sauvegarde (papier) sans la tester (exercice) sera sanctionné par l'ANSSI.
 
-### 9.2 Demande accrue de prestations spécifiques
+!!! tip "1. Apprivoiser le ReCyF"
+    Le ReCyF est votre bible de conseil. Chaque recommandation que vous ferez à un client (PME/ETI) devra être rattachée à une règle du ReCyF pour qu'il puisse justifier de son investissement lors de son prochain audit ANSSI.
 
-| Prestation | Demande NIS2 |
-|---|---|
-| Tests d'intrusion réguliers | Mesure 6 (évaluation efficacité) |
-| Forensic post-incident | Mesure 2 (gestion incidents) |
-| Audit chaîne d'approvisionnement | Mesure 4 |
-| Accompagnement notification ANSSI | Articles 23 délais |
-| Formation cybersécurité dirigeants | Article 20 obligation |
-| Mise en place SOC ou MDR | Mesure 6 et détection |
+!!! tip "2. Préparer des canevas de notification"
+    Le stress d'une compromission majeure empêche de rédiger proprement. Préparez pour vos clients des modèles pré-remplis de notification ANSSI et CNIL à dégainer dès la 5ème heure de crise.
 
-### 9.3 Spécificités forensic en contexte NIS2
-
-Si vous intervenez sur une entité NIS2, plusieurs spécificités s'appliquent :
-
-| Aspect | Spécificité |
-|---|---|
-| Coordination ANSSI | Le CSIRT-FR peut être sollicité ou imposé |
-| Notification 24h | Vos premières conclusions doivent permettre la pre-notification |
-| Documentation renforcée | Le rapport doit alimenter la notification 72h et le rapport 1 mois |
-| Conformité ReCyF | Vos mesures correctives doivent s'aligner sur le ReCyF |
-| Chaîne d'approvisionnement | Élargissement du périmètre forensic possible |
-
-### 9.4 Calendrier de positionnement OmnyVia
-
-| Période | Action recommandée |
-|---|---|
-| Avril-Juin 2026 | Étudier ReCyF, se former, identifier prospects |
-| Juillet-Décembre 2026 | Lancer offre d'audit NIS2 chez prospects identifiés |
-| 2027 | Premiers contrôles ANSSI, demande explose |
-| 2028-2029 | Maturité du marché, positionnement consolidé |
+<br>
 
 ---
 
-## 10. Pièges et bonnes pratiques
+<br>
 
-### Piège 1 - Penser que NIS2 ne concerne que les grandes entreprises
+## Manipulation pratique - Exercices
 
-15 000 entités françaises, dont une majorité de PME et ETI. Beaucoup de TPE sont concernées indirectement via la chaîne d'approvisionnement.
+### Exercice 1 - Qualification du statut d'entreprise
 
-### Piège 2 - Attendre la promulgation pour s'y mettre
+> Pour chaque cas ci-dessous, déterminez si l'entreprise est soumise à NIS2, et si oui, sous quelle catégorie.
 
-La directive a un effet direct partiel. Les obligations de notification d'incident s'appliquent dès la promulgation. Plusieurs grandes entreprises exigent déjà la conformité de leurs fournisseurs.
+!!! quote "Solution"
 
-### Piège 3 - Sous-estimer l'aspect chaîne d'approvisionnement
+    | Profil de l'entreprise | Statut NIS2 applicable en France |
+    |---|---|
+    | Hôpital Régional (1500 salariés, CA 200 M€) | **Entité Essentielle** (Secteur Santé, Annexe I, Dépasse les seuils max) |
+    | Startup SaaS d'analyse IA (60 salariés, CA 12 M€) | **Entité Importante** (Fournisseur Numérique, Annexe II, Dépasse le seuil bas) |
+    | Boulangerie industrielle régionale (200 salariés, 25 M€ CA) | **Entité Importante** (Alimentation, Annexe II, Seuil bas) |
+    | Opérateur TLD (Registre de noms de domaine .fr) | **Entité Essentielle** (Secteur critique sans condition de seuil) |
+    | Cabinet d'architecture local (15 salariés, 2 M€ CA) | **Hors Champ** NIS2 direct. Mais contraint si sous-traitant d'un marché public. |
+    | Société de transport maritime (300 salariés, CA 80 M€) | **Entité Essentielle** (Transports, Annexe I, Dépasse les seuils max) |
 
-Un fournisseur non conforme peut faire perdre un marché à son client assujetti. Cet effet domino crée une demande forte chez des entités hors champ direct.
+<br>
 
-### Bonne pratique 1 - Maîtriser le ReCyF
+### Exercice 2 - Planification de crise (Les fameux délais)
 
-Le ReCyF est votre **outil opérationnel** de référence. Le télécharger, l'étudier, le maîtriser est indispensable pour intervenir sur des clients NIS2.
+Une Entité Importante subit le déploiement d'un ransomware paralysant sa production le **lundi 14 mars à 03h14**. Le RSSI découvre les dégâts en arrivant à **07h30**. Rédigez l'agenda strict des actions légales.
 
-### Bonne pratique 2 - Cartographier le marché local
+!!! quote "Solution"
 
-Identifiez dans votre zone les entités probablement assujetties : hôpitaux, transporteurs, agroalimentaire, industrie. Préparez-leur une offre dédiée.
+    | Échéance limite (Deadline légale) | Action réglementaire exigée par NIS2 / RGPD |
+    |---|---|
+    | Lundi 14 mars - **11h00** | Réunion de crise. Qualification formelle de "l'incident significatif". |
+    | Mardi 15 mars - **07h30** (Max 24h) | Dépôt de la **Pre-Notification** sur MonEspaceNIS2 (Nature de la crise). |
+    | Jeudi 17 mars - **07h30** (Max 72h) | Envoi de la **Notification Complète** ANSSI (Bilan IoC, surface d'attaque). |
+    | Jeudi 17 mars - **07h30** (Max 72h) | Si fuite de données avérée : **Notification CNIL** exigée par le RGPD. |
+    | Jeudi 14 Avril - **07h30** (Max 1 mois)| Dépôt du **Rapport d'Incident Final** à l'ANSSI contenant l'audit Forensic et les mesures ReCyF correctives. |
 
-### Bonne pratique 3 - S'inscrire à MonEspaceNIS2
-
-Même sans être assujetti, créer un compte permet de suivre l'actualité ANSSI et d'être informé des évolutions.
-
----
-
-## 11. Manipulation pratique
-
-### Exercice 11.1 - Qualifier des entreprises
-
-| Entreprise | Statut probable NIS2 |
-|---|---|
-| EDF (secteur énergie, > 250 salariés) | Entité essentielle |
-| Une PME industrielle de 80 salariés et 12 M€ CA fabriquant des composants médicaux | Entité importante (santé indirect) |
-| Un cabinet d'avocats de 30 salariés | Hors champ |
-| Une commune de 4 000 habitants | Selon décrets, probablement entité importante |
-| Un éditeur SaaS de 60 salariés et 8 M€ CA | Entité importante (numérique) |
-| Un hôpital régional public | Entité essentielle (santé) |
-| Un transporteur routier de 70 salariés et 15 M€ CA | Entité importante (transports) |
-| Un data center de 25 salariés | Entité essentielle (infrastructure numérique, taille indifférente) |
-
-### Exercice 11.2 - Plan de notification
-
-Une entité essentielle subit une attaque ransomware le **lundi 14 mars 2026 à 03h14**. Elle découvre l'incident à **07h30**. Construisez le calendrier de notifications obligatoires.
-
-| Échéance | Action |
-|---|---|
-| Lundi 14 mars 07h30 | Constatation, qualification d'incident significatif |
-| Lundi 14 mars 11h00 | Pre-notification ANSSI (sous 24h après détection, large marge) |
-| Mardi 15 mars 07h30 | Échéance finale 24h ANSSI |
-| Lundi 14 mars 14h00 | Évaluation données personnelles compromises, préparation notification CNIL |
-| Mardi 15 mars 07h30 | Notification CNIL si confirmation données touchées (sous 72h RGPD) |
-| Jeudi 17 mars 07h30 | Notification complète NIS2 sous 72h |
-| Lundi 14 avril 07h30 | Rapport final 1 mois ANSSI |
-
-### Exercice 11.3 - Estimation marché
-
-Vous identifiez dans votre zone 30 prospects probablement assujettis NIS2 (mix EE et EI). Estimez le potentiel de chiffre d'affaires sur 3 ans pour OmnyVia.
-
-| Prestation | Pénétration estimée | Tarif moyen | CA potentiel |
-|---|---|---|---|
-| Audit initial NIS2 | 50% (15 clients) | 12 000 € | 180 000 € |
-| Mise en conformité | 30% (9 clients) | 60 000 € | 540 000 € |
-| Pentest annuel | 40% (12 clients) | 15 000 € | 180 000 €/an x 3 = 540 000 € |
-| Astreinte CSIRT | 20% (6 clients) | 12 000 €/an | 72 000 €/an x 3 = 216 000 € |
-| Forensic incident | 30% (9 incidents) | 35 000 € | 315 000 € |
-| **Total 3 ans** | | | **1 791 000 €** |
-
-Ce chiffre est ambitieux mais montre la **réalité économique** du marché NIS2.
+<br>
 
 ---
 
-## 12. Auto-évaluation
+<br>
 
-| # | Question | Réponse attendue |
+## Auto-évaluation
+
+!!! question "Testez vos connaissances (sans relire)"
+    1. Quelle est la différence majeure d'approche entre NIS1 (2016) et NIS2 (2022) ?
+    2. Combien de secteurs d'activité figurent dans les annexes de la directive NIS2 ?
+    3. Quels sont les trois critères chiffrés permettant de basculer du statut TPE (hors champ) au statut d'Entité Importante ?
+    4. Comment se nomme le référentiel publié par l'ANSSI en mars 2026 pour encadrer ces règles techniques ?
+    5. Quelle est l'exigence formelle de la mesure 10 concernant l'authentification réseau ?
+    6. Quel est le montant maximal théorique d'une amende pour une Entité Essentielle négligente ?
+    7. Un directeur général peut-il reporter la faute sur son RSSI en cas de sanction administrative de l'ANSSI ?
+
+> _Si vous hésitez sur les délais de notification ou les seuils financiers, relisez la matrice de classification : c'est ce qui vous permettra de vendre un audit à un futur client._
+
+<br>
+
+---
+
+<br>
+
+## Synthèse mémo
+
+!!! success "À retenir absolument"
+    
+    **NIS2 & Loi Résilience 2026**
+    
+    **Le Concept :** Passer d'une cybersécurité d'élites (OIV) à une hygiène numérique de masse pour protéger l'économie de la supply-chain européenne.
+    
+    **Le Périmètre :** 
+    - Concerne **18 secteurs** critiques ou hautement critiques.
+    - Touche **15 000 entités** en France (Entités Essentielles et Importantes).
+    - Basé sur des critères de taille (> 50 salariés ou > 10M€ CA).
+    
+    **L'Article 21 (Le Référentiel ReCyF) :**
+    - Impose 10 mesures techniques (Analyse de risque, Incident, Backup, MFA, Supply chain, Cryptographie...).
+    
+    **L'Article 23 (La Notification Pression) :**
+    - 24 Heures pour l'alerte précoce.
+    - 72 Heures pour le rapport d'étape technique.
+    - 1 Mois pour le rapport d'incident Forensic définitif.
+    
+    **Les Sanctions (Alignement RGPD) :**
+    - Jusqu'à 10 Millions d'euros ou 2% du CA mondial pour les EE.
+    - Responsabilité **Personnelle** et inaliénable du comité de direction et du DG.
+
+<br>
+
+---
+
+<br>
+
+## Pour aller plus loin
+
+| Ressource | Type | Description |
 |---|---|---|
-| 1 | Date d'adoption de NIS2 ? | 14 décembre 2022 |
-| 2 | Nom de la transposition française ? | Loi Résilience |
-| 3 | Combien de secteurs concernés ? | 18 (11 hautement critiques + 7 critiques) |
-| 4 | Critères entité essentielle ? | ≥ 250 salariés OU CA ≥ 50 M€ OU bilan ≥ 43 M€ + secteur Annexe I |
-| 5 | Délai pre-notification ? | 24 heures |
-| 6 | Délai notification complète ? | 72 heures |
-| 7 | Sanction max entité essentielle ? | 10 M€ ou 2% du CA mondial |
-| 8 | Que signifie ReCyF ? | Référentiel Cyber France de l'ANSSI |
-| 9 | Date publication ReCyF ? | 17 mars 2026 |
-| 10 | Combien d'entités françaises concernées ? | ~15 000 |
+| Espace NIS2 sur cyber.gouv.fr | Référence officielle | L'espace de l'ANSSI pour la transition Loi Résilience |
+| Référentiel ReCyF | Document Opérationnel | La bible des mesures techniques (publiée mars 2026) |
+| Portail MonEspaceNIS2 | Plateforme de l'État | Le guichet d'enregistrement et de notification obligatoire |
+| Directive UE 2022/2555 (EUR-Lex) | Texte européen original | Pour comprendre la genèse de la transposition française |
+
+<br>
 
 ---
 
-## 13. Synthèse mémo
+<br>
 
-```text
-NIS2 - Loi Résilience 2026
+## Auto-explication
 
-Cadre :
-  - Directive UE 2022/2555 du 14 décembre 2022
-  - Transposition française : Loi Résilience (promulgation Q1-Q2 2026)
-  - Référentiel : ReCyF de l'ANSSI publié le 17 mars 2026
+!!! tip "Défi pédagogique (Technique Feynman)"
+    C'est le module de législation le plus déterminant pour votre futur business. Prenez 15 minutes et expliquez face caméra :
+    
+    1. Pourquoi NIS1 a échoué et ce que NIS2 vient réparer (2 min).
+    2. Comment déterminer avec certitude si une entreprise de votre région est concernée (3 min).
+    3. Les 10 mesures phares que vous allez auditer chez votre client (3 min).
+    4. La notion "d'effet cascade" sur la supply-chain (2 min).
+    5. Le triptyque chronologique (24h/72h/1 mois) d'une cellule de crise (2 min).
+    6. Pourquoi le dirigeant est désormais votre interlocuteur décisionnel privilégié (3 min).
+    
+    _Ce discours, une fois maîtrisé, est votre argumentaire de vente Forensic._
 
-Périmètre :
-  - 18 secteurs (11 hautement critiques + 7 critiques)
-  - ~15 000 entités françaises
-  - 2 catégories : essentielles (EE) et importantes (EI)
-
-Critères entités :
-  EE : ≥ 250 sal OU CA ≥ 50M€ OU bilan ≥ 43M€ + secteur annexe I
-  EI : 50-249 sal OU CA 10-50M€ OU bilan 10-43M€ + secteur
-
-Article 21 : 10 mesures techniques
-Article 23 : notification 24h / 72h / 1 mois
-Article 20 : responsabilité personnelle dirigeants
-
-Sanctions :
-  EE : jusqu'à 10 M€ ou 2% CA mondial
-  EI : jusqu'à 7 M€ ou 1,4% CA mondial
-
-Période transitoire 3 ans avant sanctions pleines
-Conformité totale exigée 2029
-
-Marché OmnyVia : ouverture historique
-```
+<br>
 
 ---
 
-## 14. Pour aller plus loin
+<br>
 
-| Ressource | Type |
-|---|---|
-| Site ANSSI - Espace NIS2 (cyber.gouv.fr) | Référence officielle |
-| Référentiel ReCyF v2.5 | Document opérationnel |
-| Directive 2022/2555 EUR-Lex | Texte européen original |
-| Projet de Loi Résilience - Sénat et Assemblée | Suivi législatif |
-| MonEspaceNIS2 | Portail ANSSI |
-| Guide NIS2 - Aventris, BEAROPS, AdevWeb | Guides pratiques 2026 |
+## Conclusion
 
----
+!!! quote "Ce qu'il faut retenir"
+    NIS2 n'est pas une contrainte technocratique de plus, c'est un séisme économique assumé. L'Europe a décidé que la cybersécurité devenait un critère de qualité de service aussi vital que la solvabilité financière. Pour une PME, refuser la conformité NIS2, c'est prendre le risque d'être sortie du catalogue des fournisseurs des grands groupes (EDF, Airbus, SNCF). Pour vous, cabinet d'expertise, NIS2 est une opportunité sans précédent de structurer, conseiller, et dépanner le tissu industriel français. L'heure de l'amateurisme cyber est révolue.
 
-## 15. Auto-explication
+> [Chapitre suivant : 1.8 RGPD - Focus articles 32, 33, 34 →](01-8-rgpd-articles-32-33-34.md)
+>
+> [Retour à l'index →](./index.md)
 
-Pour valider ce chapitre, enregistrez une vidéo de 15 minutes où vous expliquez :
-
-1. La généalogie NIS → NIS2 → Loi Résilience (2 minutes)
-2. Les 18 secteurs et leur répartition (2 minutes)
-3. Les critères d'assujettissement (entité essentielle vs importante) (2 minutes)
-4. Les 10 mesures de l'article 21 (3 minutes)
-5. Les délais de notification (1 minute)
-6. Les sanctions (1 minute)
-7. Le ReCyF de l'ANSSI (1 minute)
-8. L'impact pour OmnyVia (3 minutes)
-
----
-
-**Chapitre précédent** : [1.6 Loi de Programmation Militaire 2013 et OIV](01-6-lpm-oiv.md)
-
-**Chapitre suivant** : [1.8 RGPD - Focus articles 32, 33, 34](01-8-rgpd-articles-32-33-34.md)
+<br>

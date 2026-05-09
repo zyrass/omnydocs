@@ -1,489 +1,264 @@
 ---
-title: 1.16 Synthèse personnelle - Carnet juridique permanent
-description: Construction d'un carnet juridique de référence pour vos missions OmnyVia. Synthèse opérationnelle des 16 chapitres du module 1, fiches récapitulatives, méthode de mise à jour annuelle.
-authors:
-  - Zyrass
-date:
-  created: 2026-04-29
-tags:
-  - Synthèse
-  - Carnet juridique
-  - Référentiel personnel
-  - Veille
-data-level: 🟡
+description: "Construction d'un carnet juridique de référence pour vos missions OmnyVia. Synthèse opérationnelle des 16 chapitres du Cycle 0, fiches récapitulatives et méthode de mise à jour annuelle."
+icon: lucide/book-open-check
+tags: ["LÉGISLATION", "SYNTHÈSE", "CARNET JURIDIQUE", "RÉFÉRENTIEL", "VEILLE"]
 ---
 
-# 1.16 Synthèse personnelle - Carnet juridique permanent
+# Synthèse : Le carnet juridique permanent
+
+<div
+  class="omny-meta"
+  data-level="🔴 Exhaustif"
+  data-version="Synthèse Module 1"
+  data-time="4 heures">
+</div>
+
+!!! note "**Livrables :** _Carnet juridique personnel finalisé, méthode de mise à jour_"
+!!! note "**Auto-explication :** _45 minutes (Examen Final)_"
+
+<br>
+
+---
+
+<br>
 
 !!! quote "L'analogie de la trousse à pharmacie"
 
-    Dans une famille, on ne court pas chez le médecin pour chaque égratignure. On a une trousse à pharmacie : pansements, désinfectant, paracétamol, thermomètre. Tout ce qu'il faut pour gérer les situations courantes immédiatement, et reconnaître quand il faut appeler un professionnel. Votre carnet juridique est la trousse à pharmacie de votre activité forensic. Articles, jurisprudences, procédures, modèles. Tout doit être à portée de main, vérifié, à jour. Pour les cas courants, vous trouvez la réponse dans le carnet. Pour les cas complexes, le carnet vous dit qu'il faut appeler un avocat. Ce chapitre construit votre carnet.
-
-## Métadonnées du chapitre
-
-| Champ | Valeur |
-|---|---|
-| Durée estimée | 4 heures |
-| Niveau | Pratique |
-| Prérequis | Chapitres 1.1 à 1.15 (module 1 complet) |
-| Livrables | Carnet juridique personnel finalisé, méthode de mise à jour |
-| Auto-explication | 15 minutes |
+    Dans une famille, on ne court pas aux urgences pour chaque égratignure. On dispose d'une trousse à pharmacie : pansements, désinfectant, paracétamol. Tout ce qu'il faut pour gérer les situations courantes immédiatement, et surtout, les instructions pour reconnaître le moment où il faut appeler un professionnel de santé. 
+    Votre Carnet Juridique Permanent est la trousse à pharmacie de votre activité Forensic. Articles de loi, jurisprudences, procédures de crise, modèles de contrats. Tout doit être à portée de main, vérifié, et à jour. Pour les cas courants, vous trouvez la réponse dans votre carnet. Pour les cas complexes, votre carnet vous indiquera le numéro d'un avocat spécialisé. Ce dernier chapitre est consacré à la construction de cet outil vital.
 
 ## Objectifs pédagogiques
 
-À la fin de ce chapitre, vous serez capable de :
+!!! tip "À la fin de ce chapitre, vous serez capable de :"
 
-- Construire un carnet juridique exhaustif et maintenable.
-- Articuler les 16 chapitres du module 1 en un document opérationnel.
-- Mettre en place une méthode de mise à jour annuelle.
-- Disposer de fiches récapitulatives utilisables en mission.
+    - Construire un carnet juridique personnel exhaustif et maintenable.
+    - Articuler les 16 chapitres de ce premier cycle en un référentiel opérationnel.
+    - Mettre en place une méthodologie de mise à jour annuelle (Veille).
+    - Disposer de fiches "Réflexe" utilisables en plein cœur d'une mission de crise.
 
----
-
-## 1. Principes du carnet juridique
-
-### 1.1 À quoi sert le carnet
-
-Le carnet juridique répond à **trois besoins opérationnels** :
-
-| Besoin | Réponse du carnet |
-|---|---|
-| Vérification rapide en mission | Fiches synthétiques accessibles |
-| Argumentation face au client | Citations précises et à jour |
-| Veille structurée | Méthodologie de mise à jour |
-
-### 1.2 Format recommandé
-
-| Caractéristique | Recommandation |
-|---|---|
-| Format | Markdown dans un repository Git privé |
-| Structure | Une fiche par sujet, modulaire |
-| Versionnement | Historique Git complet |
-| Synchronisation | Cloud chiffré, accessible mobile |
-| Recherche | Indexation full-text |
+<br>
 
 ---
 
-## 2. Architecture du carnet
+<br>
+
+## Principes du carnet juridique
+
+### À quoi sert le carnet ?
+
+Le carnet juridique répond à **trois besoins opérationnels immédiats** :
+
+| Le Besoin Terrain | La Réponse apportée par le Carnet |
+|---|---|
+| Vérification rapide en mission | Des fiches synthétiques ultra-accessibles (ex: "Quel délai pour prévenir la CNIL ?"). |
+| Argumentation face au client | Des citations précises et à jour pour justifier un refus de tester hors-périmètre. |
+| Sauvegarde des templates | Le coffre-fort de vos NDA et Mandats vierges. |
+
+### Format recommandé (L'approche "Git")
+
+Pour survivre à l'obsolescence, votre carnet ne doit pas être un document Word perdu sur un disque dur. 
+
+| Caractéristique | Recommandation Technique |
+|---|---|
+| Le Format | Markdown (`.md`). Léger, pérenne, facile à lire sur mobile. |
+| Le Stockage | Dans un repository Git privé. |
+| La Structure | Modulaire. Une fiche technique = Un fichier. |
+| La Synchronisation | Cloud sécurisé/chiffré (pour y accéder chez un client). |
+
+<br>
+
+---
+
+<br>
+
+## Architecture du carnet personnel
+
+L'arborescence de votre repository devrait ressembler à ceci :
 
 ```mermaid
 flowchart TB
-    A[Carnet juridique permanent] --> B[Section 1<br>Fiches articles]
-    A --> C[Section 2<br>Fiches jurisprudences]
-    A --> D[Section 3<br>Procédures opérationnelles]
-    A --> E[Section 4<br>Templates contractuels]
-    A --> F[Section 5<br>Veille et mise à jour]
-    A --> G[Section 6<br>Annuaires utiles]
+    A["Le Carnet Juridique"] --> B["Section 1<br>Les Lois (Art. 323)"]
+    A --> C["Section 2<br>Les Jurisprudences"]
+    A --> D["Section 3<br>Procédures de Crise"]
+    A --> E["Section 4<br>Templates (NDA, Mandats)"]
+    A --> F["Section 5<br>Veille (Mises à jour)"]
+    A --> G["Section 6<br>Contacts d'Urgence"]
 ```
 
+<br>
+
 ---
 
-## 3. Section 1 - Fiches articles
+<br>
 
-Pour chaque article majeur, une **fiche d'1 page** :
+## Section 1 : Les Fiches "Lois & Articles"
 
-```text
-FICHE ARTICLE
-==============
-Article : 323-1 Code pénal
-Version : en vigueur depuis 24 janvier 2023
+Pour chaque article majeur vu dans ce module, vous devez créer une **fiche synthétique d'une page**.
 
-TEXTE COMPLET
-[Reproduction intégrale]
+!!! abstract "Modèle de Fiche d'Article"
+    ```text
+    ======================================
+    FICHE ARTICLE : 323-1 du Code pénal
+    ======================================
+    [Version en vigueur depuis : 24 janvier 2023]
+    
+    1. LE DÉLIT
+    L'accès et le maintien frauduleux dans un STAD.
+    
+    2. LES PEINES THÉORIQUES
+    - De base : 3 ans de prison + 100 000 € d'amende.
+    - Circonstance aggravante (modification de données) : 5 ans + 150 000 €.
+    - Circonstance institutionnelle (STAD de l'État) : 7 ans + 300 000 €.
+    
+    3. LA JURISPRUDENCE LIÉE
+    - Affaire Kitetoa (Nécessité d'une barrière technique).
+    - Affaire Bluetouff (L'intention suffit pour le "maintien").
+    
+    4. DATE DE DERNIÈRE VÉRIFICATION LÉGIFRANCE : [DD/MM/YYYY]
+    ```
 
-PEINES
-- Alinéa 1 : 3 ans + 100 000 €
-- Alinéa 2 : 5 ans + 150 000 €
-- Alinéa 3 (STAD État) : 7 ans + 300 000 €
+> Liste des Articles obligatoires pour votre carnet :
 
-ÉLÉMENTS CONSTITUTIFS
-Matériel : accès ou maintien
-Moral : caractère frauduleux
-
-JURISPRUDENCE CLÉ
-- Bluetouff (Cass. crim. 20 mai 2015)
-- Kitetoa (CA Paris 30 octobre 2002)
-
-ARTICULATION
-- Cumul possible avec 226-15
-- Cumul possible avec 311-1 (vol)
-- Aggravation 323-4-1 (bande organisée)
-
-DERNIÈRE VÉRIFICATION
-DD/MM/YYYY
-```
-
-### 3.1 Articles à fiche obligatoire
-
-| Article | Sujet |
+| Catégorie | Articles à ficher impérativement |
 |---|---|
-| 323-1 | Accès et maintien frauduleux |
-| 323-2 | Entrave fonctionnement |
-| 323-3 | Atteinte aux données |
-| 323-3-1 | Détention outils |
-| 323-4 | Groupement |
-| 323-4-1 | Bande organisée |
-| 323-5 | Peines complémentaires |
-| 226-15 | Secret correspondances |
-| 226-1 | Atteinte vie privée |
-| RGPD 32 | Sécurité du traitement |
-| RGPD 33 | Notification autorité |
-| RGPD 34 | Communication personnes |
-| Article 60-1 CPP | Réquisition judiciaire |
-| LCEN article 6 | Hébergeurs et FAI |
+| Le Code Pénal (Loi Godfrain) | 323-1 à 323-7 (Intrusions, Sabotages, Bande organisée) |
+| La Vie Privée | 226-15 (Secret des correspondances) |
+| Le RGPD | Articles 32 (Sécurité), 33 (Notification) et 34 (Communication) |
+| La Loi Française (LRN) | LCEN Art. 6 (Hébergeurs), LRN Art. 47 (Hacker de bonne foi) |
+
+<br>
 
 ---
 
-## 4. Section 2 - Fiches jurisprudences
+<br>
 
-Pour chaque arrêt majeur, fiche d'arrêt structurée selon le modèle du chapitre 1.13 :
+## Section 3 : Les Procédures d'Urgence (Playbooks)
 
-| Arrêt | Apport |
-|---|---|
-| Cass. crim. Bluetouff 20/05/2015 | Maintien frauduleux après prise de conscience |
-| CA Paris Kitetoa 30/10/2002 | Dispositif de sécurité effectif |
-| Cass. soc. Nikon 02/10/2001 | Inviolabilité fichiers personnels |
-| CJUE Schrems II 16/07/2020 | Invalidation Privacy Shield |
-| CJUE Quadrature du Net 06/10/2020 | Conservation données limitée |
-| Décisions CNIL marquantes | Sanctions modulation |
+L'intérêt du carnet est de vous fournir des algorithmes de décision (Playbooks) quand la panique survient chez le client.
 
----
-
-## 5. Section 3 - Procédures opérationnelles
-
-### 5.1 Procédure de qualification de mission
+### Playbook : Qualification d'un prospect (Avant la mission)
 
 ```mermaid
 flowchart TB
-    A[Demande client] --> B{Statut juridique<br>du client}
-    B -->|OIV| C[Procédure OIV<br>habilitations préalables]
-    B -->|NIS2 essentielle| D[Procédure NIS2 EE]
-    B -->|NIS2 importante| E[Procédure NIS2 EI]
-    B -->|DORA| F[Procédure financier]
-    B -->|Standard| G[Procédure standard]
-    C --> H[Mandat + NDA spécifiques]
-    D --> H
-    E --> H
-    F --> H
-    G --> H
-```
-
-### 5.2 Procédure de gestion d'incident découvert
-
-```mermaid
-flowchart TB
-    A[Incident découvert<br>chez client] --> B{Nature}
-    B -->|Violation données| C[Notification CNIL 72h]
-    B -->|Incident NIS2| D[Notification ANSSI 24h]
-    B -->|Incident OIV| E[Notification CERT-FR sans délai]
-    B -->|Crime| F[Dépôt de plainte<br>conseil au client]
-    C --> G[Documentation registre]
+    A["Nouveau Client"] --> B{"Quel est son<br>statut légal ?"}
+    B -->|"C'est un OIV"| C["Procédure OIV<br>(Habilitations Secret Défense exigées)"]
+    B -->|"Soumis à NIS2 (EE)"| D["Procédure NIS2<br>(Notification ANSSI prioritaire)"]
+    B -->|"Soumis à DORA"| E["Procédure Finance<br>(Délai de signalement 4h)"]
+    B -->|"PME Classique"| F["Procédure Standard<br>(RGPD classique)"]
+    C --> G["Rédaction du Mandat + NDA"]
     D --> G
     E --> G
     F --> G
 ```
 
-### 5.3 Procédure de découverte fortuite
+### Playbook : Découverte Fortuite (Hors-Mandat)
 
 ```mermaid
 flowchart LR
-    A[Découverte<br>hors mandat] --> B[Stop immédiat]
-    B --> C[Documentation factuelle]
-    C --> D[Notification client]
-    D --> E{Décision}
-    E -->|Avenant| F[Continuer<br>cadre élargi]
-    E -->|Rapport seul| G[Mention prudente]
-    E -->|Signaler ANSSI| H[Cadre LRN article 47]
+    A["Découverte d'une faille<br>hors périmètre"] --> B["STOP IMMÉDIAT<br>Aucun outil actif"]
+    B --> C["Documentation locale<br>Screenshot (Pas de wget)"]
+    C --> D["Notification au DSI<br>du Client"]
+    D --> E{"Décision du Client"}
+    E -->|"Il veut qu'on creuse"| F["Signature immédiate<br>d'un Avenant au Mandat"]
+    E -->|"Il refuse"| G["On n'y touche plus<br>Mention prudente au rapport"]
 ```
 
----
-
-## 6. Section 4 - Templates contractuels
-
-### 6.1 Templates à conserver
-
-| Template | Source |
-|---|---|
-| Mandat de pentest standard | Chapitre 1.14 |
-| Mandat forensic post-incident | Adaptation 1.14 |
-| Mandat audit RGPD | Adaptation 1.14 |
-| Mandat audit NIS2 | Adaptation 1.14 |
-| NDA bilatéral standard | Chapitre 1.15 |
-| NDA renforcé secteurs sensibles | Adaptation 1.15 |
-| Notification CNIL pré-remplie | À développer chapitre 17 |
-| Communication aux personnes | À développer chapitre 17 |
-| Procès-verbal d'incident | Standard |
-| Attestation de destruction | Standard |
-
-### 6.2 Procédure de mise à jour
-
-| Fréquence | Action |
-|---|---|
-| Annuelle | Revue complète des templates |
-| Sur évolution législative | Mise à jour ciblée |
-| Après chaque mission | Retour d'expérience intégré |
+<br>
 
 ---
 
-## 7. Section 5 - Veille et mise à jour
+<br>
 
-### 7.1 Calendrier de veille
+## Section 5 : La Veille (L'entretien du carnet)
 
-| Fréquence | Tâche | Sources |
+Le droit pourrit s'il n'est pas entretenu. Votre carnet deviendra toxique si vous citez des lois abrogées.
+
+!!! warning "La Règle d'or de l'Auditeur"
+    Vous devez bloquer **2 heures par mois** dans votre agenda, non-négociables, pour effectuer votre veille juridique et mettre à jour le carnet. 
+
+> Le Tableau de bord de la veille :
+
+| Fréquence | Action requise | Source Primaire |
 |---|---|---|
-| Quotidienne (5 min) | Fil LinkedIn, alertes CERT-FR | Réseaux sociaux pro |
-| Hebdomadaire (30 min) | CNIL délibérations, sites cabinets | CNIL.fr, blogs spécialisés |
-| Mensuelle (2h) | Légifrance updates, fiche d'arrêt | Légifrance, Doctrine.fr |
-| Trimestrielle (4h) | Revue complète et synthèse | Tout |
-| Annuelle (8h) | Mise à jour exhaustive du carnet | Tout |
+| **Quotidienne** (5 min) | Lire les alertes de vulnérabilité. | CERT-FR (ANSSI), Fil LinkedIn (Experts). |
+| **Hebdomadaire** (30 min) | Lire les nouvelles délibérations de sanction. | Site de la CNIL. |
+| **Mensuelle** (2h) | Rédiger une Fiche de veille (Nouvelle Loi, Nouvel Arrêt). | Doctrine.fr, Légifrance. |
+| **Annuelle** (8h) | Revue de l'intégralité du Carnet (Vérifier si les lois citées sont toujours en vigueur). | Légifrance. |
 
-### 7.2 Modèle de fiche de veille mensuelle
-
-```text
-VEILLE JURIDIQUE - [MOIS] [ANNÉE]
-===================================
-
-DÉCISIONS NOTABLES
-1. [Référence] - [Résumé 2 phrases]
-   Impact pratique : [paragraphe]
-
-2. [Référence] - [Résumé 2 phrases]
-   Impact pratique : [paragraphe]
-
-ÉVOLUTIONS LÉGISLATIVES
-- [Loi/décret en cours]
-- Statut : [adoption, promulgation, application]
-
-SANCTIONS CNIL
-- Liste des sanctions du mois
-- Tendances observées
-
-ALERTES CERT-FR
-- Vulnérabilités majeures
-- Campagnes en cours
-
-À INTÉGRER AU CARNET
-- Liste des fiches à mettre à jour
-- Templates à modifier
-
-DATE PROCHAINE VEILLE : [date]
-```
+<br>
 
 ---
 
-## 8. Section 6 - Annuaires utiles
+<br>
 
-### 8.1 Contacts institutionnels
+## Section 6 : Le Botin (Contacts d'urgence)
 
-| Organisme | Coordonnées |
+Dans l'urgence absolue (ex: Une saisie de vos disques durs par la gendarmerie suite à une plainte), vous ne devez pas chercher sur Google.
+
+> Remplissez ce tableau dans votre carnet personnel avec de vrais contacts :
+
+| Organisme / Besoin | Coordonnées directes |
 |---|---|
-| ANSSI - CERT-FR | cert-fr.cossi@ssi.gouv.fr / 01 71 75 84 50 |
-| CNIL | 01 53 73 22 22 / cnil.fr |
-| Parquet National Cyber | À documenter |
-| Police judiciaire OCLCTIC | À documenter |
-| ARCEP | 01 40 47 70 00 |
-| ACPR | 01 49 95 40 00 |
-| AMF | 01 53 45 60 00 |
+| **L'ANSSI (CERT-FR)** | cert-fr.cossi@ssi.gouv.fr / 01 71 75 84 50 |
+| **Avocat Pénaliste (Cyber)** | [Trouvez et listez le nom de 2 avocats spécialisés] |
+| **Avocat RGPD (DPO Ext.)** | [Trouvez et listez le nom d'un cabinet compétent] |
+| **Votre assurance RC Pro** | [Numéro d'astreinte de votre courtier] |
+| **La CNIL** | 01 53 73 22 22 |
 
-### 8.2 Avocats spécialisés
-
-À renseigner avec **2-3 contacts** d'avocats spécialisés :
-
-| Cabinet | Spécialité | Coordonnées |
-|---|---|---|
-| [À renseigner] | Droit pénal numérique | [coords] |
-| [À renseigner] | Droit RGPD | [coords] |
-| [À renseigner] | Conseil contractuel | [coords] |
-
-### 8.3 Références techniques
-
-| Ressource | Type |
-|---|---|
-| Légifrance | Site officiel textes |
-| Cybermalveillance.gouv.fr | Aide PME |
-| Cyber.gouv.fr | ANSSI |
-| Notifications.cnil.fr | Téléservice CNIL |
-| MonEspaceNIS2 | Auto-évaluation NIS2 |
+<br>
 
 ---
 
-## 9. Le fichier maître - Structure complète
+<br>
 
-Voici la structure de fichiers Git recommandée pour votre carnet :
+## L'Examen Final du Cycle 0 (Fondations)
 
-```text
-carnet-juridique-omnyvia/
-├── README.md                         # Vue d'ensemble du carnet
-├── CHANGELOG.md                       # Historique des modifications
-├── 01-articles/
-│   ├── 323-1-acces-maintien.md
-│   ├── 323-2-entrave.md
-│   ├── 323-3-atteinte-donnees.md
-│   ├── 323-3-1-detention-outils.md
-│   ├── 323-4-groupement.md
-│   ├── 323-4-1-bande-organisee.md
-│   ├── 226-15-correspondances.md
-│   ├── rgpd-32-securite.md
-│   ├── rgpd-33-notification.md
-│   ├── rgpd-34-communication.md
-│   └── ...
-├── 02-jurisprudences/
-│   ├── 2002-kitetoa.md
-│   ├── 2015-bluetouff.md
-│   ├── 2020-schrems-ii.md
-│   ├── 2020-quadrature-du-net.md
-│   └── ...
-├── 03-procedures/
-│   ├── qualification-mission.md
-│   ├── gestion-incident.md
-│   ├── decouverte-fortuite.md
-│   ├── notification-cnil.md
-│   └── ...
-├── 04-templates/
-│   ├── mandat-pentest-standard.md
-│   ├── mandat-forensic.md
-│   ├── nda-bilateral.md
-│   ├── notification-cnil.md
-│   └── ...
-├── 05-veille/
-│   ├── 2026-01-veille.md
-│   ├── 2026-02-veille.md
-│   └── ...
-└── 06-annuaires/
-    ├── contacts-institutionnels.md
-    ├── avocats-specialises.md
-    └── ressources-techniques.md
-```
+Vous avez terminé l'intégralité des 16 chapitres du premier cycle consacré à la Législation Française.
+Pour valider ce cycle et passer aux modules techniques, vous devez réaliser une auto-explication globale.
+
+!!! quote "L'Épreuve d'Auto-explication Finale (45 minutes)"
+
+    Enregistrez une vidéo (ou un audio continu) de **45 minutes** où vous présentez l'intégralité du droit de la cybersécurité comme si vous faisiez une conférence à de nouveaux consultants juniors. 
+    Vous ne devez pas lire vos notes. 
+    
+    **Le plan exigé :**
+    1. Le cadre pénal (Loi Godfrain, Art 323-1 à 323-7) - *10 minutes*
+    2. Le secret des correspondances (Art 226-15) - *5 minutes*
+    3. Le cadre civil et européen (RGPD, NIS2, DORA) - *15 minutes*
+    4. L'ingénierie contractuelle (Pourquoi le NDA précède le Mandat) - *10 minutes*
+    5. La Jurisprudence Française (Le duel Kitetoa / Bluetouff) - *5 minutes*
+
+<br>
 
 ---
 
-## 10. Méthode de construction initiale
+<br>
 
-### 10.1 Plan en 8 sessions
+## Synthèse Mentale du Cycle 0
 
-| Session | Durée | Action |
-|---|---|---|
-| 1 | 2h | Création structure Git, README |
-| 2 | 2h | Fiches articles 323-1 à 323-7 |
-| 3 | 2h | Fiches RGPD 32, 33, 34 |
-| 4 | 2h | Autres articles (226-15, LCEN, NIS2) |
-| 5 | 2h | Fiches jurisprudences principales |
-| 6 | 2h | Procédures opérationnelles |
-| 7 | 2h | Templates contractuels |
-| 8 | 2h | Annuaires et veille initiale |
+!!! success "Le Panorama Légal 2026"
+    
+    - **Le Pénal :** Le socle. Les 7 articles (323) de la Loi Godfrain. La prison et l'amende pour toute intrusion, sabotage ou vol de données non mandaté expressément. L'arrivée fracassante de la "Bande organisée" (10 ans).
+    - **Le RGPD :** Le risque financier. L'Article 32 punit l'incompétence technique. L'Article 33 impose la notification en 72h.
+    - **Les Lois de Rupture (NIS2 / DORA) :** Le basculement vers la responsabilité personnelle des dirigeants d'entreprise et l'obligation de résilience pour les fournisseurs (Tiers TIC).
+    - **La Jurisprudence :** La technique ne suffit plus. L'intention et la conscience d'être dans un espace privé (Bluetouff) transforment le "hacker curieux" en "pirate pénal".
+    - **L'Armure du Consultant :** Le NDA Bilatéral protège vos secrets. Le Mandat à périmètre ultra-strict (avec sa clause de responsabilité plafonnée) vous protège de la prison et de la faillite.
 
-Total : **16 heures** sur 2-3 semaines.
-
-### 10.2 Critères de validation
-
-Le carnet est considéré complet quand :
-
-- Toutes les fiches obligatoires sont présentes
-- Chaque fiche est à jour à date
-- Les templates ont été testés sur un cas
-- La procédure de veille est en place
-- Les annuaires sont renseignés
+<br>
 
 ---
 
-## 11. Validation finale du module 1
+<br>
 
-Vous avez parcouru les **16 chapitres** du module 1. Pour valider l'ensemble :
+## Conclusion du Cycle
 
-### 11.1 Auto-évaluation globale
+!!! quote "Le mot de la fin"
+    Vous êtes désormais armé juridiquement. Le droit n'est pas une contrainte qui vous empêche de "hacker" librement, c'est l'infrastructure qui vous permet de le faire de manière professionnelle et rémunérée. Un pirate agit dans l'ombre par peur de la loi. Un auditeur Forensic utilise la loi pour s'imposer dans les salles de conseils d'administration. Gardez votre carnet à jour, protégez vos arrières avec des mandats stricts, et vous êtes prêt à ouvrir les terminaux Linux.
 
-Sur 50 questions tirées des chapitres 1.1 à 1.16, visez **80% minimum**.
+> **Cycle 0 - Législation Française : VALIDÉ ✅**
+>
+> [Passer au Cycle 1 : Prérequis techniques et théoriques →](../module-2-prerequis-techniques/README.md)
+>
+> [Retour à l'index du cursus →](../../index.md)
 
-### 11.2 Auto-explication globale
-
-Enregistrez une vidéo de **45 minutes** où vous présentez l'intégralité du module 1 comme si vous étiez face à un client. Sans support, articulé, professionnel.
-
-### 11.3 Application pratique
-
-Sur un cas fictif (par exemple ARTECH du scénario fil rouge), produisez :
-
-- Le mandat de pentest adapté
-- Le NDA correspondant
-- La procédure de notification CNIL si incident
-- L'analyse juridique du scénario d'attaque
-
-### 11.4 Critères de succès
-
-| Critère | Validation |
-|---|---|
-| Vous citez de mémoire les peines des articles 323 | Oui / Non |
-| Vous expliquez le délai 72h RGPD sans hésiter | Oui / Non |
-| Vous distinguez OIV, NIS2 et DORA correctement | Oui / Non |
-| Vous savez rédiger un mandat en 1 heure | Oui / Non |
-| Votre carnet juridique est complet et à jour | Oui / Non |
-
-Si tous les critères sont **Oui**, vous êtes prêt pour le module 2.
-
----
-
-## 12. Synthèse du module 1
-
-```text
-MODULE 1 - LÉGISLATION FRANÇAISE - SYNTHÈSE FINALE
-
-Cadre juridique :
-  Constitution + traités + UE + lois + règlements
-
-Articles pénaux clés :
-  323-1 : 3 ans + 100k€ (5 ans + 150k€ avec altération)
-  323-2 : 5 ans + 150k€ (entrave)
-  323-3 : 5 ans + 150k€ (atteinte données)
-  323-3-1 : peines de l'infraction (outils sans motif)
-  323-4-1 : 10 ans + 300k€ (bande organisée)
-  226-15 : 1 an + 45k€ (secret correspondances)
-
-RGPD :
-  Article 32 : sécurité (CIDR)
-  Article 33 : notification 72h
-  Article 34 : communication risque élevé
-
-NIS2 (Loi Résilience 2026) :
-  18 secteurs, ~15 000 entités
-  Sanctions jusqu'à 10 M€ ou 2% CA mondial
-
-DORA (depuis 17 janvier 2025) :
-  Secteur financier
-  Notification 4h - 72h - 1 mois
-
-Cadre du pentest :
-  Mandat écrit obligatoire
-  NDA recommandé en amont
-  RC pro cyber adaptée
-
-Jurisprudence :
-  Kitetoa : dispositif effectif
-  Bluetouff : conscience du privé prévaut
-
-Votre carnet juridique :
-  Maintenu à jour, accessible, opérationnel
-  Mise à jour annuelle systématique
-```
-
----
-
-## 13. Auto-explication finale
-
-Pour valider le module 1 dans son ensemble, enregistrez une vidéo de 45 minutes structurée :
-
-1. Cadre général de la cybersécurité juridique française (5 min)
-2. Articles 323 du Code pénal en détail (10 min)
-3. Articles 226-15 et secret correspondances (3 min)
-4. RGPD articles 32, 33, 34 (10 min)
-5. NIS2 et Loi Résilience 2026 (5 min)
-6. DORA pour le financier (3 min)
-7. Cadre du pentest légal (5 min)
-8. Jurisprudences clés (3 min)
-9. Votre méthode de veille (1 min)
-
----
-
-**Module 1 - Législation française : VALIDÉ**
-
-**Chapitre précédent** : [1.15 Construction d'un modèle de NDA](01-15-modele-nda.md)
-
-**Chapitre suivant** : [Module 2 - Prérequis techniques et théoriques](../module-2-prerequis-techniques/README.md)
+<br>

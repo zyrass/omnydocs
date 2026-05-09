@@ -1,445 +1,400 @@
 ---
-title: 1.9 DORA pour le secteur financier
-description: Règlement européen sur la résilience opérationnelle numérique du secteur financier (UE 2022/2554). Périmètre, 5 piliers, articulation avec NIS2 et RGPD, implications pour le forensic dans les banques, assurances et marchés financiers.
-authors:
-  - Zyrass
-date:
-  created: 2026-04-29
-tags:
-  - DORA
-  - Résilience opérationnelle
-  - Secteur financier
-  - ACPR
-  - Forensic
-data-level: 🟡
+description: "Règlement européen sur la résilience opérationnelle numérique du secteur financier (UE 2022/2554). Périmètre, 5 piliers, articulation avec NIS2 et RGPD, implications pour le forensic dans les banques, assurances et marchés financiers."
+icon: lucide/landmark
+tags: ["LÉGISLATION", "DORA", "RÉSILIENCE OPÉRATIONNELLE", "SECTEUR FINANCIER", "ACPR", "FORENSIC"]
 ---
 
-# 1.9 DORA pour le secteur financier
+# DORA pour le secteur financier
+
+<div
+  class="omny-meta"
+  data-level="🟡 Standard"
+  data-version="Droit Européen (2025)"
+  data-time="1 heure">
+</div>
+
+!!! note "**Livrables :** _Cartographie des entités DORA, fiche d'articulation NIS2_"
+!!! note "**Auto-explication :** _8 minutes_"
+
+<br>
+
+---
+
+<br>
 
 !!! quote "L'analogie de la centrale nucléaire et du réseau électrique"
 
-    Le réseau électrique européen suit des règles générales de sécurité. Mais pour les centrales nucléaires, qui présentent un risque exceptionnel et une criticité systémique, on impose des règles supplémentaires plus strictes : Autorité de Sûreté Nucléaire dédiée, audits plus fréquents, obligations de continuité spécifiques, transparence renforcée. Le secteur financier européen est exactement dans cette situation. Il fait partie du cadre cybersécurité général (NIS2), mais son rôle systémique dans l'économie justifie un cadre spécial : DORA. Pour vous, analyste forensic, comprendre DORA est essentiel si vous visez le marché bancaire et assurantiel, qui représente l'un des plus rémunérateurs en France. C'est aussi un cadre qui modifie les obligations de vos clients quand ils sont eux-mêmes des prestataires de banques.
-
-## Métadonnées du chapitre
-
-| Champ | Valeur |
-|---|---|
-| Durée estimée | 1 heure |
-| Niveau | Standard |
-| Prérequis | Chapitres 1.1 à 1.8 |
-| Livrables | Cartographie des entités DORA, fiche articulation NIS2 |
-| Auto-explication | 8 minutes |
+    Le réseau électrique européen suit des règles générales de sécurité. Mais pour les centrales nucléaires, qui présentent un risque exceptionnel et une criticité systémique, on impose des règles supplémentaires plus strictes : Autorité de Sûreté Nucléaire dédiée, audits plus fréquents, obligations de continuité spécifiques, transparence renforcée. Le secteur financier européen est exactement dans cette situation. Il fait partie du cadre cybersécurité général (NIS2), mais son rôle systémique dans l'économie justifie un cadre spécial et prévalent : DORA. Pour vous, analyste forensic, comprendre DORA est essentiel si vous visez le marché bancaire et assurantiel, qui représente l'un des plus exigeants (et rémunérateurs) en France. C'est aussi un cadre qui modifie les obligations de vos clients quand ils sont eux-mêmes des prestataires de banques.
 
 ## Objectifs pédagogiques
 
-À la fin de ce chapitre, vous serez capable de :
+!!! tip "À la fin de ce chapitre, vous serez capable de :"
 
-- Identifier le périmètre d'application de DORA (entités financières et tiers TIC).
-- Citer les 5 piliers structurants du règlement.
-- Distinguer DORA de NIS2 et savoir lequel s'applique en cas de chevauchement.
-- Identifier les autorités de tutelle françaises (ACPR, AMF).
-- Anticiper les opportunités forensic ouvertes par DORA.
+    - Identifier le périmètre d'application de DORA (entités financières et tiers TIC).
+    - Citer les 5 piliers structurants du règlement.
+    - Distinguer DORA de NIS2 et savoir lequel s'applique en cas de chevauchement.
+    - Identifier les autorités de tutelle françaises (ACPR, AMF).
+    - Anticiper les opportunités forensic ouvertes par DORA.
+
+<br>
 
 ---
 
-## 1. Contexte et architecture
+<br>
 
-### 1.1 Naissance de DORA
+## Contexte et architecture
 
-Le **Digital Operational Resilience Act**, ou règlement UE 2022/2554, a été adopté le **14 décembre 2022** et est applicable depuis le **17 janvier 2025**. Contrairement à NIS2 qui est une directive (transposition nécessaire), DORA est un **règlement** : directement applicable sans transposition.
+### Naissance de DORA
+
+Le **Digital Operational Resilience Act**, ou règlement UE 2022/2554, a été adopté le **14 décembre 2022** et est applicable depuis le **17 janvier 2025**. 
+
+!!! danger "Directive vs Règlement"
+    Contrairement à NIS2 qui est une "Directive" (nécessitant une loi de transposition nationale comme la "Loi Résilience" pour être applicable), DORA est un **règlement**. Il est **directement applicable** dans tous les États membres sans aucune transposition.
 
 ```mermaid
 flowchart LR
-    A[Crise financière 2008<br>+ Crises cyber 2010-2020] --> B[Constat<br>Secteur financier vulnérable]
-    B --> C[Règlement DORA<br>14 décembre 2022]
-    C --> D[Application directe<br>17 janvier 2025]
-    D --> E[Pas de transposition<br>requise]
+    A["Crise financière 2008<br>+ Crises cyber 2010-2020"] --> B["Constat<br>Secteur financier hyper-vulnérable"]
+    B --> C["Règlement DORA<br>Adopté le 14 déc. 2022"]
+    C --> D["Application directe<br>Le 17 janvier 2025"]
+    D --> E["Aucune loi de<br>transposition requise"]
 ```
 
-### 1.2 Pourquoi un règlement spécifique au financier
+### Pourquoi un règlement spécifique à la finance ?
 
-Trois caractéristiques du secteur financier ont motivé un cadre dédié :
+Trois caractéristiques uniques du secteur financier ont motivé ce cadre chirurgical :
 
-| Caractéristique | Conséquence |
+| Caractéristique | Conséquence Sécuritaire |
 |---|---|
-| Interconnexion systémique | Une banque qui tombe peut entraîner les autres |
-| Dépendance massive aux TIC | Tout est numérique : transactions, marchés, paiements |
-| Concentration des fournisseurs | Quelques cloud providers (AWS, Azure, GCP) servent toute l'industrie |
+| Interconnexion systémique | La chute d'une banque peut entraîner un effet domino mondial |
+| Dépendance totale aux TIC | L'argent n'est plus physique : transactions, marchés, paiements sont purement numériques |
+| Concentration des fournisseurs | Quelques Cloud Providers (AWS, Azure, GCP) servent toute l'industrie simultanément |
 
-DORA répond à ces spécificités par un cadre **plus prescriptif** que NIS2.
+DORA répond à ces spécificités par un cadre **beaucoup plus prescriptif et contraignant** que NIS2.
 
-### 1.3 Périmètre d'application
+### Périmètre d'application
 
-DORA s'applique à **environ 22 000 entités financières** dans l'Union européenne, plus à leurs **prestataires TIC critiques**.
+DORA s'applique à environ **22 000 entités financières** dans l'Union européenne, **mais aussi à leurs prestataires TIC critiques**.
 
 ```mermaid
 flowchart TB
-    A[Entités financières DORA] --> B[Établissements de crédit<br>banques]
-    A --> C[Établissements de paiement]
-    A --> D[Établissements de monnaie<br>électronique]
-    A --> E[Entreprises<br>d'investissement]
-    A --> F[Plateformes de négociation]
-    A --> G[Contreparties centrales CCP]
-    A --> H[Dépositaires centraux]
-    A --> I[Sociétés de gestion<br>OPCVM FIA]
-    A --> J[Assurances et<br>réassurances]
-    A --> K[Prestataires services<br>crypto-actifs]
-    A --> L[Tiers TIC critiques<br>cloud providers etc]
+    A["Entités soumises à DORA"] --> B["Établissements de crédit (Banques)"]
+    A --> C["Établissements de paiement"]
+    A --> D["Établissements de monnaie électronique"]
+    A --> E["Entreprises d'investissement"]
+    A --> F["Plateformes de négociation"]
+    A --> G["Contreparties centrales (CCP)"]
+    A --> H["Dépositaires centraux"]
+    A --> I["Sociétés de gestion (OPCVM, FIA)"]
+    A --> J["Assurances et réassurances"]
+    A --> K["Prestataires services crypto-actifs"]
+    A --> L["Tiers TIC critiques<br>(Cloud Providers, Éditeurs)"]
 ```
 
-### 1.4 Cas particulier des prestataires TIC critiques
+### Le statut de Prestataire TIC critique
 
-DORA crée un statut spécifique : **prestataire TIC critique pour le secteur financier**. Ces prestataires (cloud, hébergeurs, éditeurs SaaS) servent un grand nombre d'entités financières et sont **directement supervisés** par les autorités européennes.
+DORA crée un statut révolutionnaire : **Prestataire TIC critique pour le secteur financier**. Ces prestataires (Cloud, hébergeurs, éditeurs SaaS) qui servent un grand nombre d'entités financières tombent sous la supervision **directe** des autorités européennes (EBA, ESMA, EIOPA).
 
-| Prestataire TIC critique | Pourquoi |
+> Exemples typiques de prestataires TIC critiques :
+
+| Prestataire | Pourquoi est-il critique ? |
 |---|---|
-| AWS, Microsoft Azure, Google Cloud | Cloud massivement utilisé par banques |
-| Salesforce | CRM standard du secteur |
-| Editeurs core banking systems | Systèmes critiques |
-| Réseaux SWIFT | Messagerie interbancaire |
-| Bloomberg, Refinitiv | Données de marché |
+| AWS, Microsoft Azure, Google Cloud | Hébergent l'infrastructure des banques |
+| Salesforce | CRM standard du secteur assurantiel |
+| Éditeurs de Core Banking Systems | Moteurs centraux de l'activité bancaire |
+| Réseau SWIFT | Monopole de fait sur la messagerie interbancaire |
+| Bloomberg, Refinitiv | Fournisseurs de données de marché en temps réel |
+
+<br>
 
 ---
 
-## 2. Les 5 piliers de DORA
+<br>
 
-DORA est structuré autour de **5 piliers** qui couvrent l'intégralité du cycle de gestion du risque TIC.
+## Les 5 piliers de DORA
+
+DORA ne se contente pas de principes vagues, il est structuré autour de **5 piliers** couvrant l'intégralité du cycle de gestion du risque cyber.
 
 ```mermaid
 flowchart TB
-    A[DORA - 5 piliers]
-    A --> B[1. Gestion du risque TIC<br>articles 5-15]
-    A --> C[2. Gestion des incidents<br>articles 17-23]
-    A --> D[3. Tests de résilience<br>articles 24-27]
-    A --> E[4. Gestion des risques<br>tiers TIC<br>articles 28-44]
-    A --> F[5. Partage informations<br>menace<br>article 45]
+    A["DORA - Les 5 piliers"]
+    A --> B["1. Gestion du risque TIC<br>(Articles 5-15)"]
+    A --> C["2. Gestion des incidents<br>(Articles 17-23)"]
+    A --> D["3. Tests de résilience<br>(Articles 24-27)"]
+    A --> E["4. Risques liés aux tiers TIC<br>(Articles 28-44)"]
+    A --> F["5. Partage d'informations<br>(Article 45)"]
 ```
 
-### 2.1 Pilier 1 - Gestion du risque TIC
+### Pilier 1 - Gestion du risque TIC
 
-Articles 5 à 15. Impose un **cadre intégré** de gouvernance du risque cyber au niveau du conseil d'administration.
+Impose un cadre intégré de gouvernance du risque cyber **au niveau du conseil d'administration**.
 
-| Obligation | Contenu |
+| Obligation | Précision DORA |
 |---|---|
-| Cadre de gouvernance | CA et direction responsables |
-| Politique de gestion du risque TIC | Document signé, mis à jour |
-| Identification des actifs critiques | Cartographie systématique |
-| Mesures de protection | Comparable article 32 RGPD |
-| Stratégie de continuité | PCA, PRA, exercices |
-| Rétroaction et apprentissage | Post-mortem systématiques |
+| Cadre de gouvernance | Le CA (Conseil d'Administration) est civilement responsable |
+| Politique de risque TIC | Document obligatoirement signé et révisé |
+| Identification des actifs | Cartographie systématique des actifs critiques |
+| Stratégie de continuité | PCA, PRA et exercices stricts |
+| Rétroaction (Post-mortem) | Leçons tirées de chaque incident de sécurité |
 
-### 2.2 Pilier 2 - Gestion des incidents
+### Pilier 2 - Gestion des incidents (La contrainte des 4 heures)
 
-Articles 17 à 23. Cadre **plus strict** que NIS2 sur les notifications.
-
-| Élément | DORA | NIS2 |
-|---|---|---|
-| Détection | Procédures formalisées | Idem |
-| Classification | Critères précis | Critères variables |
-| Notification initiale | 4 heures (incidents majeurs) | 24 heures |
-| Notification intermédiaire | 72 heures | 72 heures |
-| Rapport final | 1 mois | 1 mois |
+C'est là que le Forensic transpire : DORA impose un cadre de notification **beaucoup plus strict que le RGPD ou NIS2**.
 
 ```mermaid
 flowchart LR
-    A[Incident majeur<br>détecté] --> B[4 heures<br>notification initiale]
-    B --> C[72 heures<br>notification intermédiaire]
-    C --> D[1 mois<br>rapport final]
+    A["Incident majeur détecté"] --> B["4 heures<br>Notification initiale à l'ACPR"]
+    B --> C["72 heures<br>Notification intermédiaire détaillée"]
+    C --> D["1 mois<br>Rapport d'incident final"]
 ```
 
-DORA est **plus exigeant** sur le délai de notification initial (4h vs 24h NIS2).
+> Comparatif des délais de notification :
 
-### 2.3 Pilier 3 - Tests de résilience
+| Étape de l'Alerte | Exigence DORA | Exigence NIS2 | Exigence RGPD |
+|---|---|---|---|
+| Notification Initiale | **4 heures** (Incidents majeurs) | 24 heures | - |
+| Notification Détaillée | 72 heures | 72 heures | 72 heures |
 
-Articles 24 à 27. Impose des **tests réguliers** dont la fréquence varie selon la taille.
+!!! danger "Urgence Forensic"
+    Vous avez 4 heures pour qu'une banque transmette à l'ACPR sa notification initiale. Votre diagnostic (Ransomware vs Panne matérielle simple) doit être quasi instantané.
 
-| Type de test | Fréquence | Entités concernées |
+### Pilier 3 - Tests de résilience (Le TLPT)
+
+Impose des **tests réguliers** obligatoires, dont la fréquence varie selon la criticité de l'entité.
+
+| Type de test imposé | Fréquence | Entités concernées |
 |---|---|---|
-| Tests de pénétration | Au moins une fois par an | Toutes |
-| TLPT (Threat-Led Penetration Testing) | Tous les 3 ans | Entités significatives |
-| Exercices de continuité | Annuels | Toutes |
-| Tests de basculement | Annuels | Toutes |
+| Tests de vulnérabilité et Pentests | Au moins annuels | Toutes |
+| Exercices de continuité d'activité (PCA) | Annuels | Toutes |
+| **TLPT** (Threat-Led Penetration Testing) | Tous les 3 ans | Entités systémiques et significatives |
 
-Le **TLPT** est une innovation majeure. Test piloté par la menace, réalisé par des prestataires qualifiés (en France, supervision ANSSI). Mimétique des attaques réelles.
+!!! abstract "Qu'est-ce que le TLPT ?"
+    Le TLPT (Test de Pénétration Fondé sur la Menace) est une simulation d'attaque grandeur nature (Red Teaming très avancé), pilotée par la Threat Intel, sur les systèmes de production, et supervisée par l'autorité de l'État (la Banque de France/ANSSI). C'est le graal du pentest.
 
-### 2.4 Pilier 4 - Gestion des risques tiers TIC
+### Pilier 4 - Gestion des risques liés aux tiers TIC
 
-Articles 28 à 44. C'est un **chapitre majeur** qui révolutionne la sous-traitance dans le secteur financier.
+C'est un chapitre majeur qui révolutionne la sous-traitance. Les banques ne peuvent plus se contenter d'acheter un service Cloud, elles doivent l'auditer.
 
-| Obligation | Contenu |
+| Obligation envers le sous-traitant | Contenu pratique |
 |---|---|
-| Stratégie tiers TIC | Politique formalisée |
-| Inventaire des prestataires | Registre complet |
-| Concentration et substitution | Risque de concentration géré |
-| Contrats types | Clauses obligatoires DORA |
-| Audits sur place | Droit d'audit chez le prestataire |
-| Stratégies de sortie | Plan en cas de défaillance |
+| Inventaire | Registre complet remis aux autorités |
+| Contrats types | Insertion de clauses "DORA" obligatoires |
+| **Audits sur place** | La banque a le droit d'envoyer des auditeurs (vous) physiquement chez le sous-traitant Cloud |
+| Stratégies de sortie | Preuve qu'on peut quitter AWS pour Azure en cas de crise (Réversibilité) |
 
-Pour vous, **prestataire forensic**, vos contrats avec des clients financiers doivent inclure ces clauses. C'est une opportunité (cadre clair) et une contrainte (obligations supplémentaires).
+### Pilier 5 - Partage d'information
 
-### 2.5 Pilier 5 - Partage d'information
+Encourage la création de réseaux de confiance (comme le FS-ISAC) pour le partage sécurisé d'IoC (Indicateurs de Compromission) et de tactiques d'attaquants entre concurrents financiers.
 
-Article 45. Encourage le partage d'**informations sur les menaces** entre entités financières via des dispositifs sécurisés (FS-ISAC, plateformes nationales).
+<br>
 
 ---
 
-## 3. Articulation DORA et NIS2
+<br>
 
-### 3.1 Principe de lex specialis
+## Articulation DORA et NIS2
 
-DORA est **lex specialis** par rapport à NIS2. Cela signifie : si une entité est couverte par DORA, **DORA s'applique seul**, NIS2 ne s'applique pas.
+### Le principe de Lex Specialis
+
+DORA agit comme **Lex Specialis** par rapport à NIS2 (qui est Lex Generalis). La règle de droit est simple : **Si une entité est couverte par DORA, alors NIS2 ne s'applique pas.**
 
 ```mermaid
 flowchart TB
-    A[Entité financière] --> B{Couverte par DORA ?}
-    B -->|Oui| C[DORA seul<br>NIS2 ne s'applique pas<br>au titre du financier]
-    B -->|Non| D{Couverte NIS2 ?}
-    D -->|Oui| E[NIS2 applicable]
-    D -->|Non| F[Hors champ NIS2 et DORA]
+    A["Entité de l'économie"] --> B{"Est-elle une entité<br>financière (DORA) ?"}
+    B -->|"OUI"| C["DORA s'applique EXCLUSIVEMENT<br>(NIS2 est écarté)"]
+    B -->|"NON"| D{"Est-elle dans les 18<br>secteurs NIS2 ?"}
+    D -->|"OUI"| E["NIS2 s'applique"]
+    D -->|"NON"| F["Ni NIS2, Ni DORA"]
 ```
 
-### 3.2 Tableau comparatif
+> Tableau de synthèse des différences :
 
-| Aspect | DORA | NIS2 |
+| Sujet de friction | La doctrine DORA (Secteur Financier) | La doctrine NIS2 (Secteur Général) |
 |---|---|---|
-| Type d'acte | Règlement | Directive |
-| Application | Directe | Transposition nécessaire |
-| Périmètre | Secteur financier | 18 secteurs |
-| Notification initiale | 4 heures | 24 heures |
-| Tiers critiques | Supervisés directement | Pas de régime spécifique |
-| TLPT | Obligatoire entités significatives | Pas obligatoire |
-| Sanctions | Variables États membres | Plafonds harmonisés |
-| Autorité France | ACPR + AMF | ANSSI |
+| Base juridique | Règlement (Directement applicable) | Directive (Loi Résilience requise) |
+| Délai de déclaration | **4 Heures** | 24 Heures |
+| Tiers Informatiques | Les "Grands" Cloud Providers sont supervisés directement | Ils subissent un effet cascade contractuel |
+| Red Teaming | Le TLPT est obligatoire | Le Pentest régulier suffit |
+| Autorité de tutelle | ACPR & AMF | L'ANSSI |
 
-### 3.3 Cas pratique - Banque sous-traitant éditeur SaaS
+### Cas complexe : Le Sous-traitant IT d'une Banque
 
 ```mermaid
 flowchart LR
-    A[Banque BNP] -->|Sous-traite| B[Éditeur SaaS]
-    A -.->|DORA s'applique| A
-    B -->|Hors finance pure<br>+ taille NIS2| B
-    B -.->|NIS2 s'applique| B
-    A -->|Audit DORA| B
-    B -.->|Doit aussi répondre<br>aux exigences DORA| B
+    A["Banque Nationale"] -->|"Achète du SaaS RH"| B["Éditeur SaaS RH<br>(Non Financier)"]
+    A -.->|"DORA s'applique<br>à la Banque"| A
+    B -.->|"NIS2 s'applique<br>à l'Éditeur"| B
+    A -->|"Droit d'Audit<br>Contractuel"| B
+    B -.->|"L'Éditeur subit DORA<br>indirectement"| B
 ```
 
-L'éditeur SaaS qui sert la banque tombe sous **NIS2 directement** (s'il dépasse les seuils) **et** doit répondre aux exigences DORA via le contrat avec la banque (effet de cascade).
+Dans ce cas, l'éditeur de logiciel RH n'est pas une banque. Il est assujetti à NIS2. Mais parce qu'il travaille pour une banque, cette dernière va lui imposer les audits de sécurité drastiques dictés par DORA (Pilier 4).
+
+<br>
 
 ---
 
-## 4. Autorités de tutelle en France
+<br>
 
-### 4.1 Cartographie
+## Les Autorités de tutelle en France
+
+L'écosystème financier français possède ses propres "gendarmes".
 
 ```mermaid
 flowchart TB
-    A[Secteur financier France] --> B[ACPR<br>Banques et assurances]
-    A --> C[AMF<br>Marchés financiers]
-    A --> D[ANSSI<br>Coordination cyber]
-    A --> E[CNIL<br>Données personnelles]
-    A --> F[ABE EBA EIOPA ESMA<br>Autorités européennes]
+    A["Secteur Financier Français"] --> B["ACPR<br>(Banques et Assurances)"]
+    A --> C["AMF<br>(Bourses et Marchés)"]
+    A --> D["ANSSI<br>(Supervision des Pentests TLPT)"]
+    A --> E["CNIL<br>(Pour les données personnelles)"]
 ```
 
-### 4.2 ACPR
+### Le rôle de l'ACPR
 
-L'**Autorité de Contrôle Prudentiel et de Résolution** est l'autorité française pour les banques et assurances. Elle :
+L'**Autorité de Contrôle Prudentiel et de Résolution** (adossée à la Banque de France) est le gendarme des banques et assurances. C'est elle qui :
+- Reçoit les fameuses notifications à 4 heures.
+- Envoie ses inspecteurs auditer les systèmes d'information bancaires.
+- Prononce de très lourdes sanctions (retrait d'agrément, amendes massives).
 
-- Supervise l'application de DORA en France
-- Reçoit les notifications d'incidents DORA
-- Conduit les contrôles
-- Sanctionne en cas de manquement
-
-### 4.3 AMF
-
-L'**Autorité des Marchés Financiers** supervise les acteurs des marchés (sociétés de gestion, plateformes de négociation, prestataires crypto). Compétences DORA pour ces acteurs.
-
-### 4.4 ANSSI - Coordination
-
-L'ANSSI joue un rôle de **coordination cyber** transversal, et supervise spécifiquement les TLPT.
+<br>
 
 ---
 
-## 5. Impact pour le forensic
+<br>
 
-### 5.1 Marché ouvert
+## Impact pour le marché Forensic
 
-Le secteur financier français représente plusieurs milliers d'entités, dont environ 800 acteurs majeurs entrant dans DORA. Les budgets cyber sont **structurellement plus élevés** que dans les autres secteurs.
+### Une manne financière
 
-| Catégorie | Budget cyber annuel typique |
+Le secteur bancaire/assurance en France représente des budgets cybersécurité qui écrasent le reste du marché. Les très grandes banques françaises dépensent entre **500 millions et 1 Milliard d'euros** par an en IT/Cyber.
+
+### L'explosion de prestations spécifiques
+
+| Type d'Expertise | Opportunité Commerciale DORA |
 |---|---|
-| Grande banque (BNP, SG, CA) | 500 M€ - 1 Md€ |
-| Banque mutualiste régionale | 50-150 M€ |
-| Compagnie d'assurance majeure | 100-300 M€ |
-| FinTech | Variable selon taille |
+| Pentest avancé | La demande de Red Teaming explose pour simuler les TLPT. |
+| Audits de Sous-traitance | Les banques vont mandater des cabinets pour aller auditer physiquement les Datacenters de leurs prestataires. |
+| Réponse à Incident (DFIR) | La garantie d'une SLA d'intervention extrêmement courte pour respecter la fenêtre de 4 heures imposée par DORA. |
 
-### 5.2 Prestations forensic spécifiques DORA
+!!! info "La barrière à l'entrée"
+    Travailler pour des entités DORA implique souvent pour vous (le cabinet Forensic) d'être vous-même certifié (ISO 27001, PASSI par l'ANSSI, ou PRIS). La confidentialité et l'astreinte 24/7 sont non-négociables.
 
-| Prestation | Demande |
-|---|---|
-| Audit conformité DORA | Très demandé 2025-2027 |
-| Réalisation TLPT | Marché de niche, qualifications requises |
-| Forensic post-incident bancaire | Demande forte, urgences fréquentes |
-| Investigation fraude financière | Croisement forensic + finance |
-| Audit de sous-traitance TIC | Croissant avec exigences DORA |
-
-### 5.3 Contraintes spécifiques
-
-Travailler pour le secteur financier impose des contraintes supplémentaires :
-
-| Contrainte | Implication |
-|---|---|
-| Habilitation préalable | Vérifications de probité parfois requises |
-| Confidentialité renforcée | Données financières très sensibles |
-| Disponibilité 24/7 | Astreinte permanente possible |
-| Délais courts | 4h notification initiale impose réactivité |
-| Audit du prestataire | Vous serez vous-même audité par votre client |
-
-### 5.4 Qualifications utiles
-
-| Qualification | Pertinence DORA |
-|---|---|
-| PASSI (Prestataire d'Audit de la Sécurité des SI) | Très utile, qualification ANSSI |
-| TLPT qualifié | Nécessaire pour TLPT |
-| ISO 27001 lead auditor | Apprécié |
-| CISA, CISM | Apprécié dans le bancaire |
-| EBA opérationnel | Niveau européen |
+<br>
 
 ---
 
-## 6. Pièges et bonnes pratiques
+<br>
 
-### Piège 1 - Penser que DORA ne concerne que les grandes banques
+## Pièges et bonnes pratiques
 
-DORA s'applique aussi aux **petites entités** (FinTech, courtiers, sociétés de gestion modestes). Le seuil n'est pas la taille mais le statut réglementaire.
+!!! failure "Piège 1 - Oublier les petites structures"
+    DORA ne vise pas que la BNP ou la Société Générale. Les courtiers en assurance, les petites FinTechs de paiement, et les sociétés de gestion patrimoniales sont également assujettis. 
 
-### Piège 2 - Sous-estimer la rigueur du délai de 4h
+!!! failure "Piège 2 - Négliger la rapidité du diagnostic initial"
+    En gestion de crise DORA, si vous mettez 6 heures à fournir une image disque et un premier verdict (Ransomware avéré ou non), votre client est déjà hors-la-loi vis-à-vis de l'ACPR (Délai de 4 heures dépassé).
 
-Pour un incident majeur, les **4 heures** sont implacables. Préparer en amont la procédure et les modèles de notification est indispensable.
+!!! tip "1. Formatez vos rapports pour l'ACPR"
+    Un rapport d'incident forensic destiné à une banque n'est pas lu que par le RSSI. Il sera transmis quasi-intégralement à l'ACPR. La forme, la rigueur, et l'explication des mesures de remédiation doivent être irréprochables juridiquement.
 
-### Piège 3 - Croire que NIS2 et DORA s'appliquent en même temps
+!!! tip "2. Devenez un auditeur 'Tiers TIC'"
+    Une des plus belles opportunités est de se spécialiser dans l'audit des sous-traitants pour le compte des banques. C'est un marché récurrent (il faut ré-auditer régulièrement) et très bien budgété.
 
-Si DORA s'applique, NIS2 ne s'applique pas pour le même périmètre. Vérifiez systématiquement le statut réglementaire de votre client.
-
-### Bonne pratique 1 - Étudier le ReCyF même pour DORA
-
-Bien que conçu pour NIS2, le ReCyF de l'ANSSI est un excellent référentiel applicable aussi en partie pour DORA. Sa maîtrise sert sur les deux cadres.
-
-### Bonne pratique 2 - Préparer les modèles de notification 4h
-
-Pour des clients financiers, ayez un **modèle de notification ACPR à 4h** prêt à dégainer. C'est un différenciateur commercial fort.
-
-### Bonne pratique 3 - Suivre l'EBA et l'AMF
-
-L'**Autorité Bancaire Européenne** (EBA) publie régulièrement des standards techniques (RTS, ITS) qui précisent DORA. Veille indispensable.
+<br>
 
 ---
 
-## 7. Manipulation pratique
+<br>
 
-### Exercice 7.1 - Identification
+## Manipulation pratique - Exercices
 
-| Entité | Couverture |
-|---|---|
-| BNP Paribas | DORA |
-| Une mutuelle santé de 200 salariés | DORA (assurance) |
-| Une FinTech de paiement de 20 salariés | DORA (établissement de paiement) |
-| Une PME industrielle de 100 salariés | NIS2 si secteur listé |
-| Un éditeur de logiciels bancaires | NIS2 + DORA via cascade contractuelle |
-| Un cabinet comptable de 50 salariés | Hors DORA, hors NIS2 sauf cas |
+### Exercice 1 - Qualification Juridique
 
-### Exercice 7.2 - Procédure DORA
+> À quel régime (DORA ou NIS2) sont soumis les acteurs suivants ?
 
-Une banque cliente vous appelle à 14h pour un incident majeur. Construisez la timeline.
+!!! quote "Solution"
 
-| Temps | Action |
-|---|---|
-| 14h00 | Réception alerte client |
-| 14h00 - 14h30 | Pré-qualification téléphonique |
-| 14h30 - 15h00 | Mobilisation équipe, kit acquisition |
-| 15h00 - 17h00 | Premières acquisitions sur site |
-| 17h00 - 18h00 | Premières conclusions, alerter le client si majeur |
-| 18h00 | Échéance ACPR notification initiale (si découverte 14h) |
+    | Entité | Cadre Juridique | Justification |
+    |---|---|---|
+    | La mutuelle santé d'entreprise (300 salariés) | **DORA** | C'est une assurance. |
+    | L'hôpital public régional (2000 salariés) | **NIS2** | C'est le secteur de la Santé. |
+    | La startup de cryptomonnaies "CoinTrust" | **DORA** | Prestataire de services en crypto-actifs. |
+    | Le constructeur automobile Renault | **NIS2** | Secteur Industrie/Fabrication. |
+    | L'hébergeur français Scaleway | **NIS2 Direct** + **DORA Indirect** | S'il héberge des banques, il subira des audits DORA imposés par ses contrats bancaires. |
 
-Le délai de 4h est **très contraint**. Votre rapidité de pré-qualification est critique.
+<br>
 
----
+### Exercice 2 - La crise DORA en temps réel
 
-## 8. Auto-évaluation
+Une plateforme de trading en ligne subit une attaque par déni de service distribué (DDoS) massive coupant l'accès de tous ses clients le Jeudi 10 juin.
+**14h00 :** Le système de supervision (NOC) déclenche l'alerte de coupure de service.
 
-| # | Question | Réponse attendue |
-|---|---|---|
-| 1 | Que signifie DORA ? | Digital Operational Resilience Act |
-| 2 | Date d'application ? | 17 janvier 2025 |
-| 3 | Type d'acte ? | Règlement UE 2022/2554, directement applicable |
-| 4 | Combien de piliers ? | 5 |
-| 5 | Délai de notification initiale ? | 4 heures pour incidents majeurs |
-| 6 | Qu'est-ce qu'un TLPT ? | Threat-Led Penetration Testing |
-| 7 | Articulation DORA / NIS2 ? | DORA est lex specialis, prime sur NIS2 |
-| 8 | Autorité France ? | ACPR pour banques/assurances, AMF pour marchés |
+> Établissez le calendrier maximal légal des notifications DORA.
+
+!!! quote "Solution"
+
+    | Échéance DORA (Deadline légale) | Action Réglementaire |
+    |---|---|
+    | Jeudi 10 juin - **18h00** | Envoi formel de la **Notification Initiale** à l'AMF (Il s'agit d'une plateforme boursière, non de l'ACPR). (Max 4 heures) |
+    | Dimanche 13 juin - **14h00** | Envoi du **Rapport Intermédiaire** listant les Indicateurs de Compromission (IoC) et l'évolution de la crise. (Max 72 heures) |
+    | Samedi 10 Juillet - **14h00** | Dépôt du **Rapport Forensic Final** détaillant l'attaque, les failles corrigées et le PCA appliqué. (Max 1 mois) |
+
+<br>
 
 ---
 
-## 9. Synthèse mémo
+<br>
 
-```text
-DORA - Digital Operational Resilience Act
+## Auto-évaluation
 
-Cadre :
-  Règlement UE 2022/2554 du 14 décembre 2022
-  Application directe depuis le 17 janvier 2025
+!!! question "Testez vos connaissances"
+    1. Que signifie l'acronyme DORA et de quel type de texte européen s'agit-il ?
+    2. Quels sont les deux critères de l'économie financière ayant justifié un texte plus dur que NIS2 ?
+    3. Quel nouveau statut DORA attribue-t-il aux grands Cloud Providers comme Microsoft ou AWS ?
+    4. Citez les 3 jalons horaires stricts de notification d'incident sous DORA.
+    5. Qu'est-ce qu'un test "TLPT" ?
+    6. Une société d'investissement en bourse doit-elle appliquer le règlement NIS2 ?
+    7. Quelle est l'autorité administrative française chargée de sanctionner les banques ?
 
-Périmètre :
-  ~22 000 entités financières UE
-  + tiers TIC critiques (cloud, etc.)
+> _Si le principe de "Lex Specialis" ou le délai des "4 heures" vous échappent, revoyez le tableau comparatif DORA/NIS2 : c'est la connaissance minimale requise pour aborder un RSSI bancaire._
 
-5 piliers :
-  1. Gestion du risque TIC
-  2. Gestion des incidents (4h - 72h - 1 mois)
-  3. Tests de résilience (TLPT inclus)
-  4. Gestion des risques tiers
-  5. Partage d'information
-
-Articulation :
-  DORA = lex specialis
-  NIS2 ne s'applique pas si DORA
-
-Autorités France :
-  ACPR (banques, assurances)
-  AMF (marchés)
-  ANSSI (coordination)
-
-Marché OmnyVia :
-  Budget cyber élevé
-  Délais très courts
-  Qualifications recommandées (PASSI, TLPT)
-```
+<br>
 
 ---
 
-## 10. Pour aller plus loin
+<br>
 
-| Ressource | Type |
-|---|---|
-| Règlement UE 2022/2554 EUR-Lex | Texte original |
-| ACPR - DORA | Autorité française |
-| EBA - DORA technical standards | Autorité européenne |
-| AMF - DORA marchés | Autorité marchés |
-| FS-ISAC | Partage menaces secteur financier |
+## Synthèse mémo
+
+!!! success "À retenir absolument"
+    
+    **DORA - Le Bouclier Financier Européen (2025)**
+    
+    **Le Concept (Lex Specialis) :**
+    DORA est un **Règlement d'application directe** qui prime et remplace NIS2 pour l'intégralité du secteur financier (Banques, Assurances, Bourses, Crypto).
+    
+    **Les Tiers TIC Critiques :**
+    La révolution de DORA est de soumettre les géants du Cloud (Prestataires TIC) et les éditeurs logiciels à des audits stricts imposés et réalisés par les banques elles-mêmes.
+    
+    **La Temporalité (Gestion des Incidents) :**
+    Le cadre le plus brutal d'Europe :
+    - **4 Heures** : Notification Initiale à l'ACPR.
+    - **72 Heures** : Rapport Intermédiaire.
+    - **1 Mois** : Rapport Forensic Final.
+    
+    **Le marché Forensic :**
+    C'est le secteur le plus doté financièrement. DORA engendre un besoin massif d'auditeurs de la "Supply Chain IT" (pour aller contrôler les sous-traitants) et d'équipes DFIR (Digital Forensics and Incident Response) capables de diagnostiquer une attaque réseau en moins de 4 heures.
+
+<br>
 
 ---
 
-## 11. Auto-explication
+<br>
 
-Pour valider ce chapitre, enregistrez une vidéo de 8 minutes où vous expliquez :
+## Conclusion
 
-1. Pourquoi DORA pour le financier (1 minute)
-2. Les 5 piliers (3 minutes)
-3. Le TLPT (1 minute)
-4. Articulation DORA / NIS2 (1 minute)
-5. Autorités françaises et marché OmnyVia (2 minutes)
+!!! quote "Ce qu'il faut retenir"
+    DORA entérine le fait que les banques ne sont plus de simples entreprises détenant de la valeur, mais de vastes infrastructures informatiques d'importance vitale. Un incident cyber dans ce secteur n'est plus vu comme un simple problème de confidentialité, mais comme un risque de faillite systémique. En tant qu'analyste forensic, si vous intervenez dans ce milieu, l'amateurisme, la lenteur et l'opacité sont proscrits. Les budgets de vos clients sont illimités, mais leurs attentes – et la surveillance de l'ACPR – le sont tout autant.
 
----
+> [Chapitre suivant : 1.10 Cadre du pentest légal - Mandat, périmètre, NDA →](01-10-cadre-pentest-legal.md)
+>
+> [Retour à l'index →](./index.md)
 
-**Chapitre précédent** : [1.8 RGPD - Focus articles 32, 33, 34](01-8-rgpd-articles-32-33-34.md)
-
-**Chapitre suivant** : [1.10 Cadre du pentest légal - Mandat, périmètre, NDA](01-10-cadre-pentest-legal.md)
+<br>

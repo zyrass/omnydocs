@@ -2300,13 +2300,13 @@ nav = [
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/04-article-226-15.md",
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/05-lcen-2004.md",
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/06-lpm-oiv.md",
-        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/07-nis2-loi-resillience.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/07-nis2-loi-resilience.md",
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/08-rgpd-articles-32-33-34.md",
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/09-dora-pour-secteur-financier.md",
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/10-cadre-pentest-legal.md",
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/11-affaire-bluetouff.md",
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/12-affaire-kitetoa.md",
-        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/13-affaire-recentes.md",
+        "cursus-forensic/01-cycle-0-fondations/module-1-legislation/13-affaires-recentes.md",
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/14-modele-mandat.md",
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/15-modele-nda.md",
         "cursus-forensic/01-cycle-0-fondations/module-1-legislation/16-synthese-carnet-juridique.md",
@@ -2342,7 +2342,7 @@ nav = [
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/03-topologie-adressage.md",
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/04-openwrt-archer-c7.md",
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/05-wifi-wpa2-faible.md",
-        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/06-debian-server.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/06-debian-serveur.md",
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/07-config-serveur.md",
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/08-windows11-poste-compta.md",
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/09-windows11-poste-stagiaire.md",
@@ -2354,7 +2354,7 @@ nav = [
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/15-kit-acquisition.md",
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/16-documentation.md",
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/17-script-validation.md",
-        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/18-mackbook-m1-prep.md",
+        "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/18-macbook-m1-prep.md",
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/19-outils-forensic-macos.md",
         "cursus-forensic/01-cycle-0-fondations/module-3-configuration-laboratoire/20-recovery-dfu-apple-silicon.md",
       ]},
@@ -2720,4 +2720,11 @@ alternate_style = true
 custom_checkbox = true
 
 [project.markdown_extensions.pymdownx.tilde]
+
+# ----------------------------------------------------------------------------
+# Validation Zensical (Contournement Bug #639)
+# Désactivation des faux positifs sur les admonitions et tags Markdown
+# ----------------------------------------------------------------------------
+[project.validation]
+unresolved_references = false
 

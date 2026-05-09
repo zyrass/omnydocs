@@ -204,3 +204,10 @@ alternate_style = true
 custom_checkbox = true
 
 [project.markdown_extensions.pymdownx.tilde]
+
+# ----------------------------------------------------------------------------
+# Validation Zensical (Contournement Bug #639)
+# Désactivation des faux positifs sur les admonitions et tags Markdown
+# ----------------------------------------------------------------------------
+[project.validation]
+unresolved_references = false

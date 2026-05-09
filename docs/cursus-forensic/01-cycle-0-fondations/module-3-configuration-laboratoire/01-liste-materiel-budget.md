@@ -1,218 +1,208 @@
 ---
-title: 3.1 Liste matériel et budget
-description: Liste complète et raisonnée du matériel pour votre laboratoire forensic physique. Trois niveaux de budget (essentiel, recommandé, avancé), avec sources d'achat et critères de choix.
-authors:
-  - Zyrass
-date:
-  created: 2026-04-29
-tags:
-  - Matériel
-  - Budget
-  - HomeLab
-  - Configuration
-data-level: 🟡
+description: "Liste complète et raisonnée du matériel pour votre laboratoire forensic physique. Trois niveaux de budget (essentiel, recommandé, avancé), avec sources d'achat et critères de choix."
+icon: lucide/wallet
+tags: ["MATÉRIEL", "BUDGET", "HOMELAB", "CONFIGURATION"]
 ---
 
-# 3.1 Liste matériel et budget
+# Liste matériel et budget
+
+<div
+  class="omny-meta"
+  data-level="🟡 Standard"
+  data-version="Modèle 2026"
+  data-time="2 heures">
+</div>
+
+!!! note "**Livrables :** _Liste des courses pour le laboratoire_"
+!!! note "**Auto-explication :** _10 minutes_"
+
+<br>
+
+---
+
+<br>
 
 !!! quote "L'analogie de l'atelier de menuisier"
 
-    Un menuisier débutant peut commencer avec une scie, un marteau, et quelques clous. Au fil du temps, son atelier s'enrichit : raboteuse, dégauchisseuse, défonceuse, scie radiale. Chaque outil ajouté élargit le périmètre de ses ouvrages possibles. Mais surtout : un mauvais outil rend le travail mauvais quel que soit le talent. Pour votre laboratoire forensic, le principe est identique. Il faut un minimum d'outils dès le départ, et leurs caractéristiques doivent être cohérentes avec votre objectif d'apprendre par l'attaque.
+    Un menuisier débutant peut commencer avec une scie, un marteau, et quelques clous. Au fil du temps, son atelier s'enrichit : raboteuse, dégauchisseuse, défonceuse, scie radiale. Chaque outil ajouté élargit le périmètre de ses ouvrages possibles. Mais surtout : un mauvais outil rend le travail mauvais quel que soit le talent. 
+    Pour votre laboratoire forensic, le principe est identique. Il faut un minimum d'outils dès le départ, et leurs caractéristiques doivent être cohérentes avec votre objectif d'apprendre par la pratique.
 
-## Métadonnées
+## Objectifs pédagogiques
 
-| Champ | Valeur |
-|---|---|
-| Durée | 2 heures |
-| Type | Théorique préparatoire |
+!!! tip "À la fin de ce chapitre, vous serez capable de :"
 
-## 1. Trois niveaux de budget
+    - Identifier les composants essentiels d'un laboratoire Forensic.
+    - Adapter votre laboratoire selon votre budget.
+    - Comprendre l'importance cruciale du Write-Blocker matériel.
+    - Sélectionner le matériel approprié pour des attaques et analyses spécifiques (ex: Wi-Fi, Mac).
 
-| Niveau | Budget | Public |
-|---|---|---|
-| Essentiel | 600 - 800 € | Démarrage strict, tient le cycle 1 |
-| Recommandé | 800 - 1 200 € | Cycle complet OmnyAcademy confortablement |
-| Avancé | 1 500 - 2 500 € | Vise une carrière forensic professionnelle |
-
-## 2. Niveau Essentiel - 600 à 800 €
-
-### 2.1 Liste
-
-| Catégorie | Élément | Prix indicatif | Notes |
-|---|---|---|---|
-| Routeur | TP-Link Archer C7 V5 | 30-50 € | Compatible OpenWrt, recyclé |
-| Postes | 2 mini PC i5 8e gen reconditionné | 350-500 € (les 2) | 8 Go RAM, SSD 256 Go |
-| Serveur | Raspberry Pi 4 8 Go + carte SD 64 Go | 80-100 € | Ou recyclage PC ancien |
-| Switch | Switch 5 ports gigabit non managé | 15-20 € | TP-Link ou Netgear |
-| Câbles | Lot 5 câbles RJ45 cat.6 | 15 € | 1 m, 3 m, 5 m |
-| Wi-Fi | Carte Alfa AWUS036ACS | 40-50 € | Mode monitor obligatoire |
-| Storage | 1 SSD externe 256 Go | 30-40 € | Pour acquisitions |
-| Storage | 4 clés USB 32 Go | 25-30 € | Outils, scellés |
-
-**Total Essentiel : ~600-800 €**
-
-### 2.2 Limites
-
-Avec ce budget, vous tenez le cycle 0 et le début du cycle 1. Limitations :
-
-- Pas d'Active Directory (un Pi ne fait pas tourner Windows Server)
-- Pas de write-blocker matériel (utilisation logicielle uniquement)
-- Acquisitions disque limitées en taille
-
-## 3. Niveau Recommandé - 800 à 1 200 €
-
-### 3.1 Différences avec Essentiel
-
-| Élément | Upgrade | Surcoût |
-|---|---|---|
-| Postes | 2 portables d'occasion 16 Go | +150 € |
-| Serveur | Mini PC Intel N100 16 Go | +100 € |
-| Storage | 2 SSD 512 Go | +50 € |
-| Write-blocker | USB write-blocker (Tableau ou WiebeTech) | +100 € |
-| Faraday | Sacoche faraday | +30 € |
-
-**Total Recommandé : ~1 100-1 200 €**
-
-### 3.2 Bénéfices
-
-- Active Directory possible (Windows Server eval ou Samba AD)
-- Acquisitions disques réelles complètes
-- Manipulations forensic conformes (write-blocker)
-
-## 4. Niveau Avancé - 1 500 à 2 500 €
-
-### 4.1 Ajouts
-
-| Élément | Prix |
-|---|---|
-| 2e portable Kali dédié | +400 € |
-| 3e portable CAINE dédié | +400 € |
-| Hub USB-C alimenté | +50 € |
-| Lecteur disques durs internes | +50 € |
-| 4 To stockage NAS | +200 € |
-| Onduleur petit format | +100 € |
-
-### 4.2 Justification
-
-Le niveau avancé permet :
-
-- Forensic à grande échelle
-- Acquisitions parallèles
-- Postes dédiés par fonction (pas multi-boot)
-- Continuité matérielle (onduleur)
-
-## 5. Détail des choix critiques
-
-### 5.1 Pourquoi le TP-Link Archer C7
-
-| Critère | Réponse |
-|---|---|
-| Prix | 30-50 € reconditionné |
-| Disponibilité | Très répandu, faciles à trouver |
-| OpenWrt | Compatible officiellement V5 |
-| Wi-Fi | Dual band, suffisant pour labo |
-| CPU | 720 MHz, OK pour OpenWrt |
-| RAM | 128 Mo suffisants |
-| Documentation | Très bien documenté |
-
-**Alternative** : Linksys WRT3200ACM si budget plus large (60-80 €).
-
-### 5.2 Pourquoi Apple Silicon en cible
-
-Vous avez déjà un MacBook M1 8 Go, qui devient **votre cible Mac** pour le forensic. Avantages :
-
-- Apple Silicon authentique
-- FileVault et Secure Enclave réels
-- APFS et SSV en conditions réelles
-
-Limites : 8 Go = pas pour analyser de gros dumps. C'est une **cible**, pas un poste analyste.
-
-### 5.3 Pourquoi Alfa AWUS036ACS spécifiquement
-
-| Critère | Réponse |
-|---|---|
-| Mode monitor | Oui (Realtek RTL8812AU) |
-| Injection | Oui |
-| Linux drivers | Stables (aircrack-ng) |
-| Bandes | 2.4 + 5 GHz |
-| Antenne | Externe haute portée |
-| Prix | 40-50 € |
-| Référence | Standard pentest |
-
-**Important** : éviter les cartes Wi-Fi internes des PC/portables, le mode monitor n'est presque jamais possible.
-
-### 5.4 Write-blocker - Critique forensic
-
-Un **write-blocker** matériel est l'outil qui distingue un forensic amateur d'un forensic professionnel. Il garantit qu'aucune écriture n'est faite sur le disque suspect.
-
-| Type | Prix | Usage |
-|---|---|---|
-| Logiciel (mode kernel) | 0 € | Apprentissage uniquement |
-| USB write-blocker | 80-150 € | Recommandé minimum |
-| FireWire/Thunderbolt | 200-400 € | Plus rapide |
-| Stations forensic complètes | 1500+ € | Pro |
-
-**Pour OmnyAcademy** : USB write-blocker suffit.
-
-## 6. Sources d'achat reconditionné
-
-### 6.1 Sites recommandés
-
-| Site | Spécialité |
-|---|---|
-| Backmarket | Postes et téléphones reconditionnés |
-| Recommerce | Matériel pro |
-| Retron | PCs reconditionnés |
-| ITEK | Serveurs et matériel pro |
-| Le Bon Coin | Particuliers (vigilance) |
-| eBay | International, vigilance contrefaçon |
-| Amazon Renewed | Garanties |
-| AliExpress | Cartes Wi-Fi spécialisées |
-
-### 6.2 Critères de vérification
-
-| Critère | Vérification |
-|---|---|
-| Garantie | Minimum 6 mois |
-| État | Grade A ou B (cosmétique acceptable) |
-| Specs | Vérifier RAM/SSD vs annonce |
-| Origine | Privilégier France/UE pour garantie |
-| Avis vendeur | >95% satisfaction |
-| Effacement | Vérifier secure erase fait |
-
-### 6.3 Précautions
-
-| Risque | Mitigation |
-|---|---|
-| Hardware faible | Demander photo Bench |
-| Espionnage matériel | Réinstallation OS systématique |
-| Pas de garantie | Refuser si pas de garantie écrite |
-| BIOS verrouillé | Vérifier accès BIOS au déballage |
-
-## 7. Synthèse budgétaire
-
-```text
-LABORATOIRE OMNYACADEMY - BUDGET
-
-NIVEAU ESSENTIEL    600-800 €
-NIVEAU RECOMMANDÉ   800-1200 €
-NIVEAU AVANCÉ       1500-2500 €
-
-PRIORITÉS d'investissement (si budget limité) :
-  1. Routeur OpenWrt              25-50 €
-  2. Carte Wi-Fi Alfa             40-50 €
-  3. 2 postes Windows              350-500 €
-  4. Serveur Linux                 80-150 €
-  5. Stockage SSD externe          30-50 €
-  6. Write-blocker (différable)    100-150 €
-
-À utiliser depuis votre matériel existant :
-  - PC Windows 48 Go (poste analyste principal)
-  - MacBook M1 8 Go (cible analyse Mac)
-
-Sources : reconditionné > occasion > neuf
-```
+<br>
 
 ---
 
-**Chapitre suivant** : [3.2 Achats reconditionnés - sources et précautions](03-2-achats-reconditionne.md)
+<br>
+
+## Trois niveaux de budget
+
+Votre laboratoire peut évoluer. Nous l'avons divisé en trois niveaux selon vos moyens initiaux.
+
+> Voici la répartition budgétaire cible :
+
+| Niveau | Budget | Public cible |
+|---|---|---|
+| **Essentiel** | 600 - 800 € | Démarrage strict, tient le cycle 1 |
+| **Recommandé** | 800 - 1 200 € | Cycle complet OmnyAcademy confortablement |
+| **Avancé** | 1 500 - 2 500 € | Vise une carrière forensic professionnelle autonome |
+
+<br>
+
+---
+
+<br>
+
+## Niveau Essentiel - 600 à 800 €
+
+Ce niveau est le minimum vital pour ne pas être bloqué dans les exercices.
+
+### La liste d'achat
+
+> Le tableau ci-dessous détaille le kit de survie du forensic :
+
+| Catégorie | Élément recommandé | Prix indicatif | Notes |
+|---|---|---|---|
+| **Routeur** | TP-Link Archer C7 V5 | 30-50 € | Compatible OpenWrt, à trouver d'occasion. |
+| **Postes (x2)** | Mini PC i5 8e gen (Reconditionnés) | 350-500 € | 8 Go RAM, SSD 256 Go minimum. |
+| **Serveur** | Raspberry Pi 4 (8 Go) + SD 64 Go | 80-100 € | Pour héberger les services d'attaque. |
+| **Switch** | Switch 5 ports gigabit (Non managé) | 15-20 € | TP-Link ou Netgear. |
+| **Câbles** | Lot de 5 câbles RJ45 (Cat.6) | 15 € | Tailles mixtes (1 m, 3 m, 5 m). |
+| **Wi-Fi** | Carte Alfa AWUS036ACS | 40-50 € | Mode monitor obligatoire pour le module 5. |
+| **Stockage** | 1 SSD externe 256 Go | 30-40 € | Essentiel pour les acquisitions RAM/Disque. |
+| **Stockage** | 4 clés USB 32 Go | 25-30 € | Pour les OS Live (Kali, CAINE) et les scellés. |
+
+!!! danger "Les Limites du niveau Essentiel"
+    Avec ce budget, vous couvrez les cycles 0 et 1. Cependant, vous ne pourrez pas monter de véritable **Active Directory** (un Raspberry Pi ne fait pas tourner Windows Server nativement) et vous n'aurez pas de **Write-Blocker matériel**, vous forçant à des manipulations logicielles risquées.
+
+<br>
+
+---
+
+<br>
+
+## Niveau Recommandé - 800 à 1 200 €
+
+C'est le niveau cible pour suivre confortablement l'ensemble de la formation OmnyAcademy.
+
+### Les améliorations (Upgrades)
+
+> Le tableau ci-dessous détaille les ajouts par rapport au niveau essentiel :
+
+| Élément | Upgrade recommandé | Surcoût estimé |
+|---|---|---|
+| **Postes** | 2 portables d'occasion (16 Go RAM) | +150 € |
+| **Serveur** | Mini PC Intel N100 (16 Go RAM) | +100 € |
+| **Stockage** | 2 SSD externes de 512 Go | +50 € |
+| **Write-Blocker** | USB write-blocker (Tableau ou WiebeTech) | +100 € |
+| **Pochette** | Sacoche Faraday (Isolation ondes) | +30 € |
+
+!!! success "Bénéfices du niveau Recommandé"
+    Ce budget permet de déployer un vrai domaine **Active Directory** sur le mini PC Intel, de réaliser des acquisitions disques de grande taille sans saturer vos espaces, et surtout, d'apprendre la manipulation légale avec un vrai **Write-Blocker**.
+
+<br>
+
+---
+
+<br>
+
+## Niveau Avancé - 1 500 à 2 500 €
+
+Pour ceux qui visent l'installation d'un laboratoire professionnel permanent.
+
+### L'équipement pro
+
+> Le tableau ci-dessous liste l'équipement d'un analyste confirmé :
+
+| Élément | Surcoût estimé | Objectif |
+|---|---|---|
+| **Portable Attaquant** | +400 € | PC dédié uniquement à Kali Linux (Pas de VM). |
+| **Portable Analyste** | +400 € | PC dédié uniquement à CAINE/SIFT. |
+| **Connectique** | +50 € | Hub USB-C alimenté pour supporter plusieurs acquisitions. |
+| **Extracteur** | +50 € | Lecteur/Dock pour disques durs internes (SATA/NVMe). |
+| **Stockage Froid** | +200 € | NAS de 4 To pour l'archivage des preuves. |
+| **Énergie** | +100 € | Onduleur (UPS) pour protéger les acquisitions en cours. |
+
+<br>
+
+---
+
+<br>
+
+## Détail des choix critiques
+
+### Pourquoi le TP-Link Archer C7 ?
+
+!!! abstract "Le choix du Routeur"
+    - **Prix :** 30-50 € en reconditionné.
+    - **OpenWrt :** La version V5 est officiellement et parfaitement supportée.
+    - **Performances :** Dual band, CPU à 720 MHz et 128 Mo de RAM. Largement suffisant pour isoler notre labo.
+    - *Alternative :* Linksys WRT3200ACM si le budget le permet (60-80 €).
+
+### Pourquoi l'Alfa AWUS036ACS ?
+
+!!! abstract "Le choix de la carte Wi-Fi"
+    - **Le chipset :** Realtek RTL8812AU. Il gère nativement le **Mode Monitor** et l'**Injection de paquets**.
+    - **Compatibilité :** Les drivers Linux (`aircrack-ng`) sont extrêmement stables.
+    - **Le piège :** N'essayez jamais d'utiliser la carte Wi-Fi interne de votre PC portable pour le pentest, le mode monitor est quasiment toujours verrouillé par les fabricants.
+
+### Le Write-Blocker : L'outil ultime
+
+!!! warning "L'importance du bloqueur en écriture"
+    Un **write-blocker** matériel est l'outil qui distingue un bidouilleur d'un expert Forensic. Il se place entre le disque suspect et votre PC d'analyse, et coupe physiquement les broches d'écriture. Il garantit au juge qu'absolument rien n'a pu être altéré sur la preuve. Pour commencer, un modèle USB (WiebeTech ou Tableau) à 100€ est parfait.
+
+### Cible macOS : Votre MacBook M1
+
+!!! info "Le cas Apple Silicon"
+    Si vous possédez déjà un MacBook M1 (8 Go), il devient votre **cible Mac** par défaut. C'est idéal : vous ferez face au véritable *Secure Enclave*, au *FileVault* matériel et aux restrictions SIP d'Apple. Cependant, ses 8 Go de RAM en font une mauvaise machine d'analyse pour traiter de gros dumps.
+
+<br>
+
+---
+
+<br>
+
+## Synthèse budgétaire
+
+!!! quote "Mémo d'investissement"
+    
+    ```text
+    PRIORITÉS D'ACHAT (En cas de budget serré) :
+    
+    1. Routeur OpenWrt              (25-50 €)
+    2. Carte Wi-Fi Alfa             (40-50 €)
+    3. 2 postes Windows             (350-500 €)
+    4. Serveur Linux                (80-150 €)
+    5. Stockage SSD externe         (30-50 €)
+    6. Write-blocker (différable)   (100-150 €)
+    
+    MATÉRIEL DÉJÀ ACQUIS (À intégrer) :
+    - PC Windows 48 Go (Poste analyste principal)
+    - MacBook M1 8 Go (Cible analyse Mac)
+    
+    RÈGLE D'OR : Privilégier le Reconditionné > Occasion > Neuf.
+    ```
+
+<br>
+
+---
+
+<br>
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Votre laboratoire n'a pas besoin d'être parfait dès le premier jour. Investissez dans l'infrastructure réseau (Routeur OpenWrt) et l'équipement d'acquisition de base (SSD, Carte Wi-Fi monitor). Le reste (Write-blocker matériel, NAS, onduleur) viendra avec la professionnalisation de votre pratique. 
+
+> [Chapitre suivant : 3.2 Achats reconditionnés - sources et précautions →](02-achats-reconditionne.md)
+>
+> [Retour à l'index →](./index.md)
+
+<br>

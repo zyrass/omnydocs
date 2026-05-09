@@ -1,499 +1,269 @@
 ---
-title: 1.15 Construction d'un modèle de NDA
-description: Template complet d'accord de confidentialité (Non-Disclosure Agreement) pour vos missions OmnyVia. Clauses indispensables, durées, sanctions, restitutions, articulation avec le mandat de pentest.
-authors:
-  - Zyrass
-date:
-  created: 2026-04-29
-tags:
-  - NDA
-  - Confidentialité
-  - Template
-  - Contrat
-data-level: 🟡
+description: "Template complet d'accord de confidentialité (Non-Disclosure Agreement) pour vos missions OmnyVia. Clauses indispensables, durées, sanctions, restitutions, articulation avec le mandat de pentest."
+icon: lucide/file-lock
+tags: ["LÉGISLATION", "NDA", "CONFIDENTIALITÉ", "TEMPLATE", "CONTRAT"]
 ---
 
-# 1.15 Construction d'un modèle de NDA
+# Construction d'un modèle de NDA
+
+<div
+  class="omny-meta"
+  data-level="🟡 Standard"
+  data-version="Modèle 2026"
+  data-time="2 heures">
+</div>
+
+!!! note "**Livrables :** _Template NDA personnel finalisé_"
+!!! note "**Auto-explication :** _8 minutes_"
+
+<br>
+
+---
+
+<br>
 
 !!! quote "L'analogie du coffre-fort partagé"
 
-    Quand un client confie ses bijoux à une banque, deux choses doivent exister : un coffre physique sécurisé et un contrat précis sur qui peut accéder, dans quelles conditions, sous quelles sanctions. Le coffre seul sans contrat laisse la banque libre. Le contrat seul sans coffre est lettre morte. Pour vos missions, le coffre c'est votre infrastructure technique de protection des données. Le contrat c'est le NDA. Ensemble, ils protègent à la fois votre client et vous-même. Ce chapitre vous donne un NDA prêt à l'emploi.
-
-## Métadonnées du chapitre
-
-| Champ | Valeur |
-|---|---|
-| Durée estimée | 2 heures |
-| Niveau | Pratique |
-| Prérequis | Chapitres 1.1 à 1.14 |
-| Livrables | Template NDA personnel finalisé |
-| Auto-explication | 8 minutes |
+    Quand un client confie ses bijoux à une banque, deux choses doivent exister de concert : un coffre physique sécurisé et un contrat précis stipulant qui peut y accéder, dans quelles conditions, et sous quelles sanctions. Le coffre seul, sans contrat, laisse la banque libre de piocher dedans. Le contrat seul, sans coffre, est inefficace contre les braqueurs.
+    Pour vos missions d'audit, le coffre physique, c'est votre infrastructure technique (Chiffrement AES, 2FA, PC sécurisé). Le contrat, c'est le NDA (Non-Disclosure Agreement - Accord de confidentialité). Ensemble, ils protègent les secrets industriels de votre client et vous couvrent en cas de litige. Ce chapitre vous fournit un NDA robuste et prêt à l'emploi.
 
 ## Objectifs pédagogiques
 
-À la fin de ce chapitre, vous serez capable de :
+!!! tip "À la fin de ce chapitre, vous serez capable de :"
 
-- Disposer d'un modèle de NDA complet et utilisable.
-- Comprendre la fonction de chaque clause.
-- Adapter le modèle à différents contextes (NDA bilatéral, unilatéral, multipartite).
-- Identifier les pièges contractuels.
+    - Disposer d'un modèle de NDA (Accord de confidentialité) complet et utilisable.
+    - Comprendre la fonction vitale de chaque clause de protection.
+    - Adapter le modèle à différents contextes (NDA bilatéral vs unilatéral).
+    - Identifier et déjouer les pièges contractuels tendus par les directions juridiques.
+
+<br>
 
 ---
 
-## 1. Structure d'un NDA professionnel
+<br>
 
-Un NDA professionnel comporte **12 articles** :
+## Structure d'un NDA professionnel
 
-| # | Article | Fonction |
+Un NDA n'est pas un simple "bout de papier" d'une demi-page. Pour être opposable en justice, il s'articule généralement autour de **12 articles clés**.
+
+> Anatomie d'un NDA :
+
+| # | Nom de l'Article | Fonction de la clause |
 |---|---|---|
-| 1 | Objet | Définit la finalité du NDA |
-| 2 | Définitions | Précise les termes (informations confidentielles, etc.) |
-| 3 | Engagements de confidentialité | Cœur du document |
-| 4 | Exceptions | Cas où la confidentialité ne s'applique pas |
-| 5 | Durée | Durée des obligations |
-| 6 | Restitution | Sort des informations en fin |
-| 7 | Sanctions | Conséquences d'une violation |
-| 8 | Communication forcée | Cas judiciaires |
-| 9 | Indépendance | Pas de cession de droits |
-| 10 | Force majeure | Cas d'exonération |
-| 11 | Loi applicable | Droit + juridiction |
-| 12 | Dispositions diverses | Avenants, intégralité |
+| 1 | Objet | Définit la finalité des échanges d'information. |
+| 2 | Définitions | Précise exactement ce qui est considéré comme "Confidentiel" (La clause la plus lue par les juges). |
+| 3 | Engagements | Le cœur du document : Obligations de protection technique (Chiffrement) et juridique. |
+| 4 | Exceptions | Les cas où la confidentialité ne s'applique pas (ex: L'information était déjà publique). |
+| 5 | Durée | La période de validité de l'obligation (Généralement 5 à 10 ans). |
+| 6 | Restitution / Destruction | Le sort des données une fois l'audit terminé. |
+| 7 | Sanctions | Les conséquences financières d'une violation (Clauses pénales). |
+| 8 à 12 | Clauses classiques | Loi applicable (Toujours Française), Indépendance, Force majeure. |
+
+<br>
 
 ---
 
-## 2. Le template complet
-
-```text
-================================================================
-ACCORD DE CONFIDENTIALITÉ - NDA
-Référence : NDA-[ANNÉE]-[NUMÉRO]
-================================================================
-
-ENTRE LES SOUSSIGNÉS
-
-[RAISON SOCIALE], [forme juridique] au capital de [montant] €,
-sise [adresse], immatriculée au RCS de [ville] sous le numéro
-[SIRET], représentée par [nom, prénom, fonction],
-
-Ci-après dénommée "le Mandant", d'une part,
-
-ET
-
-OMNYVIA, [forme juridique] au capital de [montant] €, sise
-[adresse], immatriculée au RCS de [ville] sous le numéro
-[SIRET], représentée par M. Alain GUILLON, [fonction],
-
-Ci-après dénommée "le Prestataire", d'autre part,
-
-Ci-après dénommées individuellement la "Partie" et collectivement
-les "Parties".
-
-PRÉAMBULE
-
-Dans le cadre de la mission de [test d'intrusion / forensic /
-audit] définie au mandat MND-[ANNÉE]-[NUMÉRO] du [DATE], les
-Parties seront amenées à échanger des informations confidentielles.
-
-Les Parties souhaitent encadrer ces échanges par le présent accord
-afin de préserver la confidentialité de leurs informations
-respectives.
-
-================================================================
-ARTICLE 1 - OBJET
-================================================================
-
-Le présent accord a pour objet de définir les conditions dans
-lesquelles les Parties s'engagent à protéger les informations
-confidentielles échangées dans le cadre de leurs relations.
-
-================================================================
-ARTICLE 2 - DÉFINITIONS
-================================================================
-
-2.1 "Informations Confidentielles" désigne toutes informations,
-quels qu'en soient la nature, le support et le format, échangées
-entre les Parties dans le cadre de leurs relations, identifiées
-ou non comme confidentielles.
-
-Sont notamment couvertes :
-
-a) Informations techniques : architecture des systèmes d'information,
-configurations, code source, identifiants et secrets, vulnérabilités
-identifiées, logs, captures, données d'investigation, méthodologies
-employées, outils, scripts ;
-
-b) Informations commerciales : clientèle, contrats commerciaux,
-tarifs, marges, stratégie commerciale, politiques de prix ;
-
-c) Informations relatives au personnel : organigramme, contrats,
-rémunérations, données RH ;
-
-d) Informations relatives à la propriété intellectuelle : brevets,
-savoir-faire, secrets d'affaires, projets de recherche ;
-
-e) Informations stratégiques : projets en cours, partenariats,
-acquisitions, fusions, restructurations ;
-
-f) Données à caractère personnel au sens du RGPD.
-
-2.2 "Partie Émettrice" désigne la Partie qui transmet une
-Information Confidentielle.
-
-2.3 "Partie Réceptrice" désigne la Partie qui reçoit une
-Information Confidentielle.
-
-================================================================
-ARTICLE 3 - ENGAGEMENTS
-================================================================
-
-Chaque Partie, en qualité de Partie Réceptrice, s'engage à :
-
-3.1 Préserver le caractère confidentiel des Informations
-Confidentielles reçues, en mettant en œuvre les mesures de
-sécurité techniques et organisationnelles appropriées :
-
-- Stockage chiffré (AES-256 minimum)
-- Accès limité aux seules personnes nécessaires
-- Authentification multifacteur
-- Journalisation des accès
-- Sauvegardes chiffrées
-
-3.2 Ne pas divulguer les Informations Confidentielles à des
-tiers, sauf :
-
-- À ses propres salariés ou prestataires strictement nécessaires
-  à l'exécution de la mission, soumis à un engagement de
-  confidentialité au moins équivalent ;
-- Sur réquisition judiciaire après notification préalable de la
-  Partie Émettrice lorsque cela est légalement possible (article 8) ;
-
-3.3 N'utiliser les Informations Confidentielles que pour les
-seuls besoins de la mission, à l'exclusion de tout autre usage ;
-
-3.4 Ne pas reproduire ou exploiter les Informations Confidentielles
-au-delà du nécessaire ;
-
-3.5 Notifier à la Partie Émettrice, sans délai et au plus tard
-sous 24 heures, toute violation suspectée ou avérée de la
-confidentialité.
-
-================================================================
-ARTICLE 4 - EXCEPTIONS
-================================================================
-
-Les obligations du présent accord ne s'appliquent pas aux
-informations qui :
-
-4.1 Étaient déjà publiques au moment de leur communication ;
-
-4.2 Sont devenues publiques sans faute de la Partie Réceptrice ;
-
-4.3 Étaient déjà légitimement détenues par la Partie Réceptrice
-avant leur communication, sous réserve de preuve documentée ;
-
-4.4 Sont communiquées à la Partie Réceptrice par un tiers de
-bonne foi sans obligation de confidentialité ;
-
-4.5 Sont indépendamment développées par la Partie Réceptrice
-sans utilisation des Informations Confidentielles, sous réserve
-de preuve documentée.
-
-================================================================
-ARTICLE 5 - DURÉE
-================================================================
-
-5.1 Le présent accord prend effet à la date de sa signature.
-
-5.2 Les obligations de confidentialité s'appliquent pendant
-toute la durée de la mission et pendant 7 années après son
-terme, indépendamment de la cause de cessation.
-
-5.3 Pour les Informations Confidentielles particulièrement
-sensibles (vulnérabilités identifiées, secrets cryptographiques,
-données à caractère personnel), la durée est portée à 10 années.
-
-================================================================
-ARTICLE 6 - RESTITUTION OU DESTRUCTION
-================================================================
-
-6.1 Au terme de la mission, ou sur demande écrite de la Partie
-Émettrice, la Partie Réceptrice procède, à l'option de la Partie
-Émettrice :
-
-- Soit à la restitution de l'ensemble des Informations
-Confidentielles ;
-- Soit à leur destruction sécurisée (effacement cryptographique,
-broyage support physique).
-
-6.2 Délai
-
-Cette restitution ou destruction intervient dans un délai maximum
-de 30 jours suivant la demande.
-
-6.3 Attestation
-
-La Partie Réceptrice fournit à la Partie Émettrice une attestation
-écrite de restitution ou de destruction.
-
-6.4 Conservation légale
-
-La Partie Réceptrice peut conserver les Informations Confidentielles
-nécessaires au respect de ses obligations légales (par exemple,
-conservation comptable, archives judiciaires) pendant les durées
-prescrites par la loi.
-
-================================================================
-ARTICLE 7 - SANCTIONS
-================================================================
-
-7.1 Pénalité forfaitaire
-
-En cas de violation du présent accord, la Partie défaillante
-s'expose à une pénalité forfaitaire de [50 000 à 200 000] € par
-violation constatée.
-
-7.2 Dommages-intérêts complémentaires
-
-Cette pénalité forfaitaire ne fait pas obstacle à la réparation
-intégrale du préjudice subi par la Partie Émettrice, sur la base
-des éléments justificatifs.
-
-7.3 Mesures conservatoires
-
-La Partie Émettrice peut solliciter en référé toute mesure
-conservatoire utile (injonction de cessation, séquestre).
-
-7.4 Action pénale
-
-La Partie défaillante peut également être poursuivie pénalement
-sur le fondement notamment des articles 226-13, 226-15, 323-1 à
-323-3-1 du Code pénal selon les circonstances.
-
-================================================================
-ARTICLE 8 - COMMUNICATION FORCÉE
-================================================================
-
-En cas de demande de communication d'Informations Confidentielles
-par une autorité administrative ou judiciaire (réquisition,
-ordonnance), la Partie Réceptrice :
-
-8.1 Notifie immédiatement la Partie Émettrice, dans la mesure où
-cela est légalement permis ;
-
-8.2 Limite la communication aux seules informations explicitement
-demandées ;
-
-8.3 Soutient les éventuelles démarches de la Partie Émettrice
-pour limiter la portée de la demande.
-
-================================================================
-ARTICLE 9 - ABSENCE DE CESSION DE DROITS
-================================================================
-
-Le présent accord ne confère aucun droit à la Partie Réceptrice
-sur les Informations Confidentielles communiquées. Aucune licence,
-explicite ou implicite, n'est consentie sur les droits de propriété
-intellectuelle attachés à ces informations.
-
-================================================================
-ARTICLE 10 - FORCE MAJEURE
-================================================================
-
-Aucune des Parties ne peut être tenue pour responsable du
-non-respect de ses obligations en cas de force majeure au sens
-de l'article 1218 du Code civil. La Partie empêchée notifie
-l'événement à l'autre Partie dans les meilleurs délais.
-
-================================================================
-ARTICLE 11 - LOI APPLICABLE ET JURIDICTION
-================================================================
-
-11.1 Le présent accord est régi par le droit français.
-
-11.2 Tout litige relatif à son interprétation ou à son exécution
-relève de la compétence exclusive du Tribunal de commerce de
-[VILLE], y compris en cas de pluralité de défendeurs ou d'appel
-en garantie.
-
-11.3 Préalablement à toute saisine, les Parties tentent une
-résolution amiable dans un délai de 30 jours.
-
-================================================================
-ARTICLE 12 - DISPOSITIONS DIVERSES
-================================================================
-
-12.1 Intégralité de l'accord
-
-Le présent accord constitue l'intégralité de l'accord entre les
-Parties sur la confidentialité et annule tout accord antérieur
-de même nature.
-
-12.2 Modifications
-
-Toute modification du présent accord doit faire l'objet d'un
-avenant écrit signé par les deux Parties.
-
-12.3 Indépendance des stipulations
-
-Si une stipulation du présent accord venait à être déclarée
-nulle, les autres stipulations resteraient pleinement en vigueur.
-
-12.4 Cession
-
-Aucune des Parties ne peut céder le présent accord sans accord
-préalable écrit de l'autre Partie.
-
-================================================================
-SIGNATURES
-================================================================
-
-Fait en deux exemplaires originaux, à [VILLE], le [DD/MM/YYYY]
-
-Pour le Mandant                       Pour le Prestataire
-[NOM, PRÉNOM]                          Alain GUILLON
-[FONCTION]                             [FONCTION]
-[Signature + cachet]                   [Signature + cachet]
-```
+<br>
+
+## Le Template Complet (Prêt à l'emploi)
+
+> Le texte ci-dessous est un gabarit. Les `[CROCHETS]` indiquent les variables à remplir. 
+
+<br>
+
+!!! abstract "En-tête et Préambule"
+
+    ```text
+    ================================================================
+    ACCORD DE CONFIDENTIALITÉ (NDA)
+    Référence : NDA-[ANNÉE]-[NUMÉRO]
+    ================================================================
+    
+    ENTRE LES SOUSSIGNÉS :
+    
+    [RAISON SOCIALE DU CLIENT], [Forme juridique] au capital de [Montant] €,
+    sise [Adresse], immatriculée au RCS de [Ville] sous le numéro [SIRET], 
+    représentée par [Nom, Prénom, Fonction],
+    Ci-après dénommée "le Mandant", d'une part,
+    
+    ET
+    
+    [VOTRE SOCIÉTÉ OMNYVIA], [Forme juridique] au capital de [Montant] €, 
+    sise [Adresse], immatriculée au RCS de [Ville] sous le numéro [SIRET], 
+    représentée par [Votre Nom], [Fonction],
+    Ci-après dénommée "le Prestataire", d'autre part,
+    
+    Ci-après dénommées individuellement la "Partie" et collectivement les "Parties".
+    
+    PRÉAMBULE
+    Dans le cadre de la mission de [Test d'intrusion / Forensic / Audit] définie 
+    au mandat MND-[ANNÉE]-[NUMÉRO], les Parties seront amenées à échanger des 
+    informations hautement confidentielles. Les Parties souhaitent encadrer 
+    ces échanges par le présent accord.
+    ```
+
+<br>
+
+!!! abstract "Articles 2 et 3 - Définition et Engagements"
+
+    ```text
+    ARTICLE 2 - DÉFINITIONS (Informations Confidentielles)
+    Sont considérées comme Informations Confidentielles toutes les données échangées, 
+    qu'elles soient identifiées ou non comme telles, et notamment :
+    a) Informations techniques : architectures SI, codes sources, identifiants, 
+       vulnérabilités, logs, données d'investigation, méthodologies du Prestataire.
+    b) Données stratégiques : clientèle, tarifs, projets de recherche.
+    c) Données à caractère personnel au sens du RGPD.
+    
+    ARTICLE 3 - ENGAGEMENTS DE LA PARTIE RÉCEPTRICE
+    Chaque Partie s'engage à :
+    3.1 Préserver le caractère confidentiel en mettant en œuvre des mesures de 
+        sécurité de l'état de l'art (Stockage chiffré AES-256, 2FA, accès stricts).
+    3.2 Ne pas divulguer les informations à des tiers sans accord écrit.
+    3.3 N'utiliser ces informations que pour les seuls besoins exclusifs de la mission.
+    3.4 Notifier l'autre Partie, sous 24 heures maximum, de toute violation suspectée 
+        ou avérée de la confidentialité (ex: Vol du PC de l'auditeur).
+    ```
+
+!!! warning "La Réciprocité (NDA Bilatéral)"
+    Vous remarquerez que l'Article 3 parle de "Chaque Partie". C'est un NDA dit **Bilatéral** (ou Mutuel). Le client s'engage lui aussi à ne pas divulguer *vos* secrets commerciaux (votre méthodologie, vos outils internes, vos tarifs) à ses partenaires ou concurrents. Ne signez jamais un NDA "Unilatéral" où seul le prestataire est soumis au silence.
+
+<br>
+
+!!! abstract "Articles 5 et 6 - Durée et Destruction"
+
+    ```text
+    ARTICLE 5 - DURÉE DE L'OBLIGATION
+    Les obligations de confidentialité s'appliquent pendant toute la durée de la mission 
+    et survivront pendant une durée de SEPT (7) années après son terme.
+    Pour les secrets cryptographiques et les données à caractère personnel, 
+    cette durée est portée à DIX (10) années.
+    
+    ARTICLE 6 - DESTRUCTION ET RESTITUTION
+    Au terme de la mission, la Partie Réceptrice procède, dans un délai de 30 jours, 
+    à la destruction sécurisée (effacement cryptographique à passages multiples) 
+    de l'ensemble des Informations Confidentielles. 
+    Par exception, le Prestataire conservera une copie chiffrée hors-ligne du Rapport Final 
+    pendant 5 ans à des fins de couverture de sa Responsabilité Civile Professionnelle.
+    ```
+
+<br>
+
+!!! abstract "Articles 7 et 11 - Le Bâton"
+
+    ```text
+    ARTICLE 7 - SANCTIONS (CLAUSE PÉNALE)
+    En cas de violation prouvée du présent accord, la Partie défaillante s'expose à une 
+    pénalité forfaitaire de [50 000] € par violation constatée. Cette pénalité 
+    ne fait pas obstacle à la réparation intégrale du préjudice par des dommages-intérêts 
+    complémentaires.
+    
+    ARTICLE 11 - LOI APPLICABLE ET JURIDICTION
+    Le présent accord est régi par le droit français.
+    Tout litige relève de la compétence exclusive du Tribunal de commerce de [VILLE], 
+    y compris en cas d'appel en garantie.
+    ```
+
+<br>
 
 ---
 
-## 3. Adaptations spécifiques
+<br>
 
-### 3.1 NDA unilatéral
+## Articulation entre NDA et Mandat
 
-Si seul le Prestataire reçoit des informations (cas inhabituel), simplifiez en :
-
-- Article 3 ne s'applique qu'au Prestataire
-- Article 6 ne concerne que la restitution par le Prestataire
-
-**Recommandation** : préférer toujours un NDA **bilatéral** (mutuel). Vous communiquez aussi des informations confidentielles (méthodologies, outils internes).
-
-### 3.2 NDA multipartite
-
-Pour un projet impliquant plusieurs prestataires :
-
-- Liste des Parties élargie
-- Engagements croisés entre toutes
-- Clause spécifique sur la communication entre Parties
-
-### 3.3 NDA de courte durée
-
-Pour des missions ponctuelles (audit flash, diagnostic) :
-
-- Durée 3 ans plutôt que 7
-- Pénalités forfaitaires réduites
-- Restitution dans 15 jours
-
-### 3.4 NDA renforcé pour secteurs sensibles
-
-Pour banque, défense, santé :
-
-- Durée portée à 10-15 ans
-- Pénalités élevées (200 000 € ou plus)
-- Habilitations explicitement requises
-- Audit préalable du prestataire
-
----
-
-## 4. Articulation NDA et mandat
+Une erreur classique de débutant est de confondre le NDA et le Mandat technique, ou de tout fusionner en un seul document brouillon.
 
 ```mermaid
-flowchart TB
-    A[NDA signé en amont<br>discussions préliminaires] --> B[Mandat signé<br>mission lancée]
-    B --> C[NDA reste en vigueur<br>article 7 du mandat]
-    C --> D[Fin de mission]
-    D --> E[Mandat terminé<br>NDA continue 7 ans]
+flowchart LR
+    A["Étape 1 : Pré-qualification"] -->|"Besoin de parler<br>d'architecture"| B["Signature du NDA<br>seul"]
+    B -->|"L'audit est décidé"| C["Rédaction du Mandat<br>(Citant le NDA)"]
+    C -->|"La mission commence"| D["Les 2 contrats<br>travaillent ensemble"]
 ```
 
-**Pratique recommandée** : signer le NDA **avant** le mandat. Cela protège les échanges de pré-qualification.
+!!! tip "La Règle Temporelle du NDA"
+    **Signez toujours le NDA en premier !** Bien avant de signer le mandat d'audit. Pourquoi ? Parce que dès les réunions de "pré-qualification" (Pour évaluer le nombre de jours nécessaires), le client va vous révéler des architectures sensibles ou des incidents en cours. S'il ne signe finalement pas le mandat avec vous, ces informations échangées en amont restent protégées par le NDA déjà signé.
+
+<br>
 
 ---
 
-## 5. Pièges fréquents
+<br>
 
-### Piège 1 - NDA reçu du client à signer aveuglément
+## Pièges Fréquents et Négociation
 
-Lisez intégralement avant signature. Vérifiez :
+### Piège 1 - La juridiction étrangère
+Un grand groupe international vous soumet son propre NDA : *"Le présent contrat est soumis au droit de l'État de Californie"*.
+> **Votre réponse :** Vous refusez catégoriquement. En cas de litige, vous n'aurez jamais les moyens de payer un cabinet d'avocats californien pour vous défendre à Los Angeles. Exigez la soumission exclusive au Droit Français et à un tribunal en France.
 
-- Caractère bilatéral
-- Durée raisonnable
-- Sanctions proportionnées
-- Loi française applicable
+### Piège 2 - La définition trop restrictive
+Le NDA du client stipule : *"Sont confidentielles uniquement les informations portant la mention manuscrite CONFIDENTIEL"*.
+> **Le Risque :** C'est un piège vicieux. Cela signifierait que tous les emails, requêtes API ou résultats de scan Nmap non tamponnés seraient techniquement publics. 
+> **Correction :** Exigez la clause 2.1 du template : *"Toutes informations, identifiées ou non comme telles"*.
 
-### Piège 2 - NDA imposant juridiction étrangère
+### Piège 3 - Une durée trop courte (1 an)
+Un NDA qui expire au bout de 12 mois est inutile en cybersécurité. Une faille Zero-Day ou une architecture réseau reste sensible bien plus longtemps. **Exigez un minimum de 5 ans, idéalement 7 à 10 ans.**
 
-Refusez les NDA soumis au droit californien, anglais, ou autre. En cas de litige, vos coûts seraient prohibitifs.
-
-### Piège 3 - Définition trop restrictive des informations
-
-Certains NDA limitent les informations confidentielles à celles "expressément marquées confidentiel". C'est dangereux : il faudrait marquer chaque email, chaque schéma. Préférez une définition large.
-
-### Piège 4 - Durée limitée à 1-2 ans
-
-Insuffisant pour des informations sensibles. **Minimum 5 ans, idéalement 7-10 ans**.
-
-### Piège 5 - Pas de pénalités forfaitaires
-
-Sans pénalités forfaitaires, vous devez prouver le préjudice exact, ce qui est difficile pour des informations confidentielles. Les pénalités forfaitaires simplifient.
+<br>
 
 ---
 
-## 6. Auto-évaluation
+<br>
 
-| # | Question | Réponse attendue |
-|---|---|---|
-| 1 | Combien d'articles dans un NDA professionnel ? | 12 |
-| 2 | Durée recommandée des obligations ? | 7 ans, 10 pour sensible |
-| 3 | Signer le NDA avant ou après le mandat ? | Avant |
-| 4 | Pénalité forfaitaire recommandée ? | 50 000 à 200 000 € |
-| 5 | Délai de restitution standard ? | 30 jours |
-| 6 | NDA unilatéral ou bilatéral ? | Préférer bilatéral |
+## Manipulation pratique - Exercices
 
----
+### Exercice 1 - L'Exception Juridique
 
-## 7. Manipulation pratique
+> Un client a signé votre NDA. 6 mois plus tard, vous recevez une **réquisition judiciaire** formelle de la Gendarmerie (Section de Recherches) exigeant que vous fournissiez les logs de l'audit réalisé chez ce client. 
+> 
+> Que faites-vous face à la clause de confidentialité qui vous lie au client ?
 
-Adaptez le template pour ARTECH et signez-le **avant** le mandat. Archivez-le dans votre dossier dédié.
+!!! quote "Solution"
 
----
+    1. **La loi prime le contrat.** Vous êtes obligé de déférer à la réquisition judiciaire d'un Officier de Police Judiciaire (OPJ) agissant sur commission rogatoire, sous peine de poursuites pour obstruction. Le NDA ne peut pas bloquer la justice.
+    2. **Le respect du périmètre :** Vous fournissez à la Gendarmerie *exclusivement* ce qui est explicitement demandé dans le document judiciaire, et rien de plus.
+    3. **Prévenir le client :** En vertu de l'obligation de loyauté contractuelle, vous notifiez immédiatement le client que vous avez été réquisitionné (Sauf si le juge vous l'interdit expressément pour les besoins de l'enquête).
 
-## 8. Synthèse mémo
+<br>
 
-```text
-NDA - 12 ARTICLES
+### Exercice 2 - La Restitution vs l'Assurance
 
-Articles critiques :
-  2.  Définitions (large)
-  3.  Engagements
-  5.  Durée (7-10 ans)
-  7.  Sanctions
-  11. Loi applicable
+Votre mandat stipule qu'à la fin de la mission, toutes les données doivent être détruites. Mais votre cabinet d'assurance RC Pro exige que vous conserviez la preuve de votre travail (Le rapport d'audit détaillé) pendant 5 ans au cas où le client se retournerait contre vous. Comment gérer ce paradoxe ?
 
-Pièges :
-  Définition trop restrictive
-  Durée trop courte
-  Loi étrangère
-  Pas de pénalités
+!!! quote "Solution"
 
-Pratique :
-  Signer AVANT le mandat
-  Bilatéral toujours
-  Archiver 10 ans
-```
+    C'est l'utilité exacte de l'Article 6 du template présenté plus haut.
+    Vous devez inclure une clause "d'Exception de conservation légale ou assurantielle". Vous détruisez bien les dumps de bases de données et les codes sources bruts (les données du client), mais vous chiffrez et archivez hors-ligne votre Rapport Final (Votre propriété intellectuelle) en précisant au client que cette archive ne sera exhumée qu'en cas de litige formel.
+
+<br>
 
 ---
 
-## 9. Auto-explication
+<br>
 
-Pour valider ce chapitre, enregistrez une vidéo de 8 minutes :
+## Synthèse mémo
 
-1. Différence NDA / mandat (2 minutes)
-2. Articles critiques du NDA (3 minutes)
-3. Pièges fréquents (2 minutes)
-4. Démonstration adaptation rapide (1 minute)
+!!! success "À retenir absolument"
+    
+    **Le NDA (Accord de Confidentialité)**
+    
+    - **Le Timing :** Le NDA se signe **toujours avant** le mandat, dès le premier échange technique avec un prospect.
+    - **La Réciprocité :** Exigez systématiquement un NDA Mutuel (Bilatéral). Vos méthodes de travail méritent autant de protection que les bases de données du client.
+    - **Le Cycle de vie des données :** La clause la plus scrutée par les auditeurs externes est celle de la "Destruction/Restitution". Une fois le rapport livré et facturé, conserver des gigaoctets de bases de données client sur votre PC personnel est une hérésie sécuritaire et une faute pénale.
+
+<br>
 
 ---
 
-**Chapitre précédent** : [1.14 Construction d'un modèle de mandat](01-14-modele-mandat.md)
+<br>
 
-**Chapitre suivant** : [1.16 Synthèse personnelle - Carnet juridique permanent](01-16-synthese-carnet-juridique.md)
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Un Non-Disclosure Agreement n'est pas une simple formalité bureaucratique pour rassurer un client paranoïaque. C'est l'acte fondateur de la relation de confiance en cybersécurité. En proposant d'emblée un NDA complet, rigoureux et protecteur des deux parties, vous démontrez votre maturité professionnelle. Les clients sérieux confient leurs systèmes d'information à des experts techniques, mais ils ne signent des chèques qu'à des partenaires qui comprennent les enjeux économiques de leurs secrets industriels.
+
+> [Chapitre suivant : 1.16 Synthèse - Carnet juridique permanent →](01-16-synthese-carnet-juridique.md)
+>
+> [Retour à l'index →](./index.md)
+
+<br>

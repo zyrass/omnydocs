@@ -6,11 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Cette documentation a pour vocation d'explorer et de transmettre les concepts fondamentaux de l'informatique à travers
-une approche claire, structurée et progressive. Elle couvre un large spectre de domaines — du développement web à
-l'administration système, en passant par la cybersécurité et le DevSecOps — afin d'offrir à chacun les bases nécessaires
-pour comprendre, apprendre et construire des solutions numériques solides et sécurisées.
-">
+        <meta name="description" content="Module forensic d'acquisition mémoire vive sur Mac Apple Silicon et Intel. Spécificités SIP, puce T2, Secure Enclave, Volexity Surge, AVML, Target Disk Mode. Adaptation des principes Windows aux contraintes macOS modernes 2026.">
       
       
         <meta name="author" content="Alain GUILLON">
@@ -33,7 +29,7 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
     
     
       
-        <title>Module 7 bis : Acquisition mémoire macOS - OmnyDocs</title>
+        <title>Module 7 bis - Acquisition mémoire macOS - OmnyDocs</title>
       
     
     
@@ -197,7 +193,7 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Module 7 bis : Acquisition mémoire macOS
+              Module 7 bis - Acquisition mémoire macOS
             
           </span>
         </div>
@@ -3683,6 +3679,163 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-du-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Présentation du module
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Présentation du module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#particularites-macos-pour-le-forensic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Particularités macOS pour le forensic
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evolution-recente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Évolution récente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-un-module-dedie" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pourquoi un module dédié
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-dans-lecosysteme-omnyacademy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Position dans l'écosystème OmnyAcademy
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cadre-juridique-inchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cadre juridique inchangé
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-des-outils-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Position des outils 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Objectifs pédagogiques
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequis-stricts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Prérequis stricts
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure-du-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Structure du module
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-que-vous-produirez" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ce que vous produirez
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limites-importantes-a-connaitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Limites importantes à connaître
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demarrage" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Démarrage
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3763,30 +3916,503 @@ pour comprendre, apprendre et construire des solutions numériques solides et s�
                 
                   
 
-<hr />
-<p>title: Module 7 bis : Acquisition mémoire macOS
-description: Contenu en cours de conception pour le Cursus Forensic.
-authors:
-  - Zyrass</p>
-<hr />
-<h1 id="module-7-bis-acquisition-memoire-macos">Module 7 bis : Acquisition mémoire macOS<a class="headerlink" href="#module-7-bis-acquisition-memoire-macos" title="Permanent link">&para;</a></h1>
-<p><div
-  class="omny-meta"
-  data-level="En attente"
-  data-version="0.1"
-  data-time="TBD">
+<h1 id="module-7-bis-acquisition-memoire-macos">Module 7 bis - Acquisition mémoire macOS<a class="headerlink" href="#module-7-bis-acquisition-memoire-macos" title="Permanent link">&para;</a></h1>
+<div class="admonition quote">
+<p class="admonition-title">L'analogie du coffre-fort de banque suisse</p>
+<p>Pendant des décennies, accéder au contenu d'un coffre de banque suisse exigeait une procédure étrange. Le banquier ne voyait jamais le contenu. Le client n'avait jamais accès au coffre seul. Une chambre forte sans fenêtre, une double clé, un protocole strict, des témoins formellement identifiés. Ce qui apparaît comme une lourdeur excessive est en réalité ce qui rend la confidentialité crédible. Aucune négligence interne ne peut compromettre les actifs déposés. macOS sur Apple Silicon a adopté une philosophie comparable. La puce T2 puis Apple Silicon ont enfermé les processus dans des enclaves cryptographiques. SIP empêche même l'utilisateur root de modifier le système. Le Secure Enclave isole les clés de chiffrement même du noyau. Cette forteresse rend macOS extraordinairement résistant aux attaques. Mais elle complique aussi sévèrement la forensique. Ce module adapte les principes du module 7 à cette réalité. Vous y apprendrez non seulement les outils mais aussi les limites infranchissables et comment les contourner légalement.</p>
 </div>
-</p>
-<div class="admonition warning">
-<p class="admonition-title">En cours de conception</p>
-<p>Ce module est actuellement en cours de rédaction. Il fera partie intégrante du Cycle 1 du Cursus Forensic OmnyAcademy.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Disponibilité</p>
-<p>Le contenu sera déployé progressivement après la finalisation des fondations et de la Spécialisation Malware.</p>
-</div>
+<h2 id="presentation-du-module">Présentation du module<a class="headerlink" href="#presentation-du-module" title="Permanent link">&para;</a></h2>
+<p>Module <strong>bis</strong> complétant le module 7 par les spécificités macOS. Architecturalement très différent de Windows, le forensic macOS impose des outils et des procédures spécifiques. Ce module est essentiel pour tout analyste DFIR opérant sur des environnements mixtes.</p>
+<h3 id="particularites-macos-pour-le-forensic">Particularités macOS pour le forensic<a class="headerlink" href="#particularites-macos-pour-le-forensic" title="Permanent link">&para;</a></h3>
+<p>macOS impose des contraintes que Windows n'a pas. Voici les principales différences.</p>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>Windows 11</th>
+<th>macOS 14+ Apple Silicon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acquisition mémoire</td>
+<td>Standard avec drivers</td>
+<td>Très contrainte (SIP, kext)</td>
+</tr>
+<tr>
+<td>Privilèges requis</td>
+<td>Administrateur</td>
+<td>Root + acceptation système</td>
+</tr>
+<tr>
+<td>Architecture dominante</td>
+<td>x64</td>
+<td>ARM64 (M1/M2/M3/M4)</td>
+</tr>
+<tr>
+<td>Chiffrement disque</td>
+<td>BitLocker (optionnel)</td>
+<td>FileVault (souvent activé)</td>
+</tr>
+<tr>
+<td>Puce sécurité</td>
+<td>TPM 2.0 (logiciel ou matériel)</td>
+<td>T2 ou Apple Silicon (matériel)</td>
+</tr>
+<tr>
+<td>Isolation kernel</td>
+<td>HVCI (optionnel)</td>
+<td>KEXT signés Apple seulement</td>
+</tr>
+<tr>
+<td>Logs système</td>
+<td>Journaux séparés (.evtx)</td>
+<td>Journal unifié (log show)</td>
+</tr>
+<tr>
+<td>Outils ouverts</td>
+<td>Très nombreux</td>
+<td>Restreints</td>
+</tr>
+<tr>
+<td>Volatility 3 support</td>
+<td>Excellent</td>
+<td>Limité (ARM64 progressif)</td>
+</tr>
+<tr>
+<td>Communauté outils</td>
+<td>Vaste</td>
+<td>Plus restreinte</td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolution-recente">Évolution récente<a class="headerlink" href="#evolution-recente" title="Permanent link">&para;</a></h3>
+<p>L'arrivée d'Apple Silicon (M1 en 2020) a fondamentalement changé le forensic Mac. Voici la chronologie.</p>
+<table>
+<thead>
+<tr>
+<th>Année</th>
+<th>Évolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2018</td>
+<td>Puce T2 introduite (MacBook Pro 2018+)</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>Apple Silicon M1, transition Intel → ARM</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>M1 Pro / Max, puce unifiée mémoire/CPU</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>M2 et FileVault2 obligatoire de fait</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>M3 et SIP renforcé</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>macOS 14 (Sonoma), kexts dépréciés</td>
+</tr>
+<tr>
+<td>2026</td>
+<td>macOS 15 (référence), DriverKit dominant</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pourquoi-un-module-dedie">Pourquoi un module dédié<a class="headerlink" href="#pourquoi-un-module-dedie" title="Permanent link">&para;</a></h3>
+<p>L'acquisition mémoire macOS n'est <strong>pas</strong> une simple traduction du module 7. Voici les raisons d'un module spécifique.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>RAISONS D&#39;UN MODULE DÉDIÉ
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>=============================
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Limitations matérielles
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  - Apple Silicon utilise mémoire unifiée (UMA)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  - Pas de séparation RAM physique / GPU classique
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  - Architecture ARM64 spécifique
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  - Boot Recovery très différent
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Limitations logicielles
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  - SIP empêche injection kernel
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  - Kexts signés Apple seulement
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  - DriverKit (espace utilisateur) remplace kexts
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  - APIs forensiques restreintes
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>Outils différents
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  - OSXPmem ancien (intérêt historique)
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  - AVML Microsoft (Linux + macOS)
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  - Volexity Surge (commercial premium)
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>  - mac_apt pour triage
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>Procédure adaptée
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>  - Acquisition mémoire souvent partielle
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>  - Acquisition disque privilégiée
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>  - Logs unifiés acquisition cruciale
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>  - Target Disk Mode / DFU spécifiques
+</span></code></pre></div>
+<h3 id="position-dans-lecosysteme-omnyacademy">Position dans l'écosystème OmnyAcademy<a class="headerlink" href="#position-dans-lecosysteme-omnyacademy" title="Permanent link">&para;</a></h3>
+<p>Voici comment le module 7 bis s'articule.</p>
+<pre class="mermaid"><code>flowchart TB
+    A[Module 7&lt;br&gt;Acquisition Windows&lt;br&gt;Référence] --&gt; B[Module 7 bis&lt;br&gt;Acquisition macOS&lt;br&gt;Spécificités]
+    A --&gt; C[Module 8&lt;br&gt;Acquisition disque&lt;br&gt;Multi-OS]
+    B --&gt; C
+    C --&gt; D[Module 9&lt;br&gt;Volatility analyse]
+    D --&gt; E[Module 10&lt;br&gt;Rapport]</code></pre>
+<h3 id="cadre-juridique-inchange">Cadre juridique inchangé<a class="headerlink" href="#cadre-juridique-inchange" title="Permanent link">&para;</a></h3>
+<p>Le cadre juridique français ne distingue pas selon le système d'exploitation. Les références juridiques du module 7 (CPP article 97, code civil 1366, RGPD article 33) s'appliquent identiquement.</p>
+<table>
+<thead>
+<tr>
+<th>Référence</th>
+<th>Applicabilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RFC 3227</td>
+<td>Identique</td>
+</tr>
+<tr>
+<td>ISO/IEC 27037:2012</td>
+<td>Identique</td>
+</tr>
+<tr>
+<td>NIST SP 800-86</td>
+<td>Identique</td>
+</tr>
+<tr>
+<td>CPP article 97</td>
+<td>Identique</td>
+</tr>
+<tr>
+<td>Code civil article 1366</td>
+<td>Identique</td>
+</tr>
+<tr>
+<td>RGPD article 33</td>
+<td>Identique (72h)</td>
+</tr>
+</tbody>
+</table>
+<p>Ce qui change est <strong>technique</strong>, pas juridique.</p>
+<h3 id="position-des-outils-2026">Position des outils 2026<a class="headerlink" href="#position-des-outils-2026" title="Permanent link">&para;</a></h3>
+<p>Voici la position des outils principaux pour macOS en 2026.</p>
+<table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Positionnement</th>
+<th>Coût</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volexity Surge Collect</td>
+<td>Référence commerciale</td>
+<td>Commercial</td>
+</tr>
+<tr>
+<td>AVML (Microsoft)</td>
+<td>Open source moderne</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>OSXPmem</td>
+<td>Historique, peu maintenu</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>BlackBag MacQuisition</td>
+<td>Suite forensic</td>
+<td>Commercial</td>
+</tr>
+<tr>
+<td>Recon ITR (SUMURI)</td>
+<td>Suite forensic</td>
+<td>Commercial</td>
+</tr>
+<tr>
+<td>mac_apt</td>
+<td>Triage post-acquisition</td>
+<td>Gratuit</td>
+</tr>
+<tr>
+<td>log show / unified logs</td>
+<td>Logs système</td>
+<td>Built-in</td>
+</tr>
+</tbody>
+</table>
+<h3 id="objectifs-pedagogiques">Objectifs pédagogiques<a class="headerlink" href="#objectifs-pedagogiques" title="Permanent link">&para;</a></h3>
+<p>À l'issue de ce module, vous serez capable de :</p>
+<ul>
+<li>Comprendre l'architecture macOS Apple Silicon et ses contraintes</li>
+<li>Expliquer SIP, T2, Secure Enclave et leur impact forensique</li>
+<li>Choisir l'outil d'acquisition adapté au contexte</li>
+<li>Effectuer une acquisition mémoire dans les limites possibles</li>
+<li>Acquérir les logs unifiés en complément</li>
+<li>Utiliser Target Disk Mode et DFU pour acquisition à froid</li>
+<li>Documenter selon les standards du module 7</li>
+<li>Diagnostiquer les échecs spécifiques macOS</li>
+</ul>
+<h3 id="prerequis-stricts">Prérequis stricts<a class="headerlink" href="#prerequis-stricts" title="Permanent link">&para;</a></h3>
+<p>Avant d'entamer ce module, certains acquis sont indispensables.</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Niveau attendu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Module 7 Windows complet</td>
+<td>Indispensable</td>
+</tr>
+<tr>
+<td>Disposer d'un Mac de test</td>
+<td>Apple Silicon ou Intel récent</td>
+</tr>
+<tr>
+<td>macOS Recovery accessible</td>
+<td>Connaître le déclenchement</td>
+</tr>
+<tr>
+<td>Compte administrateur disponible</td>
+<td>Installation outils</td>
+</tr>
+<tr>
+<td>Acceptation modification système</td>
+<td>SIP désactivable en lab</td>
+</tr>
+<tr>
+<td>Privilèges root maîtrisés</td>
+<td>sudo, terminal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="structure-du-module">Structure du module<a class="headerlink" href="#structure-du-module" title="Permanent link">&para;</a></h3>
+<p>Voici le plan détaillé des 10 chapitres composant ce module, soit 25 heures de travail.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Chapitre</th>
+<th>Durée</th>
+<th>Niveau</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7 bis.1</td>
+<td>Introduction macOS DFIR et différences avec Windows</td>
+<td>2 h</td>
+<td>Théorique</td>
+</tr>
+<tr>
+<td>7 bis.2</td>
+<td>Architecture Apple Silicon et T2 / Secure Enclave</td>
+<td>3 h</td>
+<td>Théorique</td>
+</tr>
+<tr>
+<td>7 bis.3</td>
+<td>SIP et limitations forensiques</td>
+<td>2 h</td>
+<td>Théorique</td>
+</tr>
+<tr>
+<td>7 bis.4</td>
+<td>Volexity Surge Collect</td>
+<td>3 h</td>
+<td>Pratique</td>
+</tr>
+<tr>
+<td>7 bis.5</td>
+<td>AVML Microsoft et OSXPmem</td>
+<td>3 h</td>
+<td>Pratique</td>
+</tr>
+<tr>
+<td>7 bis.6</td>
+<td>macOS Memory Reader et alternatives</td>
+<td>2 h</td>
+<td>Pratique</td>
+</tr>
+<tr>
+<td>7 bis.7</td>
+<td>log show et journaux unifiés</td>
+<td>3 h</td>
+<td>Pratique</td>
+</tr>
+<tr>
+<td>7 bis.8</td>
+<td>mac_apt pour triage automatisé</td>
+<td>2 h</td>
+<td>Pratique</td>
+</tr>
+<tr>
+<td>7 bis.9</td>
+<td>Target Disk Mode et DFU pour acquisition à froid</td>
+<td>3 h</td>
+<td>Pratique</td>
+</tr>
+<tr>
+<td>7 bis.10</td>
+<td>Cas pratique macOS et synthèse</td>
+<td>2 h</td>
+<td>Synthèse</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total : 25 heures</strong> sur 4 semaines à 6-7 h/semaine.</p>
+<h2 id="ce-que-vous-produirez">Ce que vous produirez<a class="headerlink" href="#ce-que-vous-produirez" title="Permanent link">&para;</a></h2>
+<p>À l'issue du module, vous aurez les livrables suivants.</p>
+<table>
+<thead>
+<tr>
+<th>Livrable</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image mémoire macOS (RAM dump)</td>
+<td>.raw, .lime</td>
+</tr>
+<tr>
+<td>Hash SHA-256 du dump signé</td>
+<td>TXT + signature GPG</td>
+</tr>
+<tr>
+<td>Logs unifiés exportés</td>
+<td>logarchive</td>
+</tr>
+<tr>
+<td>Procès-verbal d'acquisition</td>
+<td>PDF signé</td>
+</tr>
+<tr>
+<td>Chaîne de garde documentée</td>
+<td>Markdown</td>
+</tr>
+<tr>
+<td>Photographies de scellement</td>
+<td>JPG horodatés</td>
+</tr>
+<tr>
+<td>Rapport adapté macOS</td>
+<td>PDF</td>
+</tr>
+</tbody>
+</table>
+<h2 id="limites-importantes-a-connaitre">Limites importantes à connaître<a class="headerlink" href="#limites-importantes-a-connaitre" title="Permanent link">&para;</a></h2>
+<p>L'acquisition mémoire macOS sur Apple Silicon présente des limites structurelles à comprendre dès le départ.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>LIMITES STRUCTURELLES MACOS APPLE SILICON
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>=============================================
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Limite 1 - Mémoire unifiée (UMA)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  La mémoire est partagée entre CPU, GPU et autres
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  composants. L&#39;acquisition complète peut être moins
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  cohérente qu&#39;sur architecture séparée Intel.
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Limite 2 - SIP actif par défaut
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  Empêche l&#39;injection de drivers kernel non signés Apple.
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  Tous les outils d&#39;acquisition mémoire moderne nécessitent
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  soit SIP désactivé, soit un mécanisme dérogatoire.
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Limite 3 - Pas de DriverKit pour acquisition mémoire
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>  Apple n&#39;a pas créé d&#39;API DriverKit dédiée à l&#39;acquisition
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>  forensique. Les outils doivent contourner par des moyens
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>  alternatifs (snapshots VM, debugger, boot recovery).
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>Limite 4 - Secure Enclave inaccessible
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>  Les clés de chiffrement et certains secrets sont stockés
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>  dans le Secure Enclave. Aucune acquisition mémoire ne peut
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>  les extraire. Inaccessible même par l&#39;OS.
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>Limite 5 - Apple Silicon ARM64
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>  Volatility 3 a un support ARM64 limité en 2026.
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>  Plugins Windows non applicables.
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>  Symboles kernel macOS doivent être à jour.
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>Conséquence pédagogique
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>  Pour Apple Silicon, l&#39;acquisition mémoire est devenue
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>  l&#39;EXCEPTION et non la règle. La méthodologie privilégie :
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    1. Logs unifiés (log show) - acquisition fiable
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    2. Acquisition disque - avec support APFS / FileVault
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    3. Snapshots APFS récents
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    4. Time Machine si présent
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    5. Acquisition mémoire UNIQUEMENT si SIP désactivable
+</span></code></pre></div>
+<h2 id="demarrage">Démarrage<a class="headerlink" href="#demarrage" title="Permanent link">&para;</a></h2>
+<p>Pour commencer, rendez-vous dans le répertoire du module et ouvrez le premier chapitre.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~/Documents/omnyacademy/02-cycle-1-premier-cas/module-7bis-acquisition-memoire-macos/
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cat<span class="w"> </span>7bis-1-introduction-macos-dfir.md
+</span></code></pre></div>
 <hr />
-<p><strong>Retour à l'index</strong> : <a href="../">Cycle 1</a></p>
+<p><strong>Module précédent</strong> : <a href="../module-7-acquisition-memoire-windows/">Module 7 - Acquisition mémoire Windows</a></p>
+<p><strong>Module suivant</strong> : <a href="../module-8-acquisition-disque/">Module 8 - Acquisition disque</a></p>
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">macOS</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Forensic</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Acquisition mémoire</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">Apple Silicon</span>
+      
+    
+      
+      
+      
+        
+        
+      
+      
+        <span class="md-tag md-tag-icon">SIP</span>
+      
+    
+  </nav>
 
 
 
@@ -3795,6 +4421,8 @@ authors:
 
 
 
+  
+  
 
 
 

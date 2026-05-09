@@ -1,81 +1,132 @@
 ---
-title: 3.7 Configuration serveur (SSH, Samba, intranet)
-description: Configuration des services sur le serveur Debian - SSH avec clés, Samba pour partage Windows/macOS, Apache pour intranet ARTECH simulé, journalisation centralisée pour forensic.
-authors:
-  - Zyrass
-date:
-  created: 2026-04-29
-tags:
-  - SSH
-  - Samba
-  - Apache
-  - Debian
-data-level: 🟡
+description: "Configuration des services sur le serveur Debian - SSH avec clés, Samba pour partage Windows/macOS, Apache pour intranet ARTECH simulé, journalisation centralisée pour forensic."
+icon: lucide/settings
+tags: ["SSH", "SAMBA", "APACHE", "DEBIAN"]
 ---
 
-# 3.7 Configuration serveur (SSH, Samba, intranet)
+# Configuration serveur (SSH, Samba, intranet)
 
-## Métadonnées
+<div
+  class="omny-meta"
+  data-level="🟡 Standard"
+  data-version="Modèle 2026"
+  data-time="3 heures">
+</div>
 
-| Champ | Valeur |
-|---|---|
-| Durée | 3 heures |
-| Niveau | Pratique |
+!!! note "**Livrables :** _Services de partage de fichiers (Samba) et d'Intranet Web (Apache) opérationnels et vulnérables_"
+!!! note "**Auto-explication :** _10 minutes_"
 
-## 1. SSH avec authentification par clés
+<br>
 
-### 1.1 Génération clés sur poste analyste
+---
 
-```bash
-# Sur votre PC Windows ou autre poste
-ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_lab -C "zyrass@lab"
+<br>
 
-# Copier la clé publique
+!!! quote "L'analogie de la vitrine commerciale"
+
+    Un bâtiment vierge ne sert à rien s'il n'accueille pas de clients. De même, un serveur Linux nu ne présente aucun intérêt pour un pirate. Ce qui l'attire, ce sont les services exposés : le partage de fichiers (Samba) qui contient les données comptables, et le site Intranet (Apache) qui sert de porte d'entrée. Dans ce chapitre, nous allons "meubler" notre serveur ARTECH en y installant les services vitaux d'une PME, tout en laissant intentionnellement quelques fenêtres ouvertes.
+
+## Objectifs pédagogiques
+
+!!! tip "À la fin de ce chapitre, vous serez capable de :"
+
+    - Sécuriser l'accès d'administration (SSH) via l'utilisation stricte de clés cryptographiques.
+    - Déployer un serveur de fichiers Samba compatible avec l'Active Directory (simulé ou réel).
+    - Monter un serveur Web Apache hébergeant une application PHP/SQLite volontairement vulnérable (SQLi).
+    - Configurer la journalisation centralisée (rsyslog) pour faciliter la collecte de preuves (Forensic).
+
+<br>
+
+---
+
+<br>
+
+## Verrouillage de l'administration SSH
+
+La première étape consiste à bloquer les attaques par force brute sur notre accès d'administration en interdisant l'utilisation de mots de passe.
+
+### Génération des clés sur le poste de l'analyste
+
+!!! info "L'algorithme moderne de référence est Ed25519 (plus court et plus sécurisé que RSA)."
+
+```bash title="Commandes Terminal (PC Analyste) - Génération de la paire de clés SSH Ed25519"
+# Génération de la paire de clés sur votre machine personnelle
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_lab -C "dupond@lab"
+# Affichage de la clé PUBLIQUE (À copier dans le presse-papier)
 cat ~/.ssh/id_ed25519_lab.pub
 ```
 
-### 1.2 Installation côté serveur
+### Déploiement sur le serveur Debian
 
-```bash
-# Sur le serveur Debian
+!!! quote "Connectez-vous au serveur (`192.168.50.10`) avec le mot de passe, puis injectez la clé."
+
+Voici comment faire :
+
+```bash title="Commandes Linux (Serveur) - Ajout de la clé publique"
+# Création du répertoire SSH et gestion stricte des droits
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
-echo "ssh-ed25519 AAAA... zyrass@lab" >> ~/.ssh/authorized_keys
+    
+# Collez votre clé publique à l'intérieur des guillemets (Remplacer AAAA...)
+echo "ssh-ed25519 AAAA... dupond@lab" >> ~/.ssh/authorized_keys
+    
+# Sécurisation du fichier d'autorisation
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-### 1.3 Désactiver mot de passe
+### Désactivation définitive du mot de passe
 
-```bash
+> Il est important de désactiver la connexion par mot de passe pour éviter les attaques par force brute.  
+
+!!! warning "Attention : Si vous n'avez pas configuré la clé SSH, vous serez bloqué hors du serveur ! Vérifiez d'abord votre connexion SSH par clé avant de continuer."
+
+```bash title="Commandes Linux (Serveur) - Configuration sshd_config"
 sudo vi /etc/ssh/sshd_config
 ```
-
-```text
-PasswordAuthentication no
-PubkeyAuthentication yes
+    
+```text title="Modifications requises dans sshd_config"
+PasswordAuthentication no          # INTERDIT la connexion par mot de passe
+PubkeyAuthentication yes           # OBLIGE la connexion par clé
 ```
-
-```bash
+    
+```bash title="Relance du service"
 sudo systemctl restart ssh
 ```
 
-## 2. Samba - Partage de fichiers
+#### Test de la connexion SSH
 
-### 2.1 Installation
+Si la connexion SSH réussit sans vous demander de mot de passe, félicitations, vous avez réussi ! Sinon, vérifiez que vous avez bien suivi les étapes précédentes.
 
-```bash
-sudo apt install samba samba-common-bin -y
+```bash title="Commandes Linux (Serveur) - Test de la connexion SSH"
+ssh -i ~/.ssh/id_ed25519_lab dupond@192.168.50.10
 ```
 
-### 2.2 Configuration
+<br>
 
-```bash
+---
+
+<br>
+
+## Partage de fichiers (Samba)
+
+Le serveur sert principalement de serveur de fichiers et héberge les documents de la société ARTECH.
+
+### Installation et Configuration
+
+> L'utilisation d'un serveur de fichiers est essentielle pour permettre le partage de fichiers entre différents utilisateurs. Dans ce cas, nous utilisons Samba pour permettre le partage de fichiers entre différents utilisateurs.  
+> N'oubliez pas d'adapter les chemins et les noms de fichiers à votre configuration personnelle.
+
+```bash title="Commandes Linux - Installation des paquets Samba"
+sudo apt install samba samba-common-bin -y
+```
+    
+```bash title="Commandes Linux - Édition du fichier smb.conf"
 sudo vi /etc/samba/smb.conf
 ```
 
-```text
-# /etc/samba/smb.conf - ARTECH simulé
-
+> Voici à quoi devrait ressembler votre fichier smb.conf :
+    
+```text title="Fichier /etc/samba/smb.conf - Partages ARTECH"
 [global]
     workgroup = ARTECH
     server string = Server ARTECH
@@ -83,44 +134,40 @@ sudo vi /etc/samba/smb.conf
     log file = /var/log/samba/log.%m
     max log size = 1000
     logging = file
-    panic action = /usr/share/samba/panic-action %d
     
-    server signing = auto
-    smb encrypt = desired
-    
-    # Sécurité - mais volontairement avec NTLMv1 pour pédagogie
+    # PARAMÈTRES VOLONTAIREMENT VULNÉRABLES (Pour Pédagogie)
+    # On autorise l'authentification NTLMv1, cible privilégiée des attaquants
     ntlm auth = yes
     lanman auth = no
     client lanman auth = no
     client plaintext auth = no
     
-    # Logs détaillés pour forensic
+    # Logs extrêmement détaillés pour nos futures analyses Forensic
     log level = 3
     syslog = 0
-    
     map to guest = never
 
-# Partage Compta
+# ---- PARTAGE COMPTA ----
 [compta]
     path = /data/compta
     browseable = yes
     read only = no
     guest ok = no
-    valid users = compta, direction, @admins
+    valid users = compta, direction
     create mask = 0660
     directory mask = 0770
 
-# Partage Direction
+# ---- PARTAGE DIRECTION ----
 [direction]
     path = /data/direction
     browseable = yes
     read only = no
     guest ok = no
-    valid users = direction, @admins
+    valid users = direction
     create mask = 0640
     directory mask = 0750
 
-# Partage public ARTECH
+# ---- PARTAGE PUBLIC ----
 [public]
     path = /data/public
     browseable = yes
@@ -130,69 +177,90 @@ sudo vi /etc/samba/smb.conf
     directory mask = 0775
 ```
 
-### 2.3 Création utilisateurs et répertoires
+### Création des utilisateurs et des données fictives
 
-```bash
-# Création utilisateurs Linux
+Nous devons simuler la vie de l'entreprise avec des faux comptes (Mots de passe faibles inclus).
+
+#### Peuplement du serveur de fichiers
+
+> L'objectif étant de se rapprocher au maximum de la réalité. Ainsi, nous allons créer des utilisateurs et des dossiers pour simuler la vie de l'entreprise.
+
+```bash title="Commandes Linux - Création des comptes et dossiers"
+# Création des utilisateurs système Linux
 sudo useradd -m compta
 sudo useradd -m direction
 sudo useradd -m stagiaire
 
-# Mot de passe Linux (pas Samba)
-sudo passwd compta       # mdp faible pour pédagogie : Compta2026
-sudo passwd direction    # Direction2026!
-sudo passwd stagiaire    # Stage2026
+# Création des accès Samba (Mots de passe contextuels faibles)
+sudo smbpasswd -a compta      # Entrer : Compta2026
+sudo smbpasswd -a direction   # Entrer : Direction2026!
+sudo smbpasswd -a stagiaire   # Entrer : Stage2026
 
-# Création utilisateurs Samba
-sudo smbpasswd -a compta
-sudo smbpasswd -a direction
-sudo smbpasswd -a stagiaire
-
-# Création répertoires
+# Création des arborescences de données
 sudo mkdir -p /data/{compta,direction,public}
+
+# Attribution des droits propriétaires Linux
 sudo chown compta:compta /data/compta
 sudo chown direction:direction /data/direction
 sudo chown nobody:nogroup /data/public
+
+# Définition stricte des permissions octales
 sudo chmod 770 /data/{compta,direction}
 sudo chmod 775 /data/public
 
-# Données fictives
+# Génération de "fausses" données pour donner du réalisme
 sudo cp /usr/share/man/man1/ls.1.gz /data/compta/factures_2026.gz
 sudo cp /usr/share/man/man1/ls.1.gz /data/direction/strategie_secrete.docx
 sudo cp /usr/share/man/man1/ls.1.gz /data/public/note_service.txt
 ```
 
-### 2.4 Démarrage et test
+#### Vérification
 
-```bash
+> Permet de s'assurer que les partages sont accessibles.
+
+```bash title="Commandes Linux - Vérification des partages"
+sudo smbstatus
+```
+
+#### Activation
+
+> Permet de démarrer et d'activer les services Samba.
+
+```bash title="Commandes Linux - Démarrage Samba"
 sudo systemctl enable smbd nmbd
 sudo systemctl start smbd nmbd
 
-# Vérification
+# Afficher l'état du service
 sudo smbstatus
-
-# Test depuis le serveur
-smbclient -L //localhost -U compta
 ```
 
-## 3. Apache - Intranet ARTECH
+<br>
 
-### 3.1 Installation
+---
 
-```bash
-sudo apt install apache2 php libapache2-mod-php -y
-```
+<br>
 
-### 3.2 Configuration site intranet
+## Le portail Intranet (Apache & PHP)
 
-```bash
+La PME possède un portail interne avec une base de données de connexion. Ce portail a été codé "sur un coin de table" et présente une faille classique : l'Injection SQL.
+
+### Installation et structure du site
+
+> Nous allons installer Apache et PHP pour héberger le site intranet. Ce site est volontairement vulnérable pour les besoins de l'exercice.
+
+#### Déploiement du serveur Web
+
+```bash title="Commandes Linux - Installation Apache/PHP"
+# Installation des paquets
+sudo apt install apache2 php libapache2-mod-php sqlite3 -y
+
+# Création du conteneur virtuel (VirtualHost)
 sudo vi /etc/apache2/sites-available/intranet.conf
 ```
-
-```text
+    
+```text title="Fichier /etc/apache2/sites-available/intranet.conf"
 <VirtualHost *:80>
     ServerName intranet.artech.local
-    ServerAdmin admin@artech.local
     DocumentRoot /var/www/intranet
 
     <Directory /var/www/intranet>
@@ -206,17 +274,36 @@ sudo vi /etc/apache2/sites-available/intranet.conf
 </VirtualHost>
 ```
 
-### 3.3 Site PHP minimaliste vulnérable (volontairement)
+#### Activation du site
 
-```bash
-sudo mkdir /var/www/intranet
-sudo vi /var/www/intranet/index.php
+```bash title="Commandes Linux - Activation du site"
+# Activation du site
+sudo a2ensite intranet.conf
+
+# Rechargement de la configuration Apache
+sudo systemctl reload apache2
+
+# Afficher l'état du service
+sudo apache2ctl status
 ```
 
-```php
+### Le code applicatif vulnérable
+
+!!! danger "Vulnérabilité Intentionnelle"
+    Le code ci-dessous ne gère aucune échappement des entrées utilisateurs. Il est trivialement vulnérable aux attaques par Injection SQL (SQLi). C'est le but recherché.
+
+#### Application PHP Intranet
+
+```bash title="Commandes Linux - Création de la page"
+# Création du répertoire du site
+sudo mkdir -p /var/www/intranet
+# Création de la page d'accueil
+sudo vi /var/www/intranet/index.php
+```
+    
+```php title="Fichier /var/www/intranet/index.php"
 <?php
-// /var/www/intranet/index.php
-// Intranet ARTECH - VOLONTAIREMENT VULNÉRABLE pour pédagogie
+// Intranet ARTECH - VOLONTAIREMENT VULNÉRABLE pour la pédagogie
 
 session_start();
 
@@ -224,10 +311,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $_POST['user'] ?? '';
     $pass = $_POST['pass'] ?? '';
     
-    // Connexion à la "BDD"
+    // Connexion à la base de données locale
     $db = new SQLite3('/var/www/intranet/users.db');
     
-    // VULNÉRABILITÉ INTENTIONNELLE : SQL injection
+    // /!\ INJECTION SQL POSSIBLE ICI /!\
     $query = "SELECT * FROM users WHERE username='$user' AND password='$pass'";
     $result = $db->query($query);
     
@@ -244,7 +331,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head><title>Intranet ARTECH</title></head>
 <body>
-    <h1>Intranet ARTECH</h1>
+    <h1>Connexion Intranet ARTECH</h1>
     <?php if (isset($error)) echo "<p style='color:red'>$error</p>"; ?>
     <form method="POST">
         <input type="text" name="user" placeholder="Identifiant"><br>
@@ -255,12 +342,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </html>
 ```
 
-### 3.4 Base SQLite avec utilisateurs
+### La base de données SQLite
 
-```bash
-sudo apt install sqlite3 -y
+> Permet de s'assurer que les partages sont accessibles.
 
+```bash title="Commandes Linux - Création de la BDD via Heredoc"
 cd /var/www/intranet
+
 sudo sqlite3 users.db <<EOF
 CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT, password TEXT, role TEXT);
 INSERT INTO users VALUES (1, 'admin', 'admin2026', 'admin');
@@ -269,55 +357,57 @@ INSERT INTO users VALUES (3, 'direction', 'Direction2026!', 'direction');
 INSERT INTO users VALUES (4, 'stagiaire', 'Stage2026', 'stagiaire');
 EOF
 
+# L'utilisateur web (www-data) doit avoir les droits de lecture/écriture
 sudo chown www-data:www-data users.db
+sudo chmod 660 users.db
 ```
 
-### 3.5 Activation
+### Activation finale du site Web
 
-```bash
+> Permet de s'assurer que le site Web est accessible sur le serveur apache sur le port 80 et que les autres services sont bien démarrés.
+
+```bash title="Commandes Linux - Basculement du VirtualHost"
 sudo a2ensite intranet
 sudo a2dissite 000-default
 sudo systemctl reload apache2
 ```
 
-## 4. Journalisation centralisée
-
-```bash
-# rsyslog déjà installé
-# Configuration pour forensic
-sudo vi /etc/rsyslog.d/forensic.conf
-```
-
-```text
-# Capture verbose pour forensic
-auth,authpriv.*    /var/log/auth.log
-*.*;auth,authpriv.none    /var/log/syslog
-daemon.*    /var/log/daemon.log
-mail.*      /var/log/mail.log
-```
-
-```bash
-sudo systemctl restart rsyslog
-```
-
-## 5. Tests de validation
-
-```bash
-# Test SSH par clé
-ssh -i ~/.ssh/id_ed25519_lab zyrass@192.168.50.10
-
-# Test Samba
-smbclient -L //192.168.50.10 -U compta
-
-# Test intranet
-curl http://192.168.50.10/
-
-# Voir logs
-sudo tail -f /var/log/auth.log
-sudo tail -f /var/log/samba/log.smbd
-sudo tail -f /var/log/apache2/intranet_access.log
-```
+<br>
 
 ---
 
-**Chapitre suivant** : [3.8 Installation Windows 11 Pro - Poste 1 (Compta)](03-8-windows11-poste-compta.md)
+<br>
+
+## Tests de validation depuis le poste Analyste
+
+Avant de quitter, assurez-vous que tous les services répondent.
+
+### Commandes de vérification globale
+
+```bash title="Commandes Linux - Tests de connexion"
+# 1. Test SSH par clé (Le mot de passe ne doit PAS vous être demandé)
+ssh -i ~/.ssh/id_ed25519_lab dupond@192.168.50.10
+    
+# 2. Test Samba (Devrait lister les partages 'compta', 'direction', 'public')
+smbclient -L //192.168.50.10 -U compta
+    
+# 3. Test intranet (Devrait renvoyer le code HTML de la page de connexion)
+curl http://192.168.50.10/
+```
+
+<br>
+
+---
+
+<br>
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir"
+    Le serveur Debian est désormais le cœur vivant de l'entreprise ARTECH. Il héberge les fichiers sensibles via Samba (protégés par des mots de passe humains, donc faillibles), et présente un Intranet truffé de failles applicatives (SQLi). Il est prêt à subir le courroux de nos futurs exercices d'attaque pour, par la suite, générer les traces Forensic (fichiers log) que nous devrons analyser.
+
+> [Chapitre suivant : 3.8 Installation Windows 11 Pro - Poste 1 (Compta) →](08-windows11-poste-compta.md)
+>
+> [Retour à l'index →](./index.md)
+
+<br>
