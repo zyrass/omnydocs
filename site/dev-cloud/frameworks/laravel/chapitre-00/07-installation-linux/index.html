@@ -3187,7 +3187,7 @@
   <span class="md-ellipsis">
     
   
-  0.9 — Serveur local multiposte : exposer Laravel sur le réseau
+  0.9 — Serveur local multiposte : Laravel sur le réseau
 
     
   </span>
@@ -6311,27 +6311,24 @@
 <p><br></p>
 <hr />
 <h2 id="3-vue-densemble-de-la-procedure">3. Vue d'ensemble de la procédure<a class="headerlink" href="#3-vue-densemble-de-la-procedure" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>---
-config:
-  theme: neutral
----
+<pre class="mermaid"><code>%%{init: {'theme':'neutral'}}%%
 flowchart TD
-    A[Système Ubuntu/Debian à jour] --&gt; B{Choix de stack}
-    B --&gt;|Native| C[Ajout dépôt Ondřej Surý]
+    A[Systeme Ubuntu/Debian a jour] --&gt; B{Choix de stack}
+    B --&gt;|Native| C[Ajout depot Ondrej Sury]
     B --&gt;|Docker| D[Installation Docker Engine]
     C --&gt; E[Installation PHP 8.3 + extensions]
     E --&gt; F[Installation Composer 2.x]
     F --&gt; G[Installation Node.js 22 LTS]
     G --&gt; H[Installation SGBD local]
-    D --&gt; I[Vérification docker run hello-world]
-    H --&gt; J[Création projet Laravel 13]
+    D --&gt; I[Verification docker run hello-world]
+    H --&gt; J[Creation projet Laravel 13]
     I --&gt; J
     J --&gt; K[Tests : php artisan serve OK]
-    K -.true.-&gt; L[Stack opérationnelle]
+    K -.true.-&gt; L[Stack operationnelle]
     K -.false.-&gt; M[Diagnostic section 11]
 
-    style L fill:#22c55e,stroke:#15803d,color:#fff
-    style M fill:#ef4444,stroke:#b91c1c,color:#fff</code></pre>
+    style L fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style M fill:#fee2e2,stroke:#dc2626,color:#7f1d1d</code></pre>
 <p><em>Schéma de progression — chaque étape conditionne la suivante. Ne sautez pas la mise à jour initiale.</em></p>
 <p><br></p>
 <hr />

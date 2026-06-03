@@ -42,22 +42,19 @@ En une phrase : Laravel est **l'épine dorsale technique** sur laquelle vous gre
 Laravel n'est pas tombé du ciel. Sa philosophie actuelle est le résultat direct de quinze ans de décisions techniques cohérentes.
 
 ```mermaid
----
-config:
-  theme: neutral
----
+%%{init: {'theme':'neutral'}}%%
 timeline
     title Quinze ans de maturation
     2011 : Laravel 1
          : Taylor Otwell publie la v1 pour combler les manques de CodeIgniter
     2013 : Laravel 4
-         : Bascule sur Composer et adoption massive de la communauté PHP moderne
+         : Bascule sur Composer et adoption massive de la communaute PHP moderne
     2015 : Laravel 5
-         : Structure de projet standardisée, Eloquent mature, Artisan puissant
-    2017 : Écosystème
+         : Structure de projet standardisee, Eloquent mature, Artisan puissant
+    2017 : Ecosysteme
          : Forge, Envoyer, Nova - Laravel devient une plateforme, plus seulement un framework
     2020 : Laravel 8
-         : Jetstream, Sail, Livewire poussé par la communauté TALL
+         : Jetstream, Sail, Livewire pousse par la communaute TALL
     2024 : Laravel 11
          : Slim skeleton, retrait du Kernel HTTP, modernisation profonde
     2026 : Laravel 13
@@ -111,33 +108,32 @@ Taylor Otwell, le créateur, a articulé Laravel autour d'une idée précise : *
 Laravel impose un découpage clair des responsabilités. Comprendre ce schéma maintenant vous évitera des dizaines d'heures de refactoring plus tard.
 
 ```mermaid
----
-config:
-  theme: neutral
----
+%%{init: {'theme':'neutral'}}%%
 flowchart TB
-    A[Navigateur du client] -->|Requête HTTP| B(Routeur Laravel)
+    A[Navigateur du client] -->|Requete HTTP| B(Routeur Laravel)
     B --> C{Middlewares}
-    C -->|Auth, CSRF, rate limit| D[Contrôleur]
-    D --> E[Service / Action métier]
-    E --> F[Modèle Eloquent]
-    F <-->|SQL préparé| G[(Base de données)]
-    E -->|Données| D
-    D --> H[Vue Blade ou JSON]
-    H -->|Réponse HTTP| A
+    C -->|Auth, CSRF, rate limit| D[Controleur]
+    D -->|delegue| E[Service / Action metier]
+    E --> F[Modele Eloquent]
+    F <-->|SQL prepare| G[(Base de donnees)]
+    E -->|retourne les donnees| D2[Controleur]
+    D2 -->|retourne la reponse| H[Vue Blade ou JSON]
+    H -->|Reponse HTTP| A
 
-    subgraph Domaine_Metier ["Domaine métier"]
+    subgraph Domaine_Metier ["Domaine metier"]
         E
         F
     end
 
-    subgraph Presentation ["Présentation"]
+    subgraph Presentation ["Presentation"]
         D
+        D2
         H
     end
 
     style Domaine_Metier fill:#e8f5e9,stroke:#2e7d32
     style Presentation fill:#e3f2fd,stroke:#1565c0
+    style D2 fill:#e3f2fd,stroke:#1565c0
 ```
 
 **Lecture du flux** :

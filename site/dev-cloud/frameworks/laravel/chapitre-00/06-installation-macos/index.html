@@ -3104,7 +3104,7 @@
   <span class="md-ellipsis">
     
   
-  0.9 — Serveur local multiposte : exposer Laravel sur le réseau
+  0.9 — Serveur local multiposte : Laravel sur le réseau
 
     
   </span>
@@ -6115,25 +6115,22 @@
 <hr />
 <h2 id="2-choisir-sa-voie-herd-ou-sail-orbstack">2. Choisir sa voie : Herd ou Sail + OrbStack<a class="headerlink" href="#2-choisir-sa-voie-herd-ou-sail-orbstack" title="Permanent link">&para;</a></h2>
 <h3 id="21-logique-de-decision">2.1 Logique de décision<a class="headerlink" href="#21-logique-de-decision" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>---
-config:
-  theme: "neutral"
----
+<pre class="mermaid"><code>%%{init: {'theme':'neutral'}}%%
 flowchart TD
-    A[Démarrage projet Laravel sur macOS] --&gt; B{Objectif principal ?}
-    B --&gt;|Vitesse + simplicité&lt;br/&gt;Apprentissage Laravel| C[Herd]
-    B --&gt;|Parité production&lt;br/&gt;Équipe multi-OS&lt;br/&gt;Multi-projets isolés| D[Sail + OrbStack]
+    A[Demarrage projet Laravel sur macOS] --&gt; B{Objectif principal ?}
+    B --&gt;|Vitesse + simplicite&lt;br/&gt;Apprentissage Laravel| C[Herd]
+    B --&gt;|Parite production&lt;br/&gt;Equipe multi-OS&lt;br/&gt;Multi-projets isoles| D[Sail + OrbStack]
     C --&gt; E[Install GUI&lt;br/&gt;5 minutes&lt;br/&gt;PHP natif]
     D --&gt; F[Conteneurs Docker&lt;br/&gt;Isolation totale&lt;br/&gt;10-15 minutes]
     E --&gt; G{Besoin MySQL,&lt;br/&gt;Redis local ?}
     G --&gt;|Oui, gratuit| H[DBngin + Herd]
-    G --&gt;|Oui, intégré| I[Herd Pro payant]
-    F --&gt; J[Sail propose&lt;br/&gt;MySQL, Redis,&lt;br/&gt;Mailpit déjà inclus]
+    G --&gt;|Oui, integre| I[Herd Pro payant]
+    F --&gt; J[Sail propose&lt;br/&gt;MySQL, Redis,&lt;br/&gt;Mailpit deja inclus]
 
-    style C fill:#22c55e,stroke:#15803d,color:#fff
-    style D fill:#3b82f6,stroke:#1e40af,color:#fff
-    style E fill:#22c55e,stroke:#15803d,color:#fff
-    style J fill:#3b82f6,stroke:#1e40af,color:#fff</code></pre>
+    style C fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style D fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style E fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style J fill:#dbeafe,stroke:#2563eb,color:#1e3a8a</code></pre>
 <h3 id="22-comparatif-factuel">2.2 Comparatif factuel<a class="headerlink" href="#22-comparatif-factuel" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -6230,20 +6227,17 @@ flowchart TD
 </span></code></pre></div>
 <p><em>Aucun <code>php artisan serve</code> n'est nécessaire avec Herd : Nginx sert le projet en permanence tant que Herd tourne.</em></p>
 <h3 id="34-diagramme-de-flux-dune-requete-sous-herd">3.4 Diagramme de flux d'une requête sous Herd<a class="headerlink" href="#34-diagramme-de-flux-dune-requete-sous-herd" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>---
-config:
-  theme: "neutral"
----
+<pre class="mermaid"><code>%%{init: {'theme':'neutral'}}%%
 flowchart TB
     A[Navigateur] --&gt; |http://omny-saas.test| B[dnsmasq]
-    B --&gt; |"résout *.test en [IP_LAN_OU_127.0.0.1]"| C[Nginx Herd&lt;br/&gt;port 80]
+    B --&gt; |"resout *.test en [IP_LAN_OU_127.0.0.1]"| C[Nginx Herd&lt;br/&gt;port 80]
     C --&gt; D[PHP-FPM Herd&lt;br/&gt;PHP 8.3+]
     D --&gt; E[/public/index.php&lt;br/&gt;du projet Laravel/]
-    E --&gt; F[Réponse HTML/JSON]
+    E --&gt; F[Reponse HTML/JSON]
     F --&gt; A
 
-    style C fill:#22c55e,stroke:#15803d,color:#fff
-    style D fill:#22c55e,stroke:#15803d,color:#fff</code></pre>
+    style C fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style D fill:#dcfce7,stroke:#16a34a,color:#14532d</code></pre>
 <p><br></p>
 <hr />
 <h2 id="4-voie-b-installation-avec-orbstack-laravel-sail">4. Voie B — Installation avec OrbStack + Laravel Sail<a class="headerlink" href="#4-voie-b-installation-avec-orbstack-laravel-sail" title="Permanent link">&para;</a></h2>

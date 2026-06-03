@@ -77,25 +77,22 @@ sudo lsof -iTCP:80 -sTCP:LISTEN
 ### 2.1 Logique de décision
 
 ```mermaid
----
-config:
-  theme: "neutral"
----
+%%{init: {'theme':'neutral'}}%%
 flowchart TD
-    A[Démarrage projet Laravel sur macOS] --> B{Objectif principal ?}
-    B -->|Vitesse + simplicité<br/>Apprentissage Laravel| C[Herd]
-    B -->|Parité production<br/>Équipe multi-OS<br/>Multi-projets isolés| D[Sail + OrbStack]
+    A[Demarrage projet Laravel sur macOS] --> B{Objectif principal ?}
+    B -->|Vitesse + simplicite<br/>Apprentissage Laravel| C[Herd]
+    B -->|Parite production<br/>Equipe multi-OS<br/>Multi-projets isoles| D[Sail + OrbStack]
     C --> E[Install GUI<br/>5 minutes<br/>PHP natif]
     D --> F[Conteneurs Docker<br/>Isolation totale<br/>10-15 minutes]
     E --> G{Besoin MySQL,<br/>Redis local ?}
     G -->|Oui, gratuit| H[DBngin + Herd]
-    G -->|Oui, intégré| I[Herd Pro payant]
-    F --> J[Sail propose<br/>MySQL, Redis,<br/>Mailpit déjà inclus]
-    
-    style C fill:#22c55e,stroke:#15803d,color:#fff
-    style D fill:#3b82f6,stroke:#1e40af,color:#fff
-    style E fill:#22c55e,stroke:#15803d,color:#fff
-    style J fill:#3b82f6,stroke:#1e40af,color:#fff
+    G -->|Oui, integre| I[Herd Pro payant]
+    F --> J[Sail propose<br/>MySQL, Redis,<br/>Mailpit deja inclus]
+
+    style C fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style D fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style E fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style J fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
 ```
 
 ### 2.2 Comparatif factuel
@@ -174,20 +171,17 @@ open http://omny-saas.test
 ### 3.4 Diagramme de flux d'une requête sous Herd
 
 ```mermaid
----
-config:
-  theme: "neutral"
----
+%%{init: {'theme':'neutral'}}%%
 flowchart TB
     A[Navigateur] --> |http://omny-saas.test| B[dnsmasq]
-    B --> |"résout *.test en [IP_LAN_OU_127.0.0.1]"| C[Nginx Herd<br/>port 80]
+    B --> |"resout *.test en [IP_LAN_OU_127.0.0.1]"| C[Nginx Herd<br/>port 80]
     C --> D[PHP-FPM Herd<br/>PHP 8.3+]
     D --> E[/public/index.php<br/>du projet Laravel/]
-    E --> F[Réponse HTML/JSON]
+    E --> F[Reponse HTML/JSON]
     F --> A
-    
-    style C fill:#22c55e,stroke:#15803d,color:#fff
-    style D fill:#22c55e,stroke:#15803d,color:#fff
+
+    style C fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style D fill:#dcfce7,stroke:#16a34a,color:#14532d
 ```
 
 <br>

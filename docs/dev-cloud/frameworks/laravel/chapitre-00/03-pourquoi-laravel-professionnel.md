@@ -44,10 +44,7 @@ Laravel 13[^1] coche les six cases simultanément, ce qui est rare dans l'écosy
 La confusion la plus répandue chez les profils non-Laravel consiste à comparer Laravel à Symfony, Express ou FastAPI. La comparaison est faussée dès le départ : ces outils sont des **frameworks** (des bibliothèques de routage, validation, ORM). Laravel est une **plateforme** au sens produit, c'est-à-dire un framework **plus** un ensemble de produits first-party maintenus par la même équipe.
 
 ```mermaid
----
-config:
-  theme: neutral
----
+%%{init: {'theme':'neutral'}}%%
 flowchart TB
     subgraph CORE["Noyau Laravel 13"]
         direction TB
@@ -65,15 +62,15 @@ flowchart TB
         CASHIER["Cashier<br/>Stripe/Paddle"]
         HORIZON["Horizon<br/>Queues UI"]
         REVERB["Reverb<br/>WebSockets"]
-        PULSE["Pulse<br/>Observabilité"]
+        PULSE["Pulse<br/>Observabilite"]
         TELESCOPE["Telescope<br/>Debug"]
-        AISDK["AI SDK<br/>LLM unifié"]
+        AISDK["AI SDK<br/>LLM unifie"]
         SCOUT["Scout<br/>Recherche"]
     end
 
-    subgraph HOSTING["Hébergement officiel"]
+    subgraph HOSTING["Hebergement officiel"]
     direction TB
-        FORGE["Forge<br/>VPS managés"]
+        FORGE["Forge<br/>VPS manages"]
         VAPOR["Vapor<br/>Serverless AWS"]
         CLOUD["Laravel Cloud"]
     end
@@ -90,10 +87,10 @@ flowchart TB
     FIRSTPARTY --> HOSTING
     CORE --> STARTERS
 
-    classDef coreClass fill:#1e293b,stroke:#0ea5e9,color:#f1f5f9
-    classDef firstClass fill:#0f172a,stroke:#22c55e,color:#f1f5f9
-    classDef hostClass fill:#1e1b4b,stroke:#a855f7,color:#f1f5f9
-    classDef starterClass fill:#422006,stroke:#f59e0b,color:#fef3c7
+    classDef coreClass fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    classDef firstClass fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef hostClass fill:#f3e8ff,stroke:#7c3aed,color:#3b0764
+    classDef starterClass fill:#fef3c7,stroke:#d97706,color:#78350f
 
     class ROUTING,ELOQUENT,BLADE,ARTISAN,QUEUES coreClass
     class SAIL,SANCTUM,FORTIFY,CASHIER,HORIZON,REVERB,PULSE,TELESCOPE,AISDK,SCOUT firstClass
@@ -136,6 +133,7 @@ L'argument productivité est souvent invoqué sans preuve. Voici la comparaison 
 === "Laravel 13 (Eloquent + FormRequest + Policy)"
 
     ```php title="PHP - app/Http/Controllers/ClientController.php"
+    <?php
     // Le contrôleur reste minimal car chaque responsabilité est déléguée
     public function store(StoreClientRequest $request): JsonResponse
     {
@@ -149,6 +147,7 @@ L'argument productivité est souvent invoqué sans preuve. Voici la comparaison 
 === "Approche framework minimaliste équivalent"
 
     ```php title="PHP - Pseudo-code framework minimaliste"
+    <?php
     // Tout doit être assemblé à la main : validation, autorisation, ORM, sérialisation
     public function store(Request $request): Response
     {
@@ -239,27 +238,24 @@ gantt
 Un projet professionnel finit toujours par poser la question : **qui exploite ça en production, et avec quelle expertise ?** Laravel propose trois voies officielles, ce qui couvre l'essentiel des besoins du marché.
 
 ```mermaid
---- 
-config:
-  theme: neutral
----
+%%{init: {'theme':'neutral'}}%%
 flowchart TB
     PROJET["Projet Laravel 13"]
 
-    PROJET --> Q1{"Charge<br/>prévisible ?"}
+    PROJET --> Q1{"Charge<br/>previsible ?"}
 
-    Q1 -->|Oui, trafic stable| FORGE["Laravel Forge<br/>VPS managés<br/>OVH, DO, Hetzner"]
-    Q1 -->|Non, pics imprévisibles| VAPOR["Laravel Vapor<br/>Serverless AWS Lambda"]
-    Q1 -->|Équipe sans DevOps| CLOUD["Laravel Cloud<br/>PaaS officiel"]
+    Q1 -->|Oui, trafic stable| FORGE["Laravel Forge<br/>VPS manages<br/>OVH, DO, Hetzner"]
+    Q1 -->|Non, pics imprevisibles| VAPOR["Laravel Vapor<br/>Serverless AWS Lambda"]
+    Q1 -->|Equipe sans DevOps| CLOUD["Laravel Cloud<br/>PaaS officiel"]
 
-    FORGE --> COUT1["Coût bas<br/>Contrôle total"]
-    VAPOR --> COUT2["Coût à l'usage<br/>Scaling automatique"]
-    CLOUD --> COUT3["Coût moyen<br/>Zéro infra à gérer"]
+    FORGE --> COUT1["Cout bas<br/>Controle total"]
+    VAPOR --> COUT2["Cout a l'usage<br/>Scaling automatique"]
+    CLOUD --> COUT3["Cout moyen<br/>Zero infra a gerer"]
 
-    classDef startNode fill:#1e293b,stroke:#0ea5e9,color:#f1f5f9
-    classDef decisionNode fill:#422006,stroke:#f59e0b,color:#fef3c7
-    classDef solutionNode fill:#0f172a,stroke:#22c55e,color:#f1f5f9
-    classDef outcomeNode fill:#1e1b4b,stroke:#a855f7,color:#f1f5f9
+    classDef startNode fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    classDef decisionNode fill:#fef3c7,stroke:#d97706,color:#78350f
+    classDef solutionNode fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef outcomeNode fill:#f3e8ff,stroke:#7c3aed,color:#3b0764
 
     class PROJET startNode
     class Q1 decisionNode

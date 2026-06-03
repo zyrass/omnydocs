@@ -75,27 +75,24 @@ Sur une machine de 8 Go avec Docker actif, fermez les onglets de navigateur supe
 ## 3. Vue d'ensemble de la procédure
 
 ```mermaid
----
-config:
-  theme: neutral
----
+%%{init: {'theme':'neutral'}}%%
 flowchart TD
-    A[Système Ubuntu/Debian à jour] --> B{Choix de stack}
-    B -->|Native| C[Ajout dépôt Ondřej Surý]
+    A[Systeme Ubuntu/Debian a jour] --> B{Choix de stack}
+    B -->|Native| C[Ajout depot Ondrej Sury]
     B -->|Docker| D[Installation Docker Engine]
     C --> E[Installation PHP 8.3 + extensions]
     E --> F[Installation Composer 2.x]
     F --> G[Installation Node.js 22 LTS]
     G --> H[Installation SGBD local]
-    D --> I[Vérification docker run hello-world]
-    H --> J[Création projet Laravel 13]
+    D --> I[Verification docker run hello-world]
+    H --> J[Creation projet Laravel 13]
     I --> J
     J --> K[Tests : php artisan serve OK]
-    K -.true.-> L[Stack opérationnelle]
+    K -.true.-> L[Stack operationnelle]
     K -.false.-> M[Diagnostic section 11]
 
-    style L fill:#22c55e,stroke:#15803d,color:#fff
-    style M fill:#ef4444,stroke:#b91c1c,color:#fff
+    style L fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style M fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
 ```
 
 *Schéma de progression — chaque étape conditionne la suivante. Ne sautez pas la mise à jour initiale.*

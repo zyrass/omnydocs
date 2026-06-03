@@ -56,6 +56,7 @@ Aucune image, aucun conteneur, aucun namespace Linux n'est mobilisé. **Votre ap
 ### 1.2 Distinguer trois familles de configuration natives
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart TB
     A[Mode natif Laravel] --> B[Stack manuelle pur OS]
     A --> C[Stack assistee Herd, Valet, Laragon]
@@ -64,10 +65,10 @@ flowchart TB
     C --> C1[Outils tout-en-un<br/>Routage *.test automatique<br/>Multi-versions PHP]
     D --> D1[apt, dnf, brew<br/>Versions figees par la distro<br/>Mises a jour systeme]
 
-    style A fill:#1e293b,stroke:#0ea5e9,color:#f8fafc
-    style B fill:#0f172a,stroke:#64748b,color:#e2e8f0
-    style C fill:#0f172a,stroke:#22c55e,color:#e2e8f0
-    style D fill:#0f172a,stroke:#f59e0b,color:#e2e8f0
+    style A fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style B fill:#f1f5f9,stroke:#64748b,color:#1e293b
+    style C fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style D fill:#fef3c7,stroke:#d97706,color:#78350f
 ```
 
 *Figure 1.1 — Les trois variantes du mode natif. Toutes excluent Docker et Sail, mais leur ergonomie diffère radicalement.*
@@ -102,6 +103,7 @@ Le choix interne au mode natif n'est pas neutre : **Herd**[^herd] sur macOS/Wind
 ### 2.2 Diagramme des dépendances au démarrage
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart TB
     OS[Systeme hote<br/>Windows 11 / macOS / Linux] --> PHP[PHP 8.3+<br/>+ extensions]
     OS --> NODE[Node 22 LTS<br/>+ npm]
@@ -113,8 +115,8 @@ flowchart TB
     DB --> LARAVEL
     LARAVEL --> SERVE[php artisan serve<br/>:8000]
 
-    style LARAVEL fill:#1e293b,stroke:#ef4444,color:#f8fafc
-    style SERVE fill:#0f172a,stroke:#22c55e,color:#e2e8f0
+    style LARAVEL fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+    style SERVE fill:#dcfce7,stroke:#16a34a,color:#14532d
 ```
 
 *Figure 2.1 — Chaîne de dépendances minimale. Chaque maillon manquant ou périmé bloque le démarrage du projet.*
@@ -177,6 +179,7 @@ Vous n'apprenez **qu'une seule chose à la fois** : Laravel. Pas Docker, pas Com
 Votre machine est **un cas unique au monde**. Le collègue qui clone le dépôt aura une autre version mineure de PHP, une extension `gd` compilée différemment, un `OPENSSL_CONF` pointant ailleurs. Les bugs « ça marche chez moi » naissent là.
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart TB
     DEV1[Poste dev A<br/>PHP 8.3.12<br/>MariaDB 11.4] -->|push| REPO[(Depot Git)]
     REPO -->|pull| DEV2[Poste dev B<br/>PHP 8.4.1<br/>PostgreSQL 16]
@@ -184,9 +187,9 @@ flowchart TB
     DEV1 -.->|bug invisible| PROD
     DEV2 -.->|autre bug invisible| PROD
 
-    style DEV1 fill:#0f172a,stroke:#22c55e,color:#e2e8f0
-    style DEV2 fill:#0f172a,stroke:#22c55e,color:#e2e8f0
-    style PROD fill:#1e293b,stroke:#ef4444,color:#f8fafc
+    style DEV1 fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style DEV2 fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style PROD fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
 ```
 
 *Figure 4.1 — Trois environnements natifs différents pour un même dépôt Git. Chaque divergence est un terrain de bug latent.*
@@ -304,6 +307,7 @@ Windows Defender scanne en temps réel chaque écriture dans `vendor/` et `node_
 ## 7. Arbre de décision : natif ou conteneurisé ?
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart TB
     Q1{Projet destine<br/>a la production ?}
     Q1 -->|Non, apprentissage<br/>ou prototype| Q2
@@ -321,11 +325,11 @@ flowchart TB
     Q4 -->|Non| NATIF2[Natif acceptable<br/>cursus pedagogique]
     Q4 -->|Oui, plusieurs services| DOCKER3[Docker / Sail<br/>orchestration plus simple]
 
-    style DOCKER1 fill:#1e293b,stroke:#0ea5e9,color:#f8fafc
-    style DOCKER2 fill:#1e293b,stroke:#0ea5e9,color:#f8fafc
-    style DOCKER3 fill:#1e293b,stroke:#0ea5e9,color:#f8fafc
-    style NATIF1 fill:#0f172a,stroke:#22c55e,color:#e2e8f0
-    style NATIF2 fill:#0f172a,stroke:#22c55e,color:#e2e8f0
+    style DOCKER1 fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style DOCKER2 fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style DOCKER3 fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style NATIF1 fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style NATIF2 fill:#dcfce7,stroke:#16a34a,color:#14532d
 ```
 
 *Figure 7.1 — Arbre de décision pour arbitrer natif vs Docker. Quatre questions suffisent à trancher dans 90 % des cas.*

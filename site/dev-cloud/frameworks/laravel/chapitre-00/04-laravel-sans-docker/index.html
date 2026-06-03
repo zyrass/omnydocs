@@ -3205,7 +3205,7 @@
   <span class="md-ellipsis">
     
   
-  0.9 — Serveur local multiposte : exposer Laravel sur le réseau
+  0.9 — Serveur local multiposte : Laravel sur le réseau
 
     
   </span>
@@ -6268,7 +6268,8 @@ Ce module n'est ni un éloge ni un procès du mode natif. C'est un <strong>arbit
 </ul>
 <p>Aucune image, aucun conteneur, aucun namespace Linux n'est mobilisé. <strong>Votre application partage l'espace de vie du système hôte.</strong></p>
 <h3 id="12-distinguer-trois-familles-de-configuration-natives">1.2 Distinguer trois familles de configuration natives<a class="headerlink" href="#12-distinguer-trois-familles-de-configuration-natives" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<pre class="mermaid"><code>%%{init: {'theme':'neutral'}}%%
+flowchart TB
     A[Mode natif Laravel] --&gt; B[Stack manuelle pur OS]
     A --&gt; C[Stack assistee Herd, Valet, Laragon]
     A --&gt; D[Stack systeme paquets distribution]
@@ -6276,10 +6277,10 @@ Ce module n'est ni un éloge ni un procès du mode natif. C'est un <strong>arbit
     C --&gt; C1[Outils tout-en-un&lt;br/&gt;Routage *.test automatique&lt;br/&gt;Multi-versions PHP]
     D --&gt; D1[apt, dnf, brew&lt;br/&gt;Versions figees par la distro&lt;br/&gt;Mises a jour systeme]
 
-    style A fill:#1e293b,stroke:#0ea5e9,color:#f8fafc
-    style B fill:#0f172a,stroke:#64748b,color:#e2e8f0
-    style C fill:#0f172a,stroke:#22c55e,color:#e2e8f0
-    style D fill:#0f172a,stroke:#f59e0b,color:#e2e8f0</code></pre>
+    style A fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style B fill:#f1f5f9,stroke:#64748b,color:#1e293b
+    style C fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style D fill:#fef3c7,stroke:#d97706,color:#78350f</code></pre>
 <p><em>Figure 1.1 — Les trois variantes du mode natif. Toutes excluent Docker et Sail, mais leur ergonomie diffère radicalement.</em></p>
 <p>Le choix interne au mode natif n'est pas neutre : <strong>Herd</strong><sup id="fnref:herd"><a class="footnote-ref" href="#fn:herd">1</a></sup> sur macOS/Windows ou <strong>Laragon</strong> sur Windows automatisent ce que la stack manuelle vous fait apprendre. Pour un cursus pédagogique, la stack manuelle est formatrice ; pour un poste de production individuelle, Herd est aujourd'hui le meilleur compromis natif.</p>
 <p><br></p>
@@ -6349,7 +6350,8 @@ Ce module n'est ni un éloge ni un procès du mode natif. C'est un <strong>arbit
 </ul>
 </div>
 <h3 id="22-diagramme-des-dependances-au-demarrage">2.2 Diagramme des dépendances au démarrage<a class="headerlink" href="#22-diagramme-des-dependances-au-demarrage" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>flowchart TB
+<pre class="mermaid"><code>%%{init: {'theme':'neutral'}}%%
+flowchart TB
     OS[Systeme hote&lt;br/&gt;Windows 11 / macOS / Linux] --&gt; PHP[PHP 8.3+&lt;br/&gt;+ extensions]
     OS --&gt; NODE[Node 22 LTS&lt;br/&gt;+ npm]
     OS --&gt; DB[(SGBD&lt;br/&gt;MariaDB / PostgreSQL / SQLite)]
@@ -6360,8 +6362,8 @@ Ce module n'est ni un éloge ni un procès du mode natif. C'est un <strong>arbit
     DB --&gt; LARAVEL
     LARAVEL --&gt; SERVE[php artisan serve&lt;br/&gt;:8000]
 
-    style LARAVEL fill:#1e293b,stroke:#ef4444,color:#f8fafc
-    style SERVE fill:#0f172a,stroke:#22c55e,color:#e2e8f0</code></pre>
+    style LARAVEL fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+    style SERVE fill:#dcfce7,stroke:#16a34a,color:#14532d</code></pre>
 <p><em>Figure 2.1 — Chaîne de dépendances minimale. Chaque maillon manquant ou périmé bloque le démarrage du projet.</em></p>
 <h3 id="23-verification-en-une-commande">2.3 Vérification en une commande<a class="headerlink" href="#23-verification-en-une-commande" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><span class="filename">Bash - Verification rapide de la stack native</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Affiche en sequence les versions des outils critiques</span>
@@ -6430,16 +6432,17 @@ Ce module n'est ni un éloge ni un procès du mode natif. C'est un <strong>arbit
 <h2 id="4-limites-structurelles-du-mode-natif">4. Limites structurelles du mode natif<a class="headerlink" href="#4-limites-structurelles-du-mode-natif" title="Permanent link">&para;</a></h2>
 <h3 id="41-reproductibilite-fragile">4.1 Reproductibilité fragile<a class="headerlink" href="#41-reproductibilite-fragile" title="Permanent link">&para;</a></h3>
 <p>Votre machine est <strong>un cas unique au monde</strong>. Le collègue qui clone le dépôt aura une autre version mineure de PHP, une extension <code>gd</code> compilée différemment, un <code>OPENSSL_CONF</code> pointant ailleurs. Les bugs « ça marche chez moi » naissent là.</p>
-<pre class="mermaid"><code>flowchart TB
+<pre class="mermaid"><code>%%{init: {'theme':'neutral'}}%%
+flowchart TB
     DEV1[Poste dev A&lt;br/&gt;PHP 8.3.12&lt;br/&gt;MariaDB 11.4] --&gt;|push| REPO[(Depot Git)]
     REPO --&gt;|pull| DEV2[Poste dev B&lt;br/&gt;PHP 8.4.1&lt;br/&gt;PostgreSQL 16]
     REPO --&gt;|deploy| PROD[Serveur prod&lt;br/&gt;PHP 8.3.8&lt;br/&gt;MySQL 8.0]
     DEV1 -.-&gt;|bug invisible| PROD
     DEV2 -.-&gt;|autre bug invisible| PROD
 
-    style DEV1 fill:#0f172a,stroke:#22c55e,color:#e2e8f0
-    style DEV2 fill:#0f172a,stroke:#22c55e,color:#e2e8f0
-    style PROD fill:#1e293b,stroke:#ef4444,color:#f8fafc</code></pre>
+    style DEV1 fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style DEV2 fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style PROD fill:#fee2e2,stroke:#dc2626,color:#7f1d1d</code></pre>
 <p><em>Figure 4.1 — Trois environnements natifs différents pour un même dépôt Git. Chaque divergence est un terrain de bug latent.</em></p>
 <h3 id="42-parite-production-absente">4.2 Parité production absente<a class="headerlink" href="#42-parite-production-absente" title="Permanent link">&para;</a></h3>
 <p>En production, votre Laravel tourne probablement derrière <strong>Nginx + PHP-FPM</strong>, sur <strong>Rocky Linux</strong> ou Ubuntu, avec <strong>OPcache</strong> et <strong>Redis</strong>. En local natif Windows, vous tournez sur le serveur de dev intégré, sans OPcache, sans Redis (sauf installation manuelle). La probabilité qu'un bug apparaisse uniquement en prod est élevée.</p>
@@ -6569,7 +6572,8 @@ Ce module n'est ni un éloge ni un procès du mode natif. C'est un <strong>arbit
 <p><br></p>
 <hr />
 <h2 id="7-arbre-de-decision-natif-ou-conteneurise">7. Arbre de décision : natif ou conteneurisé ?<a class="headerlink" href="#7-arbre-de-decision-natif-ou-conteneurise" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TB
+<pre class="mermaid"><code>%%{init: {'theme':'neutral'}}%%
+flowchart TB
     Q1{Projet destine&lt;br/&gt;a la production ?}
     Q1 --&gt;|Non, apprentissage&lt;br/&gt;ou prototype| Q2
     Q1 --&gt;|Oui| DOCKER1[Docker / Sail&lt;br/&gt;parite prod indispensable]
@@ -6586,11 +6590,11 @@ Ce module n'est ni un éloge ni un procès du mode natif. C'est un <strong>arbit
     Q4 --&gt;|Non| NATIF2[Natif acceptable&lt;br/&gt;cursus pedagogique]
     Q4 --&gt;|Oui, plusieurs services| DOCKER3[Docker / Sail&lt;br/&gt;orchestration plus simple]
 
-    style DOCKER1 fill:#1e293b,stroke:#0ea5e9,color:#f8fafc
-    style DOCKER2 fill:#1e293b,stroke:#0ea5e9,color:#f8fafc
-    style DOCKER3 fill:#1e293b,stroke:#0ea5e9,color:#f8fafc
-    style NATIF1 fill:#0f172a,stroke:#22c55e,color:#e2e8f0
-    style NATIF2 fill:#0f172a,stroke:#22c55e,color:#e2e8f0</code></pre>
+    style DOCKER1 fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style DOCKER2 fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style DOCKER3 fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style NATIF1 fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style NATIF2 fill:#dcfce7,stroke:#16a34a,color:#14532d</code></pre>
 <p><em>Figure 7.1 — Arbre de décision pour arbitrer natif vs Docker. Quatre questions suffisent à trancher dans 90 % des cas.</em></p>
 <h3 id="71-synthese-honnete-pour-ce-cursus">7.1 Synthèse honnête pour ce cursus<a class="headerlink" href="#71-synthese-honnete-pour-ce-cursus" title="Permanent link">&para;</a></h3>
 <p>Pour ce parcours de 27 chapitres orienté vers un SaaS production-ready, la <strong>recommandation soutenable</strong> est :</p>

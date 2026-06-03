@@ -2953,7 +2953,7 @@
   <span class="md-ellipsis">
     
   
-  0.9 — Serveur local multiposte : exposer Laravel sur le réseau
+  0.9 — Serveur local multiposte : Laravel sur le réseau
 
     
   </span>
@@ -5753,22 +5753,19 @@
 <hr />
 <h2 id="2-une-breve-histoire-pour-comprendre-sa-philosophie">2. Une brève histoire pour comprendre sa philosophie<a class="headerlink" href="#2-une-breve-histoire-pour-comprendre-sa-philosophie" title="Permanent link">&para;</a></h2>
 <p>Laravel n'est pas tombé du ciel. Sa philosophie actuelle est le résultat direct de quinze ans de décisions techniques cohérentes.</p>
-<pre class="mermaid"><code>---
-config:
-  theme: neutral
----
+<pre class="mermaid"><code>%%{init: {'theme':'neutral'}}%%
 timeline
     title Quinze ans de maturation
     2011 : Laravel 1
          : Taylor Otwell publie la v1 pour combler les manques de CodeIgniter
     2013 : Laravel 4
-         : Bascule sur Composer et adoption massive de la communauté PHP moderne
+         : Bascule sur Composer et adoption massive de la communaute PHP moderne
     2015 : Laravel 5
-         : Structure de projet standardisée, Eloquent mature, Artisan puissant
-    2017 : Écosystème
+         : Structure de projet standardisee, Eloquent mature, Artisan puissant
+    2017 : Ecosysteme
          : Forge, Envoyer, Nova - Laravel devient une plateforme, plus seulement un framework
     2020 : Laravel 8
-         : Jetstream, Sail, Livewire poussé par la communauté TALL
+         : Jetstream, Sail, Livewire pousse par la communaute TALL
     2024 : Laravel 11
          : Slim skeleton, retrait du Kernel HTTP, modernisation profonde
     2026 : Laravel 13
@@ -5824,33 +5821,32 @@ timeline
 <hr />
 <h2 id="4-larchitecture-mvc-expliquee-sans-jargon">4. L'architecture MVC expliquée sans jargon<a class="headerlink" href="#4-larchitecture-mvc-expliquee-sans-jargon" title="Permanent link">&para;</a></h2>
 <p>Laravel impose un découpage clair des responsabilités. Comprendre ce schéma maintenant vous évitera des dizaines d'heures de refactoring plus tard.</p>
-<pre class="mermaid"><code>---
-config:
-  theme: neutral
----
+<pre class="mermaid"><code>%%{init: {'theme':'neutral'}}%%
 flowchart TB
-    A[Navigateur du client] --&gt;|Requête HTTP| B(Routeur Laravel)
+    A[Navigateur du client] --&gt;|Requete HTTP| B(Routeur Laravel)
     B --&gt; C{Middlewares}
-    C --&gt;|Auth, CSRF, rate limit| D[Contrôleur]
-    D --&gt; E[Service / Action métier]
-    E --&gt; F[Modèle Eloquent]
-    F &lt;--&gt;|SQL préparé| G[(Base de données)]
-    E --&gt;|Données| D
-    D --&gt; H[Vue Blade ou JSON]
-    H --&gt;|Réponse HTTP| A
+    C --&gt;|Auth, CSRF, rate limit| D[Controleur]
+    D --&gt;|delegue| E[Service / Action metier]
+    E --&gt; F[Modele Eloquent]
+    F &lt;--&gt;|SQL prepare| G[(Base de donnees)]
+    E --&gt;|retourne les donnees| D2[Controleur]
+    D2 --&gt;|retourne la reponse| H[Vue Blade ou JSON]
+    H --&gt;|Reponse HTTP| A
 
-    subgraph Domaine_Metier ["Domaine métier"]
+    subgraph Domaine_Metier ["Domaine metier"]
         E
         F
     end
 
-    subgraph Presentation ["Présentation"]
+    subgraph Presentation ["Presentation"]
         D
+        D2
         H
     end
 
     style Domaine_Metier fill:#e8f5e9,stroke:#2e7d32
-    style Presentation fill:#e3f2fd,stroke:#1565c0</code></pre>
+    style Presentation fill:#e3f2fd,stroke:#1565c0
+    style D2 fill:#e3f2fd,stroke:#1565c0</code></pre>
 <p><strong>Lecture du flux</strong> :</p>
 <ol>
 <li>Le navigateur envoie une requête (par exemple <code>GET /clients/42</code>).</li>
