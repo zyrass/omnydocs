@@ -84,85 +84,88 @@ Pour créer un Active Directory, la norme absolue est *Windows Server*. Cependan
 
 ### Préparation de l'hôte
 
-!!! abstract "Commandes Linux - Prérequis système"
+```bash title="Commandes Linux ( Prérequis système ) - Définition du nom de domaine complet (FQDN)"
+# Fixer le hostname du Contrôleur de Domaine
+sudo hostnamectl set-hostname dc01.lab.local
 
-    ```bash title="Commandes Linux - Définition du nom de domaine complet (FQDN)"
-    # Fixer le hostname du Contrôleur de Domaine
-    sudo hostnamectl set-hostname dc01.lab.local
-    
-    # Édition du fichier hosts local
-    sudo vi /etc/hosts
-    ```
-    
-    ```text title="Fichier /etc/hosts"
-    127.0.0.1       localhost
-    192.168.50.11   dc01.lab.local dc01
-    ```
+# Édition du fichier hosts local
+sudo vi /etc/hosts
+```
+
+```text title="Fichier /etc/hosts"
+127.0.0.1       localhost
+192.168.50.11   dc01.lab.local dc01
+```
+
+> Pour rappel, FQDN signifie *Fully Qualified Domain Name* (Nom de Domaine Complet). Si le fichier hosts a été mis à jour il faut mettre à jour le fichier hostname avec la commande hostnamectl.
+
+!!! warning "La configuration du fichier /etc/hosts et l'utilisation de la commande hostnamectl est propre à Debian et Ubuntu. Pour d'autres distributions Linux, les commandes peuvent varier."
 
 ### Nettoyage (Si Samba classique était installé)
 
-Samba AD est incompatible avec un simple serveur de fichiers Samba. Il faut purger l'ancien.
+!!! quote "Samba AD est incompatible avec un simple serveur de fichiers Samba. Il faut purger l'ancien."
 
-!!! abstract "Commandes Linux - Nettoyage"
+```bash title="Commandes Linux ( Nettoyage de l'ancien Samba ) - Purge des paquets"
+# Arrêt des services classiques
+sudo systemctl stop smbd nmbd winbind 2>/dev/null
 
-    ```bash title="Commandes Linux - Purge des paquets"
-    # Arrêt des services classiques
-    sudo systemctl stop smbd nmbd winbind 2>/dev/null
-    
-    # Désinstallation complète
-    sudo apt purge samba samba-common samba-common-bin -y
-    sudo apt autoremove -y
-    
-    # Suppression des configurations résiduelles
-    sudo rm -rf /etc/samba/
-    ```
+# Désinstallation complète
+sudo apt purge samba samba-common samba-common-bin -y
+sudo apt autoremove -y
+
+# Suppression des configurations résiduelles
+sudo rm -rf /etc/samba/
+```
 
 ### Installation et Provisionnement du Domaine
 
-!!! abstract "Commandes Linux - Déploiement AD"
-
-    ```bash title="Commandes Linux - Installation des composants"
-    sudo apt install samba smbclient krb5-user winbind libnss-winbind libpam-winbind ldb-tools -y
-    ```
+```bash title="Commandes Linux ( Déploiement AD ) - Installation des composants"
+sudo apt install samba smbclient krb5-user winbind libnss-winbind libpam-winbind ldb-tools -y
+```
     
-    *Lors de l'installation de Kerberos, l'assistant vous posera 3 questions :*
+!!! note "Lors de l'installation de Kerberos, l'assistant vous posera 3 questions :"
+
     - Royaume Kerberos : `LAB.LOCAL` (En majuscules)
     - Serveur Kerberos : `dc01.lab.local`
     - Serveur d'admin : `dc01.lab.local`
-    
-    ```bash title="Commandes Linux - Provisionnement de la forêt"
-    # Supprimer le fichier conf par défaut
-    sudo rm /etc/samba/smb.conf 2>/dev/null
-    
-    # Provisionner le domaine "lab.local"
-    sudo samba-tool domain provision \
-        --realm=LAB.LOCAL \
-        --domain=LAB \
-        --server-role=dc \
-        --dns-backend=SAMBA_INTERNAL \
-        --adminpass='AdminLab2026!' \
-        --use-rfc2307
-    ```
+
+```bash title="Commandes Linux - Provisionnement de la forêt"
+# Supprimer le fichier conf par défaut
+sudo rm /etc/samba/smb.conf 2>/dev/null
+
+# Provisionner le domaine "lab.local"
+sudo samba-tool domain provision \
+    --realm=LAB.LOCAL \
+    --domain=LAB \
+    --server-role=dc \
+    --dns-backend=SAMBA_INTERNAL \
+    --adminpass='AdminLab2026!' \
+    --use-rfc2307
+```
+
+_Le provisionnement de la forêt consiste à configurer le serveur Samba AD en tant que contrôleur de domaine, à configurer les paramètres DNS, à configurer les paramètres Kerberos, à configurer les paramètres LDAP et à configurer les paramètres Samba AD._
+
+!!! note "La commande samba-tool domain provision est une commande complexe qui nécessite de nombreuses options. Pour plus d'informations sur les options de la commande samba-tool domain provision, veuillez consulter la documentation officielle."
+
+!!! info "Il est important de noter que le Realm Kerberos doit être écrit en majuscules."
 
 ### Démarrage des services
 
-Le DNS de la machine doit pointer vers elle-même pour que la résolution AD fonctionne.
+!!! quote "Le DNS de la machine doit pointer vers elle-même pour que la résolution AD fonctionne."
 
-!!! abstract "Configuration DNS et Service"
+```text title="Configuration DNS et Service - Fichier /etc/resolv.conf"
+nameserver 192.168.50.11
+search lab.local
+```
 
-    ```text title="Fichier /etc/resolv.conf"
-    nameserver 192.168.50.11
-    search lab.local
-    ```
+```bash title="Commandes Linux - Activation du Contrôleur"
+sudo systemctl unmask samba-ad-dc
+sudo systemctl enable samba-ad-dc
+sudo systemctl start samba-ad-dc
 
-    ```bash title="Commandes Linux - Activation du Contrôleur"
-    sudo systemctl unmask samba-ad-dc
-    sudo systemctl enable samba-ad-dc
-    sudo systemctl start samba-ad-dc
-    
-    # Vérification fonctionnelle
-    samba-tool domain info 192.168.50.11
-    ```
+# Vérification fonctionnelle
+samba-tool domain info 192.168.50.11
+```
 
 <br>
 
@@ -172,27 +175,25 @@ Le DNS de la machine doit pointer vers elle-même pour que la résolution AD fon
 
 ## Création des Utilisateurs et Groupes
 
-Nous allons recréer la structure RH de l'entreprise ARTECH au sein de l'AD.
+!!! quote "Nous allons recréer la structure RH de l'entreprise ARTECH au sein de l'AD."
 
-!!! abstract "Gestion de l'AD en CLI"
+```bash title="Commandes Linux ( Gestion de l'AD en CLI ) - Gestion des identités Samba"
+# Création des utilisateurs du domaine
+sudo samba-tool user create dupont 'Dupont2026!' --given-name='Pierre' --surname='Dupont'
+sudo samba-tool user create lemoine 'Lemoine2026!' --given-name='Stéphane' --surname='Lemoine'
+sudo samba-tool user create lefebvre 'Lefebvre2026!' --given-name='Hélène' --surname='Lefebvre'
+sudo samba-tool user create stagiaire 'Stage2026' --given-name='Paul' --surname='Stagiaire'
 
-    ```bash title="Commandes Linux - Gestion des identités Samba"
-    # Création des utilisateurs du domaine
-    sudo samba-tool user create dupont 'Dupont2026!' --given-name='Pierre' --surname='Dupont'
-    sudo samba-tool user create lemoine 'Lemoine2026!' --given-name='Stéphane' --surname='Lemoine'
-    sudo samba-tool user create lefebvre 'Lefebvre2026!' --given-name='Hélène' --surname='Lefebvre'
-    sudo samba-tool user create stagiaire 'Stage2026' --given-name='Paul' --surname='Stagiaire'
-    
-    # Création des groupes de sécurité
-    sudo samba-tool group add Compta
-    sudo samba-tool group add Direction
-    sudo samba-tool group add Stagiaires
-    
-    # Affectation des utilisateurs dans les groupes
-    sudo samba-tool group addmembers Compta dupont
-    sudo samba-tool group addmembers Direction lefebvre
-    sudo samba-tool group addmembers Stagiaires stagiaire
-    ```
+# Création des groupes de sécurité
+sudo samba-tool group add Compta
+sudo samba-tool group add Direction
+sudo samba-tool group add Stagiaires
+
+# Affectation des utilisateurs dans les groupes
+sudo samba-tool group addmembers Compta dupont
+sudo samba-tool group addmembers Direction lefebvre
+sudo samba-tool group addmembers Stagiaires stagiaire
+```
 
 <br>
 
@@ -206,19 +207,20 @@ Pour qu'un PC rejoigne le domaine, **il doit impérativement utiliser le DC comm
 
 ### Sur les postes WIN-COMPTA-01 et WIN-STAGE-01
 
-!!! abstract "Jonction au Domaine"
+```powershell title="Commandes PowerShell (Jonction au Domaine ) - Côté Client Windows"
+# 1. Pointer le DNS vers notre DC Samba (192.168.50.11)
+Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses "192.168.50.11","1.1.1.1"
 
-    ```powershell title="Commandes PowerShell - Côté Client Windows"
-    # 1. Pointer le DNS vers notre DC Samba (192.168.50.11)
-    Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses "192.168.50.11","1.1.1.1"
-    
-    # 2. Joindre le poste au domaine LAB.LOCAL
-    Add-Computer -DomainName "LAB.LOCAL" -Credential (Get-Credential) -Restart
-    ```
-    
-    *Lors de l'invite `Get-Credential`, entrez :*
+# 2. Joindre le poste au domaine LAB.LOCAL
+Add-Computer -DomainName "LAB.LOCAL" -Credential (Get-Credential) -Restart
+```
+
+!!! warning "Lors de l'invite `Get-Credential`, entrez :"
+
     - Utilisateur : `LAB\Administrator`
     - Mot de passe : `AdminLab2026!`
+
+<br>
 
 ### Tests post-jonction
 
