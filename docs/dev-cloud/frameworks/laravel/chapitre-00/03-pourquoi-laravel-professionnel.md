@@ -9,7 +9,7 @@ tags:
   - ecosysteme
 ---
 
-# 03 — Pourquoi Laravel pour un projet professionnel moderne ?
+# 03 — Pourquoi Laravel pour un projet pro. moderne ?
 
 <div class="omny-meta" data-level="Fondamental" data-version="Laravel 13.x" data-time="25 min"></div>
 

@@ -12,7 +12,7 @@ tags:
 
 <div class="omny-meta" data-level="Débutant" data-version="Laravel 13 / Sail 1.x" data-time="35 min"></div>
 
-# 0.9 — Serveur local multiposte : exposer Laravel sur le réseau
+# 0.9 — Serveur local multiposte : Laravel sur le réseau
 
 !!! quote "Analogie pédagogique"
     Imaginez un téléphone fixe interne à une maison. Par défaut, `php artisan serve` est branché sur **un seul combiné** dans une seule pièce : vous seul pouvez décrocher (c'est `127.0.0.1`, la boucle locale). Exposer le serveur sur le réseau revient à connecter ce téléphone à **l'autocommutateur de l'immeuble** : tous les postes connectés au même réseau (PC du salon, Mac de la cuisine, smartphone du jardin) peuvent maintenant composer le numéro. Mais comme dans tout immeuble, il faut aussi que **le gardien** (le pare-feu) laisse passer les appels. C'est l'objet de cette leçon.
