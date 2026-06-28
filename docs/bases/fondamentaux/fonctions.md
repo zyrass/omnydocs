@@ -23,7 +23,7 @@ Les types primitifs constituent les briques de base des données, la mémoire le
 
 !!! note "Cette fiche fait suite aux [Structures Itératives](./structure-iteratives.md). Les fonctions encapsulent fréquemment des conditions et des boucles — leur maîtrise préalable est un prérequis."
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous ancre l'analogie de la recette avant d'aborder la syntaxe. Visualiser la séparation entre 'définir une fois' et 'utiliser plusieurs fois' est la clé pour comprendre l'intérêt des fonctions."
 
@@ -31,7 +31,7 @@ Les types primitifs constituent les briques de base des données, la mémoire le
 
 <p><em>La recette est écrite une seule fois dans le livre. Trois appels, trois plats produits — sans réécrire les étapes. En programmation, la fonction est ce livre : définie une fois, appelée autant de fois que nécessaire, avec des ingrédients (arguments) différents à chaque fois.</em></p>
 
-<br />
+<br>
 
 ---
 
@@ -132,7 +132,7 @@ Le **nom** identifie l'opération effectuée et permet de l'invoquer. Les **para
 
 _Quatre composants essentiels : nom descriptif, paramètres, corps qui effectue le calcul, valeur de retour qui communique le résultat._
 
-<br />
+<br>
 
 ---
 
@@ -140,7 +140,7 @@ _Quatre composants essentiels : nom descriptif, paramètres, corps qui effectue 
 
 La création d'une fonction se déroule en deux phases distinctes. La **définition** établit ce que la fonction fait. L'**appel** déclenche l'exécution de ce comportement avec des données spécifiques.
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous matérialise le flux d'exécution lors d'un appel. Comprendre que le contrôle du programme se transfère temporairement à la fonction — puis revient au point d'appel — est ce qui distingue un appel de fonction d'une simple ligne de code."
 
@@ -155,7 +155,7 @@ flowchart TD
   A["Code appelant"] --> B["Appel de fonction avec arguments"]
   B --> C["Transfert du contrôle à la fonction"]
   C --> D["Exécution du corps de la fonction"]
-  D --> E{"Fonction retourne<br />une valeur ?"}
+  D --> E{"Fonction retourne<br>une valeur ?"}
   E -.->|"Oui"| F["Retour de la valeur"]
   E -.->|"Non"| G["Retour sans valeur"]
   F --> H["Retour au code appelant"]
@@ -258,7 +258,7 @@ _Le contrôle du programme transite temporairement du code appelant vers la fonc
     }
     ```
 
-<br />
+<br>
 
 ---
 
@@ -358,7 +358,7 @@ _Le contrôle du programme transite temporairement du code appelant vers la fonc
     !!! tip "Go — pas de paramètres par défaut natifs"
         Go ne dispose pas de valeurs par défaut dans la signature des fonctions. Le pattern struct avec initialisation conditionnelle dans le corps est l'approche idiomatique — plus verbeux, mais comportement toujours explicite.
 
-<br />
+<br>
 
 ---
 
@@ -370,7 +370,7 @@ Le mécanisme de passage des arguments impacte fondamentalement le comportement 
 
 Lorsqu'un argument est passé par valeur, la fonction reçoit une copie de la donnée. Les modifications effectuées sur ce paramètre n'affectent pas la variable originale.
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous rend visible l'indépendance entre la variable originale et sa copie dans la fonction. C'est le même mécanisme que la copie par valeur étudiée dans la fiche Heap/Stack — appliqué ici au contexte des fonctions."
 
@@ -449,7 +449,7 @@ Lorsqu'un argument est passé par valeur, la fonction reçoit une copie de la do
 
 Lorsqu'un argument est passé par référence, la fonction reçoit l'adresse mémoire de la donnée. Les modifications effectuées modifient directement la donnée originale.
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous illustre pourquoi une modification dans la fonction peut affecter le code appelant. C'est le pendant fonctionnel de la copie par adresse étudiée dans la fiche Heap/Stack — la même adresse est partagée entre les deux contextes."
 
@@ -523,7 +523,7 @@ Lorsqu'un argument est passé par référence, la fonction reçoit l'adresse mé
 !!! warning "Effets de bord non intentionnels"
     Le passage par référence peut créer des effets de bord[^1] non intentionnels. Pour l'éviter, créer explicitement une copie de la donnée à l'intérieur de la fonction avant de la modifier.
 
-<br />
+<br>
 
 ---
 
@@ -612,7 +612,7 @@ Les valeurs de retour permettent aux fonctions de communiquer des résultats au 
     !!! tip "Go — retours multiples natifs"
         Go est le seul langage de la série à supporter les retours multiples directement dans la signature de la fonction. C'est une fonctionnalité particulièrement utile pour retourner à la fois une valeur et une erreur — pattern omniprésent en Go.
 
-<br />
+<br>
 
 ---
 
@@ -620,7 +620,7 @@ Les valeurs de retour permettent aux fonctions de communiquer des résultats au 
 
 La **portée** d'une variable détermine dans quelles parties du programme elle reste accessible. Ce concept évite des bugs subtils liés à des variables qui semblent disparaître ou changer sans raison apparente.
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous rend visible la frontière entre portée locale et portée globale. Comprendre que cette frontière est physique — et non une convention — est essentiel pour diagnostiquer les erreurs de type 'variable non définie'."
 
@@ -698,7 +698,7 @@ Les variables déclarées à l'intérieur d'une fonction ont une portée locale 
 !!! warning "Variables globales — usage à limiter"
     Les variables globales créent des couplages invisibles entre différentes parties du code. Deux fonctions qui partagent une variable globale deviennent dépendantes l'une de l'autre sans que cela soit visible dans leurs signatures. Privilégier le passage explicite de paramètres et de valeurs de retour.
 
-<br />
+<br>
 
 ---
 
@@ -781,7 +781,7 @@ Les langages adoptent des philosophies distinctes concernant l'explicité des in
 !!! tip "Philosophie des langages"
     Python et JavaScript privilégient la rapidité de développement avec moins de cérémonie syntaxique. Go privilégie la clarté et la sécurité avec une explicité qui rend le comportement du code immédiatement visible dans la signature. PHP se situe entre les deux, offrant le typage optionnel depuis PHP 7.
 
-<br />
+<br>
 
 ---
 
@@ -866,7 +866,7 @@ Quatre règles à appliquer systématiquement. Une seule responsabilité par fon
 !!! warning "Validation des entrées"
     Vérifier toujours les valeurs d'entrée avant de les utiliser. Une fonction robuste valide ses paramètres et retourne des valeurs ou des signaux d'erreur appropriés plutôt que de planter silencieusement.
 
-<br />
+<br>
 
 ---
 
@@ -880,6 +880,6 @@ Quatre règles à appliquer systématiquement. Une seule responsabilité par fon
 
     _Chaque fonction bien conçue est une abstraction qui simplifie le programme. Plus l'art de créer des fonctions focalisées et bien nommées est maîtrisé, plus les programmes gagnent en clarté, en testabilité et en évolutivité._
 
-<br />
+<br>
 
 [^1]: Un **effet de bord** désigne une modification inattendue ou non souhaitée de l'état d'un programme provoquée par l'exécution d'une fonction, comme altérer une variable globale ou modifier une ressource externe alors qu'on attendait seulement un calcul.

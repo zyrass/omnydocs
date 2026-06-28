@@ -270,7 +270,7 @@ Ces choix sont définitifs. Toute substitution doit faire l'objet d'une décisio
 
     ---
 
-    Starter kit Livewire officiel, Livewire 4, Flux UI, Tailwind CSS.
+    HTML sémantique standard et CSS classique (vanilla) pour isoler l'apprentissage des mécanismes internes du framework.
 
 -   :lucide-flask-conical:{ .lg .middle } **Tests**
 

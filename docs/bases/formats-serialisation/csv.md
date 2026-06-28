@@ -23,7 +23,7 @@ CSV est le format **universel d'échange de données** : exporté par Excel, Goo
 !!! info "Pourquoi c'est important"
     CSV permet l'échange de données entre systèmes hétérogènes, l'import/export massif, le traitement batch, l'analyse de logs et la génération de rapports. C'est le format standard des outils de data science (pandas, R) et le dénominateur commun de l'interopérabilité.
 
-<br />
+<br>
 
 ---
 
@@ -98,7 +98,7 @@ Dupont|Alice|28
 Martin|Bob|35
 ```
 
-<br />
+<br>
 
 ---
 
@@ -578,7 +578,7 @@ Martin|Bob|35
     }
     ```
 
-<br />
+<br>
 
 ---
 
@@ -747,7 +747,7 @@ with open('fichier_inconnu.csv', 'r', encoding='utf-8') as f:
 
 CSV ne supporte pas les données hiérarchiques — un enregistrement avec plusieurs sous-éléments (commande avec plusieurs lignes d'articles) nécessite soit une dénormalisation (une ligne par article avec répétition des données de la commande), soit un autre format. CSV ne porte aucun type natif — tout est chaîne de caractères. Il n'existe pas de standard strict pour les commentaires, les valeurs nulles ou les booléens.
 
-<br />
+<br>
 
 ---
 
@@ -759,6 +759,6 @@ CSV ne supporte pas les données hiérarchiques — un enregistrement avec plusi
 !!! quote "Conclusion"
     _CSV est le format universel de l'échange de données — simple, lisible et supporté par tous les langages et tous les outils. Sa simplicité apparente cache des pièges concrets : encodage non spécifié, délimiteur supposé plutôt que vérifié, données non validées, fichiers trop volumineux pour être chargés en mémoire. Maîtriser CSV, c'est comprendre ses limites structurelles (pas de types, pas de hiérarchie, pas de standard strict) autant que ses forces (universalité, performance brute, interopérabilité totale). Pour des données simples et tabulaires, CSV reste imbattable._
 
-<br />
+<br>
 
 [^1]: En JavaScript, une **IIFE (Immediately Invoked Function Expression)** est une fonction qui s'exécute immédiatement après sa définition. Elle isole ses variables de l'espace global et permet d'utiliser `await` au niveau racine d'un script non-module.

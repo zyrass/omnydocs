@@ -1,89 +1,90 @@
 ---
-description: "AlpineJS - Du natif au framework, 4 modules pour maîtriser le framework Javascript le plus utilisé dans l'écosystème Laravel/TALL."
-tags: ["ALPINEJS", "JAVASCRIPT", "TALL"]
+description: "Alpine.js — Du script léger au framework réactif client : 5 modules pour maîtriser le framework JavaScript le plus intégré à l'écosystème Laravel/TALL."
+tags: ["ALPINEJS", "JAVASCRIPT", "TALL", "FRONTEND"]
 ---
 
-# AlpineJS
+# Alpine.js
 
 <div
   class="omny-meta"
-  data-level="🟢 Débutant → 🟡 Intermédiaire"
+  data-level="🟢 Débutant à 🟡 Intermédiaire"
   data-version="3.x"
-  data-time="~10-15h">
+  data-time="10-15 heures">
 </div>
 
 ## Introduction
 
-!!! quote "Analogie pédagogique — Le couteau suisse du développeur Laravel"
-    Imaginez que vous êtes en train de construire un meuble en bois (votre site Laravel). Vous pourriez prendre des tournevis, scies et marteaux séparés (JavaScript pur), ce qui est lourd et encombrant. Alpine.js est comme un couteau suisse de poche. Il contient exactement les outils dont vous avez besoin (interactivité, gestion d'état, API) pour ajouter des fonctionnalités rapidement et élégamment, sans sortir tout votre outillage. Vous pouvez l'ouvrir, l'utiliser, et le refermer sans jamais quitter votre établi.
+!!! quote "Analogie pédagogique — Le Couteau Suisse de l'Artisan"
+    Imaginez que vous construisez un meuble en bois massif (votre application Laravel). Pour insérer de petites vis ou fixer une charnière (ajouter un menu déroulant, un bouton de fermeture ou une modale), vous n'avez pas besoin de sortir un énorme atelier de machines-outils automatisées (un framework lourd comme React ou Vue). Un simple couteau suisse multi-usage que vous gardez dans votre poche fait parfaitement l'affaire. Alpine.js est ce couteau suisse : léger, immédiatement opérationnel et toujours sous la main sans quitter votre établi HTML/Blade.
 
-**Alpine.js** est un framework JavaScript léger et progressif conçu pour ajouter de l'interactivité aux applications web sans la complexité des gros frameworks. Il est souvent décrit comme "Tailwind pour le JavaScript".
+**Alpine.js** est un framework JavaScript déclaratif et léger conçu pour ajouter de l'interactivité côté client au sein des applications web. Surnommé « le Tailwind du JavaScript », il permet d'écrire la logique réactive directement dans le balisage HTML.
 
 | Caractéristique | Description |
 |---|---|
-| **Approche** | Déclarative, directement dans le HTML |
-| **Taille** | ~7.5KB gzippé |
-| **Écosystème** | Idéal pour Laravel/TALL, CMS, sites statiques |
-| **Courbe d'apprentissage** | Très rapide (minutes) |
+| **Approche** | Déclarative, directement dans les attributs HTML |
+| **Taille** | ~7.5 Ko compressé (gzippé) |
+| **Écosystème** | Cœur de la Stack TALL, idéal pour les layouts Blade |
+| **Courbe d'apprentissage** | Extrêmement rapide (quelques heures) |
+
+<br>
 
 ---
 
-## Pourquoi Alpine.js ?
+## Pourquoi utiliser Alpine.js ?
 
-### 1. Intégration native avec Laravel
-Comme il s'exécute côté client (browser), il fonctionne parfaitement avec le rendu HTML de Laravel. Pas de configuration complexe de build ou de serveur requise.
+### 1. Intégration transparente avec Laravel
+Comme il s'exécute côté client, Alpine.js fonctionne en harmonie avec le rendu HTML de Laravel Blade sans nécessiter d'API REST ou de compilation complexe obligatoire au démarrage.
 
-### 2. Moins de JavaScript écrit
-Contrairement à Vue ou React où vous devez souvent écrire des scripts lourds ou utiliser des bundlers, Alpine vous permet de rester dans votre fichier `.blade.php`.
+### 2. Réduction du volume de JavaScript
+Au lieu d'écrire des scripts distincts pour manipuler le DOM (`document.getElementById`), Alpine vous permet de lier l'état à vos balises à l'aide d'attributs préfixés par `x-`.
 
-### 3. Parfait pour le "sprinkling" d'interactivité
-Pas besoin de revoir toute l'architecture de votre site. Vous pouvez ajouter des fonctionnalités (menu déroulant, modals, onglets) sur une page existante en quelques secondes.
+### 3. Idéal pour les composants d'interface
+Qu'il s'agisse de menus déroulants, d'onglets, d'accordéons ou de modales de confirmation, Alpine gère ces interactions locales de manière fluide et performante.
 
-### 4. Une passerelle vers Vue.js
-Si votre application grandit et que vous avez besoin de plus de structure, la transition de la syntaxe Alpine vers Vue est extrêmement douce.
+<br>
 
 ---
 
-## Comment ça marche ? (Principe de base)
-Alpine ajoute des directives spéciales à vos éléments HTML. Ces directives sont des attributs qui commencent tous par `x-`.
+## Parcours pédagogique — 5 modules
 
-**Exemple : Un simple interrupteur**
-```html title="HTML — Alpine.js : la réactivité directement dans le HTML"
-<div x-data="{ open: false }">
-    <button @click="open = !open">Toggle</button>
+<div class="grid cards" markdown>
 
-    <div x-show="open">
-        Contenu caché/affiché
-    </div>
+-   :lucide-lightbulb:{ .lg .middle } **Module 1** — _Introduction & Directives de Base_
+
+    ---
+    Installation d'Alpine, initialisation de l'état avec `x-data`, affichage conditionnel `x-show` et écoute d'événements.
+
+    [:lucide-book-open-check: Accéder au module 1](./01-introduction.md)
+
+-   :lucide-eye:{ .lg .middle } **Module 2** — _Gestion de l'État & Affichage_
+
+    ---
+    Directives avancées de rendu : liaison d'attributs `x-bind`, gestion des listes `x-for`, conditions strictes `x-if` et insertion de texte `x-text`.
+
+    [:lucide-book-open-check: Accéder au module 2](./02-etat-affichage.md)
+
+-   :lucide-mouse-pointer-click:{ .lg .middle } **Module 3** — _Interactions & Événements_
+
+    ---
+    Écouteurs d'événements avec `@click` et `@keyup`, gestionnaires de touches, prévention de comportement par défaut et modificateurs.
+
+    [:lucide-book-open-check: Accéder au module 3](./03-interactions-evenements.md)
+
+-   :lucide-sliders:{ .lg .middle } **Module 4** — _Réactivité Avancée_
+
+    ---
+    Variables et propriétés magiques d'Alpine : `$el`, `$refs`, `$dispatch` pour émettre des événements vers le DOM et `$nextTick`.
+
+    [:lucide-book-open-check: Accéder au module 4](./04-reactivite-avancee.md)
+
+-   :lucide-rocket:{ .lg .middle } **Module 5** — _Écosystème & Production (Flux UI)_
+
+    ---
+    Centralisation de l'état global avec `Alpine.store()`, persistance locale (`$persist`), transition vers **Flux UI** et intégration Laravel 13.
+
+    [:lucide-book-open-check: Accéder au module 5](./05-ecosysteme-production.md)
+
 </div>
-```
-
-- `x-data` : Initialise un état JavaScript pour ce bloc.
-- `@click` (alias de `x-on:click`) : Réagit aux événements de clic.
-- `x-show` : Conditionne l'affichage de l'élément.
-
----
-
-## Progression dans ce cursus
-
-Ce programme vous emmène de l'installation basique à la création d'applications complètes et interactives.
-
-| Module | Thème | Objectif |
-|---|---|---|
-| [Module 1](./01-fondamentaux.md) | **Les bases d'Alpine.js** | Installation, directives essentielles (`x-data`, `x-show`, `x-on`), gestion de l'état local. |
-| [Module 2](./02-projets-alpine/01-password-generator/README.md) | **Projet : Générateur de Mot de Passe** | Apprendre à manipuler des chaînes de caractères, générer du contenu aléatoire et interagir avec l'utilisateur. |
-| [Module 3](./02-projets-alpine/02-currency-converter/README.md) | **Projet : Convertisseur de Devises** | Maîtriser les appels API (`fetch`), gérer les données asynchrones et mettre à jour l'interface en temps réel. |
-| [Module 4](./02-projets-alpine/03-pentest-reporting-tool/README.md) | **Projet : Outil de Reporting de Pentest** | Intégration complète, gestion de données complexes, création d'une interface de reporting professionnelle. |
-
----
-
-## Prérequis
-
-Pour tirer le meilleur parti de ce cours, il est recommandé de :
-
-- Connaître **HTML & CSS** de base.
-- Comprendre les bases de **JavaScript** (variables, fonctions, événements, DOM).
-- Avoir une connaissance de base de **Laravel** (Blade templating, intégration de ressources JS).
 
 <br>
 
@@ -91,7 +92,9 @@ Pour tirer le meilleur parti de ce cours, il est recommandé de :
 
 ## Conclusion
 
-!!! quote "Ce qu'il faut retenir"
-    Alpine.js n'est pas un concurrent de Vue ou React — c'est un **complément** idéal pour Laravel. Là où Blade gère le rendu HTML côté serveur, Alpine prend le relais pour l'interactivité côté client : menus déroulants, modals, toggles, validations en temps réel. Sa syntaxe déclarative (`x-data`, `x-show`, `x-on`) s'apprend en une heure et couvre 80% des besoins courants d'une application TALL Stack.
+!!! quote "Ce qu'il faut retenir d'Alpine.js"
+    Alpine.js fournit une alternative légère aux frameworks JavaScript lourds pour toutes les interactions de l'interface qui ne nécessitent pas de requêtes serveur systématiques. En combinant la simplicité d'écriture dans Blade et la puissance réactive des attributs `x-`, il constitue la brique indispensable de l'expérience utilisateur de la Stack TALL.
+
+> Prêt à écrire vos premières directives réactives ? Rendez-vous sur le **[Module 1 — Introduction & Directives de Base](./01-introduction.md)**.
 
 <br>

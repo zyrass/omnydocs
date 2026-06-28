@@ -787,6 +787,65 @@ echo $product->name; // ✅ Lecture OK
 $product->setPrice(899.99); // ✅ Modification via setter
 ```
 
+**Modernisation avec PHP 8.4+ : Property Hooks & Asymmetric Visibility**
+
+Depuis PHP 8.4, l'écriture d'un grand nombre de getters et setters peut être remplacée par deux fonctionnalités clés : les **Property Hooks** (crochets de propriété) et la **visibilité asymétrique**.
+
+**1. Property Hooks (Crochets de Propriété)**
+Ils permettent de définir des comportements d'interception d'écriture (`set`) ou de lecture (`get`) directement sur la propriété, sans déclarer de méthodes supplémentaires.
+
+```php title="PHP 8.4 — Utilisation des Property Hooks pour valider et transformer"
+class User {
+    // Le hook 'set' intercepte la modification et valide la donnée
+    public string $name {
+        set {
+            if (strlen($value) < 2) {
+                throw new InvalidArgumentException("Nom trop court");
+            }
+            $this->name = $value;
+        }
+    }
+
+    // Propriété virtuelle : elle n'occupe pas d'espace en mémoire
+    // Elle calcule sa valeur à la volée lors de la lecture (hook 'get')
+    public string $displayName {
+        get => "Utilisateur : " . ucfirst($this->name);
+    }
+}
+
+$user = new User();
+$user->name = "alain";     // Déclenche le set
+echo $user->displayName;    // Déclenche le get, affiche "Utilisateur : Alain"
+```
+_Les hooks de propriété unifient la déclaration et la logique d'accès, supprimant l'écriture de getters/setters redondants._
+
+**2. Asymmetric Visibility (Visibilité Asymétrique)**
+Elle permet d'appliquer une visibilité distincte pour la lecture (ex: publique) et pour l'écriture (ex: privée ou protégée).
+
+```php title="PHP 8.4 — Propriété en lecture publique et écriture privée"
+class BlogPost {
+    // Lecture autorisée de l'extérieur (public), écriture limitée à la classe (private)
+    public private(set) string $title;
+
+    public function __construct(string $title) {
+        $this->title = $title;
+    }
+
+    public function updateTitle(string $newTitle): void {
+        $this->title = $newTitle; // OK (dans la classe)
+    }
+}
+
+$post = new BlogPost("Initial Title");
+echo $post->title; // ✅ Lecture autorisée
+
+// $post->title = "Hacked Title"; 
+// ❌ Erreur fatale : modification non autorisée depuis l'extérieur
+```
+_La visibilité asymétrique remplace avantageusement le couple propriété privée + getter en simplifiant l'API publique de la classe._
+
+<br>
+
 ---
 
 ## 5. Méthodes et Propriétés Statiques

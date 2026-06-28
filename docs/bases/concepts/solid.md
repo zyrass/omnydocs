@@ -154,11 +154,11 @@ Le diagramme ci-dessous montre l'inversion opérée par la solution : au lieu qu
 
 ```mermaid
 flowchart TB
-    AC["AreaCalculator<br />Fermé à la modification"]
-    I["«interface»<br />Shape : area()"]
-    S["Square<br />area()"]
-    C["Circle<br />area()"]
-    T["Triangle<br />(extension future)"]
+    AC["AreaCalculator<br>Fermé à la modification"]
+    I["«interface»<br>Shape : area()"]
+    S["Square<br>area()"]
+    C["Circle<br>area()"]
+    T["Triangle<br>(extension future)"]
 
     AC -->|dépend de| I
     S -.implémente.-> I
@@ -279,14 +279,14 @@ Le diagramme ci-dessous oppose les deux conceptions : à gauche, une interface m
 ```mermaid
 flowchart LR
     subgraph Avant["Avant — interface grasse"]
-        W["«interface» Worker<br />work() eat() sleep()"]
-        R1["Robot<br />eat() lève une exception"]
+        W["«interface» Worker<br>work() eat() sleep()"]
+        R1["Robot<br>eat() lève une exception"]
         R1 -.implémente.-> W
     end
 
     subgraph Apres["Après — interfaces ségrégées"]
-        WK["«interface» Workable<br />work()"]
-        FD["«interface» Feedable<br />eat()"]
+        WK["«interface» Workable<br>work()"]
+        FD["«interface» Feedable<br>eat()"]
         H["Human"]
         R2["Robot"]
         H -.implémente.-> WK
@@ -351,10 +351,10 @@ Le diagramme ci-dessous illustre l'« inversion » au sens propre : la flèche d
 
 ```mermaid
 flowchart TB
-    PR["PasswordReminder<br />(module haut niveau)"]
-    IF["«interface»<br />DBConnectionInterface"]
-    MY["MySQLConnection<br />(module bas niveau)"]
-    PG["PostgreSQLConnection<br />(module bas niveau)"]
+    PR["PasswordReminder<br>(module haut niveau)"]
+    IF["«interface»<br>DBConnectionInterface"]
+    MY["MySQLConnection<br>(module bas niveau)"]
+    PG["PostgreSQLConnection<br>(module bas niveau)"]
 
     PR -->|dépend de| IF
     MY -.implémente.-> IF

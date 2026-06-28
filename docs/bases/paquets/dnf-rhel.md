@@ -23,7 +23,7 @@ DNF s'adresse à des systèmes où la stabilité et la traçabilité priment. Le
 !!! info "Pourquoi c'est important"
     Maîtriser DNF ne se résume pas à installer des paquets. C'est savoir gouverner les dépôts, contrôler les versions, gérer l'historique de transactions, comprendre la modularité AppStream et diagnostiquer proprement quand les dépendances partent en vrille en production.
 
-<br />
+<br>
 
 ---
 
@@ -31,7 +31,7 @@ DNF s'adresse à des systèmes où la stabilité et la traçabilité priment. Le
 
 Sur les distributions RHEL-like, une version "ancienne" n'est pas forcément non sécurisée. Les distributions backportent les correctifs de sécurité sur des branches stables — c'est pourquoi on voit des versions qui semblent dater mais qui sont patchées. DNF est conçu pour jouer proprement dans ce modèle : dépôts officiels, priorités, modularité et historique transactionnel.
 
-<br />
+<br>
 
 ---
 
@@ -79,7 +79,7 @@ flowchart LR
 # Clés GPG importées via rpm --import ou déclarées par gpgkey= dans les .repo
 ```
 
-<br />
+<br>
 
 ---
 
@@ -144,7 +144,7 @@ dnf repoquery --whatrequires nginx
 
 `repoquery` est l'outil d'inspection sans installation — on comprend avant d'agir, on n'agit pas pour comprendre.
 
-<br />
+<br>
 
 ---
 
@@ -190,7 +190,7 @@ dnf config-manager --set-enabled epel
 dnf config-manager --set-disabled epel
 ```
 
-<br />
+<br>
 
 ---
 
@@ -224,7 +224,7 @@ dnf module disable nodejs
 !!! warning "Désactiver un module ne supprime pas le contenu installé"
     La désactivation rend les streams inactifs mais ne retire pas les paquets déjà présents sur le système. C'est intentionnel — en production, on évite les effets de bord destructifs. Si le paquet que vous cherchez à installer n'est pas trouvé alors qu'il existe dans les dépôts, vérifier en priorité l'état des modules avec `dnf module list`.
 
-<br />
+<br>
 
 ---
 
@@ -250,7 +250,7 @@ dnf history undo 42
 dnf history rollback 40
 ```
 
-<br />
+<br>
 
 ---
 
@@ -292,7 +292,7 @@ rpm --checksig paquet.rpm
 !!! danger "Ne jamais désactiver gpgcheck en production"
     Si la vérification GPG échoue, diagnostiquer la cause — clé manquante, clé expirée, dépôt mal configuré. Désactiver `gpgcheck` pour débloquer une installation revient à éteindre l'alarme incendie plutôt qu'à éteindre le feu.
 
-<br />
+<br>
 
 ---
 
@@ -323,7 +323,7 @@ systemctl enable --now dnf-automatic.timer
 systemctl status dnf-automatic.timer
 ```
 
-<br />
+<br>
 
 ---
 
@@ -367,7 +367,7 @@ rpm --rebuilddb
 !!! warning "Verrous et transactions interrompues"
     DNF et RPM ne tolèrent pas les interruptions en cours de transaction. En cas de crash, diagnostiquer l'état avec `rpm -Va` avant de supprimer arbitrairement des fichiers de verrou. Une action corrective non éclairée peut aggraver la corruption.
 
-<br />
+<br>
 
 ---
 
@@ -389,7 +389,7 @@ rpm --rebuilddb
 
 Sur RHEL-like, on reste sur DNF classique beaucoup plus longtemps. Les runbooks et procédures écrits pour RHEL restent valides sans adaptation.
 
-<br />
+<br>
 
 ---
 
@@ -405,7 +405,7 @@ Sur RHEL 9, `yum` est un alias de `dnf` pour compatibilité — la bonne pratiqu
 | API et plugins | Legacy | libdnf — plugins modernisés |
 | Commande `yum` | Native | Alias de compatibilité |
 
-<br />
+<br>
 
 ---
 
@@ -417,4 +417,4 @@ Sur RHEL 9, `yum` est un alias de `dnf` pour compatibilité — la bonne pratiqu
 !!! quote "Conclusion"
     _DNF est le point de bascule entre installer des paquets et administrer un parc. On gagne une vraie capacité d'exploitation quand on maîtrise la gouvernance des dépôts, l'historique de transactions, la modularité AppStream et le diagnostic rigoureux. Et surtout, on arrête de résoudre les problèmes au hasard — on les résout par inspection, preuve et action minimale. La maîtrise de DNF n'est pas dans la mémorisation de commandes : elle est dans la compréhension du pipeline complet, de la clé GPG jusqu'à la rpmdb._
 
-<br />
+<br>

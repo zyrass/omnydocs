@@ -28,7 +28,7 @@ Arch Linux n'est pas une distribution pour débutants. Elle exige une compréhen
 !!! warning "Arch n'est pas Ubuntu"
     Ubuntu et Debian visent la stabilité avec des versions testées pendant des mois. Arch Linux vise la modernité avec des logiciels à jour quotidiennement. Pour un système stable en production critique, choisir Debian ou RHEL. Pour les dernières versions avec maintenance active, Arch est idéal.
 
-<br />
+<br>
 
 ---
 
@@ -58,10 +58,10 @@ Comprendre PACMAN nécessite de comprendre la philosophie d'Arch Linux.
 flowchart TB
     subgraph "Fixed Release - Debian"
         direction TB
-        A1["Version 22.04 LTS<br />Avril 2022"]
-        A2["Freeze packages<br />Versions figées 2 ans"]
-        A3["Version 24.04 LTS<br />Avril 2024"]
-        A4["Migration majeure<br />nécessaire"]
+        A1["Version 22.04 LTS<br>Avril 2022"]
+        A2["Freeze packages<br>Versions figées 2 ans"]
+        A3["Version 24.04 LTS<br>Avril 2024"]
+        A4["Migration majeure<br>nécessaire"]
 
         A1 --> A2
         A2 --> A3
@@ -71,8 +71,8 @@ flowchart TB
     subgraph "Rolling Release — Arch"
         direction TB
         B1["Installation initiale"]
-        B2["pacman -Syu<br />Mises à jour continues"]
-        B3["Toujours à jour<br />Jamais de réinstallation"]
+        B2["pacman -Syu<br>Mises à jour continues"]
+        B3["Toujours à jour<br>Jamais de réinstallation"]
 
         B1 --> B2
         B2 --> B3
@@ -117,7 +117,7 @@ flowchart TB
 !!! danger "AUR n'est pas un dépôt officiel"
     AUR contient des scripts de build (PKGBUILD) fournis par des utilisateurs. Ces scripts peuvent contenir n'importe quoi, y compris du code malveillant. Inspecter toujours le PKGBUILD avant installation. L'AUR est puissant mais nécessite vigilance constante.
 
-<br />
+<br>
 
 ---
 
@@ -136,9 +136,9 @@ flowchart TB
 
     A --> B
 
-    B -->|Synchronisation| C["Base de données locale<br />/var/lib/pacman/"]
-    B -->|Installation| D["Téléchargement paquets<br />/var/cache/pacman/pkg/"]
-    B -->|Résolution| E["Calcul dépendances<br />libalpm"]
+    B -->|Synchronisation| C["Base de données locale<br>/var/lib/pacman/"]
+    B -->|Installation| D["Téléchargement paquets<br>/var/cache/pacman/pkg/"]
+    B -->|Résolution| E["Calcul dépendances<br>libalpm"]
 
     C --> F["Mise à jour index dépôts"]
     D --> G["Extraction .pkg.tar.zst"]
@@ -207,7 +207,7 @@ depend = nss
 optdepend = libnotify: Notification support
 ```
 
-<br />
+<br>
 
 ---
 
@@ -388,7 +388,7 @@ paccache -ruk0
 !!! tip "Stratégie de cache"
     Garder les 3 dernières versions de chaque paquet permet de downgrader facilement en cas de problème. Nettoyer mensuellement avec `paccache -rk3`. Avant une mise à jour majeure, conserver plus de versions.
 
-<br />
+<br>
 
 ---
 
@@ -474,7 +474,7 @@ systemctl enable --now reflector.timer
 --sort rate
 ```
 
-<br />
+<br>
 
 ---
 
@@ -609,7 +609,7 @@ pacman -S --overwrite '*' firefox
 pacman-db-upgrade
 ```
 
-<br />
+<br>
 
 ---
 
@@ -628,7 +628,7 @@ flowchart TB
     A["Recherche sur aur.archlinux.org"]
     B["git clone https://aur.archlinux.org/pkg.git"]
     C["Inspection manuelle du PKGBUILD"]
-    D{"Source légitime ?<br />Commandes sûres ?<br />SHA256 correct ?"}
+    D{"Source légitime ?<br>Commandes sûres ?<br>SHA256 correct ?"}
     E["makepkg -si"]
     F["Abandon"]
     G["Paquet .pkg.tar.zst compilé"]
@@ -723,7 +723,7 @@ yay -Yc
 !!! danger "Sécurité AUR — règles non négociables"
     Toujours inspecter le PKGBUILD avant installation — vérifier la source, les commandes dans `build()` et `package()`, et les sommes de contrôle. Vérifier le mainteneur (utilisateur reconnu, votes élevés, commentaires positifs, date de mise à jour récente). Un PKGBUILD malveillant peut compromettre tout le système. Les AUR helpers comme yay n'inspectent pas automatiquement les PKGBUILD à votre place.
 
-<br />
+<br>
 
 ---
 
@@ -797,7 +797,7 @@ umount -R /mnt
 reboot
 ```
 
-<br />
+<br>
 
 ---
 
@@ -869,7 +869,7 @@ PKGEXT='.pkg.tar.zst'
 mount serveur:/var/cache/pacman/pkg /var/cache/pacman/pkg
 ```
 
-<br />
+<br>
 
 ---
 
@@ -881,4 +881,4 @@ mount serveur:/var/cache/pacman/pkg /var/cache/pacman/pkg
 !!! quote "Conclusion"
     _Arch Linux et PACMAN représentent une philosophie radicalement différente de la gestion système. Là où Ubuntu protège, Arch responsabilise. Là où Fedora automatise, Arch exige compréhension. PACMAN est un outil puissant et sans garde-fous — il fait exactement ce qu'on lui demande. Cette confiance implique une responsabilité : comprendre ce qu'on installe, lire les actualités avant toute mise à jour, maintenir le système régulièrement. En échange, on obtient un système parfaitement maîtrisé, toujours à jour et sans bloatware. Le modèle rolling release transforme la maintenance système en discipline continue plutôt qu'en migration traumatique bisannuelle — on apprend constamment, on s'adapte progressivement, on reste à la pointe. L'AUR illustre la force de la communauté Arch : avec plus de 80 000 paquets maintenus par des utilisateurs, pratiquement tout logiciel Linux est accessible. Cette richesse exige vigilance permanente — inspecter les PKGBUILD, vérifier les mainteneurs, comprendre ce qu'on installe. Maîtriser PACMAN, c'est accepter que la simplicité ne soit pas synonyme de facilité, que la transparence vaut mieux que l'abstraction et que le contrôle total implique responsabilité totale._
 
-<br />
+<br>

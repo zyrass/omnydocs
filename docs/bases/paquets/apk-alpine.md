@@ -26,7 +26,7 @@ APK se distingue par sa vitesse d'exécution, sa consommation mémoire minimale 
 !!! warning "Alpine n'est pas pour tout le monde"
     Alpine Linux cible les professionnels recherchant performance et sécurité. Pour une distribution de bureau conviviale avec interface graphique et compatibilité logicielle maximale, Ubuntu est plus adapté. Alpine excelle dans les serveurs, conteneurs et systèmes embarqués où chaque ressource compte.
 
-<br />
+<br>
 
 ---
 
@@ -82,7 +82,7 @@ flowchart TB
 !!! warning "Limitations d'Alpine"
     La bibliothèque musl libc crée des incompatibilités avec certains logiciels propriétaires et binaires précompilés pour glibc. Les applications Java, Node.js et Python fonctionnent parfaitement. Les binaires C et C++ propriétaires nécessitent souvent une recompilation.
 
-<br />
+<br>
 
 ---
 
@@ -149,7 +149,7 @@ flowchart TB
 #     └── testing/
 ```
 
-<br />
+<br>
 
 ---
 
@@ -289,7 +289,7 @@ rm -rf /var/cache/apk/*
 du -sh /var/cache/apk/
 ```
 
-<br />
+<br>
 
 ---
 
@@ -338,7 +338,7 @@ sed -i 's|dl-cdn.alpinelinux.org|alpine.42.fr|g' /etc/apk/repositories
 apk add package-name@edge
 ```
 
-<br />
+<br>
 
 ---
 
@@ -497,7 +497,7 @@ trivy rootfs /
 comm -23 <(apk info | sort) <(cat /etc/apk/world | sort)
 ```
 
-<br />
+<br>
 
 ---
 
@@ -525,7 +525,7 @@ comm -23 <(apk info | sort) <(cat /etc/apk/world | sort)
 | Mettre à jour le système | `apk upgrade` | `apt upgrade` | `dnf upgrade` |
 | Nettoyer le cache | `rm -rf /var/cache/apk/*` | `apt clean` | `dnf clean all` |
 
-<br />
+<br>
 
 ---
 
@@ -586,7 +586,7 @@ if [ "$upgrades" -gt 0 ]; then
 fi
 ```
 
-<br />
+<br>
 
 ---
 
@@ -634,7 +634,7 @@ apk add alpine-sdk
 # FROM debian:bookworm-slim pour ce service spécifique
 ```
 
-<br />
+<br>
 
 ---
 
@@ -644,7 +644,7 @@ Le dépôt Alpine contient environ 13 000 paquets contre 60 000 pour Debian et 8
 
 La bibliothèque musl libc crée des incompatibilités avec Oracle Java (utiliser OpenJDK Alpine natif), certains binaires Go avec CGO activé, les applications .NET compilées pour glibc et les binaires propriétaires précompilés.
 
-<br />
+<br>
 
 ---
 
@@ -656,4 +656,4 @@ La bibliothèque musl libc crée des incompatibilités avec Oracle Java (utilise
 !!! quote "Conclusion"
     _APK représente l'aboutissement d'une philosophie radicale : moins, c'est plus. Dans un monde où les distributions Linux gonflent avec des fonctionnalités superflues, Alpine Linux et APK offrent une alternative structurée : un système qui fait exactement ce dont il a besoin, sans plus. La force d'APK réside dans sa spécialisation — il ne cherche pas à rivaliser avec apt ou dnf sur le nombre de fonctionnalités. Il excelle dans son domaine : vitesse, légèreté et efficacité. Réduire une image Docker de 150 MB à 30 MB ou faire démarrer une application en 100 ms au lieu de 2 secondes justifie l'investissement. Alpine n'est pas pour tous les cas — la compatibilité logicielle maximale appartient à Debian et Ubuntu. Mais pour les microservices, les conteneurs de production et les systèmes embarqués, maîtriser APK revient à optimiser au niveau du système d'exploitation lui-même, avant même d'écrire une ligne de code applicatif._
 
-<br />
+<br>

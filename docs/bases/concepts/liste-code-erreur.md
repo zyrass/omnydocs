@@ -28,7 +28,7 @@ Ce document suppose une première exposition au protocole HTTP — un client env
 !!! tip "Les codes racontent une histoire"
     Un code 2xx signifie une réussite. Un code 3xx demande une action supplémentaire. Un code 4xx nécessite une correction de la demande côté client. Un code 5xx n'est pas la faute du client mais celle du serveur.
 
-<br />
+<br>
 
 ---
 
@@ -52,11 +52,11 @@ Ce document suppose une première exposition au protocole HTTP — un client env
 flowchart LR
     A["Requête HTTP"]
     B{"Code de statut"}
-    C["1xx — Information<br />Continuer le traitement"]
-    D["2xx — Succès<br />Opération terminée"]
-    E["3xx — Redirection<br />Aller vers nouvelle URL"]
-    F["4xx — Erreur client<br />Corriger la requête"]
-    G["5xx — Erreur serveur<br />Réessayer plus tard"]
+    C["1xx — Information<br>Continuer le traitement"]
+    D["2xx — Succès<br>Opération terminée"]
+    E["3xx — Redirection<br>Aller vers nouvelle URL"]
+    F["4xx — Erreur client<br>Corriger la requête"]
+    G["5xx — Erreur serveur<br>Réessayer plus tard"]
 
     A --> B
     B -->|1xx| C
@@ -66,7 +66,7 @@ flowchart LR
     B -->|5xx| G
 ```
 
-<br />
+<br>
 
 ---
 
@@ -116,7 +116,7 @@ Les codes 1xx indiquent que la requête a été reçue et que le processus conti
     !!! note "Usage limité"
         Les codes 1xx sont principalement utilisés dans des protocoles spécifiques ou des optimisations de performance. La plupart des développeurs ne les rencontreront jamais dans leur usage quotidien.
 
-<br />
+<br>
 
 ---
 
@@ -215,7 +215,7 @@ Les codes 2xx indiquent que la requête a été **reçue, comprise et acceptée*
     Content-Type: video/mp4
     ```
 
-<br />
+<br>
 
 ---
 
@@ -311,7 +311,7 @@ Les codes 3xx indiquent que le client doit effectuer **une action supplémentair
 
     Similaire à 301, mais garantit que la méthode HTTP ne changera pas lors de la redirection.
 
-<br />
+<br>
 
 ---
 
@@ -587,7 +587,7 @@ Les codes 4xx indiquent que le **client a fait une erreur** dans sa requête. Le
     }
     ```
 
-<br />
+<br>
 
 ---
 
@@ -679,7 +679,7 @@ Les codes 5xx indiquent que le **serveur a rencontré une erreur** ou est incapa
     !!! info "Différence 502 vs 504"
         502 : réponse invalide reçue. 504 : aucune réponse reçue — timeout.
 
-<br />
+<br>
 
 ---
 
@@ -703,7 +703,7 @@ Les codes 5xx indiquent que le **serveur a rencontré une erreur** ou est incapa
 !!! warning "Un code HTTP n'est pas un détail cosmétique"
     Un code de statut alimente les logs, les tableaux de bord, les alertes, les stratégies de retry et les comportements côté client. Utiliser 200 pour une erreur métier empêche l'UI d'afficher un message clair. Abuser de 500 masque les erreurs de validation et déclenche des alertes inutiles. Détourner 404 ou 401/403 crée des failles de sécurité par fuite d'information ou par mauvais flux d'authentification. À l'échelle d'un SI complet, c'est ce qui fait la différence entre une plateforme observable et un système opaque où chaque incident devient une enquête forensique.
 
-<br />
+<br>
 
 ---
 
@@ -723,10 +723,10 @@ flowchart TD
     D["RBAC / ACL"]
     E["Validation des données"]
     F{"Succès ?"}
-    G["Code 2xx<br />Retour JSON"]
-    H["Code 4xx<br />Erreur client"]
+    G["Code 2xx<br>Retour JSON"]
+    H["Code 4xx<br>Erreur client"]
     I{"Erreur interne ?"}
-    J["Code 5xx<br />Erreur serveur"]
+    J["Code 5xx<br>Erreur serveur"]
 
     A -->|Requête envoyée| B
     B -->|Middleware Auth| C
@@ -739,7 +739,7 @@ flowchart TD
     I -->|Oui| J
 ```
 
-<br />
+<br>
 
 ---
 
@@ -764,7 +764,7 @@ flowchart LR
     A -->|Maintenance| L["503"]
 ```
 
-<br />
+<br>
 
 ---
 
@@ -848,7 +848,7 @@ flowchart LR
 | 4xx | WARNING | Log + alertes si taux élevé |
 | 5xx | ERROR | Log détaillé + alerte immédiate |
 
-<br />
+<br>
 
 ---
 
@@ -874,7 +874,7 @@ flowchart LR
 | 503 | Service Unavailable | Service indisponible | Oui — avec délai |
 | 504 | Gateway Timeout | Timeout vers backend | Oui — limité |
 
-<br />
+<br>
 
 ---
 
@@ -886,4 +886,4 @@ flowchart LR
 !!! quote "Conclusion"
     _Les codes de statut HTTP constituent le langage universel de communication entre systèmes. Leur utilisation correcte transforme des APIs opaques en interfaces prévisibles et déboguables. Leur mauvaise utilisation crée des expériences utilisateur frustrantes et des bugs difficiles à diagnostiquer. Choisir le bon code de statut n'est pas un détail cosmétique — c'est une décision architecturale qui impacte la robustesse, la maintenabilité et l'expérience développeur de l'API. Un code 400 au lieu de 422 peut casser la logique de retry d'un client. Un code 500 au lieu de 503 peut déclencher des alertes inutiles. Maîtriser ces codes, les utiliser avec précision, c'est faire de ses APIs des modèles de clarté et de fiabilité._
 
-<br />
+<br>

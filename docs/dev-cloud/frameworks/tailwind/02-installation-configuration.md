@@ -1,24 +1,24 @@
 ---
-description: "Tailwind CSS — Installation et configuration : intégration Vite + Laravel, tailwind.config.js, purge CSS, IntelliSense VS Code et premier build."
+description: "Tailwind CSS v4 — Installation et configuration : intégration native avec Vite via @tailwindcss/vite, configuration CSS-first sans tailwind.config.js, directives v4 et premier build."
 icon: lucide/book-open-check
-tags: ["TAILWIND", "INSTALLATION", "VITE", "LARAVEL", "CONFIGURATION"]
+tags: ["TAILWIND V4", "INSTALLATION", "VITE", "LARAVEL", "CONFIGURATION CSS-FIRST"]
 ---
 
-# Installation & Configuration
+# Installation & Configuration (Tailwind v4)
 
 <div
   class="omny-meta"
   data-level="🟢 Débutant"
-  data-version="3.x"
+  data-version="4.x"
   data-time="3-4 heures">
 </div>
 
 ## Introduction
 
-!!! quote "Analogie pédagogique — L'Atelier du Menuisier"
-    Avant de construire quoi que ce soit, le menuisier installe son atelier : plan de travail, outils rangés par taille, machine configurée pour le bon matériau. Mal configuré, chaque coupe est imprécise. Bien configuré, le travail suit sans friction. La configuration Tailwind, c'est cet atelier : `tailwind.config.js` définit les matériaux disponibles (couleurs, espacements, typographie), le plugin Vite automatise la compilation, IntelliSense VS Code vous guide en temps réel.
+!!! quote "Analogie pédagogique — L'Atelier d'Usine Automatisé"
+    Dans sa version 3, configurer Tailwind demandait d'installer de nombreuses dépendances distinctes (PostCSS, Autoprefixer, tailwindcss) et de maintenir un fichier de configuration JavaScript (`tailwind.config.js`) qui dupliquait vos chemins et vos styles. Tailwind v4 est un atelier d'usine automatisé en Rust : vous installez un seul outil natif pour Vite (`@tailwindcss/vite`), vous importez Tailwind dans votre CSS, et le compilateur détecte automatiquement tous vos fichiers sources sans configuration manuelle.
 
-Ce module couvre l'installation complète de Tailwind CSS dans un projet **Laravel + Vite** — l'environnement standard de la Stack TALL.
+Ce module couvre l'installation de Tailwind CSS v4 dans un projet **Laravel 13 + Vite** — l'environnement standardisé moderne.
 
 <br>
 
@@ -28,162 +28,104 @@ Ce module couvre l'installation complète de Tailwind CSS dans un projet **Larav
 
 ### Prérequis
 
-```bash title="Terminal — Vérifier les prérequis"
-# Node.js 18+ requis
+```bash title="Terminal - Vérifier les prérequis système"
+# Node.js 20+ requis pour les outils récents
 node --version
-# → v20.x.x
+# Output attendu : v20.x.x ou supérieur
 
-# npm 9+ (ou pnpm, bun)
+# npm 10+
 npm --version
-# → 10.x.x
+# Output attendu : 10.x.x ou supérieur
 
-# Laravel avec Vite (Laravel 10+ par défaut)
+# Laravel 13 avec configuration Vite par défaut
 php artisan --version
-# → Laravel Framework 11.x.x
+# Output attendu : Laravel Framework 13.x.x
 ```
+_Vérification préalable des versions de Node.js, de npm et de Laravel pour assurer la compatibilité des outils de build._
 
-### Installation de Tailwind
+### Installation de Tailwind v4 et du plugin Vite
 
-```bash title="Terminal — Installer Tailwind CSS dans Laravel"
-# Depuis la racine du projet Laravel
-npm install -D tailwindcss postcss autoprefixer
+Contrairement à la v3, plus besoin d'installer `postcss` ou `autoprefixer` séparément de manière obligatoire. Nous installons directement le cœur de Tailwind et son plugin d'intégration Vite natif.
 
-# Générer tailwind.config.js et postcss.config.js
-npx tailwindcss init -p
+```bash title="Terminal - Installer Tailwind CSS v4 dans Laravel"
+# Depuis la racine de votre projet Laravel 13
+npm install tailwindcss @tailwindcss/vite
 ```
-
-*`-D` installe en devDependency — Tailwind n'est pas embarqué dans le bundle final, uniquement le CSS généré. `-p` crée également `postcss.config.js` requis par Vite.*
+_Commande d'installation locale de la dépendance principale de Tailwind v4 et de son plugin dédié pour le serveur de développement Vite._
 
 <br>
 
 ---
 
-## Configuration — `tailwind.config.js`
+## Configuration Vite — `@tailwindcss/vite`
 
-### Fichier généré par défaut
+Dans Tailwind v4, l'intégration se fait au plus près du compilateur d'assets. Nous devons déclarer le plugin dans `vite.config.js`.
 
-```js title="JavaScript — tailwind.config.js : configuration de base générée"
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  // content : les fichiers à scanner pour trouver les classes Tailwind
-  // Sans cette option, Tailwind génère TOUT le CSS (~3 Mo)
-  // Avec cette option, il génère uniquement les classes utilisées (~5-20 Ko)
-  content: [],
+### `vite.config.js` avec Tailwind v4
 
-  theme: {
-    extend: {
-      // Vos personnalisations ici (ne remplace pas, étend le thème)
-    },
-  },
-
-  plugins: [],
-}
-```
-
-### Configuration pour Laravel
-
-```js title="JavaScript — tailwind.config.js : configuration pour Laravel + Blade + Alpine"
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  // Tailwind scanne ces fichiers à la recherche des classes utilisées
-  content: [
-    // Vues Blade : toutes les templates Laravel
-    './resources/views/**/*.blade.php',
-
-    // Fichiers JavaScript : classes utilisées via Alpine.js (:class, x-bind)
-    './resources/js/**/*.js',
-    './resources/js/**/*.vue',      // Si vous utilisez Vue
-
-    // Composants Livewire : classes dans les vues des composants
-    './app/Livewire/**/*.php',      // Livewire dynamique (PHP)
-    './app/Http/Livewire/**/*.php', // Livewire v2 (ancienne structure)
-  ],
-
-  // darkMode : 'media' (préférence système) ou 'class' (contrôlé manuellement)
-  darkMode: 'class',
-
-  theme: {
-    extend: {
-      // Exemple : ajouter une couleur custom
-      colors: {
-        'brand': {
-          50:  '#eff6ff',
-          500: '#3b82f6',
-          900: '#1e3a5f',
-        },
-      },
-
-      // Exemple : ajouter une taille de police custom
-      fontSize: {
-        'xxs': '0.65rem',
-      },
-    },
-  },
-
-  plugins: [
-    // Plugins officiels Tailwind (voir module 8)
-    // require('@tailwindcss/forms'),
-    // require('@tailwindcss/typography'),
-  ],
-}
-```
-
-*La section `content` est **critique** — c'est le "purging". Si vous oubliez un chemin, les classes utilisées dans ces fichiers seront absentes du CSS final en production.*
-
-<br>
-
----
-
-## Intégration dans le CSS
-
-### Fichier `resources/css/app.css`
-
-```css title="CSS — resources/css/app.css : directives Tailwind obligatoires"
-/* Directive base : reset CSS + styles base (html, body, titres...) */
-@tailwind base;
-
-/* Directive components : classes générées par les plugins (@layer components) */
-@tailwind components;
-
-/* Directive utilities : toutes les classes utilitaires Tailwind */
-@tailwind utilities;
-
-/* Vos styles personnalisés viennent ICI, après les directives */
-/* Ils peuvent utiliser @apply pour composer des classes Tailwind */
-```
-
-*Ces trois directives sont le point d'entrée de Tailwind. Ne changez pas leur ordre — `base` doit précéder `utilities` pour que la cascade CSS fonctionne correctement.*
-
-<br>
-
----
-
-## Configuration Vite
-
-### `vite.config.js`
-
-```js title="JavaScript — vite.config.js : plugin Laravel avec Tailwind"
+```js title="JavaScript - configuration de vite.config.js pour Tailwind v4"
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import tailwindcss from '@tailwindcss/vite'; // Import du plugin natif Rust
 
 export default defineConfig({
     plugins: [
+        tailwindcss(), // Doit être déclaré AVANT le plugin Laravel
         laravel({
-            // Point d'entrée : votre CSS incluant les directives Tailwind
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
             ],
-            // Hot Module Replacement : rechargement auto en développement
-            refresh: true,
+            refresh: true, // Auto-refresh en développement
         }),
     ],
 });
 ```
+_Fichier de configuration de Vite déclarant l'utilisation du compilateur Rust de Tailwind avant le middleware de gestion des assets de Laravel._
 
-### Inclusion dans le Layout Blade
+*Le plugin `@tailwindcss/vite` s'occupe de tout : il scanne automatiquement toutes les extensions de fichiers courantes de votre projet (`.blade.php`, `.js`, `.vue`, `.php`) pour détecter les classes utilisées. Il n'y a **aucun fichier `tailwind.config.js`** à créer ni à configurer.*
 
-```html title="Blade — layouts/app.blade.php : inclure les assets compilés"
+<br>
+
+---
+
+## Intégration dans le CSS (CSS-first)
+
+Toute la personnalisation de votre design system s'effectue désormais directement dans votre fichier CSS principal en utilisant les variables CSS standard de niveau 4.
+
+### Fichier `resources/css/app.css`
+
+```css title="CSS - resources/css/app.css : importation et thème custom v4"
+/* 1. Importation unique de Tailwind v4 */
+@import "tailwindcss";
+
+/* 2. Déclaration du thème (remplace le extend de tailwind.config.js) */
+@theme {
+  /* Déclaration de couleurs personnalisées */
+  --color-brand-50: #eff6ff;
+  --color-brand-500: #3b82f6;
+  --color-brand-900: #1e3a5f;
+
+  /* Déclaration de typographie personnalisée */
+  --font-xxs: 0.65rem;
+}
+
+/* Vos styles personnalisés viennent ici */
+.mon-bouton-custom {
+  @apply bg-brand-500 text-white p-4 rounded-lg hover:bg-brand-900;
+}
+```
+_Déclaration CSS-first où la directive @import charge Tailwind, et la directive @theme permet de surcharger les variables du système de design directement dans le CSS._
+
+*Avec Tailwind v4, l'instruction `@import "tailwindcss";` remplace les anciennes directives `@tailwind base;`, `@tailwind components;` et `@tailwind utilities;`. La directive `@theme` définit les variables CSS globales que vous pouvez utiliser directement (par exemple, la couleur `--color-brand-500` génère automatiquement la classe `bg-brand-500`).*
+
+<br>
+
+---
+
+## Inclusion dans le Layout Blade
+
+```html title="Blade - layouts/app.blade.php : inclusion standard"
 <!DOCTYPE html>
 <html lang="fr" class="h-full">
 <head>
@@ -191,16 +133,15 @@ export default defineConfig({
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'OmnyApp' }}</title>
 
-    {{-- @vite inclut le CSS compilé par Tailwind + le JS --}}
+    {{-- @vite injecte les balises d'importation --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="h-full bg-gray-50 text-gray-900">
+<body class="h-full bg-slate-50 text-slate-900">
     {{ $slot }}
 </body>
 </html>
 ```
-
-*`@vite()` est la directive Laravel qui injecte les assets avec les bons chemins — en dev avec HMR, en prod avec les chemins hashés du build.*
+_Layout de base Laravel Blade incluant l'injecteur @vite qui résout et importe les fichiers CSS et JS compilés ou servis par le HMR._
 
 <br>
 
@@ -208,53 +149,18 @@ export default defineConfig({
 
 ## Workflow de Développement
 
-```bash title="Terminal — Commandes de développement et production"
-# ─── Développement ────────────────────────────────────────────
-# Lance Vite avec HMR : Tailwind regénère le CSS à chaque sauvegarde
+Les commandes restent standardisées au niveau du gestionnaire de paquet de l'application, mais bénéficient de la compilation instantanée en Rust :
+
+```bash title="Terminal - Commandes de développement et build"
+# --- Mode Développement ---
+# Lance le serveur Vite en tâche de fond. Le CSS se compile à la volée en quelques millisecondes.
 npm run dev
-# → VITE v5.x.x  ready in 300ms
-# → ➜  Local:   http://localhost:5173/
 
-# ─── Production ───────────────────────────────────────────────
-# Build optimisé : Tailwind purge, minifie (~5-20 Ko)
+# --- Mode Production ---
+# Compile et minifie les assets pour la production en purgeant le CSS inutile.
 npm run build
-# → vite v5.x.x building for production...
-# → dist/assets/app-Bw9lBwJV.css (12.34 kB gzipped: 3.21 kB)
-
-# ─── Vérification du CSS généré ───────────────────────────────
-# Voir les classes incluses dans le build
-npm run build && cat public/build/assets/app-*.css | wc -c
 ```
-
-<br>
-
----
-
-## IntelliSense VS Code
-
-L'extension **Tailwind CSS IntelliSense** est indispensable. Elle active :
-
-```json title="JSON — .vscode/settings.json : configuration de l'extension"
-{
-    // Autocomplétion Tailwind dans les fichiers Blade
-    "tailwindCSS.includeLanguages": {
-        "blade": "html",
-        "html": "html"
-    },
-
-    // Activer le folding des longues listes de classes
-    "editor.quickSuggestions": {
-        "strings": true
-    },
-
-    // Afficher les valeurs CSS réelles au survol d'une classe
-    "tailwindCSS.experimental.classRegex": [
-        ["class=[\"']([^\"']*)[\"']", "[\"']([^\"']*)[\"']"]
-    ]
-}
-```
-
-*Avec IntelliSense, tapez `bg-` et VS Code vous liste toutes les couleurs disponibles avec leur prévisualisation. Tapez `p-` pour voir toutes les valeurs d'espacement. La mémorisation devient secondaire.*
+_Commandes système pour exécuter le serveur d'actualisation à chaud en local ou générer le bundle optimisé pour la mise en ligne._
 
 <br>
 
@@ -264,41 +170,20 @@ L'extension **Tailwind CSS IntelliSense** est indispensable. Elle active :
 
 !!! note "À vous de jouer"
 
-**Exercice 1 — Installation complète**
+**Exercice 1 — Migration v3 vers v4**
 
-```bash title="Terminal — Exercice 1 : créer un projet Laravel avec Tailwind"
-# 1. Créer un nouveau projet Laravel
-composer create-project laravel/laravel tailwind-lab
+Si vous reprenez un projet Laravel 11/12 existant utilisant Tailwind v3, réalisez les étapes de migration suivantes :
+1. Désinstallez les anciens packages : `npm uninstall tailwindcss postcss autoprefixer`.
+2. Installez les dépendances v4 : `npm install tailwindcss @tailwindcss/vite`.
+3. Supprimez les fichiers de configuration devenus obsolètes : `rm tailwind.config.js postcss.config.js`.
+4. Ajoutez le plugin `tailwindcss()` dans `vite.config.js`.
+5. Modifiez `app.css` en remplaçant les directives `@tailwind` par `@import "tailwindcss";`.
 
-# 2. Installer Tailwind
-cd tailwind-lab
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
+**Exercice 2 — Personnaliser un thème en CSS-first**
 
-# 3. Configurer tailwind.config.js avec le bon chemin content
-# (voir ci-dessus)
-
-# 4. Ajouter les directives dans resources/css/app.css
-
-# 5. Lancer le serveur de développement
-php artisan serve &
-npm run dev
-
-# 6. Vérifier : ouvrir http://localhost:8000
-# Le CSS Tailwind doit être chargé dans les DevTools
-```
-
-**Exercice 2 — Vérifier le purging**
-
-```bash title="Terminal — Exercice 2 : mesurer l'impact du purging"
-# 1. Ajouter quelques classes dans une vue Blade (bg-blue-500, text-xl, p-4)
-# 2. Lancer npm run build
-# 3. Mesurer la taille du CSS généré
-cat public/build/assets/app-*.css | wc -c
-
-# Les classes non utilisées ne doivent pas apparaître dans le CSS final
-# grep "bg-red-900" public/build/assets/app-*.css → doit retourner vide
-```
+1. Ajoutez une variable de police personnalisée `--font-primary` pointant vers une police système dans `@theme` (dans `resources/css/app.css`).
+2. Appliquez-la à la balise `body` via la classe `font-primary`.
+3. Vérifiez dans votre inspecteur de navigateur que la variable CSS est correctement générée et appliquée.
 
 <br>
 
@@ -307,8 +192,6 @@ cat public/build/assets/app-*.css | wc -c
 ## Conclusion
 
 !!! quote "Ce qu'il faut retenir de ce module"
-    L'installation Tailwind dans Laravel se fait en 4 étapes : `npm install`, `npx tailwindcss init -p`, configuration de `content` dans `tailwind.config.js`, et ajout des directives `@tailwind` dans `app.css`. La section **`content`** est critique — elle contrôle le purging. Sans elle, le CSS fait 3 Mo ; avec elle, 5-20 Ko. Vite intègre nativement Tailwind via PostCSS — `npm run dev` lance le HMR, `npm run build` produit le bundle optimisé. Installez l'extension IntelliSense VS Code dès maintenant : elle multiplie votre vitesse de développement.
+    Tailwind v4 simplifie drastiquement le setup dans Laravel 13 en éliminant la configuration JavaScript et PostCSS. Tout s'articule autour du plugin Vite `@tailwindcss/vite` et d'une déclaration CSS unique `@import "tailwindcss";`. Le design system s'étend directement en écrivant des variables CSS au sein de la directive `@theme`. Le moteur de build Rust gère nativement le scan de fichiers pour le purging, garantissant des bundles de production minimes.
 
-> Dans le module suivant, nous découvrons les **classes fondamentales de Tailwind** — spacing, typography, colors, borders, sizing — le vocabulaire que vous utiliserez dans 90% de votre code.
-
-<br>
+> Dans le module suivant, nous découvrons les **classes fondamentales de Tailwind** — spacing, typography, colors, borders, sizing — pour commencer à manipuler l'interface.

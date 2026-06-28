@@ -25,7 +25,7 @@ Cette logique permet de contrôler l'accès aux applications, de vérifier plusi
 
 !!! note "Cette fiche fait suite aux [Types Primitifs](./types-primitifs.md). Le type `bool` y a été introduit — il est au cœur de tout ce qui suit."
 
-<br />
+<br>
 
 ---
 
@@ -41,7 +41,7 @@ En logique booléenne, il n'existe que deux valeurs possibles, représentant les
 !!! warning "Point clé"
     La correspondance avec le binaire (**0** ou **1**) est fondamentale — le résultat de toute condition sera toujours l'un de ces deux états. C'est la base de la pensée informatique au niveau matériel.
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous ancre visuellement ce concept avant d'aborder les opérateurs. Comprendre que tout se réduit à deux états est le point de départ de toute logique conditionnelle."
 
@@ -49,7 +49,7 @@ En logique booléenne, il n'existe que deux valeurs possibles, représentant les
 
 <p><em>Deux états exclusifs, aucune valeur intermédiaire possible. L'interrupteur allumé correspond à true (1) — l'interrupteur éteint correspond à false (0). Tout résultat d'une condition en programmation aboutit à l'un de ces deux états.</em></p>
 
-<br />
+<br>
 
 ---
 
@@ -63,7 +63,7 @@ Ces trois opérateurs permettent de combiner et modifier des conditions pour con
 | **OU** | `or` | `\|\|` | `\|\|` | `\|\|` | Une seule condition suffit |
 | **NON** | `not` | `!` | `!` | `!` | Inverse la valeur |
 
-<br />
+<br>
 
 ---
 
@@ -74,7 +74,7 @@ L'opérateur **ET** exige que toutes les conditions soient vraies simultanément
 !!! quote "Analogie"
     _Un coffre-fort qui nécessite la bonne clé ET le bon code ET l'empreinte digitale valide. L'absence d'un seul élément bloque l'accès, quelle que soit la validité des autres._
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous illustre l'exigence d'unanimité de l'opérateur ET. Visualiser chaque condition comme un cadenas distinct aide à comprendre pourquoi une seule condition fausse suffit à bloquer le résultat entier."
 
@@ -97,15 +97,15 @@ Une seule condition fausse invalide l'ensemble de l'expression.
 
 ```mermaid
 flowchart TB
-  A["Plusieurs conditions<br />à vérifier"] --> B{"Opérateur<br />ET"}
-  B --> C{"TOUTES<br />sont vraies ?"}
+  A["Plusieurs conditions<br>à vérifier"] --> B{"Opérateur<br>ET"}
+  B --> C{"TOUTES<br>sont vraies ?"}
   C -.->|"✅ Oui"| D["✅ Action autorisée"]
   C -.->|"❌ Non"| E["❌ Action refusée"]
 ```
 
 <p><em>Dès qu'une seule condition échoue, l'ensemble de l'expression devient fausse et l'action est refusée. Cette rigueur fait de l'opérateur ET l'outil privilégié pour les contrôles de sécurité où aucun critère ne peut être négligé.</em></p>
 
-<br />
+<br>
 
 ---
 
@@ -116,7 +116,7 @@ L'opérateur **OU** nécessite qu'au moins une condition soit vraie pour que le 
 !!! quote "Analogie"
     _Un bâtiment accessible par l'entrée principale OU l'entrée de service OU le parking. Une seule porte ouverte suffit — les autres peuvent rester fermées sans bloquer l'accès._
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous rend visible la différence fondamentale avec l'opérateur ET : ici, une seule voie ouverte suffit. Cette flexibilité est exactement ce qui permet de proposer plusieurs méthodes d'authentification alternatives."
 
@@ -139,15 +139,15 @@ Une seule condition vraie suffit à valider l'ensemble de l'expression.
 
 ```mermaid
 flowchart TB
-  A["Plusieurs options<br />possibles"] --> B{"Opérateur<br />OU"}
-  B --> C{"AU MOINS UNE<br />est vraie ?"}
+  A["Plusieurs options<br>possibles"] --> B{"Opérateur<br>OU"}
+  B --> C{"AU MOINS UNE<br>est vraie ?"}
   C -->|"✅ Oui"| D["✅ Action autorisée"]
   C -->|"❌ Non"| E["❌ Action refusée"]
 ```
 
 <p><em>L'opérateur OU autorise l'action dès qu'une seule condition parmi l'ensemble est satisfaite. Cette permissivité permet d'offrir plusieurs méthodes d'authentification sans qu'une seule soit obligatoire.</em></p>
 
-<br />
+<br>
 
 ---
 
@@ -158,7 +158,7 @@ L'opérateur **NON** inverse complètement la valeur booléenne : vrai devient f
 !!! quote "Analogie"
     _Un interrupteur inversé : appuyer dessus éteint la lumière au lieu de l'allumer. Dire qu'un compte n'est pas bloqué revient à affirmer qu'il est accessible._
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous matérialise l'inversion. Voir physiquement la transformation vrai → faux et faux → vrai aide à comprendre pourquoi les doubles négations dans le code créent de la confusion mentale."
 
@@ -177,15 +177,15 @@ L'opérateur **NON** inverse complètement la valeur booléenne : vrai devient f
 
 ```mermaid
 flowchart TB
-  A["Condition<br />à inverser"] --> B{"Opérateur<br />NON"}
-  B --> C{"Valeur<br />d'origine ?"}
+  A["Condition<br>à inverser"] --> B{"Opérateur<br>NON"}
+  B --> C{"Valeur<br>d'origine ?"}
   C -->|"✅ Vraie"| D["❌ Devient fausse"]
   C -->|"❌ Fausse"| E["✅ Devient vraie"]
 ```
 
 <p><em>L'opérateur NON permet d'exprimer des conditions négatives de manière explicite. Un usage excessif de la négation nuit à la lisibilité — les bonnes pratiques de nommage en fin de fiche y répondent.</em></p>
 
-<br />
+<br>
 
 ---
 
@@ -291,7 +291,7 @@ func main() {
 !!! note "Lecture du code"
     Si `estAgentSecurite` était false et `heuresBureau` également false, alors `accesAutorise` retournerait false — les deux chemins échoueraient simultanément. L'opérateur OU n'autorise l'accès que si au moins un chemin aboutit.
 
-<br />
+<br>
 
 ---
 
@@ -305,7 +305,7 @@ Comme en mathématiques, les opérateurs booléens suivent un ordre de priorité
 | **2** | `AND` / `&&` | Les conjonctions ensuite |
 | **3** | `OR` / `\|\|` | Les disjonctions en dernier |
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous rend cet ordre immédiatement mémorisable. Connaître cette hiérarchie évite des erreurs logiques difficiles à détecter dans des expressions complexes."
 
@@ -333,7 +333,7 @@ print(resultat_explicite)  # True
 !!! tip "Règle professionnelle"
     Utiliser systématiquement des parenthèses pour expliciter les intentions lorsque plusieurs opérateurs sont combinés. Un code lisible vaut toujours mieux qu'un code compact mais ambigu.
 
-<br />
+<br>
 
 ---
 
@@ -366,7 +366,7 @@ if compte_actif:  # "compte actif" — lecture directe
 
     Cette gymnastique cognitive ralentit la lecture et augmente le risque d'erreur lors des modifications. La version affirmative `compte_actif = True` + `if compte_actif` se lit en une seule passe, sans traduction mentale intermédiaire.
 
-<br />
+<br>
 
 ---
 
@@ -410,4 +410,4 @@ print(f"Bonjour {nom}")
 
     _Cette logique s'applique déjà quotidiennement dans tout raisonnement naturel. Il s'agit simplement d'apprendre à l'exprimer formellement à un ordinateur._
 
-<br />
+<br>

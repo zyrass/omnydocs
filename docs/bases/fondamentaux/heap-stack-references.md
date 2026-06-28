@@ -23,7 +23,7 @@ Cette organisation s'appelle la **gestion mémoire**. Comprendre où vont les do
 
 !!! note "Cette fiche fait suite aux [Types Primitifs](./types-primitifs.md). **La lire en premier réduit la friction lors de la découverte de ce sujet**."
 
-<br />
+<br>
 
 ---
 
@@ -39,7 +39,7 @@ Un programme manipule en permanence des variables : il en crée, les modifie, le
 
 <p><em>Une variable est une boite portant une étiquette (son identifiant dans le code). Ce qu'on y range est le type primitif : un nombre entier comme 42, un caractère comme A, ou un booléen comme true. La boite ne contient qu'un seul type à la fois — changer la valeur remplace ce qui était stocké dedans.</em></p>
 
-<br />
+<br>
 
 ---
 
@@ -69,7 +69,7 @@ Ce qu'on trouve en Heap :
 - Collections (listes, tableaux, dictionnaires)
 - Structures créées dynamiquement pendant l'exécution
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous représente la relation fondamentale entre Stack et Heap. Comprendre cette distinction est la clé de toute la suite de cette fiche."
 
@@ -77,22 +77,22 @@ Ce qu'on trouve en Heap :
 
 <p><em>La Stack (mémoire locale) contient la variable et sa valeur directe — ici l'entier 42. Lorsqu'une donnée est trop volumineuse pour la Stack, seule son adresse y est stockée, et la donnée réelle est placée dans le Heap (mémoire dynamique). La flèche "Référence" matérialise ce lien entre les deux zones.</em></p>
 
-<br />
+<br>
 
 ### Schéma explicatif
 
 ```mermaid
 flowchart TB
   subgraph Mémoire
-    Stack["Stack<br />Rapide — Petite"]
-    Heap["Heap<br />Plus lente — Grande"]
+    Stack["Stack<br>Rapide — Petite"]
+    Heap["Heap<br>Plus lente — Grande"]
   end
 
-  Primitifs["Types Primitifs<br />int, float, bool"] --> Stack
-  Objets["Objets Complexes<br />listes, objets"] --> Heap
+  Primitifs["Types Primitifs<br>int, float, bool"] --> Stack
+  Objets["Objets Complexes<br>listes, objets"] --> Heap
 ```
 
-<br />
+<br>
 
 !!! note "La pile d'assiettes ci-dessous illustre concrètement le fonctionnement de la Stack. Retenir ce principe LIFO permet de comprendre pourquoi les appels de fonctions imbriqués se déroulent dans un ordre précis et prévisible."
 
@@ -100,7 +100,7 @@ flowchart TB
 
 <p><em>La Stack fonctionne exactement comme une pile d'assiettes : on ne peut ajouter ou retirer que par le dessus. Chaque appel de fonction empile un nouveau niveau — quand la fonction se termine, ce niveau est retiré. C'est le principe LIFO (Last In, First Out — dernier entré, premier sorti).</em></p>
 
-<br />
+<br>
 
 ---
 
@@ -138,7 +138,7 @@ flowchart LR
   age -->|"Duplication de la valeur"| ageCopie
 ```
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous illustre pourquoi deux variables issues d'une copie par valeur sont totalement indépendantes. Visualiser deux boites physiquement séparées aide à comprendre qu'une modification de l'une n'a aucun impact sur l'autre."
 
@@ -149,7 +149,7 @@ flowchart LR
 !!! note "Lecture du diagramme"
     Ce mécanisme s'applique aux types simples : nombres, booléens, caractères. Lorsqu'une variable de ce type est copiée, l'ordinateur duplique intégralement la valeur dans un nouvel emplacement Stack. Toute modification de l'une n'affecte pas l'autre.
 
-<br />
+<br>
 
 ### Copie par adresse — objets et listes
 
@@ -166,7 +166,7 @@ flowchart LR
   var2 -->|"même adresse"| data
 ```
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous est la plus importante de cette section. Elle rend visible l'adresse mémoire partagée — un concept invisible dans le code source mais fondamental pour comprendre pourquoi des données semblent changer toutes seules."
 
@@ -177,7 +177,7 @@ flowchart LR
 !!! note "Lecture du diagramme"
     Les deux variables en Stack ne contiennent pas les données — elles contiennent une référence vers le même emplacement en Heap. Toute modification des données via l'une des variables se répercute immédiatement sur l'autre.
 
-<br />
+<br>
 
 ---
 
@@ -209,7 +209,7 @@ print(fruits_vraie_copie)   # ["pomme", "poire", "banane"] — pas d'orange
 !!! tip "Python — recyclage mémoire"
     Python recycle les objets entiers de -5 à 256. Deux variables contenant la valeur `42` pointent vers le même objet en mémoire — comportement optimisé invisible à l'exécution.
 
-<br />
+<br>
 
 ---
 
@@ -239,7 +239,7 @@ console.log(personneVraieCopie.age); // 30 — non modifié
 !!! warning "Bug historique JavaScript"
     `typeof null` retourne `"object"` alors que `null` est un type primitif. Ce bug n'a jamais été corrigé pour maintenir la compatibilité descendante.
 
-<br />
+<br>
 
 ---
 
@@ -272,7 +272,7 @@ print_r($copie_fruits);  // ["pomme", "poire"] — non modifié
 !!! tip "Particularité PHP"
     PHP copie les tableaux par valeur par défaut, contrairement à Python et JavaScript. Utiliser `&` pour créer explicitement une référence partagée.
 
-<br />
+<br>
 
 ---
 
@@ -309,7 +309,7 @@ func main() {
 !!! tip "Go — lisibilité des intentions"
     `&` pour obtenir une adresse, `*` pour accéder à la valeur via un pointeur. Le code exprime explicitement ce qui se passe en mémoire — aucune conversion implicite silencieuse.
 
-<br />
+<br>
 
 ---
 
@@ -324,7 +324,7 @@ func main() {
 
 _* Comportement équivalent Stack même si techniquement des objets Python_
 
-<br />
+<br>
 
 ---
 
@@ -339,7 +339,7 @@ _* Comportement équivalent Stack même si techniquement des objets Python_
 !!! tip "**Règle 3**"
     — _En cas de doute : `.copy()` en Python, spread `{...obj}` en JavaScript, référence explicite `&` en PHP, vérification d'adresse en Go._
 
-<br />
+<br>
 
 ---
 
@@ -355,7 +355,7 @@ def exemple_nettoyage():
     # Le Garbage Collector libère automatiquement la mémoire
 ```
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous illustre ce que fait concrètement le Garbage Collector. Comprendre ce mécanisme évite de croire qu'une variable supprimée libère instantanément la mémoire — le GC intervient à son propre rythme, en arrière-plan."
 
@@ -363,7 +363,7 @@ def exemple_nettoyage():
 
 <p><em>Avant (gauche) : la mémoire contient des données obsolètes — une valeur NULL, un caractère A qui n'est plus référencé, un objet abandonné. Le Garbage Collector (majordome) est prêt à intervenir. Après (droite) : les données inutilisées ont été collectées et évacuées. Seules les données encore actives — 42 et true — restent en mémoire.</em></p>
 
-<br />
+<br>
 
 ---
 
@@ -482,7 +482,7 @@ def exemple_nettoyage():
     !!! tip "Slices Go et `append`"
         Deux slices peuvent partager le même tableau sous-jacent jusqu'à ce qu'un `append` dépasse la capacité allouée — Go crée alors un nouveau tableau et les adresses divergent. Ce comportement est une source de bugs fréquente en Go.
 
-<br />
+<br>
 
 ---
 
@@ -494,6 +494,6 @@ def exemple_nettoyage():
 !!! quote "Conclusion"
     _La gestion mémoire, c'est comme apprendre à conduire : au début on y pense consciemment à chaque manoeuvre, puis ça devient un réflexe. L'objectif n'est pas de tout mémoriser, mais de comprendre la logique — le reste vient avec la pratique._
 
-<br />
+<br>
 
 [^1]: **Garbage Collector** — composant d'exécution qui identifie et libère automatiquement la mémoire des données qui ne sont plus référencées par aucune variable active. Présent en Python, JavaScript et PHP. Go dispose d'un GC concurrent intégré.

@@ -19,7 +19,7 @@ tags: ["RESEAU", "TCP/IP", "OSI", "PROTOCOLES", "BASES"]
 !!! abstract "Résumé"
     Ce module d'introduction pose les bases théoriques incontournables du fonctionnement d'Internet et des réseaux locaux. Avant de configurer des routeurs virtuels ou des hyperviseurs de production, comprendre les modèles OSI, TCP/IP, l'adressage IPv4 et les protocoles majeurs (DNS, HTTP) est indispensable.
 
-<br />
+<br>
 
 ---
 
@@ -47,7 +47,7 @@ tags: ["RESEAU", "TCP/IP", "OSI", "PROTOCOLES", "BASES"]
 
 </div>
 
-<br />
+<br>
 
 !!! info "Module en cours de construction"
     Les tutoriels et pages détaillant techniquement ces principes d'adressage et de modèle en couches réseau seront déployés progressivement au sein de cette sous-section.
@@ -62,4 +62,4 @@ tags: ["RESEAU", "TCP/IP", "OSI", "PROTOCOLES", "BASES"]
 !!! quote "Conclusion"
     _Les pannes qui semblent mystérieuses en DevOps ou en Cloud Computing sont très souvent d'origine réseau. Avoir une image claire et mentale d'une requête HTTP traversant un réseau NAT permet d'économiser d'innombrables heures de débogage._
 
-<br />
+<br>

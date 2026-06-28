@@ -23,7 +23,7 @@ JSON a supplanté XML comme format privilégié pour les **APIs REST**, les **fi
 !!! info "Pourquoi c'est important"
     JSON est omniprésent : APIs REST, configuration d'applications (`package.json`, `composer.json`), stockage NoSQL (MongoDB, CouchDB), logs structurés, webhooks, réponses serveur. C'est le format de communication web moderne par défaut.
 
-<br />
+<br>
 
 ---
 
@@ -118,7 +118,7 @@ JSON a supplanté XML comme format privilégié pour les **APIs REST**, les **fi
 }
 ```
 
-<br />
+<br>
 
 ---
 
@@ -138,7 +138,7 @@ JSON a supplanté XML comme format privilégié pour les **APIs REST**, les **fi
 | Encodage | UTF-8 | Latin-1 |
 | Boolean/Null | `true`, `false`, `null` | `True`, `False`, `None` |
 
-<br />
+<br>
 
 ---
 
@@ -181,7 +181,7 @@ JSON a supplanté XML comme format privilégié pour les **APIs REST**, les **fi
 }
 ```
 
-<br />
+<br>
 
 ---
 
@@ -617,7 +617,7 @@ JSON a supplanté XML comme format privilégié pour les **APIs REST**, les **fi
     }
     ```
 
-<br />
+<br>
 
 ---
 
@@ -741,7 +741,7 @@ const donnees = JSON.parse(userInput);
     }
     ```
 
-<br />
+<br>
 
 ---
 
@@ -753,4 +753,4 @@ const donnees = JSON.parse(userInput);
 !!! quote "Conclusion"
     _JSON est devenu le langage universel de l'échange de données sur le web moderne. Sa syntaxe simple cache une puissance réelle pour représenter des structures complexes de manière lisible et interopérable. Comprendre ses six types, ses règles strictes et ses limites — pas de commentaires, pas de dates natives, pas de types binaires — c'est comprendre pourquoi il est partout et comment l'utiliser sans se faire piéger._
 
-<br />
+<br>

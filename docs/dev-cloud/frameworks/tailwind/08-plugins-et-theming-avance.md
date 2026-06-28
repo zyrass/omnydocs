@@ -1,412 +1,179 @@
 ---
-description: "Tailwind CSS — Plugins & Theming Avancé : tailwind.config.js extend, plugins officiels forms et typography, création de plugins custom, intégration DaisyUI."
+description: "Tailwind CSS v4 — Plugins et theming avancé : personnalisation du design system en CSS-first via @theme, création d'utilitaires via @utility, importation de plugins via @plugin, et DaisyUI v5."
 icon: lucide/book-open-check
-tags: ["TAILWIND", "THEMES", "PLUGINS", "CONFIGURATION", "DAISYUI", "TYPOGRAPHY"]
+tags: ["TAILWIND V4", "THEMING", "PLUGINS", "DAISYUI", "CSS-FIRST"]
 ---
 
-# Plugins & Theming Avancé
+# Plugins & Theming Avancé (Tailwind v4)
 
 <div
   class="omny-meta"
   data-level="🔴 Avancé"
-  data-version="3.x"
+  data-version="4.x"
   data-time="4-5 heures">
 </div>
 
 ## Introduction
 
-!!! quote "Analogie pédagogique — L'Atelier sur Mesure"
-    Un artisan ébéniste ne se contente pas des outils standard — il affûte ses ciseaux, fabrique les gabarits adaptés à son projet, et ajoute parfois des machines spécialisées. La configuration avancée de Tailwind, c'est cet atelier sur mesure : `extend` ajoute vos propres valeurs sans briser les défauts, les plugins officiels ajoutent des composants clé-en-main (formulaires, typographie), et DaisyUI fournit une bibliothèque de thèmes visuels entiers construits sur Tailwind.
+!!! quote "Analogie pédagogique — L'Architecte et la Charte de Chantier"
+    Concevoir une application sans design system, c'est comme laisser chaque ouvrier choisir la couleur des briques et la hauteur des fenêtres au feeling. Dans Tailwind v3, la charte était un script JavaScript externe (`tailwind.config.js`). Avec Tailwind v4, la charte est directement écrite dans le ciment de votre feuille de style : vous rédigez vos règles de thème en CSS natif via `@theme`, vous greffez des extensions de machines via la directive `@plugin`, et vous créez des outils sur mesure via `@utility`. C'est le modèle CSS-first, unifié et instantané.
 
-Ce module clôt la formation avec l'outillage qui fait la différence entre un projet Tailwind basique et un projet professionnel maintenable.
-
-<br>
-
----
-
-## Customisation via `tailwind.config.js`
-
-### La Différence entre `theme` et `theme.extend`
-
-```js title="JavaScript — tailwind.config.js : theme vs theme.extend"
-module.exports = {
-  content: ['./resources/**/*.{blade.php,js}'],
-
-  theme: {
-    // ⚠️ REMPLACE les valeurs Tailwind par défaut
-    // À n'utiliser que si vous voulez un design system totalement custom
-    colors: {
-      // Si vous faites ça, TOUTES les couleurs Tailwind disparaissent
-      // (plus de bg-blue-500, bg-gray-200, etc.)
-      brand: '#3b82f6',
-    },
-
-    // ✅ ÉTEND les valeurs Tailwind — le plus courant et recommandé
-    extend: {
-      // Ajoute VOS couleurs sans supprimer celles de Tailwind
-      colors: {
-        brand: {
-          50:  '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',   // Couleur principale
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
-        },
-        // Couleur de surface pour dark mode
-        surface: {
-          DEFAULT: '#ffffff',
-          dark:    '#0f172a',
-        },
-      },
-    },
-  },
-}
-```
-
-### Étendre Toutes les Catégories
-
-```js title="JavaScript — tailwind.config.js : extend complet pour un design system"
-module.exports = {
-  content: ['./resources/**/*.{blade.php,js,vue}'],
-  darkMode: 'class',
-
-  theme: {
-    extend: {
-      // ─── Couleurs ──────────────────────────────────────────────────────────
-      colors: {
-        brand:   { 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
-        success: { 100: '#dcfce7', 500: '#22c55e', 700: '#15803d' },
-        warning: { 100: '#fef9c3', 500: '#eab308', 700: '#a16207' },
-        danger:  { 100: '#fee2e2', 500: '#ef4444', 700: '#b91c1c' },
-      },
-
-      // ─── Typographie ───────────────────────────────────────────────────────
-      fontFamily: {
-        // Ajoute une police custom (à charger depuis Google Fonts)
-        sans:  ['Inter', 'system-ui', 'sans-serif'],
-        mono:  ['JetBrains Mono', 'monospace'],
-        serif: ['Lora', 'Georgia', 'serif'],
-      },
-
-      fontSize: {
-        'xxs': ['0.65rem', { lineHeight: '1rem' }],
-        '2xs': ['0.7rem',  { lineHeight: '1rem' }],
-      },
-
-      // ─── Espacements ───────────────────────────────────────────────────────
-      spacing: {
-        '18': '4.5rem',   // gap manquant dans l'échelle standard
-        '88': '22rem',
-        '112': '28rem',
-        '128': '32rem',
-      },
-
-      // ─── Border Radius ─────────────────────────────────────────────────────
-      borderRadius: {
-        '4xl': '2rem',
-      },
-
-      // ─── Box Shadow ────────────────────────────────────────────────────────
-      boxShadow: {
-        // Ombres colorées pour les cartes feature
-        'brand':   '0 10px 30px -5px rgb(99 102 241 / 0.4)',
-        'success': '0 10px 30px -5px rgb(34 197 94 / 0.4)',
-      },
-
-      // ─── Animation ─────────────────────────────────────────────────────────
-      animation: {
-        'fade-in':     'fadeIn 300ms ease-out',
-        'slide-up':    'slideUp 400ms ease-out',
-        'slide-down':  'slideDown 300ms ease-out',
-        'accordion':   'accordion 300ms ease-out',
-      },
-
-      keyframes: {
-        fadeIn: {
-          '0%':   { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%':   { opacity: '0', transform: 'translateY(16px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideDown: {
-          '0%':   { opacity: '0', transform: 'translateY(-8px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        accordion: {
-          '0%':   { height: '0', opacity: '0' },
-          '100%': { height: 'var(--radix-accordion-content-height)', opacity: '1' },
-        },
-      },
-
-      // ─── Transitions ───────────────────────────────────────────────────────
-      transitionDuration: {
-        '400': '400ms',
-        '600': '600ms',
-      },
-
-      // ─── Taille max ────────────────────────────────────────────────────────
-      maxWidth: {
-        '8xl': '88rem',  // 1408px
-        '9xl': '96rem',  // 1536px
-      },
-    },
-  },
-}
-```
-
-*Utiliser `extend` garantit que toutes les classes Tailwind natives restent disponibles. Vos ajouts s'accumulent plutôt que de remplacer.*
+Ce module présente les mécanismes avancés pour étendre, personnaliser et enrichir Tailwind CSS v4.
 
 <br>
 
 ---
 
-## Plugins Officiels
+## 1. Le Thème CSS-first avec `@theme`
 
-### @tailwindcss/forms
+Dans Tailwind v4, vous n'avez plus besoin d'un fichier de configuration JavaScript. La personnalisation du design system se fait directement au sein du fichier CSS principal, dans la directive `@theme`.
 
-```bash title="Bash — Installation du plugin forms"
-npm install -D @tailwindcss/forms
-```
+### Configurer le thème dans `resources/css/app.css`
 
-```js title="JavaScript — tailwind.config.js : activer le plugin forms"
-module.exports = {
-  plugins: [
-    // Réinitialise le style des <input>, <select>, <textarea>, <checkbox>
-    // pour les rendre facilement stylisables avec des classes Tailwind
-    require('@tailwindcss/forms'),
+```css title="CSS - resources/css/app.css : surcharge et extension du thème"
+@import "tailwindcss";
 
-    // Option : strategy class pour n'affecter que les éléments avec la classe 'form-*'
-    // require('@tailwindcss/forms')({ strategy: 'class' }),
-  ],
+@theme {
+  /* Extension et surcharge des couleurs */
+  --color-primary-50: #f0fdf4;
+  --color-primary-500: #22c55e;
+  --color-primary-950: #052e16;
+
+  /* Ajout d'une police display personnalisée */
+  --font-display: "Outfit", sans-serif;
+
+  /* Définition d'une animation personnalisée */
+  --animate-fade-in-slow: fade-in 1.5s ease-out;
+
+  /* Configuration d'ombres personnalisées */
+  --shadow-brand-glow: 0 4px 20px -2px rgba(34, 197, 94, 0.4);
 }
 ```
+_Déclaration des variables CSS globales de niveau 4 au sein de la directive @theme pour configurer les couleurs, les polices, les animations et les ombres du design system._
 
-```html title="HTML (Tailwind) — Formulaire avec @tailwindcss/forms"
-{{-- Sans @tailwindcss/forms : les inputs ont des styles OS inconsistants --}}
-{{-- Avec : base reset appliqué, classes Tailwind prennent l'effet immédiatement --}}
+*En déclarant `--color-primary-500`, Tailwind génère automatiquement toutes les classes utilitaires correspondantes : `bg-primary-500`, `text-primary-500`, `border-primary-500`, etc. Les clés CSS-first s'intègrent nativement avec les DevTools du navigateur.*
 
-<form class="space-y-4">
-  {{-- Input text --}}
-  <div>
-    <label class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
-    <input type="text"
-           class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 text-sm" />
-  </div>
+<br>
 
-  {{-- Select --}}
-  <div>
-    <label class="block text-sm font-medium text-gray-700 mb-1">Catégorie</label>
-    <select class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500 text-sm">
-      <option>Laravel</option>
-      <option>Alpine.js</option>
-      <option>Tailwind</option>
-    </select>
-  </div>
+---
 
-  {{-- Checkbox --}}
-  <label class="flex items-center gap-2">
-    <input type="checkbox"
-           class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
-    <span class="text-sm text-gray-700">Accepter les conditions</span>
-  </label>
-</form>
-```
+## 2. Créer des Utilitaires Personnalisés avec `@utility`
 
-### @tailwindcss/typography
+Tailwind v4 introduit la directive `@utility` qui permet de déclarer de nouvelles classes utilitaires en écrivant du CSS natif, tout en bénéficiant du moteur de build.
 
-```bash title="Bash — Installation du plugin typography"
-npm install -D @tailwindcss/typography
-```
+### Déclaration d'utilitaires dans le CSS
 
-```js title="JavaScript — tailwind.config.js : activer le plugin typography"
-module.exports = {
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+```css title="CSS - Définition de classes utilitaires personnalisées"
+/* Utilitaire pour tronquer le texte sur plusieurs lignes */
+@utility line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Utilitaire de mise en page réutilisable avec media queries */
+@utility container-app {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  @media (min-width: 640px) {
+    padding: 0 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    padding: 0 2rem;
+  }
 }
 ```
+_Enregistrement de nouvelles classes utilitaires réutilisables dans le compilateur Tailwind via la directive CSS @utility._
 
-```html title="HTML (Tailwind) — Rendu Markdown avec la classe prose"
-{{-- La classe 'prose' stylise automatiquement le contenu HTML arbitraire --}}
-{{-- Idéal pour : articles de blog, documentation, contenu Markdown converti --}}
+```html title="HTML - Utilisation des utilitaires personnalisés"
+<div class="container-app py-8">
+  <p class="line-clamp-2 text-slate-700">
+    Ce texte particulièrement long sera limité à deux lignes et automatiquement
+    tronqué par des points de suspension, tout en restant responsive grâce au conteneur.
+  </p>
+</div>
+```
+_Code HTML tirant parti des classes utilitaires personnalisées définies dans la feuille de style principale._
 
-<article class="prose prose-lg prose-blue max-w-prose mx-auto">
-  {{-- Tout le contenu suivant est automatiquement stylisé : --}}
-  <h1>Titre de l'article</h1>           {{-- Titre en grande police --}}
-  <p>Introduction du contenu...</p>      {{-- Paragraphes avec bonne hauteur de ligne --}}
-  <h2>Sous-titre</h2>
-  <ul>
-    <li>Élément de liste</li>           {{-- Listes stylisées --}}
-  </ul>
-  <code>du code inline</code>           {{-- Code avec fond gris --}}
-  <pre><code>bloc de code</code></pre>  {{-- Bloc de code avec coloration --}}
-  <blockquote>Citation</blockquote>     {{-- Blockquote avec bordure gauche --}}
-</article>
+<br>
 
-{{-- Variantes taille : prose-sm, prose (défaut), prose-lg, prose-xl, prose-2xl --}}
-{{-- Couleurs : prose-blue (liens bleus), prose-gray, prose-slate, etc. --}}
-{{-- Dark mode : dark:prose-invert (inverse les couleurs en mode sombre) --}}
+---
 
-<article class="prose dark:prose-invert max-w-prose">
-  {!! $article->content !!}
+## 3. Ajout de Plugins Officiels avec `@plugin`
+
+Pour charger des extensions JavaScript complexes (comme le plugin de typographie pour formater le Markdown ou le reset des formulaires), Tailwind v4 utilise la directive `@plugin`.
+
+### Importation de plugins officiels
+
+```css title="CSS - Importation des plugins officiels dans app.css"
+@import "tailwindcss";
+
+/* Chargement des plugins officiels */
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+```
+_Déclaration des extensions JavaScript officielles de Tailwind directement au sein du fichier CSS principal._
+
+### Exemple d'usage avec le plugin Typography
+
+Le plugin de typographie permet de formater automatiquement du contenu brut (par exemple, du Markdown généré par un éditeur ou extrait d'une base de données) à l'aide de la classe globale `prose`.
+
+```html title="Blade - Utilisation de la classe prose pour afficher du Markdown"
+<article class="prose dark:prose-invert max-w-none">
+    {!! $page->content !!}
 </article>
 ```
+_Rendu structuré automatique du HTML brut ou compilé à l'aide des styles par défaut du plugin Typography._
 
 <br>
 
 ---
 
-## Créer un Plugin Custom
+## 4. DaisyUI v5 — Composants et Thèmes
 
-```js title="JavaScript — tailwind.config.js : plugin custom pour les patterns répétitifs"
-const plugin = require('tailwindcss/plugin');
+DaisyUI v5 est entièrement compatible avec Tailwind v4. Il s'importe comme plugin au sein de votre fichier CSS principal et utilise les variables CSS globales pour son système de theming.
 
-module.exports = {
-  plugins: [
-    // Plugin inline pour des utilitaires custom
-    plugin(function({ addUtilities, addComponents, theme }) {
+### Intégration dans le CSS principal
 
-      // ─── Utilitaires personnalisés ────────────────────────────────────────
-      addUtilities({
-        // Utilitaire pour les textes tronqués sur plusieurs lignes
-        '.line-clamp-2': {
-          display:            '-webkit-box',
-          '-webkit-line-clamp': '2',
-          '-webkit-box-orient': 'vertical',
-          overflow:           'hidden',
-        },
-        '.line-clamp-3': {
-          display:            '-webkit-box',
-          '-webkit-line-clamp': '3',
-          '-webkit-box-orient': 'vertical',
-          overflow:           'hidden',
-        },
-        // Scroll snap
-        '.scroll-snap-x': { 'scroll-snap-type': 'x mandatory' },
-        '.scroll-snap-start': { 'scroll-snap-align': 'start' },
-      });
+```css title="CSS - resources/css/app.css : intégration de DaisyUI v5"
+@import "tailwindcss";
 
-      // ─── Composants personnalisés (@layer components) ─────────────────────
-      addComponents({
-        // Conteneur de mise en page standard
-        '.container-app': {
-          width:    '100%',
-          maxWidth: '80rem',   // 1280px = max-w-7xl
-          margin:   '0 auto',
-          padding:  '0 1rem',
-          '@screen sm': { padding: '0 1.5rem' },
-          '@screen lg': { padding: '0 2rem' },
-        },
-      });
-    }),
-  ],
+/* Chargement de DaisyUI v5 */
+@plugin "daisyui";
+
+/* Personnalisation des thèmes de DaisyUI via les variables CSS */
+@theme {
+  --color-primary: var(--color-primary-500);
+  --color-secondary: #64748b;
 }
 ```
+_Enregistrement de DaisyUI v5 comme extension CSS et liaison des couleurs de composants aux variables globales du thème._
 
-```html title="HTML (Tailwind) — Utilisation du plugin custom"
-{{-- Utilitaire line-clamp : tronque à 2 lignes --}}
-<p class="line-clamp-2">
-  Ce texte très long sera automatiquement tronqué au bout de deux lignes
-  avec des points de suspension, peu importe la taille de l'écran.
-</p>
+### Exemple de composants DaisyUI v5
 
-{{-- Conteneur app standard --}}
-<div class="container-app py-12">
-  Contenu centré avec padding responsive
+```html title="Blade - Boutons et cartes sémantiques DaisyUI"
+<!-- Boutons sémantiques combinés avec classes utilitaires -->
+<div class="flex gap-4">
+    <button class="btn btn-primary">Enregistrer</button>
+    <button class="btn btn-outline btn-secondary">Annuler</button>
 </div>
-```
 
-<br>
-
----
-
-## DaisyUI — Bibliothèque de Thèmes
-
-DaisyUI est un plugin Tailwind qui ajoute des composants sémantiques et des thèmes visuels.
-
-```bash title="Bash — Installation de DaisyUI"
-npm install -D daisyui@latest
-```
-
-```js title="JavaScript — tailwind.config.js : intégration DaisyUI"
-module.exports = {
-  plugins: [
-    require('daisyui'),
-  ],
-
-  daisyui: {
-    // Thèmes disponibles : light, dark, cupcake, bumblebee, emerald, corporate,
-    //                      synthwave, retro, cyberpunk, valentine, halloween,
-    //                      garden, forest, aqua, lofi, pastel, fantasy, black, luxury, etc.
-    themes: ['light', 'dark', 'corporate'],
-
-    // Thème actif par défaut
-    darkTheme: 'dark',
-
-    // Désactiver si vous n'avez pas besoin de tous les composants DaisyUI
-    // et préférez cibler uniquement ce que vous utilisez
-    base:       true,
-    styled:     true,
-    utils:      true,
-    logs:       false,
-  },
-}
-```
-
-```html title="HTML (DaisyUI) — Composants DaisyUI avec classes sémantiques"
-{{-- DaisyUI ajoute des classes sémantiques au-dessus de Tailwind --}}
-
-{{-- Boutons DaisyUI --}}
-<button class="btn btn-primary">Enregistrer</button>
-<button class="btn btn-secondary btn-sm">Annuler</button>
-<button class="btn btn-error btn-outline">Supprimer</button>
-<button class="btn loading">Chargement...</button>
-
-{{-- Card DaisyUI --}}
-<div class="card bg-base-100 shadow-xl">
-  <div class="card-body">
-    <h2 class="card-title">Module Tailwind</h2>
-    <p>Formation complète du débutant à l'avancé.</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Commencer</button>
+<!-- Carte sémantique stylisée avec ombrage et bordures -->
+<div class="card bg-base-100 shadow-xl border border-slate-200">
+    <div class="card-body p-6">
+        <h2 class="card-title text-xl font-bold">DaisyUI v5 & Tailwind v4</h2>
+        <p class="text-slate-600">Les deux frameworks fonctionnent en harmonie totale.</p>
+        <div class="card-actions justify-end mt-4">
+            <button class="btn btn-primary btn-sm">En savoir plus</button>
+        </div>
     </div>
-  </div>
 </div>
-
-{{-- Alert DaisyUI --}}
-<div class="alert alert-success">
-  <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
-  <span>Article publié avec succès !</span>
-</div>
-
-{{-- Badge DaisyUI --}}
-<div class="badge badge-primary">Laravel</div>
-<div class="badge badge-outline">Tailwind</div>
-
-{{-- Modal DaisyUI --}}
-<dialog id="modal_confirm" class="modal">
-  <form method="dialog" class="modal-box">
-    <h3 class="font-bold text-lg">Confirmer la suppression</h3>
-    <p class="py-4">Cette action est irréversible. Êtes-vous sûr ?</p>
-    <div class="modal-action">
-      <button class="btn">Annuler</button>
-      <button class="btn btn-error">Supprimer</button>
-    </div>
-  </form>
-</dialog>
 ```
-
-*DaisyUI coexiste parfaitement avec Tailwind — vous pouvez mélanger classes DaisyUI (`btn btn-primary`) et classes Tailwind (`mt-4 text-sm`) sur le même élément.*
+_Utilisation des classes de composants prédéfinies de DaisyUI combinées avec la flexibilité des classes utilitaires de Tailwind._
 
 <br>
 
@@ -416,28 +183,16 @@ module.exports = {
 
 !!! note "À vous de jouer"
 
-**Exercice 1 — Design System Custom**
+**Exercice 1 — Création d'un Thème Sombre Personnalisé**
 
-```js title="JavaScript — Exercice 1 : configurer un design system complet"
-// Dans tailwind.config.js, étendez le thème avec :
-// - Palette de couleurs "brand" (indigo/violet, 50-950)
-// - Police sans-serif : Inter (charger depuis Google Fonts dans le layout)
-// - 2 animations custom : fadeIn (opacité 0→1) et slideUp (translateY 16px→0)
-// - Shadow colorée "brand-glow" pour les cartes feature
-// Vérifiez que les nouvelles classes sont disponibles dans le HTML
-```
+1. Dans votre fichier `app.css`, ajoutez des variables pour un thème sombre au sein de `@theme` (ex. `--color-dark-bg`, `--color-dark-text`).
+2. Créez un composant de carte qui change de couleur de fond et de couleur de texte en utilisant la variante de média ou la classe active `dark:` (ex: `bg-white dark:bg-dark-bg text-slate-900 dark:text-dark-text`).
+3. Validez l'affichage en modifiant les préférences système de votre machine.
 
-**Exercice 2 — Comparaison**
+**Exercice 2 — Enregistrement d'Utilitaires avec `@utility`**
 
-```html title="HTML — Exercice 2 : mêmes composants Tailwind vs DaisyUI"
-<!-- Recréez ce formulaire en deux versions :
-     Version A : uniquement with classes Tailwind utilitaires
-     Version B : avec DaisyUI (btn, input, label, card)
-     
-     Formulaire : champ nom, champ email, select catégorie, checkbox CGU, bouton submit
-     
-     Comparez la quantité de classes, la lisibilité, la personnalisabilité -->
-```
+1. Créez un utilitaire `@utility flex-center` qui applique les propriétés `display: flex`, `align-items: center`, et `justify-content: center`.
+2. Utilisez cet utilitaire sur une boîte HTML et validez que le contenu est parfaitement centré horizontalement et verticalement.
 
 <br>
 
@@ -446,8 +201,6 @@ module.exports = {
 ## Conclusion
 
 !!! quote "Ce qu'il faut retenir de ce module"
-    `theme.extend` est le mécanisme central pour personnaliser Tailwind sans perdre les défauts — couleurs, fonts, spacings, animations, shadows sont tous extensibles. `@tailwindcss/forms` normalise les inputs entre navigateurs. `@tailwindcss/typography` stylise le contenu Markdown via la classe `prose`. Les plugins custom permettent d'ajouter des utilitaires et composants métier. DaisyUI superpose une couche de composants sémantiques sur Tailwind — idéal pour prototyper rapidement tout en gardant la flexibilité utility-first pour les détails.
+    La directive `@theme` est l'emplacement unique pour étendre et surcharger le design system sous Tailwind v4, éliminant définitivement `tailwind.config.js`. Pour les petits utilitaires spécifiques, utilisez `@utility` en écrivant du CSS natif. Pour greffer des bibliothèques externes et des fonctionnalités avancées complexes, utilisez `@plugin` (ex. Typography ou DaisyUI v5). Ce modèle unifié en CSS accélère le build et simplifie la maintenance globale du projet.
 
-> **Formation complète.** Vous maîtrisez maintenant Tailwind CSS de la philosophie utility-first jusqu'au theming avancé. La prochaine étape naturelle est d'appliquer Tailwind dans le contexte de la **Stack TALL** — [Alpine.js](../alpine/index.md), [Livewire](../livewire/index.md), [Laravel](../laravel/index.md) vous attendent.
-
-<br>
+> **Parcours Tailwind CSS complété.** Vous maîtrisez désormais Tailwind CSS de bout en bout. Poursuivez vers le module d'**[Intégration Laravel 13](./09-integration-laravel13.md)** pour structurer et compiler vos interfaces dans le framework PHP.

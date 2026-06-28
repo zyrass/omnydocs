@@ -23,7 +23,7 @@ YAML est devenu le **standard de facto** pour la configuration d'infrastructure 
 !!! info "Pourquoi c'est important"
     YAML est le langage standard du DevOps et de l'automatisation : manifestes Kubernetes, playbooks Ansible, pipelines CI/CD, configurations Docker Compose. Comprendre YAML, c'est comprendre comment l'infrastructure moderne est décrite et versionnée.
 
-<br />
+<br>
 
 ---
 
@@ -189,7 +189,7 @@ entreprise:
       budget: 200000
 ```
 
-<br />
+<br>
 
 ---
 
@@ -228,7 +228,7 @@ staging:
 #   environment: production
 ```
 
-<br />
+<br>
 
 ---
 
@@ -253,7 +253,7 @@ database:
   ssl:  true
 ```
 
-<br />
+<br>
 
 ---
 
@@ -718,7 +718,7 @@ database:
     }
     ```
 
-<br />
+<br>
 
 ---
 
@@ -783,7 +783,7 @@ kube-score score deployment.yaml
 !!! warning "Pièges fréquents"
     Tabulations au lieu d'espaces — erreur fatale, le parser refuse le fichier. Indentation incohérente — le parsing échoue silencieusement sur certains parsers. `yes`/`no` interprétés comme booléens — utiliser `true`/`false` systématiquement. Chaînes multiligne mal formatées — confondre `|` (préserve les sauts) et `>` (plie les sauts). Ancres mal référencées — valeur silencieusement absente.
 
-<br />
+<br>
 
 ---
 
@@ -795,4 +795,4 @@ kube-score score deployment.yaml
 !!! quote "Conclusion"
     _YAML a révolutionné la configuration d'infrastructure en rendant les fichiers lisibles par les humains sans sacrifier la puissance d'expression. Son adoption massive par Kubernetes, Docker, Ansible et les pipelines CI/CD en a fait le langage universel de l'infrastructure as code. Maîtriser YAML, c'est comprendre que l'indentation est sémantique, que les commentaires sont essentiels et que les ancres évitent la duplication. Pour la configuration d'infrastructure moderne, YAML est incontournable._
 
-<br />
+<br>

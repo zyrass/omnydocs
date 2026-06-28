@@ -8,7 +8,7 @@ tags: ["PHP", "PROCÉDURAL", "POO", "SÉCURITÉ", "BACKEND", "WEB"]
 <div
   class="omny-meta"
   data-level="🟢 Débutant à 🔴 Expert"
-  data-version="8.3"
+  data-version="8.4"
   data-time="120-150 heures">
 </div>
 

@@ -23,7 +23,7 @@ Comprendre le modèle OSI est indispensable pour diagnostiquer les pannes résea
 !!! info "Pourquoi c'est important"
     Le modèle OSI est le référentiel universel pour parler de réseau. Quand un firewall filtre au niveau 4, quand Wireshark capture au niveau 2, quand une attaque MITM opère au niveau 3 — tout se réfère aux couches OSI. Identifier à quelle couche se situe un problème divise par deux le temps de diagnostic.
 
-<br />
+<br>
 
 ---
 
@@ -48,7 +48,7 @@ Comprendre le modèle OSI est indispensable pour diagnostiquer les pannes résea
 !!! info "PDU — Protocol Data Unit"
     Le PDU est le nom donné à l'unité de données à chaque couche. Un **segment** TCP encapsule des données applicatives. Un **paquet** IP encapsule un segment. Une **trame** Ethernet encapsule un paquet. Un flux de **bits** transporte une trame sur le support physique. Connaître le PDU de chaque couche est indispensable pour lire une capture Wireshark.
 
-<br />
+<br>
 
 ---
 
@@ -67,7 +67,7 @@ La couche Physique gère la **transmission brute des bits** sur un support de co
 !!! warning "Point de sécurité — couche 1"
     Un attaquant avec un accès physique au réseau peut brancher un équipement d'écoute sur un câble (tap physique), connecter un appareil non autorisé sur un port ouvert, ou intercepter des transmissions Wi-Fi. La sécurité physique des locaux et des baies réseau est la première ligne de défense.
 
-<br />
+<br>
 
 ---
 
@@ -87,10 +87,10 @@ La couche Liaison de données assure le **transfert fiable de trames** entre deu
 
 ```mermaid
 flowchart TB
-    A["Paquet IP<br />(couche 3)"]
-    B["En-tête Ethernet<br />MAC source + MAC dest"]
-    C["Trame Ethernet<br />(couche 2)"]
-    D["FCS<br />Détection d'erreur"]
+    A["Paquet IP<br>(couche 3)"]
+    B["En-tête Ethernet<br>MAC source + MAC dest"]
+    C["Trame Ethernet<br>(couche 2)"]
+    D["FCS<br>Détection d'erreur"]
 
     A --> C
     B --> C
@@ -102,7 +102,7 @@ L'adresse MAC est codée sur 48 bits en hexadécimal — `AA:BB:CC:DD:EE:FF`. Le
 !!! warning "Point de sécurité — couche 2"
     Les attaques de couche 2 sont particulièrement dangereuses car elles opèrent sous le niveau IP et contournent de nombreux firewalls. ARP Spoofing (empoisonnement de table ARP pour intercepter le trafic), MAC Flooding (saturation de la table CAM d'un switch pour le faire se comporter comme un hub), VLAN Hopping (sauter entre VLANs via double tagging 802.1Q) sont les vecteurs classiques.
 
-<br />
+<br>
 
 ---
 
@@ -120,9 +120,9 @@ La couche Réseau gère l'**adressage logique** et le **routage** des paquets en
 
 ```mermaid
 flowchart TB
-    A["Segment TCP<br />(couche 4)"]
-    B["En-tête IP<br />IP source + IP dest<br />TTL + protocole"]
-    C["Paquet IP<br />(couche 3)"]
+    A["Segment TCP<br>(couche 4)"]
+    B["En-tête IP<br>IP source + IP dest<br>TTL + protocole"]
+    C["Paquet IP<br>(couche 3)"]
 
     A --> C
     B --> C
@@ -133,7 +133,7 @@ Le **TTL** (Time To Live) est décrémenté à chaque routeur. Quand il atteint 
 !!! warning "Point de sécurité — couche 3"
     IP Spoofing (falsification de l'adresse source pour usurper une identité), attaques par fragmentation (exploitation de la réassemblage), routage asymétrique exploité pour contourner des IDS/IPS. Les ACL sur les routeurs et les règles de filrage par IP opèrent à cette couche.
 
-<br />
+<br>
 
 ---
 
@@ -154,7 +154,7 @@ Les couches 1 à 4 sont traitées en détail — TCP, UDP, ports et cas d'usage 
 !!! warning "Point de sécurité — couche 4"
     SYN Flood (envoi massif de SYN sans compléter le handshake — épuisement de la table de connexions), port scanning (reconnaissance des services exposés), session hijacking (vol de numéro de séquence TCP pour prendre le contrôle d'une session). Les firewalls stateful inspectent l'état des connexions TCP à cette couche.
 
-<br />
+<br>
 
 ---
 
@@ -173,7 +173,7 @@ La couche Session gère l'**établissement, le maintien et la fermeture des sess
 !!! note "Dans la pratique"
     La couche 5 est souvent transparente pour les développeurs. TCP maintient les connexions (couche 4) et les applications gèrent elles-mêmes leur état de session. C'est pourquoi le modèle TCP/IP fusionne les couches 5, 6 et 7 en une seule couche Application.
 
-<br />
+<br>
 
 ---
 
@@ -192,7 +192,7 @@ La couche Présentation assure la **traduction des données** entre le format ut
 !!! note "TLS et la couche 6"
     TLS est souvent dit "entre couche 4 et 7" — c'est une approximation. Il opère conceptuellement à la couche 6 : il chiffre les données applicatives avant transmission et les déchiffre à réception, sans modifier le transport TCP sous-jacent.
 
-<br />
+<br>
 
 ---
 
@@ -211,7 +211,7 @@ La couche Application est l'**interface directe avec l'utilisateur ou l'applicat
 !!! warning "Point de sécurité — couche 7"
     La couche applicative est la surface d'attaque la plus large. Injection SQL, XSS, CSRF, déni de service applicatif (HTTP Flood), exploitation de vulnérabilités applicatives (CVE). Les WAF filtrent le trafic HTTP/HTTPS à cette couche. Les outils comme Burp Suite travaillent exclusivement sur la couche 7.
 
-<br />
+<br>
 
 ---
 
@@ -245,7 +245,7 @@ flowchart TB
 
 À chaque flèche vers le bas, une couche ajoute son en-tête. À chaque flèche vers le haut (réception), une couche retire son en-tête. Le contenu n'est jamais modifié — uniquement encapsulé.
 
-<br />
+<br>
 
 ---
 
@@ -269,7 +269,7 @@ flowchart TB
 
 Le modèle TCP/IP est traité en détail dans le chapitre [Modèle TCP/IP](../reseaux/modele-tcpip.md).
 
-<br />
+<br>
 
 ---
 
@@ -356,18 +356,18 @@ La démarche systématique part toujours de la couche la plus basse :
 
 ```mermaid
 flowchart TB
-    C1["Couche 1 — Physique<br />Câble branché ? LED allumée ? Signal présent ?<br />Outil : ip link, ethtool"]
-    C2["Couche 2 — Liaison<br />Adresse MAC visible ? ARP répond ? VLAN correct ?<br />Outil : arp, arping, tcpdump"]
-    C3["Couche 3 — Réseau<br />Ping vers gateway ? Route configurée ? IP correcte ?<br />Outil : ping, ip route, traceroute"]
-    C4["Couche 4 — Transport<br />Port ouvert ? Connexion TCP établie ? Firewall ?<br />Outil : ss, nc, nmap"]
-    C7["Couche 7 — Application<br />Service répond ? DNS résout ? Certificat valide ?<br />Outil : curl, dig, nslookup"]
+    C1["Couche 1 — Physique<br>Câble branché ? LED allumée ? Signal présent ?<br>Outil : ip link, ethtool"]
+    C2["Couche 2 — Liaison<br>Adresse MAC visible ? ARP répond ? VLAN correct ?<br>Outil : arp, arping, tcpdump"]
+    C3["Couche 3 — Réseau<br>Ping vers gateway ? Route configurée ? IP correcte ?<br>Outil : ping, ip route, traceroute"]
+    C4["Couche 4 — Transport<br>Port ouvert ? Connexion TCP établie ? Firewall ?<br>Outil : ss, nc, nmap"]
+    C7["Couche 7 — Application<br>Service répond ? DNS résout ? Certificat valide ?<br>Outil : curl, dig, nslookup"]
 
     C1 --> C2 --> C3 --> C4 --> C7
 ```
 
 À chaque étape, si la couche fonctionne, on monte. Si elle échoue, on a localisé le problème.
 
-<br />
+<br>
 
 ---
 
@@ -379,4 +379,4 @@ flowchart TB
 !!! quote "Conclusion"
     _Le modèle OSI n'est pas un protocole à implémenter — c'est un langage commun pour raisonner sur les réseaux. Ses sept couches permettent de décomposer n'importe quel problème réseau en une question précise : à quelle couche se situe la défaillance ? Un attaquant qui empoisonne une table ARP opère en couche 2. Un firewall qui filtre par IP opère en couche 3. Un WAF qui bloque une injection SQL opère en couche 7. Un certificat TLS expiré est un problème de couche 6. Maîtriser ce découpage transforme le diagnostic réseau d'un exercice intuitif en une démarche méthodique et reproductible. Dans un contexte de cybersécurité, identifier la couche d'une attaque détermine immédiatement les contre-mesures à déployer._
 
-<br />
+<br>

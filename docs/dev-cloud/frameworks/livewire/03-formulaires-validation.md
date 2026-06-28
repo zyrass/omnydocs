@@ -1,143 +1,213 @@
 ---
-description: "Validation des Entrées, Messages d'Erreur natifs et Form objects avec Livewire."
+description: "Validation de formulaires en temps réel, règles de validation et gestion des messages d'erreur au sein de composants mono-fichiers Livewire v4."
 icon: lucide/box
 tags: ["THEORIE", "LIVEWIRE", "VALIDATION", "FORMULAIRES"]
 ---
 
-# Formulaires et Validation
+# Formulaires & Validation
 
 <div
   class="omny-meta"
   data-level="🟢 Débutant"
-  data-version="Livewire 3.x"
-  data-time="2 Heures">
+  data-version="4.x"
+  data-time="2 heures">
 </div>
 
-!!! quote "Garde Frontière"
-    Ne faites jamais, **absolument jamais**, confiance aux données entrées par vos utilisateurs depuis un navigateur web. Un nom de 2 millions de caractères peut écraser un serveur. Un String reçu à la place d'un Tableau Integer déclenche un Crash DB Fatal. Contrairement aux API REST classiques où les codes d'erreur doivent être refaçonnés pour des Frontends React, Livewire utilise les entrailles de Laravel : les règles et la langue de validation sont fusionnées entre le front et le backend en natif !
+## Introduction
+
+!!! quote "Analogie pédagogique — Le Douanier et le Contrôle de Sécurité"
+    Imaginez un voyageur (les données soumises par l'utilisateur) se présentant à la frontière (votre serveur applicatif). Le douanier (le système de validation) vérifie méthodiquement son passeport, son visa et ses bagages en les confrontant aux lois nationales (vos règles de validation) avant de l'autoriser à entrer sur le territoire. Si un document manque ou est invalide, le douanier refuse l'accès et signale immédiatement le problème au voyageur pour qu'il le corrige. Dans Livewire v4, ce contrôle de sécurité s'effectue en temps réel, bloquant les entrées frauduleuses avant même qu'elles n'atteignent votre base de données.
+
+Ce module présente les mécanismes de validation robustes de Livewire v4 et leur intégration dans les formulaires mono-fichiers.
 
 <br>
 
 ---
 
-## 1. Le Nouvel Attribut `#[Validate]` PHP 8
+## 1. Règles de validation de base
 
-Dans les précédentes versions 1 et 2 de Livewire, l'usager écrivait une longue méthode `$rules = []`. Livewire 3 exploite les syntaxes novatrices via Attributs pour valider le composant "à la source", au plus près de la déclaration.
+Pour protéger l'intégrité de votre application, toute donnée saisie par l'utilisateur doit être validée côté serveur avant d'être persistée en base de données.
 
-```php title="Déclaration des filtres d'intégrité de la Classe"
+### Exemple de validation à la soumission
+
+```html title="Blade - resources/views/livewire/⚡register-form.blade.php : formulaire de base validé"
 <?php
-
-namespace App\Livewire;
-
 use Livewire\Component;
-use Livewire\Attributes\Validate;
 
-class SignUser extends Component
-{
-    // Ce champ exige d'être pré-rempli, et au minimum 4 lettres
-    #[Validate('required|min:4')]
-    public $title = '';
-
-    // Ce champ garantit l'unicité dans la Base de Données (Anti DB-Hack)
-    // Et lève un message spécial traduit !
-    #[Validate('required|email|unique:users,email', message: 'Cet email est déjà pris')]
+new class extends Component {
+    public $name = '';
     public $email = '';
 
-    public function create()
+    // Définition des règles de validation
+    protected $rules = [
+        'name' => 'required|min:3',
+        'email' => 'required|email|unique:users,email',
+    ];
+
+    public function submit()
     {
-        // 1. Livewire STOPE la fonction nette ici si email ou title sont mauvais
-        // 2. Et il RAPPELLE la méthode render() avec la table d'erreurs !
-        $this->validate(); 
+        // Exécute la validation en se basant sur les règles $rules
+        $this->validate();
 
-        User::create([
-            'title' => $this->title,
-            'email' => $this->email
-        ]);
-        
-        // Vidange du formulaire
-        $this->reset('title', 'email'); 
+        // Si la validation réussit, traitement de l'enregistrement
+        session()->flash('success', 'Utilisateur validé et enregistré.');
     }
-}
-```
+};
+?>
 
-_Note : Si `$this->validate()` échoue (throw d'une exception `ValidationException`), la fonction `create()` ne lit **jamais** les lignes suivantes et empêche ainsi Eloquent de polluer la Base SQL. C'est le principe du Guard Clause naturel._
+<form wire:submit="submit" class="space-y-4 max-w-md p-6 bg-white rounded-lg shadow">
+    @if (session()->has('success'))
+        <div class="p-3 bg-green-150 text-green-800 rounded">
+            {{ session('success') }}
+        </div>
+    @endif
 
-<br>
-
----
-
-## 2. Renvoyer L'Erreur Côté Blade HTML
-
-Lorsque le `validate()` coupe le circuit, il renvoie un "Errors Bag" (Sac d'Erreurs) à la page. La directive `@error` traditionnelle de Blade s'en empare et affiche les données sans même nécessiter de programmation JavaScript supplémentaire.
-
-```html title="Capture des erreurs au Focus du Champ"
-<form wire:submit="create" class="p-4">
-    <!-- Évite le saut de route HTTP en interceptant avec 'wire:submit' -->
-    
     <div>
-        <label>Titre de Compte</label>
-        <input type="text" wire:model.blur="title">
-        
-        <!-- Le helper Laravel pour cibler la faille du string "title" -->
-        @error('title') 
-            <span class="text-sm text-red-600 font-bold">
-                {{ $message }}
-            </span> 
+        <label for="name" class="block text-sm font-medium">Nom complet</label>
+        <input type="text" id="name" wire:model="name" class="border p-2 rounded w-full">
+        @error('name') 
+            <span class="text-rose-600 text-xs mt-1 block">{{ $message }}</span> 
         @enderror
     </div>
 
-    <button type="submit">Valider</button>
+    <div>
+        <label for="email" class="block text-sm font-medium">Adresse Email</label>
+        <input type="email" id="email" wire:model="email" class="border p-2 rounded w-full">
+        @error('email') 
+            <span class="text-rose-600 text-xs mt-1 block">{{ $message }}</span> 
+        @enderror
+    </div>
+
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700">
+        Enregistrer
+    </button>
 </form>
 ```
-
-_Le modificateur `.blur` a été couplé avec le modèle. Cela signifie que l'utilisateur tapera son titre en paix, cliquera sur un autre champ, et SEULEMENT à ce moment-là la requête partira à Laravel pour activer le validateur `[#Validate]`, soulevant l'alerte `@error` sans même recharger le bouton "Validation". C'est de l'expérience utilisateur Parfaite._
+_Formulaire mono-fichier complet gérant la validation et l'affichage ciblé des erreurs à l'aide de la directive @error._
 
 <br>
 
 ---
 
-## 3. Formulaire Massif : Livewire Form Objects
+## 2. Validation en temps réel avec `updated`
 
-S'il y a 20 propriétés liées au profil utilisateur (`$nom`, `$prenom`, `$cp`, `$ville`, etc.), la classe Livewire principale va hériter d'une trentaine de variables publiques, devenant illisible. On délègue tout via les *Form Objects*.
+Pour offrir une meilleure expérience utilisateur, vous pouvez valider les champs individuels dès que l'utilisateur a fini de les remplir, sans attendre la soumission finale du formulaire.
 
-```php title="app/Livewire/Forms/PostForm.php (Création d'un Sous-Fichier dédié)"
+### Déclenchement de la validation au fil de l'eau
+
+```html title="Blade - resources/views/livewire/⚡realtime-validation.blade.php : validation réactive"
 <?php
+use Livewire\Component;
 
-namespace App\Livewire\Forms;
+new class extends Component {
+    public $username = '';
 
-use Livewire\Attributes\Validate;
-use Livewire\Form;
+    protected $rules = [
+        'username' => 'required|alpha_dash|min:4|max:20',
+    ];
 
-// Notre objet dérive de Livewire\Form au lieu de Component
-class PostForm extends Form 
-{
-    #[Validate('required|min:5')]
-    public $title = '';
-
-    #[Validate('required')]
-    public $content = '';
-    
-    public function store() {
-        $this->validate();
-        Post::create($this->all());
+    // Hook appelé automatiquement après la mise à jour d'une propriété publique
+    public function updated($propertyName)
+    {
+        // Valide uniquement la propriété modifiée
+        $this->validateOnly($propertyName);
     }
-}
-```
-
-```php title="Injection de ce Form Object dans le Composant Livewire normal !"
-class CreatePost extends Component
-{
-    // C'est magique : Toutes les vars et la validation sont condensées dans un namespace 'form' !!
-    public PostForm $form; 
 
     public function save()
     {
-        $this->form->store();
+        $this->validate();
+        session()->flash('message', 'Nom d\'utilisateur réservé avec succès.');
     }
-}
-```
+};
+?>
 
-Dans le Blade, on appellera alors `wire:model="form.title"` au lieu de `wire:model="title"`. 
+<div class="space-y-4 max-w-sm">
+    <div>
+        <label for="username" class="block text-sm font-medium">Nom d'utilisateur</label>
+        <!-- Utilisation de wire:model.blur pour valider lorsque le focus est perdu -->
+        <input type="text" id="username" wire:model.blur="username" class="border p-2 rounded w-full">
+        @error('username') 
+            <span class="text-rose-500 text-xs mt-1 block">{{ $message }}</span> 
+        @enderror
+    </div>
+
+    <button wire:click="save" class="bg-slate-800 text-white px-4 py-2 rounded w-full">
+        Créer mon compte
+    </button>
+</div>
+```
+_Validation à chaud déclenchée par le crochet cycle de vie updated lors de la modification des champs._
+
+<br>
+
+---
+
+## 3. Personnalisation des Messages d'Erreur
+
+Vous pouvez personnaliser les règles de validation et redéfinir les messages d'erreur standard de Laravel pour les adapter à votre contexte applicatif.
+
+### Déclaration de messages personnalisés
+
+```html title="Blade - resources/views/livewire/⚡custom-messages.blade.php : messages d'erreurs ciblés"
+<?php
+use Livewire\Component;
+
+new class extends Component {
+    public $password = '';
+
+    protected $rules = [
+        'password' => 'required|min:8',
+    ];
+
+    // Définition des messages d'erreur personnalisés
+    protected $messages = [
+        'password.required' => 'Le mot de passe ne doit pas rester vide.',
+        'password.min' => 'Sécurité insuffisante : le mot de passe doit comporter au moins 8 caractères.',
+    ];
+
+    public function check()
+    {
+        $this->validate();
+        session()->flash('status', 'Mot de passe sécurisé enregistré.');
+    }
+};
+?>
+
+<div class="space-y-4 max-w-sm">
+    <div>
+        <label for="password" class="block text-sm font-medium">Mot de passe</label>
+        <input type="password" id="password" wire:model="password" class="border p-2 rounded w-full">
+        @error('password') 
+            <span class="text-amber-600 text-xs mt-1 block font-semibold">{{ $message }}</span> 
+        @enderror
+    </div>
+
+    <button wire:click="check" class="bg-indigo-600 text-white px-4 py-2 rounded w-full">
+        Valider la sécurité
+    </button>
+</div>
+```
+_Définition de messages d'erreur explicites pour guider l'utilisateur lors de la saisie d'informations complexes._
+
+<br>
+
+---
+
+## Exercices
+
+!!! note "À vous de jouer"
+
+**Exercice 1 — Validateur de longueur de texte**
+
+1. Créez un composant mono-fichier `⚡tweet-box.blade.php`.
+2. Ajoutez un champ de saisie limité par une règle de validation `max:140`.
+3. Affichez en temps réel un compteur de caractères restants et le message d'erreur de dépassement dès que la limite est franchie.
+
+**Exercice 2 — Formulaire de mot de passe avec confirmation**
+
+1. Créez un composant `⚡password-match.blade.php` avec deux propriétés `$password` et `$password_confirmation`.
+2. Déclarez les règles de validation correspondantes à l'aide de la règle Laravel `confirmed` (ex: `'password' => 'required|confirmed'`).
+3. Validez l'affichage et le masquage des erreurs d'incohérence à chaque saisie.
 
 <br>
 
@@ -145,7 +215,7 @@ Dans le Blade, on appellera alors `wire:model="form.title"` au lieu de `wire:mod
 
 ## Conclusion
 
-!!! quote "Les Entrées Cloisonnées"
-    Vous avez maintenant transformé votre base de données ouverte à tous les vents en un coffre numérique géré avec précision militaire sans avoir installé une seule librairie Axios, Fetch API ou Joi Validator. L'univers PHP dicte la loi, L'univers Javascript la dessine.
+!!! quote "Ce qu'il faut retenir de ce module"
+    La validation dans Livewire v4 repose sur la déclaration de la propriété `$rules` et l'appel à `$this->validate()`. La validation en temps réel s'effectue simplement en surchargeant le crochet de cycle de vie `updated()` avec la méthode `$this->validateOnly()`. La directive Blade `@error` permet d'afficher des retours ciblés et interactifs aux utilisateurs en cas d'erreurs de saisie.
 
-> Néanmoins, ce composant "Formulaire", qui vit dans son coin du Code... Comment peut-il informer le voisin, le "Composant Liste d'articles", qu'il doit télécharger les nouveaux éléments sans recharger la page ? Retrouvez ces réponses dans la communication inter-composant dans le [Chapitre 4: Evénements et Communications.](./04-evenements-communication.md).
+> Pour déclencher des actions entre plusieurs composants indépendants de votre page, passez au **[Module 4 — Événements & Communication](./04-evenements-communication.md)**.

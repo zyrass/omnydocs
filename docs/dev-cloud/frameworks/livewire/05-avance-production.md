@@ -1,114 +1,174 @@
 ---
-description: "Upload de fichiers physiques, Polling temporels et les optimisations finales Livewire."
+description: "Fonctionnalités avancées de Livewire v4 : upload de fichiers en streaming, polling, sécurité CSRF, smart keys et checklist pour la mise en production."
 icon: lucide/box
-tags: ["THEORIE", "LIVEWIRE", "UPLOADS", "PRODUCTION"]
+tags: ["THEORIE", "LIVEWIRE", "PRODUCTION", "UPLOADS", "POLLING"]
 ---
 
-# Uploads, Temps et Production
+# Avancé & Production
 
 <div
   class="omny-meta"
   data-level="🔴 Avancé"
-  data-version="Livewire 3.x"
-  data-time="3 Heures">
+  data-version="4.x"
+  data-time="3 heures">
 </div>
 
-!!! quote "Gérer le Lourd et le Réseaux"
-    Pour être un développeur qualifié, savoir afficher un texte dynamique est insuffisant. Devez-vous uploader des avatars d'utilisateurs JPG de 5 Mo dans un Bucket Amazon S3 AWS ? Souhaitez-vous afficher des tableaux de bords analytiques qui se mettent visuellement à jour toutes les 10 secondes sans refresh `F5` pour de la supervision industrielle ? Il faut attaquer les APIs Avancées. 
+## Introduction
+
+!!! quote "Analogie pédagogique — Le Décollage de la Fusée et le Centre de Contrôle"
+    Développer une application en local, c'est comme concevoir une fusée dans un hangar sécurisé : vous pouvez tester les moteurs, vérifier les cadrans et ajuster les pièces sans aucun risque extérieur. La mise en production est le moment du décollage réel vers l'espace (le Web public). Le centre de contrôle (votre configuration de production) doit veiller à ce que la fusée résiste aux frottements de l'atmosphère (les attaques de sécurité), gère correctement le carburant (les uploads lourds) et maintienne une liaison de télémétrie stable (le polling et le suivi des composants). Sans cette préparation rigoureuse, la fusée risque de perdre le contact à mi-chemin.
+
+Ce module présente les concepts de production et les fonctionnalités avancées de Livewire v4.x sous format mono-fichier.
 
 <br>
 
 ---
 
-## 1. La Tempête des Uploads Fichiers
+## 1. Upload de Fichiers en Streaming avec `WithFileUploads`
 
-Envoyer un document PDF lourd (Upload) a toujours été le cauchemar historique du développement Asynchrone AJAX en VanillaJs (`FormData()`, `Boundary`, Multi-Part...). Livewire résout cela brillamment en utilisant son trait spécial `WithFileUploads`.
+Livewire gère le transfert de fichiers en créant un flux temporaire sécurisé vers le serveur, évitant de surcharger la mémoire lors du traitement de gros volumes.
 
-```php title="app/Livewire/ProfileAvatarUploader.php"
+### Exemple de formulaire d'upload
+
+```html title="Blade - resources/views/livewire/⚡file-uploader.blade.php : upload de fichiers"
 <?php
-
-namespace App\Livewire;
-
 use Livewire\Component;
-// 1. INJECTION OBLIGATOIRE DU TRAIT LIVEWIRE 
-use Livewire\WithFileUploads; 
+use Livewire\WithFileUploads; // Trait requis pour activer le streaming de fichiers
 
-class ProfileAvatarUploader extends Component
-{
+new class extends Component {
     use WithFileUploads;
 
-    // L'attribut physique va s'encapsuler dans cet objet mémoire temporaire réseau
     public $photo;
 
-    public function save()
+    protected $rules = [
+        'photo' => 'image|max:1024', // Limitation à 1 Mo
+    ];
+
+    public function upload()
     {
-        // 2. Validation native Laravel sur le poids (1024kb = 1mo)
-        $this->validate([
-            'photo' => 'image|max:1024', 
-        ]);
+        $this->validate();
 
-        // 3. Stockage Sécurisé directement sur un Cloud / Disque réseau physique ! 
-        // Generera un string Hashe indécodable.jpg dans le rep local /storage/app/public/avatars/
-        $path = $this->photo->store('avatars', 'public');
-        
-        auth()->user()->update(['avatar_url' => $path]);
+        // Sauvegarde de l'image dans le dossier de stockage 'photos' privé
+        $path = $this->photo->store('photos');
+
+        session()->flash('status', 'Fichier enregistré avec succès sous : ' . $path);
     }
-}
-```
+};
+?>
 
-```html title="Vue Blade avec Aperçu en Temps Réel"
-<form wire:submit="save">
-    <!-- Un File input natif, intercepté silencieusement -->
-    <input type="file" wire:model="photo">
-
-    <!-- Aperçu Magique Temporaire !
-         (Si l'upload dans le navigateur est fini mais pas encore sauvegardé BD !) -->
-    @if ($photo)
-        Photo Selectionnée:
-        <img src="{{ $photo->temporaryUrl() }}" width="100">
+<form wire:submit="upload" class="p-6 bg-white rounded-lg shadow-md max-w-sm">
+    @if (session()->has('status'))
+        <div class="p-3 bg-green-100 text-green-800 rounded text-sm mb-4">
+            {{ session('status') }}
+        </div>
     @endif
 
-    <button type="submit">Sauvegarder</button>
+    <div class="space-y-4">
+        <label class="block text-sm font-medium">Charger une photo (Max 1Mo)</label>
+        <input type="file" wire:model="photo" class="block w-full text-sm text-slate-500">
+        
+        @error('photo') 
+            <span class="text-rose-500 text-xs block">{{ $message }}</span> 
+        @enderror
 
-    <!-- La Directive loading s'applique aussi sur les fichiers pour une Jauge -->
-    <div wire:loading wire:target="photo">Envoi de la photo vers le cloud...</div>
+        <!-- Zone de prévisualisation temporaire générée par Livewire -->
+        @if ($photo)
+            <div class="mt-4">
+                <span class="text-xs text-slate-500 block mb-1">Prévisualisation :</span>
+                <img src="{{ $photo->temporaryUrl() }}" class="w-32 h-32 object-cover rounded border">
+            </div>
+        @endif
+
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded w-full">
+            Téléverser l'image
+        </button>
+    </div>
 </form>
 ```
-
-_Le workflow est majestueux : Lors de la sélection d'un fichier via le sélecteur Windows/Mac, Livewire contacte secrètement une route spéciale de l'API Laravel, encode votre fichier par petits Chunk, le stocke dans un dossier `/tmp`, vous fournit la preview (TemporaryUrl) et attend votre clic de confirmation final ! C'est ce qu'on appelle de l'Ingénierie Réseau pure._
+_Formulaire mono-fichier gérant le téléversement progressif et la prévisualisation asynchrone d'une image._
 
 <br>
 
 ---
 
-## 2. Le Maître du Temps : wire:poll
+## 2. Actualisation Régulière Automatique : `wire:poll`
 
-Imaginez que vous deviez surveiller l'état d'un Serveur Minecraft. Comment afficher si plus de gens le rejoignent sans jamais obliger la secrétaire utilisant le portail web à cliquer sur `F5` pour rafraîchir ?
+Le mécanisme de polling permet de demander à Livewire de rafraîchir le composant à intervalles réguliers (par exemple toutes les 5 secondes) pour afficher des données fraîches sans aucune action de l'utilisateur.
 
-Au lieu d'implémenter des usines à gaz de Sockets Node.js (`Socket.io`), utilisez le polling.
+### Exemple de suivi de statut
 
-```html title="Actualisation Cron Network automatique"
-<!-- Ce composant va silencieusement "Mount()" et "Render()" en arrière-plan toutes les 5 Secondes de la vie du Navigateur ! -->
-<div wire:poll.5s class="server-status">
-    Statut actuel : {{ $etatDuServeurMinecraftBDD }}
-    Joueurs simultanés: {{ $nombreDePlayersMySQL }}
-</div>
+```html title="Blade - resources/views/livewire/⚡status-tracker.blade.php : rafraîchissement asynchrone"
+<?php
+use Livewire\Component;
+use App\Models\Server;
 
-<!-- Option Avancée : Ne s'active que si la fenêtre WEB de l'utilisateur est visible (Évite de drainer le serveur d'OmnyDocs si l'usager a réduit le site dans la barre de tâches en partant manger !) -->
-<div wire:poll.visible.15s>
-    Graphique de ventes (Màj 15 sec)
+new class extends Component {
+    public function getStatus()
+    {
+        // Retourne le statut mis à jour
+        return rand(1, 2) === 1 ? 'Actif' : 'Maintenance';
+    }
+};
+?>
+
+<!-- Le composant se met à jour automatiquement toutes les 5 secondes -->
+<div wire:poll.5s class="p-4 bg-slate-800 text-white rounded flex items-center justify-between">
+    <span>🖥️ Statut du serveur :</span>
+    <span class="px-2 py-0.5 rounded text-xs font-bold bg-green-550">
+        {{ $this->getStatus() }}
+    </span>
 </div>
 ```
+_Mise à jour à chaud périodique du composant via le mécanisme de polling de Livewire._
 
 <br>
 
 ---
 
-## Conclusion et Sécurité des Requêtes 
+## 3. Sécurité et Checklist de Production
 
-!!! quote "Performance et Optimisation"
-    Avec les Traits de cycle-vie `WithPagination` (vu sur Lab 4) et `WithFileUploads`, votre maîtrise englobe désormais le backend physique et les tables des réseaux.
-    Il existe tout de même un "Prix" a payer sur les "Polling" de boucle : chaque `.5s` envoie un Payload lourd réseau de 3kb à votre hébergement Web Linux, et consomme un cycle CPU sur la machine pour ouvrir la DB. Sur Internet, c'est insignifiant, mais une page surveillée par 5 000 salariés en même temps... c'est 5 000 requêtes MySQL/sec, soit la capacité d'un hébergement Cloud Lourd dédié ! D'où l'importance de `wire:poll.visible` ou l'apprentissage ultime des **WebSockets Echo**.
-    
-    
-> Reste désormais la consécration de vos acquis à des interfaces fonctionnelles complexes. Affûtez vos claviers : [C'est l'heure du Laboratoire Livewire en attaquant le premier Projet !](../projets/livewire-lab/index.md).
+Lors de la mise en ligne de vos composants Livewire v4, plusieurs règles de sécurité et de performances doivent être appliquées.
+
+### Sécurité CSRF et validation stricte
+
+Livewire inclut par défaut une protection contre les attaques de type Cross-Site Request Forgery (CSRF). À chaque requête asynchrone, un jeton de session est validé par le middleware de Laravel.
+
+- **Smart Keys actives par défaut :** Livewire v4 active la configuration `smart_wire_keys` par défaut. Cela garantit que chaque élément du DOM au sein de boucles complexes (`@foreach`) possède une clé unique de suivi (`wire:key`), évitant les corruptions d'état et les injections lors de mises à jour croisées.
+- **Désactiver le mode débogage :** Dans votre fichier `.env` de production, assurez-vous que `APP_DEBUG=false` et que `DEBUGBAR_ENABLED=false` sont bien configurés pour éviter la divulgation d'informations sensibles (clés d'API, structures de tables) en cas d'erreur.
+
+```env title="Configuration - .env : configuration de production"
+APP_ENV=production
+APP_DEBUG=false
+```
+_Définition de l'environnement de production pour verrouiller la journalisation et interdire l'affichage des traces d'erreurs en clair._
+
+<br>
+
+---
+
+## Exercices
+
+!!! note "À vous de jouer"
+
+**Exercice 1 — Uploader de documents de sécurité**
+
+1. Créez un composant mono-fichier `⚡document-vault.blade.php`.
+2. Ajoutez une validation limitant le type de fichier au format PDF uniquement (`'document' => 'mimes:pdf|max:2048'`).
+3. Enregistrez le document dans un sous-dossier privé du disque de stockage de votre projet.
+
+**Exercice 2 — Panneau d'administration dynamique**
+
+1. Créez un composant de dashboard qui affiche le nombre de commandes en cours.
+2. Ajoutez une mise à jour régulière toutes les 10 secondes à l'aide de `wire:poll.10s`.
+3. Vérifiez dans l'inspecteur réseau que les appels réseau se déclenchent régulièrement sans rafraîchir le reste de la page.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Ce qu'il faut retenir de ce module"
+    Les uploads de fichiers s'effectuent de manière asynchrone grâce à l'utilisation du trait `WithFileUploads` et à la génération de chemins temporaires d'affichage (`temporaryUrl`). Le polling (`wire:poll`) permet de maintenir l'interface à jour automatiquement par cycles réguliers. Enfin, la mise en production requiert de verrouiller le mode débogage (`APP_DEBUG=false`) et de s'assurer de la présence systématique des clés d'identification des éléments (`wire:key`).
+
+> La formation Livewire v4 est maintenant terminée. Pour découvrir la gestion globale de l'interactivité client côté navigateur, passez à la **[formation Alpine.js](../alpine/index.md)**.

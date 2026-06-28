@@ -1,108 +1,159 @@
 ---
-description: "Dispatcheur d'événements, isolation et communication inter-composants."
+description: "Communication inter-composants dans Livewire v4 : dispatching d'événements, écouteurs, attributs #[On] et intégration avec les événements du navigateur (JavaScript)."
 icon: lucide/box
-tags: ["THEORIE", "LIVEWIRE", "EVENTS", "LISTENERS"]
+tags: ["THEORIE", "LIVEWIRE", "EVENEMENTS", "COMMUNICATION"]
 ---
 
-# Événements Globaux (Event Bus)
+# Événements & Communication
 
 <div
   class="omny-meta"
-  data-level="🟡 Intermédiaire"
-  data-version="Livewire 3.x"
-  data-time="2 Heures">
+  data-level="🟡 Intermédiaire à 🔴 Avancé"
+  data-version="4.x"
+  data-time="2 heures">
 </div>
 
-!!! quote "Architecturer au-delà du composant unique"
-    Rares sont les Pages unifiées où un "Formulaire" se charge seul d'afficher la "Liste" qui l'accompagne. En réalité, on imbrique les données : Un composant d'Entête de Page porte un indicateur de Notifications, et Composant isolé dans une Page Contact porte un Formulaire. Comment faire pour qu'après validation du Formulaire Contact (Composant A), L'indicateur du Header (Composant B) s'incrémente mathématiquement de "+ 1 Message non lu"  sans faire recharger la vraie URL complète HTTP de notre App ? Le **Message Dispatching (Event Bus)** est la clef.
+## Introduction
+
+!!! quote "Analogie pédagogique — Le Système d'Interphone dans un Immeuble"
+    Imaginez un grand immeuble résidentiel (votre page web) abritant plusieurs appartements (vos composants Livewire indépendants). Si l'habitant du troisième étage (le panier d'achat) veut signaler à la loge du gardien (le compteur de la barre de navigation) qu'un colis vient d'être déposé, il n'a pas besoin de descendre l'escalier en courant ni de passer par les canalisations. Il utilise l'interphone (le système d'événements de Livewire) pour envoyer un message vocal (un événement dispatché) sur la ligne commune. La loge du gardien, qui est branchée sur cette ligne (écoute l'événement), reçoit le message et met à jour son registre (son affichage) instantanément.
+
+Ce module présente les mécanismes de communication asynchrones entre les différents composants mono-fichiers de Livewire v4.
 
 <br>
 
 ---
 
-## 1. Répandre un signal global : the Dispatch()
+## 1. Dispatcher des Événements avec `$dispatch`
 
-Un composant Livewire décide "d'hurler" dans le vide serveur qu'un événement s'est produit. Tout composant qui l'écoute peut s'activer, à fortiori lui-même !
+Pour transmettre une information à un autre composant de la même page sans lien de parenté direct, vous devez dispatcher un événement.
 
-```php title="app/Livewire/CreatePost.php (L'Émetteur)"
-class CreatePost extends Component
-{
-    public function saveAction()
-    {
-        // Enregistrement BD ...
-        Post::create([...]);
+### Exemple de composant émetteur
 
-        // C'est le hurlement système. Le nom de l'évent est arbitraire ("post-created").
-        // On peut (optionnellement) ajouter un payload pour dire QUEL post a été créé.
-        $this->dispatch('post-created'); 
-    }
-}
-```
-
-<br>
-
----
-
-## 2. Intercepter le signal global : L'Attribut `#[On]`
-
-Pendant ce temps, à des milliers de milles virtuels, un obscur module "NotificationCount" attendait que quelqu'un déclenche cet alias ("post-created").
-
-```php title="app/Livewire/NotificationCount.php (Le Récepteur)"
+```html title="Blade - resources/views/livewire/⚡add-to-cart.blade.php : dispatching d'événements"
 <?php
-
-namespace App\Livewire;
-
 use Livewire\Component;
-use Livewire\Attributes\On; 
 
-class NotificationCount extends Component
-{
+new class extends Component {
+    public $productId = 101;
+
+    public function addToCart()
+    {
+        // Traitement de l'ajout
+        // ...
+
+        // Dispatch de l'événement avec des données jointes
+        $this->dispatch('item-added', productId: $this->productId);
+    }
+};
+?>
+
+<div class="p-4 bg-white rounded shadow flex justify-between items-center">
+    <span>Produit Pro #101</span>
+    <button wire:click="addToCart" class="bg-blue-600 text-white px-3 py-1.5 rounded hover:bg-blue-700">
+        Ajouter au panier
+    </button>
+</div>
+```
+_Déclenchement et envoi d'un événement global avec paramètres depuis un composant mono-fichier._
+
+<br>
+
+---
+
+## 2. Écouter des Événements avec l'Attribut `#[On]`
+
+Pour capter un événement émis sur la page, Livewire v4 utilise des attributs PHP natifs directement positionnés au-dessus des méthodes réactives de la classe.
+
+### Exemple de composant récepteur
+
+```html title="Blade - resources/views/livewire/⚡cart-counter.blade.php : écoute d'événements"
+<?php
+use Livewire\Component;
+use Livewire\Attributes\On; // Importation obligatoire de l'attribut On
+
+new class extends Component {
     public $count = 0;
 
-    // Cette fonction sera MAGIQUEMENT invoquée dès que QUELQU'UN exécute un dispatch('post-created') sur le serveur.
-    #[On('post-created')] 
-    public function incrementNotifications()
+    // Attribut déclenchant la méthode à la réception de l'événement
+    #[On('item-added')]
+    public function incrementCount($productId)
     {
+        // Incrémente le compteur global du panier
         $this->count++;
     }
+};
+?>
 
-    public function render()
-    {
-        return view('livewire.badge-counter');
-    }
-}
+<div class="bg-slate-800 text-white px-4 py-2 rounded flex items-center gap-2">
+    <span>🛒 Mon Panier :</span>
+    <span class="bg-blue-550 text-white rounded-full px-2 py-0.5 text-xs font-bold">
+        {{ $count }}
+    </span>
+</div>
 ```
-
-_Le système sous-jacent est orchestré par le Javascript Livewire centralisé de la page finale. Lors du Refresh de l'Émetteur, ce JS détecte l'existence de l'événement et renvoie silencieusement une requête PHP au Récepteur qui s'allume._
+_Réception de l'événement et mise à jour automatique de l'affichage à l'aide de l'attribut de méthode #[On]._
 
 <br>
 
 ---
 
-## 3. L'Écoute coté Client (Javascript) via Events
+## 3. Communication avec le Navigateur (JavaScript)
 
-Imaginons que nous n'ayons pas un *autre composant Livewire* Récepteur, mais qu'on souhaite ouvrir une Fenêtre "SweetAlert 2" (Qui est une bibliothèque pur script Javascript local (Frontend) !) ?
+Vous pouvez utiliser les événements de Livewire pour envoyer des instructions directement au code JavaScript ou aux directives Alpine.js s'exécutant sur le navigateur de l'utilisateur.
 
-Il suffit de l'intercepter via Alpine.js ou en VanillaJS !
+### Dispatcher un événement vers le navigateur
 
-```html title="Dans une Vue Blade globale (footer, app.layout...)"
-<!-- Avec un écouteur système pur Window natif (Javascript Vanilla classique) -->
-<script>
-    document.addEventListener('livewire:initialized', () => {
-        // En lien avec $this->dispatch('post-created') du serveur PHP !!
-        Livewire.on('post-created', (eventPayload) => {
-            alert('Un utilisateur a créé un nouveau message ! Pensez à rafraichir !');
-            // Ou invoquer Toastify, SweetAlert, Notifications System Push HTML...
-        });
-    });
-</script>
+```html title="Blade - resources/views/livewire/⚡toast-notification.blade.php : événement navigateur"
+<?php
+use Livewire\Component;
 
-<!-- Avec la méthode d'extension propre Alpine.JS -->
-<div x-data @post-created.window="alert('Alerte Alpine.JS Interceptée !')">
+new class extends Component {
+    public function triggerAlert()
+    {
+        // Envoi d'un événement capté par le DOM JavaScript global
+        $this->dispatch('show-toast', message: 'Opération effectuée avec succès !');
+    }
+};
+?>
+
+<div class="p-4 bg-slate-100 rounded">
+    <button wire:click="triggerAlert" class="bg-slate-800 text-white px-4 py-2 rounded">
+        Afficher la notification
+    </button>
+    
+    <!-- Alpine.js écoute l'événement Livewire global et affiche une alerte -->
+    <div x-data="{ show: false, text: '' }" 
+         @show-toast.window="show = true; text = $event.detail.message; setTimeout(() => show = false, 3000)"
+         x-show="show"
+         x-transition
+         class="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded shadow-lg"
+         style="display: none;">
+        <span x-text="text"></span>
+    </div>
 </div>
 ```
+_Pont de communication asynchrone entre la logique PHP et les directives d'affichage interactives d'Alpine.js._
 
-_Rien n'est inaccessible. L'événement est transitoire (Global Window/Navigator Event). Que vous l'écoutez en PHP, JS, Vue, React ou Alpine : le pont technologique est absolu._
+<br>
+
+---
+
+## Exercices
+
+!!! note "À vous de jouer"
+
+**Exercice 1 — Émetteur de notifications système**
+
+1. Créez un composant mono-fichier `⚡event-trigger.blade.php` doté d'un bouton.
+2. Au clic sur le bouton, dispatchez un événement global `system-status` avec une propriété `online = true`.
+3. Créez un second composant `⚡event-listener.blade.php` qui écoute cet événement et affiche un voyant vert ou rouge en fonction de la valeur reçue.
+
+**Exercice 2 — Fermeture automatique d'une modale**
+
+1. Créez un composant de formulaire réactif de saisie de profil dans une modale Alpine.js.
+2. Lorsque la sauvegarde PHP réussit, dispatchez un événement `profile-saved` vers le navigateur.
+3. Utilisez la directive Alpine `@profile-saved.window="open = false"` pour fermer automatiquement la modale.
 
 <br>
 
@@ -110,7 +161,7 @@ _Rien n'est inaccessible. L'événement est transitoire (Global Window/Navigator
 
 ## Conclusion
 
-!!! quote "Event Sourcing : Découplage"
-    Les développeurs qui codent tous leurs affichages et calculs lourds dans 100% de la même classe finiront avec les monstrueux **God Controllers**. Grâce à `$dispatch()`, un composant A s'en moque de qui l'entoure. Il avertit : _J'ai supprimé la facture n°X_. Libre au composant "Facture" de se désintégrer de lui même et au composant "Total Global Header" de se recalculer, délestant leur concepteur de toute responsabilité intra-hiérarchique complexe !
+!!! quote "Ce qu'il faut retenir de ce module"
+    La communication asynchrone entre les composants Livewire v4 repose sur le système d'événements : `$this->dispatch()` pour envoyer un message global, et l'attribut de classe `#[On('nom-evenement')]` pour intercepter les messages. Le couplage avec JavaScript s'effectue simplement en écoutant les événements au niveau de l'objet global `window` à l'aide des directives Alpine.js (ex: `@nom-evenement.window`).
 
-> C'en est fini des structures abstraites de manipulation de données. Vous devez maintenant maîtriser le dernier socle de l'expertise "Advanced" : La gestion de Fichiers Physiques (Storage), le Polling (Interrogatoires temporiels réguliers), et les WebSockets instantanés. Poursuivez sur l'[Expérience de Production et Fonctionnalités Avancées.](./05-avance-production.md).
+> Pour gérer les transferts de fichiers en streaming et préparer le déploiement en production, passez au **[Module 5 — Avancé & Production](./05-avance-production.md)**.

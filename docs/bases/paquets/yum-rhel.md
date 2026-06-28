@@ -23,7 +23,7 @@ Point crucial et souvent mal compris : sur RHEL 8 et 9, la commande `yum` existe
 !!! info "Pourquoi c'est important"
     Comprendre YUM, c'est comprendre la logique RPM enterprise : dépôts, GPG, priorités, exclusions, historique, rollback partiel, packaging propre et gestion des incidents — conflits, dépendances cassées, caches corrompus. C'est exactement ce que l'on retrouve ensuite avec DNF, mais modernisé.
 
-<br />
+<br>
 
 ---
 
@@ -33,7 +33,7 @@ Sur RHEL et CentOS, la priorité n'est pas la dernière version logicielle, mais
 
 YUM reflète cette philosophie : il préfère une résolution cohérente et reproductible plutôt qu'un comportement "best effort" susceptible de surprendre en production. Cette approche est le premier point de différenciation avec Arch Linux ou même Ubuntu.
 
-<br />
+<br>
 
 ---
 
@@ -80,7 +80,7 @@ flowchart TB
 #                               # Ou spécifiées par gpgkey= dans les .repo
 ```
 
-<br />
+<br>
 
 ---
 
@@ -121,7 +121,7 @@ yum repoinfo epel
 yum -v repolist
 ```
 
-<br />
+<br>
 
 ---
 
@@ -199,7 +199,7 @@ yum groupinfo "Development Tools"
 yum groupinstall "Development Tools"
 ```
 
-<br />
+<br>
 
 ---
 
@@ -228,7 +228,7 @@ yum history rollback 40
 !!! warning "Limites du rollback YUM"
     `undo` et `rollback` ne sont pas une machine à remonter le temps parfaite. Si les dépôts ont changé, si des versions ne sont plus disponibles ou si des dépendances ont évolué entre-temps, la commande peut échouer. En environnement enterprise, cette fonctionnalité s'appuie sur des miroirs internes et des politiques de versions strictes pour être pleinement exploitable.
 
-<br />
+<br>
 
 ---
 
@@ -264,7 +264,7 @@ rpm --checksig paquet.rpm
 !!! danger "Ne jamais désactiver gpgcheck en production"
     Si la vérification GPG échoue, la cause est à diagnostiquer — clé manquante, clé expirée, dépôt mal configuré. Désactiver `gpgcheck` pour "faire fonctionner" l'installation revient à éteindre l'alarme incendie plutôt qu'à éteindre le feu. Corriger la gestion des clés, pas le mécanisme de vérification.
 
-<br />
+<br>
 
 ---
 
@@ -291,7 +291,7 @@ La même logique que le DevSecOps s'applique à la gestion des paquets : un envi
 
 Pour garantir la reproductibilité et l'indépendance vis-à-vis des dépôts externes, un miroir interne ou un proxy cache évite l'effet "le dépôt externe a changé entre la validation et le déploiement". C'est une pratique standard dans les environnements enterprise RHEL.
 
-<br />
+<br>
 
 ---
 
@@ -331,7 +331,7 @@ rpm --rebuilddb
 !!! warning "Verrous et transactions interrompues"
     YUM et RPM ne tolèrent pas les interruptions en cours de transaction. En cas de crash, diagnostiquer avant de supprimer des fichiers de verrou arbitrairement. Utiliser `rpm -Va` pour évaluer l'état réel du système avant toute action corrective.
 
-<br />
+<br>
 
 ---
 
@@ -351,7 +351,7 @@ rpm --rebuilddb
 | Commande `yum` | Native | Alias de compatibilité vers dnf |
 | Modules applicatifs | Non disponibles | Application Streams (RHEL 8+) |
 
-<br />
+<br>
 
 ---
 
@@ -363,4 +363,4 @@ rpm --rebuilddb
 !!! quote "Conclusion"
     _YUM est la grammaire historique des systèmes RPM en environnement enterprise. Même si DNF est la réalité moderne, YUM reste incontournable dès qu'on intervient sur des environnements legacy — et surtout, dès qu'on doit comprendre des procédures, des runbooks et des habitudes d'équipes ops qui datent de RHEL 6 et 7. Maîtriser YUM, c'est maîtriser la chaîne de confiance GPG, la gouvernance des dépôts, la logique de résolution de dépendances et les mécaniques de diagnostic. C'est exactement ce qui rend solide quand ça casse en production — pas le fait de connaître trois commandes par cœur._
 
-<br />
+<br>

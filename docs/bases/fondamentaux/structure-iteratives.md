@@ -23,7 +23,7 @@ Les types primitifs constituent les briques de base des données, la mémoire le
 
 !!! note "Cette fiche fait suite à la [Logique Conditionnelle](./logique-conditionnelle.md). Les structures itératives combinent directement les concepts booléens et conditionnels — leur maîtrise est un prérequis absolu pour comprendre comment et quand une boucle s'arrête."
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous illustre concrètement ce qu'est une structure itérative avant d'aborder la syntaxe. Visualiser la répétition comme un processus physique aide à comprendre pourquoi une condition d'arrêt est indispensable."
 
@@ -31,7 +31,7 @@ Les types primitifs constituent les briques de base des données, la mémoire le
 
 <p><em>L'agent répète exactement la même séquence d'actions pour chaque personne dans la file. Le compteur progresse à chaque itération — 0/5, 1/5, jusqu'à 5/5. Quand la file est vide, la condition d'arrêt est atteinte et le processus se termine. Un programme itératif fonctionne selon ce même principe.</em></p>
 
-<br />
+<br>
 
 ---
 
@@ -48,7 +48,7 @@ Trois structures couvrent tous les scénarios de répétition rencontrables dans
 !!! warning "Go — une seule boucle pour tout"
     Go ne dispose que de la boucle `for`, utilisée pour tous les cas de figure : boucle comptée, boucle conditionnelle (équivalent WHILE) et boucle infinie. C'est un choix délibéré de simplicité — une seule syntaxe à maîtriser, aucune ambiguïté.
 
-<br />
+<br>
 
 ---
 
@@ -59,7 +59,7 @@ La boucle WHILE exécute son bloc d'instructions tant que la condition d'entrée
 !!! quote "Analogie"
     _Une pompe qui vide un réservoir. Elle continue de pomper tant que le niveau d'eau dépasse zéro. Dès que le réservoir est vide, la pompe s'arrête automatiquement._
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous matérialise le cycle vérification → exécution → retour de la boucle WHILE. Comprendre que la condition est évaluée avant chaque passage est ce qui distingue WHILE de DO-WHILE."
 
@@ -72,7 +72,7 @@ La boucle WHILE exécute son bloc d'instructions tant que la condition d'entrée
 ```mermaid
 flowchart TD
   A["Programme en cours"] --> B["Entrée dans la boucle WHILE"]
-  B --> C{"Test de condition<br />AVANT l'itération"}
+  B --> C{"Test de condition<br>AVANT l'itération"}
   C -->|"Condition VRAIE"| D["Exécuter le bloc d'instructions"]
   D --> E["Modifier les variables de contrôle"]
   E --> C
@@ -156,7 +156,7 @@ _La condition est systématiquement évaluée avant chaque itération potentiell
 !!! danger "Risque de boucle infinie"
     Si la condition de la boucle WHILE ne devient jamais fausse, le programme tourne indéfiniment. Les instructions à l'intérieur de la boucle **doivent toujours modifier les variables testées dans la condition** pour garantir une terminaison.
 
-<br />
+<br>
 
 ---
 
@@ -167,7 +167,7 @@ La boucle FOR est adaptée aux itérations sur des séquences définies ou lorsq
 !!! quote "Analogie"
     _Un distributeur automatique qui sert exactement dix gobelets de café. Compteur initialisé à zéro, incrémenté après chaque gobelet, arrêt précis à dix._
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous illustre pourquoi FOR est préférable à WHILE quand le nombre d'itérations est connu. Voir le compteur progresser et les emplacements se remplir un par un rend le mécanisme immédiatement concret."
 
@@ -180,10 +180,10 @@ La boucle FOR est adaptée aux itérations sur des séquences définies ou lorsq
 ```mermaid
 flowchart TD
   A["Programme en cours"] --> B["Entrée dans la boucle FOR"]
-  B --> C["Initialisation de la variable de contrôle<br />(une seule fois)"]
-  C --> D{"Test de condition<br />AVANT l'itération"}
+  B --> C["Initialisation de la variable de contrôle<br>(une seule fois)"]
+  C --> D{"Test de condition<br>AVANT l'itération"}
   D -->|"Condition VRAIE"| E["Exécuter le bloc d'instructions"]
-  E --> F["Incrémentation automatique<br />de la variable de contrôle"]
+  E --> F["Incrémentation automatique<br>de la variable de contrôle"]
   F --> D
   D -->|"Condition FAUSSE"| G["Sortie de la boucle"]
   G --> H["Continuer le programme"]
@@ -259,7 +259,7 @@ _L'initialisation survient une seule fois au démarrage. Ensuite : vérification
     }
     ```
 
-<br />
+<br>
 
 ---
 
@@ -270,7 +270,7 @@ La boucle DO-WHILE garantit au moins une exécution de son bloc avant de vérifi
 !!! quote "Analogie"
     _Un distributeur de billets qui affiche toujours son menu principal au moins une fois, puis demande si une autre opération est souhaitée. Même sans rien à faire, le menu s'affiche obligatoirement._
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous met en évidence l'inversion du flux par rapport à WHILE. Voir que l'action précède le test — et non l'inverse — est la distinction fondamentale qu'il faut retenir entre ces deux structures."
 
@@ -283,9 +283,9 @@ La boucle DO-WHILE garantit au moins une exécution de son bloc avant de vérifi
 ```mermaid
 flowchart TD
   A["Programme en cours"] --> B["Entrée dans la boucle DO-WHILE"]
-  B --> C["Exécuter le bloc d'instructions<br />SANS test préalable"]
+  B --> C["Exécuter le bloc d'instructions<br>SANS test préalable"]
   C --> D["Modifier les variables de contrôle"]
-  D --> E{"Test de condition<br />APRÈS l'itération"}
+  D --> E{"Test de condition<br>APRÈS l'itération"}
   E -->|"Condition VRAIE"| C
   E -->|"Condition FAUSSE"| F["Sortie de la boucle"]
   F --> G["Continuer le programme"]
@@ -382,7 +382,7 @@ _Le bloc s'exécute inconditionnellement en premier. La condition n'est évalué
     !!! tip "Go — for infini comme do-while"
         `for { ... }` sans condition crée une boucle infinie. Combiné à `break`, il simule exactement le comportement do-while — exécution garantie au moins une fois, sortie conditionnelle.
 
-<br />
+<br>
 
 ---
 
@@ -390,7 +390,7 @@ _Le bloc s'exécute inconditionnellement en premier. La condition n'est évalué
 
 Les instructions BREAK et CONTINUE modifient le flux d'exécution normal à l'intérieur d'une boucle.
 
-<br />
+<br>
 
 !!! note "L'image ci-dessous présente les deux comportements côte à côte. Les visualiser simultanément permet de comprendre immédiatement la différence : BREAK sort de la boucle, CONTINUE saute une itération mais maintient la boucle active."
 
@@ -402,12 +402,12 @@ Les instructions BREAK et CONTINUE modifient le flux d'exécution normal à l'in
 
 ```mermaid
 flowchart TB
-  A["Dans une boucle<br />itération en cours"] --> B{"Condition<br />nécessitant BREAK ?"}
+  A["Dans une boucle<br>itération en cours"] --> B{"Condition<br>nécessitant BREAK ?"}
   B -->|"OUI"| C["Exécution de BREAK"]
-  C --> D["Sortie IMMÉDIATE<br />de la boucle"]
+  C --> D["Sortie IMMÉDIATE<br>de la boucle"]
   D --> E["Continuer après la boucle"]
-  B -->|"NON"| F["Continuer l'itération<br />normalement"]
-  F --> G["Retour au test de<br />condition de la boucle"]
+  B -->|"NON"| F["Continuer l'itération<br>normalement"]
+  F --> G["Retour au test de<br>condition de la boucle"]
 ```
 
 === ":fontawesome-brands-python: Python"
@@ -497,18 +497,18 @@ flowchart TB
     }
     ```
 
-<br />
+<br>
 
 ### Instruction CONTINUE — saut d'itération
 
 ```mermaid
 flowchart TB
-  A["Dans une boucle<br />itération en cours"] --> B{"Condition<br />nécessitant CONTINUE ?"}
+  A["Dans une boucle<br>itération en cours"] --> B{"Condition<br>nécessitant CONTINUE ?"}
   B -->|"OUI"| C["Exécution de CONTINUE"]
-  C --> D["Ignore le reste<br />de l'itération actuelle"]
-  D --> E["Passe DIRECTEMENT<br />à l'itération suivante"]
-  E --> F["Test de condition<br />de la boucle"]
-  B -->|"NON"| G["Continuer l'itération<br />normalement jusqu'à la fin"]
+  C --> D["Ignore le reste<br>de l'itération actuelle"]
+  D --> E["Passe DIRECTEMENT<br>à l'itération suivante"]
+  E --> F["Test de condition<br>de la boucle"]
+  B -->|"NON"| G["Continuer l'itération<br>normalement jusqu'à la fin"]
   G --> F
 ```
 
@@ -596,7 +596,7 @@ flowchart TB
     }
     ```
 
-<br />
+<br>
 
 ---
 
@@ -689,7 +689,7 @@ Une boucle imbriquée contient une autre boucle à l'intérieur de son bloc. Cet
 !!! warning "Complexité des boucles imbriquées"
     Une boucle externe de N itérations contenant une boucle interne de M itérations exécute **N × M opérations totales**. Avec N=1000 et M=1000, c'est 1 000 000 d'opérations. Limiter l'imbrication à deux ou trois niveaux maximum.
 
-<br />
+<br>
 
 ---
 
@@ -721,7 +721,7 @@ Quatre règles à appliquer systématiquement.
 !!! danger "Modification pendant l'itération"
     Ajouter ou supprimer des éléments dans une collection qu'on est en train de parcourir peut sauter des éléments ou provoquer des erreurs d'index difficiles à diagnostiquer.
 
-<br />
+<br>
 
 ---
 
@@ -735,4 +735,4 @@ Quatre règles à appliquer systématiquement.
 
     _Chaque boucle écrite représente une automatisation concrète. Plus ces structures sont maîtrisées, plus les algorithmes complexes deviennent accessibles._
 
-<br />
+<br>

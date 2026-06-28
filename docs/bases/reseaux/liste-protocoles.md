@@ -25,7 +25,7 @@ Comprendre les protocoles réseau devient indispensable dès que l'on développe
 
 Ce document nécessite une compréhension basique du modèle OSI ou TCP/IP et des concepts d'adresse IP et de port. Si le mécanisme d'établissement d'une connexion réseau n'est pas encore acquis, consulter d'abord les bases des réseaux.
 
-<br />
+<br>
 
 ---
 
@@ -36,7 +36,7 @@ Les protocoles présentés dans ce document s'organisent selon deux modèles de 
 !!! info "Chapitres de référence"
     Pour comprendre où chaque protocole se positionne dans la pile réseau, consulter [Modèle OSI](../reseaux/modele-osi.md) et [Modèle TCP/IP](../reseaux/modele-tcpip.md) avant d'approfondir les protocoles individuels.
 
-<br />
+<br>
 
 ---
 
@@ -237,7 +237,7 @@ Le diagramme montre le cycle complet d'une connexion TCP : établissement en 3 �
 
 Cas d'usage TCP : applications nécessitant une livraison garantie (HTTP, HTTPS, FTP, SSH, SMTP), transferts de fichiers, bases de données, applications bancaires et financières.
 
-<br />
+<br>
 
 ### UDP — User Datagram Protocol
 
@@ -393,7 +393,7 @@ UDP est un protocole **sans connexion** qui privilégie la **vitesse** au détri
 
 Cas d'usage UDP : streaming vidéo et audio (perte de quelques paquets acceptable), jeux en ligne (latence critique), DNS (requêtes courtes), VoIP (temps réel prioritaire), IoT (overhead minimal).
 
-<br />
+<br>
 
 ### TCP vs UDP — Comparaison
 
@@ -408,7 +408,7 @@ Cas d'usage UDP : streaming vidéo et audio (perte de quelques paquets acceptabl
 | Ordre des paquets | Garanti | Non garanti |
 | Cas d'usage | Données critiques | Temps réel |
 
-<br />
+<br>
 
 ---
 
@@ -563,7 +563,7 @@ Résolution hiérarchique DNS — la requête traverse quatre acteurs avant d'ob
     }
     ```
 
-<br />
+<br>
 
 ### FTP — File Transfer Protocol
 
@@ -616,7 +616,7 @@ Le mode passif (PASV) est nécessaire quand le client est derrière un NAT ou un
 !!! danger "FTP vs SFTP vs FTPS"
     FTP : non sécurisé — mot de passe en clair sur le réseau. FTPS : FTP avec TLS/SSL sur les ports 990/989. SFTP : transfert de fichiers sur SSH, port 22 — recommandé pour tous les transferts sensibles.
 
-<br />
+<br>
 
 ### SSH — Secure Shell
 
@@ -716,7 +716,7 @@ Port 22. Tout le trafic est chiffré. Authentification par mot de passe ou clé 
 !!! tip "Bonnes pratiques SSH"
     Désactiver l'authentification par mot de passe — utiliser exclusivement les clés. Changer le port par défaut pour réduire les scans automatisés. Déployer Fail2Ban pour bloquer les tentatives de brute-force. Préférer les clés ED25519 — plus sûres et plus rapides que RSA. Ajouter une authentification à deux facteurs pour les accès critiques.
 
-<br />
+<br>
 
 ### SMTP / IMAP / POP3
 
@@ -767,7 +767,7 @@ Protocoles pour l'**envoi et la réception d'emails**.
         mail.logout()
     ```
 
-<br />
+<br>
 
 ### WebSocket
 
@@ -859,7 +859,7 @@ Port 80 ou 443 — upgrade depuis HTTP ou HTTPS. Full-duplex : communication sim
 
 Cas d'usage WebSocket : chat en temps réel, applications collaboratives, jeux multijoueurs, notifications push, streaming de données.
 
-<br />
+<br>
 
 ---
 
@@ -909,7 +909,7 @@ IPsec sécurise les communications IP via chiffrement et authentification au niv
 
 Mode Transport : chiffre uniquement la charge utile du paquet — utilisé entre deux hôtes. Mode Tunnel : chiffre tout le paquet IP original et l'encapsule dans un nouveau paquet — utilisé pour les VPN site-à-site.
 
-<br />
+<br>
 
 ---
 
@@ -968,7 +968,7 @@ sequenceDiagram
 
 OAuth 2.0 délègue l'autorisation sans partager les credentials. OpenID Connect ajoute une couche d'identité sur OAuth 2.0 via un ID Token JWT.
 
-<br />
+<br>
 
 ---
 
@@ -1005,7 +1005,7 @@ OAuth 2.0 délègue l'autorisation sans partager les credentials. OpenID Connect
 | MongoDB | 27017 | TCP | Partiel |
 | Redis | 6379 | TCP | Partiel |
 
-<br />
+<br>
 
 ---
 
@@ -1058,7 +1058,7 @@ Loguer toutes les connexions pour détecter les activités suspectes et alimente
 
 Maintenir les systèmes à jour pour corriger les vulnérabilités connues — CVE publiées régulièrement sur les implémentations de TLS, OpenSSH, OpenSSL et les stacks réseau des OS.
 
-<br />
+<br>
 
 ---
 
@@ -1070,4 +1070,4 @@ Maintenir les systèmes à jour pour corriger les vulnérabilités connues — C
 !!! quote "Conclusion"
     _Les protocoles réseau constituent l'infrastructure invisible qui permet au monde numérique de fonctionner. Leur compréhension dépasse la simple mémorisation de ports et de noms pour englober une vision holistique de la communication réseau, des compromis entre performance et fiabilité, et des implications de sécurité. TCP garantit la livraison au prix de la latence — UDP sacrifie la fiabilité pour la vitesse. TLS chiffre les échanges mais ne protège pas contre les erreurs de configuration. Chaque protocole a été conçu pour résoudre un problème précis. Choisir le protocole adapté, l'implémenter correctement et le sécuriser rigoureusement — c'est là que se joue la différence entre une infrastructure robuste et une surface d'attaque ouverte._
 
-<br />
+<br>

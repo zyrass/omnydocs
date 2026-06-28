@@ -107,6 +107,47 @@ print("python" in tags)             # True
 intersection = {1, 2, 3} & {2, 3, 4}   # {2, 3}
 ```
 
+### Slicing & Découpage de Séquences
+Le slicing permet d'extraire des sous-parties de listes, chaînes ou tuples avec la syntaxe `[début:fin:pas]`.
+
+```python title="Python — Exemples de slicing avancés"
+nombres = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Obtenir les éléments de l'index 2 à 5 (exclu)
+print(nombres[2:5])       # [2, 3, 4]
+
+# Prendre du début jusqu'à l'index 4 (exclu)
+print(nombres[:4])        # [0, 1, 2, 3]
+
+# Prendre du index 6 jusqu'à la fin
+print(nombres[6:])        # [6, 7, 8, 9]
+
+# Sélectionner avec un pas de 2 (éléments d'index pairs)
+print(nombres[::2])       # [0, 2, 4, 6, 8]
+
+# Inverser une séquence (astuce classique et ultra-rapide)
+print(nombres[::-1])      # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+```
+_Le slicing est une opération optimisée en CPython qui évite d'écrire des boucles manuelles pour filtrer ou copier des collections._
+
+### Mutabilité vs Immutabilité
+En Python, chaque variable est une référence vers un objet en mémoire. On distingue deux types d'objets :
+* **Mutables** (modifiables en place) : `list`, `dict`, `set`. Les modifications affectent toutes les références pointant vers le même objet.
+* **Immutables** (non modifiables après création) : `int`, `float`, `str`, `tuple`, `bool`. Toute modification d'une chaîne ou d'un entier crée en réalité un nouvel objet en mémoire.
+
+```python title="Python — Illustration de la mutabilité et des références"
+# Exemple avec une liste (Mutable)
+liste_a = [1, 2, 3]
+liste_b = liste_a       # Référence partagée
+liste_b.append(4)
+print(liste_a)          # [1, 2, 3, 4] — liste_a a été modifiée par ricochet !
+
+# Exemple avec un tuple (Immutable)
+tuple_a = (1, 2, 3)
+# tuple_a[0] = 9        # ❌ Lève une TypeError
+```
+_Comprendre cette distinction est crucial pour éviter les effets de bord inattendus lors du passage d'arguments aux fonctions._
+
 <br>
 
 ---
@@ -239,6 +280,32 @@ def fibonacci(n: int):
 
 print(list(fibonacci(10)))  # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 ```
+
+### Le Piège des Arguments par Défaut Mutables
+Une erreur classique consiste à utiliser un objet mutable (comme `[]` ou `{}`) comme valeur par défaut d'un paramètre.
+
+En Python, la valeur par défaut d'un argument n'est évaluée **qu'une seule fois**, lors de la définition de la fonction, et non à chaque appel de celle-ci.
+
+```python title="Python — Le bug de l'argument par défaut mutable et sa correction"
+# ❌ ERREUR : La liste vide est partagée entre tous les appels de la fonction
+def ajouter_tache(tache: str, liste: list = []) -> list:
+    liste.append(tache)
+    return liste
+
+print(ajouter_tache("Coder"))  # ["Coder"]
+print(ajouter_tache("Tester")) # ["Coder", "Tester"] — "Coder" réapparaît !
+
+# ✅ CORRECTION : Utiliser None comme valeur par défaut et initialiser en interne
+def ajouter_tache_correct(tache: str, liste: list | None = None) -> list:
+    if liste is None:
+        liste = []  # Une nouvelle liste est créée à chaque appel
+    liste.append(tache)
+    return liste
+
+print(ajouter_tache_correct("Coder"))  # ["Coder"]
+print(ajouter_tache_correct("Tester")) # ["Tester"] — Comportement correct
+```
+_L'utilisation de `None` comme sentinelle pour les objets mutables est la bonne pratique standard en Python._
 
 <br>
 
@@ -398,7 +465,49 @@ with open("fichier.txt", "r", encoding="utf-8") as f:
 
 ---
 
-## 6. Modules & Imports
+## 6. Manipulation de Fichiers & Sérialisation (JSON)
+
+Python intègre des fonctions natives pour la lecture/écriture de fichiers et des modules standards pour manipuler les formats structurés.
+
+```python title="Python — Lecture, écriture et sérialisation JSON"
+import json
+from pathlib import Path
+
+chemin = Path("donnees.json")
+
+# ─── Écriture de fichier et encodage JSON ─────────────────────────────────────
+config = {
+    "host": "127.0.0.1",
+    "port": 8080,
+    "debug": True,
+    "allowed_ips": ["192.168.1.1", "10.0.0.5"]
+}
+
+# Utilisation du context manager 'with' pour garantir la fermeture propre du fichier
+with open(chemin, "w", encoding="utf-8") as f:
+    # dump() écrit directement l'objet sérialisé dans le descripteur de fichier
+    # indent permet un affichage formaté ("pretty print")
+    json.dump(config, f, indent=4)
+
+# ─── Lecture de fichier et décodage JSON ──────────────────────────────────────
+if chemin.exists():
+    with open(chemin, "r", encoding="utf-8") as f:
+        # load() lit le flux et le convertit en dictionnaire/liste Python
+        donnees_chargees = json.load(f)
+        print(f"Hôte configuré : {donnees_chargees['host']}")
+
+# ─── Sérialisation en chaînes de caractères (en mémoire) ─────────────────────
+# dumps() et loads() travaillent sur des chaînes de caractères (strings) et non des fichiers
+json_string = json.dumps(config)
+dict_objet  = json.loads(json_string)
+```
+_Toujours spécifier `encoding="utf-8"` lors de l'ouverture de fichiers texte pour éviter les erreurs d'encodage selon les plateformes (notamment les différences Windows cp1252 vs Linux utf-8)._
+
+<br>
+
+---
+
+## 7. Modules, Packages & Environnement
 
 ```python title="Python — Organiser son code en modules et packages"
 # ─── Imports standards ────────────────────────────────────────────────────────
@@ -455,10 +564,41 @@ if __name__ == "__main__":
 
 ---
 
+## 8. Python 3 vs Python 4 : Pourquoi Python 4 n'existera jamais
+
+Un sujet récurrent dans la communauté concerne l'arrivée d'une version majeure « Python 4 ». Cependant, l'équipe de développement de Python et Guido van Rossum ont clarifié qu'il n'y aura probablement **jamais** de version Python 4.0 introduisant de rupture de compatibilité.
+
+### Le traumatisme de la transition Python 2 vers Python 3
+
+Le passage de Python 2 à Python 3 (publié en 2008) a cassé la compatibilité ascendante (strings en Unicode par défaut, division de réels automatique, transformation de l'instruction `print` en fonction, etc.). Cette rupture a divisé la communauté, posé de gros soucis de migration aux entreprises, et freiné le développement de nouvelles fonctionnalités pendant près d'une décennie. Le support officiel de Python 2 n'a pu être arrêté qu'en 2020.
+
+Le Steering Committee de la Python Software Foundation (PSF) a formulé une directive claire : **plus jamais de rupture globale de compatibilité**.
+
+### L'évolution continue au sein de la branche 3.x
+
+Plutôt que de regrouper les innovations de rupture sous un numéro de version majeur « Python 4 », les évolutions sont introduites de manière incrémentale et rétrocompatible dans les versions mineures de Python 3 (par exemple, 3.10, 3.11, 3.12, 3.13).
+
+Certains ajouts récents, majeurs et structurels, auraient justifié un changement de version majeure dans d'autres langages, mais ont été intégrés de façon transparente dans la branche 3.x :
+
+- **Python 3.10** : Introduction du Pattern Matching structurel (`match / case`).
+- **Python 3.11** : Optimisations massives de l'interpréteur (projet Faster CPython) avec des gains de 10 à 60 % à code inchangé.
+- **Python 3.12** : Refonte de la syntaxe des Generics et amélioration des messages d'erreurs.
+- **Python 3.13** : Retrait expérimental du **GIL (Global Interpreter Lock)** via un build alternatif *free-threaded*, et intégration d'un premier compilateur **JIT (Just-In-Time)**.
+
+### Le statut de "Python 4" comme numéro de version
+
+Si Python 3 atteint des versions à double chiffre (comme Python 3.20 ou plus), le langage continuera d'évoluer sous cette numérotation. Guido van Rossum a indiqué que si un jour un numéro « 4.0 » devait être utilisé, ce serait uniquement à des fins de communication marketing ou pour célébrer une étape majeure liée aux performances, mais sans introduire de changements qui casseraient le code écrit pour Python 3.
+
+En tant que développeur, la maîtrise des concepts de Python 3.x garantit donc une compatibilité et une pérennité totale de vos compétences.
+
+<br>
+
+---
+
 ## Conclusion
 
 !!! quote "Ce qu'il faut retenir"
-    Python repose sur 6 piliers : les **types** (str, int, float, bool, None et les collections list/dict/tuple/set), les **structures de contrôle** (if/elif/else, for, while, match), les **fonctions** (paramètres nommés, *args/**kwargs, décorateurs, générateurs), la **POO** (classes, héritage, propriétés, dataclasses), la **gestion des erreurs** (try/except/else/finally, exceptions custom) et les **modules** (imports, pathlib, dotenv). Ces fondamentaux sont communs à tous les frameworks : maîtrisez-les avant Django ou Flask.
+    Python repose sur 6 piliers fondamentaux auxquels s'ajoute une stabilité de version pérenne (la branche 3.x évoluant sans rupture vers des fonctionnalités avancées comme la suppression du GIL ou le JIT). La maîtrise des types, structures de contrôle, fonctions, POO, et de la gestion des erreurs est le prérequis indispensable avant d'entamer l'apprentissage de frameworks web professionnels comme Django ou Flask.
 
 > Modules suivants : [Django →](../django/index.md) · [Flask →](../flask/index.md) · [Tkinter →](../tkinter/index.md)
 

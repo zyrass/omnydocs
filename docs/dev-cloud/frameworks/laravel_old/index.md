@@ -3,12 +3,17 @@ description: "Maîtriser Laravel de A à Z à travers la construction d'un blog 
 tags: ["LARAVEL", "PHP", "BACKEND", "ELOQUENT", "MVC", "APPRENTISSAGE"]
 ---
 
-# Laravel OLD
+# Laravel [ARCHIVÉ]
+
+!!! warning "Version Obsolète (Laravel 11)"
+    Ce parcours d'apprentissage basé sur Laravel 11 est conservé uniquement pour des raisons d'historique ou de maintenance de projets existants. 
+    
+    Pour vous former sur la dernière version de production, veuillez consulter la nouvelle formation [Laravel 13](../laravel/index.md).
 
 <div
   class="omny-meta"
   data-level="🟢 Débutant à 🔴 Avancé"
-  data-version="2.0"
+  data-version="11.0 (Archivé)"
   data-time="100-120 heures">
 </div>
 

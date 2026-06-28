@@ -26,7 +26,7 @@ C'est un outil fondamental en cybersécurité : signatures de packages logiciels
 !!! info "Pourquoi c'est important"
     GPG est le standard de facto pour garantir l'authenticité et la confidentialité hors infrastructure PKI. Les dépôts Linux (APT, DNF, Pacman) utilisent GPG pour signer leurs packages. Git permet de signer les commits et les tags GPG. Comprendre GPG, c'est comprendre la cryptographie asymétrique appliquée à des cas réels.
 
-<br />
+<br>
 
 ---
 
@@ -54,7 +54,7 @@ flowchart LR
     A --> B --> C --> D --> E
 ```
 
-<br />
+<br>
 
 ---
 
@@ -85,7 +85,7 @@ flowchart TD
     end
 ```
 
-<br />
+<br>
 
 ---
 
@@ -109,7 +109,7 @@ sudo apk add gnupg
 gpg --version
 ```
 
-<br />
+<br>
 
 ---
 
@@ -137,7 +137,7 @@ gpg --fingerprint
 !!! warning "Passphrase et sauvegarde"
     La passphrase protège la clé privée au repos. Si elle est perdue, la clé privée est inutilisable — il n'y a aucun mécanisme de récupération. Exporter et sauvegarder la clé privée hors ligne immédiatement après la génération.
 
-<br />
+<br>
 
 ---
 
@@ -173,7 +173,7 @@ gpg --armor --export-secret-keys email@domain.com > cle-privee-backup.asc
 !!! danger "Clé privée"
     Ne jamais transmettre la clé privée. Ne jamais la publier sur un serveur de clés. Ne jamais la stocker dans un dépôt Git. L'accès à la clé privée équivaut à l'usurpation d'identité cryptographique complète.
 
-<br />
+<br>
 
 ---
 
@@ -202,7 +202,7 @@ gpg -d fichier.txt.gpg
 gpg -o fichier-dechiffre.txt -d fichier.txt.gpg
 ```
 
-<br />
+<br>
 
 ---
 
@@ -232,7 +232,7 @@ gpg --verify fichier.txt.sig fichier.txt
 gpg --verify fichier.txt.gpg
 ```
 
-<br />
+<br>
 
 ---
 
@@ -255,7 +255,7 @@ sequenceDiagram
 
 La vérification du fingerprint avant l'échange est l'étape que la majorité des utilisateurs sautent — c'est précisément là qu'une attaque de type Man-in-the-Middle substitue une clé publique piégée.
 
-<br />
+<br>
 
 ---
 
@@ -306,7 +306,7 @@ gpg --keyserver keys.openpgp.org --send-keys FINGERPRINT
 
 Le certificat de révocation doit être généré à la création de la clé et conservé hors ligne. Si la clé privée est compromise sans certificat de révocation disponible, il n'existe aucun moyen d'informer les correspondants.
 
-<br />
+<br>
 
 ---
 
@@ -332,7 +332,7 @@ chmod 700 ~/.gnupg
 chmod 600 ~/.gnupg/*
 ```
 
-<br />
+<br>
 
 ---
 
@@ -341,7 +341,7 @@ chmod 600 ~/.gnupg/*
 !!! warning "Pièges classiques"
     Publier sa clé privée au lieu de la clé publique est l'erreur la plus grave — elle compromet définitivement l'identité cryptographique et impose de révoquer et régénérer une nouvelle paire. Oublier la passphrase rend la clé privée inutilisable sans recours. Faire confiance à une clé importée sans vérifier son fingerprint expose à une substitution de clé. Confondre signature et chiffrement conduit à envoyer un message signé mais lisible par tous. Ne pas générer de certificat de révocation à la création empêche toute révocation future en cas de compromission.
 
-<br />
+<br>
 
 ---
 
@@ -355,7 +355,7 @@ chmod 600 ~/.gnupg/*
 | Échange de secrets | Chiffrer un fichier de credentials avant transmission |
 | Audit de sécurité | Preuve d'identité sur un document ou un rapport |
 
-<br />
+<br>
 
 ---
 
@@ -376,7 +376,7 @@ chmod 600 ~/.gnupg/*
 | Vérifier une signature | `gpg --verify fichier.txt.sig fichier.txt` |
 | Générer révocation | `gpg --gen-revoke email@domain.com` |
 
-<br />
+<br>
 
 ---
 
@@ -384,7 +384,7 @@ chmod 600 ~/.gnupg/*
 
 Sauvegarder la clé privée hors ligne sur un support chiffré immédiatement après la génération. Utiliser une passphrase longue et unique — pas un mot du dictionnaire. Configurer une date d'expiration sur les clés — cela force la rotation et limite l'impact d'une compromission silencieuse. Générer le certificat de révocation dès la création de la clé et le stocker séparément. Vérifier les fingerprints vocalement ou par canal sûr avant tout échange. Séparer les clés personnelles et professionnelles. Ne jamais utiliser la même paire de clés pour des contextes de confiance différents.
 
-<br />
+<br>
 
 ---
 
@@ -396,4 +396,4 @@ Sauvegarder la clé privée hors ligne sur un support chiffré immédiatement ap
 !!! quote "Conclusion"
     _GPG n'est pas seulement un outil — c'est un modèle mental de sécurité. Comprendre comment la cryptographie asymétrique sépare ce qui est public de ce qui est privé, comment la signature prouve l'authenticité sans révéler le secret, et comment la confiance peut se distribuer sans autorité centrale — c'est comprendre les fondations sur lesquelles reposent HTTPS, les dépôts de packages, les signatures de commits et l'ensemble de l'infrastructure de confiance numérique moderne. Une fois ce modèle assimilé, il devient immédiatement visible quand un système de confiance est solide ou structurellement fragile._
 
-<br />
+<br>

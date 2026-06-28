@@ -23,7 +23,7 @@ Comprendre les types primitifs, c'est savoir choisir le bon type pour chaque don
 !!! info "Pourquoi c'est important"
     La maîtrise des types primitifs impacte directement la **performance** des programmes, leur **sécurité**, la **clarté** du code et la **robustesse** face aux cas limites.
 
-<br />
+<br>
 
 ---
 
@@ -40,7 +40,7 @@ Comprendre ce mécanisme de base est le prérequis à tout le reste.
 
 <p><em>Une variable est une étiquette attachée à une zone mémoire. L'étiquette porte le nom choisi par le développeur ; la zone mémoire contient la valeur primitive. Renommer la variable ne change pas la valeur — modifier la valeur ne change pas le nom.</em></p>
 
-<br />
+<br>
 
 ---
 
@@ -64,8 +64,8 @@ Tous les types primitifs partagent ces propriétés :
 ```mermaid
 flowchart TB
   subgraph Mémoire
-    Stack["Stack<br />Rapide — Petite"]
-    Heap["Heap<br />Plus lente — Grande"]
+    Stack["Stack<br>Rapide — Petite"]
+    Heap["Heap<br>Plus lente — Grande"]
   end
 
   Primitifs["Types Primitifs"] --> Stack
@@ -76,7 +76,7 @@ _La **Stack** est comparable à un bureau de travail : accès rapide, espace lim
 
 !!! note "Ces deux zones sont détaillées dans la fiche dédiée : [Heap, Stack & Références](./heap-stack-references.md)"
 
-<br />
+<br>
 
 ---
 
@@ -135,7 +135,7 @@ decouvrir_types_python()
 !!! tip "Optimisation Python"
     Python recycle les objets entiers de -5 à 256 pour économiser la mémoire — un détail interne utile à connaître pour comprendre certains comportements inattendus.
 
-<br />
+<br>
 
 ---
 
@@ -208,7 +208,7 @@ decouvrirTypesJavaScript();
     `typeof null` retourne `"object"` — c'est un bug historique conservé pour des raisons de compatibilité.
     `0.1 + 0.2` ne donne pas exactement `0.3` — conséquence directe de la représentation binaire des décimaux (norme IEEE 754[^2]).
 
-<br />
+<br>
 
 ---
 
@@ -282,7 +282,7 @@ decouvrirTypesPHP();
 !!! tip "Règle de survie en PHP"
     Utiliser systématiquement `===` (triple égal) pour comparer **la valeur ET le type**. Le double égal `==` déclenche une conversion implicite qui produit des résultats contre-intuitifs.
 
-<br />
+<br>
 
 ---
 
@@ -330,7 +330,7 @@ func main() {
 !!! tip "La rigueur de Go"
     Go force à être explicite sur les conversions. C'est une contrainte en apparence — c'est en réalité une garantie : **pas de conversion automatique = moins de comportements inattendus**.
 
-<br />
+<br>
 
 ---
 
@@ -343,7 +343,7 @@ func main() {
 | :fontawesome-brands-php: | Faible | Moyenne | Moyenne | Recommandé pour débuter |
 | :fontawesome-brands-golang: | Faible | Très bonne | Rapide | Accessible après les bases |
 
-<br />
+<br>
 
 ---
 
@@ -370,7 +370,7 @@ var_dump(0 == "");   // true
 var_dump(0 === "");  // false
 ```
 
-<br />
+<br>
 
 ---
 
@@ -382,7 +382,7 @@ var_dump(0 === "");  // false
     - Tester les cas limites : `0`, `-1`, valeurs très grandes, chaîne vide
     - Lire les messages d'erreur liés aux types — ils sont souvent précis et indiquent exactement où chercher
 
-<br />
+<br>
 
 ---
 
@@ -394,7 +394,7 @@ var_dump(0 === "");  // false
 !!! quote "Conclusion"
     _Les types primitifs, c'est apprendre à tenir un crayon. Ça paraît basique — c'est pourtant la fondation de tout ce qui sera écrit ensuite. Prendre le temps de bien les comprendre réduit drastiquement les bugs et les comportements inexpliqués dans les projets plus avancés._
 
-<br />
+<br>
 
 [^1]: **Type juggling** — conversion implicite de type : comportement par lequel un langage convertit automatiquement une valeur d'un type vers un autre pour permettre l'exécution d'une opération, sans que le développeur l'ait demandé explicitement.
 [^2]: **IEEE 754** — norme internationale définissant la représentation des nombres à virgule flottante en binaire. Elle est à l'origine du résultat surprenant de `0.1 + 0.2` : certains décimaux ne peuvent pas être représentés exactement en base 2, ce qui introduit une erreur d'arrondi infime mais mesurable.

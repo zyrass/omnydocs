@@ -28,7 +28,7 @@ Contrairement à Windows où les exécutables se téléchargent depuis des sites
 !!! tip "APT vs apt-get — Quelle différence"
     `apt` est la commande moderne (depuis 2014) conçue pour l'utilisateur interactif avec une sortie colorée et lisible. `apt-get` est l'outil historique optimisé pour les scripts. Dans la majorité des cas, utiliser `apt` pour une meilleure expérience. Utiliser `apt-get` uniquement dans des scripts automatisés où la stabilité de l'interface est critique.
 
-<br />
+<br>
 
 ---
 
@@ -127,7 +127,7 @@ flowchart TB
 # └── triggers/                 # Système de déclencheurs
 ```
 
-<br />
+<br>
 
 ---
 
@@ -256,7 +256,7 @@ ls /etc/apt/sources.list.d/
 !!! danger "Risques des PPA"
     Les PPA sont maintenus par des individus, pas par Canonical. La qualité du packaging est variable, ils peuvent casser le système lors de mises à jour et être abandonnés sans avertissement. Utiliser les PPA uniquement lorsque absolument nécessaire, en privilégiant ceux maintenus par des équipes reconnues.
 
-<br />
+<br>
 
 ---
 
@@ -409,7 +409,7 @@ du -sh /var/cache/apt/archives/
 apt-cache stats
 ```
 
-<br />
+<br>
 
 ---
 
@@ -535,7 +535,7 @@ apt-mark unhold nginx
 
 Le blocage est utile pour une version validée en production, une application incompatible avec une nouvelle version ou un environnement de développement nécessitant une version fixe.
 
-<br />
+<br>
 
 ---
 
@@ -631,7 +631,7 @@ unattended-upgrade --dry-run --debug
 tail -f /var/log/unattended-upgrades/unattended-upgrades.log
 ```
 
-<br />
+<br>
 
 ---
 
@@ -670,7 +670,7 @@ echo 'Acquire::http::Proxy "http://serveur-cache:3142";' > /etc/apt/apt.conf.d/0
 
 Sur 10 serveurs, Apt-Cacher-NG économise environ 90 % de la bande passante consommée par les mises à jour.
 
-<br />
+<br>
 
 ---
 
@@ -701,7 +701,7 @@ Sur 10 serveurs, Apt-Cacher-NG économise environ 90 % de la bande passante cons
 | Rechercher | `apt search term` | `apt-cache search term` | `aptitude search term` |
 | Information | `apt show pkg` | `apt-cache show pkg` | `aptitude show pkg` |
 
-<br />
+<br>
 
 ---
 
@@ -782,7 +782,7 @@ debsecan
 debsecan | grep "remotely exploitable"
 ```
 
-<br />
+<br>
 
 ---
 
@@ -866,7 +866,7 @@ grep " upgrade " /var/log/dpkg.log | tail -20
 apt -o Debug::pkgProblemResolver=yes install paquet
 ```
 
-<br />
+<br>
 
 ---
 
@@ -878,4 +878,4 @@ apt -o Debug::pkgProblemResolver=yes install paquet
 !!! quote "Conclusion"
     _APT représente plus de 25 ans d'évolution dans la gestion de paquets Linux. Ce qui commençait comme un outil pour automatiser l'installation de logiciels est devenu un écosystème complet gérant des dizaines de milliers de paquets avec une fiabilité éprouvée sur des millions de systèmes critiques. La force d'APT réside dans sa maturité — chaque comportement a été pensé, testé et raffiné au fil des années. La résolution de dépendances garantit la cohérence du système. Les mécanismes de signature GPG assurent la sécurité de la chaîne d'approvisionnement. Le système de dépôts multiples permet la flexibilité sans compromettre la stabilité. Debian et Ubuntu dominent les serveurs web, les clouds publics et constituent la base de distributions spécialisées comme Kali Linux. Maîtriser APT, c'est comprendre la fondation sur laquelle repose une part substantielle de l'infrastructure numérique mondiale. APT n'est pas le plus rapide — APK est plus léger — ni le plus moderne — dnf offre plus de fonctionnalités — mais il est le plus fiable et le plus documenté. En administration système professionnelle, cette fiabilité éprouvée est non négociable._
 
-<br />
+<br>

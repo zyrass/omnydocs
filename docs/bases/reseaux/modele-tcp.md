@@ -25,7 +25,7 @@ TCP/IP doit son nom à ses deux protocoles fondateurs : **TCP** (Transmission Co
 
 Le modèle OSI et la correspondance entre les deux modèles sont traités dans le chapitre [Modèle OSI](../reseaux/modele-osi.md).
 
-<br />
+<br>
 
 ---
 
@@ -47,7 +47,7 @@ Le modèle OSI et la correspondance entre les deux modèles sont traités dans l
 !!! info "Numérotation des couches TCP/IP"
     Contrairement à OSI qui numérote de 1 (bas) à 7 (haut), TCP/IP est parfois numéroté dans les deux sens selon les sources. Dans ce document, la couche 1 est la couche la plus basse (Accès réseau) et la couche 4 la plus haute (Application) — cohérent avec la lecture bas vers haut du modèle OSI.
 
-<br />
+<br>
 
 ---
 
@@ -69,14 +69,14 @@ ARP est le protocole qui assure la transition entre la couche Internet (adresses
 
 ```mermaid
 sequenceDiagram
-    participant A as Hôte A<br />192.168.1.10
-    participant Broadcast as Réseau local<br />(broadcast)
-    participant B as Hôte B<br />192.168.1.20
+    participant A as Hôte A<br>192.168.1.10
+    participant Broadcast as Réseau local<br>(broadcast)
+    participant B as Hôte B<br>192.168.1.20
 
     A->>Broadcast: ARP Request — Qui a 192.168.1.20 ?
-    Note over Broadcast: Envoyé à FF:FF:FF:FF:FF:FF<br />(tous les hôtes du segment)
+    Note over Broadcast: Envoyé à FF:FF:FF:FF:FF:FF<br>(tous les hôtes du segment)
     B->>A: ARP Reply — C'est moi, MAC = AA:BB:CC:DD:EE:FF
-    Note over A: Table ARP mise à jour<br />192.168.1.20 → AA:BB:CC:DD:EE:FF
+    Note over A: Table ARP mise à jour<br>192.168.1.20 → AA:BB:CC:DD:EE:FF
 ```
 
 ```bash title="Bash — consultation et manipulation de la table ARP"
@@ -96,7 +96,7 @@ tcpdump -i eth0 arp
 !!! warning "ARP Spoofing"
     ARP ne dispose d'aucun mécanisme d'authentification. Un attaquant peut envoyer de fausses réponses ARP pour associer son adresse MAC à l'IP d'une passerelle légitime (ARP Spoofing), interceptant ainsi tout le trafic du segment — attaque de type Man-in-the-Middle. Protection : Dynamic ARP Inspection (DAI) sur les switchs managés.
 
-<br />
+<br>
 
 ---
 
@@ -198,7 +198,7 @@ ping6 -c 4 2001:4860:4860::8888
 !!! warning "Sécurité ICMP"
     ICMP est souvent filtré ou limité par les firewalls pour prévenir la reconnaissance réseau (ping sweep, OS fingerprinting) et les attaques par inondation (ICMP Flood). Le blocage total d'ICMP est déconseillé — il empêche le diagnostic et casse la découverte du MTU (Path MTU Discovery).
 
-<br />
+<br>
 
 ---
 
@@ -218,13 +218,13 @@ Le **port** est un entier de 16 bits (0 à 65535) qui identifie un processus app
 
 ```mermaid
 flowchart TB
-    Client["Client<br />192.168.1.10"]
-    S1["Port source<br />aléatoire > 1024<br />ex: 54321"]
-    S2["Port destination<br />443 — HTTPS"]
-    Serveur["Serveur<br />93.184.216.34"]
+    Client["Client<br>192.168.1.10"]
+    S1["Port source<br>aléatoire > 1024<br>ex: 54321"]
+    S2["Port destination<br>443 — HTTPS"]
+    Serveur["Serveur<br>93.184.216.34"]
 
     Client --> S1
-    S1 -->|"Socket:<br />192.168.1.10:54321<br />→ 93.184.216.34:443"| S2
+    S1 -->|"Socket:<br>192.168.1.10:54321<br>→ 93.184.216.34:443"| S2
     S2 --> Serveur
 ```
 
@@ -253,7 +253,7 @@ nmap -sV 192.168.1.1
 watch -n 1 'ss -tnp'
 ```
 
-<br />
+<br>
 
 ---
 
@@ -288,7 +288,7 @@ timedatectl status
 chronyc tracking
 ```
 
-<br />
+<br>
 
 ---
 
@@ -302,22 +302,22 @@ chronyc tracking
 
 ```mermaid
 flowchart TB
-    A["Couche Application — Données HTTP<br />GET /index.html HTTP/1.1<br />Host: example.com"]
+    A["Couche Application — Données HTTP<br>GET /index.html HTTP/1.1<br>Host: example.com"]
 
-    B["Couche Transport — Segment TCP<br />[En-tête TCP : port src 54321 | port dst 443 | seq | flags]<br />+ Données HTTP"]
+    B["Couche Transport — Segment TCP<br>[En-tête TCP : port src 54321 | port dst 443 | seq | flags]<br>+ Données HTTP"]
 
-    C["Couche Internet — Paquet IP<br />[En-tête IP : IP src 192.168.1.10 | IP dst 93.184.216.34 | TTL 64]<br />+ En-tête TCP + Données HTTP"]
+    C["Couche Internet — Paquet IP<br>[En-tête IP : IP src 192.168.1.10 | IP dst 93.184.216.34 | TTL 64]<br>+ En-tête TCP + Données HTTP"]
 
-    D["Couche Accès réseau — Trame Ethernet<br />[En-tête Ethernet : MAC src | MAC dst]<br />+ En-tête IP + En-tête TCP + Données HTTP<br />+ [FCS — Frame Check Sequence]"]
+    D["Couche Accès réseau — Trame Ethernet<br>[En-tête Ethernet : MAC src | MAC dst]<br>+ En-tête IP + En-tête TCP + Données HTTP<br>+ [FCS — Frame Check Sequence]"]
 
-    E["Support physique<br />01101000 01110100 01110100 01110000 ..."]
+    E["Support physique<br>01101000 01110100 01110100 01110000 ..."]
 
     A --> B --> C --> D --> E
 ```
 
 Chaque couche lit uniquement son propre en-tête et ignore tout ce qui est encapsulé à l'intérieur. TCP ne sait pas que ses données contiennent du HTTP. IP ne sait pas qu'il transporte du TCP. Ethernet ne sait pas qu'il transporte de l'IP.
 
-<br />
+<br>
 
 ---
 
@@ -331,11 +331,11 @@ Chaque couche lit uniquement son propre en-tête et ignore tout ce qui est encap
 
 ```mermaid
 sequenceDiagram
-    participant Navigateur as Navigateur<br />(couche Application)
-    participant TCP as Couche Transport<br />(TCP)
-    participant IP as Couche Internet<br />(IP)
+    participant Navigateur as Navigateur<br>(couche Application)
+    participant TCP as Couche Transport<br>(TCP)
+    participant IP as Couche Internet<br>(IP)
     participant DNS as Serveur DNS
-    participant Serveur as Serveur Web<br />example.com
+    participant Serveur as Serveur Web<br>example.com
 
     Note over Navigateur: Saisie de https://example.com
 
@@ -360,7 +360,7 @@ sequenceDiagram
     Note over Navigateur: Affichage de la page
 ```
 
-<br />
+<br>
 
 ---
 
@@ -404,7 +404,7 @@ flowchart TB
         H3["192.168.1.30:56789"]
     end
 
-    Router["Routeur NAT<br />IP publique : 203.0.113.1<br />Table NAT"]
+    Router["Routeur NAT<br>IP publique : 203.0.113.1<br>Table NAT"]
 
     Internet["Internet"]
 
@@ -416,7 +416,7 @@ flowchart TB
 
 Le routeur NAT remplace l'adresse IP privée source et le port source par son adresse IP publique et un port de sortie unique, et maintient une table de correspondance pour router les réponses vers le bon hôte interne.
 
-<br />
+<br>
 
 ---
 
@@ -452,7 +452,7 @@ traceroute6 2001:4860:4860::8888
 dig AAAA example.com
 ```
 
-<br />
+<br>
 
 ---
 
@@ -518,7 +518,7 @@ openssl s_client -connect example.com:443 -brief
 timedatectl status
 ```
 
-<br />
+<br>
 
 ---
 
@@ -530,4 +530,4 @@ timedatectl status
 !!! quote "Conclusion"
     _Le modèle TCP/IP est l'architecture qui fait fonctionner Internet depuis plus de cinquante ans. Ses quatre couches découpent la complexité d'une communication réseau en périmètres indépendants et interchangeables — changer l'implémentation de la couche Accès réseau (passer d'Ethernet à Wi-Fi) ne modifie pas le comportement des couches supérieures. Comprendre l'encapsulation — comment une donnée HTTP devient un segment TCP, un paquet IP, une trame Ethernet, puis une suite de bits — est indispensable pour lire une capture Wireshark, diagnostiquer une panne réseau ou comprendre pourquoi une attaque de couche 2 peut intercepter du trafic HTTPS. L'adressage IP, le routage et le NAT sont les mécanismes qui permettent à des milliards d'hôtes de se trouver et de communiquer. IPv6 résout structurellement les limites d'IPv4 — sa maîtrise devient incontournable._
 
-<br />
+<br>

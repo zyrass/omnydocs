@@ -1,7 +1,7 @@
 ---
-description: "Rôle, Installation et Cycle de vie de requêtes Full-Stack d'un composant."
+description: "Rôle, structure mono-fichier (SFC), cycle de vie et hydratation moderne d'un composant Livewire v4."
 icon: lucide/box
-tags: ["THEORIE", "LIVEWIRE", "CYCLE", "LARAVEL"]
+tags: ["THEORIE", "LIVEWIRE", "SFC", "LARAVEL"]
 ---
 
 # Fondations & Cycle de Vie
@@ -9,96 +9,150 @@ tags: ["THEORIE", "LIVEWIRE", "CYCLE", "LARAVEL"]
 <div
   class="omny-meta"
   data-level="🟢 Débutant"
-  data-version="Livewire 3.x"
-  data-time="2 Heures">
+  data-version="4.x"
+  data-time="2 heures">
 </div>
 
-!!! quote "Illusion du Javascript"
-    Construire de l'interactivité a toujours nécessité d'écrire en un langage (PHP, Ruby) pour gérer la base de données, et de créer une autre codebase en JavaScript (React, Vue) pour l'affichage visuel, impliquant de douloureuses APIs (`fetch`) entre eux. **Livewire est une puissante illusion.** Il intercepte les clics depuis le HTML pour vous, envoie une mini-requête AJAX (XHR) invisible au serveur PHP, qui modifie la variable PHP, recalcule une portion de vue Blade et remplace la zone du clavier **sans la faire clignoter**. Vous codez en PHP, l'utilisateur a l'impression d'être sur une App JavaScript ultra-rapide.
+## Introduction
+
+!!! quote "Analogie pédagogique — L'Illusionniste et la Lanterne Magique"
+    Construire une interface interactive demandait traditionnellement d'écrire le code serveur dans un langage (PHP) et la logique d'affichage dans un autre (JavaScript), tout en gérant une passerelle complexe d'APIs. Livewire fonctionne comme une lanterne magique. Lorsqu'un utilisateur clique sur un bouton, l'événement est intercepté par le noyau JavaScript léger de Livewire. Une requête asynchrone ultra-rapide (AJAX) transmet l'état actuel au serveur PHP. Ce dernier met à jour le composant, recalcule la vue Blade, et renvoie uniquement la portion de HTML modifiée pour être injectée dans la page, sans aucun rechargement ni clignotement.
+
+Ce module présente les fondations de Livewire v4.x, sa structure mono-fichier et son cycle de vie.
 
 <br>
 
 ---
 
-## 1. Pourquoi Livewire au lieu de React / Vue ?
+## 1. Pourquoi Livewire v4 et les composants mono-fichier (SFC) ?
 
-Livewire 3.x n'est pas conçu pour faire des expériences immersives comme des Jeux Web de Canvas 3D ou des plateformes lourdes comme Figma. Son **Sweet Spot** (point idéal), ce sont les S.I (Systèmes d'Information) et les SaaS !
+Livewire v4 simplifie l'architecture en introduisant les **Single-File Components (SFC)** par défaut. Au lieu de jongler entre une classe PHP (`app/Livewire/Counter.php`) et un fichier Blade (`resources/views/livewire/counter.blade.php`), tout est centralisé dans un seul fichier Blade préfixé par un éclair `⚡` (ex: `⚡counter.blade.php`).
 
-- **Sécurité Unifiée :** Pas d'API. Le composant est écrit au milieu de Laravel, avec accès instantané aux Helpers `auth()`, Modèles Eloquent et Validations FormRequests.
-- **Zéro NPM Bloat :** Aucune configuration de `webpack`, `rollup` ou de compilateur NPM complexe.
-- **SEO Ready :** C'est du "Server Side Render". Lors du premier affichage URL, c'est du vrai HTML lisible par les robots Google, l'interactivité AJAX ne remplace la carte que plus tard!
+- **Cohésion maximale :** La logique métier et l'interface visuelle sont réunies au même endroit, éliminant la dispersion du code.
+- **Sécurité et simplicité :** Pas d'API intermédiaire à déclarer. Le composant s'exécute directement dans le contexte Laravel, avec un accès direct aux modèles Eloquent et à l'authentification.
+- **Hydratation partielle (Islands) :** Grâce à la directive `@island`, vous pouvez isoler des sections de votre page pour qu'elles se chargent et s'hydratent de manière autonome, réduisant drastiquement l'empreinte réseau.
 
 <br>
 
 ---
 
-## 2. Structure d'un Composant
+## 2. Structure d'un composant mono-fichier
 
-Lorsque vous tapez `php artisan make:livewire Counter`, deux fichiers jumeaux (un Backend PHP et un Frontend HTML Blade) viennent au monde. Ils fonctionnent en symbiose.
+Lorsque vous générez un composant sous Livewire v4 avec `php artisan make:livewire Counter`, le framework crée par défaut un unique fichier dans le dossier des vues.
 
-```php title="Le Cerveau: app/Livewire/Counter.php"
+### Fichier `resources/views/livewire/⚡counter.blade.php`
+
+```html title="Blade - structure mono-fichier d'un composant Livewire v4"
 <?php
-
-namespace App\Livewire;
-
 use Livewire\Component;
 
-class Counter extends Component
-{
-    // C'est votre State. Accessible dans Render.
-    public $initialWord = 'Zensical';
+new class extends Component {
+    // État du composant (State)
+    public $count = 0;
 
-    public function render()
+    // Méthode réactive
+    public function increment()
     {
-        return view('livewire.counter');
+        $this->count++;
     }
-}
-```
+};
+?>
 
-```html title="Les Yeux: resources/views/livewire/counter.blade.php"
-<div>
-    <h1>Bienvenue sur {{ $initialWord }}</h1>
+<div class="p-6 bg-white rounded-xl shadow-md flex flex-col items-center gap-4">
+    <h1 class="text-2xl font-bold text-slate-800">Compteur : {{ $count }}</h1>
+    
+    <!-- Bouton déclenchant la méthode PHP du bloc supérieur -->
+    <button wire:click="increment" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        Incrémenter
+    </button>
 </div>
 ```
+_Composant mono-fichier hébergeant sa logique PHP dans une classe anonyme à sa tête, et son affichage Blade au pied._
 
-_Note vitale Zensical : La vue d'un composant Livewire v3 DOIT **Absolument** n'avoir qu'un seul Element HTML Racine (ici la balise `<div>`). Si vous mettez le `<h1>` et le `<div>` au même niveau sans parent invisible (Wrapper), Livewire vous insultera avec une erreur dans votre Console._
+*Note critique : Tout composant Livewire v4 doit posséder **un seul et unique élément HTML racine** (ici la balise `<div>`). Si plusieurs éléments se trouvent au même niveau de la racine, le moteur de rendu renverra une erreur d'intégration.*
 
 <br>
 
 ---
 
-## 3. Le fameux Lifecycle (Cycle de Vie)
+## 3. Le cycle d'hydratation et de déshydratation
 
-Contrairement à de simples variables dans un Controller, un Composant Livewire vieillit et subit des événements d'exécution (Lifecycle Hooks). Vous pouvez capter trois temps de sa vie : `mount`, `hydrate` et `updating`.
+L'échange de données entre le navigateur (client) et Laravel (serveur) s'effectue via un protocole d'hydratation automatique :
 
-```php title="Le Constructeur et la Mémoire"
-class UserCard extends Component
-{
+1. **La Déshydratation (Dehydration) :** Lors du premier chargement ou après une modification, le serveur prend l'état du composant PHP, le sérialise sous forme de snapshot JSON sécurisé, génère le code HTML correspondant et envoie le tout au navigateur.
+2. **L'Hydratation (Hydration) :** Lorsque l'utilisateur clique sur un bouton (`wire:click`), le navigateur envoie le snapshot JSON actuel et l'action demandée au serveur. Livewire reconstruit l'objet PHP à partir du JSON, applique la modification, exécute la méthode, puis déshydrate à nouveau le composant pour renvoyer le nouveau HTML.
+
+<br>
+
+---
+
+## 4. Le Cycle de Vie (Lifecycle Hooks)
+
+Livewire v4 unifie ses crochets de cycle de vie pour faciliter la gestion de l'état et de l'initialisation.
+
+### Les crochets essentiels
+
+```html title="Blade - gestion des cycles de vie dans la classe anonyme"
+<?php
+use Livewire\Component;
+use App\Models\User;
+
+new class extends Component {
+    public $userId;
     public $user;
 
-    // S'exécute UNE SEULE FOIS, tout au début, lors du chargement de la page HTTP classique. (C'est le Constructeur pour Livewire).
-    public function mount($identifiant)
+    // mount() s'exécute UNE SEULE FOIS lors de l'affichage initial de la page HTTP
+    public function mount($userId)
     {
-        $this->user = User::findOrFail($identifiant);
+        $this->userId = $userId;
+        $this->user = User::findOrFail($userId);
     }
 
-    // S'exécute à CHAQUE FOIS qu'un bouton est cliqué et qu'une requête AJAX Livewire réveille le composant depuis la mémoire cache du serveur (Pour vérifier qui a appelé !)
-    public function hydrate()
+    // boot() s'exécute à CHAQUE requête (initiale et AJAX), avant toute autre action
+    public function boot()
     {
-        // Utile si on veut vérifier des droits d'accès après 5min d'attente
-        if (!auth()->check()) { return redirect('/login'); }
-    }
-
-    // S'exécute JUSTE AVANT qu'une de vos "public" variables soit modifiée 
-    // par le client. Idéal pour faire un "Replace" d'une majuscule !
-    public function updating($property, $value)
-    {
-        if ($property === 'user.title') {
-            $this->user->title = strtoupper($value);
+        if (!auth()->check()) {
+            return redirect()->route('login');
         }
     }
-}
+
+    // updating() s'exécute juste avant qu'une propriété publique ne soit modifiée
+    public function updating($property, $value)
+    {
+        if ($property === 'user.name') {
+            // Exemple de validation ou transformation avant écriture
+            $this->user->name = trim($value);
+        }
+    }
+};
+?>
+
+<div>
+    <h2>Profil de {{ $user->name }}</h2>
+</div>
 ```
+_Exemple de gestion de l'initialisation et du filtrage des propriétés via les crochets de cycle de vie._
+
+<br>
+
+---
+
+## Exercices
+
+!!! note "À vous de jouer"
+
+**Exercice 1 — Création d'un composant de bienvenue**
+
+1. Créez un composant mono-fichier `⚡welcome-card.blade.php` dans `resources/views/livewire/`.
+2. Déclarez une propriété `$name` initialisée à "Visiteur".
+3. Affichez un message "Bienvenue, [nom]" et ajoutez un champ de texte relié à `$name`.
+4. Constatez l'affichage dynamique lors de la saisie.
+
+**Exercice 2 — Suivi des requêtes via les DevTools**
+
+1. Ouvrez l'inspecteur de votre navigateur sur l'onglet "Réseau" (Network).
+2. Cliquez sur le bouton d'action d'un composant Livewire.
+3. Analysez le payload de la requête HTTP asynchrone envoyée par Livewire et observez le snapshot JSON transféré contenant l'état des variables.
 
 <br>
 
@@ -106,7 +160,7 @@ class UserCard extends Component
 
 ## Conclusion
 
-!!! quote "Architecture Globale"
-    Pensez la création d'un composant Livewire comme un mini-contrôleur Laravel dédié exclusivement à un seul carré de votre maquette UI. Le `mount()` est votre injecteur initial.
+!!! quote "Ce qu'il faut retenir de ce module"
+    Livewire v4 unifie la logique et l'interface au sein des composants mono-fichiers (SFC). Le protocole d'hydratation assure la synchronisation de l'état entre le navigateur et le serveur en convertissant les objets PHP en snapshots JSON. Les crochets de cycle de vie (`mount`, `boot`, `updating`) permettent d'intercepter ces transitions pour préparer les données ou appliquer des règles métier.
 
-> Mais alors ? Comment le fameux composant comprend que l'utilisateur en frontend est en train d'écrire un mot ou clique sur un bouton ? Tout relève de la notion cruciale du Data Transfer. Plongeons dans le [Chapitre 2 : Propriétés et Actions](./02-proprietes-actions.md).
+> Pour synchroniser dynamiquement les champs de saisie et réagir aux clics des utilisateurs, passez au **[Module 2 — Propriétés & Actions](./02-proprietes-actions.md)**.

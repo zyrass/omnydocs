@@ -25,7 +25,7 @@ Comprendre les méthodes HTTP devient indispensable dès que l'on développe des
 
 Ce document nécessite une compréhension basique du fonctionnement du web — un client envoie une requête à un serveur qui répond avec des données. Si ces concepts semblent flous, consulter d'abord le chapitre sur les bases des réseaux.
 
-<br />
+<br>
 
 ---
 
@@ -58,7 +58,7 @@ _* PATCH peut être idempotente selon l'implémentation. ** DELETE peut avoir un
 !!! info "Propriétés clés"
     **Idempotente** : plusieurs appels identiques produisent le même résultat qu'un seul appel. **Sécurisée** : n'a aucun effet de bord sur le serveur — lecture seule.
 
-<br />
+<br>
 
 ---
 
@@ -253,7 +253,7 @@ Le cache intercepte la requête GET et retourne une réponse locale si la ressou
 !!! warning "Sécurité GET — données sensibles interdites dans l'URL"
     Ne jamais transmettre de données sensibles dans l'URL avec GET. Les URLs apparaissent dans les logs serveur, l'historique du navigateur, les logs des proxies et firewalls, et les en-têtes Referer lors de la navigation. Utiliser POST pour les mots de passe, tokens ou informations personnelles.
 
-<br />
+<br>
 
 ---
 
@@ -458,7 +458,7 @@ La méthode **POST** soumet une entité à la ressource spécifiée, causant un 
 !!! danger "Sécurité POST — protection CSRF obligatoire"
     POST modifie l'état du serveur et nécessite une protection CSRF (Cross-Site Request Forgery). Implémenter systématiquement des tokens CSRF sur les formulaires, la vérification de l'origine via les en-têtes Origin et Referer, une authentification robuste et une validation stricte des données entrantes.
 
-<br />
+<br>
 
 ---
 
@@ -639,7 +639,7 @@ La méthode **PUT** remplace **toutes les représentations actuelles** de la res
 !!! warning "PUT remplace toute la ressource"
     PUT remplace l'intégralité de la ressource. Tout champ omis dans le corps de la requête sera effacé ou remis à sa valeur par défaut. Pour des modifications partielles, utiliser PATCH.
 
-<br />
+<br>
 
 ---
 
@@ -808,7 +808,7 @@ La méthode **PATCH** applique des **modifications partielles** à une ressource
     }
     ```
 
-<br />
+<br>
 
 ---
 
@@ -914,7 +914,7 @@ La méthode **DELETE** supprime la ressource spécifiée. Elle est idempotente �
 !!! danger "Sécurité DELETE — irréversible par nature"
     DELETE est irréversible et potentiellement destructeur. Implémenter une confirmation avant suppression d'entités critiques, préférer le soft delete (marquage comme supprimé) à la suppression physique, journaliser toutes les suppressions, exiger une authentification forte avec vérification des droits, et maintenir des sauvegardes avant toute suppression de données importantes.
 
-<br />
+<br>
 
 ---
 
@@ -931,7 +931,7 @@ La méthode **DELETE** supprime la ressource spécifiée. Elle est idempotente �
 !!! info "Documentation complète des codes"
     Pour une liste exhaustive de tous les codes de statut HTTP avec leurs significations précises, consulter le chapitre [Liste des codes d'erreur](../reseaux/http-codes.md).
 
-<br />
+<br>
 
 ---
 
@@ -1039,7 +1039,7 @@ Valider systématiquement les données côté serveur, même lorsqu'une validati
     app.use('/api/', limiter);
     ```
 
-<br />
+<br>
 
 ---
 
@@ -1051,4 +1051,4 @@ Valider systématiquement les données côté serveur, même lorsqu'une validati
 !!! quote "Conclusion"
     _Les méthodes HTTP constituent le vocabulaire fondamental de toute communication web moderne. Leur maîtrise dépasse la simple connaissance syntaxique pour englober la compréhension profonde de leurs propriétés de sécurité, d'idempotence et d'impacts sur l'architecture des applications. Une utilisation correcte garantit des APIs prévisibles, performantes et sécurisées. Une utilisation incorrecte expose les systèmes à des vulnérabilités critiques — CSRF, fuites de données, soumissions dupliquées, suppressions non autorisées. L'idempotence en particulier n'est pas un détail académique : elle détermine directement la stratégie de retry lors des pannes réseau et la fiabilité des opérations distribuées._
 
-<br />
+<br>

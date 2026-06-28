@@ -23,7 +23,7 @@ Sans isolation, tous les projets Python partagent le même espace d'installation
 !!! info "Pourquoi c'est important"
     Tout projet Python sérieux utilise un environnement virtuel. C'est une pratique non négociable en développement professionnel — les frameworks (Django, Flask, FastAPI), les outils de data science (NumPy, Pandas, TensorFlow) et les pipelines CI/CD en dépendent tous.
 
-<br />
+<br>
 
 ---
 
@@ -72,7 +72,7 @@ flowchart TB
 
 Chaque projet possède son propre environnement isolé avec exactement les versions dont il a besoin. Les environnements ne s'interfèrent jamais.
 
-<br />
+<br>
 
 ---
 
@@ -113,30 +113,47 @@ version = 3.12.3                 # Version Python utilisée
 
 **Mécanisme d'isolation :** quand l'environnement est activé, le shell ajoute `venv/bin/` en tête du `PATH`. La commande `python` pointe alors vers l'interpréteur de l'environnement, et cet interpréteur cherche ses modules dans `venv/lib/python3.x/site-packages/` — pas dans les packages système.
 
-<br />
+<br>
 
 ---
 
 ## Prérequis
 
-venv est inclus dans Python 3.3+ et ne nécessite aucune installation supplémentaire. Il est disponible comme module standard.
+`venv` est inclus dans Python 3.3+ et ne nécessite aucune installation supplémentaire. Il est disponible comme module standard.
 
-```bash title="Bash — vérifier Python et la disponibilité de venv"
-# Vérifier la version Python
-python3 --version
-# Python 3.12.3
+=== ":fontawesome-brands-windows: Windows 11"
 
-# Vérifier que venv est disponible
-python3 -m venv --help
+    Sous Windows 11, le lanceur Python officiel et recommandé est `py`.
 
-# Sur Ubuntu/Debian, venv peut nécessiter un paquet séparé
-sudo apt install python3-venv
-```
+    ```powershell title="PowerShell — vérifier Python et venv sous Windows"
+    # Vérifier la version de Python via le lanceur
+    py --version
+    # Python 3.12.3
+
+    # Vérifier que venv est disponible
+    py -m venv --help
+    ```
+
+=== ":fontawesome-brands-linux: Linux & :fontawesome-brands-apple: macOS"
+
+    Sous Linux et macOS, la commande standard pour cibler Python 3 est `python3`.
+
+    ```bash title="Bash — vérifier Python et venv sous Linux/macOS"
+    # Vérifier la version Python
+    python3 --version
+    # Python 3.12.3
+
+    # Vérifier que venv est disponible
+    python3 -m venv --help
+
+    # Sur Ubuntu/Debian, venv peut nécessiter un paquet séparé
+    sudo apt install python3-venv
+    ```
 
 !!! warning "Debian et Ubuntu"
     Sur Debian et Ubuntu, `python3-venv` n'est pas toujours installé avec Python. Si la commande `python3 -m venv` échoue avec "ensurepip is not available", installer `python3-venv` via apt.
 
-<br />
+<br>
 
 ---
 
@@ -144,23 +161,45 @@ sudo apt install python3-venv
 
 ### Créer un environnement virtuel
 
-```bash title="Bash — créer un environnement virtuel"
-# Se placer dans le répertoire du projet
-cd ~/projects/mon-projet
+=== ":fontawesome-brands-windows: Windows 11"
 
-# Créer l'environnement dans le sous-répertoire .venv
-python3 -m venv .venv
+    ```powershell title="PowerShell — créer un environnement virtuel sous Windows"
+    # Se placer dans le répertoire du projet
+    cd C:\projects\mon-projet
 
-# Créer avec une version Python spécifique
-python3.11 -m venv .venv
-python3.12 -m venv .venv
+    # Créer l'environnement dans le sous-répertoire .venv
+    py -m venv .venv
 
-# Créer avec accès aux packages système (rare — cas spécifiques)
-python3 -m venv .venv --system-site-packages
+    # Créer avec une version Python spécifique (si plusieurs installées)
+    py -3.11 -m venv .venv
+    py -3.12 -m venv .venv
 
-# Créer sans pip (environnements minimalistes)
-python3 -m venv .venv --without-pip
-```
+    # Créer avec accès aux packages système (rare — cas spécifiques)
+    py -m venv .venv --system-site-packages
+
+    # Créer sans pip (environnements minimalistes)
+    py -m venv .venv --without-pip
+    ```
+
+=== ":fontawesome-brands-linux: Linux & :fontawesome-brands-apple: macOS"
+
+    ```bash title="Bash — créer un environnement virtuel sous Linux/macOS"
+    # Se placer dans le répertoire du projet
+    cd ~/projects/mon-projet
+
+    # Créer l'environnement dans le sous-répertoire .venv
+    python3 -m venv .venv
+
+    # Créer avec une version Python spécifique
+    python3.11 -m venv .venv
+    python3.12 -m venv .venv
+
+    # Créer avec accès aux packages système (rare — cas spécifiques)
+    python3 -m venv .venv --system-site-packages
+
+    # Créer sans pip (environnements minimalistes)
+    python3 -m venv .venv --without-pip
+    ```
 
 !!! tip "Nommage de l'environnement"
     Le nom `.venv` (avec point) est la convention standard Python — il est reconnu automatiquement par VSCode, PyCharm et la plupart des outils. Le nom `venv` (sans point) est également courant. Éviter `env` seul qui est trop générique.
@@ -232,7 +271,7 @@ rm -rf .venv
 python3 -m venv .venv
 ```
 
-<br />
+<br>
 
 ---
 
@@ -244,10 +283,32 @@ python3 -m venv .venv
 
 <p><em>Les dépendances s'installent avec pip dans l'environnement activé, pip freeze capture l'état exact de l'environnement dans requirements.txt, et pip install -r requirements.txt reproduit cet état identique sur n'importe quelle autre machine. Ce cycle garantit que développement, tests et production utilisent exactement les mêmes versions.</em></p>
 
+### Qu'est-ce que pip ?
+
+**pip** (Pip Installs Packages) est le gestionnaire de paquets officiel de Python. Il télécharge, installe et gère les bibliothèques tierces à partir de **PyPI** (Python Package Index). Dans un environnement virtuel actif, la commande `pip` installe les paquets de façon isolée (dans `.venv/lib/.../site-packages/`), évitant ainsi d'impacter le système d'exploitation ou d'autres projets.
+
+### Mettre à jour pip
+
+Il est recommandé de maintenir `pip` à jour dans l'environnement virtuel pour bénéficier des corrections de bugs, améliorations de performance et résolutions de dépendances modernes.
+
+=== ":fontawesome-brands-windows: Windows 11"
+
+    ```powershell title="PowerShell — mettre à jour pip sous Windows"
+    # Avec l'environnement activé ou en ciblant l'interpréteur de l'environnement :
+    py -m pip install --upgrade pip
+    ```
+
+=== ":fontawesome-brands-linux: Linux & :fontawesome-brands-apple: macOS"
+
+    ```bash title="Bash — mettre à jour pip sous Linux/macOS"
+    # Avec l'environnement activé :
+    python3 -m pip install --upgrade pip
+    ```
+
 ### Installer des paquets avec pip
 
 ```bash title="Bash — installer des paquets dans l'environnement activé"
-# Vérifier que l'environnement est activé
+# Vérifier que l'environnement est activé (doit afficher le chemin de l'environnement)
 echo $VIRTUAL_ENV
 
 # Installer un paquet
@@ -359,8 +420,12 @@ pip list
 # Mettre à jour un paquet spécifique
 pip install --upgrade requests
 
-# Mettre à jour pip lui-même
+# Mettre à jour pip lui-même dans l'environnement actif
 pip install --upgrade pip
+
+# Ou de façon sécurisée via le module Python
+# Windows 11 : py -m pip install --upgrade pip
+# Linux/macOS : python3 -m pip install --upgrade pip
 
 # Mettre à jour tous les paquets (à faire avec précaution)
 pip list --outdated --format=json | python3 -c "
@@ -374,7 +439,7 @@ for p in pkgs:
 pip freeze > requirements.txt
 ```
 
-<br />
+<br>
 
 ---
 
@@ -481,7 +546,7 @@ make install
 make test
 ```
 
-<br />
+<br>
 
 ---
 
@@ -515,7 +580,7 @@ Avec `"python.terminal.activateEnvironment": true`, VSCode active automatiquemen
 
 `ms-python.python` — support Python complet avec détection automatique de venv.
 
-<br />
+<br>
 
 ---
 
@@ -615,7 +680,7 @@ conda env create -f environment.yml
 
 conda est l'outil de référence pour les projets de data science et machine learning car il gère les dépendances non-Python (librairies C, CUDA, MKL).
 
-<br />
+<br>
 
 ---
 
@@ -722,7 +787,7 @@ pip install -r requirements.txt
 !!! warning "Un environnement virtuel n'est pas portable"
     Ne pas copier ou déplacer un répertoire `.venv` — il contient des chemins absolus vers l'interpréteur Python de la machine d'origine. Toujours recréer l'environnement depuis `requirements.txt` sur la machine cible.
 
-<br />
+<br>
 
 ---
 
@@ -734,4 +799,4 @@ pip install -r requirements.txt
 !!! quote "Conclusion"
     _L'environnement virtuel est la première décision à prendre avant d'écrire la moindre ligne de code Python. Ce n'est pas une option avancée réservée aux projets complexes — c'est la pratique de base qui évite des heures de débogage liées à des conflits de versions. venv est inclus dans Python, sans installation supplémentaire, et suffit pour la grande majorité des projets. Le fichier requirements.txt est l'artefact central : il matérialise les dépendances du projet, garantit la reproductibilité et documente l'environnement. Commiter requirements.txt, ignorer .venv, activer l'environnement avant toute commande pip — ces trois réflexes suffisent à maintenir un environnement Python propre et reproductible._
 
-<br />
+<br>

@@ -28,7 +28,7 @@ L'architecture Unix repose sur des **principes fondamentaux** établis dans les 
 
 Unix est organisé comme un gâteau à plusieurs étages : le matériel tout en bas, le kernel au milieu, les utilitaires au-dessus, et les applications tout en haut. Chaque couche utilise les services de la couche inférieure sans se préoccuper de ses détails internes. Cette architecture en couches rappelle directement le modèle OSI et le modèle TCP/IP.
 
-<br />
+<br>
 
 ---
 
@@ -62,15 +62,15 @@ timeline
 
 ```mermaid
 flowchart TB
-    A["Unix 1969<br />Bell Labs"]
-    B["BSD 1977<br />Berkeley"]
-    C["System V 1983<br />AT&T"]
-    D["FreeBSD<br />NetBSD<br />OpenBSD"]
-    E["macOS<br />iOS"]
-    F["Solaris\nAIX<br />HP-UX"]
-    G["MINIX 1987<br />Andrew Tanenbaum"]
-    H["Linux 1991<br />Linus Torvalds"]
-    I["Ubuntu<br />Debian<br />Red Hat<br />Arch"]
+    A["Unix 1969<br>Bell Labs"]
+    B["BSD 1977<br>Berkeley"]
+    C["System V 1983<br>AT&T"]
+    D["FreeBSD<br>NetBSD<br>OpenBSD"]
+    E["macOS<br>iOS"]
+    F["Solaris\nAIX<br>HP-UX"]
+    G["MINIX 1987<br>Andrew Tanenbaum"]
+    H["Linux 1991<br>Linus Torvalds"]
+    I["Ubuntu<br>Debian<br>Red Hat<br>Arch"]
     J["Android"]
 
     A --> B
@@ -90,7 +90,7 @@ Linux et BSD représentent les réimplémentations libres d'Unix, tandis que mac
 
 Les systèmes Unix certifiés officiellement (Unix 03) sont macOS, Solaris, AIX (IBM) et HP-UX. Les systèmes Unix-like — compatibles mais non certifiés — comprennent l'ensemble des distributions Linux, FreeBSD, OpenBSD, NetBSD et Android.
 
-<br />
+<br>
 
 ---
 
@@ -106,7 +106,7 @@ Les systèmes Unix certifiés officiellement (Unix 03) sont macOS, Solaris, AIX 
 
 ```mermaid
 flowchart LR
-    A["Concept Unix<br />Tout est fichier"]
+    A["Concept Unix<br>Tout est fichier"]
 
     A -->|Fichier régulier| B["/home/user/doc.txt"]
     A -->|Répertoire| C["/home/user/"]
@@ -179,7 +179,7 @@ Les données circulent sous forme de flux de texte, ce qui garantit l'interopér
 find /etc -type f -perm /go+w 2>/dev/null
 ```
 
-<br />
+<br>
 
 ---
 
@@ -538,7 +538,7 @@ Le shell est l'interface entre l'utilisateur et le kernel.
 
 Applications de haut niveau qui s'appuient sur les services des couches inférieures. Environnements de bureau : GNOME, KDE Plasma, XFCE. Serveurs : Apache, Nginx, PostgreSQL, Redis. Conteneurs : Docker, Podman, LXC.
 
-<br />
+<br>
 
 ---
 
@@ -661,7 +661,7 @@ chmod 1777 repertoire  # Sticky + rwxrwxrwx
 !!! info "Importance en cybersécurité"
     Le sticky bit empêche qu'un utilisateur malveillant ne supprime les fichiers d'autres utilisateurs dans `/tmp` — une attaque classique de déni de service ou de manipulation de fichiers temporaires utilisés par des processus privilégiés.
 
-<br />
+<br>
 
 ---
 
@@ -811,7 +811,7 @@ ipcs -m
 ipcs -q
 ```
 
-<br />
+<br>
 
 ---
 
@@ -916,7 +916,7 @@ sudo -u alice command      # Exécuter une commande en tant que alice
 sudo -i                    # Shell root interactif
 ```
 
-<br />
+<br>
 
 ---
 
@@ -1041,7 +1041,7 @@ journalctl -b                     # Logs du boot actuel
 journalctl --since "1 hour ago"   # Logs depuis une heure
 ```
 
-<br />
+<br>
 
 ---
 
@@ -1053,4 +1053,4 @@ journalctl --since "1 hour ago"   # Logs depuis une heure
 !!! quote "Conclusion"
     _L'architecture Unix représente plus de 50 ans d'évolution vers la simplicité, la modularité et l'élégance. Ses principes fondamentaux — tout est fichier, programmes composables, interface textuelle — ont créé un écosystème où des milliers d'outils collaborent harmonieusement. Comprendre l'architecture Unix va bien au-delà de la mémorisation de répertoires ou de commandes : c'est saisir une philosophie de conception qui valorise la clarté, la réutilisabilité et l'ouverture. Ces principes transcendent Unix et influencent profondément l'architecture moderne — microservices, conteneurs, APIs REST et organisation du code. La hiérarchie des fichiers n'est pas arbitraire — chaque répertoire a une raison d'être précise. Le modèle de permissions protège le système tout en permettant la collaboration. Les processus communiquent via des abstractions élégantes. Maîtriser Unix, c'est acquérir une vision systémique de l'informatique où chaque problème complexe se résout par la composition de solutions simples._
 
-<br />
+<br>

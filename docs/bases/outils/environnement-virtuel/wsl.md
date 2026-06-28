@@ -26,7 +26,7 @@ WSL révolutionne le développement sous Windows en permettant d'utiliser native
 !!! tip "Intégration, pas séparation"
     WSL n'est pas une machine virtuelle isolée. C'est une intégration profonde où Windows et Linux partagent ressources, fichiers et réseau. Il est possible d'éditer des fichiers Linux avec VSCode Windows, de lancer des commandes Windows depuis Linux, et inversement.
 
-<br />
+<br>
 
 ---
 
@@ -91,7 +91,7 @@ WSL2 exécute un vrai kernel Linux maintenu par Microsoft dans une VM Hyper-V op
 !!! tip "Recommandation"
     Utiliser WSL2 dans tous les cas sauf accès intensif aux fichiers Windows depuis Linux ou RAM très limitée (moins de 4 Go). WSL2 est le standard moderne et sera le seul maintenu à long terme.
 
-<br />
+<br>
 
 ---
 
@@ -169,7 +169,7 @@ Retype new password:
 # Cet utilisateur est distinct du compte Windows et dispose des droits sudo
 ```
 
-<br />
+<br>
 
 ---
 
@@ -242,7 +242,7 @@ wsl --import Ubuntu-Dev D:\WSL\Ubuntu-Dev D:\temp\ubuntu-source.tar
 Remove-Item D:\temp\ubuntu-source.tar
 ```
 
-<br />
+<br>
 
 ---
 
@@ -354,7 +354,7 @@ systemctl --version
 systemctl status
 ```
 
-<br />
+<br>
 
 ---
 
@@ -453,7 +453,7 @@ wsl --shutdown
 
 Après redémarrage, `chmod` et `chown` fonctionnent sur `/mnt/c/`.
 
-<br />
+<br>
 
 ---
 
@@ -555,7 +555,7 @@ sudo apt install openconnect
 sudo openconnect vpn.entreprise.com
 ```
 
-<br />
+<br>
 
 ---
 
@@ -634,7 +634,7 @@ L'extension `Remote - WSL` (ms-vscode-remote.remote-wsl) permet d'éditer des fi
 }
 ```
 
-<br />
+<br>
 
 ---
 
@@ -688,7 +688,7 @@ sudo systemctl start docker
 docker run hello-world
 ```
 
-<br />
+<br>
 
 ---
 
@@ -807,7 +807,7 @@ redis-cli ping
 # PONG
 ```
 
-<br />
+<br>
 
 ---
 
@@ -832,7 +832,7 @@ firefox &
 
 Les fenêtres Linux apparaissent dans la barre des tâches Windows. Le copier-coller, l'audio et l'accélération GPU sont partagés entre les deux environnements.
 
-<br />
+<br>
 
 ---
 
@@ -865,7 +865,7 @@ python3 -c "import torch; print(torch.cuda.is_available())"
 !!! warning "Ne pas installer de driver NVIDIA dans Linux"
     Le driver GPU Windows est partagé automatiquement avec WSL2. Installer un driver NVIDIA dans la distribution Linux cassera le passthrough GPU.
 
-<br />
+<br>
 
 ---
 
@@ -931,7 +931,7 @@ sudo nano /etc/ssh/sshd_config
 # PubkeyAuthentication yes
 ```
 
-<br />
+<br>
 
 ---
 
@@ -992,7 +992,7 @@ wsl --unregister Ubuntu-24.04
 wsl --import Ubuntu-24.04 C:\WSL\Ubuntu D:\Backups\ubuntu-backup.tar
 ```
 
-<br />
+<br>
 
 ---
 
@@ -1015,7 +1015,7 @@ wsl --import Ubuntu-24.04 C:\WSL\Ubuntu D:\Backups\ubuntu-backup.tar
 !!! warning "Quand préférer une VM ou un dual-boot"
     Desktop Linux complet (GNOME/KDE), gaming Linux, tests de modules kernel, formation aux certifications Linux (RHCSA, LPIC), environnement strictement isolé.
 
-<br />
+<br>
 
 ---
 
@@ -1027,4 +1027,4 @@ wsl --import Ubuntu-24.04 C:\WSL\Ubuntu D:\Backups\ubuntu-backup.tar
 !!! quote "Conclusion"
     _WSL2 a transformé le développement sous Windows en apportant Linux de manière native, performante et parfaitement intégrée. Ce qui était autrefois un choix binaire — Windows ou Linux — est devenu Windows et Linux harmonieusement couplés. Maîtriser WSL, c'est comprendre ses forces (performances natives dans le système Linux, intégration VSCode, Docker) et ses limites (réseau complexe pour l'exposition externe, performances cross-filesystem réduites). Stocker les projets dans le système de fichiers Linux, activer systemd pour un environnement authentique, et exploiter l'interopérabilité Windows-Linux : ces trois réflexes font de WSL un environnement de développement de classe professionnelle._
 
-<br />
+<br>

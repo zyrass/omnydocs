@@ -1,5 +1,5 @@
 ---
-description: "Tailwind CSS — Du utility-first aux composants avancés : 8 modules progressifs pour maîtriser le framework CSS le plus utilisé dans l'écosystème Laravel/TALL."
+description: "Tailwind CSS — Du utility-first aux composants avancés : 9 modules progressifs pour maîtriser le framework CSS le plus utilisé dans l'écosystème Laravel/TALL."
 tags: ["TAILWIND", "CSS", "UTILITY-FIRST", "FRONTEND", "TALL"]
 ---
 
@@ -8,7 +8,7 @@ tags: ["TAILWIND", "CSS", "UTILITY-FIRST", "FRONTEND", "TALL"]
 <div
   class="omny-meta"
   data-level="🟢 Débutant à 🔴 Avancé"
-  data-version="3.x"
+  data-version="4.x"
   data-time="30-40 heures">
 </div>
 
@@ -25,7 +25,7 @@ tags: ["TAILWIND", "CSS", "UTILITY-FIRST", "FRONTEND", "TALL"]
 
 ---
 
-## Parcours pédagogique — 8 modules
+## Parcours pédagogique — 9 modules
 
 <div class="grid cards" markdown>
 
@@ -41,7 +41,7 @@ tags: ["TAILWIND", "CSS", "UTILITY-FIRST", "FRONTEND", "TALL"]
 -   :lucide-settings:{ .lg .middle } **Module 2** — _Installation & Configuration_
 
     ---
-    CLI, intégration Vite + Laravel, `tailwind.config.js`, purge CSS, IntelliSense.
+    CLI, intégration Vite + Laravel, configuration CSS-first (@import "tailwindcss", @theme), disparition de tailwind.config.js, moteur Rust, IntelliSense.
 
     **Durée** : ~3-4h | **Niveau** : 🟢 Débutant
 
@@ -95,11 +95,20 @@ tags: ["TAILWIND", "CSS", "UTILITY-FIRST", "FRONTEND", "TALL"]
 -   :lucide-sliders:{ .lg .middle } **Module 8** — _Plugins & Theming Avancé_
 
     ---
-    Thème custom, `extend`, plugins officiels (`forms`, `typography`), intégration DaisyUI.
+    Thème custom, `extend` en CSS-first, plugins officiels v4, intégration DaisyUI v5.
 
     **Durée** : ~4-5h | **Niveau** : 🔴 Avancé
 
     [:lucide-book-open-check: Accéder au module 8](./08-plugins-et-theming-avance.md)
+
+-   :lucide-rocket:{ .lg .middle } **Module 9 (Transition)** — _Intégration dans Laravel 13_
+
+    ---
+    Configuration du plugin Vite `@tailwindcss/vite` sous Laravel 13, chargement des assets, construction pour la production.
+
+    **Durée** : ~2-3h | **Niveau** : 🟡→🔴 Intermédiaire à Avancé
+
+    [:lucide-book-open-check: Accéder au module 9](./09-integration-laravel13.md)
 
 </div>
 
@@ -129,6 +138,7 @@ flowchart LR
     M5 --> M6["🟡 États\n& Interactions"]
     M6 --> M7["🔴 Composants\n& Extraction"]
     M7 --> M8["🔴 Plugins\n& Theming"]
+    M8 --> M9["🔴 Intégration\nLaravel 13"]
 
     style M1 fill:#f0fdf4,stroke:#22c55e
     style M2 fill:#f0fdf4,stroke:#22c55e
@@ -138,6 +148,7 @@ flowchart LR
     style M6 fill:#fffbeb,stroke:#f59e0b
     style M7 fill:#fff1f2,stroke:#f43f5e
     style M8 fill:#fff1f2,stroke:#f43f5e
+    style M9 fill:#fff1f2,stroke:#f43f5e
 ```
 
 <br>
@@ -158,6 +169,7 @@ flowchart LR
 | Gérer tous les états interactifs sans JavaScript | 6 |
 | Organiser un projet Tailwind maintenable à grande échelle | 7 |
 | Personnaliser et étendre Tailwind selon les besoins projet | 8 |
+| Intégrer proprement Tailwind v4 dans un projet Laravel 13 avec Vite | 9 |
 
 <br>
 
@@ -172,5 +184,16 @@ Tailwind CSS est la couche **présentation** de la Stack TALL. Il s'intègre nat
 - **Livewire** — classes dynamiques via `wire:class`
 
 > Commencez par le [Module 1 — Philosophie Utility-First](./01-philosophie-utility-first.md) pour comprendre pourquoi Tailwind change fondamentalement la façon d'écrire du CSS.
+
+<br>
+
+---
+
+## Conclusion
+
+!!! quote "Résumé de la formation"
+    Cette formation couvre Tailwind CSS depuis ses principes fondamentaux jusqu'à son intégration avancée au sein de projets Laravel réels. En maîtrisant la configuration CSS-first et les composants d'interface, vous disposez d'un système de design extrêmement robuste et performant.
+
+> Prêt à débuter ? Plongez directement dans le [Module 1 — Philosophie Utility-First](./01-philosophie-utility-first.md).
 
 <br>

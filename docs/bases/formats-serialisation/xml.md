@@ -23,7 +23,7 @@ XML a dominé l'échange de données dans les années 2000-2010, notamment avec 
 !!! info "Pourquoi c'est important"
     XML est omniprésent dans les systèmes legacy, les services SOAP, les fichiers de configuration Java/Spring, les formats Office (docx, xlsx), les flux RSS/Atom, SVG, et constitue un standard dans la finance, la santé et l'administration publique.
 
-<br />
+<br>
 
 ---
 
@@ -95,7 +95,7 @@ Un seul élément racine — tout document XML doit avoir un unique élément en
 | Valeurs multiples | Plusieurs éléments du même nom | Un seul attribut par nom |
 | Lisibilité | Plus clair pour données complexes | Compact pour métadonnées simples |
 
-<br />
+<br>
 
 ---
 
@@ -125,7 +125,7 @@ Les namespaces évitent les conflits entre éléments de même nom provenant de 
 </root>
 ```
 
-<br />
+<br>
 
 ---
 
@@ -160,7 +160,7 @@ Les namespaces évitent les conflits entre éléments de même nom provenant de 
 </requete>
 ```
 
-<br />
+<br>
 
 ---
 
@@ -184,7 +184,7 @@ Les namespaces évitent les conflits entre éléments de même nom provenant de 
 </citation>
 ```
 
-<br />
+<br>
 
 ---
 
@@ -679,7 +679,7 @@ Les namespaces évitent les conflits entre éléments de même nom provenant de 
     analyserSAML('saml_response.xml');
     ```
 
-<br />
+<br>
 
 ---
 
@@ -744,7 +744,7 @@ except etree.XMLSyntaxError as e:
     print(f"Erreur de validation : {e}")
 ```
 
-<br />
+<br>
 
 ---
 
@@ -850,7 +850,7 @@ xml.sax.parse('huge_nessus.xml', handler)
 print(f"Total critiques : {handler.critiques}")
 ```
 
-<br />
+<br>
 
 ---
 
@@ -862,4 +862,4 @@ print(f"Total critiques : {handler.critiques}")
 !!! quote "Conclusion"
     _XML a façonné l'échange de données structurées pendant deux décennies et reste essentiel dans de nombreux domaines malgré la montée de JSON. Sa rigueur syntaxique, sa capacité de validation par XSD et son support natif des métadonnées en font un choix solide pour les systèmes nécessitant fiabilité et traçabilité. Maîtriser XML, c'est aussi comprendre ses vulnérabilités — XXE en tête — et savoir les neutraliser au bon niveau. Dans les environnements legacy, financiers, médicaux et gouvernementaux, XML est incontournable._
 
-<br />
+<br>

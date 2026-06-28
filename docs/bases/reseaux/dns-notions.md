@@ -23,7 +23,7 @@ Comprendre le DNS est indispensable pour tout professionnel IT car il impacte di
 !!! info "Pourquoi c'est important"
     Le DNS intervient dans presque toutes les communications Internet — navigation web, emails, applications mobiles, APIs, services cloud. C'est souvent le premier point de défaillance en cas de panne et une cible privilégiée pour les attaques cybernétiques.
 
-<br />
+<br>
 
 ---
 
@@ -45,7 +45,7 @@ Avec DNS :
   Le DNS traduit automatiquement vers l'IP actuelle
 ```
 
-<br />
+<br>
 
 ---
 
@@ -132,7 +132,7 @@ flowchart TD
 
     Créés librement par le propriétaire du domaine : `www.example.com`, `mail.example.com`, `api.example.com`, `staging.api.example.com` (sous-sous-domaine).
 
-<br />
+<br>
 
 ---
 
@@ -223,7 +223,7 @@ Client → Autoritaire example.com : "Voici l'IP"
 
 Le client gère lui-même la chaîne d'interrogation — moins de charge sur un serveur unique, plus de contrôle.
 
-<br />
+<br>
 
 ---
 
@@ -342,7 +342,7 @@ Les serveurs DNS stockent différents types d'enregistrements dans des zones DNS
     # Format : _service._protocole.domaine  TTL  IN  SRV  priorité poids port cible
     ```
 
-<br />
+<br>
 
 ---
 
@@ -394,7 +394,7 @@ Modification DNS → Attente du TTL expiré → Nouvelle valeur récupérée
 
 !!! note "Délai typique : 24 à 48 heures pour une propagation mondiale complète avec un TTL standard."
 
-<br />
+<br>
 
 ---
 
@@ -477,7 +477,7 @@ sequenceDiagram
 !!! danger "Sécurité des transferts de zone"
     Les transferts de zone révèlent tous les enregistrements d'un domaine. Ils doivent être restreints aux serveurs autorisés via TSIG ou ACL.
 
-<br />
+<br>
 
 ---
 
@@ -552,7 +552,7 @@ sequenceDiagram
 
     Via l'interface graphique : Préférences Système → Réseau → sélectionner la connexion → Avancé → DNS → ajouter les serveurs avec le bouton +.
 
-<br />
+<br>
 
 ---
 
@@ -569,7 +569,7 @@ sequenceDiagram
 
 Chaque commande dispose d'une fiche détaillée dans la section Outils.
 
-<br />
+<br>
 
 ---
 
@@ -710,7 +710,7 @@ kdig -d @1.1.1.1 +tls example.com
 
     **Pour les clients :** utiliser DoH ou DoT pour chiffrer les requêtes, valider DNSSEC quand disponible, utiliser des serveurs DNS fiables plutôt que ceux des FAI par défaut, vérifier les certificats SSL dans les navigateurs.
 
-<br />
+<br>
 
 ---
 
@@ -728,7 +728,7 @@ kdig -d @1.1.1.1 +tls example.com
 | PTR | Résolution inverse | `34.216.184.93.in-addr.arpa IN PTR...` |
 | CAA | Autorité de certification | `example.com IN CAA 0 issue "..."` |
 
-<br />
+<br>
 
 ---
 
@@ -743,7 +743,7 @@ kdig -d @1.1.1.1 +tls example.com
     - [What's My DNS](https://www.whatsmydns.net/) — vérification de propagation mondiale. 
     - [DNSSEC Analyzer](https://dnssec-analyzer.verisignlabs.com/) — validation DNSSEC.
 
-<br />
+<br>
 
 ---
 
@@ -755,4 +755,4 @@ kdig -d @1.1.1.1 +tls example.com
 !!! quote "Conclusion"
     _Le DNS traduit les noms de domaine en adresses IP via un système hiérarchique distribué — racine, TLD, domaine de second niveau, sous-domaines. La résolution récursive implique quatre acteurs : résolveur récursif, serveur racine, serveur TLD et serveur autoritaire. Les neuf types d'enregistrements principaux couvrent l'intégralité des cas d'usage — A et AAAA pour les adresses, MX pour le mail, CNAME pour les alias, TXT pour les vérifications et l'authentification, NS et SOA pour l'administration de zone, PTR pour la résolution inverse, CAA pour la sécurité des certificats. Le TTL contrôle la durée de mise en cache et détermine le délai de propagation lors des modifications. DNSSEC garantit l'intégrité des réponses — DoH et DoT garantissent la confidentialité des requêtes. Le DNS est une cible privilégiée : spoofing, amplification DDoS et tunneling sont les vecteurs d'attaque à maîtriser pour protéger toute infrastructure._
 
-<br />
+<br>

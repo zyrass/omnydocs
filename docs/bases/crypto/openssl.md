@@ -26,7 +26,7 @@ tags: ["OPENSSL", "TLS", "SSL", "CERTIFICAT", "CRYPTOGRAPHIE", "SECURITE"]
 !!! info "Pourquoi c'est important"
     OpenSSL est présent sur la quasi-totalité des systèmes Linux. Savoir lire la sortie de `openssl s_client` permet de diagnostiquer un problème TLS en quelques secondes — version de protocole, cipher négocié, validité du certificat, chaîne de confiance. C'est une compétence directement opérationnelle en audit, en débogage d'infrastructure et en pentesting.
 
-<br />
+<br>
 
 ---
 
@@ -45,7 +45,7 @@ tags: ["OPENSSL", "TLS", "SSL", "CERTIFICAT", "CRYPTOGRAPHIE", "SECURITE"]
 | CSR | Demande de certificat transmise à une CA | À la CA uniquement |
 | Certificat | Identité validée et signée par une CA | Oui |
 
-<br />
+<br>
 
 ---
 
@@ -72,7 +72,7 @@ flowchart LR
     D --> D2["Debug TLS — protocole, cipher"]
 ```
 
-<br />
+<br>
 
 ---
 
@@ -97,7 +97,7 @@ openssl version
 openssl version -a  # Détails complets — date de build, options de compilation
 ```
 
-<br />
+<br>
 
 ---
 
@@ -150,7 +150,7 @@ openssl pkey -in private-protected.key -out private-unprotected.key
     ls -la private.key  # Doit afficher -rw------- 
     ```
 
-<br />
+<br>
 
 ---
 
@@ -209,7 +209,7 @@ openssl req -new -key private.key -out request-san.csr -config san.conf
 
 Une CSR contient le nom de domaine (CN), l'organisation, la clé publique et une signature prouvant la possession de la clé privée associée.
 
-<br />
+<br>
 
 ---
 
@@ -260,15 +260,15 @@ openssl rsa  -noout -modulus -in private.key | openssl md5
 flowchart LR
     A["Certificat X.509"]
 
-    A --> B["Identité<br />CN, O, OU, C, SAN"]
-    A --> C["Clé publique<br />RSA ou ECC"]
-    A --> D["Autorité émettrice<br />Issuer DN"]
-    A --> E["Signature CA<br />chiffrée avec clé privée CA"]
-    A --> F["Validité<br />NotBefore — NotAfter"]
-    A --> G["Extensions<br />SAN, KeyUsage, BasicConstraints"]
+    A --> B["Identité<br>CN, O, OU, C, SAN"]
+    A --> C["Clé publique<br>RSA ou ECC"]
+    A --> D["Autorité émettrice<br>Issuer DN"]
+    A --> E["Signature CA<br>chiffrée avec clé privée CA"]
+    A --> F["Validité<br>NotBefore — NotAfter"]
+    A --> G["Extensions<br>SAN, KeyUsage, BasicConstraints"]
 ```
 
-<br />
+<br>
 
 ---
 
@@ -331,7 +331,7 @@ sequenceDiagram
 
 Le handshake TLS est couvert en détail dans le chapitre [Modèle TCP/IP](../reseaux/modele-tcpip.md) et [Liste des Protocoles](../reseaux/protocoles-liste.md).
 
-<br />
+<br>
 
 ---
 
@@ -366,7 +366,7 @@ openssl pkcs12 -in bundle.p12 -nokeys  -out cert-extracted.pem
 | PKCS#12 | `.p12`, `.pfx` | Windows, Java, macOS Keychain |
 | PKCS#7 | `.p7b` | Windows, interopérabilité CA |
 
-<br />
+<br>
 
 ---
 
@@ -402,7 +402,7 @@ openssl enc -aes-256-cbc -salt -in fichier.txt -out fichier.enc -pbkdf2
 openssl enc -d -aes-256-cbc -in fichier.enc -out fichier.txt -pbkdf2
 ```
 
-<br />
+<br>
 
 ---
 
@@ -420,7 +420,7 @@ openssl enc -d -aes-256-cbc -in fichier.enc -out fichier.txt -pbkdf2
 
 RSA 1024 bits est considéré comme cassé depuis 2010 — ne jamais l'utiliser. ECC offre un niveau de sécurité équivalent à RSA avec des clés deux à trois fois plus courtes — préférer ECDSA P-256 pour les nouveaux déploiements.
 
-<br />
+<br>
 
 ---
 
@@ -429,7 +429,7 @@ RSA 1024 bits est considéré comme cassé depuis 2010 — ne jamais l'utiliser.
 !!! warning "Pièges classiques"
     Confondre certificat et clé privée lors de la configuration d'un serveur provoque une erreur de démarrage immédiate — la commande de vérification de correspondance par empreinte MD5 ci-dessus permet de l'éviter. Stocker une clé privée sans protection (sans passphrase et avec des permissions `644`) expose toute l'infrastructure à qui accède au serveur. Utiliser RSA 1024 bits est cryptographiquement insuffisant depuis 2010. Ignorer l'expiration d'un certificat est la cause la plus fréquente d'incident TLS en production — mettre en place une supervision des dates d'expiration. Omettre les SAN dans un certificat produit des erreurs de validation dans tous les clients TLS modernes — le CN seul n'est plus suffisant depuis RFC 2818.
 
-<br />
+<br>
 
 ---
 
@@ -437,7 +437,7 @@ RSA 1024 bits est considéré comme cassé depuis 2010 — ne jamais l'utiliser.
 
 Les permissions `600` sur toute clé privée sont non-négociables. Utiliser une taille de clé RSA de 4096 bits minimum ou préférer ECC en production pour les nouvelles infrastructures. Planifier la rotation annuelle des certificats et automatiser le renouvellement avec des outils comme Certbot ou Vault. Conserver les clés privées hors des serveurs d'application dans un vault (HashiCorp Vault, AWS KMS, Azure Key Vault). Vérifier systématiquement la correspondance clé privée / certificat avant tout déploiement. Surveiller les dates d'expiration en production — un certificat expiré coupe le service.
 
-<br />
+<br>
 
 ---
 
@@ -458,7 +458,7 @@ Les permissions `600` sur toute clé privée sont non-négociables. Utiliser une
 | Aléatoire Base64 | `openssl rand -base64 32` |
 | PEM → DER | `openssl x509 -outform der -in cert.pem -out cert.der` |
 
-<br />
+<br>
 
 ---
 
@@ -470,4 +470,4 @@ Les permissions `600` sur toute clé privée sont non-négociables. Utiliser une
 !!! quote "Conclusion"
     _OpenSSL n'est pas seulement un outil — c'est la loupe qui rend visible la sécurité réelle d'un système. Savoir lire la sortie de `openssl s_client` ou inspecter un certificat X.509 directement depuis le terminal permet de diagnostiquer en quelques secondes ce qu'un navigateur cache derrière une icône de cadenas. Comprendre le cycle clé → CSR → certificat, les formats PEM et DER, et la différence entre RSA et ECC, c'est comprendre comment la confiance numérique est construite et déployée — des fondations nécessaires avant d'aborder la PKI dans le chapitre suivant._
 
-<br />
+<br>

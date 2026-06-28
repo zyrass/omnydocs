@@ -25,7 +25,7 @@ Avant NVM, les développeurs devaient désinstaller et réinstaller Node.js manu
 !!! info "Pourquoi c'est important"
     NVM permet de travailler sur plusieurs projets avec des versions Node différentes, de tester la compatibilité du code, de basculer instantanément entre versions LTS et current, d'isoler les environnements par projet et de suivre les bonnes pratiques de l'écosystème JavaScript moderne.
 
-<br />
+<br>
 
 ---
 
@@ -93,7 +93,7 @@ gantt
 !!! tip "Règle de décision versions"
     En production, toujours utiliser la dernière version LTS Active. En développement, tester sur Current pour anticiper les migrations. Planifier la migration avant la date EOL — ne jamais rester sur une version EOL.
 
-<br />
+<br>
 
 ---
 
@@ -160,7 +160,7 @@ nvm --version
 
 Installer nvm Linux dans WSL plutôt que nvm-windows dans Windows — syntaxe standard, `.nvmrc` automatique, performances natives, intégration VSCode Remote-WSL complète.
 
-<br />
+<br>
 
 ---
 
@@ -259,7 +259,7 @@ nvm uninstall 18.19.0
 !!! warning "Basculer avant de désinstaller"
     Il est impossible de désinstaller la version en cours d'utilisation. Basculer sur une autre version d'abord : `nvm use 20` puis `nvm uninstall 18`.
 
-<br />
+<br>
 
 ---
 
@@ -400,7 +400,7 @@ npm install
 npm run build
 ```
 
-<br />
+<br>
 
 ---
 
@@ -442,7 +442,7 @@ plugins=(... nvm)
 zstyle ':omz:plugins:nvm' lazy yes
 ```
 
-<br />
+<br>
 
 ---
 
@@ -545,7 +545,7 @@ CMD ["node", "dist/index.js"]
 !!! tip "NVM dans Docker — cas rare"
     Dans la grande majorité des cas, utiliser l'image officielle `node:VERSION` est préférable à installer NVM dans un conteneur. NVM dans Docker n'est justifié que pour des scénarios très spécifiques : tests multi-versions dans un même conteneur.
 
-<br />
+<br>
 
 ---
 
@@ -574,7 +574,7 @@ CMD ["node", "dist/index.js"]
 
 Le champ `engines` est informatif par défaut — il n'empêche pas l'installation avec une version incompatible sauf si `engine-strict=true` est configuré dans `.npmrc`.
 
-<br />
+<br>
 
 ---
 
@@ -649,7 +649,7 @@ rm -rf "$NVM_DIR/.cache"
 nvm install 20
 ```
 
-<br />
+<br>
 
 ---
 
@@ -747,7 +747,7 @@ Un seul outil pour gérer les versions de Node, Python, Ruby, Go et d'autres run
 | Multi-langages | asdf | Node + Python + Ruby dans un seul outil |
 | Équipe — cohérence maximale | nvm ou volta | .nvmrc standard, adoption large |
 
-<br />
+<br>
 
 ---
 
@@ -812,7 +812,7 @@ git add .nvmrc package-lock.json
 git commit -m "chore: upgrade to Node 20"
 ```
 
-<br />
+<br>
 
 ---
 
@@ -824,4 +824,4 @@ git commit -m "chore: upgrade to Node 20"
 !!! quote "Conclusion"
     _NVM a transformé la gestion des versions Node.js en rendant une tâche autrefois laborieuse — désinstaller et réinstaller Node — transparente et instantanée. La flexibilité de basculer entre versions n'est pas un confort optionnel : c'est une nécessité professionnelle imposée par la coexistence de projets legacy, de contraintes de production et de migrations progressives. Le fichier .nvmrc standardise la version au niveau projet et garantit la cohérence dans une équipe. Automatisé via un hook shell, le changement de version devient aussi naturel que de changer de répertoire. Que ce soit nvm classique, fnm pour la performance ou volta pour l'automatisation par projet, le principe reste identique : isolation des versions, bascule transparente, configuration déclarative par projet._
 
-<br />
+<br>

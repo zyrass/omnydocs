@@ -26,7 +26,7 @@ Sans PKI, il n'y a pas de HTTPS fiable, pas de signature logicielle vérifiable,
 !!! info "Prérequis"
     Ce document fait suite aux chapitres [GPG](../crypto/gpg.md) et [OpenSSL](../crypto/openssl.md). La notion de paire de clés, de CSR et de certificat X.509 doit être acquise avant d'aborder l'architecture PKI.
 
-<br />
+<br>
 
 ---
 
@@ -34,17 +34,17 @@ Sans PKI, il n'y a pas de HTTPS fiable, pas de signature logicielle vérifiable,
 
 ```mermaid
 flowchart LR
-    PKI["PKI<br />Infrastructure à Clé Publique"]
+    PKI["PKI<br>Infrastructure à Clé Publique"]
 
-    PKI --> HTTPS["HTTPS<br />certificats TLS"]
-    PKI --> VPN["VPN<br />authentification mutuelle"]
-    PKI --> Email["Email<br />S/MIME"]
-    PKI --> Code["Signature logicielle<br />packages, artefacts CI/CD"]
-    PKI --> WiFi["Wi-Fi entreprise<br />802.1X"]
-    PKI --> API["API et services<br />authentification mTLS"]
+    PKI --> HTTPS["HTTPS<br>certificats TLS"]
+    PKI --> VPN["VPN<br>authentification mutuelle"]
+    PKI --> Email["Email<br>S/MIME"]
+    PKI --> Code["Signature logicielle<br>packages, artefacts CI/CD"]
+    PKI --> WiFi["Wi-Fi entreprise<br>802.1X"]
+    PKI --> API["API et services<br>authentification mTLS"]
 ```
 
-<br />
+<br>
 
 ---
 
@@ -59,7 +59,7 @@ flowchart LR
 | CRL / OCSP | Mécanismes de révocation des certificats |
 | Clé privée | Secret critique — jamais transmis, jamais exposé |
 
-<br />
+<br>
 
 ---
 
@@ -73,11 +73,11 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    Root["Root CA<br />(hors ligne — ultra-protégée)"]
-    Inter["Intermediate CA<br />(opérationnelle — signe les certificats)"]
-    S1["Certificat serveur<br />example.com"]
-    S2["Certificat client<br />user@example.com"]
-    S3["Certificat code<br />Signature logicielle"]
+    Root["Root CA<br>(hors ligne — ultra-protégée)"]
+    Inter["Intermediate CA<br>(opérationnelle — signe les certificats)"]
+    S1["Certificat serveur<br>example.com"]
+    S2["Certificat client<br>user@example.com"]
+    S3["Certificat code<br>Signature logicielle"]
 
     Root --> Inter
     Inter --> S1
@@ -91,11 +91,11 @@ Quand un navigateur reçoit un certificat lors d'un handshake TLS, il effectue c
 
 ```mermaid
 flowchart TD
-    V1["1 — Vérifier la signature<br />La CA a-t-elle bien signé ce certificat ?"]
-    V2["2 — Remonter la chaîne<br />Jusqu'à une Root CA dans le trust store"]
-    V3["3 — Vérifier les dates<br />NotBefore ≤ aujourd'hui ≤ NotAfter"]
-    V4["4 — Vérifier la révocation<br />CRL ou OCSP — certificat révoqué ?"]
-    V5["5 — Vérifier le domaine<br />CN ou SAN correspond à l'URL"]
+    V1["1 — Vérifier la signature<br>La CA a-t-elle bien signé ce certificat ?"]
+    V2["2 — Remonter la chaîne<br>Jusqu'à une Root CA dans le trust store"]
+    V3["3 — Vérifier les dates<br>NotBefore ≤ aujourd'hui ≤ NotAfter"]
+    V4["4 — Vérifier la révocation<br>CRL ou OCSP — certificat révoqué ?"]
+    V5["5 — Vérifier le domaine<br>CN ou SAN correspond à l'URL"]
     ERR["Erreur TLS — connexion rejetée"]
     OK["Connexion établie"]
 
@@ -108,7 +108,7 @@ flowchart TD
     V5 -->|Succès| OK
 ```
 
-<br />
+<br>
 
 ---
 
@@ -126,7 +126,7 @@ Chaque entité signe les certificats des autres. Adapté aux petits environnemen
 
 Aucune autorité centrale. La confiance se propage par chaînes de signatures entre utilisateurs. Traité en détail dans le chapitre [GPG](../crypto/gpg.md).
 
-<br />
+<br>
 
 ---
 
@@ -152,7 +152,7 @@ stateDiagram-v2
     Révocation --> Génération : Remplacement
 ```
 
-<br />
+<br>
 
 ---
 
@@ -183,7 +183,7 @@ flowchart TD
 
 La segmentation par CA intermédiaires spécialisées permet d'isoler les périmètres de risque. Un incident sur la VPN CA n'affecte pas les certificats HTTPS.
 
-<br />
+<br>
 
 ---
 
@@ -212,7 +212,7 @@ openssl ocsp \
 openssl crl -in crl.pem -text -noout
 ```
 
-<br />
+<br>
 
 ---
 
@@ -246,7 +246,7 @@ flowchart TD
     Issuing --> CRL
 ```
 
-<br />
+<br>
 
 ---
 
@@ -325,7 +325,7 @@ openssl verify \
   server.pem
 ```
 
-<br />
+<br>
 
 ---
 
@@ -346,7 +346,7 @@ sudo update-ca-trust
 openssl verify -CAfile /etc/ssl/certs/ca-certificates.crt server.pem
 ```
 
-<br />
+<br>
 
 ---
 
@@ -361,7 +361,7 @@ Une architecture Zero Trust repose structurellement sur une PKI interne. Chaque 
 | Signature d'artefacts CI/CD | Certificats code signing |
 | Rotation automatique | SPIFFE/SPIRE, Vault PKI |
 
-<br />
+<br>
 
 ---
 
@@ -370,7 +370,7 @@ Une architecture Zero Trust repose structurellement sur une PKI interne. Chaque 
 !!! warning "Erreurs critiques"
     Exposer la Root CA en ligne est l'erreur architecturale la plus grave — une compromission rend invalide l'intégralité de la PKI sans possibilité de récupération. Configurer des durées de validité trop longues (plusieurs années sur les certificats finaux) amplifie l'impact d'une compromission silencieuse. L'absence de mécanisme de révocation (CRL ou OCSP) signifie qu'un certificat compromis reste valide jusqu'à expiration. Stocker les clés privées en clair sur un système de fichiers standard expose à une exfiltration par tout attaquant ayant un accès lecture. Une validation d'identité insuffisante lors de l'émission compromet la valeur de l'ensemble de la chaîne.
 
-<br />
+<br>
 
 ---
 
@@ -378,7 +378,7 @@ Une architecture Zero Trust repose structurellement sur une PKI interne. Chaque 
 
 La Root CA doit être strictement hors ligne — activée uniquement pour signer de nouvelles CA intermédiaires. Les CA intermédiaires doivent être segmentées par usage (Web, VPN, Mail, Code Signing). La durée de validité des certificats finaux ne doit pas dépasser 397 jours — c'est la limite imposée par les navigateurs depuis 2020. Les clés privées de CA doivent être stockées sur un HSM (Hardware Security Module). Chaque émission de certificat doit être journalisée et auditée. Un audit périodique de la PKI permet de détecter les dérives de configuration et les certificats orphelins.
 
-<br />
+<br>
 
 ---
 
@@ -390,4 +390,4 @@ La Root CA doit être strictement hors ligne — activée uniquement pour signer
 !!! quote "Conclusion"
     _Une PKI n'est pas un outil — c'est une architecture de confiance. Lorsqu'elle est bien conçue, la hiérarchie Root CA hors ligne, CA intermédiaires opérationnelles et révocation active rend l'usurpation d'identité cryptographique pratiquement impossible. Lorsqu'elle est mal conçue — Root CA exposée, durées excessives, absence de révocation — elle donne une illusion de sécurité plus dangereuse que l'absence de sécurité. Maîtriser les PKI, c'est comprendre comment la confiance numérique est construite, déléguée, vérifiée et révoquée à l'échelle d'Internet._
 
-<br />
+<br>

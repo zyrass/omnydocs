@@ -17,7 +17,7 @@ tags: ["LINUX", "PAQUETS", "APK", "APT", "PACMAN", "YUM", "DNF"]
 
 Ce chapitre est un **index** : comprendre rapidement les cinq gestionnaires, identifier lequel correspond à quelle distribution et accéder au bon guide sans hésiter.
 
-<br />
+<br>
 
 ---
 
@@ -33,7 +33,7 @@ Ce chapitre est un **index** : comprendre rapidement les cinq gestionnaires, ide
 
 **DNF (RHEL, Fedora moderne)** : successeur de YUM, meilleur résolveur, fonctionnalités modernes — modules AppStream, plugins — usage professionnel actuel.
 
-<br />
+<br>
 
 ---
 
@@ -53,7 +53,7 @@ Ce chapitre est un **index** : comprendre rapidement les cinq gestionnaires, ide
 | RHEL-like anciens — CentOS 7 | YUM | .rpm | Legacy, documentation historique, serveurs hérités |
 | RHEL-like modernes, Fedora | DNF | .rpm | Production actuelle, enterprise, outillage moderne |
 
-<br />
+<br>
 
 ---
 
@@ -85,7 +85,7 @@ flowchart TB
 
 Les différences majeures à retenir entre les gestionnaires portent sur quatre axes : la localisation de la base locale qui mémorise ce qui est installé, la gestion du cache par défaut ou non, les mécanismes avancés comme le pinning, les modules, les hooks ou les paquets virtuels, et la philosophie de release — stable ou rolling.
 
-<br />
+<br>
 
 ---
 
@@ -98,7 +98,7 @@ Les différences majeures à retenir entre les gestionnaires portent sur quatre 
 | Configuration dépôts | `repositories` | `sources.list` | `pacman.conf` | `.repo` | `.repo` |
 | Spécificités notables | `world`, `--virtual`, `--no-cache` | Pinning, unattended-upgrades | Hooks, rolling release | history, groups | AppStream, repoquery |
 
-<br />
+<br>
 
 ---
 
@@ -146,7 +146,7 @@ Les différences majeures à retenir entre les gestionnaires portent sur quatre 
 
 </div>
 
-<br />
+<br>
 
 ---
 
@@ -158,7 +158,7 @@ Les différences majeures à retenir entre les gestionnaires portent sur quatre 
     3. En production, traiter systématiquement : sécurité de la supply chain, reproductibilité et procédures de dépannage.
     4. En conteneurs, optimiser : couches Docker, cache, dépendances temporaires et utilisateur non-root.
 
-<br />
+<br>
 
 ---
 
@@ -170,4 +170,4 @@ Les différences majeures à retenir entre les gestionnaires portent sur quatre 
 !!! quote "Conclusion"
     _La gestion de paquets ne se résume pas à installer un outil. C'est maîtriser la chaîne d'approvisionnement logicielle de ses serveurs et de ses conteneurs. Savoir lire ses dépôts, contrôler ses versions, diagnostiquer un conflit et sécuriser les sources, c'est passer d'un usage utilisateur à un usage administration et production._
 
-<br />
+<br>
